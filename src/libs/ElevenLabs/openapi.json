@@ -61626,6 +61626,30 @@
             "type": "string",
             "title": "Agent Name",
             "description": "The name of the agent"
+          },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "Environment to use for resolving environment variables on calls to this number."
+          },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id",
+            "description": "Agent branch to use for calls to this number."
           }
         },
         "type": "object",
@@ -64790,7 +64814,7 @@
               }
             ],
             "title": "Timezone",
-            "description": "Timezone for displaying current time in system prompt. If set, the current time will be included in the system prompt using this timezone. Must be a valid timezone name (e.g., 'America/New_York', 'Europe/London', 'UTC')."
+            "description": "Timezone for displaying current time in system prompt. If set, the current time will be included in the system prompt using this timezone. Must be a valid timezone name (e.g., 'America/New_York', 'Europe/London', 'UTC'). Recommended for accurate time-aware responses; without this, the agent has no knowledge of the current date/time unless you provide it via dynamic variables or tools, which can lead to incorrect or hallucinated time references."
           },
           "backup_llm_config": {
             "oneOf": [
@@ -65005,7 +65029,7 @@
               }
             ],
             "title": "Timezone",
-            "description": "Timezone for displaying current time in system prompt. If set, the current time will be included in the system prompt using this timezone. Must be a valid timezone name (e.g., 'America/New_York', 'Europe/London', 'UTC')."
+            "description": "Timezone for displaying current time in system prompt. If set, the current time will be included in the system prompt using this timezone. Must be a valid timezone name (e.g., 'America/New_York', 'Europe/London', 'UTC'). Recommended for accurate time-aware responses; without this, the agent has no knowledge of the current date/time unless you provide it via dynamic variables or tools, which can lead to incorrect or hallucinated time references."
           },
           "backup_llm_config": {
             "oneOf": [
@@ -65489,7 +65513,7 @@
               }
             ],
             "title": "Timezone",
-            "description": "Timezone for displaying current time in system prompt. If set, the current time will be included in the system prompt using this timezone. Must be a valid timezone name (e.g., 'America/New_York', 'Europe/London', 'UTC')."
+            "description": "Timezone for displaying current time in system prompt. If set, the current time will be included in the system prompt using this timezone. Must be a valid timezone name (e.g., 'America/New_York', 'Europe/London', 'UTC'). Recommended for accurate time-aware responses; without this, the agent has no knowledge of the current date/time unless you provide it via dynamic variables or tools, which can lead to incorrect or hallucinated time references."
           },
           "backup_llm_config": {
             "anyOf": [
@@ -65772,7 +65796,7 @@
               }
             ],
             "title": "Timezone",
-            "description": "Timezone for displaying current time in system prompt. If set, the current time will be included in the system prompt using this timezone. Must be a valid timezone name (e.g., 'America/New_York', 'Europe/London', 'UTC')."
+            "description": "Timezone for displaying current time in system prompt. If set, the current time will be included in the system prompt using this timezone. Must be a valid timezone name (e.g., 'America/New_York', 'Europe/London', 'UTC'). Recommended for accurate time-aware responses; without this, the agent has no knowledge of the current date/time unless you provide it via dynamic variables or tools, which can lead to incorrect or hallucinated time references."
           },
           "backup_llm_config": {
             "anyOf": [
@@ -75016,6 +75040,30 @@
               }
             ],
             "title": "Store Sip Messages"
+          },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "Environment to use for resolving environment variables on calls to this number."
+          },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id",
+            "description": "Agent branch to use for calls to this number."
           }
         },
         "type": "object",
