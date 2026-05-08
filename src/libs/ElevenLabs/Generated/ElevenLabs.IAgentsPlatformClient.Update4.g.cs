@@ -51,6 +51,12 @@ namespace ElevenLabs
         /// <param name="outboundTrunkConfig"></param>
         /// <param name="livekitStack"></param>
         /// <param name="storeSipMessages"></param>
+        /// <param name="environment">
+        /// Environment to use for resolving environment variables on calls to this number.
+        /// </param>
+        /// <param name="branchId">
+        /// Agent branch to use for calls to this number.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -62,6 +68,8 @@ namespace ElevenLabs
             global::ElevenLabs.OutboundSIPTrunkConfigRequestModel? outboundTrunkConfig = default,
             global::ElevenLabs.LivekitStackType? livekitStack = default,
             bool? storeSipMessages = default,
+            string? environment = default,
+            string? branchId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

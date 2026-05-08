@@ -45,6 +45,18 @@ namespace ElevenLabs
         public bool? StoreSipMessages { get; set; }
 
         /// <summary>
+        /// Environment to use for resolving environment variables on calls to this number.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("environment")]
+        public string? Environment { get; set; }
+
+        /// <summary>
+        /// Agent branch to use for calls to this number.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("branch_id")]
+        public string? BranchId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -59,6 +71,12 @@ namespace ElevenLabs
         /// <param name="outboundTrunkConfig"></param>
         /// <param name="livekitStack"></param>
         /// <param name="storeSipMessages"></param>
+        /// <param name="environment">
+        /// Environment to use for resolving environment variables on calls to this number.
+        /// </param>
+        /// <param name="branchId">
+        /// Agent branch to use for calls to this number.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -68,7 +86,9 @@ namespace ElevenLabs
             global::ElevenLabs.InboundSIPTrunkConfigRequestModel? inboundTrunkConfig,
             global::ElevenLabs.OutboundSIPTrunkConfigRequestModel? outboundTrunkConfig,
             global::ElevenLabs.LivekitStackType? livekitStack,
-            bool? storeSipMessages)
+            bool? storeSipMessages,
+            string? environment,
+            string? branchId)
         {
             this.AgentId = agentId;
             this.Label = label;
@@ -76,6 +96,8 @@ namespace ElevenLabs
             this.OutboundTrunkConfig = outboundTrunkConfig;
             this.LivekitStack = livekitStack;
             this.StoreSipMessages = storeSipMessages;
+            this.Environment = environment;
+            this.BranchId = branchId;
         }
 
         /// <summary>
