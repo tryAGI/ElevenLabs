@@ -66873,6 +66873,11 @@
               }
             ],
             "title": "File Number"
+          },
+          "is_fallback_name": {
+            "type": "boolean",
+            "title": "Is Fallback Name",
+            "default": false
           }
         },
         "type": "object",
@@ -83313,6 +83318,7 @@
           "dubbing",
           "audio_native",
           "conversational_ai",
+          "conversational_ai_read",
           "voice_isolator",
           "ai_speech_classifier",
           "add_voice_from_voice_library",

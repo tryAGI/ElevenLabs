@@ -61,6 +61,12 @@ namespace ElevenLabs
         public string? FileNumber { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_fallback_name")]
+        public bool? IsFallbackName { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -81,6 +87,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="durationSeconds"></param>
         /// <param name="fileNumber"></param>
+        /// <param name="isFallbackName">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -92,7 +101,8 @@ namespace ElevenLabs
             bool? hasParsedHtml,
             bool? hasSummary,
             double? durationSeconds,
-            string? fileNumber)
+            string? fileNumber,
+            bool? isFallbackName)
         {
             this.ChapterName = chapterName ?? throw new global::System.ArgumentNullException(nameof(chapterName));
             this.WordCount = wordCount;
@@ -102,6 +112,7 @@ namespace ElevenLabs
             this.HasSummary = hasSummary;
             this.DurationSeconds = durationSeconds;
             this.FileNumber = fileNumber;
+            this.IsFallbackName = isFallbackName;
         }
 
         /// <summary>
