@@ -228,7 +228,10 @@ namespace ElevenLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (dynamicVariableNestedValueTypeInputVariant1 == null && dynamicVariableNestedValueTypeInputVariant2 == null && dynamicVariableNestedValueTypeInputVariant3 == null && dynamicVariableNestedValueTypeInputVariant4 == null && dynamicVariableNestedValueTypeInputVariant5 == null && dynamicVariableNestedValueTypeInputVariant6 == null)
+            {
                 try
                 {
 
@@ -242,7 +245,10 @@ namespace ElevenLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (dynamicVariableNestedValueTypeInputVariant1 == null && dynamicVariableNestedValueTypeInputVariant2 == null && dynamicVariableNestedValueTypeInputVariant3 == null && dynamicVariableNestedValueTypeInputVariant4 == null && dynamicVariableNestedValueTypeInputVariant5 == null && dynamicVariableNestedValueTypeInputVariant6 == null)
+            {
                 try
                 {
 
@@ -256,7 +262,10 @@ namespace ElevenLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (dynamicVariableNestedValueTypeInputVariant1 == null && dynamicVariableNestedValueTypeInputVariant2 == null && dynamicVariableNestedValueTypeInputVariant3 == null && dynamicVariableNestedValueTypeInputVariant4 == null && dynamicVariableNestedValueTypeInputVariant5 == null && dynamicVariableNestedValueTypeInputVariant6 == null)
+            {
                 try
                 {
 
@@ -270,7 +279,10 @@ namespace ElevenLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (dynamicVariableNestedValueTypeInputVariant1 == null && dynamicVariableNestedValueTypeInputVariant2 == null && dynamicVariableNestedValueTypeInputVariant3 == null && dynamicVariableNestedValueTypeInputVariant4 == null && dynamicVariableNestedValueTypeInputVariant5 == null && dynamicVariableNestedValueTypeInputVariant6 == null)
+            {
                 try
                 {
 
@@ -284,7 +296,10 @@ namespace ElevenLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (dynamicVariableNestedValueTypeInputVariant1 == null && dynamicVariableNestedValueTypeInputVariant2 == null && dynamicVariableNestedValueTypeInputVariant3 == null && dynamicVariableNestedValueTypeInputVariant4 == null && dynamicVariableNestedValueTypeInputVariant5 == null && dynamicVariableNestedValueTypeInputVariant6 == null)
+            {
                 try
                 {
 
