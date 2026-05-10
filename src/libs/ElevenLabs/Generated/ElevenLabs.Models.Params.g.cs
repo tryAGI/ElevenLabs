@@ -1916,6 +1916,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromSearchClients(global::ElevenLabs.SearchClientsParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListClientsParams value) => new Params((global::ElevenLabs.ListClientsParams?)value);
 
         /// <summary>
@@ -1930,6 +1935,11 @@ namespace ElevenLabs
         {
             ListClients = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromListClients(global::ElevenLabs.ListClientsParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -1952,6 +1962,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromGetClientByPhone(global::ElevenLabs.GetClientByPhoneParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateClientParams value) => new Params((global::ElevenLabs.CreateClientParams?)value);
 
         /// <summary>
@@ -1966,6 +1981,11 @@ namespace ElevenLabs
         {
             CreateClient = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromCreateClient(global::ElevenLabs.CreateClientParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -1988,6 +2008,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromUpdateClient(global::ElevenLabs.UpdateClientParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteClientParams value) => new Params((global::ElevenLabs.DeleteClientParams?)value);
 
         /// <summary>
@@ -2002,6 +2027,11 @@ namespace ElevenLabs
         {
             DeleteClient = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromDeleteClient(global::ElevenLabs.DeleteClientParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2024,6 +2054,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromListStaff(global::ElevenLabs.ListStaffParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateStaffParams value) => new Params((global::ElevenLabs.CreateStaffParams?)value);
 
         /// <summary>
@@ -2038,6 +2073,11 @@ namespace ElevenLabs
         {
             CreateStaff = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromCreateStaff(global::ElevenLabs.CreateStaffParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2060,6 +2100,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromUpdateStaff(global::ElevenLabs.UpdateStaffParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteStaffParams value) => new Params((global::ElevenLabs.DeleteStaffParams?)value);
 
         /// <summary>
@@ -2074,6 +2119,11 @@ namespace ElevenLabs
         {
             DeleteStaff = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromDeleteStaff(global::ElevenLabs.DeleteStaffParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2096,6 +2146,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromListAssets(global::ElevenLabs.ListAssetsParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateAssetParams value) => new Params((global::ElevenLabs.CreateAssetParams?)value);
 
         /// <summary>
@@ -2110,6 +2165,11 @@ namespace ElevenLabs
         {
             CreateAsset = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromCreateAsset(global::ElevenLabs.CreateAssetParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2132,6 +2192,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromUpdateAsset(global::ElevenLabs.UpdateAssetParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteAssetParams value) => new Params((global::ElevenLabs.DeleteAssetParams?)value);
 
         /// <summary>
@@ -2146,6 +2211,11 @@ namespace ElevenLabs
         {
             DeleteAsset = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromDeleteAsset(global::ElevenLabs.DeleteAssetParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2168,6 +2238,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromListServices(global::ElevenLabs.ListServicesParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateServiceParams value) => new Params((global::ElevenLabs.CreateServiceParams?)value);
 
         /// <summary>
@@ -2182,6 +2257,11 @@ namespace ElevenLabs
         {
             CreateService = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromCreateService(global::ElevenLabs.CreateServiceParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2204,6 +2284,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromUpdateService(global::ElevenLabs.UpdateServiceParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteServiceParams value) => new Params((global::ElevenLabs.DeleteServiceParams?)value);
 
         /// <summary>
@@ -2218,6 +2303,11 @@ namespace ElevenLabs
         {
             DeleteService = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromDeleteService(global::ElevenLabs.DeleteServiceParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2240,6 +2330,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromListProducts(global::ElevenLabs.ListProductsParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateProductParams value) => new Params((global::ElevenLabs.CreateProductParams?)value);
 
         /// <summary>
@@ -2254,6 +2349,11 @@ namespace ElevenLabs
         {
             CreateProduct = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromCreateProduct(global::ElevenLabs.CreateProductParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2276,6 +2376,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromUpdateProduct(global::ElevenLabs.UpdateProductParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteProductParams value) => new Params((global::ElevenLabs.DeleteProductParams?)value);
 
         /// <summary>
@@ -2290,6 +2395,11 @@ namespace ElevenLabs
         {
             DeleteProduct = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromDeleteProduct(global::ElevenLabs.DeleteProductParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2312,6 +2422,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromCheckServiceAvailability(global::ElevenLabs.CheckServiceAvailabilityParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateClientAppointmentParams value) => new Params((global::ElevenLabs.CreateClientAppointmentParams?)value);
 
         /// <summary>
@@ -2326,6 +2441,11 @@ namespace ElevenLabs
         {
             CreateClientAppointment = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromCreateClientAppointment(global::ElevenLabs.CreateClientAppointmentParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2348,6 +2468,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromGetClientAppointments(global::ElevenLabs.GetClientAppointmentsParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetAppointmentByConfirmationNumberParams value) => new Params((global::ElevenLabs.GetAppointmentByConfirmationNumberParams?)value);
 
         /// <summary>
@@ -2362,6 +2487,11 @@ namespace ElevenLabs
         {
             GetAppointmentByConfirmationNumber = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromGetAppointmentByConfirmationNumber(global::ElevenLabs.GetAppointmentByConfirmationNumberParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2384,6 +2514,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromListGroupSessions(global::ElevenLabs.ListGroupSessionsParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.ScheduleGroupSessionParams value) => new Params((global::ElevenLabs.ScheduleGroupSessionParams?)value);
 
         /// <summary>
@@ -2398,6 +2533,11 @@ namespace ElevenLabs
         {
             ScheduleGroupSession = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromScheduleGroupSession(global::ElevenLabs.ScheduleGroupSessionParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2420,6 +2560,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromRegisterForGroupSession(global::ElevenLabs.RegisterForGroupSessionParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.CancelGroupSessionRegistrationParams value) => new Params((global::ElevenLabs.CancelGroupSessionRegistrationParams?)value);
 
         /// <summary>
@@ -2434,6 +2579,11 @@ namespace ElevenLabs
         {
             CancelGroupSessionRegistration = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromCancelGroupSessionRegistration(global::ElevenLabs.CancelGroupSessionRegistrationParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2456,6 +2606,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromUpdateGroupSessionSeats(global::ElevenLabs.UpdateGroupSessionSeatsParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.CancelGroupSessionForAllParams value) => new Params((global::ElevenLabs.CancelGroupSessionForAllParams?)value);
 
         /// <summary>
@@ -2470,6 +2625,11 @@ namespace ElevenLabs
         {
             CancelGroupSessionForAll = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromCancelGroupSessionForAll(global::ElevenLabs.CancelGroupSessionForAllParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2492,6 +2652,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromDeleteGroupSession(global::ElevenLabs.DeleteGroupSessionParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListCalendarEventsParams value) => new Params((global::ElevenLabs.ListCalendarEventsParams?)value);
 
         /// <summary>
@@ -2506,6 +2671,11 @@ namespace ElevenLabs
         {
             ListCalendarEvents = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromListCalendarEvents(global::ElevenLabs.ListCalendarEventsParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2528,6 +2698,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromUpdateCalendarEvent(global::ElevenLabs.UpdateCalendarEventParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.CancelCalendarEventParams value) => new Params((global::ElevenLabs.CancelCalendarEventParams?)value);
 
         /// <summary>
@@ -2542,6 +2717,11 @@ namespace ElevenLabs
         {
             CancelCalendarEvent = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromCancelCalendarEvent(global::ElevenLabs.CancelCalendarEventParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2564,6 +2744,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromDeleteCalendarEvent(global::ElevenLabs.DeleteCalendarEventParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListAgentRulesParams value) => new Params((global::ElevenLabs.ListAgentRulesParams?)value);
 
         /// <summary>
@@ -2578,6 +2763,11 @@ namespace ElevenLabs
         {
             ListAgentRules = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromListAgentRules(global::ElevenLabs.ListAgentRulesParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2600,6 +2790,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromCreateAgentRule(global::ElevenLabs.CreateAgentRuleParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateAgentRuleParams value) => new Params((global::ElevenLabs.UpdateAgentRuleParams?)value);
 
         /// <summary>
@@ -2614,6 +2809,11 @@ namespace ElevenLabs
         {
             UpdateAgentRule = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromUpdateAgentRule(global::ElevenLabs.UpdateAgentRuleParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2636,6 +2836,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromDeleteAgentRule(global::ElevenLabs.DeleteAgentRuleParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListHolidaysParams value) => new Params((global::ElevenLabs.ListHolidaysParams?)value);
 
         /// <summary>
@@ -2650,6 +2855,11 @@ namespace ElevenLabs
         {
             ListHolidays = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromListHolidays(global::ElevenLabs.ListHolidaysParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2672,6 +2882,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromCreateHoliday(global::ElevenLabs.CreateHolidayParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateHolidayParams value) => new Params((global::ElevenLabs.UpdateHolidayParams?)value);
 
         /// <summary>
@@ -2686,6 +2901,11 @@ namespace ElevenLabs
         {
             UpdateHoliday = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromUpdateHoliday(global::ElevenLabs.UpdateHolidayParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2708,6 +2928,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromDeleteHoliday(global::ElevenLabs.DeleteHolidayParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetScheduleParams value) => new Params((global::ElevenLabs.GetScheduleParams?)value);
 
         /// <summary>
@@ -2722,6 +2947,11 @@ namespace ElevenLabs
         {
             GetSchedule = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromGetSchedule(global::ElevenLabs.GetScheduleParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2744,6 +2974,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromUpdateBusinessInfo(global::ElevenLabs.UpdateBusinessInfoParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateCustomerFacingConfigParams value) => new Params((global::ElevenLabs.UpdateCustomerFacingConfigParams?)value);
 
         /// <summary>
@@ -2758,6 +2993,11 @@ namespace ElevenLabs
         {
             UpdateCustomerFacingConfig = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromUpdateCustomerFacingConfig(global::ElevenLabs.UpdateCustomerFacingConfigParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2780,6 +3020,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromGetAnalyticsSummary(global::ElevenLabs.GetAnalyticsSummaryParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetBookingPageSettingsParams value) => new Params((global::ElevenLabs.GetBookingPageSettingsParams?)value);
 
         /// <summary>
@@ -2794,6 +3039,11 @@ namespace ElevenLabs
         {
             GetBookingPageSettings = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromGetBookingPageSettings(global::ElevenLabs.GetBookingPageSettingsParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2816,6 +3066,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromUpdateBookingPageSettings(global::ElevenLabs.UpdateBookingPageSettingsParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetBookingSlugStatusParams value) => new Params((global::ElevenLabs.GetBookingSlugStatusParams?)value);
 
         /// <summary>
@@ -2830,6 +3085,11 @@ namespace ElevenLabs
         {
             GetBookingSlugStatus = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromGetBookingSlugStatus(global::ElevenLabs.GetBookingSlugStatusParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2852,6 +3112,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromSetBookingSlug(global::ElevenLabs.SetBookingSlugParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListClientInteractionsParams value) => new Params((global::ElevenLabs.ListClientInteractionsParams?)value);
 
         /// <summary>
@@ -2866,6 +3131,11 @@ namespace ElevenLabs
         {
             ListClientInteractions = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromListClientInteractions(global::ElevenLabs.ListClientInteractionsParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2888,6 +3158,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromCreateClientInteraction(global::ElevenLabs.CreateClientInteractionParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteClientInteractionParams value) => new Params((global::ElevenLabs.DeleteClientInteractionParams?)value);
 
         /// <summary>
@@ -2902,6 +3177,11 @@ namespace ElevenLabs
         {
             DeleteClientInteraction = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromDeleteClientInteraction(global::ElevenLabs.DeleteClientInteractionParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2924,6 +3204,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromListLocations(global::ElevenLabs.ListLocationsParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateLocationParams value) => new Params((global::ElevenLabs.CreateLocationParams?)value);
 
         /// <summary>
@@ -2938,6 +3223,11 @@ namespace ElevenLabs
         {
             CreateLocation = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromCreateLocation(global::ElevenLabs.CreateLocationParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2960,6 +3250,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromUpdateLocation(global::ElevenLabs.UpdateLocationParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteLocationParams value) => new Params((global::ElevenLabs.DeleteLocationParams?)value);
 
         /// <summary>
@@ -2974,6 +3269,11 @@ namespace ElevenLabs
         {
             DeleteLocation = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromDeleteLocation(global::ElevenLabs.DeleteLocationParams? value) => new Params(value);
 
         /// <summary>
         /// 
@@ -2996,6 +3296,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params FromLeaveMessage(global::ElevenLabs.LeaveMessageParams? value) => new Params(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params(global::ElevenLabs.ReportKnowledgeGapParams value) => new Params((global::ElevenLabs.ReportKnowledgeGapParams?)value);
 
         /// <summary>
@@ -3010,6 +3315,11 @@ namespace ElevenLabs
         {
             ReportKnowledgeGap = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params FromReportKnowledgeGap(global::ElevenLabs.ReportKnowledgeGapParams? value) => new Params(value);
 
         /// <summary>
         /// 

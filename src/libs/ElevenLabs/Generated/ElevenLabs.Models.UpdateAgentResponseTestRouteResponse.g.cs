@@ -124,6 +124,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static UpdateAgentResponseTestRouteResponse FromLlm(global::ElevenLabs.GetResponseUnitTestResponseModel? value) => new UpdateAgentResponseTestRouteResponse(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator UpdateAgentResponseTestRouteResponse(global::ElevenLabs.GetToolCallUnitTestResponseModel value) => new UpdateAgentResponseTestRouteResponse((global::ElevenLabs.GetToolCallUnitTestResponseModel?)value);
 
         /// <summary>
@@ -142,6 +147,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static UpdateAgentResponseTestRouteResponse FromTool(global::ElevenLabs.GetToolCallUnitTestResponseModel? value) => new UpdateAgentResponseTestRouteResponse(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator UpdateAgentResponseTestRouteResponse(global::ElevenLabs.GetSimulationTestResponseModel value) => new UpdateAgentResponseTestRouteResponse((global::ElevenLabs.GetSimulationTestResponseModel?)value);
 
         /// <summary>
@@ -156,6 +166,11 @@ namespace ElevenLabs
         {
             Simulation = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static UpdateAgentResponseTestRouteResponse FromSimulation(global::ElevenLabs.GetSimulationTestResponseModel? value) => new UpdateAgentResponseTestRouteResponse(value);
 
         /// <summary>
         /// 

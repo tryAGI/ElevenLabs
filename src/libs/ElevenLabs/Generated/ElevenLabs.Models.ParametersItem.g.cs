@@ -154,6 +154,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ParametersItem FromText(global::ElevenLabs.WhatsAppTemplateTextParam? value) => new ParametersItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ParametersItem(global::ElevenLabs.WhatsAppTemplateImageParam value) => new ParametersItem((global::ElevenLabs.WhatsAppTemplateImageParam?)value);
 
         /// <summary>
@@ -168,6 +173,11 @@ namespace ElevenLabs
         {
             Image = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ParametersItem FromImage(global::ElevenLabs.WhatsAppTemplateImageParam? value) => new ParametersItem(value);
 
         /// <summary>
         /// 
@@ -190,6 +200,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ParametersItem FromDocument(global::ElevenLabs.WhatsAppTemplateDocumentParam? value) => new ParametersItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ParametersItem(global::ElevenLabs.WhatsAppTemplateLocationParam value) => new ParametersItem((global::ElevenLabs.WhatsAppTemplateLocationParam?)value);
 
         /// <summary>
@@ -204,6 +219,11 @@ namespace ElevenLabs
         {
             Location = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ParametersItem FromLocation(global::ElevenLabs.WhatsAppTemplateLocationParam? value) => new ParametersItem(value);
 
         /// <summary>
         /// 

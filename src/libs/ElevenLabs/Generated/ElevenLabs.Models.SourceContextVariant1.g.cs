@@ -124,6 +124,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static SourceContextVariant1 FromMusicExploreSong1(global::ElevenLabs.SongSourceContext? value) => new SourceContextVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator SourceContextVariant1(global::ElevenLabs.MusicExploreSongSourceContext value) => new SourceContextVariant1((global::ElevenLabs.MusicExploreSongSourceContext?)value);
 
         /// <summary>
@@ -142,6 +147,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static SourceContextVariant1 FromMusicExploreSong2(global::ElevenLabs.MusicExploreSongSourceContext? value) => new SourceContextVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator SourceContextVariant1(global::ElevenLabs.SfxSourceContext value) => new SourceContextVariant1((global::ElevenLabs.SfxSourceContext?)value);
 
         /// <summary>
@@ -156,6 +166,11 @@ namespace ElevenLabs
         {
             Sfx = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static SourceContextVariant1 FromSfx(global::ElevenLabs.SfxSourceContext? value) => new SourceContextVariant1(value);
 
         /// <summary>
         /// 

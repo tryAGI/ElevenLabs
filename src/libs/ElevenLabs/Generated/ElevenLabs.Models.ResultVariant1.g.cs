@@ -424,6 +424,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ResultVariant1 FromEndCallSuccess(global::ElevenLabs.EndCallToolResultModel? value) => new ResultVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ResultVariant1(global::ElevenLabs.LanguageDetectionToolResultModel value) => new ResultVariant1((global::ElevenLabs.LanguageDetectionToolResultModel?)value);
 
         /// <summary>
@@ -438,6 +443,11 @@ namespace ElevenLabs
         {
             LanguageDetectionSuccess = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ResultVariant1 FromLanguageDetectionSuccess(global::ElevenLabs.LanguageDetectionToolResultModel? value) => new ResultVariant1(value);
 
         /// <summary>
         /// 
@@ -460,6 +470,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ResultVariant1 FromTransferToAgentSuccess(global::ElevenLabs.TransferToAgentToolResultSuccessModel? value) => new ResultVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ResultVariant1(global::ElevenLabs.TransferToAgentToolResultErrorModel value) => new ResultVariant1((global::ElevenLabs.TransferToAgentToolResultErrorModel?)value);
 
         /// <summary>
@@ -474,6 +489,11 @@ namespace ElevenLabs
         {
             TransferToAgentError = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ResultVariant1 FromTransferToAgentError(global::ElevenLabs.TransferToAgentToolResultErrorModel? value) => new ResultVariant1(value);
 
         /// <summary>
         /// 
@@ -496,6 +516,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ResultVariant1 FromTransferToNumberTwilioSuccess(global::ElevenLabs.TransferToNumberResultTwilioSuccessModel? value) => new ResultVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ResultVariant1(global::ElevenLabs.TransferToNumberResultSipSuccessModel value) => new ResultVariant1((global::ElevenLabs.TransferToNumberResultSipSuccessModel?)value);
 
         /// <summary>
@@ -510,6 +535,11 @@ namespace ElevenLabs
         {
             TransferToNumberSipSuccess = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ResultVariant1 FromTransferToNumberSipSuccess(global::ElevenLabs.TransferToNumberResultSipSuccessModel? value) => new ResultVariant1(value);
 
         /// <summary>
         /// 
@@ -532,6 +562,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ResultVariant1 FromTransferToNumberError(global::ElevenLabs.TransferToNumberResultErrorModel? value) => new ResultVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ResultVariant1(global::ElevenLabs.SkipTurnToolResponseModel value) => new ResultVariant1((global::ElevenLabs.SkipTurnToolResponseModel?)value);
 
         /// <summary>
@@ -546,6 +581,11 @@ namespace ElevenLabs
         {
             SkipTurnSuccess = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ResultVariant1 FromSkipTurnSuccess(global::ElevenLabs.SkipTurnToolResponseModel? value) => new ResultVariant1(value);
 
         /// <summary>
         /// 
@@ -568,6 +608,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ResultVariant1 FromPlayDtmfSuccess(global::ElevenLabs.PlayDTMFResultSuccessModel? value) => new ResultVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ResultVariant1(global::ElevenLabs.PlayDTMFResultErrorModel value) => new ResultVariant1((global::ElevenLabs.PlayDTMFResultErrorModel?)value);
 
         /// <summary>
@@ -582,6 +627,11 @@ namespace ElevenLabs
         {
             PlayDtmfError = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ResultVariant1 FromPlayDtmfError(global::ElevenLabs.PlayDTMFResultErrorModel? value) => new ResultVariant1(value);
 
         /// <summary>
         /// 
@@ -604,6 +654,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ResultVariant1 FromVoicemailDetectionSuccess(global::ElevenLabs.VoiceMailDetectionResultSuccessModel? value) => new ResultVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ResultVariant1(global::ElevenLabs.TestToolResultModel value) => new ResultVariant1((global::ElevenLabs.TestToolResultModel?)value);
 
         /// <summary>
@@ -622,6 +677,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ResultVariant1 FromTestingToolResult(global::ElevenLabs.TestToolResultModel? value) => new ResultVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ResultVariant1(global::ElevenLabs.KnowledgeBaseRagToolResultModel value) => new ResultVariant1((global::ElevenLabs.KnowledgeBaseRagToolResultModel?)value);
 
         /// <summary>
@@ -636,6 +696,11 @@ namespace ElevenLabs
         {
             KnowledgeBaseRagSuccess = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ResultVariant1 FromKnowledgeBaseRagSuccess(global::ElevenLabs.KnowledgeBaseRagToolResultModel? value) => new ResultVariant1(value);
 
         /// <summary>
         /// 

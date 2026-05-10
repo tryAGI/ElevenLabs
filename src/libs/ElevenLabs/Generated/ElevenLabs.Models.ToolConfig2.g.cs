@@ -156,6 +156,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ToolConfig2 FromWebhook(global::ElevenLabs.WebhookToolConfigOutput? value) => new ToolConfig2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ToolConfig2(global::ElevenLabs.ClientToolConfigOutput value) => new ToolConfig2((global::ElevenLabs.ClientToolConfigOutput?)value);
 
         /// <summary>
@@ -170,6 +175,11 @@ namespace ElevenLabs
         {
             Client = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ToolConfig2 FromClient(global::ElevenLabs.ClientToolConfigOutput? value) => new ToolConfig2(value);
 
         /// <summary>
         /// 
@@ -192,6 +202,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ToolConfig2 FromSystem(global::ElevenLabs.SystemToolConfigOutput? value) => new ToolConfig2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ToolConfig2(global::ElevenLabs.MCPToolConfigOutput value) => new ToolConfig2((global::ElevenLabs.MCPToolConfigOutput?)value);
 
         /// <summary>
@@ -206,6 +221,11 @@ namespace ElevenLabs
         {
             Mcp = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ToolConfig2 FromMcp(global::ElevenLabs.MCPToolConfigOutput? value) => new ToolConfig2(value);
 
         /// <summary>
         /// 

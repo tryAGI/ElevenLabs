@@ -216,6 +216,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ToolsVariant1Item FromWebhook(global::ElevenLabs.WebhookToolConfigInput? value) => new ToolsVariant1Item(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ToolsVariant1Item(global::ElevenLabs.ClientToolConfigInput value) => new ToolsVariant1Item((global::ElevenLabs.ClientToolConfigInput?)value);
 
         /// <summary>
@@ -230,6 +235,11 @@ namespace ElevenLabs
         {
             Client = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ToolsVariant1Item FromClient(global::ElevenLabs.ClientToolConfigInput? value) => new ToolsVariant1Item(value);
 
         /// <summary>
         /// 
@@ -252,6 +262,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ToolsVariant1Item FromSystem(global::ElevenLabs.SystemToolConfigInput? value) => new ToolsVariant1Item(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ToolsVariant1Item(global::ElevenLabs.MCPToolConfigInput value) => new ToolsVariant1Item((global::ElevenLabs.MCPToolConfigInput?)value);
 
         /// <summary>
@@ -266,6 +281,11 @@ namespace ElevenLabs
         {
             Mcp = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ToolsVariant1Item FromMcp(global::ElevenLabs.MCPToolConfigInput? value) => new ToolsVariant1Item(value);
 
         /// <summary>
         /// 
@@ -288,6 +308,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ToolsVariant1Item FromApiIntegrationWebhook(global::ElevenLabs.ApiIntegrationWebhookToolConfigInput? value) => new ToolsVariant1Item(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ToolsVariant1Item(global::ElevenLabs.SMBToolConfig value) => new ToolsVariant1Item((global::ElevenLabs.SMBToolConfig?)value);
 
         /// <summary>
@@ -302,6 +327,11 @@ namespace ElevenLabs
         {
             Smb = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ToolsVariant1Item FromSmb(global::ElevenLabs.SMBToolConfig? value) => new ToolsVariant1Item(value);
 
         /// <summary>
         /// 

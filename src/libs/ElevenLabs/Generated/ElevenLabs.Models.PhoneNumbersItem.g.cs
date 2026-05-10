@@ -94,6 +94,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static PhoneNumbersItem FromTwilio(global::ElevenLabs.GetPhoneNumberTwilioResponseModel? value) => new PhoneNumbersItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator PhoneNumbersItem(global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel value) => new PhoneNumbersItem((global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel?)value);
 
         /// <summary>
@@ -108,6 +113,11 @@ namespace ElevenLabs
         {
             SipTrunk = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static PhoneNumbersItem FromSipTrunk(global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? value) => new PhoneNumbersItem(value);
 
         /// <summary>
         /// 

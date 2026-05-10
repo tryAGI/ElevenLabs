@@ -184,6 +184,11 @@ namespace ElevenLabs.Realtime
         /// <summary>
         /// 
         /// </summary>
+        public static ServerEvent FromSessionStarted(global::ElevenLabs.Realtime.SessionStartedPayload? value) => new ServerEvent(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ServerEvent(global::ElevenLabs.Realtime.PartialTranscriptPayload value) => new ServerEvent((global::ElevenLabs.Realtime.PartialTranscriptPayload?)value);
 
         /// <summary>
@@ -198,6 +203,11 @@ namespace ElevenLabs.Realtime
         {
             PartialTranscript = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ServerEvent FromPartialTranscript(global::ElevenLabs.Realtime.PartialTranscriptPayload? value) => new ServerEvent(value);
 
         /// <summary>
         /// 
@@ -220,6 +230,11 @@ namespace ElevenLabs.Realtime
         /// <summary>
         /// 
         /// </summary>
+        public static ServerEvent FromCommittedTranscript(global::ElevenLabs.Realtime.CommittedTranscriptPayload? value) => new ServerEvent(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ServerEvent(global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload value) => new ServerEvent((global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload?)value);
 
         /// <summary>
@@ -238,6 +253,11 @@ namespace ElevenLabs.Realtime
         /// <summary>
         /// 
         /// </summary>
+        public static ServerEvent FromCommittedTranscriptWithTimestamps(global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload? value) => new ServerEvent(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ServerEvent(global::ElevenLabs.Realtime.ErrorPayload value) => new ServerEvent((global::ElevenLabs.Realtime.ErrorPayload?)value);
 
         /// <summary>
@@ -252,6 +272,11 @@ namespace ElevenLabs.Realtime
         {
             Error = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ServerEvent FromError(global::ElevenLabs.Realtime.ErrorPayload? value) => new ServerEvent(value);
 
         /// <summary>
         /// 

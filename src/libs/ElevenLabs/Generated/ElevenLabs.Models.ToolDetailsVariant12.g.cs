@@ -154,6 +154,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ToolDetailsVariant12 FromWebhook(global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails? value) => new ToolDetailsVariant12(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ToolDetailsVariant12(global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails value) => new ToolDetailsVariant12((global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?)value);
 
         /// <summary>
@@ -168,6 +173,11 @@ namespace ElevenLabs
         {
             Client = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ToolDetailsVariant12 FromClient(global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? value) => new ToolDetailsVariant12(value);
 
         /// <summary>
         /// 
@@ -190,6 +200,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ToolDetailsVariant12 FromMcp(global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? value) => new ToolDetailsVariant12(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ToolDetailsVariant12(global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput value) => new ToolDetailsVariant12((global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput?)value);
 
         /// <summary>
@@ -204,6 +219,11 @@ namespace ElevenLabs
         {
             ApiIntegrationWebhook = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ToolDetailsVariant12 FromApiIntegrationWebhook(global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput? value) => new ToolDetailsVariant12(value);
 
         /// <summary>
         /// 

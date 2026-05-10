@@ -94,6 +94,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static BranchInfoVariant1 FromTrafficSplit(global::ElevenLabs.TransferBranchInfoTrafficSplit? value) => new BranchInfoVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator BranchInfoVariant1(global::ElevenLabs.TransferBranchInfoDefaultingToMain value) => new BranchInfoVariant1((global::ElevenLabs.TransferBranchInfoDefaultingToMain?)value);
 
         /// <summary>
@@ -108,6 +113,11 @@ namespace ElevenLabs
         {
             DefaultingToMain = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static BranchInfoVariant1 FromDefaultingToMain(global::ElevenLabs.TransferBranchInfoDefaultingToMain? value) => new BranchInfoVariant1(value);
 
         /// <summary>
         /// 

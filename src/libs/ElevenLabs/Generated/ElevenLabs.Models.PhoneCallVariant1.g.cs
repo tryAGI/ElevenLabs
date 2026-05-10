@@ -94,6 +94,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static PhoneCallVariant1 FromTwilio(global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel? value) => new PhoneCallVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator PhoneCallVariant1(global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel value) => new PhoneCallVariant1((global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel?)value);
 
         /// <summary>
@@ -108,6 +113,11 @@ namespace ElevenLabs
         {
             SipTrunking = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static PhoneCallVariant1 FromSipTrunking(global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel? value) => new PhoneCallVariant1(value);
 
         /// <summary>
         /// 

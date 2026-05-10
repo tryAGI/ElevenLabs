@@ -154,6 +154,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static DocumentsItem FromUrl(global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel? value) => new DocumentsItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator DocumentsItem(global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel value) => new DocumentsItem((global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel?)value);
 
         /// <summary>
@@ -168,6 +173,11 @@ namespace ElevenLabs
         {
             File = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static DocumentsItem FromFile(global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel? value) => new DocumentsItem(value);
 
         /// <summary>
         /// 
@@ -190,6 +200,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static DocumentsItem FromText(global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel? value) => new DocumentsItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator DocumentsItem(global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel value) => new DocumentsItem((global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel?)value);
 
         /// <summary>
@@ -204,6 +219,11 @@ namespace ElevenLabs
         {
             Folder = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static DocumentsItem FromFolder(global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel? value) => new DocumentsItem(value);
 
         /// <summary>
         /// 

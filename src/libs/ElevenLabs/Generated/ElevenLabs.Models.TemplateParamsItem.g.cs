@@ -124,6 +124,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static TemplateParamsItem FromHeader(global::ElevenLabs.WhatsAppTemplateHeaderComponentParams? value) => new TemplateParamsItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator TemplateParamsItem(global::ElevenLabs.WhatsAppTemplateBodyComponentParams value) => new TemplateParamsItem((global::ElevenLabs.WhatsAppTemplateBodyComponentParams?)value);
 
         /// <summary>
@@ -142,6 +147,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static TemplateParamsItem FromBody(global::ElevenLabs.WhatsAppTemplateBodyComponentParams? value) => new TemplateParamsItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator TemplateParamsItem(global::ElevenLabs.WhatsAppTemplateButtonComponentParams value) => new TemplateParamsItem((global::ElevenLabs.WhatsAppTemplateButtonComponentParams?)value);
 
         /// <summary>
@@ -156,6 +166,11 @@ namespace ElevenLabs
         {
             Button = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static TemplateParamsItem FromButton(global::ElevenLabs.WhatsAppTemplateButtonComponentParams? value) => new TemplateParamsItem(value);
 
         /// <summary>
         /// 

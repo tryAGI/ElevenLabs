@@ -214,6 +214,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Nodes FromStart(global::ElevenLabs.WorkflowStartNodeModelInput? value) => new Nodes(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Nodes(global::ElevenLabs.WorkflowEndNodeModelInput value) => new Nodes((global::ElevenLabs.WorkflowEndNodeModelInput?)value);
 
         /// <summary>
@@ -228,6 +233,11 @@ namespace ElevenLabs
         {
             End = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Nodes FromEnd(global::ElevenLabs.WorkflowEndNodeModelInput? value) => new Nodes(value);
 
         /// <summary>
         /// 
@@ -250,6 +260,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Nodes FromPhoneNumber(global::ElevenLabs.WorkflowPhoneNumberNodeModelInput? value) => new Nodes(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Nodes(global::ElevenLabs.WorkflowOverrideAgentNodeModelInput value) => new Nodes((global::ElevenLabs.WorkflowOverrideAgentNodeModelInput?)value);
 
         /// <summary>
@@ -264,6 +279,11 @@ namespace ElevenLabs
         {
             OverrideAgent = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Nodes FromOverrideAgent(global::ElevenLabs.WorkflowOverrideAgentNodeModelInput? value) => new Nodes(value);
 
         /// <summary>
         /// 
@@ -286,6 +306,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Nodes FromStandaloneAgent(global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput? value) => new Nodes(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Nodes(global::ElevenLabs.WorkflowToolNodeModelInput value) => new Nodes((global::ElevenLabs.WorkflowToolNodeModelInput?)value);
 
         /// <summary>
@@ -300,6 +325,11 @@ namespace ElevenLabs
         {
             Tool = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Nodes FromTool(global::ElevenLabs.WorkflowToolNodeModelInput? value) => new Nodes(value);
 
         /// <summary>
         /// 

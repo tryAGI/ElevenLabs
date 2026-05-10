@@ -124,6 +124,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static TestInfoVariant1 FromLlm(global::ElevenLabs.ResponseUnitTestModel? value) => new TestInfoVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator TestInfoVariant1(global::ElevenLabs.ToolCallUnitTestModel value) => new TestInfoVariant1((global::ElevenLabs.ToolCallUnitTestModel?)value);
 
         /// <summary>
@@ -142,6 +147,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static TestInfoVariant1 FromTool(global::ElevenLabs.ToolCallUnitTestModel? value) => new TestInfoVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator TestInfoVariant1(global::ElevenLabs.SimulationTestModel value) => new TestInfoVariant1((global::ElevenLabs.SimulationTestModel?)value);
 
         /// <summary>
@@ -156,6 +166,11 @@ namespace ElevenLabs
         {
             Simulation = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static TestInfoVariant1 FromSimulation(global::ElevenLabs.SimulationTestModel? value) => new TestInfoVariant1(value);
 
         /// <summary>
         /// 

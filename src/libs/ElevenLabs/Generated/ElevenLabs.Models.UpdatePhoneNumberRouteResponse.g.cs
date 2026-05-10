@@ -94,6 +94,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static UpdatePhoneNumberRouteResponse FromTwilio(global::ElevenLabs.GetPhoneNumberTwilioResponseModel? value) => new UpdatePhoneNumberRouteResponse(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator UpdatePhoneNumberRouteResponse(global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel value) => new UpdatePhoneNumberRouteResponse((global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel?)value);
 
         /// <summary>
@@ -108,6 +113,11 @@ namespace ElevenLabs
         {
             SipTrunk = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static UpdatePhoneNumberRouteResponse FromSipTrunk(global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? value) => new UpdatePhoneNumberRouteResponse(value);
 
         /// <summary>
         /// 

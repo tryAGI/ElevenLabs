@@ -124,6 +124,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static CreateEnvironmentVariableRequest FromString(global::ElevenLabs.CreateStringEnvironmentVariableRequest? value) => new CreateEnvironmentVariableRequest(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator CreateEnvironmentVariableRequest(global::ElevenLabs.CreateSecretEnvironmentVariableRequest value) => new CreateEnvironmentVariableRequest((global::ElevenLabs.CreateSecretEnvironmentVariableRequest?)value);
 
         /// <summary>
@@ -142,6 +147,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static CreateEnvironmentVariableRequest FromSecret(global::ElevenLabs.CreateSecretEnvironmentVariableRequest? value) => new CreateEnvironmentVariableRequest(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator CreateEnvironmentVariableRequest(global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest value) => new CreateEnvironmentVariableRequest((global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest?)value);
 
         /// <summary>
@@ -156,6 +166,11 @@ namespace ElevenLabs
         {
             AuthConnection = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static CreateEnvironmentVariableRequest FromAuthConnection(global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest? value) => new CreateEnvironmentVariableRequest(value);
 
         /// <summary>
         /// 

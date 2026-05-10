@@ -124,6 +124,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ChartsItem2 FromCallSuccess(global::ElevenLabs.DashboardCallSuccessChartModel? value) => new ChartsItem2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ChartsItem2(global::ElevenLabs.DashboardCriteriaChartModel value) => new ChartsItem2((global::ElevenLabs.DashboardCriteriaChartModel?)value);
 
         /// <summary>
@@ -142,6 +147,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ChartsItem2 FromCriteria(global::ElevenLabs.DashboardCriteriaChartModel? value) => new ChartsItem2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ChartsItem2(global::ElevenLabs.DashboardDataCollectionChartModel value) => new ChartsItem2((global::ElevenLabs.DashboardDataCollectionChartModel?)value);
 
         /// <summary>
@@ -156,6 +166,11 @@ namespace ElevenLabs
         {
             DataCollection = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ChartsItem2 FromDataCollection(global::ElevenLabs.DashboardDataCollectionChartModel? value) => new ChartsItem2(value);
 
         /// <summary>
         /// 

@@ -334,6 +334,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static AuthConnectionsItem FromOauth2ClientCredentials(global::ElevenLabs.OAuth2ClientCredsResponse? value) => new AuthConnectionsItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator AuthConnectionsItem(global::ElevenLabs.BasicAuthResponse value) => new AuthConnectionsItem((global::ElevenLabs.BasicAuthResponse?)value);
 
         /// <summary>
@@ -348,6 +353,11 @@ namespace ElevenLabs
         {
             BasicAuth = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static AuthConnectionsItem FromBasicAuth(global::ElevenLabs.BasicAuthResponse? value) => new AuthConnectionsItem(value);
 
         /// <summary>
         /// 
@@ -370,6 +380,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static AuthConnectionsItem FromBearerAuth(global::ElevenLabs.BearerAuthResponse? value) => new AuthConnectionsItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator AuthConnectionsItem(global::ElevenLabs.OAuth2JWTResponse value) => new AuthConnectionsItem((global::ElevenLabs.OAuth2JWTResponse?)value);
 
         /// <summary>
@@ -384,6 +399,11 @@ namespace ElevenLabs
         {
             Oauth2Jwt = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static AuthConnectionsItem FromOauth2Jwt(global::ElevenLabs.OAuth2JWTResponse? value) => new AuthConnectionsItem(value);
 
         /// <summary>
         /// 
@@ -406,6 +426,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static AuthConnectionsItem FromPrivateKeyJwt(global::ElevenLabs.PrivateKeyJWTResponse? value) => new AuthConnectionsItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator AuthConnectionsItem(global::ElevenLabs.MTLSAuthResponse value) => new AuthConnectionsItem((global::ElevenLabs.MTLSAuthResponse?)value);
 
         /// <summary>
@@ -420,6 +445,11 @@ namespace ElevenLabs
         {
             Mtls = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static AuthConnectionsItem FromMtls(global::ElevenLabs.MTLSAuthResponse? value) => new AuthConnectionsItem(value);
 
         /// <summary>
         /// 
@@ -442,6 +472,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static AuthConnectionsItem FromCustomHeaderAuth(global::ElevenLabs.CustomHeaderAuthResponse? value) => new AuthConnectionsItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator AuthConnectionsItem(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse value) => new AuthConnectionsItem((global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse?)value);
 
         /// <summary>
@@ -456,6 +491,11 @@ namespace ElevenLabs
         {
             ApiIntegrationOauth2AuthCode = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static AuthConnectionsItem FromApiIntegrationOauth2AuthCode(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse? value) => new AuthConnectionsItem(value);
 
         /// <summary>
         /// 
@@ -478,6 +518,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static AuthConnectionsItem FromApiIntegrationOauth2CustomApp(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse? value) => new AuthConnectionsItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator AuthConnectionsItem(global::ElevenLabs.WhatsAppAuthResponse value) => new AuthConnectionsItem((global::ElevenLabs.WhatsAppAuthResponse?)value);
 
         /// <summary>
@@ -492,6 +537,11 @@ namespace ElevenLabs
         {
             WhatsappAuth = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static AuthConnectionsItem FromWhatsappAuth(global::ElevenLabs.WhatsAppAuthResponse? value) => new AuthConnectionsItem(value);
 
         /// <summary>
         /// 

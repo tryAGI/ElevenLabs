@@ -124,6 +124,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static StepsItem2 FromEdge(global::ElevenLabs.WorkflowToolEdgeStepModel? value) => new StepsItem2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator StepsItem2(global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput value) => new StepsItem2((global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput?)value);
 
         /// <summary>
@@ -142,6 +147,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static StepsItem2 FromNestedTools(global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput? value) => new StepsItem2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator StepsItem2(global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel value) => new StepsItem2((global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel?)value);
 
         /// <summary>
@@ -156,6 +166,11 @@ namespace ElevenLabs
         {
             MaxIterationsExceeded = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static StepsItem2 FromMaxIterationsExceeded(global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel? value) => new StepsItem2(value);
 
         /// <summary>
         /// 

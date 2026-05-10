@@ -154,6 +154,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Eval FromLlm(global::ElevenLabs.LLMParameterEvaluationStrategy? value) => new Eval(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Eval(global::ElevenLabs.RegexParameterEvaluationStrategy value) => new Eval((global::ElevenLabs.RegexParameterEvaluationStrategy?)value);
 
         /// <summary>
@@ -168,6 +173,11 @@ namespace ElevenLabs
         {
             Regex = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Eval FromRegex(global::ElevenLabs.RegexParameterEvaluationStrategy? value) => new Eval(value);
 
         /// <summary>
         /// 
@@ -190,6 +200,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Eval FromExact(global::ElevenLabs.ExactParameterEvaluationStrategy? value) => new Eval(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Eval(global::ElevenLabs.MatchAnythingParameterEvaluationStrategy value) => new Eval((global::ElevenLabs.MatchAnythingParameterEvaluationStrategy?)value);
 
         /// <summary>
@@ -204,6 +219,11 @@ namespace ElevenLabs
         {
             Anything = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Eval FromAnything(global::ElevenLabs.MatchAnythingParameterEvaluationStrategy? value) => new Eval(value);
 
         /// <summary>
         /// 
