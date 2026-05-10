@@ -154,6 +154,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static GetDocumentationFromKnowledgeBaseResponse FromUrl(global::ElevenLabs.GetKnowledgeBaseURLResponseModel? value) => new GetDocumentationFromKnowledgeBaseResponse(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator GetDocumentationFromKnowledgeBaseResponse(global::ElevenLabs.GetKnowledgeBaseFileResponseModel value) => new GetDocumentationFromKnowledgeBaseResponse((global::ElevenLabs.GetKnowledgeBaseFileResponseModel?)value);
 
         /// <summary>
@@ -168,6 +173,11 @@ namespace ElevenLabs
         {
             File = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static GetDocumentationFromKnowledgeBaseResponse FromFile(global::ElevenLabs.GetKnowledgeBaseFileResponseModel? value) => new GetDocumentationFromKnowledgeBaseResponse(value);
 
         /// <summary>
         /// 
@@ -190,6 +200,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static GetDocumentationFromKnowledgeBaseResponse FromText(global::ElevenLabs.GetKnowledgeBaseTextResponseModel? value) => new GetDocumentationFromKnowledgeBaseResponse(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator GetDocumentationFromKnowledgeBaseResponse(global::ElevenLabs.GetKnowledgeBaseFolderResponseModel value) => new GetDocumentationFromKnowledgeBaseResponse((global::ElevenLabs.GetKnowledgeBaseFolderResponseModel?)value);
 
         /// <summary>
@@ -204,6 +219,11 @@ namespace ElevenLabs
         {
             Folder = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static GetDocumentationFromKnowledgeBaseResponse FromFolder(global::ElevenLabs.GetKnowledgeBaseFolderResponseModel? value) => new GetDocumentationFromKnowledgeBaseResponse(value);
 
         /// <summary>
         /// 

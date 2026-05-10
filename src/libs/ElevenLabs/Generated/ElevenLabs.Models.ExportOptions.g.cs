@@ -214,6 +214,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ExportOptions FromSegmentedJson(global::ElevenLabs.SegmentedJsonExportOptions? value) => new ExportOptions(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ExportOptions(global::ElevenLabs.DocxExportOptions value) => new ExportOptions((global::ElevenLabs.DocxExportOptions?)value);
 
         /// <summary>
@@ -228,6 +233,11 @@ namespace ElevenLabs
         {
             Docx = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ExportOptions FromDocx(global::ElevenLabs.DocxExportOptions? value) => new ExportOptions(value);
 
         /// <summary>
         /// 
@@ -250,6 +260,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ExportOptions FromPdf(global::ElevenLabs.PdfExportOptions? value) => new ExportOptions(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ExportOptions(global::ElevenLabs.TxtExportOptions value) => new ExportOptions((global::ElevenLabs.TxtExportOptions?)value);
 
         /// <summary>
@@ -264,6 +279,11 @@ namespace ElevenLabs
         {
             Txt = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ExportOptions FromTxt(global::ElevenLabs.TxtExportOptions? value) => new ExportOptions(value);
 
         /// <summary>
         /// 
@@ -286,6 +306,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ExportOptions FromHtml(global::ElevenLabs.HtmlExportOptions? value) => new ExportOptions(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ExportOptions(global::ElevenLabs.SrtExportOptions value) => new ExportOptions((global::ElevenLabs.SrtExportOptions?)value);
 
         /// <summary>
@@ -300,6 +325,11 @@ namespace ElevenLabs
         {
             Srt = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ExportOptions FromSrt(global::ElevenLabs.SrtExportOptions? value) => new ExportOptions(value);
 
         /// <summary>
         /// 

@@ -209,6 +209,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static DynamicVariableNestedValueTypeInput FromDynamicVariableNestedValueTypeInputVariant1(string? value) => new DynamicVariableNestedValueTypeInput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator DynamicVariableNestedValueTypeInput(int value) => new DynamicVariableNestedValueTypeInput((int?)value);
 
         /// <summary>
@@ -223,6 +228,11 @@ namespace ElevenLabs
         {
             DynamicVariableNestedValueTypeInputVariant2 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static DynamicVariableNestedValueTypeInput FromDynamicVariableNestedValueTypeInputVariant2(int? value) => new DynamicVariableNestedValueTypeInput(value);
 
         /// <summary>
         /// 
@@ -245,6 +255,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static DynamicVariableNestedValueTypeInput FromDynamicVariableNestedValueTypeInputVariant3(double? value) => new DynamicVariableNestedValueTypeInput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator DynamicVariableNestedValueTypeInput(bool value) => new DynamicVariableNestedValueTypeInput((bool?)value);
 
         /// <summary>
@@ -259,6 +274,11 @@ namespace ElevenLabs
         {
             DynamicVariableNestedValueTypeInputVariant4 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static DynamicVariableNestedValueTypeInput FromDynamicVariableNestedValueTypeInputVariant4(bool? value) => new DynamicVariableNestedValueTypeInput(value);
 
         /// <summary>
         /// 

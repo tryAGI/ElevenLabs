@@ -89,6 +89,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ASTLLMNodeInput FromASTLLMNode1(global::ElevenLabs.ASTLLMNodeInputASTLLMNode? value) => new ASTLLMNodeInput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ASTLLMNodeInput(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2 value) => new ASTLLMNodeInput((global::ElevenLabs.ASTLLMNodeInputASTLLMNode2?)value);
 
         /// <summary>
@@ -103,6 +108,11 @@ namespace ElevenLabs
         {
             ASTLLMNode2 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ASTLLMNodeInput FromASTLLMNode2(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2? value) => new ASTLLMNodeInput(value);
 
         /// <summary>
         /// 

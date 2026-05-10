@@ -94,6 +94,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static McpServersItem FromAvailable(global::ElevenLabs.DependentAvailableMCPServerIdentifier? value) => new McpServersItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator McpServersItem(global::ElevenLabs.DependentUnknownMCPServerIdentifier value) => new McpServersItem((global::ElevenLabs.DependentUnknownMCPServerIdentifier?)value);
 
         /// <summary>
@@ -108,6 +113,11 @@ namespace ElevenLabs
         {
             Unknown = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static McpServersItem FromUnknown(global::ElevenLabs.DependentUnknownMCPServerIdentifier? value) => new McpServersItem(value);
 
         /// <summary>
         /// 

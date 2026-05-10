@@ -124,6 +124,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static SchemaOverridesVariant1 FromConstant(global::ElevenLabs.ConstantSchemaOverride? value) => new SchemaOverridesVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator SchemaOverridesVariant1(global::ElevenLabs.DynamicVariableSchemaOverride value) => new SchemaOverridesVariant1((global::ElevenLabs.DynamicVariableSchemaOverride?)value);
 
         /// <summary>
@@ -142,6 +147,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static SchemaOverridesVariant1 FromDynamicVariable(global::ElevenLabs.DynamicVariableSchemaOverride? value) => new SchemaOverridesVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator SchemaOverridesVariant1(global::ElevenLabs.LLMSchemaOverride value) => new SchemaOverridesVariant1((global::ElevenLabs.LLMSchemaOverride?)value);
 
         /// <summary>
@@ -156,6 +166,11 @@ namespace ElevenLabs
         {
             Llm = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static SchemaOverridesVariant1 FromLlm(global::ElevenLabs.LLMSchemaOverride? value) => new SchemaOverridesVariant1(value);
 
         /// <summary>
         /// 

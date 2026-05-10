@@ -95,6 +95,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static DependentAgentsItem2 FromAvailable(global::ElevenLabs.DependentAvailableAgentIdentifier? value) => new DependentAgentsItem2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator DependentAgentsItem2(global::ElevenLabs.DependentUnknownAgentIdentifier value) => new DependentAgentsItem2((global::ElevenLabs.DependentUnknownAgentIdentifier?)value);
 
         /// <summary>
@@ -109,6 +114,11 @@ namespace ElevenLabs
         {
             Unknown = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static DependentAgentsItem2 FromUnknown(global::ElevenLabs.DependentUnknownAgentIdentifier? value) => new DependentAgentsItem2(value);
 
         /// <summary>
         /// 

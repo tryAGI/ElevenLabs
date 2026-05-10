@@ -286,6 +286,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params2 FromEndCall(global::ElevenLabs.EndCallToolConfig? value) => new Params2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params2(global::ElevenLabs.LanguageDetectionToolConfig value) => new Params2((global::ElevenLabs.LanguageDetectionToolConfig?)value);
 
         /// <summary>
@@ -300,6 +305,11 @@ namespace ElevenLabs
         {
             LanguageDetection = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params2 FromLanguageDetection(global::ElevenLabs.LanguageDetectionToolConfig? value) => new Params2(value);
 
         /// <summary>
         /// 
@@ -322,6 +332,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params2 FromTransferToAgent(global::ElevenLabs.TransferToAgentToolConfig? value) => new Params2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params2(global::ElevenLabs.TransferToNumberToolConfigInput value) => new Params2((global::ElevenLabs.TransferToNumberToolConfigInput?)value);
 
         /// <summary>
@@ -336,6 +351,11 @@ namespace ElevenLabs
         {
             TransferToNumber = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params2 FromTransferToNumber(global::ElevenLabs.TransferToNumberToolConfigInput? value) => new Params2(value);
 
         /// <summary>
         /// 
@@ -358,6 +378,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params2 FromSkipTurn(global::ElevenLabs.SkipTurnToolConfig? value) => new Params2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params2(global::ElevenLabs.PlayDTMFToolConfig value) => new Params2((global::ElevenLabs.PlayDTMFToolConfig?)value);
 
         /// <summary>
@@ -372,6 +397,11 @@ namespace ElevenLabs
         {
             PlayKeypadTouchTone = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params2 FromPlayKeypadTouchTone(global::ElevenLabs.PlayDTMFToolConfig? value) => new Params2(value);
 
         /// <summary>
         /// 
@@ -394,6 +424,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static Params2 FromVoicemailDetection(global::ElevenLabs.VoicemailDetectionToolConfig? value) => new Params2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params2(global::ElevenLabs.KnowledgeBaseRagToolConfig value) => new Params2((global::ElevenLabs.KnowledgeBaseRagToolConfig?)value);
 
         /// <summary>
@@ -408,6 +443,11 @@ namespace ElevenLabs
         {
             KnowledgeBaseRag = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params2 FromKnowledgeBaseRag(global::ElevenLabs.KnowledgeBaseRagToolConfig? value) => new Params2(value);
 
         /// <summary>
         /// 

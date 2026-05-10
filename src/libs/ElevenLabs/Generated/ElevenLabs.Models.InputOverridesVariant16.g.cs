@@ -124,6 +124,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static InputOverridesVariant16 FromConstant(global::ElevenLabs.ConstantSchemaOverride? value) => new InputOverridesVariant16(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator InputOverridesVariant16(global::ElevenLabs.DynamicVariableSchemaOverride value) => new InputOverridesVariant16((global::ElevenLabs.DynamicVariableSchemaOverride?)value);
 
         /// <summary>
@@ -142,6 +147,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static InputOverridesVariant16 FromDynamicVariable(global::ElevenLabs.DynamicVariableSchemaOverride? value) => new InputOverridesVariant16(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator InputOverridesVariant16(global::ElevenLabs.LLMSchemaOverride value) => new InputOverridesVariant16((global::ElevenLabs.LLMSchemaOverride?)value);
 
         /// <summary>
@@ -156,6 +166,11 @@ namespace ElevenLabs
         {
             Llm = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static InputOverridesVariant16 FromLlm(global::ElevenLabs.LLMSchemaOverride? value) => new InputOverridesVariant16(value);
 
         /// <summary>
         /// 

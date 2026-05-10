@@ -96,6 +96,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static CustomSipHeadersItem FromDynamic1(global::ElevenLabs.CustomSIPHeader? value) => new CustomSipHeadersItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator CustomSipHeadersItem(global::ElevenLabs.CustomSIPHeaderWithDynamicVariable value) => new CustomSipHeadersItem((global::ElevenLabs.CustomSIPHeaderWithDynamicVariable?)value);
 
         /// <summary>
@@ -110,6 +115,11 @@ namespace ElevenLabs
         {
             Dynamic2 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static CustomSipHeadersItem FromDynamic2(global::ElevenLabs.CustomSIPHeaderWithDynamicVariable? value) => new CustomSipHeadersItem(value);
 
         /// <summary>
         /// 

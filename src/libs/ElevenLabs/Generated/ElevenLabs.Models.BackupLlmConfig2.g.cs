@@ -124,6 +124,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static BackupLlmConfig2 FromDefault(global::ElevenLabs.BackupLLMDefault? value) => new BackupLlmConfig2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator BackupLlmConfig2(global::ElevenLabs.BackupLLMDisabled value) => new BackupLlmConfig2((global::ElevenLabs.BackupLLMDisabled?)value);
 
         /// <summary>
@@ -142,6 +147,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static BackupLlmConfig2 FromDisabled(global::ElevenLabs.BackupLLMDisabled? value) => new BackupLlmConfig2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator BackupLlmConfig2(global::ElevenLabs.BackupLLMOverride value) => new BackupLlmConfig2((global::ElevenLabs.BackupLLMOverride?)value);
 
         /// <summary>
@@ -156,6 +166,11 @@ namespace ElevenLabs
         {
             Override = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static BackupLlmConfig2 FromOverride(global::ElevenLabs.BackupLLMOverride? value) => new BackupLlmConfig2(value);
 
         /// <summary>
         /// 

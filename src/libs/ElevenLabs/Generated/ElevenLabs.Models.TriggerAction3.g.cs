@@ -94,6 +94,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static TriggerAction3 FromEndCall(global::ElevenLabs.EndCallTriggerAction? value) => new TriggerAction3(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator TriggerAction3(global::ElevenLabs.RetryTriggerAction value) => new TriggerAction3((global::ElevenLabs.RetryTriggerAction?)value);
 
         /// <summary>
@@ -108,6 +113,11 @@ namespace ElevenLabs
         {
             Retry = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static TriggerAction3 FromRetry(global::ElevenLabs.RetryTriggerAction? value) => new TriggerAction3(value);
 
         /// <summary>
         /// 

@@ -209,6 +209,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static DynamicVariableValueTypeInput FromDynamicVariableValueTypeInputVariant1(string? value) => new DynamicVariableValueTypeInput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator DynamicVariableValueTypeInput(double value) => new DynamicVariableValueTypeInput((double?)value);
 
         /// <summary>
@@ -223,6 +228,11 @@ namespace ElevenLabs
         {
             DynamicVariableValueTypeInputVariant2 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static DynamicVariableValueTypeInput FromDynamicVariableValueTypeInputVariant2(double? value) => new DynamicVariableValueTypeInput(value);
 
         /// <summary>
         /// 
@@ -245,6 +255,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static DynamicVariableValueTypeInput FromDynamicVariableValueTypeInputVariant3(int? value) => new DynamicVariableValueTypeInput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator DynamicVariableValueTypeInput(bool value) => new DynamicVariableValueTypeInput((bool?)value);
 
         /// <summary>
@@ -259,6 +274,11 @@ namespace ElevenLabs
         {
             DynamicVariableValueTypeInputVariant4 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static DynamicVariableValueTypeInput FromDynamicVariableValueTypeInputVariant4(bool? value) => new DynamicVariableValueTypeInput(value);
 
         /// <summary>
         /// 

@@ -94,6 +94,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static GetOrCreateRagIndexesResponse2 FromSuccess(global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel? value) => new GetOrCreateRagIndexesResponse2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator GetOrCreateRagIndexesResponse2(global::ElevenLabs.BatchFailureResponseModel value) => new GetOrCreateRagIndexesResponse2((global::ElevenLabs.BatchFailureResponseModel?)value);
 
         /// <summary>
@@ -108,6 +113,11 @@ namespace ElevenLabs
         {
             Failure = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static GetOrCreateRagIndexesResponse2 FromFailure(global::ElevenLabs.BatchFailureResponseModel? value) => new GetOrCreateRagIndexesResponse2(value);
 
         /// <summary>
         /// 

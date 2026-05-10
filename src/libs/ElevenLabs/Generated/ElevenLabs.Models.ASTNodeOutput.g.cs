@@ -604,6 +604,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ASTNodeOutput FromStringLiteral(global::ElevenLabs.ASTStringNodeOutput? value) => new ASTNodeOutput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ASTNodeOutput(global::ElevenLabs.ASTNumberNodeOutput value) => new ASTNodeOutput((global::ElevenLabs.ASTNumberNodeOutput?)value);
 
         /// <summary>
@@ -618,6 +623,11 @@ namespace ElevenLabs
         {
             NumberLiteral = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ASTNodeOutput FromNumberLiteral(global::ElevenLabs.ASTNumberNodeOutput? value) => new ASTNodeOutput(value);
 
         /// <summary>
         /// 
@@ -640,6 +650,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ASTNodeOutput FromBooleanLiteral(global::ElevenLabs.ASTBooleanNodeOutput? value) => new ASTNodeOutput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ASTNodeOutput(global::ElevenLabs.ASTNullNodeOutput value) => new ASTNodeOutput((global::ElevenLabs.ASTNullNodeOutput?)value);
 
         /// <summary>
@@ -654,6 +669,11 @@ namespace ElevenLabs
         {
             NullLiteral = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ASTNodeOutput FromNullLiteral(global::ElevenLabs.ASTNullNodeOutput? value) => new ASTNodeOutput(value);
 
         /// <summary>
         /// 
@@ -676,6 +696,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ASTNodeOutput FromLlm(global::ElevenLabs.ASTLLMNodeOutput? value) => new ASTNodeOutput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ASTNodeOutput(global::ElevenLabs.ASTDynamicVariableNodeOutput value) => new ASTNodeOutput((global::ElevenLabs.ASTDynamicVariableNodeOutput?)value);
 
         /// <summary>
@@ -690,6 +715,11 @@ namespace ElevenLabs
         {
             DynamicVariable = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ASTNodeOutput FromDynamicVariable(global::ElevenLabs.ASTDynamicVariableNodeOutput? value) => new ASTNodeOutput(value);
 
         /// <summary>
         /// 
@@ -712,6 +742,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ASTNodeOutput FromOrOperator(global::ElevenLabs.ASTOrOperatorNodeOutput? value) => new ASTNodeOutput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ASTNodeOutput(global::ElevenLabs.ASTAndOperatorNodeOutput value) => new ASTNodeOutput((global::ElevenLabs.ASTAndOperatorNodeOutput?)value);
 
         /// <summary>
@@ -726,6 +761,11 @@ namespace ElevenLabs
         {
             AndOperator = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ASTNodeOutput FromAndOperator(global::ElevenLabs.ASTAndOperatorNodeOutput? value) => new ASTNodeOutput(value);
 
         /// <summary>
         /// 
@@ -748,6 +788,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ASTNodeOutput FromEqOperator(global::ElevenLabs.ASTEqualsOperatorNodeOutput? value) => new ASTNodeOutput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ASTNodeOutput(global::ElevenLabs.ASTNotEqualsOperatorNodeOutput value) => new ASTNodeOutput((global::ElevenLabs.ASTNotEqualsOperatorNodeOutput?)value);
 
         /// <summary>
@@ -762,6 +807,11 @@ namespace ElevenLabs
         {
             NeqOperator = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ASTNodeOutput FromNeqOperator(global::ElevenLabs.ASTNotEqualsOperatorNodeOutput? value) => new ASTNodeOutput(value);
 
         /// <summary>
         /// 
@@ -784,6 +834,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ASTNodeOutput FromGtOperator(global::ElevenLabs.ASTGreaterThanOperatorNodeOutput? value) => new ASTNodeOutput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ASTNodeOutput(global::ElevenLabs.ASTLessThanOperatorNodeOutput value) => new ASTNodeOutput((global::ElevenLabs.ASTLessThanOperatorNodeOutput?)value);
 
         /// <summary>
@@ -798,6 +853,11 @@ namespace ElevenLabs
         {
             LtOperator = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ASTNodeOutput FromLtOperator(global::ElevenLabs.ASTLessThanOperatorNodeOutput? value) => new ASTNodeOutput(value);
 
         /// <summary>
         /// 
@@ -820,6 +880,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ASTNodeOutput FromGteOperator(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeOutput? value) => new ASTNodeOutput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ASTNodeOutput(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutput value) => new ASTNodeOutput((global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutput?)value);
 
         /// <summary>
@@ -834,6 +899,11 @@ namespace ElevenLabs
         {
             LteOperator = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ASTNodeOutput FromLteOperator(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutput? value) => new ASTNodeOutput(value);
 
         /// <summary>
         /// 
@@ -856,6 +926,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ASTNodeOutput FromAddOperator(global::ElevenLabs.ASTAdditionOperatorNodeOutput? value) => new ASTNodeOutput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ASTNodeOutput(global::ElevenLabs.ASTSubtractionOperatorNodeOutput value) => new ASTNodeOutput((global::ElevenLabs.ASTSubtractionOperatorNodeOutput?)value);
 
         /// <summary>
@@ -870,6 +945,11 @@ namespace ElevenLabs
         {
             SubOperator = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ASTNodeOutput FromSubOperator(global::ElevenLabs.ASTSubtractionOperatorNodeOutput? value) => new ASTNodeOutput(value);
 
         /// <summary>
         /// 
@@ -892,6 +972,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ASTNodeOutput FromMulOperator(global::ElevenLabs.ASTMultiplicationOperatorNodeOutput? value) => new ASTNodeOutput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ASTNodeOutput(global::ElevenLabs.ASTDivisionOperatorNodeOutput value) => new ASTNodeOutput((global::ElevenLabs.ASTDivisionOperatorNodeOutput?)value);
 
         /// <summary>
@@ -910,6 +995,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static ASTNodeOutput FromDivOperator(global::ElevenLabs.ASTDivisionOperatorNodeOutput? value) => new ASTNodeOutput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ASTNodeOutput(global::ElevenLabs.ASTConditionalOperatorNodeOutput value) => new ASTNodeOutput((global::ElevenLabs.ASTConditionalOperatorNodeOutput?)value);
 
         /// <summary>
@@ -924,6 +1014,11 @@ namespace ElevenLabs
         {
             ConditionalOperator = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ASTNodeOutput FromConditionalOperator(global::ElevenLabs.ASTConditionalOperatorNodeOutput? value) => new ASTNodeOutput(value);
 
         /// <summary>
         /// 

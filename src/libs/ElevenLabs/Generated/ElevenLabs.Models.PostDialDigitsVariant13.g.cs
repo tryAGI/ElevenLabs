@@ -94,6 +94,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static PostDialDigitsVariant13 FromStatic(global::ElevenLabs.PostDialDigitsStatic? value) => new PostDialDigitsVariant13(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator PostDialDigitsVariant13(global::ElevenLabs.PostDialDigitsDynamicVariable value) => new PostDialDigitsVariant13((global::ElevenLabs.PostDialDigitsDynamicVariable?)value);
 
         /// <summary>
@@ -108,6 +113,11 @@ namespace ElevenLabs
         {
             Dynamic = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static PostDialDigitsVariant13 FromDynamic(global::ElevenLabs.PostDialDigitsDynamicVariable? value) => new PostDialDigitsVariant13(value);
 
         /// <summary>
         /// 

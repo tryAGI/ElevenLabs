@@ -154,6 +154,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static RefreshUrlDocumentRouteResponse FromUrl(global::ElevenLabs.GetKnowledgeBaseURLResponseModel? value) => new RefreshUrlDocumentRouteResponse(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator RefreshUrlDocumentRouteResponse(global::ElevenLabs.GetKnowledgeBaseFileResponseModel value) => new RefreshUrlDocumentRouteResponse((global::ElevenLabs.GetKnowledgeBaseFileResponseModel?)value);
 
         /// <summary>
@@ -168,6 +173,11 @@ namespace ElevenLabs
         {
             File = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static RefreshUrlDocumentRouteResponse FromFile(global::ElevenLabs.GetKnowledgeBaseFileResponseModel? value) => new RefreshUrlDocumentRouteResponse(value);
 
         /// <summary>
         /// 
@@ -190,6 +200,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static RefreshUrlDocumentRouteResponse FromText(global::ElevenLabs.GetKnowledgeBaseTextResponseModel? value) => new RefreshUrlDocumentRouteResponse(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator RefreshUrlDocumentRouteResponse(global::ElevenLabs.GetKnowledgeBaseFolderResponseModel value) => new RefreshUrlDocumentRouteResponse((global::ElevenLabs.GetKnowledgeBaseFolderResponseModel?)value);
 
         /// <summary>
@@ -204,6 +219,11 @@ namespace ElevenLabs
         {
             Folder = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static RefreshUrlDocumentRouteResponse FromFolder(global::ElevenLabs.GetKnowledgeBaseFolderResponseModel? value) => new RefreshUrlDocumentRouteResponse(value);
 
         /// <summary>
         /// 

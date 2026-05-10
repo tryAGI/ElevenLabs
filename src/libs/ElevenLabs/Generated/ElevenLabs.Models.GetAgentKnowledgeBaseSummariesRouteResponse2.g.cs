@@ -94,6 +94,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static GetAgentKnowledgeBaseSummariesRouteResponse2 FromSuccess(global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModel? value) => new GetAgentKnowledgeBaseSummariesRouteResponse2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator GetAgentKnowledgeBaseSummariesRouteResponse2(global::ElevenLabs.BatchFailureResponseModel value) => new GetAgentKnowledgeBaseSummariesRouteResponse2((global::ElevenLabs.BatchFailureResponseModel?)value);
 
         /// <summary>
@@ -108,6 +113,11 @@ namespace ElevenLabs
         {
             Failure = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static GetAgentKnowledgeBaseSummariesRouteResponse2 FromFailure(global::ElevenLabs.BatchFailureResponseModel? value) => new GetAgentKnowledgeBaseSummariesRouteResponse2(value);
 
         /// <summary>
         /// 

@@ -154,6 +154,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static TransferDestination FromPhone(global::ElevenLabs.PhoneNumberTransferDestination? value) => new TransferDestination(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator TransferDestination(global::ElevenLabs.SIPUriTransferDestination value) => new TransferDestination((global::ElevenLabs.SIPUriTransferDestination?)value);
 
         /// <summary>
@@ -168,6 +173,11 @@ namespace ElevenLabs
         {
             SipUri = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static TransferDestination FromSipUri(global::ElevenLabs.SIPUriTransferDestination? value) => new TransferDestination(value);
 
         /// <summary>
         /// 
@@ -190,6 +200,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static TransferDestination FromPhoneDynamicVariable(global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination? value) => new TransferDestination(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator TransferDestination(global::ElevenLabs.SIPUriDynamicVariableTransferDestination value) => new TransferDestination((global::ElevenLabs.SIPUriDynamicVariableTransferDestination?)value);
 
         /// <summary>
@@ -204,6 +219,11 @@ namespace ElevenLabs
         {
             SipUriDynamicVariable = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static TransferDestination FromSipUriDynamicVariable(global::ElevenLabs.SIPUriDynamicVariableTransferDestination? value) => new TransferDestination(value);
 
         /// <summary>
         /// 

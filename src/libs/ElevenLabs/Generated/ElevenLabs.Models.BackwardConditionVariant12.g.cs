@@ -154,6 +154,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static BackwardConditionVariant12 FromUnconditional(global::ElevenLabs.WorkflowUnconditionalModelOutput? value) => new BackwardConditionVariant12(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator BackwardConditionVariant12(global::ElevenLabs.WorkflowLLMConditionModelOutput value) => new BackwardConditionVariant12((global::ElevenLabs.WorkflowLLMConditionModelOutput?)value);
 
         /// <summary>
@@ -168,6 +173,11 @@ namespace ElevenLabs
         {
             Llm = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static BackwardConditionVariant12 FromLlm(global::ElevenLabs.WorkflowLLMConditionModelOutput? value) => new BackwardConditionVariant12(value);
 
         /// <summary>
         /// 
@@ -190,6 +200,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static BackwardConditionVariant12 FromResult(global::ElevenLabs.WorkflowResultConditionModelOutput? value) => new BackwardConditionVariant12(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator BackwardConditionVariant12(global::ElevenLabs.WorkflowExpressionConditionModelOutput value) => new BackwardConditionVariant12((global::ElevenLabs.WorkflowExpressionConditionModelOutput?)value);
 
         /// <summary>
@@ -204,6 +219,11 @@ namespace ElevenLabs
         {
             Expression = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static BackwardConditionVariant12 FromExpression(global::ElevenLabs.WorkflowExpressionConditionModelOutput? value) => new BackwardConditionVariant12(value);
 
         /// <summary>
         /// 
