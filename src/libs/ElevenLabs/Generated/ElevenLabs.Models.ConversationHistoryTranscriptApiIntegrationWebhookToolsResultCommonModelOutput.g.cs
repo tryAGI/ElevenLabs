@@ -174,5 +174,6 @@ namespace ElevenLabs
         public ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput()
         {
         }
+
     }
 }

@@ -129,5 +129,6 @@ namespace ElevenLabs
         public WorkflowOverrideAgentNodeModelOutput()
         {
         }
+
     }
 }

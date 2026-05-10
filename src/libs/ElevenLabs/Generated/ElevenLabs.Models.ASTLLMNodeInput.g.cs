@@ -42,6 +42,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.ASTLLMNodeInputASTLLMNode PickASTLLMNode1() => IsASTLLMNode1
+            ? ASTLLMNode1!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ASTLLMNode1' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ASTLLMNodeInputASTLLMNode2? ASTLLMNode2 { get; init; }
 #else
@@ -68,6 +75,13 @@ namespace ElevenLabs
             value = ASTLLMNode2;
             return IsASTLLMNode2;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTLLMNodeInputASTLLMNode2 PickASTLLMNode2() => IsASTLLMNode2
+            ? ASTLLMNode2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ASTLLMNode2' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

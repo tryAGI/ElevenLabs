@@ -95,5 +95,6 @@ namespace ElevenLabs
         public GetConvAISettingsResponseModel()
         {
         }
+
     }
 }

@@ -250,5 +250,6 @@ namespace ElevenLabs
         public WidgetStyles()
         {
         }
+
     }
 }

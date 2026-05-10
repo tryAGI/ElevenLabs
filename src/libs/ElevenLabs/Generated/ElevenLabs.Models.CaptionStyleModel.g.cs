@@ -273,5 +273,6 @@ namespace ElevenLabs
         public CaptionStyleModel()
         {
         }
+
     }
 }

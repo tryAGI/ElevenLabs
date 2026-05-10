@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.SongSourceContext PickMusicExploreSong1() => IsMusicExploreSong1
+            ? MusicExploreSong1!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'MusicExploreSong1' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.MusicExploreSongSourceContext? MusicExploreSong2 { get; init; }
 #else
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = MusicExploreSong2;
             return IsMusicExploreSong2;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.MusicExploreSongSourceContext PickMusicExploreSong2() => IsMusicExploreSong2
+            ? MusicExploreSong2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'MusicExploreSong2' but the value was {ToString()}.");
 
         /// <summary>
         /// Context for sound effect clips.
@@ -103,6 +117,13 @@ namespace ElevenLabs
             value = Sfx;
             return IsSfx;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.SfxSourceContext PickSfx() => IsSfx
+            ? Sfx!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Sfx' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

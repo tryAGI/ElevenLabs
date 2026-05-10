@@ -52,5 +52,18 @@ namespace ElevenLabs
         public LLMParameterEvaluationStrategy()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="LLMParameterEvaluationStrategy"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static LLMParameterEvaluationStrategy FromDescription(string description)
+        {
+            return new LLMParameterEvaluationStrategy
+            {
+                Description = description,
+            };
+        }
+
     }
 }

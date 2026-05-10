@@ -58,5 +58,6 @@ namespace ElevenLabs
         public ConversationHistoryMultivoiceMessagePartModel()
         {
         }
+
     }
 }

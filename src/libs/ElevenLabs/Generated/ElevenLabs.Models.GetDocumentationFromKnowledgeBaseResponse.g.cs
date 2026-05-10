@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.GetKnowledgeBaseURLResponseModel PickUrl() => IsUrl
+            ? Url!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Url' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetKnowledgeBaseFileResponseModel? File { get; init; }
 #else
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = File;
             return IsFile;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.GetKnowledgeBaseFileResponseModel PickFile() => IsFile
+            ? File!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'File' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -107,6 +121,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.GetKnowledgeBaseTextResponseModel PickText() => IsText
+            ? Text!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetKnowledgeBaseFolderResponseModel? Folder { get; init; }
 #else
@@ -133,6 +154,13 @@ namespace ElevenLabs
             value = Folder;
             return IsFolder;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.GetKnowledgeBaseFolderResponseModel PickFolder() => IsFolder
+            ? Folder!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Folder' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

@@ -363,5 +363,6 @@ namespace ElevenLabs
         public ExtendedSubscriptionResponseModel()
         {
         }
+
     }
 }

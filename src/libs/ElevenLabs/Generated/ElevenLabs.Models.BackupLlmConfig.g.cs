@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.BackupLLMDefault PickDefault() => IsDefault
+            ? Default!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Default' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BackupLLMDisabled? Disabled { get; init; }
 #else
@@ -77,6 +84,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.BackupLLMDisabled PickDisabled() => IsDisabled
+            ? Disabled!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Disabled' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BackupLLMOverride? Override { get; init; }
 #else
@@ -103,6 +117,13 @@ namespace ElevenLabs
             value = Override;
             return IsOverride;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.BackupLLMOverride PickOverride() => IsOverride
+            ? Override!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Override' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

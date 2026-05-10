@@ -617,5 +617,6 @@ namespace ElevenLabs
         public WidgetConfigInput()
         {
         }
+
     }
 }

@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.GetResponseUnitTestResponseModel PickLlm() => IsLlm
+            ? Llm!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Llm' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetToolCallUnitTestResponseModel? Tool { get; init; }
 #else
@@ -77,6 +84,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.GetToolCallUnitTestResponseModel PickTool() => IsTool
+            ? Tool!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Tool' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetSimulationTestResponseModel? Simulation { get; init; }
 #else
@@ -103,6 +117,13 @@ namespace ElevenLabs
             value = Simulation;
             return IsSimulation;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.GetSimulationTestResponseModel PickSimulation() => IsSimulation
+            ? Simulation!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Simulation' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

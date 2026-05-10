@@ -52,5 +52,18 @@ namespace ElevenLabs
         public RAGIndexBatchSuccessfulResponseModel()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="RAGIndexBatchSuccessfulResponseModel"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static RAGIndexBatchSuccessfulResponseModel FromData(global::ElevenLabs.RAGDocumentIndexResponseModel data)
+        {
+            return new RAGIndexBatchSuccessfulResponseModel
+            {
+                Data = data,
+            };
+        }
+
     }
 }

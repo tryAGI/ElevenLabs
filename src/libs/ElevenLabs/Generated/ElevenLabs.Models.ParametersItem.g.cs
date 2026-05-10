@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.WhatsAppTemplateTextParam PickText() => IsText
+            ? Text!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppTemplateImageParam? Image { get; init; }
 #else
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = Image;
             return IsImage;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.WhatsAppTemplateImageParam PickImage() => IsImage
+            ? Image!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Image' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -107,6 +121,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.WhatsAppTemplateDocumentParam PickDocument() => IsDocument
+            ? Document!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Document' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppTemplateLocationParam? Location { get; init; }
 #else
@@ -133,6 +154,13 @@ namespace ElevenLabs
             value = Location;
             return IsLocation;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.WhatsAppTemplateLocationParam PickLocation() => IsLocation
+            ? Location!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Location' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

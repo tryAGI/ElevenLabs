@@ -66,5 +66,6 @@ namespace ElevenLabs.Realtime
         public ErrorPayload()
         {
         }
+
     }
 }

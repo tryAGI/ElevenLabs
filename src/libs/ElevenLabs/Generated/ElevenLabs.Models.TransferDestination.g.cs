@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.PhoneNumberTransferDestination PickPhone() => IsPhone
+            ? Phone!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Phone' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SIPUriTransferDestination? SipUri { get; init; }
 #else
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = SipUri;
             return IsSipUri;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.SIPUriTransferDestination PickSipUri() => IsSipUri
+            ? SipUri!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SipUri' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -107,6 +121,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination PickPhoneDynamicVariable() => IsPhoneDynamicVariable
+            ? PhoneDynamicVariable!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'PhoneDynamicVariable' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SIPUriDynamicVariableTransferDestination? SipUriDynamicVariable { get; init; }
 #else
@@ -133,6 +154,13 @@ namespace ElevenLabs
             value = SipUriDynamicVariable;
             return IsSipUriDynamicVariable;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.SIPUriDynamicVariableTransferDestination PickSipUriDynamicVariable() => IsSipUriDynamicVariable
+            ? SipUriDynamicVariable!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SipUriDynamicVariable' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

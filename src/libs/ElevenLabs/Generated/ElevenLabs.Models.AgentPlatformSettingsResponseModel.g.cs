@@ -230,5 +230,6 @@ namespace ElevenLabs
         public AgentPlatformSettingsResponseModel()
         {
         }
+
     }
 }

@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails PickWebhook() => IsWebhook
+            ? Webhook!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Webhook' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? Client { get; init; }
 #else
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = Client;
             return IsClient;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails PickClient() => IsClient
+            ? Client!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Client' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -107,6 +121,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails PickMcp() => IsMcp
+            ? Mcp!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Mcp' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput? ApiIntegrationWebhook { get; init; }
 #else
@@ -133,6 +154,13 @@ namespace ElevenLabs
             value = ApiIntegrationWebhook;
             return IsApiIntegrationWebhook;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput PickApiIntegrationWebhook() => IsApiIntegrationWebhook
+            ? ApiIntegrationWebhook!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ApiIntegrationWebhook' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

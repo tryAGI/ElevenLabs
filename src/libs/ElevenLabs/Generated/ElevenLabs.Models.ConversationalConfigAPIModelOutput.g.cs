@@ -125,5 +125,6 @@ namespace ElevenLabs
         public ConversationalConfigAPIModelOutput()
         {
         }
+
     }
 }

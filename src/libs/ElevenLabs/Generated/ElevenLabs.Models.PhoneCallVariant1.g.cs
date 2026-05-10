@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel PickTwilio() => IsTwilio
+            ? Twilio!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Twilio' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel? SipTrunking { get; init; }
 #else
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = SipTrunking;
             return IsSipTrunking;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel PickSipTrunking() => IsSipTrunking
+            ? SipTrunking!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SipTrunking' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

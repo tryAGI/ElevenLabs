@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.EndCallToolConfig PickEndCall() => IsEndCall
+            ? EndCall!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'EndCall' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.LanguageDetectionToolConfig? LanguageDetection { get; init; }
 #else
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = LanguageDetection;
             return IsLanguageDetection;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.LanguageDetectionToolConfig PickLanguageDetection() => IsLanguageDetection
+            ? LanguageDetection!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'LanguageDetection' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -107,6 +121,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.TransferToAgentToolConfig PickTransferToAgent() => IsTransferToAgent
+            ? TransferToAgent!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToAgent' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToNumberToolConfigOutput? TransferToNumber { get; init; }
 #else
@@ -133,6 +154,13 @@ namespace ElevenLabs
             value = TransferToNumber;
             return IsTransferToNumber;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.TransferToNumberToolConfigOutput PickTransferToNumber() => IsTransferToNumber
+            ? TransferToNumber!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToNumber' but the value was {ToString()}.");
 
         /// <summary>
         /// Allows the agent to explicitly skip its turn.<br/>
@@ -172,6 +200,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.SkipTurnToolConfig PickSkipTurn() => IsSkipTurn
+            ? SkipTurn!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SkipTurn' but the value was {ToString()}.");
+
+        /// <summary>
         /// Allows the agent to play DTMF tones during a phone call.<br/>
         /// This tool can be used to interact with automated phone systems, such as<br/>
         /// navigating phone menus, entering extensions, or inputting numeric codes.
@@ -202,6 +237,13 @@ namespace ElevenLabs
             value = PlayKeypadTouchTone;
             return IsPlayKeypadTouchTone;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.PlayDTMFToolConfig PickPlayKeypadTouchTone() => IsPlayKeypadTouchTone
+            ? PlayKeypadTouchTone!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'PlayKeypadTouchTone' but the value was {ToString()}.");
 
         /// <summary>
         /// Allows the agent to detect when a voicemail system is encountered.<br/>
@@ -239,6 +281,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.VoicemailDetectionToolConfig PickVoicemailDetection() => IsVoicemailDetection
+            ? VoicemailDetection!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'VoicemailDetection' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.KnowledgeBaseRagToolConfig? KnowledgeBaseRag { get; init; }
 #else
@@ -265,6 +314,13 @@ namespace ElevenLabs
             value = KnowledgeBaseRag;
             return IsKnowledgeBaseRag;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.KnowledgeBaseRagToolConfig PickKnowledgeBaseRag() => IsKnowledgeBaseRag
+            ? KnowledgeBaseRag!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeBaseRag' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.EndCallTriggerAction PickEndCall() => IsEndCall
+            ? EndCall!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'EndCall' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.RetryTriggerAction? Retry { get; init; }
 #else
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = Retry;
             return IsRetry;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.RetryTriggerAction PickRetry() => IsRetry
+            ? Retry!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Retry' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

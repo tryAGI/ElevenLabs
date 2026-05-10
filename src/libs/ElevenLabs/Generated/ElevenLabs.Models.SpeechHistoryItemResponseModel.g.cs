@@ -247,5 +247,6 @@ namespace ElevenLabs
         public SpeechHistoryItemResponseModel()
         {
         }
+
     }
 }

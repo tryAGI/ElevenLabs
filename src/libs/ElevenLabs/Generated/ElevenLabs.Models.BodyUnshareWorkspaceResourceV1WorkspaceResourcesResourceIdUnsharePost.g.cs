@@ -76,5 +76,6 @@ namespace ElevenLabs
         public BodyUnshareWorkspaceResourceV1WorkspaceResourcesResourceIdUnsharePost()
         {
         }
+
     }
 }

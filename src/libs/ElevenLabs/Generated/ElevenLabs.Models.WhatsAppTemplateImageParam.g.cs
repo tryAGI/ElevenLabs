@@ -51,5 +51,6 @@ namespace ElevenLabs
         public WhatsAppTemplateImageParam()
         {
         }
+
     }
 }

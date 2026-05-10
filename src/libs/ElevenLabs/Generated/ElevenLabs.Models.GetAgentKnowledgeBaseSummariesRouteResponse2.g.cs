@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModel PickSuccess() => IsSuccess
+            ? Success!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Success' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BatchFailureResponseModel? Failure { get; init; }
 #else
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = Failure;
             return IsFailure;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.BatchFailureResponseModel PickFailure() => IsFailure
+            ? Failure!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Failure' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

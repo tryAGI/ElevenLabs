@@ -62,5 +62,6 @@ namespace ElevenLabs
         public LLMLiteralJsonSchemaProperty()
         {
         }
+
     }
 }

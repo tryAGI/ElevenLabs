@@ -262,5 +262,6 @@ namespace ElevenLabs
         public WorkspaceAuditLogEntryResponse()
         {
         }
+
     }
 }

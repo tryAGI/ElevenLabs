@@ -55,5 +55,18 @@ namespace ElevenLabs
         public AgentSummaryBatchSuccessfulResponseModel()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="AgentSummaryBatchSuccessfulResponseModel"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static AgentSummaryBatchSuccessfulResponseModel FromData(global::ElevenLabs.AgentSummaryResponseModel data)
+        {
+            return new AgentSummaryBatchSuccessfulResponseModel
+            {
+                Data = data,
+            };
+        }
+
     }
 }

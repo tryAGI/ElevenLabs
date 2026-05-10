@@ -56504,6 +56504,17 @@
               }
             ],
             "description": "Deprecation information if this model is deprecated or scheduled for deprecation. Null if the model is not affected."
+          },
+          "regional_processing_surcharge": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RegionalProcessingSurchargeInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Regional processing surcharge details if this model has additional costs in the current deployment region. Null if no surcharge applies."
           }
         },
         "type": "object",
@@ -56588,6 +56599,17 @@
               }
             ],
             "description": "Deprecation information if this model is deprecated or scheduled for deprecation. Null if the model is not affected."
+          },
+          "regional_processing_surcharge": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RegionalProcessingSurchargeInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Regional processing surcharge details if this model has additional costs in the current deployment region. Null if no surcharge applies."
           }
         },
         "type": "object",
@@ -67081,6 +67103,23 @@
           "edge_location"
         ],
         "title": "RegionConfigRequest"
+      },
+      "RegionalProcessingSurchargeInfo": {
+        "properties": {
+          "multiplier": {
+            "type": "number",
+            "title": "Multiplier",
+            "description": "The surcharge multiplier applied to this model's pricing (e.g. 1.1 for a 10% surcharge)."
+          }
+        },
+        "type": "object",
+        "required": [
+          "multiplier"
+        ],
+        "title": "RegionalProcessingSurchargeInfo",
+        "example": {
+          "multiplier": 1.1
+        }
       },
       "RegisterForGroupSessionParams": {
         "properties": {

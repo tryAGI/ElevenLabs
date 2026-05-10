@@ -76,5 +76,6 @@ namespace ElevenLabs.Realtime
         public CommittedTranscriptWithTimestampsPayload()
         {
         }
+
     }
 }

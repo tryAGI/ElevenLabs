@@ -57,5 +57,18 @@ namespace ElevenLabs
         public PodcastBulletinMode()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="PodcastBulletinMode"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static PodcastBulletinMode FromBulletin(global::ElevenLabs.PodcastBulletinModeData bulletin)
+        {
+            return new PodcastBulletinMode
+            {
+                Bulletin = bulletin,
+            };
+        }
+
     }
 }

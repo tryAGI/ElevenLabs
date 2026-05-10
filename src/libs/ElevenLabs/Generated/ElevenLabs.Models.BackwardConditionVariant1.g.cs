@@ -45,6 +45,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.WorkflowUnconditionalModelInput PickUnconditional() => IsUnconditional
+            ? Unconditional!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Unconditional' but the value was {ToString()}.");
+
+        /// <summary>
         /// Condition described using human language and evaluated by an LLM.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = Llm;
             return IsLlm;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.WorkflowLLMConditionModelInput PickLlm() => IsLlm
+            ? Llm!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Llm' but the value was {ToString()}.");
 
         /// <summary>
         /// Condition based on the result of the last executed tool dispatch node.
@@ -105,6 +119,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.WorkflowResultConditionModelInput PickResult() => IsResult
+            ? Result!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Result' but the value was {ToString()}.");
+
+        /// <summary>
         /// Condition described using a deterministic expression.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -133,6 +154,13 @@ namespace ElevenLabs
             value = Expression;
             return IsExpression;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.WorkflowExpressionConditionModelInput PickExpression() => IsExpression
+            ? Expression!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Expression' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

@@ -115,5 +115,6 @@ namespace ElevenLabs
         public ConversationConfigOutput()
         {
         }
+
     }
 }

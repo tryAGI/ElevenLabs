@@ -73,5 +73,6 @@ namespace ElevenLabs
         public BodyInviteUserV1WorkspaceInvitesAddPost()
         {
         }
+
     }
 }

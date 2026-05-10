@@ -42,6 +42,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public string PickDynamicVariableValueTypeInputVariant1() => IsDynamicVariableValueTypeInputVariant1
+            ? DynamicVariableValueTypeInputVariant1!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DynamicVariableValueTypeInputVariant1' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public double? DynamicVariableValueTypeInputVariant2 { get; init; }
 #else
@@ -68,6 +75,13 @@ namespace ElevenLabs
             value = DynamicVariableValueTypeInputVariant2;
             return IsDynamicVariableValueTypeInputVariant2;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public double PickDynamicVariableValueTypeInputVariant2() => IsDynamicVariableValueTypeInputVariant2
+            ? DynamicVariableValueTypeInputVariant2!.Value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DynamicVariableValueTypeInputVariant2' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -102,6 +116,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public int PickDynamicVariableValueTypeInputVariant3() => IsDynamicVariableValueTypeInputVariant3
+            ? DynamicVariableValueTypeInputVariant3!.Value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DynamicVariableValueTypeInputVariant3' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public bool? DynamicVariableValueTypeInputVariant4 { get; init; }
 #else
@@ -128,6 +149,13 @@ namespace ElevenLabs
             value = DynamicVariableValueTypeInputVariant4;
             return IsDynamicVariableValueTypeInputVariant4;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool PickDynamicVariableValueTypeInputVariant4() => IsDynamicVariableValueTypeInputVariant4
+            ? DynamicVariableValueTypeInputVariant4!.Value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DynamicVariableValueTypeInputVariant4' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -162,6 +190,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableNestedValueTypeInput> PickDynamicVariableValueTypeInputVariant5() => IsDynamicVariableValueTypeInputVariant5
+            ? DynamicVariableValueTypeInputVariant5!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DynamicVariableValueTypeInputVariant5' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public object? DynamicVariableValueTypeInputVariant6 { get; init; }
 #else
@@ -188,6 +223,13 @@ namespace ElevenLabs
             value = DynamicVariableValueTypeInputVariant6;
             return IsDynamicVariableValueTypeInputVariant6;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public object PickDynamicVariableValueTypeInputVariant6() => IsDynamicVariableValueTypeInputVariant6
+            ? DynamicVariableValueTypeInputVariant6!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DynamicVariableValueTypeInputVariant6' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

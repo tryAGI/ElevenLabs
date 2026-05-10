@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.WhatsAppTemplateHeaderComponentParams PickHeader() => IsHeader
+            ? Header!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Header' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppTemplateBodyComponentParams? Body { get; init; }
 #else
@@ -77,6 +84,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.WhatsAppTemplateBodyComponentParams PickBody() => IsBody
+            ? Body!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Body' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppTemplateButtonComponentParams? Button { get; init; }
 #else
@@ -103,6 +117,13 @@ namespace ElevenLabs
             value = Button;
             return IsButton;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.WhatsAppTemplateButtonComponentParams PickButton() => IsButton
+            ? Button!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Button' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

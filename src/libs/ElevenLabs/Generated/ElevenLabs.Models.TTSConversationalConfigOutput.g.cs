@@ -183,5 +183,6 @@ namespace ElevenLabs
         public TTSConversationalConfigOutput()
         {
         }
+
     }
 }

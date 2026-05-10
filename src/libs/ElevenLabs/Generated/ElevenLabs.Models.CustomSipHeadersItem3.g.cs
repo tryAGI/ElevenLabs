@@ -45,6 +45,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.CustomSIPHeader PickDynamic1() => IsDynamic1
+            ? Dynamic1!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Dynamic1' but the value was {ToString()}.");
+
+        /// <summary>
         /// Custom SIP header for phone transfers with a dynamic variable reference.<br/>
         /// The value is a variable name that will be resolved at runtime.<br/>
         /// Value is not validated here since it will be substituted with actual value later.
@@ -75,6 +82,13 @@ namespace ElevenLabs
             value = Dynamic2;
             return IsDynamic2;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.CustomSIPHeaderWithDynamicVariable PickDynamic2() => IsDynamic2
+            ? Dynamic2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Dynamic2' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

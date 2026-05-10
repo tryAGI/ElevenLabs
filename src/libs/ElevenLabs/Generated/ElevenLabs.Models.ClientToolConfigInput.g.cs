@@ -218,5 +218,6 @@ namespace ElevenLabs
         public ClientToolConfigInput()
         {
         }
+
     }
 }
