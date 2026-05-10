@@ -179,5 +179,6 @@ namespace ElevenLabs
         public ApiIntegrationOAuth2AuthCodeResponse()
         {
         }
+
     }
 }

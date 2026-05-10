@@ -40,5 +40,6 @@ namespace ElevenLabs
         public ToolExecutionResponseModelToolCallDetailsVariant1Discriminator()
         {
         }
+
     }
 }

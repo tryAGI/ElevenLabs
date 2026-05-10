@@ -67,5 +67,6 @@ namespace ElevenLabs
         public ForcedAlignmentCharacterResponseModel()
         {
         }
+
     }
 }

@@ -45,6 +45,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.SearchClientsParams PickSearchClients() => IsSearchClients
+            ? SearchClients!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SearchClients' but the value was {ToString()}.");
+
+        /// <summary>
         /// List clients ordered by most recently updated, with an optional limit.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = ListClients;
             return IsListClients;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ListClientsParams PickListClients() => IsListClients
+            ? ListClients!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ListClients' but the value was {ToString()}.");
 
         /// <summary>
         /// Look up a client by their exact phone number.
@@ -105,6 +119,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.GetClientByPhoneParams PickGetClientByPhone() => IsGetClientByPhone
+            ? GetClientByPhone!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'GetClientByPhone' but the value was {ToString()}.");
+
+        /// <summary>
         /// Create a new client in the system.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -135,6 +156,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.CreateClientParams PickCreateClient() => IsCreateClient
+            ? CreateClient!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CreateClient' but the value was {ToString()}.");
+
+        /// <summary>
         /// Update an existing client's information.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -163,6 +191,13 @@ namespace ElevenLabs
             value = UpdateClient;
             return IsUpdateClient;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.UpdateClientParams PickUpdateClient() => IsUpdateClient
+            ? UpdateClient!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateClient' but the value was {ToString()}.");
 
         /// <summary>
         /// Delete an existing client from the system.
@@ -197,6 +232,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.DeleteClientParams PickDeleteClient() => IsDeleteClient
+            ? DeleteClient!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteClient' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListStaffParams? ListStaff { get; init; }
 #else
@@ -223,6 +265,13 @@ namespace ElevenLabs
             value = ListStaff;
             return IsListStaff;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ListStaffParams PickListStaff() => IsListStaff
+            ? ListStaff!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ListStaff' but the value was {ToString()}.");
 
         /// <summary>
         /// Create a new staff member in the system.
@@ -255,6 +304,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.CreateStaffParams PickCreateStaff() => IsCreateStaff
+            ? CreateStaff!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CreateStaff' but the value was {ToString()}.");
+
+        /// <summary>
         /// Update an existing staff member's information.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -283,6 +339,13 @@ namespace ElevenLabs
             value = UpdateStaff;
             return IsUpdateStaff;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.UpdateStaffParams PickUpdateStaff() => IsUpdateStaff
+            ? UpdateStaff!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateStaff' but the value was {ToString()}.");
 
         /// <summary>
         /// Delete an existing staff member from the system.
@@ -317,6 +380,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.DeleteStaffParams PickDeleteStaff() => IsDeleteStaff
+            ? DeleteStaff!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteStaff' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListAssetsParams? ListAssets { get; init; }
 #else
@@ -343,6 +413,13 @@ namespace ElevenLabs
             value = ListAssets;
             return IsListAssets;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ListAssetsParams PickListAssets() => IsListAssets
+            ? ListAssets!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ListAssets' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -377,6 +454,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.CreateAssetParams PickCreateAsset() => IsCreateAsset
+            ? CreateAsset!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CreateAsset' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateAssetParams? UpdateAsset { get; init; }
 #else
@@ -403,6 +487,13 @@ namespace ElevenLabs
             value = UpdateAsset;
             return IsUpdateAsset;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.UpdateAssetParams PickUpdateAsset() => IsUpdateAsset
+            ? UpdateAsset!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateAsset' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -437,6 +528,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.DeleteAssetParams PickDeleteAsset() => IsDeleteAsset
+            ? DeleteAsset!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteAsset' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListServicesParams? ListServices { get; init; }
 #else
@@ -463,6 +561,13 @@ namespace ElevenLabs
             value = ListServices;
             return IsListServices;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ListServicesParams PickListServices() => IsListServices
+            ? ListServices!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ListServices' but the value was {ToString()}.");
 
         /// <summary>
         /// Create a new service (classic, rental, or group) in the system.
@@ -495,6 +600,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.CreateServiceParams PickCreateService() => IsCreateService
+            ? CreateService!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CreateService' but the value was {ToString()}.");
+
+        /// <summary>
         /// Update an existing service's information.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -523,6 +635,13 @@ namespace ElevenLabs
             value = UpdateService;
             return IsUpdateService;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.UpdateServiceParams PickUpdateService() => IsUpdateService
+            ? UpdateService!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateService' but the value was {ToString()}.");
 
         /// <summary>
         /// Delete an existing service from the system.
@@ -557,6 +676,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.DeleteServiceParams PickDeleteService() => IsDeleteService
+            ? DeleteService!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteService' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListProductsParams? ListProducts { get; init; }
 #else
@@ -583,6 +709,13 @@ namespace ElevenLabs
             value = ListProducts;
             return IsListProducts;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ListProductsParams PickListProducts() => IsListProducts
+            ? ListProducts!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ListProducts' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -617,6 +750,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.CreateProductParams PickCreateProduct() => IsCreateProduct
+            ? CreateProduct!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CreateProduct' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateProductParams? UpdateProduct { get; init; }
 #else
@@ -643,6 +783,13 @@ namespace ElevenLabs
             value = UpdateProduct;
             return IsUpdateProduct;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.UpdateProductParams PickUpdateProduct() => IsUpdateProduct
+            ? UpdateProduct!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateProduct' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -677,6 +824,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.DeleteProductParams PickDeleteProduct() => IsDeleteProduct
+            ? DeleteProduct!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteProduct' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CheckServiceAvailabilityParams? CheckServiceAvailability { get; init; }
 #else
@@ -703,6 +857,13 @@ namespace ElevenLabs
             value = CheckServiceAvailability;
             return IsCheckServiceAvailability;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.CheckServiceAvailabilityParams PickCheckServiceAvailability() => IsCheckServiceAvailability
+            ? CheckServiceAvailability!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CheckServiceAvailability' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -737,6 +898,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.CreateClientAppointmentParams PickCreateClientAppointment() => IsCreateClientAppointment
+            ? CreateClientAppointment!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CreateClientAppointment' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetClientAppointmentsParams? GetClientAppointments { get; init; }
 #else
@@ -763,6 +931,13 @@ namespace ElevenLabs
             value = GetClientAppointments;
             return IsGetClientAppointments;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.GetClientAppointmentsParams PickGetClientAppointments() => IsGetClientAppointments
+            ? GetClientAppointments!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'GetClientAppointments' but the value was {ToString()}.");
 
         /// <summary>
         /// Look up an appointment by the booking confirmation number the caller quotes.<br/>
@@ -799,6 +974,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.GetAppointmentByConfirmationNumberParams PickGetAppointmentByConfirmationNumber() => IsGetAppointmentByConfirmationNumber
+            ? GetAppointmentByConfirmationNumber!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'GetAppointmentByConfirmationNumber' but the value was {ToString()}.");
+
+        /// <summary>
         /// List scheduled group sessions for a group service in a date range.<br/>
         /// Group services are scheduled in advance (e.g. yoga classes, workshops) and<br/>
         /// callers register against an existing session. Use this for group services;<br/>
@@ -830,6 +1012,13 @@ namespace ElevenLabs
             value = ListGroupSessions;
             return IsListGroupSessions;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ListGroupSessionsParams PickListGroupSessions() => IsListGroupSessions
+            ? ListGroupSessions!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ListGroupSessions' but the value was {ToString()}.");
 
         /// <summary>
         /// Schedule a single instance of a group service.<br/>
@@ -866,6 +1055,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ScheduleGroupSessionParams PickScheduleGroupSession() => IsScheduleGroupSession
+            ? ScheduleGroupSession!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ScheduleGroupSession' but the value was {ToString()}.");
+
+        /// <summary>
         /// Register a client for a scheduled group session.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -894,6 +1090,13 @@ namespace ElevenLabs
             value = RegisterForGroupSession;
             return IsRegisterForGroupSession;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.RegisterForGroupSessionParams PickRegisterForGroupSession() => IsRegisterForGroupSession
+            ? RegisterForGroupSession!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'RegisterForGroupSession' but the value was {ToString()}.");
 
         /// <summary>
         /// Cancel a single client's registration for a group session.
@@ -926,6 +1129,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.CancelGroupSessionRegistrationParams PickCancelGroupSessionRegistration() => IsCancelGroupSessionRegistration
+            ? CancelGroupSessionRegistration!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CancelGroupSessionRegistration' but the value was {ToString()}.");
+
+        /// <summary>
         /// Change the seat count of an existing group session registration.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -954,6 +1164,13 @@ namespace ElevenLabs
             value = UpdateGroupSessionSeats;
             return IsUpdateGroupSessionSeats;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.UpdateGroupSessionSeatsParams PickUpdateGroupSessionSeats() => IsUpdateGroupSessionSeats
+            ? UpdateGroupSessionSeats!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateGroupSessionSeats' but the value was {ToString()}.");
 
         /// <summary>
         /// Cancel an entire group session and notify every registered participant.<br/>
@@ -986,6 +1203,13 @@ namespace ElevenLabs
             value = CancelGroupSessionForAll;
             return IsCancelGroupSessionForAll;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.CancelGroupSessionForAllParams PickCancelGroupSessionForAll() => IsCancelGroupSessionForAll
+            ? CancelGroupSessionForAll!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CancelGroupSessionForAll' but the value was {ToString()}.");
 
         /// <summary>
         /// Permanently remove a previously-cancelled group session.<br/>
@@ -1026,6 +1250,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.DeleteGroupSessionParams PickDeleteGroupSession() => IsDeleteGroupSession
+            ? DeleteGroupSession!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteGroupSession' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListCalendarEventsParams? ListCalendarEvents { get; init; }
 #else
@@ -1052,6 +1283,13 @@ namespace ElevenLabs
             value = ListCalendarEvents;
             return IsListCalendarEvents;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ListCalendarEventsParams PickListCalendarEvents() => IsListCalendarEvents
+            ? ListCalendarEvents!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ListCalendarEvents' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -1086,6 +1324,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.UpdateCalendarEventParams PickUpdateCalendarEvent() => IsUpdateCalendarEvent
+            ? UpdateCalendarEvent!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateCalendarEvent' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CancelCalendarEventParams? CancelCalendarEvent { get; init; }
 #else
@@ -1112,6 +1357,13 @@ namespace ElevenLabs
             value = CancelCalendarEvent;
             return IsCancelCalendarEvent;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.CancelCalendarEventParams PickCancelCalendarEvent() => IsCancelCalendarEvent
+            ? CancelCalendarEvent!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CancelCalendarEvent' but the value was {ToString()}.");
 
         /// <summary>
         /// Permanently remove a previously-cancelled calendar event.<br/>
@@ -1149,6 +1401,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.DeleteCalendarEventParams PickDeleteCalendarEvent() => IsDeleteCalendarEvent
+            ? DeleteCalendarEvent!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteCalendarEvent' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListAgentRulesParams? ListAgentRules { get; init; }
 #else
@@ -1175,6 +1434,13 @@ namespace ElevenLabs
             value = ListAgentRules;
             return IsListAgentRules;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ListAgentRulesParams PickListAgentRules() => IsListAgentRules
+            ? ListAgentRules!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ListAgentRules' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -1209,6 +1475,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.CreateAgentRuleParams PickCreateAgentRule() => IsCreateAgentRule
+            ? CreateAgentRule!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CreateAgentRule' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateAgentRuleParams? UpdateAgentRule { get; init; }
 #else
@@ -1235,6 +1508,13 @@ namespace ElevenLabs
             value = UpdateAgentRule;
             return IsUpdateAgentRule;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.UpdateAgentRuleParams PickUpdateAgentRule() => IsUpdateAgentRule
+            ? UpdateAgentRule!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateAgentRule' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -1269,6 +1549,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.DeleteAgentRuleParams PickDeleteAgentRule() => IsDeleteAgentRule
+            ? DeleteAgentRule!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteAgentRule' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListHolidaysParams? ListHolidays { get; init; }
 #else
@@ -1295,6 +1582,13 @@ namespace ElevenLabs
             value = ListHolidays;
             return IsListHolidays;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ListHolidaysParams PickListHolidays() => IsListHolidays
+            ? ListHolidays!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ListHolidays' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -1329,6 +1623,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.CreateHolidayParams PickCreateHoliday() => IsCreateHoliday
+            ? CreateHoliday!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CreateHoliday' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateHolidayParams? UpdateHoliday { get; init; }
 #else
@@ -1355,6 +1656,13 @@ namespace ElevenLabs
             value = UpdateHoliday;
             return IsUpdateHoliday;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.UpdateHolidayParams PickUpdateHoliday() => IsUpdateHoliday
+            ? UpdateHoliday!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateHoliday' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -1389,6 +1697,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.DeleteHolidayParams PickDeleteHoliday() => IsDeleteHoliday
+            ? DeleteHoliday!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteHoliday' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetScheduleParams? GetSchedule { get; init; }
 #else
@@ -1415,6 +1730,13 @@ namespace ElevenLabs
             value = GetSchedule;
             return IsGetSchedule;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.GetScheduleParams PickGetSchedule() => IsGetSchedule
+            ? GetSchedule!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'GetSchedule' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -1449,6 +1771,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.UpdateBusinessInfoParams PickUpdateBusinessInfo() => IsUpdateBusinessInfo
+            ? UpdateBusinessInfo!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateBusinessInfo' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateCustomerFacingConfigParams? UpdateCustomerFacingConfig { get; init; }
 #else
@@ -1475,6 +1804,13 @@ namespace ElevenLabs
             value = UpdateCustomerFacingConfig;
             return IsUpdateCustomerFacingConfig;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.UpdateCustomerFacingConfigParams PickUpdateCustomerFacingConfig() => IsUpdateCustomerFacingConfig
+            ? UpdateCustomerFacingConfig!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateCustomerFacingConfig' but the value was {ToString()}.");
 
         /// <summary>
         /// Get a summary of key business analytics for a time period.
@@ -1509,6 +1845,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.GetAnalyticsSummaryParams PickGetAnalyticsSummary() => IsGetAnalyticsSummary
+            ? GetAnalyticsSummary!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'GetAnalyticsSummary' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetBookingPageSettingsParams? GetBookingPageSettings { get; init; }
 #else
@@ -1535,6 +1878,13 @@ namespace ElevenLabs
             value = GetBookingPageSettings;
             return IsGetBookingPageSettings;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.GetBookingPageSettingsParams PickGetBookingPageSettings() => IsGetBookingPageSettings
+            ? GetBookingPageSettings!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'GetBookingPageSettings' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -1569,6 +1919,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.UpdateBookingPageSettingsParams PickUpdateBookingPageSettings() => IsUpdateBookingPageSettings
+            ? UpdateBookingPageSettings!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateBookingPageSettings' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetBookingSlugStatusParams? GetBookingSlugStatus { get; init; }
 #else
@@ -1595,6 +1952,13 @@ namespace ElevenLabs
             value = GetBookingSlugStatus;
             return IsGetBookingSlugStatus;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.GetBookingSlugStatusParams PickGetBookingSlugStatus() => IsGetBookingSlugStatus
+            ? GetBookingSlugStatus!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'GetBookingSlugStatus' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -1629,6 +1993,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.SetBookingSlugParams PickSetBookingSlug() => IsSetBookingSlug
+            ? SetBookingSlug!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SetBookingSlug' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListClientInteractionsParams? ListClientInteractions { get; init; }
 #else
@@ -1655,6 +2026,13 @@ namespace ElevenLabs
             value = ListClientInteractions;
             return IsListClientInteractions;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ListClientInteractionsParams PickListClientInteractions() => IsListClientInteractions
+            ? ListClientInteractions!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ListClientInteractions' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -1689,6 +2067,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.CreateClientInteractionParams PickCreateClientInteraction() => IsCreateClientInteraction
+            ? CreateClientInteraction!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CreateClientInteraction' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteClientInteractionParams? DeleteClientInteraction { get; init; }
 #else
@@ -1715,6 +2100,13 @@ namespace ElevenLabs
             value = DeleteClientInteraction;
             return IsDeleteClientInteraction;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.DeleteClientInteractionParams PickDeleteClientInteraction() => IsDeleteClientInteraction
+            ? DeleteClientInteraction!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteClientInteraction' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -1749,6 +2141,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.ListLocationsParams PickListLocations() => IsListLocations
+            ? ListLocations!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ListLocations' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateLocationParams? CreateLocation { get; init; }
 #else
@@ -1775,6 +2174,13 @@ namespace ElevenLabs
             value = CreateLocation;
             return IsCreateLocation;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.CreateLocationParams PickCreateLocation() => IsCreateLocation
+            ? CreateLocation!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CreateLocation' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -1809,6 +2215,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.UpdateLocationParams PickUpdateLocation() => IsUpdateLocation
+            ? UpdateLocation!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateLocation' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteLocationParams? DeleteLocation { get; init; }
 #else
@@ -1835,6 +2248,13 @@ namespace ElevenLabs
             value = DeleteLocation;
             return IsDeleteLocation;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.DeleteLocationParams PickDeleteLocation() => IsDeleteLocation
+            ? DeleteLocation!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteLocation' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -1869,6 +2289,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.LeaveMessageParams PickLeaveMessage() => IsLeaveMessage
+            ? LeaveMessage!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'LeaveMessage' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ReportKnowledgeGapParams? ReportKnowledgeGap { get; init; }
 #else
@@ -1895,6 +2322,13 @@ namespace ElevenLabs
             value = ReportKnowledgeGap;
             return IsReportKnowledgeGap;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ReportKnowledgeGapParams PickReportKnowledgeGap() => IsReportKnowledgeGap
+            ? ReportKnowledgeGap!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ReportKnowledgeGap' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

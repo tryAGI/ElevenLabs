@@ -45,6 +45,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.DependentAvailableAgentIdentifier PickAvailable() => IsAvailable
+            ? Available!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Available' but the value was {ToString()}.");
+
+        /// <summary>
         /// A model that represents an agent dependent on a knowledge base/tools<br/>
         /// to which the user has no direct access.
         /// </summary>
@@ -74,6 +81,13 @@ namespace ElevenLabs
             value = Unknown;
             return IsUnknown;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.DependentUnknownAgentIdentifier PickUnknown() => IsUnknown
+            ? Unknown!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Unknown' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

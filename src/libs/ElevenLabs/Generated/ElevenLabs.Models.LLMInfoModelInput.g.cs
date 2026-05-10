@@ -73,6 +73,12 @@ namespace ElevenLabs
         public global::ElevenLabs.LLMDeprecationInfoModel? DeprecationInfo { get; set; }
 
         /// <summary>
+        /// Regional processing surcharge details if this model has additional costs in the current deployment region. Null if no surcharge applies.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("regional_processing_surcharge")]
+        public global::ElevenLabs.RegionalProcessingSurchargeInfo? RegionalProcessingSurcharge { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -109,6 +115,9 @@ namespace ElevenLabs
         /// <param name="deprecationInfo">
         /// Deprecation information if this model is deprecated or scheduled for deprecation. Null if the model is not affected.
         /// </param>
+        /// <param name="regionalProcessingSurcharge">
+        /// Regional processing surcharge details if this model has additional costs in the current deployment region. Null if no surcharge applies.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -121,7 +130,8 @@ namespace ElevenLabs
             bool supportsDocumentInput,
             bool supportsParallelToolCalls,
             global::System.Collections.Generic.IList<global::ElevenLabs.LLMReasoningEffort>? availableReasoningEfforts,
-            global::ElevenLabs.LLMDeprecationInfoModel? deprecationInfo)
+            global::ElevenLabs.LLMDeprecationInfoModel? deprecationInfo,
+            global::ElevenLabs.RegionalProcessingSurchargeInfo? regionalProcessingSurcharge)
         {
             this.Llm = llm;
             this.IsCheckpoint = isCheckpoint;
@@ -132,6 +142,7 @@ namespace ElevenLabs
             this.SupportsParallelToolCalls = supportsParallelToolCalls;
             this.AvailableReasoningEfforts = availableReasoningEfforts;
             this.DeprecationInfo = deprecationInfo;
+            this.RegionalProcessingSurcharge = regionalProcessingSurcharge;
         }
 
         /// <summary>
@@ -140,5 +151,6 @@ namespace ElevenLabs
         public LLMInfoModelInput()
         {
         }
+
     }
 }

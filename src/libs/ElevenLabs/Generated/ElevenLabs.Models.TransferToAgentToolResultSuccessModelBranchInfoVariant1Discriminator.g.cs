@@ -40,5 +40,6 @@ namespace ElevenLabs
         public TransferToAgentToolResultSuccessModelBranchInfoVariant1Discriminator()
         {
         }
+
     }
 }

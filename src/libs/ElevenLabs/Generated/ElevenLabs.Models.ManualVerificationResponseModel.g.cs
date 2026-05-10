@@ -66,5 +66,6 @@ namespace ElevenLabs
         public ManualVerificationResponseModel()
         {
         }
+
     }
 }

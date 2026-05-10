@@ -43,5 +43,6 @@ namespace ElevenLabs
         public SoftTimeoutConfigOverrideConfig()
         {
         }
+
     }
 }

@@ -138,5 +138,6 @@ namespace ElevenLabs
         public ConversationHistoryTranscriptOtherToolsResultCommonModel()
         {
         }
+
     }
 }

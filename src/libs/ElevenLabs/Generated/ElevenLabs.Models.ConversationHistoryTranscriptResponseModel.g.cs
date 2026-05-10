@@ -206,5 +206,6 @@ namespace ElevenLabs
         public ConversationHistoryTranscriptResponseModel()
         {
         }
+
     }
 }

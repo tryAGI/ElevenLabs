@@ -40,5 +40,6 @@ namespace ElevenLabs
         public WorkflowEdgeModelInputForwardConditionVariant1Discriminator()
         {
         }
+
     }
 }

@@ -70,5 +70,6 @@ namespace ElevenLabs
         public ConversationHistoryTranscriptFileInputResponseModel()
         {
         }
+
     }
 }

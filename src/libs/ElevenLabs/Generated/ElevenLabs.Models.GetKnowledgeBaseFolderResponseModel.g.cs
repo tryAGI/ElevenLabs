@@ -134,5 +134,6 @@ namespace ElevenLabs
         public GetKnowledgeBaseFolderResponseModel()
         {
         }
+
     }
 }

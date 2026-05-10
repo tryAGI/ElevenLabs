@@ -235,5 +235,6 @@ namespace ElevenLabs
         public ApiIntegrationWebhookToolConfigInput()
         {
         }
+
     }
 }

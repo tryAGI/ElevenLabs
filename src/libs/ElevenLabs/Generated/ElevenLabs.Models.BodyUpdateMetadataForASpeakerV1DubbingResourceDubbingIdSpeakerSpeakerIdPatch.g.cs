@@ -96,5 +96,6 @@ namespace ElevenLabs
         public BodyUpdateMetadataForASpeakerV1DubbingResourceDubbingIdSpeakerSpeakerIdPatch()
         {
         }
+
     }
 }

@@ -63,5 +63,6 @@ namespace ElevenLabs
         public WorkflowEndNodeModelInput()
         {
         }
+
     }
 }

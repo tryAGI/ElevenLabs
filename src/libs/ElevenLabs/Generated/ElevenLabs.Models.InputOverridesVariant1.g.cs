@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.ConstantSchemaOverride PickConstant() => IsConstant
+            ? Constant!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Constant' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DynamicVariableSchemaOverride? DynamicVariable { get; init; }
 #else
@@ -77,6 +84,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.DynamicVariableSchemaOverride PickDynamicVariable() => IsDynamicVariable
+            ? DynamicVariable!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DynamicVariable' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.LLMSchemaOverride? Llm { get; init; }
 #else
@@ -103,6 +117,13 @@ namespace ElevenLabs
             value = Llm;
             return IsLlm;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.LLMSchemaOverride PickLlm() => IsLlm
+            ? Llm!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Llm' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

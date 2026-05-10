@@ -201,5 +201,6 @@ namespace ElevenLabs
         public ConversationSummaryResponseModel()
         {
         }
+
     }
 }

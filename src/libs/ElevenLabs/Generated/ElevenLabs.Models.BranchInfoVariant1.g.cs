@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.TransferBranchInfoTrafficSplit PickTrafficSplit() => IsTrafficSplit
+            ? TrafficSplit!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'TrafficSplit' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferBranchInfoDefaultingToMain? DefaultingToMain { get; init; }
 #else
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = DefaultingToMain;
             return IsDefaultingToMain;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.TransferBranchInfoDefaultingToMain PickDefaultingToMain() => IsDefaultingToMain
+            ? DefaultingToMain!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DefaultingToMain' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

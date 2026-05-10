@@ -656,5 +656,6 @@ namespace ElevenLabs
         public WidgetConfigResponseModel()
         {
         }
+
     }
 }

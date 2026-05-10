@@ -503,5 +503,6 @@ namespace ElevenLabs
         public WidgetTextContents()
         {
         }
+
     }
 }

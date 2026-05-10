@@ -52,5 +52,6 @@ namespace ElevenLabs
         public CaptionStyleSectionAnimationModel()
         {
         }
+
     }
 }

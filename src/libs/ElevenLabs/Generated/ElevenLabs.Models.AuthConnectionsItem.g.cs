@@ -45,6 +45,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.OAuth2ClientCredsResponse PickOauth2ClientCredentials() => IsOauth2ClientCredentials
+            ? Oauth2ClientCredentials!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Oauth2ClientCredentials' but the value was {ToString()}.");
+
+        /// <summary>
         /// Response model for basic auth
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = BasicAuth;
             return IsBasicAuth;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.BasicAuthResponse PickBasicAuth() => IsBasicAuth
+            ? BasicAuth!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'BasicAuth' but the value was {ToString()}.");
 
         /// <summary>
         /// Response model for bearer auth
@@ -105,6 +119,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.BearerAuthResponse PickBearerAuth() => IsBearerAuth
+            ? BearerAuth!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'BearerAuth' but the value was {ToString()}.");
+
+        /// <summary>
         /// Response model for OAuth2 JWT auth connections
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -133,6 +154,13 @@ namespace ElevenLabs
             value = Oauth2Jwt;
             return IsOauth2Jwt;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.OAuth2JWTResponse PickOauth2Jwt() => IsOauth2Jwt
+            ? Oauth2Jwt!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Oauth2Jwt' but the value was {ToString()}.");
 
         /// <summary>
         /// Response model for Private Key JWT auth connections
@@ -165,6 +193,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.PrivateKeyJWTResponse PickPrivateKeyJwt() => IsPrivateKeyJwt
+            ? PrivateKeyJwt!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'PrivateKeyJwt' but the value was {ToString()}.");
+
+        /// <summary>
         /// Response model for mTLS auth connections.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -193,6 +228,13 @@ namespace ElevenLabs
             value = Mtls;
             return IsMtls;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.MTLSAuthResponse PickMtls() => IsMtls
+            ? Mtls!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Mtls' but the value was {ToString()}.");
 
         /// <summary>
         /// Response model for Custom Header Auth auth connections
@@ -225,6 +267,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.CustomHeaderAuthResponse PickCustomHeaderAuth() => IsCustomHeaderAuth
+            ? CustomHeaderAuth!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CustomHeaderAuth' but the value was {ToString()}.");
+
+        /// <summary>
         /// Response model for integration-managed OAuth2 Auth Code auth connections
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -253,6 +302,13 @@ namespace ElevenLabs
             value = ApiIntegrationOauth2AuthCode;
             return IsApiIntegrationOauth2AuthCode;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse PickApiIntegrationOauth2AuthCode() => IsApiIntegrationOauth2AuthCode
+            ? ApiIntegrationOauth2AuthCode!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ApiIntegrationOauth2AuthCode' but the value was {ToString()}.");
 
         /// <summary>
         /// Response model for user-owned OAuth2 Custom App auth connections
@@ -287,6 +343,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse PickApiIntegrationOauth2CustomApp() => IsApiIntegrationOauth2CustomApp
+            ? ApiIntegrationOauth2CustomApp!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ApiIntegrationOauth2CustomApp' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppAuthResponse? WhatsappAuth { get; init; }
 #else
@@ -313,6 +376,13 @@ namespace ElevenLabs
             value = WhatsappAuth;
             return IsWhatsappAuth;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.WhatsAppAuthResponse PickWhatsappAuth() => IsWhatsappAuth
+            ? WhatsappAuth!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'WhatsappAuth' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

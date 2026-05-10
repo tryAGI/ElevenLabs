@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.EndCallToolResultModel PickEndCallSuccess() => IsEndCallSuccess
+            ? EndCallSuccess!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'EndCallSuccess' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.LanguageDetectionToolResultModel? LanguageDetectionSuccess { get; init; }
 #else
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = LanguageDetectionSuccess;
             return IsLanguageDetectionSuccess;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.LanguageDetectionToolResultModel PickLanguageDetectionSuccess() => IsLanguageDetectionSuccess
+            ? LanguageDetectionSuccess!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'LanguageDetectionSuccess' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -107,6 +121,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.TransferToAgentToolResultSuccessModel PickTransferToAgentSuccess() => IsTransferToAgentSuccess
+            ? TransferToAgentSuccess!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToAgentSuccess' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToAgentToolResultErrorModel? TransferToAgentError { get; init; }
 #else
@@ -133,6 +154,13 @@ namespace ElevenLabs
             value = TransferToAgentError;
             return IsTransferToAgentError;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.TransferToAgentToolResultErrorModel PickTransferToAgentError() => IsTransferToAgentError
+            ? TransferToAgentError!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToAgentError' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -167,6 +195,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.TransferToNumberResultTwilioSuccessModel PickTransferToNumberTwilioSuccess() => IsTransferToNumberTwilioSuccess
+            ? TransferToNumberTwilioSuccess!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToNumberTwilioSuccess' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToNumberResultSipSuccessModel? TransferToNumberSipSuccess { get; init; }
 #else
@@ -193,6 +228,13 @@ namespace ElevenLabs
             value = TransferToNumberSipSuccess;
             return IsTransferToNumberSipSuccess;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.TransferToNumberResultSipSuccessModel PickTransferToNumberSipSuccess() => IsTransferToNumberSipSuccess
+            ? TransferToNumberSipSuccess!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToNumberSipSuccess' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -227,6 +269,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.TransferToNumberResultErrorModel PickTransferToNumberError() => IsTransferToNumberError
+            ? TransferToNumberError!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToNumberError' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SkipTurnToolResponseModel? SkipTurnSuccess { get; init; }
 #else
@@ -253,6 +302,13 @@ namespace ElevenLabs
             value = SkipTurnSuccess;
             return IsSkipTurnSuccess;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.SkipTurnToolResponseModel PickSkipTurnSuccess() => IsSkipTurnSuccess
+            ? SkipTurnSuccess!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SkipTurnSuccess' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -287,6 +343,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.PlayDTMFResultSuccessModel PickPlayDtmfSuccess() => IsPlayDtmfSuccess
+            ? PlayDtmfSuccess!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'PlayDtmfSuccess' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.PlayDTMFResultErrorModel? PlayDtmfError { get; init; }
 #else
@@ -313,6 +376,13 @@ namespace ElevenLabs
             value = PlayDtmfError;
             return IsPlayDtmfError;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.PlayDTMFResultErrorModel PickPlayDtmfError() => IsPlayDtmfError
+            ? PlayDtmfError!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'PlayDtmfError' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -347,6 +417,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.VoiceMailDetectionResultSuccessModel PickVoicemailDetectionSuccess() => IsVoicemailDetectionSuccess
+            ? VoicemailDetectionSuccess!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'VoicemailDetectionSuccess' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TestToolResultModel? TestingToolResult { get; init; }
 #else
@@ -377,6 +454,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.TestToolResultModel PickTestingToolResult() => IsTestingToolResult
+            ? TestingToolResult!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'TestingToolResult' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.KnowledgeBaseRagToolResultModel? KnowledgeBaseRagSuccess { get; init; }
 #else
@@ -403,6 +487,13 @@ namespace ElevenLabs
             value = KnowledgeBaseRagSuccess;
             return IsKnowledgeBaseRagSuccess;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.KnowledgeBaseRagToolResultModel PickKnowledgeBaseRagSuccess() => IsKnowledgeBaseRagSuccess
+            ? KnowledgeBaseRagSuccess!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeBaseRagSuccess' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

@@ -253,5 +253,6 @@ namespace ElevenLabs
         public BatchCallDetailedResponse()
         {
         }
+
     }
 }

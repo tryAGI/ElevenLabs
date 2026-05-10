@@ -57,5 +57,18 @@ namespace ElevenLabs
         public PodcastConversationMode()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="PodcastConversationMode"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static PodcastConversationMode FromConversation(global::ElevenLabs.PodcastConversationModeData conversation)
+        {
+            return new PodcastConversationMode
+            {
+                Conversation = conversation,
+            };
+        }
+
     }
 }

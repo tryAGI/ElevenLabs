@@ -222,5 +222,6 @@ namespace ElevenLabs
         public BodyComposeMusicWithADetailedResponseV1MusicDetailedPost()
         {
         }
+
     }
 }

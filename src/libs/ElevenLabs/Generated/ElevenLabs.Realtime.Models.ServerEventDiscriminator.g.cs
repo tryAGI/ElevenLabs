@@ -40,5 +40,6 @@ namespace ElevenLabs.Realtime
         public ServerEventDiscriminator()
         {
         }
+
     }
 }

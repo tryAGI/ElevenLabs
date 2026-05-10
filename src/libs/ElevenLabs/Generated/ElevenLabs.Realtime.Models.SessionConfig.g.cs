@@ -162,5 +162,6 @@ namespace ElevenLabs.Realtime
         public SessionConfig()
         {
         }
+
     }
 }

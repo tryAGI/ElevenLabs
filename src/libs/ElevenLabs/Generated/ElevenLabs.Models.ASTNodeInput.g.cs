@@ -40,6 +40,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTStringNodeInput PickStringLiteral() => IsStringLiteral
+            ? StringLiteral!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'StringLiteral' but the value was {ToString()}.");
+
+        /// <summary>
         /// Number literal.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -68,6 +75,13 @@ namespace ElevenLabs
             value = NumberLiteral;
             return IsNumberLiteral;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTNumberNodeInput PickNumberLiteral() => IsNumberLiteral
+            ? NumberLiteral!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'NumberLiteral' but the value was {ToString()}.");
 
         /// <summary>
         /// Boolean literal.
@@ -100,6 +114,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTBooleanNodeInput PickBooleanLiteral() => IsBooleanLiteral
+            ? BooleanLiteral!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'BooleanLiteral' but the value was {ToString()}.");
+
+        /// <summary>
         /// Null literal.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -128,6 +149,13 @@ namespace ElevenLabs
             value = NullLiteral;
             return IsNullLiteral;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTNullNodeInput PickNullLiteral() => IsNullLiteral
+            ? NullLiteral!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'NullLiteral' but the value was {ToString()}.");
 
         /// <summary>
         /// Value extracted by an LLM according to the given schema.
@@ -160,6 +188,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTLLMNodeInput PickLm() => IsLm
+            ? Lm!.Value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Lm' but the value was {ToString()}.");
+
+        /// <summary>
         /// Reference to a dynamic variable.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -188,6 +223,13 @@ namespace ElevenLabs
             value = DynamicVariable;
             return IsDynamicVariable;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTDynamicVariableNodeInput PickDynamicVariable() => IsDynamicVariable
+            ? DynamicVariable!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DynamicVariable' but the value was {ToString()}.");
 
         /// <summary>
         /// Evaluates to true if any child is true.
@@ -220,6 +262,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTOrOperatorNodeInput PickOrOperator() => IsOrOperator
+            ? OrOperator!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'OrOperator' but the value was {ToString()}.");
+
+        /// <summary>
         /// Evaluates to true if all children are true.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -248,6 +297,13 @@ namespace ElevenLabs
             value = AndOperator;
             return IsAndOperator;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTAndOperatorNodeInput PickAndOperator() => IsAndOperator
+            ? AndOperator!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'AndOperator' but the value was {ToString()}.");
 
         /// <summary>
         /// Evaluates to true if the left value equals the right.
@@ -280,6 +336,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTEqualsOperatorNodeInput PickEqOperator() => IsEqOperator
+            ? EqOperator!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'EqOperator' but the value was {ToString()}.");
+
+        /// <summary>
         /// Evaluates to true if the left value does not equal the right.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -308,6 +371,13 @@ namespace ElevenLabs
             value = NeqOperator;
             return IsNeqOperator;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTNotEqualsOperatorNodeInput PickNeqOperator() => IsNeqOperator
+            ? NeqOperator!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'NeqOperator' but the value was {ToString()}.");
 
         /// <summary>
         /// Evaluates to true if the left value is greater than the right.
@@ -340,6 +410,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTGreaterThanOperatorNodeInput PickGtOperator() => IsGtOperator
+            ? GtOperator!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'GtOperator' but the value was {ToString()}.");
+
+        /// <summary>
         /// Evaluates to true if the left value is less than the right.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -368,6 +445,13 @@ namespace ElevenLabs
             value = LtOperator;
             return IsLtOperator;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTLessThanOperatorNodeInput PickLtOperator() => IsLtOperator
+            ? LtOperator!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'LtOperator' but the value was {ToString()}.");
 
         /// <summary>
         /// Evaluates to true if the left value is greater than or equal to the right.
@@ -400,6 +484,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput PickGteOperator() => IsGteOperator
+            ? GteOperator!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'GteOperator' but the value was {ToString()}.");
+
+        /// <summary>
         /// Evaluates to true if the left value is less than or equal to the right.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -428,6 +519,13 @@ namespace ElevenLabs
             value = LteOperator;
             return IsLteOperator;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput PickLteOperator() => IsLteOperator
+            ? LteOperator!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'LteOperator' but the value was {ToString()}.");
 
         /// <summary>
         /// Adds the left and right values.
@@ -460,6 +558,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTAdditionOperatorNodeInput PickAddOperator() => IsAddOperator
+            ? AddOperator!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'AddOperator' but the value was {ToString()}.");
+
+        /// <summary>
         /// Subtracts the right value from the left.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -488,6 +593,13 @@ namespace ElevenLabs
             value = SubOperator;
             return IsSubOperator;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTSubtractionOperatorNodeInput PickSubOperator() => IsSubOperator
+            ? SubOperator!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SubOperator' but the value was {ToString()}.");
 
         /// <summary>
         /// Multiplies the left value times the right.
@@ -520,6 +632,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTMultiplicationOperatorNodeInput PickMulOperator() => IsMulOperator
+            ? MulOperator!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'MulOperator' but the value was {ToString()}.");
+
+        /// <summary>
         /// Divides the left value by the right.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -550,6 +669,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTDivisionOperatorNodeInput PickDivOperator() => IsDivOperator
+            ? DivOperator!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DivOperator' but the value was {ToString()}.");
+
+        /// <summary>
         /// Selects one of two expressions based on whether the given condition evaluates to true.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -578,6 +704,13 @@ namespace ElevenLabs
             value = ConditionalOperator;
             return IsConditionalOperator;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ASTConditionalOperatorNodeInput PickConditionalOperator() => IsConditionalOperator
+            ? ConditionalOperator!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ConditionalOperator' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

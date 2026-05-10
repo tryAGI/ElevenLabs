@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.DependentAvailableMCPServerIdentifier PickAvailable() => IsAvailable
+            ? Available!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Available' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DependentUnknownMCPServerIdentifier? Unknown { get; init; }
 #else
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = Unknown;
             return IsUnknown;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.DependentUnknownMCPServerIdentifier PickUnknown() => IsUnknown
+            ? Unknown!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Unknown' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

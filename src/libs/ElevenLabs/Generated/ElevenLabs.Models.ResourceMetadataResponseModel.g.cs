@@ -112,5 +112,6 @@ namespace ElevenLabs
         public ResourceMetadataResponseModel()
         {
         }
+
     }
 }

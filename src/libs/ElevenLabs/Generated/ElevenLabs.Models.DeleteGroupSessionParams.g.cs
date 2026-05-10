@@ -47,5 +47,6 @@ namespace ElevenLabs
         public DeleteGroupSessionParams()
         {
         }
+
     }
 }

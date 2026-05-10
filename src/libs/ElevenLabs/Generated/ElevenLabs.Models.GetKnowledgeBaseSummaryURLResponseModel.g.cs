@@ -148,5 +148,6 @@ namespace ElevenLabs
         public GetKnowledgeBaseSummaryURLResponseModel()
         {
         }
+
     }
 }

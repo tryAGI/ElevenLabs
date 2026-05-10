@@ -45,6 +45,13 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.Realtime.SessionStartedPayload PickSessionStarted() => IsSessionStarted
+            ? SessionStarted!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SessionStarted' but the value was {ToString()}.");
+
+        /// <summary>
         /// Event containing a partial (in-progress) transcript.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -73,6 +80,13 @@ namespace ElevenLabs.Realtime
             value = PartialTranscript;
             return IsPartialTranscript;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.Realtime.PartialTranscriptPayload PickPartialTranscript() => IsPartialTranscript
+            ? PartialTranscript!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'PartialTranscript' but the value was {ToString()}.");
 
         /// <summary>
         /// Event containing a committed (final) transcript.
@@ -105,6 +119,13 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.Realtime.CommittedTranscriptPayload PickCommittedTranscript() => IsCommittedTranscript
+            ? CommittedTranscript!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CommittedTranscript' but the value was {ToString()}.");
+
+        /// <summary>
         /// Event containing a committed transcript with word-level timestamps.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -135,6 +156,13 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload PickCommittedTranscriptWithTimestamps() => IsCommittedTranscriptWithTimestamps
+            ? CommittedTranscriptWithTimestamps!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CommittedTranscriptWithTimestamps' but the value was {ToString()}.");
+
+        /// <summary>
         /// Error event from the ElevenLabs service.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -163,6 +191,13 @@ namespace ElevenLabs.Realtime
             value = Error;
             return IsError;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.Realtime.ErrorPayload PickError() => IsError
+            ? Error!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Error' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.DashboardCallSuccessChartModel PickCallSuccess() => IsCallSuccess
+            ? CallSuccess!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CallSuccess' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DashboardCriteriaChartModel? Criteria { get; init; }
 #else
@@ -77,6 +84,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.DashboardCriteriaChartModel PickCriteria() => IsCriteria
+            ? Criteria!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Criteria' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DashboardDataCollectionChartModel? DataCollection { get; init; }
 #else
@@ -103,6 +117,13 @@ namespace ElevenLabs
             value = DataCollection;
             return IsDataCollection;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.DashboardDataCollectionChartModel PickDataCollection() => IsDataCollection
+            ? DataCollection!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DataCollection' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

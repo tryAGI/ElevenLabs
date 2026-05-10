@@ -47,6 +47,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.CreateStringEnvironmentVariableRequest PickString() => IsString
+            ? String!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'String' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateSecretEnvironmentVariableRequest? Secret { get; init; }
 #else
@@ -77,6 +84,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public global::ElevenLabs.CreateSecretEnvironmentVariableRequest PickSecret() => IsSecret
+            ? Secret!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Secret' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest? AuthConnection { get; init; }
 #else
@@ -103,6 +117,13 @@ namespace ElevenLabs
             value = AuthConnection;
             return IsAuthConnection;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest PickAuthConnection() => IsAuthConnection
+            ? AuthConnection!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'AuthConnection' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

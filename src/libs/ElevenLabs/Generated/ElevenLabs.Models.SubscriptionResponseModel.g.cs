@@ -290,5 +290,6 @@ namespace ElevenLabs
         public SubscriptionResponseModel()
         {
         }
+
     }
 }

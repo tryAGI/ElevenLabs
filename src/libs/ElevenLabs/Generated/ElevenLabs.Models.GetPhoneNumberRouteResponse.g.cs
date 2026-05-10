@@ -45,6 +45,13 @@ namespace ElevenLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.GetPhoneNumberTwilioResponseModel PickTwilio() => IsTwilio
+            ? Twilio!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Twilio' but the value was {ToString()}.");
+
+        /// <summary>
         /// Example: {"label":"Sales Team","livekit_stack":"standard","phone_number":"\u002B1987654321","phone_number_id":"phone_456","provider":"sip_trunk"}
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -73,6 +80,13 @@ namespace ElevenLabs
             value = SipTrunk;
             return IsSipTrunk;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel PickSipTrunk() => IsSipTrunk
+            ? SipTrunk!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SipTrunk' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
