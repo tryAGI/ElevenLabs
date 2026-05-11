@@ -18652,7 +18652,7 @@
           "Agents Platform"
         ],
         "summary": "Update Document",
-        "description": "Update the name of a document",
+        "description": "Update the name and/or content of a document.",
         "operationId": "update_document_route",
         "parameters": [
           {
@@ -18690,7 +18690,6 @@
           }
         ],
         "requestBody": {
-          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -18935,6 +18934,112 @@
           "documents"
         ],
         "x-fern-sdk-method-name": "delete"
+      }
+    },
+    "/v1/convai/knowledge-base/{documentation_id}/update-file": {
+      "patch": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Update File Document",
+        "description": "Update the source file of a file document. The document name, content, and metadata are updated to reflect the new file. Any manual content edits will be overwritten.",
+        "operationId": "update_file_document_route",
+        "parameters": [
+          {
+            "name": "documentation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of a document from the knowledge base. This is returned on document addition.",
+              "examples": [
+                "21m00Tcm4TlvDq8ikWAM"
+              ],
+              "embed": true,
+              "title": "Documentation Id"
+            },
+            "description": "The id of a document from the knowledge base. This is returned on document addition."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Update_file_document_v1_convai_knowledge_base__documentation_id__update_file_patch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/GetKnowledgeBaseURLResponseModel"
+                    },
+                    {
+                      "$ref": "#/components/schemas/GetKnowledgeBaseFileResponseModel"
+                    },
+                    {
+                      "$ref": "#/components/schemas/GetKnowledgeBaseTextResponseModel"
+                    },
+                    {
+                      "$ref": "#/components/schemas/GetKnowledgeBaseFolderResponseModel"
+                    }
+                  ],
+                  "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                      "url": "#/components/schemas/GetKnowledgeBaseURLResponseModel",
+                      "file": "#/components/schemas/GetKnowledgeBaseFileResponseModel",
+                      "text": "#/components/schemas/GetKnowledgeBaseTextResponseModel",
+                      "folder": "#/components/schemas/GetKnowledgeBaseFolderResponseModel"
+                    }
+                  },
+                  "title": "Response Update File Document V1 Convai Knowledge Base  Documentation Id  Update File Patch"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "knowledge_base",
+          "document"
+        ],
+        "x-fern-sdk-method-name": "update_file"
       }
     },
     "/v1/convai/knowledge-base/rag-index": {
@@ -19843,7 +19948,8 @@
               ],
               "description": "The embedding model used to retrieve the chunk.",
               "examples": [
-                "e5_mistral_7b_instruct"
+                "e5_mistral_7b_instruct",
+                "multilingual_e5_large_instruct"
               ],
               "title": "Embedding Model"
             },
@@ -19897,6 +20003,126 @@
           "chunk"
         ],
         "x-fern-sdk-method-name": "get"
+      }
+    },
+    "/v1/convai/knowledge-base/{documentation_id}/chunks": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Get All Rag Chunks For A Document",
+        "description": "Get all RAG chunks for a specific knowledge base document.",
+        "operationId": "get_documentation_chunks_from_knowledge_base",
+        "parameters": [
+          {
+            "name": "documentation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of a document from the knowledge base. This is returned on document addition.",
+              "examples": [
+                "21m00Tcm4TlvDq8ikWAM"
+              ],
+              "embed": true,
+              "title": "Documentation Id"
+            },
+            "description": "The id of a document from the knowledge base. This is returned on document addition."
+          },
+          {
+            "name": "embedding_model",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/EmbeddingModelEnum",
+              "description": "The embedding model used to retrieve the chunk.",
+              "examples": [
+                "e5_mistral_7b_instruct",
+                "multilingual_e5_large_instruct"
+              ]
+            },
+            "description": "The embedding model used to retrieve the chunk."
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "How many documents to return at maximum. Can not exceed 100, defaults to 30.",
+              "default": 30,
+              "title": "Page Size"
+            },
+            "description": "How many documents to return at maximum. Can not exceed 100, defaults to 30."
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Used for fetching next page. Cursor is returned in the response.",
+              "title": "Cursor"
+            },
+            "description": "Used for fetching next page. Cursor is returned in the response."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KnowledgeBaseDocumentChunksResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "knowledge_base",
+          "documents",
+          "chunks"
+        ],
+        "x-fern-sdk-method-name": "list"
       }
     },
     "/v1/convai/knowledge-base/{document_id}/move": {
@@ -38079,17 +38305,48 @@
       "Body_Update_document_v1_convai_knowledge_base__documentation_id__patch": {
         "properties": {
           "name": {
-            "type": "string",
-            "minLength": 1,
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Name",
             "description": "A custom, human-readable name for the document."
+          },
+          "content": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content",
+            "description": "Updated content for the document. Only supported for text documents, URL documents with auto-sync disabled, and file documents."
+          }
+        },
+        "type": "object",
+        "title": "Body_Update_document_v1_convai_knowledge_base__documentation_id__patch"
+      },
+      "Body_Update_file_document_v1_convai_knowledge_base__documentation_id__update_file_patch": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File",
+            "description": "Documentation that the agent will have access to in order to interact with users."
           }
         },
         "type": "object",
         "required": [
-          "name"
+          "file"
         ],
-        "title": "Body_Update_document_v1_convai_knowledge_base__documentation_id__patch"
+        "title": "Body_Update_file_document_v1_convai_knowledge_base__documentation_id__update_file_patch"
       },
       "Body_Update_member_v1_workspace_members_post": {
         "properties": {
@@ -55988,6 +56245,33 @@
           "content"
         ],
         "title": "KnowledgeBaseDocumentChunkResponseModel"
+      },
+      "KnowledgeBaseDocumentChunksResponseModel": {
+        "properties": {
+          "chunks": {
+            "items": {
+              "$ref": "#/components/schemas/KnowledgeBaseDocumentChunkResponseModel"
+            },
+            "type": "array",
+            "title": "Chunks"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor"
+          }
+        },
+        "type": "object",
+        "required": [
+          "chunks"
+        ],
+        "title": "KnowledgeBaseDocumentChunksResponseModel"
       },
       "KnowledgeBaseDocumentMetadataResponseModel": {
         "properties": {

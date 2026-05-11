@@ -26,10 +26,16 @@ namespace ElevenLabs
             {                s_List11SecurityRequirement0,
             };
         partial void PrepareList11Arguments(
-            global::System.Net.Http.HttpClient httpClient);
+            global::System.Net.Http.HttpClient httpClient,
+            ref int? limit,
+            ref string? lastDoc,
+            ref string? agentId);
         partial void PrepareList11Request(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            int? limit,
+            string? lastDoc,
+            string? agentId);
         partial void ProcessList11Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -40,17 +46,30 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// List Mcp Servers<br/>
-        /// Retrieve all MCP server configurations available in the workspace.
+        /// Get All Batch Calls For A Workspace.<br/>
+        /// Get all batch calls for the current workspace.
         /// </summary>
+        /// <param name="limit">
+        /// Default Value: 100
+        /// </param>
+        /// <param name="lastDoc"></param>
+        /// <param name="agentId">
+        /// Filter batch calls to a single agent.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServersResponseModel> List11Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceBatchCallsResponse> List11Async(
+            int? limit = default,
+            string? lastDoc = default,
+            string? agentId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List11AsResponseAsync(
+                limit: limit,
+                lastDoc: lastDoc,
+                agentId: agentId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -58,20 +77,33 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// List Mcp Servers<br/>
-        /// Retrieve all MCP server configurations available in the workspace.
+        /// Get All Batch Calls For A Workspace.<br/>
+        /// Get all batch calls for the current workspace.
         /// </summary>
+        /// <param name="limit">
+        /// Default Value: 100
+        /// </param>
+        /// <param name="lastDoc"></param>
+        /// <param name="agentId">
+        /// Filter batch calls to a single agent.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServersResponseModel>> List11AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceBatchCallsResponse>> List11AsResponseAsync(
+            int? limit = default,
+            string? lastDoc = default,
+            string? agentId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareList11Arguments(
-                httpClient: HttpClient);
+                httpClient: HttpClient,
+                limit: ref limit,
+                lastDoc: ref lastDoc,
+                agentId: ref agentId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -97,8 +129,13 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/mcp-servers",
+                                path: "/v1/convai/batch-calling/workspace",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("limit", limit?.ToString())
+                                .AddOptionalParameter("last_doc", lastDoc)
+                                .AddOptionalParameter("agent_id", agentId)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -138,7 +175,10 @@ namespace ElevenLabs
                     request: __httpRequest);
                 PrepareList11Request(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    limit: limit,
+                    lastDoc: lastDoc,
+                    agentId: agentId);
 
                 return __httpRequest;
             }
@@ -157,7 +197,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List11",
                                 methodName: "List11Async",
-                                pathTemplate: "\"/v1/convai/mcp-servers\"",
+                                pathTemplate: "\"/v1/convai/batch-calling/workspace\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -191,7 +231,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List11",
                                 methodName: "List11Async",
-                                pathTemplate: "\"/v1/convai/mcp-servers\"",
+                                pathTemplate: "\"/v1/convai/batch-calling/workspace\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -232,7 +272,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List11",
                                 methodName: "List11Async",
-                                pathTemplate: "\"/v1/convai/mcp-servers\"",
+                                pathTemplate: "\"/v1/convai/batch-calling/workspace\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -280,7 +320,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List11",
                                 methodName: "List11Async",
-                                pathTemplate: "\"/v1/convai/mcp-servers\"",
+                                pathTemplate: "\"/v1/convai/batch-calling/workspace\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -302,7 +342,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List11",
                                 methodName: "List11Async",
-                                pathTemplate: "\"/v1/convai/mcp-servers\"",
+                                pathTemplate: "\"/v1/convai/batch-calling/workspace\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -377,9 +417,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.MCPServersResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.WorkspaceBatchCallsResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServersResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceBatchCallsResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -411,9 +451,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.MCPServersResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.WorkspaceBatchCallsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServersResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceBatchCallsResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

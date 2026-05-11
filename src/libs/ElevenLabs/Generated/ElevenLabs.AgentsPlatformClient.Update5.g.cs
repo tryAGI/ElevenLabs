@@ -45,7 +45,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Update Document<br/>
-        /// Update the name of a document
+        /// Update the name and/or content of a document.
         /// </summary>
         /// <param name="documentationId">
         /// The id of a document from the knowledge base. This is returned on document addition.
@@ -73,7 +73,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Update Document<br/>
-        /// Update the name of a document
+        /// Update the name and/or content of a document.
         /// </summary>
         /// <param name="documentationId">
         /// The id of a document from the knowledge base. This is returned on document addition.
@@ -490,7 +490,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Update Document<br/>
-        /// Update the name of a document
+        /// Update the name and/or content of a document.
         /// </summary>
         /// <param name="documentationId">
         /// The id of a document from the knowledge base. This is returned on document addition.
@@ -498,18 +498,23 @@ namespace ElevenLabs
         /// <param name="name">
         /// A custom, human-readable name for the document.
         /// </param>
+        /// <param name="content">
+        /// Updated content for the document. Only supported for text documents, URL documents with auto-sync disabled, and file documents.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateDocumentRouteResponse> Update5Async(
             string documentationId,
-            string name,
+            string? name = default,
+            string? content = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch
             {
                 Name = name,
+                Content = content,
             };
 
             return await Update5Async(

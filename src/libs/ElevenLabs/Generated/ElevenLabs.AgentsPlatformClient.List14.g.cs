@@ -26,16 +26,10 @@ namespace ElevenLabs
             {                s_List14SecurityRequirement0,
             };
         partial void PrepareList14Arguments(
-            global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            ref bool? includeArchived,
-            ref int? limit);
+            global::System.Net.Http.HttpClient httpClient);
         partial void PrepareList14Request(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            bool? includeArchived,
-            int? limit);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
         partial void ProcessList14Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,34 +40,17 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// List Agent Branches<br/>
-        /// Returns a list of branches an agent has
+        /// List Whatsapp Accounts<br/>
+        /// List all WhatsApp accounts
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="includeArchived">
-        /// Whether archived branches should be included<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="limit">
-        /// How many results at most should be returned<br/>
-        /// Default Value: 100
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListResponseAgentBranchSummary> List14Async(
-            string agentId,
-            bool? includeArchived = default,
-            int? limit = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListWhatsAppAccountsResponse> List14Async(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List14AsResponseAsync(
-                agentId: agentId,
-                includeArchived: includeArchived,
-                limit: limit,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -81,37 +58,20 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// List Agent Branches<br/>
-        /// Returns a list of branches an agent has
+        /// List Whatsapp Accounts<br/>
+        /// List all WhatsApp accounts
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="includeArchived">
-        /// Whether archived branches should be included<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="limit">
-        /// How many results at most should be returned<br/>
-        /// Default Value: 100
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentBranchSummary>> List14AsResponseAsync(
-            string agentId,
-            bool? includeArchived = default,
-            int? limit = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListWhatsAppAccountsResponse>> List14AsResponseAsync(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareList14Arguments(
-                httpClient: HttpClient,
-                agentId: ref agentId,
-                includeArchived: ref includeArchived,
-                limit: ref limit);
+                httpClient: HttpClient);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -137,12 +97,8 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/branches",
+                                path: "/v1/convai/whatsapp-accounts",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddOptionalParameter("include_archived", includeArchived?.ToString().ToLowerInvariant())
-                                .AddOptionalParameter("limit", limit?.ToString())
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -182,10 +138,7 @@ namespace ElevenLabs
                     request: __httpRequest);
                 PrepareList14Request(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest,
-                    agentId: agentId!,
-                    includeArchived: includeArchived,
-                    limit: limit);
+                    httpRequestMessage: __httpRequest);
 
                 return __httpRequest;
             }
@@ -204,7 +157,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List14",
                                 methodName: "List14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
+                                pathTemplate: "\"/v1/convai/whatsapp-accounts\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -238,7 +191,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List14",
                                 methodName: "List14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
+                                pathTemplate: "\"/v1/convai/whatsapp-accounts\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -279,7 +232,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List14",
                                 methodName: "List14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
+                                pathTemplate: "\"/v1/convai/whatsapp-accounts\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -327,7 +280,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List14",
                                 methodName: "List14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
+                                pathTemplate: "\"/v1/convai/whatsapp-accounts\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -349,7 +302,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List14",
                                 methodName: "List14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
+                                pathTemplate: "\"/v1/convai/whatsapp-accounts\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -424,9 +377,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ListResponseAgentBranchSummary.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ListWhatsAppAccountsResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentBranchSummary>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListWhatsAppAccountsResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -458,9 +411,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ListResponseAgentBranchSummary.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ListWhatsAppAccountsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentBranchSummary>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListWhatsAppAccountsResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

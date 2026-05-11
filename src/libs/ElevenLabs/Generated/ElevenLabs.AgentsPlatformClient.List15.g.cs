@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_List10SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_List15SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,64 +21,59 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_List10SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_List15SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_List10SecurityRequirement0,
+            {                s_List15SecurityRequirement0,
             };
-        partial void PrepareList10Arguments(
+        partial void PrepareList15Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            int? pageSize,
-            int? dependencyLimit,
-            ref string? search,
-            ref string? cursor);
-        partial void PrepareList10Request(
+            ref string agentId,
+            ref bool? includeArchived,
+            ref int? limit);
+        partial void PrepareList15Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int? pageSize,
-            int? dependencyLimit,
-            string? search,
-            string? cursor);
-        partial void ProcessList10Response(
+            string agentId,
+            bool? includeArchived,
+            int? limit);
+        partial void ProcessList15Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessList10ResponseContent(
+        partial void ProcessList15ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Convai Workspace Secrets<br/>
-        /// Get all workspace secrets for the user
+        /// List Agent Branches<br/>
+        /// Returns a list of branches an agent has
         /// </summary>
-        /// <param name="pageSize">
-        /// How many documents to return at maximum. Can not exceed 100. If not provided, returns all secrets.
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="dependencyLimit">
-        /// Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100.
+        /// <param name="includeArchived">
+        /// Whether archived branches should be included<br/>
+        /// Default Value: false
         /// </param>
-        /// <param name="search">
-        /// If specified, returns only secrets whose names start with this string.
-        /// </param>
-        /// <param name="cursor">
-        /// Used for fetching next page. Cursor is returned in the response.
+        /// <param name="limit">
+        /// How many results at most should be returned<br/>
+        /// Default Value: 100
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetWorkspaceSecretsResponseModel> List10Async(
-            int? pageSize = default,
-            int? dependencyLimit = default,
-            string? search = default,
-            string? cursor = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListResponseAgentBranchSummary> List15Async(
+            string agentId,
+            bool? includeArchived = default,
+            int? limit = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await List10AsResponseAsync(
-                pageSize: pageSize,
-                dependencyLimit: dependencyLimit,
-                search: search,
-                cursor: cursor,
+            var __response = await List15AsResponseAsync(
+                agentId: agentId,
+                includeArchived: includeArchived,
+                limit: limit,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -86,46 +81,43 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Convai Workspace Secrets<br/>
-        /// Get all workspace secrets for the user
+        /// List Agent Branches<br/>
+        /// Returns a list of branches an agent has
         /// </summary>
-        /// <param name="pageSize">
-        /// How many documents to return at maximum. Can not exceed 100. If not provided, returns all secrets.
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="dependencyLimit">
-        /// Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100.
+        /// <param name="includeArchived">
+        /// Whether archived branches should be included<br/>
+        /// Default Value: false
         /// </param>
-        /// <param name="search">
-        /// If specified, returns only secrets whose names start with this string.
-        /// </param>
-        /// <param name="cursor">
-        /// Used for fetching next page. Cursor is returned in the response.
+        /// <param name="limit">
+        /// How many results at most should be returned<br/>
+        /// Default Value: 100
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetWorkspaceSecretsResponseModel>> List10AsResponseAsync(
-            int? pageSize = default,
-            int? dependencyLimit = default,
-            string? search = default,
-            string? cursor = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentBranchSummary>> List15AsResponseAsync(
+            string agentId,
+            bool? includeArchived = default,
+            int? limit = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareList10Arguments(
+            PrepareList15Arguments(
                 httpClient: HttpClient,
-                pageSize: pageSize,
-                dependencyLimit: dependencyLimit,
-                search: ref search,
-                cursor: ref cursor);
+                agentId: ref agentId,
+                includeArchived: ref includeArchived,
+                limit: ref limit);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_List10SecurityRequirements,
-                operationName: "List10Async");
+                securityRequirements: s_List15SecurityRequirements,
+                operationName: "List15Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -145,13 +137,11 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/secrets",
+                                path: $"/v1/convai/agents/{agentId}/branches",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("page_size", pageSize?.ToString())
-                                .AddOptionalParameter("dependency_limit", dependencyLimit?.ToString())
-                                .AddOptionalParameter("search", search)
-                                .AddOptionalParameter("cursor", cursor)
+                                .AddOptionalParameter("include_archived", includeArchived?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("limit", limit?.ToString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -190,13 +180,12 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareList10Request(
+                PrepareList15Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    pageSize: pageSize,
-                    dependencyLimit: dependencyLimit,
-                    search: search,
-                    cursor: cursor);
+                    agentId: agentId!,
+                    includeArchived: includeArchived,
+                    limit: limit);
 
                 return __httpRequest;
             }
@@ -213,9 +202,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List10",
-                                methodName: "List10Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                operationId: "List15",
+                                methodName: "List15Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -247,9 +236,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List10",
-                                methodName: "List10Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                operationId: "List15",
+                                methodName: "List15Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -288,9 +277,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List10",
-                                methodName: "List10Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                operationId: "List15",
+                                methodName: "List15Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -328,7 +317,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessList10Response(
+                ProcessList15Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -336,9 +325,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List10",
-                                methodName: "List10Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                operationId: "List15",
+                                methodName: "List15Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -358,9 +347,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List10",
-                                methodName: "List10Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                operationId: "List15",
+                                methodName: "List15Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -426,7 +415,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessList10ResponseContent(
+                                ProcessList15ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -435,9 +424,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.GetWorkspaceSecretsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ListResponseAgentBranchSummary.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetWorkspaceSecretsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentBranchSummary>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -469,9 +458,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.GetWorkspaceSecretsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ListResponseAgentBranchSummary.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetWorkspaceSecretsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentBranchSummary>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

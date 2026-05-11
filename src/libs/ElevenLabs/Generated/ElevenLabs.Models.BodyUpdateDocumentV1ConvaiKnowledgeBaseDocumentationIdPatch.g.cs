@@ -12,8 +12,13 @@ namespace ElevenLabs
         /// A custom, human-readable name for the document.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string? Name { get; set; }
+
+        /// <summary>
+        /// Updated content for the document. Only supported for text documents, URL documents with auto-sync disabled, and file documents.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("content")]
+        public string? Content { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -27,13 +32,18 @@ namespace ElevenLabs
         /// <param name="name">
         /// A custom, human-readable name for the document.
         /// </param>
+        /// <param name="content">
+        /// Updated content for the document. Only supported for text documents, URL documents with auto-sync disabled, and file documents.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch(
-            string name)
+            string? name,
+            string? content)
         {
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.Name = name;
+            this.Content = content;
         }
 
         /// <summary>
