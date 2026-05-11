@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_List15SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_List16SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,18 +21,18 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_List15SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_List16SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_List15SecurityRequirement0,
+            {                s_List16SecurityRequirement0,
             };
-        partial void PrepareList15Arguments(
+        partial void PrepareList16Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
             ref int? pageSize,
             ref string? label,
             ref string? environment,
             global::ElevenLabs.ListEnvironmentVariablesType2? type);
-        partial void PrepareList15Request(
+        partial void PrepareList16Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
@@ -40,11 +40,11 @@ namespace ElevenLabs
             string? label,
             string? environment,
             global::ElevenLabs.ListEnvironmentVariablesType2? type);
-        partial void ProcessList15Response(
+        partial void ProcessList16Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessList15ResponseContent(
+        partial void ProcessList16ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -72,7 +72,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariablesListResponse> List15Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariablesListResponse> List16Async(
             string? cursor = default,
             int? pageSize = default,
             string? label = default,
@@ -81,7 +81,7 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await List15AsResponseAsync(
+            var __response = await List16AsResponseAsync(
                 cursor: cursor,
                 pageSize: pageSize,
                 label: label,
@@ -116,7 +116,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariablesListResponse>> List15AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariablesListResponse>> List16AsResponseAsync(
             string? cursor = default,
             int? pageSize = default,
             string? label = default,
@@ -127,7 +127,7 @@ namespace ElevenLabs
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareList15Arguments(
+            PrepareList16Arguments(
                 httpClient: HttpClient,
                 cursor: ref cursor,
                 pageSize: ref pageSize,
@@ -138,8 +138,8 @@ namespace ElevenLabs
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_List15SecurityRequirements,
-                operationName: "List15Async");
+                securityRequirements: s_List16SecurityRequirements,
+                operationName: "List16Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -205,7 +205,7 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareList15Request(
+                PrepareList16Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     cursor: cursor,
@@ -229,8 +229,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List15",
-                                methodName: "List15Async",
+                                operationId: "List16",
+                                methodName: "List16Async",
                                 pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -263,8 +263,8 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List15",
-                                methodName: "List15Async",
+                                operationId: "List16",
+                                methodName: "List16Async",
                                 pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -304,8 +304,8 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List15",
-                                methodName: "List15Async",
+                                operationId: "List16",
+                                methodName: "List16Async",
                                 pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -344,7 +344,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessList15Response(
+                ProcessList16Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -352,8 +352,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List15",
-                                methodName: "List15Async",
+                                operationId: "List16",
+                                methodName: "List16Async",
                                 pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -374,8 +374,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List15",
-                                methodName: "List15Async",
+                                operationId: "List16",
+                                methodName: "List16Async",
                                 pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -475,7 +475,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessList15ResponseContent(
+                                ProcessList16ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);

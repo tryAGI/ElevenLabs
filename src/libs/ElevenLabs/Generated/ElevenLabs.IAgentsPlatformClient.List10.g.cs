@@ -5,43 +5,55 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Get All Batch Calls For A Workspace.<br/>
-        /// Get all batch calls for the current workspace.
+        /// Get Convai Workspace Secrets<br/>
+        /// Get all workspace secrets for the user
         /// </summary>
-        /// <param name="limit">
-        /// Default Value: 100
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100. If not provided, returns all secrets.
         /// </param>
-        /// <param name="lastDoc"></param>
-        /// <param name="agentId">
-        /// Filter batch calls to a single agent.
+        /// <param name="dependencyLimit">
+        /// Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100.
+        /// </param>
+        /// <param name="search">
+        /// If specified, returns only secrets whose names start with this string.
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceBatchCallsResponse> List10Async(
-            int? limit = default,
-            string? lastDoc = default,
-            string? agentId = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.GetWorkspaceSecretsResponseModel> List10Async(
+            int? pageSize = default,
+            int? dependencyLimit = default,
+            string? search = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get All Batch Calls For A Workspace.<br/>
-        /// Get all batch calls for the current workspace.
+        /// Get Convai Workspace Secrets<br/>
+        /// Get all workspace secrets for the user
         /// </summary>
-        /// <param name="limit">
-        /// Default Value: 100
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100. If not provided, returns all secrets.
         /// </param>
-        /// <param name="lastDoc"></param>
-        /// <param name="agentId">
-        /// Filter batch calls to a single agent.
+        /// <param name="dependencyLimit">
+        /// Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100.
+        /// </param>
+        /// <param name="search">
+        /// If specified, returns only secrets whose names start with this string.
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceBatchCallsResponse>> List10AsResponseAsync(
-            int? limit = default,
-            string? lastDoc = default,
-            string? agentId = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetWorkspaceSecretsResponseModel>> List10AsResponseAsync(
+            int? pageSize = default,
+            int? dependencyLimit = default,
+            string? search = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
