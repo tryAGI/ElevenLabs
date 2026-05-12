@@ -24007,6 +24007,93 @@
         "x-fern-sdk-method-name": "update"
       }
     },
+    "/v1/convai/agents/{agent_id}/versions/{version_id}": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Get Agent Version Metadata",
+        "description": "Get metadata for a specific agent version",
+        "operationId": "get_version_metadata_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "version_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Unique identifier for the version.",
+              "examples": [
+                "agtvrsn_0901k4aafjxxfxt93gd841r7tv5t"
+              ],
+              "title": "Version Id"
+            },
+            "description": "Unique identifier for the version."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentVersionMetadata"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "versions"
+        ],
+        "x-fern-sdk-method-name": "get"
+      }
+    },
     "/v1/convai/agents/{agent_id}/branches/{source_branch_id}/merge": {
       "post": {
         "tags": [
