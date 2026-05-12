@@ -103,6 +103,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ConvaiTemplates,
+        /// <summary>
+        /// 
+        /// </summary>
         ConvaiTestSuiteInvocations,
         /// <summary>
         /// 
@@ -197,6 +201,7 @@ namespace ElevenLabs
                 WorkspaceResourceType.ConvaiPhoneNumbers => "convai_phone_numbers",
                 WorkspaceResourceType.ConvaiSecrets => "convai_secrets",
                 WorkspaceResourceType.ConvaiSettings => "convai_settings",
+                WorkspaceResourceType.ConvaiTemplates => "convai_templates",
                 WorkspaceResourceType.ConvaiTestSuiteInvocations => "convai_test_suite_invocations",
                 WorkspaceResourceType.ConvaiTools => "convai_tools",
                 WorkspaceResourceType.ConvaiWhatsappAccounts => "convai_whatsapp_accounts",
@@ -245,6 +250,7 @@ namespace ElevenLabs
                 "convai_phone_numbers" => WorkspaceResourceType.ConvaiPhoneNumbers,
                 "convai_secrets" => WorkspaceResourceType.ConvaiSecrets,
                 "convai_settings" => WorkspaceResourceType.ConvaiSettings,
+                "convai_templates" => WorkspaceResourceType.ConvaiTemplates,
                 "convai_test_suite_invocations" => WorkspaceResourceType.ConvaiTestSuiteInvocations,
                 "convai_tools" => WorkspaceResourceType.ConvaiTools,
                 "convai_whatsapp_accounts" => WorkspaceResourceType.ConvaiWhatsappAccounts,
