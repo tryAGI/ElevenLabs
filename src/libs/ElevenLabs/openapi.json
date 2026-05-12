@@ -65823,9 +65823,16 @@
             "description": "Max number of tokens used for thinking. Use 0 to turn off if supported by the model."
           },
           "temperature": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Temperature",
-            "description": "The temperature for the LLM",
+            "description": "The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field).",
             "default": 0.0
           },
           "max_tokens": {
@@ -66038,9 +66045,16 @@
             "description": "Max number of tokens used for thinking. Use 0 to turn off if supported by the model."
           },
           "temperature": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Temperature",
-            "description": "The temperature for the LLM",
+            "description": "The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field).",
             "default": 0.0
           },
           "max_tokens": {
@@ -66480,7 +66494,7 @@
               }
             ],
             "title": "Temperature",
-            "description": "The temperature for the LLM"
+            "description": "The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field)."
           },
           "max_tokens": {
             "anyOf": [
@@ -66763,7 +66777,7 @@
               }
             ],
             "title": "Temperature",
-            "description": "The temperature for the LLM"
+            "description": "The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field)."
           },
           "max_tokens": {
             "anyOf": [
@@ -84789,6 +84803,7 @@
           "content_generations",
           "content_templates",
           "songs",
+          "transcription_tasks",
           "avatars",
           "avatar_video_generations",
           "resource_collection"
