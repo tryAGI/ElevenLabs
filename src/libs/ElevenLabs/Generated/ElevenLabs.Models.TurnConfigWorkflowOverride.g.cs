@@ -27,12 +27,6 @@ namespace ElevenLabs
         public double? SilenceEndCallTimeout { get; set; }
 
         /// <summary>
-        /// Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("soft_timeout_config")]
-        public global::ElevenLabs.SoftTimeoutConfigWorkflowOverride? SoftTimeoutConfig { get; set; }
-
-        /// <summary>
         /// The mode of turn detection
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mode")]
@@ -63,6 +57,12 @@ namespace ElevenLabs
         public bool? RetranscribeOnTurnTimeout { get; set; }
 
         /// <summary>
+        /// Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("soft_timeout_config")]
+        public global::ElevenLabs.SoftTimeoutConfigWorkflowOverride? SoftTimeoutConfig { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -80,9 +80,6 @@ namespace ElevenLabs
         /// <param name="silenceEndCallTimeout">
         /// Maximum wait time since the user last spoke before terminating the call
         /// </param>
-        /// <param name="softTimeoutConfig">
-        /// Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses.
-        /// </param>
         /// <param name="mode">
         /// The mode of turn detection
         /// </param>
@@ -98,6 +95,9 @@ namespace ElevenLabs
         /// <param name="retranscribeOnTurnTimeout">
         /// When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.
         /// </param>
+        /// <param name="softTimeoutConfig">
+        /// Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -105,22 +105,22 @@ namespace ElevenLabs
             double? turnTimeout,
             double? initialWaitTime,
             double? silenceEndCallTimeout,
-            global::ElevenLabs.SoftTimeoutConfigWorkflowOverride? softTimeoutConfig,
             global::ElevenLabs.TurnMode? mode,
             global::ElevenLabs.TurnEagerness? turnEagerness,
             global::ElevenLabs.SpellingPatience? spellingPatience,
             bool? speculativeTurn,
-            bool? retranscribeOnTurnTimeout)
+            bool? retranscribeOnTurnTimeout,
+            global::ElevenLabs.SoftTimeoutConfigWorkflowOverride? softTimeoutConfig)
         {
             this.TurnTimeout = turnTimeout;
             this.InitialWaitTime = initialWaitTime;
             this.SilenceEndCallTimeout = silenceEndCallTimeout;
-            this.SoftTimeoutConfig = softTimeoutConfig;
             this.Mode = mode;
             this.TurnEagerness = turnEagerness;
             this.SpellingPatience = spellingPatience;
             this.SpeculativeTurn = speculativeTurn;
             this.RetranscribeOnTurnTimeout = retranscribeOnTurnTimeout;
+            this.SoftTimeoutConfig = softTimeoutConfig;
         }
 
         /// <summary>

@@ -153,6 +153,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public SpeechEngineClient SpeechEngine { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public SpeechToSpeechClient SpeechToSpeech { get; }
 
         /// <summary>

@@ -111,6 +111,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        VoiceDesign,
+        /// <summary>
+        /// 
+        /// </summary>
         VoiceIsolator,
         /// <summary>
         /// 
@@ -175,6 +179,7 @@ namespace ElevenLabs
                 WorkspaceGroupPermission.TermsOfServiceAccept => "terms_of_service_accept",
                 WorkspaceGroupPermission.TextToSpeech => "text_to_speech",
                 WorkspaceGroupPermission.ViewFiatBalance => "view_fiat_balance",
+                WorkspaceGroupPermission.VoiceDesign => "voice_design",
                 WorkspaceGroupPermission.VoiceIsolator => "voice_isolator",
                 WorkspaceGroupPermission.VoiceLab => "voice_lab",
                 WorkspaceGroupPermission.VoiceoverStudio => "voiceover_studio",
@@ -217,6 +222,7 @@ namespace ElevenLabs
                 "terms_of_service_accept" => WorkspaceGroupPermission.TermsOfServiceAccept,
                 "text_to_speech" => WorkspaceGroupPermission.TextToSpeech,
                 "view_fiat_balance" => WorkspaceGroupPermission.ViewFiatBalance,
+                "voice_design" => WorkspaceGroupPermission.VoiceDesign,
                 "voice_isolator" => WorkspaceGroupPermission.VoiceIsolator,
                 "voice_lab" => WorkspaceGroupPermission.VoiceLab,
                 "voiceover_studio" => WorkspaceGroupPermission.VoiceoverStudio,

@@ -52,7 +52,7 @@ namespace ElevenLabs
         /// Get a WebRTC session token for real-time communication.
         /// </summary>
         /// <param name="agentId">
-        /// The id of the agent you're taking the action on.
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
         /// <param name="participantName">
         /// Optional custom participant name. If not provided, user ID will be used
@@ -90,7 +90,7 @@ namespace ElevenLabs
         /// Get a WebRTC session token for real-time communication.
         /// </summary>
         /// <param name="agentId">
-        /// The id of the agent you're taking the action on.
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
         /// <param name="participantName">
         /// Optional custom participant name. If not provided, user ID will be used

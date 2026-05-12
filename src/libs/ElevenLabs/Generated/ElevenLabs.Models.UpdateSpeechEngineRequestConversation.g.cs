@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The ID of the conversation
+    /// 
     /// </summary>
-    public sealed partial class ConversationTokenDBModelConversationId
+    public sealed partial class UpdateSpeechEngineRequestConversation
     {
 
         /// <summary>

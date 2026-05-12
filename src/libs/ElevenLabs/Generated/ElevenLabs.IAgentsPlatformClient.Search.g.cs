@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// The search query text for semantic similarity matching
         /// </param>
         /// <param name="agentId">
-        /// The id of the agent you're taking the action on.
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
         /// <param name="pageSize">
         /// Number of results per page. Max 50.<br/>
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// The search query text for semantic similarity matching
         /// </param>
         /// <param name="agentId">
-        /// The id of the agent you're taking the action on.
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
         /// <param name="pageSize">
         /// Number of results per page. Max 50.<br/>

@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// The search query text for full-text and fuzzy matching
         /// </param>
         /// <param name="agentId">
-        /// The id of the agent you're taking the action on.
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
@@ -115,7 +115,7 @@ namespace ElevenLabs
         /// The search query text for full-text and fuzzy matching
         /// </param>
         /// <param name="agentId">
-        /// The id of the agent you're taking the action on.
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation

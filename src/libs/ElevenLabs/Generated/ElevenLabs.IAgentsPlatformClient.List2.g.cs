@@ -14,7 +14,7 @@ namespace ElevenLabs
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
         /// <param name="agentId">
-        /// The id of the agent you're taking the action on.
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
@@ -124,7 +124,7 @@ namespace ElevenLabs
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
         /// <param name="agentId">
-        /// The id of the agent you're taking the action on.
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation

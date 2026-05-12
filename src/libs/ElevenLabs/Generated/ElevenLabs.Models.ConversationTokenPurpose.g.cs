@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Default Value: signed_url
+    /// 
     /// </summary>
     public enum ConversationTokenPurpose
     {

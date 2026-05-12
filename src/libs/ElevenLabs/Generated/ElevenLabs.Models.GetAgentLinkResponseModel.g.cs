@@ -19,7 +19,7 @@ namespace ElevenLabs
         /// The token data for the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token")]
-        public global::ElevenLabs.ConversationTokenDBModel? Token { get; set; }
+        public global::ElevenLabs.ConversationTokenResponseModel? Token { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -41,7 +41,7 @@ namespace ElevenLabs
 #endif
         public GetAgentLinkResponseModel(
             string agentId,
-            global::ElevenLabs.ConversationTokenDBModel? token)
+            global::ElevenLabs.ConversationTokenResponseModel? token)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.Token = token;

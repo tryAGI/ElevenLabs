@@ -232,6 +232,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public SpeechEngineClient SpeechEngine => new SpeechEngineClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public SpeechToSpeechClient SpeechToSpeech => new SpeechToSpeechClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,

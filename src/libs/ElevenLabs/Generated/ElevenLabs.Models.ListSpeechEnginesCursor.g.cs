@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The expiration time of the token in unix seconds
+    /// Used for fetching next page. Cursor is returned in the response.
     /// </summary>
-    public sealed partial class ConversationTokenDBModelExpirationTimeUnixSecs
+    public sealed partial class ListSpeechEnginesCursor
     {
 
         /// <summary>

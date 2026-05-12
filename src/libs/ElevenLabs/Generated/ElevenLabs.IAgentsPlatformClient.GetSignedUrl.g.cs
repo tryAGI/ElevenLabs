@@ -9,7 +9,7 @@ namespace ElevenLabs
         /// Get a signed url to start a conversation with an agent with an agent that requires authorization
         /// </summary>
         /// <param name="agentId">
-        /// The id of the agent you're taking the action on.
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
         /// <param name="includeConversationId">
         /// Whether to include a conversation_id with the response. If included, the conversation_signature cannot be used again.<br/>
@@ -36,7 +36,7 @@ namespace ElevenLabs
         /// Get a signed url to start a conversation with an agent with an agent that requires authorization
         /// </summary>
         /// <param name="agentId">
-        /// The id of the agent you're taking the action on.
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
         /// <param name="includeConversationId">
         /// Whether to include a conversation_id with the response. If included, the conversation_signature cannot be used again.<br/>

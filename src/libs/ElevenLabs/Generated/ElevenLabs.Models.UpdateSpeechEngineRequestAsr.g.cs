@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The user ID of the entity who requested the token
+    /// 
     /// </summary>
-    public sealed partial class ConversationTokenDBModelTokenRequesterUserId
+    public sealed partial class UpdateSpeechEngineRequestAsr
     {
 
         /// <summary>
