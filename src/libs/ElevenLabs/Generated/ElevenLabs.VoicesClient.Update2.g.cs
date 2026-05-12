@@ -205,6 +205,14 @@ namespace ElevenLabs
                                     name: "\"labels\"");
 
                             }
+                            if (request.ModerateMetadata != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.ModerateMetadata, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"moderate_metadata\"");
+
+                            }
 
                             __httpRequest.Content = __httpRequestContent;
 
@@ -560,6 +568,10 @@ namespace ElevenLabs
         /// <param name="labels">
         /// Labels for the voice. Keys can be language, accent, gender, or age.
         /// </param>
+        /// <param name="moderateMetadata">
+        /// Run synchronous LLM moderation over the voice name and description when they change. Has no effect unless the voice_library_metadata_moderation feature flag is enabled for the user.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -570,6 +582,7 @@ namespace ElevenLabs
             bool? removeBackgroundNoise = default,
             string? description = default,
             global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? labels = default,
+            bool? moderateMetadata = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -580,6 +593,7 @@ namespace ElevenLabs
                 RemoveBackgroundNoise = removeBackgroundNoise,
                 Description = description,
                 Labels = labels,
+                ModerateMetadata = moderateMetadata,
             };
 
             return await Update2Async(

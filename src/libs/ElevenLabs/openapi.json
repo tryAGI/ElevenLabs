@@ -2177,33 +2177,40 @@
             "schema": {
               "type": "string",
               "title": "Output format of the generated audio.",
-              "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.",
+              "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.",
               "enum": [
+                "alaw_8000",
                 "mp3_22050_32",
                 "mp3_24000_48",
+                "mp3_44100_128",
+                "mp3_44100_192",
                 "mp3_44100_32",
                 "mp3_44100_64",
                 "mp3_44100_96",
-                "mp3_44100_128",
-                "mp3_44100_192",
-                "pcm_8000",
+                "opus_48000_128",
+                "opus_48000_192",
+                "opus_48000_32",
+                "opus_48000_64",
+                "opus_48000_96",
                 "pcm_16000",
                 "pcm_22050",
                 "pcm_24000",
                 "pcm_32000",
                 "pcm_44100",
                 "pcm_48000",
+                "pcm_8000",
                 "ulaw_8000",
-                "alaw_8000",
-                "opus_48000_32",
-                "opus_48000_64",
-                "opus_48000_96",
-                "opus_48000_128",
-                "opus_48000_192"
+                "wav_16000",
+                "wav_22050",
+                "wav_24000",
+                "wav_32000",
+                "wav_44100",
+                "wav_48000",
+                "wav_8000"
               ],
               "default": "mp3_44100_128"
             },
-            "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs."
+            "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs."
           },
           {
             "name": "xi-api-key",
@@ -11729,13 +11736,14 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the agent you're taking the action on.",
+              "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.",
               "examples": [
-                "21m00Tcm4TlvDq8ikWAM"
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz",
+                "seng_3701k3ttaq12ewp8b7qv5rfyszkz"
               ],
               "title": "Agent Id"
             },
-            "description": "The id of the agent you're taking the action on."
+            "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource."
           },
           {
             "name": "include_conversation_id",
@@ -11849,13 +11857,14 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the agent you're taking the action on.",
+              "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.",
               "examples": [
-                "21m00Tcm4TlvDq8ikWAM"
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz",
+                "seng_3701k3ttaq12ewp8b7qv5rfyszkz"
               ],
               "title": "Agent Id"
             },
-            "description": "The id of the agent you're taking the action on."
+            "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource."
           },
           {
             "name": "include_conversation_id",
@@ -11964,13 +11973,14 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the agent you're taking the action on.",
+              "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.",
               "examples": [
-                "21m00Tcm4TlvDq8ikWAM"
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz",
+                "seng_3701k3ttaq12ewp8b7qv5rfyszkz"
               ],
               "title": "Agent Id"
             },
-            "description": "The id of the agent you're taking the action on."
+            "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource."
           },
           {
             "name": "participant_name",
@@ -14945,13 +14955,14 @@
                   "type": "null"
                 }
               ],
-              "description": "The id of the agent you're taking the action on.",
+              "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.",
               "examples": [
-                "21m00Tcm4TlvDq8ikWAM"
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz",
+                "seng_3701k3ttaq12ewp8b7qv5rfyszkz"
               ],
               "title": "Agent Id"
             },
-            "description": "The id of the agent you're taking the action on."
+            "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource."
           },
           {
             "name": "call_successful",
@@ -15472,13 +15483,14 @@
                   "type": "null"
                 }
               ],
-              "description": "The id of the agent you're taking the action on.",
+              "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.",
               "examples": [
-                "21m00Tcm4TlvDq8ikWAM"
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz",
+                "seng_3701k3ttaq12ewp8b7qv5rfyszkz"
               ],
               "title": "Agent Id"
             },
-            "description": "The id of the agent you're taking the action on."
+            "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource."
           },
           {
             "name": "branch_id",
@@ -16057,13 +16069,14 @@
                   "type": "null"
                 }
               ],
-              "description": "The id of the agent you're taking the action on.",
+              "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.",
               "examples": [
-                "21m00Tcm4TlvDq8ikWAM"
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz",
+                "seng_3701k3ttaq12ewp8b7qv5rfyszkz"
               ],
               "title": "Agent Id"
             },
-            "description": "The id of the agent you're taking the action on."
+            "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource."
           },
           {
             "name": "call_successful",
@@ -16541,13 +16554,14 @@
                   "type": "null"
                 }
               ],
-              "description": "The id of the agent you're taking the action on.",
+              "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.",
               "examples": [
-                "21m00Tcm4TlvDq8ikWAM"
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz",
+                "seng_3701k3ttaq12ewp8b7qv5rfyszkz"
               ],
               "title": "Agent Id"
             },
-            "description": "The id of the agent you're taking the action on."
+            "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource."
           },
           {
             "name": "page_size",
@@ -24366,6 +24380,403 @@
         "x-fern-sdk-method-name": "delete"
       }
     },
+    "/v1/speech-engine": {
+      "get": {
+        "tags": [
+          "Speech Engine"
+        ],
+        "summary": "List Speech Engines",
+        "description": "Returns a paginated list of Speech Engine resources.",
+        "operationId": "list_speech_engines",
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "description": "How many Speech Engines to return at maximum. Can not exceed 100, defaults to 30.",
+              "default": 30,
+              "title": "Page Size"
+            },
+            "description": "How many Speech Engines to return at maximum. Can not exceed 100, defaults to 30."
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Search term to filter Speech Engines by name",
+              "title": "Search"
+            },
+            "description": "Search term to filter Speech Engines by name"
+          },
+          {
+            "name": "sort_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/SortDirection",
+              "description": "The direction to sort the results",
+              "default": "desc"
+            },
+            "description": "The direction to sort the results"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/AgentSortBy"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The field to sort the results by",
+              "title": "Sort By"
+            },
+            "description": "The field to sort the results by"
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Used for fetching next page. Cursor is returned in the response.",
+              "title": "Cursor"
+            },
+            "description": "Used for fetching next page. Cursor is returned in the response."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSpeechEnginesResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "speech_engine",
+        "x-fern-sdk-method-name": "list"
+      },
+      "post": {
+        "tags": [
+          "Speech Engine"
+        ],
+        "summary": "Create Speech Engine",
+        "description": "Create a new Speech Engine resource",
+        "operationId": "create_speech_engine",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSpeechEngineRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSpeechEngineResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "speech_engine",
+        "x-fern-sdk-method-name": "create"
+      }
+    },
+    "/v1/speech-engine/{speech_engine_id}": {
+      "get": {
+        "tags": [
+          "Speech Engine"
+        ],
+        "summary": "Get Speech Engine",
+        "description": "Retrieve a Speech Engine resource",
+        "operationId": "get_speech_engine",
+        "parameters": [
+          {
+            "name": "speech_engine_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The speech engine ID (accepts seng_ or agent_ prefix)",
+              "examples": [
+                "seng_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "title": "Speech Engine Id"
+            },
+            "description": "The speech engine ID (accepts seng_ or agent_ prefix)"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpeechEngineResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "speech_engine",
+        "x-fern-sdk-method-name": "get"
+      },
+      "patch": {
+        "tags": [
+          "Speech Engine"
+        ],
+        "summary": "Update Speech Engine",
+        "description": "Update a Speech Engine resource (partial update)",
+        "operationId": "update_speech_engine",
+        "parameters": [
+          {
+            "name": "speech_engine_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The speech engine ID (accepts seng_ or agent_ prefix)",
+              "examples": [
+                "seng_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "title": "Speech Engine Id"
+            },
+            "description": "The speech engine ID (accepts seng_ or agent_ prefix)"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSpeechEngineRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpeechEngineResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "speech_engine",
+        "x-fern-sdk-method-name": "update"
+      },
+      "delete": {
+        "tags": [
+          "Speech Engine"
+        ],
+        "summary": "Delete Speech Engine",
+        "description": "Delete a Speech Engine resource",
+        "operationId": "delete_speech_engine",
+        "parameters": [
+          {
+            "name": "speech_engine_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The speech engine ID (accepts seng_ or agent_ prefix)",
+              "examples": [
+                "seng_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "title": "Speech Engine Id"
+            },
+            "description": "The speech engine ID (accepts seng_ or agent_ prefix)"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "speech_engine",
+        "x-fern-sdk-method-name": "delete"
+      }
+    },
     "/v1/convai/conversations/{conversation_id}/analysis/run": {
       "post": {
         "tags": [
@@ -28339,6 +28750,37 @@
         ],
         "title": "AdhocAgentConfigOverrideForTestRequestModel"
       },
+      "AgentAlertingMonitorConfig": {
+        "properties": {
+          "threshold": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Threshold",
+            "description": "Failure rate threshold at which this monitor can notify.",
+            "default": 0.5
+          }
+        },
+        "type": "object",
+        "title": "AgentAlertingMonitorConfig"
+      },
+      "AgentAlertingSettings": {
+        "properties": {
+          "monitor_configs": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AgentAlertingMonitorConfig"
+            },
+            "propertyNames": {
+              "$ref": "#/components/schemas/Monitor"
+            },
+            "type": "object",
+            "title": "Monitor Configs",
+            "description": "Alerting configuration keyed by monitor."
+          }
+        },
+        "type": "object",
+        "title": "AgentAlertingSettings"
+      },
       "AgentBranchBasicInfo": {
         "properties": {
           "id": {
@@ -29224,6 +29666,32 @@
         ],
         "title": "AgentMetadata"
       },
+      "AgentMetadataDBModel": {
+        "properties": {
+          "created_at_unix_secs": {
+            "type": "integer",
+            "title": "Created At Unix Secs"
+          },
+          "updated_at_unix_secs": {
+            "type": "integer",
+            "title": "Updated At Unix Secs"
+          },
+          "created_from": {
+            "$ref": "#/components/schemas/AgentDefinitionSource",
+            "default": "unknown"
+          },
+          "last_updated_from": {
+            "$ref": "#/components/schemas/AgentDefinitionSource",
+            "default": "unknown"
+          }
+        },
+        "type": "object",
+        "required": [
+          "created_at_unix_secs",
+          "updated_at_unix_secs"
+        ],
+        "title": "AgentMetadataDBModel"
+      },
       "AgentMetadataResponseModel": {
         "properties": {
           "created_at_unix_secs": {
@@ -29332,6 +29800,16 @@
             "$ref": "#/components/schemas/LLM",
             "description": "Default LLM model for post-call analysis (evaluation and data collection)",
             "default": "gemini-2.5-flash"
+          },
+          "alerting": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentAlertingSettings"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -29425,6 +29903,16 @@
             "$ref": "#/components/schemas/LLM",
             "description": "Default LLM model for post-call analysis (evaluation and data collection)",
             "default": "gemini-2.5-flash"
+          },
+          "alerting": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentAlertingSettings"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "safety": {
             "$ref": "#/components/schemas/SafetyResponseModel"
@@ -32468,6 +32956,74 @@
           "order"
         ],
         "title": "BackupLLMOverride"
+      },
+      "BaseTurnConfig": {
+        "properties": {
+          "turn_timeout": {
+            "type": "number",
+            "title": "Turn Timeout",
+            "description": "Maximum wait time for the user's reply before re-engaging the user",
+            "default": 7.0
+          },
+          "initial_wait_time": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Initial Wait Time",
+            "description": "How long the agent will wait for the user to start the conversation if the first message is empty. If not set, uses the regular turn_timeout."
+          },
+          "silence_end_call_timeout": {
+            "type": "number",
+            "title": "Silence End Call Timeout",
+            "description": "Maximum wait time since the user last spoke before terminating the call",
+            "default": -1
+          },
+          "mode": {
+            "$ref": "#/components/schemas/TurnMode",
+            "description": "The mode of turn detection",
+            "default": "turn",
+            "x-fern-ignore": true
+          },
+          "turn_eagerness": {
+            "$ref": "#/components/schemas/TurnEagerness",
+            "description": "Controls how eager the agent is to respond. Low = less eager (waits longer), Standard = default eagerness, High = more eager (responds sooner)",
+            "default": "normal"
+          },
+          "spelling_patience": {
+            "$ref": "#/components/schemas/SpellingPatience",
+            "description": "Controls if the agent should be more patient when user is spelling numbers and named entities. Auto = model based, Off = never wait extra",
+            "default": "auto"
+          },
+          "speculative_turn": {
+            "type": "boolean",
+            "title": "Speculative Turn",
+            "description": "When enabled, starts generating LLM responses during silence before full turn confidence is reached, reducing perceived latency. May increase LLM costs.",
+            "default": false
+          },
+          "retranscribe_on_turn_timeout": {
+            "type": "boolean",
+            "title": "Retranscribe On Turn Timeout",
+            "description": "When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "BaseTurnConfig",
+        "example": {
+          "interruption_ignore_terms": [],
+          "mode": "turn",
+          "retranscribe_on_turn_timeout": false,
+          "silence_end_call_timeout": -1.0,
+          "speculative_turn": false,
+          "spelling_patience": "auto",
+          "turn_eagerness": "normal",
+          "turn_timeout": 7.0
+        }
       },
       "BasicAuthResponse": {
         "properties": {
@@ -35759,6 +36315,12 @@
             "examples": [
               "{\"language\": \"en\", \"accent\": \"en-US\", \"gender\": \"male\", \"age\": \"middle-aged\"}"
             ]
+          },
+          "moderate_metadata": {
+            "type": "boolean",
+            "title": "Moderate Metadata",
+            "description": "Run synchronous LLM moderation over the voice name and description when they change. Has no effect unless the voice_library_metadata_moderation feature flag is enabled for the user.",
+            "default": false
           }
         },
         "type": "object",
@@ -41839,6 +42401,30 @@
         "title": "CoachingAgentSettings",
         "description": "Runtime-only settings for the virtual coach. Not stored in the database."
       },
+      "CodeToolAllowedDomain": {
+        "properties": {
+          "domain": {
+            "type": "string",
+            "maxLength": 253,
+            "minLength": 1,
+            "title": "Domain",
+            "description": "Domain pattern that code tools can access. Must be a valid domain (e.g. api.github.com), optionally with a subdomain wildcard (*.example.com) or path glob (api.example.com/v1/*)."
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Name",
+            "description": "Human-readable label for this domain entry"
+          }
+        },
+        "type": "object",
+        "required": [
+          "domain",
+          "name"
+        ],
+        "title": "CodeToolAllowedDomain"
+      },
       "ColumnFilter": {
         "properties": {
           "column": {
@@ -46094,7 +46680,15 @@
         ],
         "title": "ConversationTagResponseModel"
       },
-      "ConversationTokenDBModel": {
+      "ConversationTokenPurpose": {
+        "type": "string",
+        "enum": [
+          "signed_url",
+          "shareable_link"
+        ],
+        "title": "ConversationTokenPurpose"
+      },
+      "ConversationTokenResponseModel": {
         "properties": {
           "agent_id": {
             "type": "string",
@@ -46132,8 +46726,7 @@
           },
           "purpose": {
             "$ref": "#/components/schemas/ConversationTokenPurpose",
-            "description": "The purpose of the token",
-            "default": "signed_url"
+            "description": "The purpose of the token"
           },
           "token_requester_user_id": {
             "anyOf": [
@@ -46151,25 +46744,10 @@
         "type": "object",
         "required": [
           "agent_id",
-          "conversation_token"
+          "conversation_token",
+          "purpose"
         ],
-        "title": "ConversationTokenDBModel",
-        "example": {
-          "agent_id": "agent_J3Pbu5gP6NNKBscdCdwB",
-          "conversation_id": "conv_J3Pbu5gP6NNKBscdCdwB",
-          "conversation_token": "1234567890",
-          "expiration_time_unix_secs": 1716153600,
-          "purpose": "signed_url"
-        }
-      },
-      "ConversationTokenPurpose": {
-        "type": "string",
-        "enum": [
-          "signed_url",
-          "shareable_link"
-        ],
-        "title": "ConversationTokenPurpose",
-        "default": "signed_url"
+        "title": "ConversationTokenResponseModel"
       },
       "ConversationTurnMetrics": {
         "properties": {
@@ -47676,6 +48254,77 @@
           "name"
         ],
         "title": "CreateSimulationTestRequest"
+      },
+      "CreateSpeechEngineRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Name of the speech engine",
+            "default": "Speech Engine"
+          },
+          "speech_engine": {
+            "$ref": "#/components/schemas/SpeechEngineConfig",
+            "description": "Speech engine WebSocket configuration"
+          },
+          "asr": {
+            "$ref": "#/components/schemas/ASRConversationalConfig",
+            "description": "ASR configuration"
+          },
+          "tts": {
+            "$ref": "#/components/schemas/TTSConversationalConfig-Input",
+            "description": "TTS configuration"
+          },
+          "turn": {
+            "$ref": "#/components/schemas/BaseTurnConfig",
+            "description": "Turn detection configuration"
+          },
+          "conversation": {
+            "$ref": "#/components/schemas/ConversationConfig-Input",
+            "description": "Conversation configuration (client events, etc.)"
+          },
+          "privacy": {
+            "$ref": "#/components/schemas/PrivacyConfig-Input",
+            "description": "Privacy settings (recording, retention, zero retention mode)"
+          },
+          "call_limits": {
+            "$ref": "#/components/schemas/AgentCallLimits",
+            "description": "Concurrency and daily conversation limits for this speech engine"
+          },
+          "language": {
+            "type": "string",
+            "title": "Language",
+            "description": "Language for the speech engine",
+            "default": "en"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Tags",
+            "description": "Tags for categorization"
+          }
+        },
+        "type": "object",
+        "required": [
+          "speech_engine"
+        ],
+        "title": "CreateSpeechEngineRequest"
+      },
+      "CreateSpeechEngineResponse": {
+        "properties": {
+          "speech_engine_id": {
+            "type": "string",
+            "title": "Speech Engine Id",
+            "description": "The speech engine resource ID"
+          }
+        },
+        "type": "object",
+        "required": [
+          "speech_engine_id"
+        ],
+        "title": "CreateSpeechEngineResponse"
       },
       "CreateStaffParams": {
         "properties": {
@@ -52014,7 +52663,7 @@
           "token": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/ConversationTokenDBModel"
+                "$ref": "#/components/schemas/ConversationTokenResponseModel"
               },
               {
                 "type": "null"
@@ -58140,6 +58789,40 @@
         "type": "object",
         "title": "ListServicesParams"
       },
+      "ListSpeechEnginesResponse": {
+        "properties": {
+          "speech_engines": {
+            "items": {
+              "$ref": "#/components/schemas/SpeechEngineSummaryResponse"
+            },
+            "type": "array",
+            "title": "Speech Engines"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor",
+            "description": "Cursor for fetching the next page"
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More",
+            "description": "Whether there are more results"
+          }
+        },
+        "type": "object",
+        "required": [
+          "speech_engines",
+          "has_more"
+        ],
+        "title": "ListSpeechEnginesResponse"
+      },
       "ListStaffParams": {
         "properties": {
           "list_kwargs": {
@@ -60583,6 +61266,14 @@
         },
         "type": "object",
         "title": "ModerationGuardrail"
+      },
+      "Monitor": {
+        "type": "string",
+        "enum": [
+          "elevated_conversation_failure_rate",
+          "elevated_tool_failure_rate"
+        ],
+        "title": "Monitor"
       },
       "MultichannelSpeechToTextResponseModel": {
         "properties": {
@@ -70440,6 +71131,103 @@
         ],
         "title": "SpeechEngineConfig"
       },
+      "SpeechEngineResponse": {
+        "properties": {
+          "speech_engine_id": {
+            "type": "string",
+            "title": "Speech Engine Id",
+            "description": "The speech engine resource ID"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "speech_engine": {
+            "$ref": "#/components/schemas/SpeechEngineConfig"
+          },
+          "asr": {
+            "$ref": "#/components/schemas/ASRConversationalConfig"
+          },
+          "tts": {
+            "$ref": "#/components/schemas/TTSConversationalConfig-Output"
+          },
+          "turn": {
+            "$ref": "#/components/schemas/BaseTurnConfig"
+          },
+          "conversation": {
+            "$ref": "#/components/schemas/ConversationConfig-Output"
+          },
+          "privacy": {
+            "$ref": "#/components/schemas/PrivacyConfig-Output"
+          },
+          "call_limits": {
+            "$ref": "#/components/schemas/AgentCallLimits"
+          },
+          "language": {
+            "type": "string",
+            "title": "Language"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Tags"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/AgentMetadataDBModel"
+          }
+        },
+        "type": "object",
+        "required": [
+          "speech_engine_id",
+          "name",
+          "speech_engine",
+          "asr",
+          "tts",
+          "turn",
+          "conversation",
+          "privacy",
+          "call_limits",
+          "language",
+          "tags",
+          "metadata"
+        ],
+        "title": "SpeechEngineResponse"
+      },
+      "SpeechEngineSummaryResponse": {
+        "properties": {
+          "speech_engine_id": {
+            "type": "string",
+            "title": "Speech Engine Id",
+            "description": "The speech engine resource ID"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "created_at_unix_secs": {
+            "type": "integer",
+            "title": "Created At Unix Secs",
+            "description": "Creation time in unix seconds"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Tags"
+          }
+        },
+        "type": "object",
+        "required": [
+          "speech_engine_id",
+          "name",
+          "created_at_unix_secs",
+          "tags"
+        ],
+        "title": "SpeechEngineSummaryResponse"
+      },
       "SpeechHistoryItemResponseModel": {
         "properties": {
           "history_item_id": {
@@ -74379,10 +75167,6 @@
             "description": "Maximum wait time since the user last spoke before terminating the call",
             "default": -1
           },
-          "soft_timeout_config": {
-            "$ref": "#/components/schemas/SoftTimeoutConfig",
-            "description": "Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses."
-          },
           "mode": {
             "$ref": "#/components/schemas/TurnMode",
             "description": "The mode of turn detection",
@@ -74410,6 +75194,10 @@
             "title": "Retranscribe On Turn Timeout",
             "description": "When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.",
             "default": false
+          },
+          "soft_timeout_config": {
+            "$ref": "#/components/schemas/SoftTimeoutConfig",
+            "description": "Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses."
           }
         },
         "type": "object",
@@ -74499,17 +75287,6 @@
             "title": "Silence End Call Timeout",
             "description": "Maximum wait time since the user last spoke before terminating the call"
           },
-          "soft_timeout_config": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/SoftTimeoutConfigWorkflowOverride"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses."
-          },
           "mode": {
             "anyOf": [
               {
@@ -74567,6 +75344,17 @@
             ],
             "title": "Retranscribe On Turn Timeout",
             "description": "When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns."
+          },
+          "soft_timeout_config": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SoftTimeoutConfigWorkflowOverride"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses."
           }
         },
         "type": "object",
@@ -75634,6 +76422,118 @@
           "name"
         ],
         "title": "UpdateSimulationTestRequest"
+      },
+      "UpdateSpeechEngineRequest": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "speech_engine": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SpeechEngineConfig"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "asr": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ASRConversationalConfig"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tts": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TTSConversationalConfig-Input"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "turn": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BaseTurnConfig"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "conversation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationConfig-Input"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "privacy": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PrivacyConfig-Input"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "call_limits": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentCallLimits"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language"
+          },
+          "tags": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tags"
+          }
+        },
+        "type": "object",
+        "title": "UpdateSpeechEngineRequest"
       },
       "UpdateStaffParams": {
         "properties": {
@@ -83662,7 +84562,8 @@
           "workspace_members_remove",
           "terms_of_service_accept",
           "audit_log_read",
-          "copy_resources_cross_workspace"
+          "copy_resources_cross_workspace",
+          "voice_design"
         ],
         "title": "WorkspaceGroupPermission"
       },

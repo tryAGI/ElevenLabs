@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"agent_id":"agent_J3Pbu5gP6NNKBscdCdwB","conversation_id":"conv_J3Pbu5gP6NNKBscdCdwB","conversation_token":"1234567890","expiration_time_unix_secs":1716153600,"purpose":"signed_url"}
+    /// 
     /// </summary>
-    public sealed partial class ConversationTokenDBModel
+    public sealed partial class ConversationTokenResponseModel
     {
         /// <summary>
         /// The ID of the agent
@@ -35,12 +35,12 @@ namespace ElevenLabs
         public string? ConversationId { get; set; }
 
         /// <summary>
-        /// The purpose of the token<br/>
-        /// Default Value: signed_url
+        /// The purpose of the token
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("purpose")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationTokenPurposeJsonConverter))]
-        public global::ElevenLabs.ConversationTokenPurpose? Purpose { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.ConversationTokenPurpose Purpose { get; set; }
 
         /// <summary>
         /// The user ID of the entity who requested the token
@@ -55,7 +55,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationTokenDBModel" /> class.
+        /// Initializes a new instance of the <see cref="ConversationTokenResponseModel" /> class.
         /// </summary>
         /// <param name="agentId">
         /// The ID of the agent
@@ -63,15 +63,14 @@ namespace ElevenLabs
         /// <param name="conversationToken">
         /// The token for the agent
         /// </param>
+        /// <param name="purpose">
+        /// The purpose of the token
+        /// </param>
         /// <param name="expirationTimeUnixSecs">
         /// The expiration time of the token in unix seconds
         /// </param>
         /// <param name="conversationId">
         /// The ID of the conversation
-        /// </param>
-        /// <param name="purpose">
-        /// The purpose of the token<br/>
-        /// Default Value: signed_url
         /// </param>
         /// <param name="tokenRequesterUserId">
         /// The user ID of the entity who requested the token
@@ -79,12 +78,12 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public ConversationTokenDBModel(
+        public ConversationTokenResponseModel(
             string agentId,
             string conversationToken,
+            global::ElevenLabs.ConversationTokenPurpose purpose,
             int? expirationTimeUnixSecs,
             string? conversationId,
-            global::ElevenLabs.ConversationTokenPurpose? purpose,
             string? tokenRequesterUserId)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
@@ -96,9 +95,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationTokenDBModel" /> class.
+        /// Initializes a new instance of the <see cref="ConversationTokenResponseModel" /> class.
         /// </summary>
-        public ConversationTokenDBModel()
+        public ConversationTokenResponseModel()
         {
         }
 

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The id of the agent you're taking the action on.
+    /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
     /// </summary>
     public sealed partial class TextSearchConversationMessagesRouteAgentId
     {

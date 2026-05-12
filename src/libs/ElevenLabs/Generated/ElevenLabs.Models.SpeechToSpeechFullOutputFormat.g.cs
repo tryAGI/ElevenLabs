@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
+    /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
     /// Default Value: mp3_44100_128
     /// </summary>
     public enum SpeechToSpeechFullOutputFormat
@@ -93,6 +93,34 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Ulaw8000,
+        /// <summary>
+        /// 
+        /// </summary>
+        Wav16000,
+        /// <summary>
+        /// 
+        /// </summary>
+        Wav22050,
+        /// <summary>
+        /// 
+        /// </summary>
+        Wav24000,
+        /// <summary>
+        /// 
+        /// </summary>
+        Wav32000,
+        /// <summary>
+        /// 
+        /// </summary>
+        Wav44100,
+        /// <summary>
+        /// 
+        /// </summary>
+        Wav48000,
+        /// <summary>
+        /// 
+        /// </summary>
+        Wav8000,
     }
 
     /// <summary>
@@ -128,6 +156,13 @@ namespace ElevenLabs
                 SpeechToSpeechFullOutputFormat.Pcm48000 => "pcm_48000",
                 SpeechToSpeechFullOutputFormat.Pcm8000 => "pcm_8000",
                 SpeechToSpeechFullOutputFormat.Ulaw8000 => "ulaw_8000",
+                SpeechToSpeechFullOutputFormat.Wav16000 => "wav_16000",
+                SpeechToSpeechFullOutputFormat.Wav22050 => "wav_22050",
+                SpeechToSpeechFullOutputFormat.Wav24000 => "wav_24000",
+                SpeechToSpeechFullOutputFormat.Wav32000 => "wav_32000",
+                SpeechToSpeechFullOutputFormat.Wav44100 => "wav_44100",
+                SpeechToSpeechFullOutputFormat.Wav48000 => "wav_48000",
+                SpeechToSpeechFullOutputFormat.Wav8000 => "wav_8000",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -159,6 +194,13 @@ namespace ElevenLabs
                 "pcm_48000" => SpeechToSpeechFullOutputFormat.Pcm48000,
                 "pcm_8000" => SpeechToSpeechFullOutputFormat.Pcm8000,
                 "ulaw_8000" => SpeechToSpeechFullOutputFormat.Ulaw8000,
+                "wav_16000" => SpeechToSpeechFullOutputFormat.Wav16000,
+                "wav_22050" => SpeechToSpeechFullOutputFormat.Wav22050,
+                "wav_24000" => SpeechToSpeechFullOutputFormat.Wav24000,
+                "wav_32000" => SpeechToSpeechFullOutputFormat.Wav32000,
+                "wav_44100" => SpeechToSpeechFullOutputFormat.Wav44100,
+                "wav_48000" => SpeechToSpeechFullOutputFormat.Wav48000,
+                "wav_8000" => SpeechToSpeechFullOutputFormat.Wav8000,
                 _ => null,
             };
         }

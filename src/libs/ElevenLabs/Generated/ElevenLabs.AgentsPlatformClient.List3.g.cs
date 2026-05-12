@@ -60,7 +60,7 @@ namespace ElevenLabs
         /// Get distinct users from conversations with pagination.
         /// </summary>
         /// <param name="agentId">
-        /// The id of the agent you're taking the action on.
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
@@ -120,7 +120,7 @@ namespace ElevenLabs
         /// Get distinct users from conversations with pagination.
         /// </summary>
         /// <param name="agentId">
-        /// The id of the agent you're taking the action on.
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.

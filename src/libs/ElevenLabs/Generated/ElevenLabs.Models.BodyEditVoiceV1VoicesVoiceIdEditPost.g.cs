@@ -42,6 +42,13 @@ namespace ElevenLabs
         public global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? Labels { get; set; }
 
         /// <summary>
+        /// Run synchronous LLM moderation over the voice name and description when they change. Has no effect unless the voice_library_metadata_moderation feature flag is enabled for the user.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("moderate_metadata")]
+        public bool? ModerateMetadata { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -66,6 +73,10 @@ namespace ElevenLabs
         /// <param name="labels">
         /// Labels for the voice. Keys can be language, accent, gender, or age.
         /// </param>
+        /// <param name="moderateMetadata">
+        /// Run synchronous LLM moderation over the voice name and description when they change. Has no effect unless the voice_library_metadata_moderation feature flag is enabled for the user.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -74,13 +85,15 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<byte[]>? files,
             bool? removeBackgroundNoise,
             string? description,
-            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? labels)
+            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? labels,
+            bool? moderateMetadata)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Files = files;
             this.RemoveBackgroundNoise = removeBackgroundNoise;
             this.Description = description;
             this.Labels = labels;
+            this.ModerateMetadata = moderateMetadata;
         }
 
         /// <summary>
