@@ -47,6 +47,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        SlackBotAuth,
+        /// <summary>
+        /// 
+        /// </summary>
         WhatsappAuth,
     }
 
@@ -71,6 +75,7 @@ namespace ElevenLabs
                 CreateAuthConnectionResponseDiscriminatorAuthType.Oauth2ClientCredentials => "oauth2_client_credentials",
                 CreateAuthConnectionResponseDiscriminatorAuthType.Oauth2Jwt => "oauth2_jwt",
                 CreateAuthConnectionResponseDiscriminatorAuthType.PrivateKeyJwt => "private_key_jwt",
+                CreateAuthConnectionResponseDiscriminatorAuthType.SlackBotAuth => "slack_bot_auth",
                 CreateAuthConnectionResponseDiscriminatorAuthType.WhatsappAuth => "whatsapp_auth",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -91,6 +96,7 @@ namespace ElevenLabs
                 "oauth2_client_credentials" => CreateAuthConnectionResponseDiscriminatorAuthType.Oauth2ClientCredentials,
                 "oauth2_jwt" => CreateAuthConnectionResponseDiscriminatorAuthType.Oauth2Jwt,
                 "private_key_jwt" => CreateAuthConnectionResponseDiscriminatorAuthType.PrivateKeyJwt,
+                "slack_bot_auth" => CreateAuthConnectionResponseDiscriminatorAuthType.SlackBotAuth,
                 "whatsapp_auth" => CreateAuthConnectionResponseDiscriminatorAuthType.WhatsappAuth,
                 _ => null,
             };
