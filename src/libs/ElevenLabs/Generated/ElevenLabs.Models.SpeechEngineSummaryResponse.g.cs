@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"created_at_unix_secs":1714000000,"name":"My Speech Engine","speech_engine_id":"seng_3701k3ttaq12ewp8b7qv5rfyszkz","tags":["production","v1"]}
     /// </summary>
     public sealed partial class SpeechEngineSummaryResponse
     {
@@ -16,21 +16,21 @@ namespace ElevenLabs
         public required string SpeechEngineId { get; set; }
 
         /// <summary>
-        /// 
+        /// Human-readable name for the speech engine
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// Creation time in unix seconds
+        /// Creation time in Unix seconds
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int CreatedAtUnixSecs { get; set; }
 
         /// <summary>
-        /// 
+        /// Arbitrary tags for categorization and filtering
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -48,11 +48,15 @@ namespace ElevenLabs
         /// <param name="speechEngineId">
         /// The speech engine resource ID
         /// </param>
-        /// <param name="name"></param>
-        /// <param name="createdAtUnixSecs">
-        /// Creation time in unix seconds
+        /// <param name="name">
+        /// Human-readable name for the speech engine
         /// </param>
-        /// <param name="tags"></param>
+        /// <param name="createdAtUnixSecs">
+        /// Creation time in Unix seconds
+        /// </param>
+        /// <param name="tags">
+        /// Arbitrary tags for categorization and filtering
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

@@ -9909,6 +9909,9 @@
                     "$ref": "#/components/schemas/CreateBasicAuthRequest"
                   },
                   {
+                    "$ref": "#/components/schemas/CreateBearerAuthRequest"
+                  },
+                  {
                     "$ref": "#/components/schemas/CreateOAuth2JWTRequest"
                   },
                   {
@@ -28850,6 +28853,18 @@
             "title": "Threshold",
             "description": "Failure rate threshold at which this monitor can notify.",
             "default": 0.5
+          },
+          "auto_resolve_after_inactive_minutes": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Auto Resolve After Inactive Minutes",
+            "description": "How many minutes an alert can stay inactive before it is auto-resolved."
           }
         },
         "type": "object",
@@ -28867,6 +28882,13 @@
             "type": "object",
             "title": "Monitor Configs",
             "description": "Alerting configuration keyed by monitor."
+          },
+          "auto_resolve_after_inactive_minutes": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Auto Resolve After Inactive Minutes",
+            "description": "How many minutes an alert can stay inactive before it is auto-resolved.",
+            "default": 15
           }
         },
         "type": "object",
@@ -46422,7 +46444,8 @@
           "flutter_sdk",
           "zendesk_integration",
           "slack_integration",
-          "template_preview"
+          "template_preview",
+          "genesys_bot_connector"
         ],
         "title": "ConversationInitiationSource",
         "description": "Enum representing the possible sources for conversation initiation.",
@@ -47547,6 +47570,36 @@
         "title": "CreateBasicAuthRequest",
         "description": "Request model for creating Basic Auth connections - inherits common settings and includes sensitive fields"
       },
+      "CreateBearerAuthRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "auth_type": {
+            "type": "string",
+            "const": "bearer_auth",
+            "title": "Auth Type",
+            "default": "bearer_auth"
+          },
+          "provider": {
+            "type": "string",
+            "title": "Provider"
+          },
+          "token": {
+            "type": "string",
+            "title": "Token"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "provider",
+          "token"
+        ],
+        "title": "CreateBearerAuthRequest",
+        "description": "Request model for creating Bearer Auth connections - inherits common settings and includes sensitive fields"
+      },
       "CreateClientAppointmentParams": {
         "properties": {
           "smb_tool_type": {
@@ -48415,7 +48468,10 @@
         "required": [
           "speech_engine_id"
         ],
-        "title": "CreateSpeechEngineResponse"
+        "title": "CreateSpeechEngineResponse",
+        "example": {
+          "speech_engine_id": "seng_3701k3ttaq12ewp8b7qv5rfyszkz"
+        }
       },
       "CreateStaffParams": {
         "properties": {
@@ -58664,6 +58720,19 @@
         "title": "ListClientsParams",
         "description": "List clients ordered by most recently updated, with an optional limit."
       },
+      "ListCustomerFacingAgentsParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "list_customer_facing_agents",
+            "title": "Smb Tool Type",
+            "default": "list_customer_facing_agents"
+          }
+        },
+        "type": "object",
+        "title": "ListCustomerFacingAgentsParams",
+        "description": "List every customer-facing agent on the workspace.\n\nThe assistant uses this whenever it needs to act on a specific customer-facing\nagent (rules, config edits, etc.) so it can pick the right ``agent_id`` to pass\nto mutating tools. Mirrors the ``list_services`` / ``list_clients``\npattern: read once, then mutate by id."
+      },
       "ListGroupSessionsParams": {
         "properties": {
           "smb_tool_type": {
@@ -58891,7 +58960,8 @@
               "$ref": "#/components/schemas/SpeechEngineSummaryResponse"
             },
             "type": "array",
-            "title": "Speech Engines"
+            "title": "Speech Engines",
+            "description": "The speech engines matching the query"
           },
           "next_cursor": {
             "anyOf": [
@@ -58916,7 +58986,21 @@
           "speech_engines",
           "has_more"
         ],
-        "title": "ListSpeechEnginesResponse"
+        "title": "ListSpeechEnginesResponse",
+        "example": {
+          "has_more": false,
+          "speech_engines": [
+            {
+              "created_at_unix_secs": 1714000000,
+              "name": "My Speech Engine",
+              "speech_engine_id": "seng_3701k3ttaq12ewp8b7qv5rfyszkz",
+              "tags": [
+                "production",
+                "v1"
+              ]
+            }
+          ]
+        }
       },
       "ListStaffParams": {
         "properties": {
@@ -69315,6 +69399,9 @@
                 "$ref": "#/components/schemas/DeleteCalendarEventParams"
               },
               {
+                "$ref": "#/components/schemas/ListCustomerFacingAgentsParams"
+              },
+              {
                 "$ref": "#/components/schemas/ListAgentRulesParams"
               },
               {
@@ -69432,6 +69519,7 @@
                 "list_calendar_events": "#/components/schemas/ListCalendarEventsParams",
                 "list_client_interactions": "#/components/schemas/ListClientInteractionsParams",
                 "list_clients": "#/components/schemas/ListClientsParams",
+                "list_customer_facing_agents": "#/components/schemas/ListCustomerFacingAgentsParams",
                 "list_group_sessions": "#/components/schemas/ListGroupSessionsParams",
                 "list_holidays": "#/components/schemas/ListHolidaysParams",
                 "list_locations": "#/components/schemas/ListLocationsParams",
@@ -71363,42 +71451,53 @@
           },
           "name": {
             "type": "string",
-            "title": "Name"
+            "title": "Name",
+            "description": "Human-readable name for the speech engine"
           },
           "speech_engine": {
-            "$ref": "#/components/schemas/SpeechEngineConfig"
+            "$ref": "#/components/schemas/SpeechEngineConfig",
+            "description": "WebSocket connection settings for the upstream transcript server"
           },
           "asr": {
-            "$ref": "#/components/schemas/ASRConversationalConfig"
+            "$ref": "#/components/schemas/ASRConversationalConfig",
+            "description": "Automatic speech recognition configuration"
           },
           "tts": {
-            "$ref": "#/components/schemas/TTSConversationalConfig-Output"
+            "$ref": "#/components/schemas/TTSConversationalConfig-Output",
+            "description": "Text-to-speech output configuration"
           },
           "turn": {
-            "$ref": "#/components/schemas/BaseTurnConfig"
+            "$ref": "#/components/schemas/BaseTurnConfig",
+            "description": "Turn detection configuration"
           },
           "conversation": {
-            "$ref": "#/components/schemas/ConversationConfig-Output"
+            "$ref": "#/components/schemas/ConversationConfig-Output",
+            "description": "Conversation-level settings including client events and duration limits"
           },
           "privacy": {
-            "$ref": "#/components/schemas/PrivacyConfig-Output"
+            "$ref": "#/components/schemas/PrivacyConfig-Output",
+            "description": "Privacy settings controlling recording, retention, and PII handling"
           },
           "call_limits": {
-            "$ref": "#/components/schemas/AgentCallLimits"
+            "$ref": "#/components/schemas/AgentCallLimits",
+            "description": "Concurrency and daily conversation limits for this speech engine"
           },
           "language": {
             "type": "string",
-            "title": "Language"
+            "title": "Language",
+            "description": "ISO language code used by the speech engine (e.g. 'en')"
           },
           "tags": {
             "items": {
               "type": "string"
             },
             "type": "array",
-            "title": "Tags"
+            "title": "Tags",
+            "description": "Arbitrary tags for categorization and filtering"
           },
           "metadata": {
-            "$ref": "#/components/schemas/AgentMetadataDBModel"
+            "$ref": "#/components/schemas/AgentMetadataDBModel",
+            "description": "Creation and update timestamps with source information"
           }
         },
         "type": "object",
@@ -71416,7 +71515,69 @@
           "tags",
           "metadata"
         ],
-        "title": "SpeechEngineResponse"
+        "title": "SpeechEngineResponse",
+        "example": {
+          "asr": {
+            "keywords": [],
+            "provider": "elevenlabs",
+            "quality": "high",
+            "user_input_audio_format": "pcm_16000"
+          },
+          "call_limits": {
+            "agent_concurrency_limit": -1,
+            "bursting_enabled": true,
+            "daily_limit": 100000
+          },
+          "conversation": {
+            "client_events": [
+              "audio",
+              "interruption",
+              "agent_response",
+              "user_transcript"
+            ],
+            "max_duration_seconds": 600
+          },
+          "language": "en",
+          "metadata": {
+            "created_at_unix_secs": 1714000000,
+            "created_from": "api",
+            "last_updated_from": "api",
+            "updated_at_unix_secs": 1714000000
+          },
+          "name": "My Speech Engine",
+          "privacy": {
+            "apply_to_existing_conversations": false,
+            "delete_audio": false,
+            "delete_transcript_and_pii": false,
+            "record_voice": true,
+            "retention_days": -1,
+            "zero_retention_mode": false
+          },
+          "speech_engine": {
+            "request_headers": {},
+            "ws_url": "wss://example.com/transcript"
+          },
+          "speech_engine_id": "seng_3701k3ttaq12ewp8b7qv5rfyszkz",
+          "tags": [
+            "production",
+            "v1"
+          ],
+          "tts": {
+            "agent_output_audio_format": "pcm_16000",
+            "model_id": "eleven_flash_v2",
+            "optimize_streaming_latency": 3,
+            "similarity_boost": 0.8,
+            "speed": 1.0,
+            "stability": 0.5,
+            "voice_id": "cjVigY5qzO86Huf0OWal"
+          },
+          "turn": {
+            "mode": "turn",
+            "silence_end_call_timeout": -1,
+            "turn_eagerness": "normal",
+            "turn_timeout": 7.0
+          }
+        }
       },
       "SpeechEngineSummaryResponse": {
         "properties": {
@@ -71427,19 +71588,21 @@
           },
           "name": {
             "type": "string",
-            "title": "Name"
+            "title": "Name",
+            "description": "Human-readable name for the speech engine"
           },
           "created_at_unix_secs": {
             "type": "integer",
             "title": "Created At Unix Secs",
-            "description": "Creation time in unix seconds"
+            "description": "Creation time in Unix seconds"
           },
           "tags": {
             "items": {
               "type": "string"
             },
             "type": "array",
-            "title": "Tags"
+            "title": "Tags",
+            "description": "Arbitrary tags for categorization and filtering"
           }
         },
         "type": "object",
@@ -71449,7 +71612,16 @@
           "created_at_unix_secs",
           "tags"
         ],
-        "title": "SpeechEngineSummaryResponse"
+        "title": "SpeechEngineSummaryResponse",
+        "example": {
+          "created_at_unix_secs": 1714000000,
+          "name": "My Speech Engine",
+          "speech_engine_id": "seng_3701k3ttaq12ewp8b7qv5rfyszkz",
+          "tags": [
+            "production",
+            "v1"
+          ]
+        }
       },
       "SpeechHistoryItemResponseModel": {
         "properties": {
