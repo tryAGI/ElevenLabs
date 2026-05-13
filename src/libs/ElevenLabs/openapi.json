@@ -9960,6 +9960,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/WhatsAppAuthResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SlackBotAuthResponse"
                     }
                   ],
                   "discriminator": {
@@ -9974,7 +9977,8 @@
                       "custom_header_auth": "#/components/schemas/CustomHeaderAuthResponse",
                       "api_integration_oauth2_auth_code": "#/components/schemas/ApiIntegrationOAuth2AuthCodeResponse",
                       "api_integration_oauth2_custom_app": "#/components/schemas/ApiIntegrationOAuth2CustomAppResponse",
-                      "whatsapp_auth": "#/components/schemas/WhatsAppAuthResponse"
+                      "whatsapp_auth": "#/components/schemas/WhatsAppAuthResponse",
+                      "slack_bot_auth": "#/components/schemas/SlackBotAuthResponse"
                     }
                   },
                   "description": "The type of auth connection config",
@@ -58585,6 +58589,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/WhatsAppAuthResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/SlackBotAuthResponse"
                 }
               ],
               "description": "The type of auth connection config",
@@ -58600,6 +58607,7 @@
                   "oauth2_client_credentials": "#/components/schemas/OAuth2ClientCredsResponse",
                   "oauth2_jwt": "#/components/schemas/OAuth2JWTResponse",
                   "private_key_jwt": "#/components/schemas/PrivateKeyJWTResponse",
+                  "slack_bot_auth": "#/components/schemas/SlackBotAuthResponse",
                   "whatsapp_auth": "#/components/schemas/WhatsAppAuthResponse"
                 }
               }
@@ -59050,6 +59058,32 @@
         ],
         "title": "LivekitStackType",
         "default": "standard"
+      },
+      "LoadProcedureToolConfig": {
+        "properties": {
+          "system_tool_type": {
+            "type": "string",
+            "const": "load_procedure",
+            "title": "System Tool Type",
+            "default": "load_procedure"
+          },
+          "procedures": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ProcedureAtVersion"
+            },
+            "type": "object",
+            "title": "Procedures"
+          }
+        },
+        "type": "object",
+        "title": "LoadProcedureToolConfig"
+      },
+      "LoadProcedureToolErrorStatus": {
+        "type": "string",
+        "enum": [
+          "not_found",
+          "invalid_name"
+        ]
       },
       "MCPApprovalPolicy": {
         "type": "string",
@@ -63626,10 +63660,57 @@
         "title": "PrivateKeyJWTResponse",
         "description": "Response model for Private Key JWT auth connections"
       },
+      "ProcedureAtVersion": {
+        "properties": {
+          "procedure_id": {
+            "type": "string",
+            "title": "Procedure Id",
+            "description": "Procedure ID"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 200,
+            "title": "Name",
+            "description": "Procedure name"
+          },
+          "content": {
+            "type": "string",
+            "maxLength": 50000,
+            "title": "Content",
+            "description": "Procedure content"
+          },
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id",
+            "description": "Agent ID of the procedure"
+          },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Id",
+            "description": "Version ID of a version of the procedure. None for a procedure never versioned."
+          }
+        },
+        "type": "object",
+        "required": [
+          "procedure_id",
+          "name",
+          "content",
+          "agent_id"
+        ],
+        "title": "ProcedureAtVersion"
+      },
       "ProcedureCompilerMode": {
         "type": "string",
         "enum": [
-          "append"
+          "append",
+          "skills"
         ],
         "title": "ProcedureCompilerMode",
         "default": "append"
@@ -70590,6 +70671,47 @@
         "type": "object",
         "title": "SkipTurnToolResponseModel"
       },
+      "SlackBotAuthResponse": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "auth_type": {
+            "type": "string",
+            "const": "slack_bot_auth",
+            "title": "Auth Type",
+            "default": "slack_bot_auth"
+          },
+          "provider": {
+            "type": "string",
+            "const": "Slack",
+            "title": "Provider",
+            "default": "Slack"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "used_by": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AuthConnectionDependencies"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "id"
+        ],
+        "title": "SlackBotAuthResponse",
+        "description": "Response model for the internal Slack BYO bot auth connection."
+      },
       "SoftTimeoutConfig": {
         "properties": {
           "timeout_seconds": {
@@ -72788,6 +72910,9 @@
               },
               {
                 "$ref": "#/components/schemas/KnowledgeBaseRagToolConfig"
+              },
+              {
+                "$ref": "#/components/schemas/LoadProcedureToolConfig"
               }
             ],
             "title": "Params",
@@ -72797,6 +72922,7 @@
                 "end_call": "#/components/schemas/EndCallToolConfig",
                 "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
+                "load_procedure": "#/components/schemas/LoadProcedureToolConfig",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
                 "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig",
@@ -72934,6 +73060,9 @@
               },
               {
                 "$ref": "#/components/schemas/KnowledgeBaseRagToolConfig"
+              },
+              {
+                "$ref": "#/components/schemas/LoadProcedureToolConfig"
               }
             ],
             "title": "Params",
@@ -72943,6 +73072,7 @@
                 "end_call": "#/components/schemas/EndCallToolConfig",
                 "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
+                "load_procedure": "#/components/schemas/LoadProcedureToolConfig",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
                 "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig",

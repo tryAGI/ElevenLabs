@@ -321,6 +321,43 @@ namespace ElevenLabs
         public global::ElevenLabs.KnowledgeBaseRagToolConfig PickKnowledgeBaseRag() => IsKnowledgeBaseRag
             ? KnowledgeBaseRag!
             : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeBaseRag' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.LoadProcedureToolConfig? LoadProcedure { get; init; }
+#else
+        public global::ElevenLabs.LoadProcedureToolConfig? LoadProcedure { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LoadProcedure))]
+#endif
+        public bool IsLoadProcedure => LoadProcedure != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickLoadProcedure(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.LoadProcedureToolConfig? value)
+        {
+            value = LoadProcedure;
+            return IsLoadProcedure;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.LoadProcedureToolConfig PickLoadProcedure() => IsLoadProcedure
+            ? LoadProcedure!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'LoadProcedure' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -508,6 +545,29 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator Params3(global::ElevenLabs.LoadProcedureToolConfig value) => new Params3((global::ElevenLabs.LoadProcedureToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.LoadProcedureToolConfig?(Params3 @this) => @this.LoadProcedure;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params3(global::ElevenLabs.LoadProcedureToolConfig? value)
+        {
+            LoadProcedure = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params3 FromLoadProcedure(global::ElevenLabs.LoadProcedureToolConfig? value) => new Params3(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public Params3(
             global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType? systemToolType,
             global::ElevenLabs.EndCallToolConfig? endCall,
@@ -517,7 +577,8 @@ namespace ElevenLabs
             global::ElevenLabs.SkipTurnToolConfig? skipTurn,
             global::ElevenLabs.PlayDTMFToolConfig? playKeypadTouchTone,
             global::ElevenLabs.VoicemailDetectionToolConfig? voicemailDetection,
-            global::ElevenLabs.KnowledgeBaseRagToolConfig? knowledgeBaseRag
+            global::ElevenLabs.KnowledgeBaseRagToolConfig? knowledgeBaseRag,
+            global::ElevenLabs.LoadProcedureToolConfig? loadProcedure
             )
         {
             SystemToolType = systemToolType;
@@ -530,12 +591,14 @@ namespace ElevenLabs
             PlayKeypadTouchTone = playKeypadTouchTone;
             VoicemailDetection = voicemailDetection;
             KnowledgeBaseRag = knowledgeBaseRag;
+            LoadProcedure = loadProcedure;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            LoadProcedure as object ??
             KnowledgeBaseRag as object ??
             VoicemailDetection as object ??
             PlayKeypadTouchTone as object ??
@@ -557,7 +620,8 @@ namespace ElevenLabs
             SkipTurn?.ToString() ??
             PlayKeypadTouchTone?.ToString() ??
             VoicemailDetection?.ToString() ??
-            KnowledgeBaseRag?.ToString() 
+            KnowledgeBaseRag?.ToString() ??
+            LoadProcedure?.ToString() 
             ;
 
         /// <summary>
@@ -565,7 +629,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag || !IsEndCall && IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag || !IsEndCall && !IsLanguageDetection && IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && IsVoicemailDetection && !IsKnowledgeBaseRag || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && IsKnowledgeBaseRag;
+            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsLoadProcedure || !IsEndCall && IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsLoadProcedure || !IsEndCall && !IsLanguageDetection && IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsLoadProcedure || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsLoadProcedure || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsLoadProcedure || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsLoadProcedure || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && IsVoicemailDetection && !IsKnowledgeBaseRag && !IsLoadProcedure || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && IsKnowledgeBaseRag && !IsLoadProcedure || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && IsLoadProcedure;
         }
 
         /// <summary>
@@ -580,6 +644,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.PlayDTMFToolConfig, TResult>? playKeypadTouchTone = null,
             global::System.Func<global::ElevenLabs.VoicemailDetectionToolConfig, TResult>? voicemailDetection = null,
             global::System.Func<global::ElevenLabs.KnowledgeBaseRagToolConfig, TResult>? knowledgeBaseRag = null,
+            global::System.Func<global::ElevenLabs.LoadProcedureToolConfig, TResult>? loadProcedure = null,
             bool validate = true)
         {
             if (validate)
@@ -619,6 +684,10 @@ namespace ElevenLabs
             {
                 return knowledgeBaseRag(KnowledgeBaseRag!);
             }
+            else if (IsLoadProcedure && loadProcedure != null)
+            {
+                return loadProcedure(LoadProcedure!);
+            }
 
             return default(TResult);
         }
@@ -642,6 +711,8 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.VoicemailDetectionToolConfig>? voicemailDetection = null,
 
             global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolConfig>? knowledgeBaseRag = null,
+
+            global::System.Action<global::ElevenLabs.LoadProcedureToolConfig>? loadProcedure = null,
             bool validate = true)
         {
             if (validate)
@@ -680,6 +751,10 @@ namespace ElevenLabs
             else if (IsKnowledgeBaseRag)
             {
                 knowledgeBaseRag?.Invoke(KnowledgeBaseRag!);
+            }
+            else if (IsLoadProcedure)
+            {
+                loadProcedure?.Invoke(LoadProcedure!);
             }
         }
 
@@ -695,6 +770,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.PlayDTMFToolConfig>? playKeypadTouchTone = null,
             global::System.Action<global::ElevenLabs.VoicemailDetectionToolConfig>? voicemailDetection = null,
             global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolConfig>? knowledgeBaseRag = null,
+            global::System.Action<global::ElevenLabs.LoadProcedureToolConfig>? loadProcedure = null,
             bool validate = true)
         {
             if (validate)
@@ -733,6 +809,10 @@ namespace ElevenLabs
             else if (IsKnowledgeBaseRag)
             {
                 knowledgeBaseRag?.Invoke(KnowledgeBaseRag!);
+            }
+            else if (IsLoadProcedure)
+            {
+                loadProcedure?.Invoke(LoadProcedure!);
             }
         }
 
@@ -759,6 +839,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.VoicemailDetectionToolConfig),
                 KnowledgeBaseRag,
                 typeof(global::ElevenLabs.KnowledgeBaseRagToolConfig),
+                LoadProcedure,
+                typeof(global::ElevenLabs.LoadProcedureToolConfig),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -782,7 +864,8 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SkipTurnToolConfig?>.Default.Equals(SkipTurn, other.SkipTurn) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PlayDTMFToolConfig?>.Default.Equals(PlayKeypadTouchTone, other.PlayKeypadTouchTone) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.VoicemailDetectionToolConfig?>.Default.Equals(VoicemailDetection, other.VoicemailDetection) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.KnowledgeBaseRagToolConfig?>.Default.Equals(KnowledgeBaseRag, other.KnowledgeBaseRag) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.KnowledgeBaseRagToolConfig?>.Default.Equals(KnowledgeBaseRag, other.KnowledgeBaseRag) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.LoadProcedureToolConfig?>.Default.Equals(LoadProcedure, other.LoadProcedure) 
                 ;
         }
 

@@ -77,6 +77,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.KnowledgeBaseRagToolConfig)}");
                 knowledgeBaseRag = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.LoadProcedureToolConfig? loadProcedure = default;
+            if (discriminator?.SystemToolType == global::ElevenLabs.SystemToolConfigInputParamsDiscriminatorSystemToolType.LoadProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.LoadProcedureToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.LoadProcedureToolConfig> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.LoadProcedureToolConfig)}");
+                loadProcedure = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var __value = new global::ElevenLabs.Params2(
                 discriminator?.SystemToolType,
@@ -94,7 +101,9 @@ namespace ElevenLabs.JsonConverters
 
                 voicemailDetection,
 
-                knowledgeBaseRag
+                knowledgeBaseRag,
+
+                loadProcedure
                 );
 
             return __value;
@@ -156,6 +165,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseRagToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseRagToolConfig?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.KnowledgeBaseRagToolConfig).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeBaseRag!, typeInfo);
+            }
+            else if (value.IsLoadProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.LoadProcedureToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.LoadProcedureToolConfig?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.LoadProcedureToolConfig).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.LoadProcedure!, typeInfo);
             }
         }
     }

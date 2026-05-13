@@ -4,46 +4,46 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Default Value: append
+    /// 
     /// </summary>
-    public enum ProcedureCompilerMode
+    public enum LoadProcedureToolErrorStatus
     {
         /// <summary>
         /// 
         /// </summary>
-        Append,
+        InvalidName,
         /// <summary>
         /// 
         /// </summary>
-        Skills,
+        NotFound,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class ProcedureCompilerModeExtensions
+    public static class LoadProcedureToolErrorStatusExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this ProcedureCompilerMode value)
+        public static string ToValueString(this LoadProcedureToolErrorStatus value)
         {
             return value switch
             {
-                ProcedureCompilerMode.Append => "append",
-                ProcedureCompilerMode.Skills => "skills",
+                LoadProcedureToolErrorStatus.InvalidName => "invalid_name",
+                LoadProcedureToolErrorStatus.NotFound => "not_found",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static ProcedureCompilerMode? ToEnum(string value)
+        public static LoadProcedureToolErrorStatus? ToEnum(string value)
         {
             return value switch
             {
-                "append" => ProcedureCompilerMode.Append,
-                "skills" => ProcedureCompilerMode.Skills,
+                "invalid_name" => LoadProcedureToolErrorStatus.InvalidName,
+                "not_found" => LoadProcedureToolErrorStatus.NotFound,
                 _ => null,
             };
         }
