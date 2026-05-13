@@ -17,7 +17,7 @@
       "Slug": "create-agent-route",
       "Description": "Create an agent from a config object",
       "Language": "http",
-      "Code": "### Create Agent\n# @name create_agent_route\nPOST {{host}}/v1/convai/agents/create?enable_versioning=true\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022conversation_config\u0022: {\n    \u0022asr\u0022: {\n      \u0022keywords\u0022: [\n        \u0022hello\u0022,\n        \u0022world\u0022\n      ],\n      \u0022provider\u0022: \u0022elevenlabs\u0022,\n      \u0022quality\u0022: \u0022high\u0022,\n      \u0022user_input_audio_format\u0022: \u0022pcm_16000\u0022\n    },\n    \u0022turn\u0022: {\n      \u0022interruption_ignore_terms\u0022: [],\n      \u0022mode\u0022: \u0022turn\u0022,\n      \u0022retranscribe_on_turn_timeout\u0022: false,\n      \u0022silence_end_call_timeout\u0022: -1.0,\n      \u0022soft_timeout_config\u0022: {\n        \u0022message\u0022: \u0022Hhmmmm...yeah.\u0022,\n        \u0022timeout_seconds\u0022: -1.0\n      },\n      \u0022speculative_turn\u0022: false,\n      \u0022spelling_patience\u0022: \u0022auto\u0022,\n      \u0022turn_eagerness\u0022: \u0022normal\u0022,\n      \u0022turn_timeout\u0022: 7.0\n    },\n    \u0022tts\u0022: {\n      \u0022agent_output_audio_format\u0022: \u0022pcm_16000\u0022,\n      \u0022model_id\u0022: \u0022eleven_turbo_v2\u0022,\n      \u0022optimize_streaming_latency\u0022: 3,\n      \u0022pronunciation_dictionary_locators\u0022: [],\n      \u0022similarity_boost\u0022: 0.8,\n      \u0022speed\u0022: 1.0,\n      \u0022stability\u0022: 0.5,\n      \u0022voice_id\u0022: \u0022cjVigY5qzO86Huf0OWal\u0022\n    },\n    \u0022conversation\u0022: {\n      \u0022client_events\u0022: [\n        \u0022audio\u0022,\n        \u0022interruption\u0022\n      ],\n      \u0022max_duration_seconds\u0022: 600\n    },\n    \u0022language_presets\u0022: {},\n    \u0022vad\u0022: {\n      \u0022background_voice_detection\u0022: false\n    },\n    \u0022agent\u0022: {\n      \u0022disable_first_message_interruptions\u0022: false,\n      \u0022first_message\u0022: \u0022Hello, how can I help you today?\u0022,\n      \u0022language\u0022: \u0022en\u0022\n    }\n  },\n  \u0022platform_settings\u0022: {\n    \u0022evaluation\u0022: {\n      \u0022criteria\u0022: []\n    },\n    \u0022widget\u0022: {\n      \u0022custom_avatar_path\u0022: \u0022https://example.com/avatar.png\u0022,\n      \u0022language_selector\u0022: false\n    },\n    \u0022data_collection\u0022: {},\n    \u0022data_collection_scopes\u0022: {},\n    \u0022overrides\u0022: {\n      \u0022custom_llm_extra_body\u0022: true,\n      \u0022enable_conversation_initiation_client_data_from_webhook\u0022: true,\n      \u0022enable_starting_workflow_node_id_from_client\u0022: true\n    },\n    \u0022workspace_overrides\u0022: {\n      \u0022conversation_initiation_client_data_webhook\u0022: {\n        \u0022request_headers\u0022: {\n          \u0022Content-Type\u0022: \u0022application/json\u0022\n        },\n        \u0022url\u0022: \u0022https://example.com/webhook\u0022\n      },\n      \u0022webhooks\u0022: {}\n    },\n    \u0022testing\u0022: {\n      \u0022attached_tests\u0022: [\n        {\n          \u0022environment\u0022: \u0022staging\u0022,\n          \u0022test_id\u0022: \u0022test_123\u0022,\n          \u0022workflow_node_id\u0022: \u0022node_abc\u0022\n        },\n        {\n          \u0022test_id\u0022: \u0022test_456\u0022\n        }\n      ],\n      \u0022referenced_tests_ids\u0022: [\n        \u0022test_123\u0022,\n        \u0022test_456\u0022\n      ]\n    },\n    \u0022archived\u0022: false,\n    \u0022guardrails\u0022: {\n      \u0022version\u0022: \u00221\u0022,\n      \u0022focus\u0022: {},\n      \u0022prompt_injection\u0022: {},\n      \u0022content\u0022: {},\n      \u0022moderation\u0022: {},\n      \u0022custom\u0022: {}\n    },\n    \u0022summary_language\u0022: \u0022string\u0022,\n    \u0022auth\u0022: {\n      \u0022allowlist\u0022: [\n        {\n          \u0022hostname\u0022: \u0022https://example.com\u0022\n        }\n      ],\n      \u0022enable_auth\u0022: true,\n      \u0022require_origin_header\u0022: true,\n      \u0022shareable_token\u0022: \u00221234567890\u0022\n    },\n    \u0022call_limits\u0022: {\n      \u0022agent_concurrency_limit\u0022: -1,\n      \u0022bursting_enabled\u0022: true,\n      \u0022daily_limit\u0022: 100000\n    },\n    \u0022privacy\u0022: {\n      \u0022apply_to_existing_conversations\u0022: false,\n      \u0022delete_audio\u0022: false,\n      \u0022delete_transcript_and_pii\u0022: false,\n      \u0022record_voice\u0022: true,\n      \u0022retention_days\u0022: -1,\n      \u0022zero_retention_mode\u0022: false\n    },\n    \u0022trust_context\u0022: \u0022unknown\u0022,\n    \u0022analysis_llm\u0022: \u0022gemini-2.5-flash\u0022,\n    \u0022alerting\u0022: {\n      \u0022monitor_configs\u0022: {}\n    }\n  },\n  \u0022workflow\u0022: {\n    \u0022edges\u0022: {\n      \u0022entry_to_tool_a\u0022: {\n        \u0022forward_condition\u0022: {\n          \u0022condition\u0022: \u0022Tool A condition\u0022\n        },\n        \u0022source\u0022: \u0022entry_node\u0022,\n        \u0022target\u0022: \u0022tool_node_a\u0022\n      },\n      \u0022start_to_entry\u0022: {\n        \u0022forward_condition\u0022: {},\n        \u0022source\u0022: \u0022start_node\u0022,\n        \u0022target\u0022: \u0022entry_node\u0022\n      },\n      \u0022tool_a_to_failure\u0022: {\n        \u0022forward_condition\u0022: {\n          \u0022successful\u0022: false\n        },\n        \u0022source\u0022: \u0022tool_node_a\u0022,\n        \u0022target\u0022: \u0022failure_node\u0022\n      },\n      \u0022tool_a_to_tool_b\u0022: {\n        \u0022forward_condition\u0022: {\n          \u0022successful\u0022: true\n        },\n        \u0022source\u0022: \u0022tool_node_a\u0022,\n        \u0022target\u0022: \u0022tool_node_b\u0022\n      },\n      \u0022tool_b_to_agent_transfer\u0022: {\n        \u0022forward_condition\u0022: {},\n        \u0022source\u0022: \u0022tool_node_b\u0022,\n        \u0022target\u0022: \u0022success_transfer\u0022\n      },\n      \u0022tool_b_to_conversation\u0022: {\n        \u0022forward_condition\u0022: {\n          \u0022condition\u0022: \u0022Conversation condition\u0022\n        },\n        \u0022source\u0022: \u0022tool_node_b\u0022,\n        \u0022target\u0022: \u0022success_conversation\u0022\n      },\n      \u0022tool_b_to_end\u0022: {\n        \u0022forward_condition\u0022: {\n          \u0022condition\u0022: \u0022End condition\u0022\n        },\n        \u0022source\u0022: \u0022tool_node_b\u0022,\n        \u0022target\u0022: \u0022success_end\u0022\n      },\n      \u0022tool_b_to_phone\u0022: {\n        \u0022forward_condition\u0022: {\n          \u0022expression\u0022: {\n            \u0022children\u0022: [\n              {\n                \u0022name\u0022: \u0022force_phone_transfer\u0022\n              },\n              {\n                \u0022prompt\u0022: \u0022Phone condition\u0022,\n                \u0022value_schema\u0022: {\n                  \u0022description\u0022: \u0022Phone condition\u0022,\n                  \u0022type\u0022: \u0022boolean\u0022\n                }\n              },\n              {\n                \u0022left\u0022: {\n                  \u0022name\u0022: \u0022mode\u0022\n                },\n                \u0022right\u0022: {\n                  \u0022value\u0022: \u0022dev\u0022\n                }\n              }\n            ]\n          }\n        },\n        \u0022source\u0022: \u0022tool_node_b\u0022,\n        \u0022target\u0022: \u0022success_phone\u0022\n      }\n    },\n    \u0022nodes\u0022: {\n      \u0022entry_node\u0022: {\n        \u0022conversation_config\u0022: {},\n        \u0022edge_order\u0022: [\n          \u0022entry_to_tool_a\u0022\n        ],\n        \u0022label\u0022: \u0022Entry\u0022\n      },\n      \u0022failure_node\u0022: {\n        \u0022conversation_config\u0022: {},\n        \u0022label\u0022: \u0022Failure\u0022\n      },\n      \u0022start_node\u0022: {\n        \u0022edge_order\u0022: [\n          \u0022start_to_entry\u0022\n        ]\n      },\n      \u0022success_conversation\u0022: {\n        \u0022conversation_config\u0022: {},\n        \u0022label\u0022: \u0022Success A\u0022\n      },\n      \u0022success_end\u0022: {},\n      \u0022success_phone\u0022: {\n        \u0022transfer_destination\u0022: {\n          \u0022phone_number\u0022: \u0022\\u002B1234567890\u0022\n        }\n      },\n      \u0022success_transfer\u0022: {\n        \u0022agent_id\u0022: \u0022success_transfer_agent\u0022\n      },\n      \u0022tool_node_a\u0022: {\n        \u0022edge_order\u0022: [\n          \u0022tool_a_to_failure\u0022,\n          \u0022tool_a_to_tool_b\u0022\n        ],\n        \u0022tools\u0022: [\n          {\n            \u0022tool_id\u0022: \u0022tool_a\u0022\n          },\n          {\n            \u0022tool_id\u0022: \u0022tool_b\u0022\n          }\n        ]\n      },\n      \u0022tool_node_b\u0022: {\n        \u0022edge_order\u0022: [\n          \u0022tool_b_to_conversation\u0022,\n          \u0022tool_b_to_end\u0022,\n          \u0022tool_b_to_phone\u0022,\n          \u0022tool_b_to_agent_transfer\u0022\n        ],\n        \u0022tools\u0022: [\n          {\n            \u0022tool_id\u0022: \u0022tool_a\u0022\n          }\n        ]\n      }\n    }\n  },\n  \u0022name\u0022: \u0022string\u0022,\n  \u0022tags\u0022: [\n    \u0022string\u0022\n  ]\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Create Agent\n# @name create_agent_route\nPOST {{host}}/v1/convai/agents/create?enable_versioning=true\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022conversation_config\u0022: {\n    \u0022asr\u0022: {\n      \u0022keywords\u0022: [\n        \u0022hello\u0022,\n        \u0022world\u0022\n      ],\n      \u0022provider\u0022: \u0022elevenlabs\u0022,\n      \u0022quality\u0022: \u0022high\u0022,\n      \u0022user_input_audio_format\u0022: \u0022pcm_16000\u0022\n    },\n    \u0022turn\u0022: {\n      \u0022interruption_ignore_terms\u0022: [],\n      \u0022mode\u0022: \u0022turn\u0022,\n      \u0022retranscribe_on_turn_timeout\u0022: false,\n      \u0022silence_end_call_timeout\u0022: -1.0,\n      \u0022soft_timeout_config\u0022: {\n        \u0022message\u0022: \u0022Hhmmmm...yeah.\u0022,\n        \u0022timeout_seconds\u0022: -1.0\n      },\n      \u0022speculative_turn\u0022: false,\n      \u0022spelling_patience\u0022: \u0022auto\u0022,\n      \u0022turn_eagerness\u0022: \u0022normal\u0022,\n      \u0022turn_timeout\u0022: 7.0\n    },\n    \u0022tts\u0022: {\n      \u0022agent_output_audio_format\u0022: \u0022pcm_16000\u0022,\n      \u0022model_id\u0022: \u0022eleven_turbo_v2\u0022,\n      \u0022optimize_streaming_latency\u0022: 3,\n      \u0022pronunciation_dictionary_locators\u0022: [],\n      \u0022similarity_boost\u0022: 0.8,\n      \u0022speed\u0022: 1.0,\n      \u0022stability\u0022: 0.5,\n      \u0022voice_id\u0022: \u0022cjVigY5qzO86Huf0OWal\u0022\n    },\n    \u0022conversation\u0022: {\n      \u0022client_events\u0022: [\n        \u0022audio\u0022,\n        \u0022interruption\u0022\n      ],\n      \u0022max_duration_seconds\u0022: 600\n    },\n    \u0022language_presets\u0022: {},\n    \u0022vad\u0022: {\n      \u0022background_voice_detection\u0022: false\n    },\n    \u0022agent\u0022: {\n      \u0022disable_first_message_interruptions\u0022: false,\n      \u0022first_message\u0022: \u0022Hello, how can I help you today?\u0022,\n      \u0022language\u0022: \u0022en\u0022\n    }\n  },\n  \u0022platform_settings\u0022: {\n    \u0022evaluation\u0022: {\n      \u0022criteria\u0022: []\n    },\n    \u0022widget\u0022: {\n      \u0022custom_avatar_path\u0022: \u0022https://example.com/avatar.png\u0022,\n      \u0022language_selector\u0022: false\n    },\n    \u0022data_collection\u0022: {},\n    \u0022data_collection_scopes\u0022: {},\n    \u0022overrides\u0022: {\n      \u0022custom_llm_extra_body\u0022: true,\n      \u0022enable_conversation_initiation_client_data_from_webhook\u0022: true,\n      \u0022enable_starting_workflow_node_id_from_client\u0022: true\n    },\n    \u0022workspace_overrides\u0022: {\n      \u0022conversation_initiation_client_data_webhook\u0022: {\n        \u0022request_headers\u0022: {\n          \u0022Content-Type\u0022: \u0022application/json\u0022\n        },\n        \u0022url\u0022: \u0022https://example.com/webhook\u0022\n      },\n      \u0022webhooks\u0022: {}\n    },\n    \u0022testing\u0022: {\n      \u0022attached_tests\u0022: [\n        {\n          \u0022environment\u0022: \u0022staging\u0022,\n          \u0022test_id\u0022: \u0022test_123\u0022,\n          \u0022workflow_node_id\u0022: \u0022node_abc\u0022\n        },\n        {\n          \u0022test_id\u0022: \u0022test_456\u0022\n        }\n      ],\n      \u0022referenced_tests_ids\u0022: [\n        \u0022test_123\u0022,\n        \u0022test_456\u0022\n      ]\n    },\n    \u0022archived\u0022: false,\n    \u0022guardrails\u0022: {\n      \u0022version\u0022: \u00221\u0022,\n      \u0022focus\u0022: {},\n      \u0022prompt_injection\u0022: {},\n      \u0022content\u0022: {},\n      \u0022moderation\u0022: {},\n      \u0022custom\u0022: {}\n    },\n    \u0022summary_language\u0022: \u0022string\u0022,\n    \u0022auth\u0022: {\n      \u0022allowlist\u0022: [\n        {\n          \u0022hostname\u0022: \u0022https://example.com\u0022\n        }\n      ],\n      \u0022enable_auth\u0022: true,\n      \u0022require_origin_header\u0022: true,\n      \u0022shareable_token\u0022: \u00221234567890\u0022\n    },\n    \u0022call_limits\u0022: {\n      \u0022agent_concurrency_limit\u0022: -1,\n      \u0022bursting_enabled\u0022: true,\n      \u0022daily_limit\u0022: 100000\n    },\n    \u0022privacy\u0022: {\n      \u0022apply_to_existing_conversations\u0022: false,\n      \u0022delete_audio\u0022: false,\n      \u0022delete_transcript_and_pii\u0022: false,\n      \u0022record_voice\u0022: true,\n      \u0022retention_days\u0022: -1,\n      \u0022zero_retention_mode\u0022: false\n    },\n    \u0022trust_context\u0022: \u0022unknown\u0022,\n    \u0022analysis_llm\u0022: \u0022gemini-2.5-flash\u0022,\n    \u0022alerting\u0022: {\n      \u0022monitor_configs\u0022: {},\n      \u0022auto_resolve_after_inactive_minutes\u0022: 15\n    }\n  },\n  \u0022workflow\u0022: {\n    \u0022edges\u0022: {\n      \u0022entry_to_tool_a\u0022: {\n        \u0022forward_condition\u0022: {\n          \u0022condition\u0022: \u0022Tool A condition\u0022\n        },\n        \u0022source\u0022: \u0022entry_node\u0022,\n        \u0022target\u0022: \u0022tool_node_a\u0022\n      },\n      \u0022start_to_entry\u0022: {\n        \u0022forward_condition\u0022: {},\n        \u0022source\u0022: \u0022start_node\u0022,\n        \u0022target\u0022: \u0022entry_node\u0022\n      },\n      \u0022tool_a_to_failure\u0022: {\n        \u0022forward_condition\u0022: {\n          \u0022successful\u0022: false\n        },\n        \u0022source\u0022: \u0022tool_node_a\u0022,\n        \u0022target\u0022: \u0022failure_node\u0022\n      },\n      \u0022tool_a_to_tool_b\u0022: {\n        \u0022forward_condition\u0022: {\n          \u0022successful\u0022: true\n        },\n        \u0022source\u0022: \u0022tool_node_a\u0022,\n        \u0022target\u0022: \u0022tool_node_b\u0022\n      },\n      \u0022tool_b_to_agent_transfer\u0022: {\n        \u0022forward_condition\u0022: {},\n        \u0022source\u0022: \u0022tool_node_b\u0022,\n        \u0022target\u0022: \u0022success_transfer\u0022\n      },\n      \u0022tool_b_to_conversation\u0022: {\n        \u0022forward_condition\u0022: {\n          \u0022condition\u0022: \u0022Conversation condition\u0022\n        },\n        \u0022source\u0022: \u0022tool_node_b\u0022,\n        \u0022target\u0022: \u0022success_conversation\u0022\n      },\n      \u0022tool_b_to_end\u0022: {\n        \u0022forward_condition\u0022: {\n          \u0022condition\u0022: \u0022End condition\u0022\n        },\n        \u0022source\u0022: \u0022tool_node_b\u0022,\n        \u0022target\u0022: \u0022success_end\u0022\n      },\n      \u0022tool_b_to_phone\u0022: {\n        \u0022forward_condition\u0022: {\n          \u0022expression\u0022: {\n            \u0022children\u0022: [\n              {\n                \u0022name\u0022: \u0022force_phone_transfer\u0022\n              },\n              {\n                \u0022prompt\u0022: \u0022Phone condition\u0022,\n                \u0022value_schema\u0022: {\n                  \u0022description\u0022: \u0022Phone condition\u0022,\n                  \u0022type\u0022: \u0022boolean\u0022\n                }\n              },\n              {\n                \u0022left\u0022: {\n                  \u0022name\u0022: \u0022mode\u0022\n                },\n                \u0022right\u0022: {\n                  \u0022value\u0022: \u0022dev\u0022\n                }\n              }\n            ]\n          }\n        },\n        \u0022source\u0022: \u0022tool_node_b\u0022,\n        \u0022target\u0022: \u0022success_phone\u0022\n      }\n    },\n    \u0022nodes\u0022: {\n      \u0022entry_node\u0022: {\n        \u0022conversation_config\u0022: {},\n        \u0022edge_order\u0022: [\n          \u0022entry_to_tool_a\u0022\n        ],\n        \u0022label\u0022: \u0022Entry\u0022\n      },\n      \u0022failure_node\u0022: {\n        \u0022conversation_config\u0022: {},\n        \u0022label\u0022: \u0022Failure\u0022\n      },\n      \u0022start_node\u0022: {\n        \u0022edge_order\u0022: [\n          \u0022start_to_entry\u0022\n        ]\n      },\n      \u0022success_conversation\u0022: {\n        \u0022conversation_config\u0022: {},\n        \u0022label\u0022: \u0022Success A\u0022\n      },\n      \u0022success_end\u0022: {},\n      \u0022success_phone\u0022: {\n        \u0022transfer_destination\u0022: {\n          \u0022phone_number\u0022: \u0022\\u002B1234567890\u0022\n        }\n      },\n      \u0022success_transfer\u0022: {\n        \u0022agent_id\u0022: \u0022success_transfer_agent\u0022\n      },\n      \u0022tool_node_a\u0022: {\n        \u0022edge_order\u0022: [\n          \u0022tool_a_to_failure\u0022,\n          \u0022tool_a_to_tool_b\u0022\n        ],\n        \u0022tools\u0022: [\n          {\n            \u0022tool_id\u0022: \u0022tool_a\u0022\n          },\n          {\n            \u0022tool_id\u0022: \u0022tool_b\u0022\n          }\n        ]\n      },\n      \u0022tool_node_b\u0022: {\n        \u0022edge_order\u0022: [\n          \u0022tool_b_to_conversation\u0022,\n          \u0022tool_b_to_end\u0022,\n          \u0022tool_b_to_phone\u0022,\n          \u0022tool_b_to_agent_transfer\u0022\n        ],\n        \u0022tools\u0022: [\n          {\n            \u0022tool_id\u0022: \u0022tool_a\u0022\n          }\n        ]\n      }\n    }\n  },\n  \u0022name\u0022: \u0022string\u0022,\n  \u0022tags\u0022: [\n    \u0022string\u0022\n  ]\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "create_agent_route",
       "Setup": null
@@ -530,6 +530,50 @@
     },
     {
       "Order": 49,
+      "Title": "Create Speech Engine",
+      "Slug": "create-speech-engine",
+      "Description": "Create a new Speech Engine resource",
+      "Language": "http",
+      "Code": "### Create Speech Engine\n# @name create_speech_engine\nPOST {{host}}/v1/speech-engine\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022name\u0022: \u0022Speech Engine\u0022,\n  \u0022speech_engine\u0022: {\n    \u0022ws_url\u0022: \u0022string\u0022,\n    \u0022request_headers\u0022: {}\n  },\n  \u0022asr\u0022: {\n    \u0022keywords\u0022: [\n      \u0022hello\u0022,\n      \u0022world\u0022\n    ],\n    \u0022provider\u0022: \u0022elevenlabs\u0022,\n    \u0022quality\u0022: \u0022high\u0022,\n    \u0022user_input_audio_format\u0022: \u0022pcm_16000\u0022\n  },\n  \u0022tts\u0022: {\n    \u0022agent_output_audio_format\u0022: \u0022pcm_16000\u0022,\n    \u0022model_id\u0022: \u0022eleven_turbo_v2\u0022,\n    \u0022optimize_streaming_latency\u0022: 3,\n    \u0022pronunciation_dictionary_locators\u0022: [],\n    \u0022similarity_boost\u0022: 0.8,\n    \u0022speed\u0022: 1.0,\n    \u0022stability\u0022: 0.5,\n    \u0022voice_id\u0022: \u0022cjVigY5qzO86Huf0OWal\u0022\n  },\n  \u0022turn\u0022: {\n    \u0022interruption_ignore_terms\u0022: [],\n    \u0022mode\u0022: \u0022turn\u0022,\n    \u0022retranscribe_on_turn_timeout\u0022: false,\n    \u0022silence_end_call_timeout\u0022: -1.0,\n    \u0022speculative_turn\u0022: false,\n    \u0022spelling_patience\u0022: \u0022auto\u0022,\n    \u0022turn_eagerness\u0022: \u0022normal\u0022,\n    \u0022turn_timeout\u0022: 7.0\n  },\n  \u0022conversation\u0022: {\n    \u0022client_events\u0022: [\n      \u0022audio\u0022,\n      \u0022interruption\u0022\n    ],\n    \u0022max_duration_seconds\u0022: 600\n  },\n  \u0022privacy\u0022: {\n    \u0022apply_to_existing_conversations\u0022: false,\n    \u0022delete_audio\u0022: false,\n    \u0022delete_transcript_and_pii\u0022: false,\n    \u0022record_voice\u0022: true,\n    \u0022retention_days\u0022: -1,\n    \u0022zero_retention_mode\u0022: false\n  },\n  \u0022call_limits\u0022: {\n    \u0022agent_concurrency_limit\u0022: -1,\n    \u0022bursting_enabled\u0022: true,\n    \u0022daily_limit\u0022: 100000\n  },\n  \u0022language\u0022: \u0022en\u0022,\n  \u0022tags\u0022: [\n    \u0022string\u0022\n  ]\n}\n\n## Responses\n# 201\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "create_speech_engine",
+      "Setup": null
+    },
+    {
+      "Order": 50,
+      "Title": "Get Speech Engine",
+      "Slug": "get-speech-engine",
+      "Description": "Retrieve a Speech Engine resource",
+      "Language": "http",
+      "Code": "### Get Speech Engine\n# @name get_speech_engine\nGET {{host}}/v1/speech-engine/{{speech_engine_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "get_speech_engine",
+      "Setup": null
+    },
+    {
+      "Order": 51,
+      "Title": "List Speech Engines",
+      "Slug": "list-speech-engines",
+      "Description": "Returns a paginated list of Speech Engine resources.",
+      "Language": "csharp",
+      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.ListAsync();\n\n// Example response:\n// {\n//   \u0022has_more\u0022: false,\n//   \u0022speech_engines\u0022: [\n//     {\n//       \u0022created_at_unix_secs\u0022: 1714000000,\n//       \u0022name\u0022: \u0022My Speech Engine\u0022,\n//       \u0022speech_engine_id\u0022: \u0022seng_3701k3ttaq12ewp8b7qv5rfyszkz\u0022,\n//       \u0022tags\u0022: [\n//         \u0022production\u0022,\n//         \u0022v1\u0022\n//       ]\n//     }\n//   ]\n// }",
+      "Format": "sdk",
+      "OperationId": "list_speech_engines",
+      "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 52,
+      "Title": "Update Speech Engine",
+      "Slug": "update-speech-engine",
+      "Description": "Update a Speech Engine resource (partial update)",
+      "Language": "http",
+      "Code": "### Update Speech Engine\n# @name update_speech_engine\nPATCH {{host}}/v1/speech-engine/{{speech_engine_id}}\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022name\u0022: \u0022string\u0022,\n  \u0022speech_engine\u0022: {\n    \u0022ws_url\u0022: \u0022string\u0022,\n    \u0022request_headers\u0022: {}\n  },\n  \u0022asr\u0022: {\n    \u0022keywords\u0022: [\n      \u0022hello\u0022,\n      \u0022world\u0022\n    ],\n    \u0022provider\u0022: \u0022elevenlabs\u0022,\n    \u0022quality\u0022: \u0022high\u0022,\n    \u0022user_input_audio_format\u0022: \u0022pcm_16000\u0022\n  },\n  \u0022tts\u0022: {\n    \u0022agent_output_audio_format\u0022: \u0022pcm_16000\u0022,\n    \u0022model_id\u0022: \u0022eleven_turbo_v2\u0022,\n    \u0022optimize_streaming_latency\u0022: 3,\n    \u0022pronunciation_dictionary_locators\u0022: [],\n    \u0022similarity_boost\u0022: 0.8,\n    \u0022speed\u0022: 1.0,\n    \u0022stability\u0022: 0.5,\n    \u0022voice_id\u0022: \u0022cjVigY5qzO86Huf0OWal\u0022\n  },\n  \u0022turn\u0022: {\n    \u0022interruption_ignore_terms\u0022: [],\n    \u0022mode\u0022: \u0022turn\u0022,\n    \u0022retranscribe_on_turn_timeout\u0022: false,\n    \u0022silence_end_call_timeout\u0022: -1.0,\n    \u0022speculative_turn\u0022: false,\n    \u0022spelling_patience\u0022: \u0022auto\u0022,\n    \u0022turn_eagerness\u0022: \u0022normal\u0022,\n    \u0022turn_timeout\u0022: 7.0\n  },\n  \u0022conversation\u0022: {\n    \u0022client_events\u0022: [\n      \u0022audio\u0022,\n      \u0022interruption\u0022\n    ],\n    \u0022max_duration_seconds\u0022: 600\n  },\n  \u0022privacy\u0022: {\n    \u0022apply_to_existing_conversations\u0022: false,\n    \u0022delete_audio\u0022: false,\n    \u0022delete_transcript_and_pii\u0022: false,\n    \u0022record_voice\u0022: true,\n    \u0022retention_days\u0022: -1,\n    \u0022zero_retention_mode\u0022: false\n  },\n  \u0022call_limits\u0022: {\n    \u0022agent_concurrency_limit\u0022: -1,\n    \u0022bursting_enabled\u0022: true,\n    \u0022daily_limit\u0022: 100000\n  },\n  \u0022language\u0022: \u0022string\u0022,\n  \u0022tags\u0022: [\n    \u0022string\u0022\n  ]\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "update_speech_engine",
+      "Setup": null
+    },
+    {
+      "Order": 53,
       "Title": "Speech To Text",
       "Slug": "speech-to-text",
       "Description": "Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a \u0027transcripts\u0027 object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.",
@@ -540,7 +584,7 @@
       "Setup": null
     },
     {
-      "Order": 50,
+      "Order": 54,
       "Title": "Delete Transcript By Id",
       "Slug": "delete-transcript-by-id",
       "Description": "Delete a previously generated transcript by its ID.",
@@ -551,7 +595,7 @@
       "Setup": null
     },
     {
-      "Order": 51,
+      "Order": 55,
       "Title": "Get Transcript By Id",
       "Slug": "get-transcript-by-id",
       "Description": "Retrieve a previously generated transcript by its ID.",
@@ -562,7 +606,7 @@
       "Setup": null
     },
     {
-      "Order": 52,
+      "Order": 56,
       "Title": "Convert Studio Project",
       "Slug": "convert-project-endpoint",
       "Description": "Starts conversion of a Studio project and all of its chapters.",
@@ -573,7 +617,7 @@
       "Setup": null
     },
     {
-      "Order": 53,
+      "Order": 57,
       "Title": "Convert Chapter",
       "Slug": "convert-chapter-endpoint",
       "Description": "Starts conversion of a specific chapter.",
@@ -584,7 +628,7 @@
       "Setup": null
     },
     {
-      "Order": 54,
+      "Order": 58,
       "Title": "Create Pronunciation Dictionaries",
       "Slug": "update-pronunciation-dictionaries",
       "Description": "Create a set of pronunciation dictionaries acting on a project. This will automatically mark text within this project as requiring reconverting where the new dictionary would apply or the old one no longer does.",
@@ -595,7 +639,7 @@
       "Setup": null
     },
     {
-      "Order": 55,
+      "Order": 59,
       "Title": "Delete Studio Project",
       "Slug": "delete-project",
       "Description": "Deletes a Studio project.",
@@ -606,7 +650,7 @@
       "Setup": null
     },
     {
-      "Order": 56,
+      "Order": 60,
       "Title": "Delete Chapter",
       "Slug": "delete-chapter-endpoint",
       "Description": "Deletes a chapter.",
@@ -617,7 +661,7 @@
       "Setup": null
     },
     {
-      "Order": 57,
+      "Order": 61,
       "Title": "Get Studio Project",
       "Slug": "get-project-by-id",
       "Description": "Returns information about a specific Studio project. This endpoint returns more detailed information about a project than \u0060GET /v1/studio\u0060.",
@@ -628,7 +672,7 @@
       "Setup": null
     },
     {
-      "Order": 58,
+      "Order": 62,
       "Title": "Get Project Snapshot",
       "Slug": "get-project-snapshot-endpoint",
       "Description": "Returns the project snapshot.",
@@ -639,7 +683,7 @@
       "Setup": null
     },
     {
-      "Order": 59,
+      "Order": 63,
       "Title": "Get Chapter",
       "Slug": "get-chapter-by-id-endpoint",
       "Description": "Returns information about a specific chapter.",
@@ -650,7 +694,7 @@
       "Setup": null
     },
     {
-      "Order": 60,
+      "Order": 64,
       "Title": "Get Chapter Snapshot",
       "Slug": "get-chapter-snapshot-endpoint",
       "Description": "Returns the chapter snapshot.",
@@ -661,7 +705,7 @@
       "Setup": null
     },
     {
-      "Order": 61,
+      "Order": 65,
       "Title": "Get Project Muted Tracks",
       "Slug": "get-project-muted-tracks-endpoint",
       "Description": "Returns a list of chapter IDs that have muted tracks in a project.",
@@ -672,7 +716,7 @@
       "Setup": null
     },
     {
-      "Order": 62,
+      "Order": 66,
       "Title": "List Studio Projects",
       "Slug": "get-projects",
       "Description": "Returns a list of your Studio projects with metadata.",
@@ -683,7 +727,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 63,
+      "Order": 67,
       "Title": "List Studio Project Snapshots",
       "Slug": "get-project-snapshots",
       "Description": "Retrieves a list of snapshots for a Studio project.",
@@ -694,7 +738,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 64,
+      "Order": 68,
       "Title": "List Chapter Snapshots",
       "Slug": "get-chapter-snapshots",
       "Description": "Gets information about all the snapshots of a chapter. Each snapshot can be downloaded as audio. Whenever a chapter is converted a snapshot will automatically be created.",
@@ -705,7 +749,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 65,
+      "Order": 69,
       "Title": "Text To Dialogue With Timestamps",
       "Slug": "text-to-dialogue-full-with-timestamps",
       "Description": "Generate dialogue from text with precise character-level timing information for audio-text synchronization.",
@@ -716,7 +760,7 @@
       "Setup": null
     },
     {
-      "Order": 66,
+      "Order": 70,
       "Title": "Text To Dialogue Streaming With Timestamps",
       "Slug": "text-to-dialogue-stream-with-timestamps",
       "Description": "Converts a list of text and voice ID pairs into speech (dialogue) and returns a stream of JSON blobs containing audio as a base64 encoded string and timestamps",
@@ -727,7 +771,7 @@
       "Setup": null
     },
     {
-      "Order": 67,
+      "Order": 71,
       "Title": "Text To Speech With Timestamps",
       "Slug": "text-to-speech-full-with-timestamps",
       "Description": "Generate speech from text with precise character-level timing information for audio-text synchronization.",
@@ -738,7 +782,7 @@
       "Setup": null
     },
     {
-      "Order": 68,
+      "Order": 72,
       "Title": "Text To Speech Streaming With Timestamps",
       "Slug": "text-to-speech-stream-with-timestamps",
       "Description": "Converts text into speech using a voice of your choice and returns a stream of JSONs containing audio as a base64 encoded string together with information on when which character was spoken.",
@@ -749,7 +793,7 @@
       "Setup": null
     },
     {
-      "Order": 69,
+      "Order": 73,
       "Title": "Create A New Voice From Voice Preview",
       "Slug": "create-voice",
       "Description": "Create a voice from previously generated voice preview. This endpoint should be called after you fetched a generated_voice_id using POST /v1/text-to-voice/design or POST /v1/text-to-voice/:voice_id/remix.",
@@ -760,7 +804,7 @@
       "Setup": null
     },
     {
-      "Order": 70,
+      "Order": 74,
       "Title": "Get User Info",
       "Slug": "get-user-info",
       "Description": "Gets information about the user",
@@ -771,7 +815,7 @@
       "Setup": null
     },
     {
-      "Order": 71,
+      "Order": 75,
       "Title": "Add Voice",
       "Slug": "add-voice",
       "Description": "Add a new voice to your collection of voices in VoiceLab.",
@@ -782,7 +826,7 @@
       "Setup": null
     },
     {
-      "Order": 72,
+      "Order": 76,
       "Title": "Delete Voice",
       "Slug": "delete-voice",
       "Description": "Deletes a voice by its ID.",
@@ -793,7 +837,7 @@
       "Setup": null
     },
     {
-      "Order": 73,
+      "Order": 77,
       "Title": "Get Similar Library Voices",
       "Slug": "get-similar-library-voices",
       "Description": "Returns a list of shared voices similar to the provided audio sample. If neither similarity_threshold nor top_k is provided, we will apply default values.",
@@ -804,7 +848,7 @@
       "Setup": null
     },
     {
-      "Order": 74,
+      "Order": 78,
       "Title": "Get Voice Settings",
       "Slug": "get-voice-settings",
       "Description": "Returns the settings for a specific voice. \u0022similarity_boost\u0022 corresponds to\u0022Clarity \u002B Similarity Enhancement\u0022 in the web app and \u0022stability\u0022 corresponds to \u0022Stability\u0022 slider in the web app.",
@@ -815,7 +859,7 @@
       "Setup": null
     },
     {
-      "Order": 75,
+      "Order": 79,
       "Title": "Get Voice",
       "Slug": "get-voice-by-id",
       "Description": "Returns metadata about a specific voice.",
@@ -826,7 +870,7 @@
       "Setup": null
     },
     {
-      "Order": 76,
+      "Order": 80,
       "Title": "List Voices",
       "Slug": "get-voices",
       "Description": "Returns a list of all available voices for a user. Stops working once the user\u0027s workspace exceeds 500 voices.",
@@ -837,7 +881,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 77,
+      "Order": 81,
       "Title": "Get Default Voice Settings.",
       "Slug": "get-voice-settings-default",
       "Description": "Gets the default settings for voices. \u0022similarity_boost\u0022 corresponds to\u0022Clarity \u002B Similarity Enhancement\u0022 in the web app and \u0022stability\u0022 corresponds to \u0022Stability\u0022 slider in the web app.",
@@ -848,7 +892,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 78,
+      "Order": 82,
       "Title": "Get Voices",
       "Slug": "get-library-voices",
       "Description": "Retrieves a list of shared voices.",
@@ -859,7 +903,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 79,
+      "Order": 83,
       "Title": "Add Shared Voice",
       "Slug": "add-sharing-voice",
       "Description": "Add a shared voice to your collection of voices.",
@@ -870,7 +914,7 @@
       "Setup": null
     },
     {
-      "Order": 80,
+      "Order": 84,
       "Title": "Edit Voice Settings",
       "Slug": "edit-voice-settings",
       "Description": "Edit your settings for a specific voice. \u0022similarity_boost\u0022 corresponds to \u0022Clarity \u002B Similarity Enhancement\u0022 in the web app and \u0022stability\u0022 corresponds to \u0022Stability\u0022 slider in the web app.",
@@ -881,7 +925,7 @@
       "Setup": null
     },
     {
-      "Order": 81,
+      "Order": 85,
       "Title": "Edit Voice",
       "Slug": "edit-voice",
       "Description": "Edit a voice created by you.",
@@ -892,7 +936,7 @@
       "Setup": null
     },
     {
-      "Order": 82,
+      "Order": 86,
       "Title": "Delete Workspace Webhook",
       "Slug": "delete-workspace-webhook-route",
       "Description": "Delete the specified workspace webhook",
@@ -903,7 +947,7 @@
       "Setup": null
     },
     {
-      "Order": 83,
+      "Order": 87,
       "Title": "List Workspace Webhooks",
       "Slug": "get-workspace-webhooks-route",
       "Description": "List all webhooks for a workspace",
@@ -914,7 +958,7 @@
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 84,
+      "Order": 88,
       "Title": "Update Workspace Webhook",
       "Slug": "edit-workspace-webhook-route",
       "Description": "Update the specified workspace webhook",
@@ -925,7 +969,7 @@
       "Setup": null
     },
     {
-      "Order": 85,
+      "Order": 89,
       "Title": "Add Member To User Group",
       "Slug": "add-member",
       "Description": "Adds a member of your workspace to the specified group. Requires \u0060group_members_manage\u0060 permission.",
@@ -936,7 +980,7 @@
       "Setup": null
     },
     {
-      "Order": 86,
+      "Order": 90,
       "Title": "Invite User",
       "Slug": "invite-user",
       "Description": "Sends an email invitation to join your workspace to the provided email. If the user doesn\u0027t have an account they will be prompted to create one. If the user accepts this invite they will be added as a user to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission. If the user is already in the workspace a 400 error will be returned.",
@@ -947,7 +991,7 @@
       "Setup": null
     },
     {
-      "Order": 87,
+      "Order": 91,
       "Title": "Invite Multiple Users",
       "Slug": "invite-users-bulk",
       "Description": "Sends email invitations to join your workspace to the provided emails. Requires all email addresses to be part of a verified domain. If the users don\u0027t have an account they will be prompted to create one. If the users accept these invites they will be added as users to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission.",
@@ -958,7 +1002,7 @@
       "Setup": null
     },
     {
-      "Order": 88,
+      "Order": 92,
       "Title": "Delete Existing Invitation",
       "Slug": "delete-invite",
       "Description": "Invalidates an existing email invitation. The invitation will still show up in the inbox it has been delivered to, but activating it to join the workspace won\u0027t work. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission.",
@@ -969,7 +1013,7 @@
       "Setup": null
     },
     {
-      "Order": 89,
+      "Order": 93,
       "Title": "Get Resource",
       "Slug": "get-resource-metadata",
       "Description": "Gets the metadata of a resource by ID.",
@@ -980,7 +1024,7 @@
       "Setup": null
     },
     {
-      "Order": 90,
+      "Order": 94,
       "Title": "Delete Member From User Group",
       "Slug": "remove-member",
       "Description": "Removes a member from the specified group. Requires \u0060group_members_manage\u0060 permission.",
@@ -991,7 +1035,7 @@
       "Setup": null
     },
     {
-      "Order": 91,
+      "Order": 95,
       "Title": "Update Member",
       "Slug": "update-workspace-member",
       "Description": "Updates attributes of a workspace member. Apart from the email identifier, all parameters will remain unchanged unless specified. This endpoint may only be called by workspace administrators.",

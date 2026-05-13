@@ -163,6 +163,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ListCustomerFacingAgents,
+        /// <summary>
+        /// 
+        /// </summary>
         ListGroupSessions,
         /// <summary>
         /// 
@@ -308,6 +312,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListCalendarEvents => "list_calendar_events",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListClientInteractions => "list_client_interactions",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListClients => "list_clients",
+                SMBToolConfigParamsDiscriminatorSmbToolType.ListCustomerFacingAgents => "list_customer_facing_agents",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListGroupSessions => "list_group_sessions",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListHolidays => "list_holidays",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListLocations => "list_locations",
@@ -380,6 +385,7 @@ namespace ElevenLabs
                 "list_calendar_events" => SMBToolConfigParamsDiscriminatorSmbToolType.ListCalendarEvents,
                 "list_client_interactions" => SMBToolConfigParamsDiscriminatorSmbToolType.ListClientInteractions,
                 "list_clients" => SMBToolConfigParamsDiscriminatorSmbToolType.ListClients,
+                "list_customer_facing_agents" => SMBToolConfigParamsDiscriminatorSmbToolType.ListCustomerFacingAgents,
                 "list_group_sessions" => SMBToolConfigParamsDiscriminatorSmbToolType.ListGroupSessions,
                 "list_holidays" => SMBToolConfigParamsDiscriminatorSmbToolType.ListHolidays,
                 "list_locations" => SMBToolConfigParamsDiscriminatorSmbToolType.ListLocations,

@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"has_more":false,"speech_engines":[{"created_at_unix_secs":1714000000,"name":"My Speech Engine","speech_engine_id":"seng_3701k3ttaq12ewp8b7qv5rfyszkz","tags":["production","v1"]}]}
     /// </summary>
     public sealed partial class ListSpeechEnginesResponse
     {
         /// <summary>
-        /// 
+        /// The speech engines matching the query
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speech_engines")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -37,7 +37,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ListSpeechEnginesResponse" /> class.
         /// </summary>
-        /// <param name="speechEngines"></param>
+        /// <param name="speechEngines">
+        /// The speech engines matching the query
+        /// </param>
         /// <param name="hasMore">
         /// Whether there are more results
         /// </param>

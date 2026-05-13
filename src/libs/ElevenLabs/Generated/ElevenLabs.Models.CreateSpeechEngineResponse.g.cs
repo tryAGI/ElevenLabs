@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"speech_engine_id":"seng_3701k3ttaq12ewp8b7qv5rfyszkz"}
     /// </summary>
     public sealed partial class CreateSpeechEngineResponse
     {

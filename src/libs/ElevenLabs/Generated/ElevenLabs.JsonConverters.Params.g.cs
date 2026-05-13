@@ -280,6 +280,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DeleteCalendarEventParams)}");
                 deleteCalendarEvent = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.ListCustomerFacingAgentsParams? listCustomerFacingAgents = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListCustomerFacingAgents)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListCustomerFacingAgentsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListCustomerFacingAgentsParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ListCustomerFacingAgentsParams)}");
+                listCustomerFacingAgents = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.ListAgentRulesParams? listAgentRules = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListAgentRules)
             {
@@ -531,6 +538,8 @@ namespace ElevenLabs.JsonConverters
                 cancelCalendarEvent,
 
                 deleteCalendarEvent,
+
+                listCustomerFacingAgents,
 
                 listAgentRules,
 
@@ -816,6 +825,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DeleteCalendarEventParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DeleteCalendarEventParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DeleteCalendarEventParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeleteCalendarEvent!, typeInfo);
+            }
+            else if (value.IsListCustomerFacingAgents)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListCustomerFacingAgentsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListCustomerFacingAgentsParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ListCustomerFacingAgentsParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ListCustomerFacingAgents!, typeInfo);
             }
             else if (value.IsListAgentRules)
             {

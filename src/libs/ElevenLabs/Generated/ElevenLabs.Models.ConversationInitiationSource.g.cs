@@ -24,6 +24,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        GenesysBotConnector,
+        /// <summary>
+        /// 
+        /// </summary>
         JsSdk,
         /// <summary>
         /// 
@@ -98,6 +102,7 @@ namespace ElevenLabs
                 ConversationInitiationSource.AndroidSdk => "android_sdk",
                 ConversationInitiationSource.FlutterSdk => "flutter_sdk",
                 ConversationInitiationSource.Genesys => "genesys",
+                ConversationInitiationSource.GenesysBotConnector => "genesys_bot_connector",
                 ConversationInitiationSource.JsSdk => "js_sdk",
                 ConversationInitiationSource.NodeJsSdk => "node_js_sdk",
                 ConversationInitiationSource.PythonSdk => "python_sdk",
@@ -126,6 +131,7 @@ namespace ElevenLabs
                 "android_sdk" => ConversationInitiationSource.AndroidSdk,
                 "flutter_sdk" => ConversationInitiationSource.FlutterSdk,
                 "genesys" => ConversationInitiationSource.Genesys,
+                "genesys_bot_connector" => ConversationInitiationSource.GenesysBotConnector,
                 "js_sdk" => ConversationInitiationSource.JsSdk,
                 "node_js_sdk" => ConversationInitiationSource.NodeJsSdk,
                 "python_sdk" => ConversationInitiationSource.PythonSdk,
