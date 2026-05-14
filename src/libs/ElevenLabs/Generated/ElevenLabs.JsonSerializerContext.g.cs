@@ -1149,6 +1149,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2NullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestTokenResponseField2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestTokenResponseField2NullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.UsageAggregationIntervalJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.UsageAggregationIntervalNullableJsonConverter),
@@ -1413,6 +1421,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseDiscriminatorAuthTypeNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponseDiscriminatorStatusJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponseDiscriminatorStatusNullableJsonConverter),
@@ -1623,6 +1635,8 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponse2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.GetAgentResponseTestRouteResponseJsonConverter),
@@ -1784,6 +1798,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string, object>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>),
+
+            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.CreateResponseUnitTestRequest, global::ElevenLabs.CreateToolCallUnitTestRequest, global::ElevenLabs.CreateSimulationTestRequest>),
 
@@ -3450,6 +3466,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2NullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestTokenResponseField2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestTokenResponseField2NullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.UsageAggregationIntervalJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.UsageAggregationIntervalNullableJsonConverter),
@@ -3714,6 +3738,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseDiscriminatorAuthTypeNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponseDiscriminatorStatusJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponseDiscriminatorStatusNullableJsonConverter),
@@ -3924,6 +3952,8 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponse2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.GetAgentResponseTestRouteResponseJsonConverter),
@@ -4085,6 +4115,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string, object>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>),
+
+            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.CreateResponseUnitTestRequest, global::ElevenLabs.CreateToolCallUnitTestRequest, global::ElevenLabs.CreateSimulationTestRequest>),
 
@@ -5751,6 +5783,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2NullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestTokenResponseField2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestTokenResponseField2NullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.UsageAggregationIntervalJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.UsageAggregationIntervalNullableJsonConverter),
@@ -6015,6 +6055,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseDiscriminatorAuthTypeNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponseDiscriminatorStatusJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponseDiscriminatorStatusNullableJsonConverter),
@@ -6225,6 +6269,8 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponse2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.GetAgentResponseTestRouteResponseJsonConverter),
@@ -6386,6 +6432,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string, object>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>),
+
+            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.CreateResponseUnitTestRequest, global::ElevenLabs.CreateToolCallUnitTestRequest, global::ElevenLabs.CreateSimulationTestRequest>),
 
@@ -8052,6 +8100,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2NullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestTokenResponseField2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestTokenResponseField2NullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.UsageAggregationIntervalJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.UsageAggregationIntervalNullableJsonConverter),
@@ -8316,6 +8372,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseDiscriminatorAuthTypeNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponseDiscriminatorStatusJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponseDiscriminatorStatusNullableJsonConverter),
@@ -8526,6 +8586,8 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponse2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.GetAgentResponseTestRouteResponseJsonConverter),
@@ -8687,6 +8749,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string, object>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>),
+
+            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.CreateResponseUnitTestRequest, global::ElevenLabs.CreateToolCallUnitTestRequest, global::ElevenLabs.CreateSimulationTestRequest>),
 
@@ -8901,8 +8965,13 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Eval), TypeInfoPropertyName = "Eval2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UnitTestToolCallParameterEvalDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UnitTestToolCallParameterEvalDiscriminatorType), TypeInfoPropertyName = "UnitTestToolCallParameterEvalDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateBasicAuthRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateEnvironmentVariableRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, global::ElevenLabs.EnvironmentVariableSecretValueRequest, global::ElevenLabs.EnvironmentVariableAuthConnectionValueRequest, object>), TypeInfoPropertyName = "AnyOfStringEnvironmentVariableSecretValueRequestEnvironmentVariableAuthConnectionValueRequestObject2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateOAuth2ClientCredsRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateOAuth2JWTRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateOAuth2JWTRequestAlgorithm2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateOAuth2JWTRequestTokenResponseField2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdatePhoneNumberRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateResponseUnitTestRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateSimulationTestRequest))]
@@ -9071,6 +9140,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookUsageResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkspaceWebhookUsageResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GenerationNode))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest>), TypeInfoPropertyName = "AnyOfUpdateOAuth2ClientCredsRequestUpdateBasicAuthRequestUpdateOAuth2JWTRequest2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateResponseUnitTestRequest, global::ElevenLabs.CreateToolCallUnitTestRequest, global::ElevenLabs.CreateSimulationTestRequest>), TypeInfoPropertyName = "AnyOfCreateResponseUnitTestRequestCreateToolCallUnitTestRequestCreateSimulationTestRequest2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateResponseUnitTestRequest, global::ElevenLabs.UpdateToolCallUnitTestRequest, global::ElevenLabs.UpdateSimulationTestRequest>), TypeInfoPropertyName = "AnyOfUpdateResponseUnitTestRequestUpdateToolCallUnitTestRequestUpdateSimulationTestRequest2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2>), TypeInfoPropertyName = "AnyOfCreateTwilioPhoneNumberRequestCreateSIPTrunkPhoneNumberRequestV22")]
@@ -9107,6 +9177,9 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CreateAuthConnectionResponse), TypeInfoPropertyName = "CreateAuthConnectionResponse2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CreateAuthConnectionResponseDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType), TypeInfoPropertyName = "CreateAuthConnectionResponseDiscriminatorAuthType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateAuthConnectionResponse), TypeInfoPropertyName = "UpdateAuthConnectionResponse2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateAuthConnectionResponseDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateAuthConnectionResponseDiscriminatorAuthType), TypeInfoPropertyName = "UpdateAuthConnectionResponseDiscriminatorAuthType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WorkspaceGroupResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceGroupByNameResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.SpeechToTextChunkResponseModel, global::ElevenLabs.MultichannelSpeechToTextResponseModel, global::ElevenLabs.SpeechToTextWebhookResponseModel>), TypeInfoPropertyName = "AnyOfSpeechToTextChunkResponseModelMultichannelSpeechToTextResponseModelSpeechToTextWebhookResponseModel2")]
@@ -9197,15 +9270,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?, double?, global::System.DateTime?, bool?, object>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ToolsItem2>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AgentsItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DependentPhoneNumberIdentifier>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.McpServersItem2>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.SecretDependencyType>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.WebhookEventType>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ClientEvent>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DataCollectionResultCommonModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ScopedAnalysisResult>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ConversationVoiceRewardModel>))]
     internal sealed partial class SourceGenerationContextChunk3 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -10353,6 +10417,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2NullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestTokenResponseField2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestTokenResponseField2NullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.UsageAggregationIntervalJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.UsageAggregationIntervalNullableJsonConverter),
@@ -10617,6 +10689,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseDiscriminatorAuthTypeNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponseDiscriminatorStatusJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponseDiscriminatorStatusNullableJsonConverter),
@@ -10827,6 +10903,8 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponse2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.GetAgentResponseTestRouteResponseJsonConverter),
@@ -10989,6 +11067,8 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>),
 
+            typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest>),
+
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.CreateResponseUnitTestRequest, global::ElevenLabs.CreateToolCallUnitTestRequest, global::ElevenLabs.CreateSimulationTestRequest>),
 
             typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.UpdateResponseUnitTestRequest, global::ElevenLabs.UpdateToolCallUnitTestRequest, global::ElevenLabs.UpdateSimulationTestRequest>),
@@ -11019,6 +11099,15 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>?), TypeInfoPropertyName = "CreateMTLSAuthRequest_d3123ae541f7c02c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DependentPhoneNumberIdentifier>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.McpServersItem2>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.SecretDependencyType>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.WebhookEventType>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ClientEvent>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DataCollectionResultCommonModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ScopedAnalysisResult>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ConversationVoiceRewardModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryMultivoiceMessagePartModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ConfigEntityType>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DynamicVariableUpdateCommonModel>))]
@@ -11800,6 +11889,10 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.UnitTestRunResponseModelTestInfoVariant1DiscriminatorTypeNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeNullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2JsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2NullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestTokenResponseField2JsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestTokenResponseField2NullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.UsageAggregationIntervalJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.UsageAggregationIntervalNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.UserFeedbackScoreJsonConverter());
@@ -11932,6 +12025,8 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ListEnvironmentVariablesType2NullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeNullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseDiscriminatorAuthTypeNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponseDiscriminatorStatusJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponseDiscriminatorStatusNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.GetAgentResponseTestRouteResponseDiscriminatorTypeJsonConverter());
@@ -12037,6 +12132,7 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.StepsItem2JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.CreateEnvironmentVariableRequestJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.GetAgentSummariesRouteResponse2JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.GetAgentResponseTestRouteResponseJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.UpdateAgentResponseTestRouteResponseJsonConverter());
@@ -12118,6 +12214,7 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string, object>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string, object>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.CreateResponseUnitTestRequest, global::ElevenLabs.CreateToolCallUnitTestRequest, global::ElevenLabs.CreateSimulationTestRequest>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.UpdateResponseUnitTestRequest, global::ElevenLabs.UpdateToolCallUnitTestRequest, global::ElevenLabs.UpdateSimulationTestRequest>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2>());

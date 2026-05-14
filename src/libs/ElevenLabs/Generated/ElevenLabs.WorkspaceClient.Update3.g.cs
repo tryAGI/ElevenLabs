@@ -1,13 +1,15 @@
 
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial class WorkspaceClient
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Update2SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Update3SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,46 +23,41 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Update2SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Update3SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_Update2SecurityRequirement0,
+            {                s_Update3SecurityRequirement0,
             };
-        partial void PrepareUpdate2Arguments(
+        partial void PrepareUpdate3Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string authConnectionId,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest> request);
-        partial void PrepareUpdate2Request(
+            global::ElevenLabs.BodyUpdateMemberV1WorkspaceMembersPost request);
+        partial void PrepareUpdate3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string authConnectionId,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest> request);
-        partial void ProcessUpdate2Response(
+            global::ElevenLabs.BodyUpdateMemberV1WorkspaceMembersPost request);
+        partial void ProcessUpdate3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessUpdate2ResponseContent(
+        partial void ProcessUpdate3ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Update Workspace Auth Connection<br/>
-        /// Update an auth connection
+        /// Update Member<br/>
+        /// Updates attributes of a workspace member. Apart from the email identifier, all parameters will remain unchanged unless specified. This endpoint may only be called by workspace administrators.
         /// </summary>
-        /// <param name="authConnectionId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateAuthConnectionResponse> Update2Async(
-            string authConnectionId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateWorkspaceMemberResponseModel> Update3Async(
 
-            global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest> request,
+            global::ElevenLabs.BodyUpdateMemberV1WorkspaceMembersPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Update2AsResponseAsync(
-                authConnectionId: authConnectionId,
+            var __response = await Update3AsResponseAsync(
 
                 request: request,
                 requestOptions: requestOptions,
@@ -70,33 +67,32 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Update Workspace Auth Connection<br/>
-        /// Update an auth connection
+        /// Update Member<br/>
+        /// Updates attributes of a workspace member. Apart from the email identifier, all parameters will remain unchanged unless specified. This endpoint may only be called by workspace administrators.
         /// </summary>
-        /// <param name="authConnectionId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.UpdateAuthConnectionResponse>> Update2AsResponseAsync(
-            string authConnectionId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.UpdateWorkspaceMemberResponseModel>> Update3AsResponseAsync(
 
-            global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest> request,
+            global::ElevenLabs.BodyUpdateMemberV1WorkspaceMembersPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
-            PrepareUpdate2Arguments(
+            PrepareUpdate3Arguments(
                 httpClient: HttpClient,
-                authConnectionId: ref authConnectionId,
                 request: request);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Update2SecurityRequirements,
-                operationName: "Update2Async");
+                securityRequirements: s_Update3SecurityRequirements,
+                operationName: "Update3Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -116,7 +112,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/workspace/auth-connections/{authConnectionId}",
+                                path: "/v1/workspace/members",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -124,7 +120,7 @@ namespace ElevenLabs
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: new global::System.Net.Http.HttpMethod("PATCH"),
+                    method: global::System.Net.Http.HttpMethod.Post,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -161,10 +157,9 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareUpdate2Request(
+                PrepareUpdate3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    authConnectionId: authConnectionId!,
                     request: request);
 
                 return __httpRequest;
@@ -182,10 +177,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update2",
-                                methodName: "Update2Async",
-                                pathTemplate: "$\"/v1/workspace/auth-connections/{authConnectionId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "Update3",
+                                methodName: "Update3Async",
+                                pathTemplate: "\"/v1/workspace/members\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -216,10 +211,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update2",
-                                methodName: "Update2Async",
-                                pathTemplate: "$\"/v1/workspace/auth-connections/{authConnectionId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "Update3",
+                                methodName: "Update3Async",
+                                pathTemplate: "\"/v1/workspace/members\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -257,10 +252,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update2",
-                                methodName: "Update2Async",
-                                pathTemplate: "$\"/v1/workspace/auth-connections/{authConnectionId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "Update3",
+                                methodName: "Update3Async",
+                                pathTemplate: "\"/v1/workspace/members\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -297,7 +292,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessUpdate2Response(
+                ProcessUpdate3Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -305,10 +300,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update2",
-                                methodName: "Update2Async",
-                                pathTemplate: "$\"/v1/workspace/auth-connections/{authConnectionId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "Update3",
+                                methodName: "Update3Async",
+                                pathTemplate: "\"/v1/workspace/members\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -327,10 +322,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update2",
-                                methodName: "Update2Async",
-                                pathTemplate: "$\"/v1/workspace/auth-connections/{authConnectionId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "Update3",
+                                methodName: "Update3Async",
+                                pathTemplate: "\"/v1/workspace/members\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -395,7 +390,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessUpdate2ResponseContent(
+                                ProcessUpdate3ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -404,9 +399,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.UpdateAuthConnectionResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.UpdateWorkspaceMemberResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.UpdateAuthConnectionResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.UpdateWorkspaceMemberResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -438,9 +433,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.UpdateAuthConnectionResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.UpdateWorkspaceMemberResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.UpdateAuthConnectionResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.UpdateWorkspaceMemberResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -483,24 +478,36 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Workspace Auth Connection<br/>
-        /// Update an auth connection
+        /// Update Member<br/>
+        /// Updates attributes of a workspace member. Apart from the email identifier, all parameters will remain unchanged unless specified. This endpoint may only be called by workspace administrators.
         /// </summary>
-        /// <param name="authConnectionId"></param>
+        /// <param name="email">
+        /// Email of the target user.
+        /// </param>
+        /// <param name="isLocked">
+        /// Whether to lock or unlock the user account.
+        /// </param>
+        /// <param name="workspaceSeatType">
+        /// The workspace seat type
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateAuthConnectionResponse> Update2Async(
-            string authConnectionId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpdateWorkspaceMemberResponseModel> Update3Async(
+            string email,
+            bool? isLocked = default,
+            global::ElevenLabs.SeatType? workspaceSeatType = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest>
+            var __request = new global::ElevenLabs.BodyUpdateMemberV1WorkspaceMembersPost
             {
+                Email = email,
+                IsLocked = isLocked,
+                WorkspaceSeatType = workspaceSeatType,
             };
 
-            return await Update2Async(
-                authConnectionId: authConnectionId,
+            return await Update3Async(
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
