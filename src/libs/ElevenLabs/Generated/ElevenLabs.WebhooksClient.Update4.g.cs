@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Update3SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Update4SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,24 +21,24 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Update3SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Update4SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_Update3SecurityRequirement0,
+            {                s_Update4SecurityRequirement0,
             };
-        partial void PrepareUpdate3Arguments(
+        partial void PrepareUpdate4Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string webhookId,
             global::ElevenLabs.BodyUpdateWorkspaceWebhookV1WorkspaceWebhooksWebhookIdPatch request);
-        partial void PrepareUpdate3Request(
+        partial void PrepareUpdate4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string webhookId,
             global::ElevenLabs.BodyUpdateWorkspaceWebhookV1WorkspaceWebhooksWebhookIdPatch request);
-        partial void ProcessUpdate3Response(
+        partial void ProcessUpdate4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessUpdate3ResponseContent(
+        partial void ProcessUpdate4ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -54,14 +54,14 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PatchWorkspaceWebhookResponseModel> Update3Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PatchWorkspaceWebhookResponseModel> Update4Async(
             string webhookId,
 
             global::ElevenLabs.BodyUpdateWorkspaceWebhookV1WorkspaceWebhooksWebhookIdPatch request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Update3AsResponseAsync(
+            var __response = await Update4AsResponseAsync(
                 webhookId: webhookId,
 
                 request: request,
@@ -82,7 +82,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PatchWorkspaceWebhookResponseModel>> Update3AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PatchWorkspaceWebhookResponseModel>> Update4AsResponseAsync(
             string webhookId,
 
             global::ElevenLabs.BodyUpdateWorkspaceWebhookV1WorkspaceWebhooksWebhookIdPatch request,
@@ -93,7 +93,7 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareUpdate3Arguments(
+            PrepareUpdate4Arguments(
                 httpClient: HttpClient,
                 webhookId: ref webhookId,
                 request: request);
@@ -101,8 +101,8 @@ namespace ElevenLabs
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Update3SecurityRequirements,
-                operationName: "Update3Async");
+                securityRequirements: s_Update4SecurityRequirements,
+                operationName: "Update4Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -167,7 +167,7 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareUpdate3Request(
+                PrepareUpdate4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     webhookId: webhookId!,
@@ -188,8 +188,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update3",
-                                methodName: "Update3Async",
+                                operationId: "Update4",
+                                methodName: "Update4Async",
                                 pathTemplate: "$\"/v1/workspace/webhooks/{webhookId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
@@ -222,8 +222,8 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update3",
-                                methodName: "Update3Async",
+                                operationId: "Update4",
+                                methodName: "Update4Async",
                                 pathTemplate: "$\"/v1/workspace/webhooks/{webhookId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
@@ -263,8 +263,8 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update3",
-                                methodName: "Update3Async",
+                                operationId: "Update4",
+                                methodName: "Update4Async",
                                 pathTemplate: "$\"/v1/workspace/webhooks/{webhookId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
@@ -303,7 +303,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessUpdate3Response(
+                ProcessUpdate4Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -311,8 +311,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update3",
-                                methodName: "Update3Async",
+                                operationId: "Update4",
+                                methodName: "Update4Async",
                                 pathTemplate: "$\"/v1/workspace/webhooks/{webhookId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
@@ -333,8 +333,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update3",
-                                methodName: "Update3Async",
+                                operationId: "Update4",
+                                methodName: "Update4Async",
                                 pathTemplate: "$\"/v1/workspace/webhooks/{webhookId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
@@ -401,7 +401,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessUpdate3ResponseContent(
+                                ProcessUpdate4ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -510,7 +510,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PatchWorkspaceWebhookResponseModel> Update3Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PatchWorkspaceWebhookResponseModel> Update4Async(
             string webhookId,
             bool isDisabled,
             string name,
@@ -527,7 +527,7 @@ namespace ElevenLabs
                 RequestHeaders = requestHeaders,
             };
 
-            return await Update3Async(
+            return await Update4Async(
                 webhookId: webhookId,
                 request: __request,
                 requestOptions: requestOptions,

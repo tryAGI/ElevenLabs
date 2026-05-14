@@ -75,6 +75,12 @@ namespace ElevenLabs
         public global::ElevenLabs.AuthConnectionDependencies? UsedBy { get; set; }
 
         /// <summary>
+        /// Custom headers configured for OAuth2 token requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_headers")]
+        public global::System.Collections.Generic.Dictionary<string, string>? CustomHeaders { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -102,6 +108,9 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="usedBy"></param>
+        /// <param name="customHeaders">
+        /// Custom headers configured for OAuth2 token requests
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -115,7 +124,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? scopes,
             global::System.Collections.Generic.Dictionary<string, string>? extraParams,
             bool? basicAuthInHeader,
-            global::ElevenLabs.AuthConnectionDependencies? usedBy)
+            global::ElevenLabs.AuthConnectionDependencies? usedBy,
+            global::System.Collections.Generic.Dictionary<string, string>? customHeaders)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.AuthType = authType;
@@ -127,6 +137,7 @@ namespace ElevenLabs
             this.BasicAuthInHeader = basicAuthInHeader;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.UsedBy = usedBy;
+            this.CustomHeaders = customHeaders;
         }
 
         /// <summary>

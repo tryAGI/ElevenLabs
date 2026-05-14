@@ -10064,6 +10064,144 @@
       }
     },
     "/v1/workspace/auth-connections/{auth_connection_id}": {
+      "patch": {
+        "tags": [
+          "workspace"
+        ],
+        "summary": "Update Workspace Auth Connection",
+        "description": "Update an auth connection",
+        "operationId": "update_auth_connection",
+        "parameters": [
+          {
+            "name": "auth_connection_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Auth Connection Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/UpdateOAuth2ClientCredsRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateBasicAuthRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateOAuth2JWTRequest"
+                  }
+                ],
+                "description": "Updated auth connection fields",
+                "title": "Request Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/OAuth2ClientCredsResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/BasicAuthResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/BearerAuthResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/OAuth2JWTResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PrivateKeyJWTResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/MTLSAuthResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/CustomHeaderAuthResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ApiIntegrationOAuth2AuthCodeResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ApiIntegrationOAuth2CustomAppResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WhatsAppAuthResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SlackBotAuthResponse"
+                    }
+                  ],
+                  "discriminator": {
+                    "propertyName": "auth_type",
+                    "mapping": {
+                      "oauth2_client_credentials": "#/components/schemas/OAuth2ClientCredsResponse",
+                      "basic_auth": "#/components/schemas/BasicAuthResponse",
+                      "bearer_auth": "#/components/schemas/BearerAuthResponse",
+                      "oauth2_jwt": "#/components/schemas/OAuth2JWTResponse",
+                      "private_key_jwt": "#/components/schemas/PrivateKeyJWTResponse",
+                      "mtls": "#/components/schemas/MTLSAuthResponse",
+                      "custom_header_auth": "#/components/schemas/CustomHeaderAuthResponse",
+                      "api_integration_oauth2_auth_code": "#/components/schemas/ApiIntegrationOAuth2AuthCodeResponse",
+                      "api_integration_oauth2_custom_app": "#/components/schemas/ApiIntegrationOAuth2CustomAppResponse",
+                      "whatsapp_auth": "#/components/schemas/WhatsAppAuthResponse",
+                      "slack_bot_auth": "#/components/schemas/SlackBotAuthResponse"
+                    }
+                  },
+                  "description": "The type of auth connection config",
+                  "title": "Response Update Workspace Auth Connection V1 Workspace Auth Connections  Auth Connection Id  Patch"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "workspace",
+          "auth_connections"
+        ],
+        "x-fern-sdk-method-name": "update"
+      },
       "delete": {
         "tags": [
           "workspace"
@@ -32233,6 +32371,10 @@
             "type": "boolean",
             "title": "Processing"
           },
+          "video_processing_failed": {
+            "type": "boolean",
+            "title": "Video Processing Failed"
+          },
           "preview_b64": {
             "anyOf": [
               {
@@ -32257,6 +32399,7 @@
           "source_video_url",
           "supports_video",
           "processing",
+          "video_processing_failed",
           "preview_b64"
         ],
         "title": "AudioIsolationHistoryItemResponseModel"
@@ -57323,6 +57466,7 @@
           "gemini-3-flash-preview",
           "gemini-3.1-pro-preview",
           "gemini-3.1-flash-lite-preview",
+          "gemini-3.1-flash-lite",
           "claude-sonnet-4-5",
           "claude-opus-4-7",
           "claude-sonnet-4-6",
@@ -57337,6 +57481,7 @@
           "qwen3-4b",
           "qwen3-30b-a3b",
           "qwen36-35b-a3b",
+          "qwen35-397b-a17b",
           "gpt-oss-20b",
           "gpt-oss-120b",
           "glm-45-air-fp8",
@@ -61942,6 +62087,14 @@
                 "type": "null"
               }
             ]
+          },
+          "custom_headers": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Custom Headers",
+            "description": "Custom headers configured for OAuth2 token requests"
           }
         },
         "type": "object",
@@ -76381,6 +76534,51 @@
         "type": "object",
         "title": "UpdateAssetParams"
       },
+      "UpdateBasicAuthRequest": {
+        "properties": {
+          "auth_type": {
+            "type": "string",
+            "const": "basic_auth",
+            "title": "Auth Type",
+            "default": "basic_auth"
+          },
+          "provider": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Provider"
+          },
+          "username": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Username"
+          },
+          "password": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Password"
+          }
+        },
+        "type": "object",
+        "title": "UpdateBasicAuthRequest"
+      },
       "UpdateBookingPageSettingsParams": {
         "properties": {
           "smb_tool_type": {
@@ -76509,6 +76707,257 @@
         },
         "type": "object",
         "title": "UpdateLocationParams"
+      },
+      "UpdateOAuth2ClientCredsRequest": {
+        "properties": {
+          "auth_type": {
+            "type": "string",
+            "const": "oauth2_client_credentials",
+            "title": "Auth Type",
+            "default": "oauth2_client_credentials"
+          },
+          "provider": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Provider"
+          },
+          "client_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Client Id"
+          },
+          "scopes": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scopes"
+          },
+          "extra_params": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Extra Params"
+          },
+          "basic_auth_in_header": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Basic Auth In Header"
+          },
+          "client_secret": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Client Secret"
+          },
+          "custom_headers": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Custom Headers"
+          }
+        },
+        "type": "object",
+        "title": "UpdateOAuth2ClientCredsRequest"
+      },
+      "UpdateOAuth2JWTRequest": {
+        "properties": {
+          "auth_type": {
+            "type": "string",
+            "const": "oauth2_jwt",
+            "title": "Auth Type",
+            "default": "oauth2_jwt"
+          },
+          "provider": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Provider"
+          },
+          "algorithm": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "HS256",
+                  "HS384",
+                  "HS512",
+                  "RS256",
+                  "RS384",
+                  "RS512"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Algorithm"
+          },
+          "key_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Key Id"
+          },
+          "issuer": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Issuer"
+          },
+          "audience": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audience"
+          },
+          "subject": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subject"
+          },
+          "expiration_seconds": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 86400.0,
+                "minimum": 60.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expiration Seconds"
+          },
+          "extra_params": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Extra Params"
+          },
+          "scopes": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scopes"
+          },
+          "token_response_field": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "access_token",
+                  "id_token"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Token Response Field"
+          },
+          "secret_key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Secret Key"
+          }
+        },
+        "type": "object",
+        "title": "UpdateOAuth2JWTRequest"
       },
       "UpdatePhoneNumberRequest": {
         "properties": {

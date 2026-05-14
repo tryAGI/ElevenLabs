@@ -155,6 +155,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Gemini31FlashLite,
+        /// <summary>
+        /// 
+        /// </summary>
         Gemini31FlashLitePreview,
         /// <summary>
         /// 
@@ -343,6 +347,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Qwen35397bA17b,
+        /// <summary>
+        /// 
+        /// </summary>
         Qwen3635bA3b,
         /// <summary>
         /// 
@@ -402,6 +410,7 @@ namespace ElevenLabs
                 Llm.Gemini25FlashPreview092025 => "gemini-2.5-flash-preview-09-2025",
                 Llm.Gemini3FlashPreview => "gemini-3-flash-preview",
                 Llm.Gemini3ProPreview => "gemini-3-pro-preview",
+                Llm.Gemini31FlashLite => "gemini-3.1-flash-lite",
                 Llm.Gemini31FlashLitePreview => "gemini-3.1-flash-lite-preview",
                 Llm.Gemini31ProPreview => "gemini-3.1-pro-preview",
                 Llm.Glm45AirFp8 => "glm-45-air-fp8",
@@ -449,6 +458,7 @@ namespace ElevenLabs
                 Llm.GrokBeta => "grok-beta",
                 Llm.Qwen330bA3b => "qwen3-30b-a3b",
                 Llm.Qwen34b => "qwen3-4b",
+                Llm.Qwen35397bA17b => "qwen35-397b-a17b",
                 Llm.Qwen3635bA3b => "qwen36-35b-a3b",
                 Llm.WattTool70b => "watt-tool-70b",
                 Llm.WattTool8b => "watt-tool-8b",
@@ -498,6 +508,7 @@ namespace ElevenLabs
                 "gemini-2.5-flash-preview-09-2025" => Llm.Gemini25FlashPreview092025,
                 "gemini-3-flash-preview" => Llm.Gemini3FlashPreview,
                 "gemini-3-pro-preview" => Llm.Gemini3ProPreview,
+                "gemini-3.1-flash-lite" => Llm.Gemini31FlashLite,
                 "gemini-3.1-flash-lite-preview" => Llm.Gemini31FlashLitePreview,
                 "gemini-3.1-pro-preview" => Llm.Gemini31ProPreview,
                 "glm-45-air-fp8" => Llm.Glm45AirFp8,
@@ -545,6 +556,7 @@ namespace ElevenLabs
                 "grok-beta" => Llm.GrokBeta,
                 "qwen3-30b-a3b" => Llm.Qwen330bA3b,
                 "qwen3-4b" => Llm.Qwen34b,
+                "qwen35-397b-a17b" => Llm.Qwen35397bA17b,
                 "qwen36-35b-a3b" => Llm.Qwen3635bA3b,
                 "watt-tool-70b" => Llm.WattTool70b,
                 "watt-tool-8b" => Llm.WattTool8b,

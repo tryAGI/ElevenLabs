@@ -76,6 +76,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("video_processing_failed")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool VideoProcessingFailed { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("preview_b64")]
         public string? PreviewB64 { get; set; }
 
@@ -93,6 +100,7 @@ namespace ElevenLabs
         /// <param name="format"></param>
         /// <param name="supportsVideo"></param>
         /// <param name="processing"></param>
+        /// <param name="videoProcessingFailed"></param>
         /// <param name="title"></param>
         /// <param name="durationSeconds"></param>
         /// <param name="downloadUrl"></param>
@@ -108,6 +116,7 @@ namespace ElevenLabs
             string format,
             bool supportsVideo,
             bool processing,
+            bool videoProcessingFailed,
             string? title,
             double? durationSeconds,
             string? downloadUrl,
@@ -125,6 +134,7 @@ namespace ElevenLabs
             this.SourceVideoUrl = sourceVideoUrl;
             this.SupportsVideo = supportsVideo;
             this.Processing = processing;
+            this.VideoProcessingFailed = videoProcessingFailed;
             this.PreviewB64 = previewB64;
         }
 
