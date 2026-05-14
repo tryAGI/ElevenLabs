@@ -50,6 +50,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? RemoteDomains { get; set; }
 
         /// <summary>
+        /// Map of dynamic variable name to header name for attributes_to_headers
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("attributes_to_headers")]
+        public global::System.Collections.Generic.Dictionary<string, string>? AttributesToHeaders { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -76,6 +82,9 @@ namespace ElevenLabs
         /// <param name="remoteDomains">
         /// Domains of remote SIP servers used to validate TLS certificates.
         /// </param>
+        /// <param name="attributesToHeaders">
+        /// Map of dynamic variable name to header name for attributes_to_headers
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -85,7 +94,8 @@ namespace ElevenLabs
             bool hasAuthCredentials,
             global::System.Collections.Generic.IList<string>? allowedNumbers,
             string? username,
-            global::System.Collections.Generic.IList<string>? remoteDomains)
+            global::System.Collections.Generic.IList<string>? remoteDomains,
+            global::System.Collections.Generic.Dictionary<string, string>? attributesToHeaders)
         {
             this.AllowedAddresses = allowedAddresses ?? throw new global::System.ArgumentNullException(nameof(allowedAddresses));
             this.AllowedNumbers = allowedNumbers;
@@ -93,6 +103,7 @@ namespace ElevenLabs
             this.HasAuthCredentials = hasAuthCredentials;
             this.Username = username;
             this.RemoteDomains = remoteDomains;
+            this.AttributesToHeaders = attributesToHeaders;
         }
 
         /// <summary>

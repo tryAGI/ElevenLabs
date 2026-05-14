@@ -50,6 +50,7 @@ namespace ElevenLabs
             ref global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode,
             ref string? search,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
+            bool? textOnly,
             ref string? branchId,
             global::System.Collections.Generic.IList<string>? topicIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses,
@@ -78,6 +79,7 @@ namespace ElevenLabs
             global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode,
             string? search,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
+            bool? textOnly,
             string? branchId,
             global::System.Collections.Generic.IList<string>? topicIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses,
@@ -158,6 +160,7 @@ namespace ElevenLabs
         /// Full-text or fuzzy search over transcript messages
         /// </param>
         /// <param name="conversationInitiationSource"></param>
+        /// <param name="textOnly"></param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -195,6 +198,7 @@ namespace ElevenLabs
             global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode = default,
             string? search = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
+            bool? textOnly = default,
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
@@ -224,6 +228,7 @@ namespace ElevenLabs
                 summaryMode: summaryMode,
                 search: search,
                 conversationInitiationSource: conversationInitiationSource,
+                textOnly: textOnly,
                 branchId: branchId,
                 topicIds: topicIds,
                 excludeStatuses: excludeStatuses,
@@ -301,6 +306,7 @@ namespace ElevenLabs
         /// Full-text or fuzzy search over transcript messages
         /// </param>
         /// <param name="conversationInitiationSource"></param>
+        /// <param name="textOnly"></param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -338,6 +344,7 @@ namespace ElevenLabs
             global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode = default,
             string? search = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
+            bool? textOnly = default,
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
@@ -370,6 +377,7 @@ namespace ElevenLabs
                 summaryMode: ref summaryMode,
                 search: ref search,
                 conversationInitiationSource: conversationInitiationSource,
+                textOnly: textOnly,
                 branchId: ref branchId,
                 topicIds: topicIds,
                 excludeStatuses: excludeStatuses,
@@ -423,6 +431,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("summary_mode", summaryMode?.ToValueString())
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("conversation_initiation_source", conversationInitiationSource?.ToString())
+                                .AddOptionalParameter("text_only", textOnly?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("branch_id", branchId)
                                 .AddOptionalParameter("topic_ids", topicIds?.ToString())
                                 .AddOptionalParameter("exclude_statuses", excludeStatuses?.ToString())
@@ -489,6 +498,7 @@ namespace ElevenLabs
                     summaryMode: summaryMode,
                     search: search,
                     conversationInitiationSource: conversationInitiationSource,
+                    textOnly: textOnly,
                     branchId: branchId,
                     topicIds: topicIds,
                     excludeStatuses: excludeStatuses,

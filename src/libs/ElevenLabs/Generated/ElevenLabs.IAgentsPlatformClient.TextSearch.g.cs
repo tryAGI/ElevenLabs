@@ -68,6 +68,7 @@ namespace ElevenLabs
         /// Default Value: exclude
         /// </param>
         /// <param name="conversationInitiationSource"></param>
+        /// <param name="textOnly"></param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -102,6 +103,7 @@ namespace ElevenLabs
             int? pageSize = default,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
+            bool? textOnly = default,
             string? branchId = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = default,
@@ -171,6 +173,7 @@ namespace ElevenLabs
         /// Default Value: exclude
         /// </param>
         /// <param name="conversationInitiationSource"></param>
+        /// <param name="textOnly"></param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -205,6 +208,7 @@ namespace ElevenLabs
             int? pageSize = default,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
+            bool? textOnly = default,
             string? branchId = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = default,

@@ -73,6 +73,7 @@ namespace ElevenLabs
         /// Full-text or fuzzy search over transcript messages
         /// </param>
         /// <param name="conversationInitiationSource"></param>
+        /// <param name="textOnly"></param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -110,6 +111,7 @@ namespace ElevenLabs
             global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode = default,
             string? search = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
+            bool? textOnly = default,
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
@@ -183,6 +185,7 @@ namespace ElevenLabs
         /// Full-text or fuzzy search over transcript messages
         /// </param>
         /// <param name="conversationInitiationSource"></param>
+        /// <param name="textOnly"></param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -220,6 +223,7 @@ namespace ElevenLabs
             global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode = default,
             string? search = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
+            bool? textOnly = default,
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,

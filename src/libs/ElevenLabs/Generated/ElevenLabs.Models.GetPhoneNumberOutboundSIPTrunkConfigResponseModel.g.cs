@@ -42,6 +42,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, string>? Headers { get; set; }
 
         /// <summary>
+        /// Map of dynamic variable name to header name for attributes_to_headers
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("attributes_to_headers")]
+        public global::System.Collections.Generic.Dictionary<string, string>? AttributesToHeaders { get; set; }
+
+        /// <summary>
         /// Whether authentication credentials are configured
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_auth_credentials")]
@@ -87,6 +93,9 @@ namespace ElevenLabs
         /// <param name="headers">
         /// SIP headers for INVITE request
         /// </param>
+        /// <param name="attributesToHeaders">
+        /// Map of dynamic variable name to header name for attributes_to_headers
+        /// </param>
         /// <param name="username">
         /// SIP trunk username (if available)
         /// </param>
@@ -103,6 +112,7 @@ namespace ElevenLabs
             global::ElevenLabs.SIPMediaEncryptionEnum mediaEncryption,
             bool hasAuthCredentials,
             global::System.Collections.Generic.Dictionary<string, string>? headers,
+            global::System.Collections.Generic.Dictionary<string, string>? attributesToHeaders,
             string? username,
             bool? hasOutboundTrunk)
         {
@@ -110,6 +120,7 @@ namespace ElevenLabs
             this.Transport = transport;
             this.MediaEncryption = mediaEncryption;
             this.Headers = headers;
+            this.AttributesToHeaders = attributesToHeaders;
             this.HasAuthCredentials = hasAuthCredentials;
             this.Username = username;
             this.HasOutboundTrunk = hasOutboundTrunk;
