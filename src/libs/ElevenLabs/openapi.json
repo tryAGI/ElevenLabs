@@ -15471,6 +15471,22 @@
             }
           },
           {
+            "name": "text_only",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Text Only"
+            }
+          },
+          {
             "name": "branch_id",
             "in": "query",
             "required": false,
@@ -16562,6 +16578,22 @@
                 }
               ],
               "title": "Conversation Initiation Source"
+            }
+          },
+          {
+            "name": "text_only",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Text Only"
             }
           },
           {
@@ -54861,6 +54893,14 @@
             ],
             "title": "Remote Domains",
             "description": "Domains of remote SIP servers used to validate TLS certificates."
+          },
+          "attributes_to_headers": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Attributes To Headers",
+            "description": "Map of dynamic variable name to header name for attributes_to_headers"
           }
         },
         "type": "object",
@@ -54894,6 +54934,14 @@
             "type": "object",
             "title": "Headers",
             "description": "SIP headers for INVITE request"
+          },
+          "attributes_to_headers": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Attributes To Headers",
+            "description": "Map of dynamic variable name to header name for attributes_to_headers"
           },
           "has_auth_credentials": {
             "type": "boolean",
@@ -56926,6 +56974,14 @@
             ],
             "title": "Remote Domains",
             "description": "Domains of remote SIP servers used to validate TLS certificates."
+          },
+          "attributes_to_headers": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Attributes To Headers",
+            "description": "Map of dynamic variable name to header name for attributes_to_headers"
           }
         },
         "type": "object",
@@ -62545,6 +62601,14 @@
             "type": "object",
             "title": "Headers",
             "description": "SIP X-* headers for INVITE request. These headers are sent as-is and may help identify this call."
+          },
+          "attributes_to_headers": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Attributes To Headers",
+            "description": "Map of dynamic variable name to header name for attributes_to_headers"
           },
           "credentials": {
             "anyOf": [

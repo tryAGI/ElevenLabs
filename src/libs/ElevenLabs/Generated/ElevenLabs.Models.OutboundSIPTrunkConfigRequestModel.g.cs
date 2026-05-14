@@ -38,6 +38,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, string>? Headers { get; set; }
 
         /// <summary>
+        /// Map of dynamic variable name to header name for attributes_to_headers
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("attributes_to_headers")]
+        public global::System.Collections.Generic.Dictionary<string, string>? AttributesToHeaders { get; set; }
+
+        /// <summary>
         /// Optional digest authentication credentials (username/password). If not provided, ACL authentication is assumed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("credentials")]
@@ -66,6 +72,9 @@ namespace ElevenLabs
         /// <param name="headers">
         /// SIP X-* headers for INVITE request. These headers are sent as-is and may help identify this call.
         /// </param>
+        /// <param name="attributesToHeaders">
+        /// Map of dynamic variable name to header name for attributes_to_headers
+        /// </param>
         /// <param name="credentials">
         /// Optional digest authentication credentials (username/password). If not provided, ACL authentication is assumed.
         /// </param>
@@ -77,12 +86,14 @@ namespace ElevenLabs
             global::ElevenLabs.SIPTrunkTransportEnum? transport,
             global::ElevenLabs.SIPMediaEncryptionEnum? mediaEncryption,
             global::System.Collections.Generic.Dictionary<string, string>? headers,
+            global::System.Collections.Generic.Dictionary<string, string>? attributesToHeaders,
             global::ElevenLabs.SIPTrunkCredentialsRequestModel? credentials)
         {
             this.Address = address ?? throw new global::System.ArgumentNullException(nameof(address));
             this.Transport = transport;
             this.MediaEncryption = mediaEncryption;
             this.Headers = headers;
+            this.AttributesToHeaders = attributesToHeaders;
             this.Credentials = credentials;
         }
 

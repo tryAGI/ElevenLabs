@@ -47,6 +47,7 @@ namespace ElevenLabs
             ref int? pageSize,
             ref global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
+            bool? textOnly,
             ref string? branchId,
             ref global::ElevenLabs.MessageSearchSortBy? sortBy,
             ref string? cursor);
@@ -73,6 +74,7 @@ namespace ElevenLabs
             int? pageSize,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
+            bool? textOnly,
             string? branchId,
             global::ElevenLabs.MessageSearchSortBy? sortBy,
             string? cursor);
@@ -149,6 +151,7 @@ namespace ElevenLabs
         /// Default Value: exclude
         /// </param>
         /// <param name="conversationInitiationSource"></param>
+        /// <param name="textOnly"></param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -183,6 +186,7 @@ namespace ElevenLabs
             int? pageSize = default,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
+            bool? textOnly = default,
             string? branchId = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = default,
@@ -210,6 +214,7 @@ namespace ElevenLabs
                 pageSize: pageSize,
                 summaryMode: summaryMode,
                 conversationInitiationSource: conversationInitiationSource,
+                textOnly: textOnly,
                 branchId: branchId,
                 sortBy: sortBy,
                 cursor: cursor,
@@ -283,6 +288,7 @@ namespace ElevenLabs
         /// Default Value: exclude
         /// </param>
         /// <param name="conversationInitiationSource"></param>
+        /// <param name="textOnly"></param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -317,6 +323,7 @@ namespace ElevenLabs
             int? pageSize = default,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
+            bool? textOnly = default,
             string? branchId = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = default,
@@ -347,6 +354,7 @@ namespace ElevenLabs
                 pageSize: ref pageSize,
                 summaryMode: ref summaryMode,
                 conversationInitiationSource: conversationInitiationSource,
+                textOnly: textOnly,
                 branchId: ref branchId,
                 sortBy: ref sortBy,
                 cursor: ref cursor);
@@ -398,6 +406,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("summary_mode", summaryMode?.ToValueString())
                                 .AddOptionalParameter("conversation_initiation_source", conversationInitiationSource?.ToString())
+                                .AddOptionalParameter("text_only", textOnly?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("branch_id", branchId)
                                 .AddOptionalParameter("sort_by", sortBy?.ToValueString())
                                 .AddOptionalParameter("cursor", cursor)
@@ -462,6 +471,7 @@ namespace ElevenLabs
                     pageSize: pageSize,
                     summaryMode: summaryMode,
                     conversationInitiationSource: conversationInitiationSource,
+                    textOnly: textOnly,
                     branchId: branchId,
                     sortBy: sortBy,
                     cursor: cursor);
