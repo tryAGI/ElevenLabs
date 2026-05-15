@@ -64014,7 +64014,7 @@
           "skills"
         ],
         "title": "ProcedureCompilerMode",
-        "default": "append"
+        "default": "skills"
       },
       "ProcedureRefResponseModel": {
         "properties": {
@@ -64057,7 +64057,7 @@
         "properties": {
           "compiler_mode": {
             "$ref": "#/components/schemas/ProcedureCompilerMode",
-            "default": "append"
+            "default": "skills"
           }
         },
         "type": "object",
