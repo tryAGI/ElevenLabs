@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ProcedureSettings
     {
         /// <summary>
-        /// Default Value: append
+        /// Default Value: skills
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("compiler_mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProcedureCompilerModeJsonConverter))]
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ProcedureSettings" /> class.
         /// </summary>
         /// <param name="compilerMode">
-        /// Default Value: append
+        /// Default Value: skills
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

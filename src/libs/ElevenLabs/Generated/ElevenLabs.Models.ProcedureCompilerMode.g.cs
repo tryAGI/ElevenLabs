@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Default Value: append
+    /// Default Value: skills
     /// </summary>
     public enum ProcedureCompilerMode
     {
