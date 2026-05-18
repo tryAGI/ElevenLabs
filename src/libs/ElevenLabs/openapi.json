@@ -27363,7 +27363,9 @@
             },
             "type": "array",
             "title": "Keywords",
-            "description": "Keywords to boost prediction probability for"
+            "description": "Keywords to boost prediction probability for",
+            "x-convai-client-override": true,
+            "x-convai-soft-override-disallowed": true
           }
         },
         "type": "object",
@@ -27377,6 +27379,47 @@
           "quality": "high",
           "user_input_audio_format": "pcm_16000"
         }
+      },
+      "ASRConversationalConfigOverride": {
+        "properties": {
+          "keywords": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Keywords",
+            "description": "Keywords to boost prediction probability for",
+            "x-convai-client-override": true,
+            "x-convai-soft-override-disallowed": true
+          }
+        },
+        "type": "object",
+        "title": "ASRConversationalConfigOverride",
+        "example": {
+          "keywords": [
+            "hello",
+            "world"
+          ]
+        }
+      },
+      "ASRConversationalConfigOverrideConfig": {
+        "properties": {
+          "keywords": {
+            "type": "boolean",
+            "title": "Keywords",
+            "description": "Whether to allow overriding the keywords field.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "ASRConversationalConfigOverrideConfig"
       },
       "ASRConversationalConfigWorkflowOverride": {
         "properties": {
@@ -27426,7 +27469,9 @@
               }
             ],
             "title": "Keywords",
-            "description": "Keywords to boost prediction probability for"
+            "description": "Keywords to boost prediction probability for",
+            "x-convai-client-override": true,
+            "x-convai-soft-override-disallowed": true
           }
         },
         "type": "object",
@@ -29007,10 +29052,54 @@
             "title": "Auto Resolve After Inactive Minutes",
             "description": "How many minutes an alert can stay inactive before it is auto-resolved.",
             "default": 15
+          },
+          "notifiers": {
+            "items": {
+              "$ref": "#/components/schemas/AgentAlertingWebhookNotifier"
+            },
+            "type": "array",
+            "title": "Notifiers",
+            "description": "Delivery channels for alert lifecycle notifications. Currently supports webhook notifiers."
           }
         },
         "type": "object",
         "title": "AgentAlertingSettings"
+      },
+      "AgentAlertingWebhookNotifier": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "webhook",
+            "title": "Type",
+            "default": "webhook"
+          },
+          "url": {
+            "type": "string",
+            "maxLength": 2048,
+            "title": "Url",
+            "description": "The URL to send alert lifecycle notifications to."
+          },
+          "request_headers": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Request Headers",
+            "description": "Optional static request headers sent with each alert webhook call, for example to authenticate with the receiving endpoint."
+          }
+        },
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "title": "AgentAlertingWebhookNotifier"
       },
       "AgentBranchBasicInfo": {
         "properties": {
@@ -43477,6 +43566,17 @@
       },
       "ConversationConfigClientOverride-Input": {
         "properties": {
+          "asr": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ASRConversationalConfigOverride"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Configuration for conversational transcription"
+          },
           "turn": {
             "anyOf": [
               {
@@ -43535,6 +43635,12 @@
               "tool_ids": []
             }
           },
+          "asr": {
+            "keywords": [
+              "hello",
+              "world"
+            ]
+          },
           "tts": {
             "similarity_boost": 0.8,
             "speed": 1.0,
@@ -43550,6 +43656,17 @@
       },
       "ConversationConfigClientOverride-Output": {
         "properties": {
+          "asr": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ASRConversationalConfigOverride"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Configuration for conversational transcription"
+          },
           "turn": {
             "anyOf": [
               {
@@ -43608,6 +43725,12 @@
               "tool_ids": []
             }
           },
+          "asr": {
+            "keywords": [
+              "hello",
+              "world"
+            ]
+          },
           "tts": {
             "similarity_boost": 0.8,
             "speed": 1.0,
@@ -43623,6 +43746,10 @@
       },
       "ConversationConfigClientOverrideConfig-Input": {
         "properties": {
+          "asr": {
+            "$ref": "#/components/schemas/ASRConversationalConfigOverrideConfig",
+            "description": "Configures overrides for nested fields."
+          },
           "turn": {
             "$ref": "#/components/schemas/TurnConfigOverrideConfig",
             "description": "Configures overrides for nested fields."
@@ -43645,6 +43772,10 @@
       },
       "ConversationConfigClientOverrideConfig-Output": {
         "properties": {
+          "asr": {
+            "$ref": "#/components/schemas/ASRConversationalConfigOverrideConfig",
+            "description": "Configures overrides for nested fields."
+          },
           "turn": {
             "$ref": "#/components/schemas/TurnConfigOverrideConfig",
             "description": "Configures overrides for nested fields."
