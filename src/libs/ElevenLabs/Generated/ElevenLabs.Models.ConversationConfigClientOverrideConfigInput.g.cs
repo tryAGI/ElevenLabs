@@ -11,6 +11,12 @@ namespace ElevenLabs
         /// <summary>
         /// Configures overrides for nested fields.
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("asr")]
+        public global::ElevenLabs.ASRConversationalConfigOverrideConfig? Asr { get; set; }
+
+        /// <summary>
+        /// Configures overrides for nested fields.
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("turn")]
         public global::ElevenLabs.TurnConfigOverrideConfig? Turn { get; set; }
 
@@ -41,6 +47,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationConfigClientOverrideConfigInput" /> class.
         /// </summary>
+        /// <param name="asr">
+        /// Configures overrides for nested fields.
+        /// </param>
         /// <param name="turn">
         /// Configures overrides for nested fields.
         /// </param>
@@ -57,11 +66,13 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConversationConfigClientOverrideConfigInput(
+            global::ElevenLabs.ASRConversationalConfigOverrideConfig? asr,
             global::ElevenLabs.TurnConfigOverrideConfig? turn,
             global::ElevenLabs.TTSConversationalConfigOverrideConfig? tts,
             global::ElevenLabs.ConversationConfigOverrideConfig? conversation,
             global::ElevenLabs.AgentConfigOverrideConfig? agent)
         {
+            this.Asr = asr;
             this.Turn = turn;
             this.Tts = tts;
             this.Conversation = conversation;
