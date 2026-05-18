@@ -1,0 +1,303 @@
+#pragma warning disable CS0618 // Type or member is obsolete
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public readonly partial struct RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput : global::System.IEquatable<RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput>
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutputDiscriminatorKind? Kind { get; }
+
+        /// <summary>
+        /// Example: {"captions_sdh":false,"destination_languages":["hi","fr-FR","de"],"include_captions":true,"include_source_captions":false,"instructions":"Voices don\u0027t need to match the originals, prioritize native-sounding voices","kind":"dub","media_id":"prodmedia_01jgatk6h0fwxrtbjade61yqhx","source_language":"en"}
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.DubOrderItemRequest? Dub { get; init; }
+#else
+        public global::ElevenLabs.DubOrderItemRequest? Dub { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Dub))]
+#endif
+        public bool IsDub => Dub != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDub(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DubOrderItemRequest? value)
+        {
+            value = Dub;
+            return IsDub;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.DubOrderItemRequest PickDub() => IsDub
+            ? Dub!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Dub' but the value was {ToString()}.");
+
+        /// <summary>
+        /// Example: {"cue_options":{"max_chars_per_line":42,"max_duration_ms":7000,"max_lines_per_cue":2,"min_duration_ms":1000},"destination_languages":["hi","fr-FR","de"],"instructions":"Keep reading speed moderate; preserve humor in idioms.","kind":"subtitles","media_ids":["prodmedia_01jgatk6h0fwxrtbjade61yqhx","prodmedia_01jgb2zd68f8f9tfvbb968wb8z"],"sdh":false,"source_language":"en"}
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.SubtitleOrderItemRequest? Subtitles { get; init; }
+#else
+        public global::ElevenLabs.SubtitleOrderItemRequest? Subtitles { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Subtitles))]
+#endif
+        public bool IsSubtitles => Subtitles != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSubtitles(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.SubtitleOrderItemRequest? value)
+        {
+            value = Subtitles;
+            return IsSubtitles;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.SubtitleOrderItemRequest PickSubtitles() => IsSubtitles
+            ? Subtitles!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Subtitles' but the value was {ToString()}.");
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput(global::ElevenLabs.DubOrderItemRequest value) => new RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput((global::ElevenLabs.DubOrderItemRequest?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.DubOrderItemRequest?(RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput @this) => @this.Dub;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput(global::ElevenLabs.DubOrderItemRequest? value)
+        {
+            Dub = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput FromDub(global::ElevenLabs.DubOrderItemRequest? value) => new RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput(global::ElevenLabs.SubtitleOrderItemRequest value) => new RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput((global::ElevenLabs.SubtitleOrderItemRequest?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.SubtitleOrderItemRequest?(RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput @this) => @this.Subtitles;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput(global::ElevenLabs.SubtitleOrderItemRequest? value)
+        {
+            Subtitles = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput FromSubtitles(global::ElevenLabs.SubtitleOrderItemRequest? value) => new RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput(
+            global::ElevenLabs.RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutputDiscriminatorKind? kind,
+            global::ElevenLabs.DubOrderItemRequest? dub,
+            global::ElevenLabs.SubtitleOrderItemRequest? subtitles
+            )
+        {
+            Kind = kind;
+
+            Dub = dub;
+            Subtitles = subtitles;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public object? Object =>
+            Subtitles as object ??
+            Dub as object 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override string? ToString() =>
+            Dub?.ToString() ??
+            Subtitles?.ToString() 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool Validate()
+        {
+            return IsDub && !IsSubtitles || !IsDub && IsSubtitles;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TResult? Match<TResult>(
+            global::System.Func<global::ElevenLabs.DubOrderItemRequest, TResult>? dub = null,
+            global::System.Func<global::ElevenLabs.SubtitleOrderItemRequest, TResult>? subtitles = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsDub && dub != null)
+            {
+                return dub(Dub!);
+            }
+            else if (IsSubtitles && subtitles != null)
+            {
+                return subtitles(Subtitles!);
+            }
+
+            return default(TResult);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Match(
+            global::System.Action<global::ElevenLabs.DubOrderItemRequest>? dub = null,
+
+            global::System.Action<global::ElevenLabs.SubtitleOrderItemRequest>? subtitles = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsDub)
+            {
+                dub?.Invoke(Dub!);
+            }
+            else if (IsSubtitles)
+            {
+                subtitles?.Invoke(Subtitles!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.DubOrderItemRequest>? dub = null,
+            global::System.Action<global::ElevenLabs.SubtitleOrderItemRequest>? subtitles = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsDub)
+            {
+                dub?.Invoke(Dub!);
+            }
+            else if (IsSubtitles)
+            {
+                subtitles?.Invoke(Subtitles!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override int GetHashCode()
+        {
+            var fields = new object?[]
+            {
+                Dub,
+                typeof(global::ElevenLabs.DubOrderItemRequest),
+                Subtitles,
+                typeof(global::ElevenLabs.SubtitleOrderItemRequest),
+            };
+            const int offset = unchecked((int)2166136261);
+            const int prime = 16777619;
+            static int HashCodeAggregator(int hashCode, object? value) => value == null
+                ? (hashCode ^ 0) * prime
+                : (hashCode ^ value.GetHashCode()) * prime;
+
+            return global::System.Linq.Enumerable.Aggregate(fields, offset, HashCodeAggregator);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool Equals(RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput other)
+        {
+            return
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DubOrderItemRequest?>.Default.Equals(Dub, other.Dub) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SubtitleOrderItemRequest?>.Default.Equals(Subtitles, other.Subtitles) 
+                ;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool operator ==(RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput obj1, RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput obj2)
+        {
+            return global::System.Collections.Generic.EqualityComparer<RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput>.Default.Equals(obj1, obj2);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool operator !=(RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput obj1, RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput obj2)
+        {
+            return !(obj1 == obj2);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override bool Equals(object? obj)
+        {
+            return obj is RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput o && Equals(o);
+        }
+    }
+}

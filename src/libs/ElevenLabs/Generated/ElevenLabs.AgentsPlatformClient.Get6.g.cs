@@ -27,11 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareGet6Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string conversationId);
+            ref string conversationId,
+            ref global::ElevenLabs.GetConversationHistoryRouteFormat? format);
         partial void PrepareGet6Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string conversationId);
+            string conversationId,
+            global::ElevenLabs.GetConversationHistoryRouteFormat? format);
         partial void ProcessGet6Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -48,16 +50,22 @@ namespace ElevenLabs
         /// <param name="conversationId">
         /// The id of the conversation you're taking the action on.
         /// </param>
+        /// <param name="format">
+        /// Response format. Defaults to 'json'. Set to 'opentelemetry' for an OTLP-compatible trace payload using the same structure as the post-call webhook.<br/>
+        /// Default Value: json
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConversationResponseModel> Get6Async(
             string conversationId,
+            global::ElevenLabs.GetConversationHistoryRouteFormat? format = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get6AsResponseAsync(
                 conversationId: conversationId,
+                format: format,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -71,11 +79,16 @@ namespace ElevenLabs
         /// <param name="conversationId">
         /// The id of the conversation you're taking the action on.
         /// </param>
+        /// <param name="format">
+        /// Response format. Defaults to 'json'. Set to 'opentelemetry' for an OTLP-compatible trace payload using the same structure as the post-call webhook.<br/>
+        /// Default Value: json
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetConversationResponseModel>> Get6AsResponseAsync(
             string conversationId,
+            global::ElevenLabs.GetConversationHistoryRouteFormat? format = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -83,7 +96,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet6Arguments(
                 httpClient: HttpClient,
-                conversationId: ref conversationId);
+                conversationId: ref conversationId,
+                format: ref format);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -111,6 +125,9 @@ namespace ElevenLabs
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: $"/v1/convai/conversations/{conversationId}",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("format", format?.ToValueString())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -151,7 +168,8 @@ namespace ElevenLabs
                 PrepareGet6Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    conversationId: conversationId!);
+                    conversationId: conversationId!,
+                    format: format);
 
                 return __httpRequest;
             }

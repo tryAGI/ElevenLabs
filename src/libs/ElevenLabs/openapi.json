@@ -15841,6 +15841,22 @@
             "description": "The id of the conversation you're taking the action on."
           },
           {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "json",
+                "opentelemetry"
+              ],
+              "type": "string",
+              "description": "Response format. Defaults to 'json'. Set to 'opentelemetry' for an OTLP-compatible trace payload using the same structure as the post-call webhook.",
+              "default": "json",
+              "title": "Format"
+            },
+            "description": "Response format. Defaults to 'json'. Set to 'opentelemetry' for an OTLP-compatible trace payload using the same structure as the post-call webhook."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -25998,6 +26014,970 @@
         },
         "x-fern-sdk-group-name": "music",
         "x-fern-sdk-method-name": "separate_stems"
+      }
+    },
+    "/v1/productions/workspace/{workspace_id}/orders": {
+      "post": {
+        "tags": [
+          "productions"
+        ],
+        "summary": "Create Order",
+        "description": "Creates a new Productions order in the workspace. The order starts in the open state and can be configured with items before submission.",
+        "operationId": "public_create_order",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the workspace.",
+              "title": "Workspace Id"
+            },
+            "description": "The ID of the workspace."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOrderResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "productions",
+          "orders"
+        ],
+        "x-fern-sdk-method-name": "create"
+      },
+      "get": {
+        "tags": [
+          "productions"
+        ],
+        "summary": "List Orders",
+        "description": "Lists Productions orders in the workspace. Supports filtering by status and date range, with pagination.",
+        "operationId": "public_list_orders",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the workspace.",
+              "title": "Workspace Id"
+            },
+            "description": "The ID of the workspace."
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "description": "Maximum number of orders to return per page.",
+              "default": 20,
+              "title": "Page Size"
+            },
+            "description": "Maximum number of orders to return per page."
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Number of orders to skip for pagination.",
+              "default": 0,
+              "title": "Offset"
+            },
+            "description": "Number of orders to skip for pagination."
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderRequestState"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter orders by one or more statuses.",
+              "title": "Status"
+            },
+            "description": "Filter orders by one or more statuses."
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter orders created on or after this date.",
+              "title": "Start Date"
+            },
+            "description": "Filter orders created on or after this date."
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter orders created on or before this date.",
+              "title": "End Date"
+            },
+            "description": "Filter orders created on or before this date."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListOrdersResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "productions",
+          "orders"
+        ],
+        "x-fern-sdk-method-name": "list"
+      }
+    },
+    "/v1/productions/workspace/{workspace_id}/orders/{order_id}": {
+      "get": {
+        "tags": [
+          "productions"
+        ],
+        "summary": "Get Order",
+        "description": "Retrieves full details for a Productions order.\n\nQuote and pricing information may not be available immediately; if you wish to see the quote before submission, you may need to poll the order details until it is ready.",
+        "operationId": "public_get_order",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/OrderId",
+              "description": "The ID of the order."
+            },
+            "description": "The ID of the order."
+          },
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the workspace.",
+              "title": "Workspace Id"
+            },
+            "description": "The ID of the workspace."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "productions",
+          "orders"
+        ],
+        "x-fern-sdk-method-name": "get"
+      },
+      "patch": {
+        "tags": [
+          "productions"
+        ],
+        "summary": "Update Order",
+        "description": "Updates an open order.",
+        "operationId": "public_update_order",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/OrderId",
+              "description": "The ID of the order."
+            },
+            "description": "The ID of the order."
+          },
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the workspace.",
+              "title": "Workspace Id"
+            },
+            "description": "The ID of the workspace."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Update_order_v1_productions_workspace__workspace_id__orders__order_id__patch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateOrderResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "productions",
+          "orders"
+        ],
+        "x-fern-sdk-method-name": "update"
+      }
+    },
+    "/v1/productions/workspace/{workspace_id}/orders/{order_id}/media": {
+      "post": {
+        "tags": [
+          "productions"
+        ],
+        "summary": "Register Media",
+        "description": "Registers a media file with an order, either by uploading it directly or by providing a URL to fetch it from. Exactly one of `media` or `media_url` must be provided. The registered media can then be referenced when adding order items.",
+        "operationId": "public_register_media",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/OrderId",
+              "description": "The ID of the order to which this media will be attached."
+            },
+            "description": "The ID of the order to which this media will be attached."
+          },
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the workspace.",
+              "title": "Workspace Id"
+            },
+            "description": "The ID of the workspace."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Register_media_v1_productions_workspace__workspace_id__orders__order_id__media_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegisterMediaResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "productions",
+          "orders",
+          "media"
+        ],
+        "x-fern-sdk-method-name": "register"
+      }
+    },
+    "/v1/productions/workspace/{workspace_id}/orders/{order_id}/media/{media_id}": {
+      "get": {
+        "tags": [
+          "productions"
+        ],
+        "summary": "Get Media Info",
+        "description": "Retrieves metadata and a time-limited download URL for a previously uploaded media file.",
+        "operationId": "public_get_media_info",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/OrderId",
+              "description": "The ID of the order."
+            },
+            "description": "The ID of the order."
+          },
+          {
+            "name": "media_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/MediaId",
+              "description": "The ID of the media file."
+            },
+            "description": "The ID of the media file."
+          },
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the workspace.",
+              "title": "Workspace Id"
+            },
+            "description": "The ID of the workspace."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderMediaResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "productions",
+          "orders",
+          "media"
+        ],
+        "x-fern-sdk-method-name": "get"
+      }
+    },
+    "/v1/productions/workspace/{workspace_id}/orders/{order_id}/items": {
+      "post": {
+        "tags": [
+          "productions"
+        ],
+        "summary": "Upsert Order Item",
+        "description": "Adds or updates an order item on an open order. Returns the item ID and the quoted price.",
+        "operationId": "public_upsert_order_item",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/OrderId",
+              "description": "The ID of the order."
+            },
+            "description": "The ID of the order."
+          },
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the workspace.",
+              "title": "Workspace Id"
+            },
+            "description": "The ID of the workspace."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Upsert_order_item_v1_productions_workspace__workspace_id__orders__order_id__items_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpsertOrderItemResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "productions",
+          "orders",
+          "items"
+        ],
+        "x-fern-sdk-method-name": "upsert"
+      }
+    },
+    "/v1/productions/workspace/{workspace_id}/orders/{order_id}/items/{item_id}": {
+      "delete": {
+        "tags": [
+          "productions"
+        ],
+        "summary": "Remove Order Item",
+        "description": "Removes an order item from an open order.",
+        "operationId": "public_remove_order_item",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/OrderId",
+              "description": "The ID of the order."
+            },
+            "description": "The ID of the order."
+          },
+          {
+            "name": "item_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ItemId",
+              "description": "The ID of the order item."
+            },
+            "description": "The ID of the order item."
+          },
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the workspace.",
+              "title": "Workspace Id"
+            },
+            "description": "The ID of the workspace."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoveOrderItemResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "productions",
+          "orders",
+          "items"
+        ],
+        "x-fern-sdk-method-name": "remove"
+      }
+    },
+    "/v1/productions/workspace/{workspace_id}/orders/{order_id}/submit": {
+      "post": {
+        "tags": [
+          "productions"
+        ],
+        "summary": "Submit Order",
+        "description": "Submits an open order for processing. The order must have at least one item. Once submitted, items can no longer be modified.\n\nUpon submission, the workspace will be charged for the order. The quote is based on information extracted from the uploaded media, such as its duration. The quote may not be available immediately; if you wish to see the quote before submission, you may need to poll the order details until the quote is ready.",
+        "operationId": "public_submit_order",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/OrderId",
+              "description": "The ID of the order."
+            },
+            "description": "The ID of the order."
+          },
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the workspace.",
+              "title": "Workspace Id"
+            },
+            "description": "The ID of the workspace."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmitOrderResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "productions",
+          "orders"
+        ],
+        "x-fern-sdk-method-name": "submit"
+      }
+    },
+    "/v1/productions/workspace/{workspace_id}/orders/{order_id}/deliverables": {
+      "get": {
+        "tags": [
+          "productions"
+        ],
+        "summary": "Get Order Deliverables",
+        "description": "Retrieves the delivered files for a completed order. Returns an empty list if the order is not yet completed.",
+        "operationId": "public_get_order_deliverables",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/OrderId",
+              "description": "The ID of the order."
+            },
+            "description": "The ID of the order."
+          },
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the workspace.",
+              "title": "Workspace Id"
+            },
+            "description": "The ID of the workspace."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderDeliverablesResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "productions",
+          "orders",
+          "deliverables"
+        ],
+        "x-fern-sdk-method-name": "list"
+      }
+    },
+    "/v1/productions/orders/languages/{order_item_kind}": {
+      "get": {
+        "tags": [
+          "productions"
+        ],
+        "summary": "Get Available Languages",
+        "description": "Returns the available languages for a given order item kind.",
+        "operationId": "public_get_available_languages",
+        "parameters": [
+          {
+            "name": "order_item_kind",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/OrderItemKind",
+              "description": "The kind of order item."
+            },
+            "description": "The kind of order item."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RootModel_Annotated_Union_PairedLanguagesResponse__SingleLanguagesResponse___FieldInfo_annotation_NoneType__required_True__discriminator__kind____"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "productions",
+          "orders",
+          "languages"
+        ],
+        "x-fern-sdk-method-name": "list"
       }
     },
     "/v1/voices/pvc": {
@@ -37321,6 +38301,69 @@
         ],
         "title": "Body_Register_a_Twilio_call_and_return_TwiML_v1_convai_twilio_register_call_post"
       },
+      "Body_Register_media_v1_productions_workspace__workspace_id__orders__order_id__media_post": {
+        "properties": {
+          "declared_language": {
+            "type": "string",
+            "title": "Declared Language",
+            "description": "The language code of the media content (e.g. 'en', 'es')."
+          },
+          "media": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Media",
+            "description": "The media file to upload. Mutually exclusive with media_url."
+          },
+          "media_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Media Url",
+            "description": "A URL to fetch the media file from. Mutually exclusive with media."
+          },
+          "media_url_filename": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Media Url Filename",
+            "description": "The filename for URL-sourced media (e.g. 'example.mp4'). Required when using media_url."
+          },
+          "media_url_content_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Media Url Content Type",
+            "description": "The MIME type for URL-sourced media (e.g. 'video/mp4'). Required when using media_url."
+          }
+        },
+        "type": "object",
+        "required": [
+          "declared_language"
+        ],
+        "title": "Body_Register_media_v1_productions_workspace__workspace_id__orders__order_id__media_post"
+      },
       "Body_Remove_rules_from_the_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__remove_rules_post": {
         "properties": {
           "rule_strings": {
@@ -39338,6 +40381,18 @@
         "type": "object",
         "title": "Body_Update_metadata_for_a_speaker_v1_dubbing_resource__dubbing_id__speaker__speaker_id__patch"
       },
+      "Body_Update_order_v1_productions_workspace__workspace_id__orders__order_id__patch": {
+        "properties": {
+          "request": {
+            "$ref": "#/components/schemas/UpdateOrderRequest"
+          }
+        },
+        "type": "object",
+        "required": [
+          "request"
+        ],
+        "title": "Body_Update_order_v1_productions_workspace__workspace_id__orders__order_id__patch"
+      },
       "Body_Update_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__patch": {
         "properties": {
           "archived": {
@@ -39451,6 +40506,18 @@
           "file"
         ],
         "title": "Body_Upload_music_v1_music_upload_post"
+      },
+      "Body_Upsert_order_item_v1_productions_workspace__workspace_id__orders__order_id__items_post": {
+        "properties": {
+          "request": {
+            "$ref": "#/components/schemas/UpsertOrderItemRequest"
+          }
+        },
+        "type": "object",
+        "required": [
+          "request"
+        ],
+        "title": "Body_Upsert_order_item_v1_productions_workspace__workspace_id__orders__order_id__items_post"
       },
       "Body_Verify_PVC_voice_captcha_v1_voices_pvc__voice_id__captcha_post": {
         "properties": {
@@ -48189,6 +49256,22 @@
         "title": "CreateOAuth2JWTRequest",
         "description": "Request model for creating OAuth2 JWT auth connections - inherits common settings and includes sensitive fields"
       },
+      "CreateOrderResponse": {
+        "properties": {
+          "order_id": {
+            "$ref": "#/components/schemas/OrderId",
+            "description": "The ID of the newly created order."
+          }
+        },
+        "type": "object",
+        "required": [
+          "order_id"
+        ],
+        "title": "CreateOrderResponse",
+        "example": {
+          "order_id": "prodorder_01jgatk6h0fwxrtbjade61yqhx"
+        }
+      },
       "CreatePhoneNumberResponseModel": {
         "properties": {
           "phone_number_id": {
@@ -48882,6 +49965,76 @@
           "token"
         ],
         "title": "CreateTwilioPhoneNumberRequest"
+      },
+      "CueOptionsRequest": {
+        "properties": {
+          "min_duration_ms": {
+            "type": "integer",
+            "maximum": 2000.0,
+            "title": "Min Duration Ms",
+            "description": "Minimum duration of each cue in milliseconds.",
+            "default": 1000
+          },
+          "max_duration_ms": {
+            "type": "integer",
+            "minimum": 4000.0,
+            "title": "Max Duration Ms",
+            "description": "Maximum duration of each cue in milliseconds.",
+            "default": 7000
+          },
+          "max_lines_per_cue": {
+            "type": "integer",
+            "maximum": 3.0,
+            "minimum": 1.0,
+            "title": "Max Lines Per Cue",
+            "description": "Maximum number of lines per cue.",
+            "default": 2
+          },
+          "max_chars_per_line": {
+            "type": "integer",
+            "maximum": 50.0,
+            "minimum": 16.0,
+            "title": "Max Chars Per Line",
+            "description": "Maximum number of characters per line in a cue.",
+            "default": 42
+          },
+          "max_chars_per_s": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 30.0,
+                "minimum": 15.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Chars Per S",
+            "description": "Maximum characters per second reading speed. If not set, no reading speed limit is applied."
+          },
+          "min_gap_between_cues_frames": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 6.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Min Gap Between Cues Frames",
+            "description": "Minimum gap between consecutive cues in frames. If not set, no minimum gap is enforced."
+          }
+        },
+        "type": "object",
+        "title": "CueOptionsRequest",
+        "example": {
+          "max_chars_per_line": 42,
+          "max_duration_ms": 7000,
+          "max_lines_per_cue": 2,
+          "min_duration_ms": 1000
+        }
       },
       "Currency": {
         "type": "string",
@@ -49639,6 +50792,44 @@
         "title": "DeleteWorkspaceWebhookResponseModel",
         "example": {
           "status": "ok"
+        }
+      },
+      "DeliverableInfo": {
+        "properties": {
+          "signed_url": {
+            "type": "string",
+            "title": "Signed Url",
+            "description": "A time-limited URL to download the delivered file."
+          },
+          "content_type": {
+            "type": "string",
+            "title": "Content Type",
+            "description": "The MIME type of the delivered file (e.g. 'video/mp4')."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The name of the delivered file."
+          },
+          "version": {
+            "type": "integer",
+            "title": "Version",
+            "description": "The version number of the deliverable.",
+            "default": 1
+          }
+        },
+        "type": "object",
+        "required": [
+          "signed_url",
+          "content_type",
+          "name"
+        ],
+        "title": "DeliverableInfo",
+        "example": {
+          "content_type": "video/mp4",
+          "name": "[fr][mp4] Item #cbaba1fe",
+          "signed_url": "https://storage.googleapis.com/example-bucket/deliverables/output_fr.mp4?X-Goog-Signature=...",
+          "version": 1
         }
       },
       "DependentAvailableAgentIdentifier": {
@@ -50822,6 +52013,91 @@
           "format"
         ],
         "title": "DocxExportOptions"
+      },
+      "DubOrderItemRequest": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "dub",
+            "title": "Kind",
+            "description": "The type of order item.",
+            "default": "dub"
+          },
+          "media_id": {
+            "$ref": "#/components/schemas/MediaId",
+            "description": "The ID of the uploaded media file to dub."
+          },
+          "source_language": {
+            "type": "string",
+            "title": "Source Language",
+            "description": "The language code of the source media (e.g. 'en', 'es')."
+          },
+          "destination_languages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Destination Languages",
+            "description": "List of target language codes to dub the media into."
+          },
+          "include_captions": {
+            "type": "boolean",
+            "title": "Include Captions",
+            "description": "Whether to generate captions for the dubbed outputs."
+          },
+          "include_source_captions": {
+            "type": "boolean",
+            "title": "Include Source Captions",
+            "description": "Whether to generate captions for the source language."
+          },
+          "instructions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Instructions",
+            "description": "Optional free-text instructions for the dubbing team."
+          },
+          "captions_sdh": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Captions Sdh",
+            "description": "Whether captions should use SDH format, which includes descriptions for deaf and hard-of-hearing viewers."
+          }
+        },
+        "type": "object",
+        "required": [
+          "media_id",
+          "source_language",
+          "destination_languages",
+          "include_captions",
+          "include_source_captions"
+        ],
+        "title": "DubOrderItemRequest",
+        "example": {
+          "captions_sdh": false,
+          "destination_languages": [
+            "hi",
+            "fr-FR",
+            "de"
+          ],
+          "include_captions": true,
+          "include_source_captions": false,
+          "instructions": "Voices don't need to match the originals, prioritize native-sounding voices",
+          "kind": "dub",
+          "media_id": "prodmedia_01jgatk6h0fwxrtbjade61yqhx",
+          "source_language": "en"
+        }
       },
       "DubbedSegment": {
         "properties": {
@@ -53886,6 +55162,18 @@
             "type": "array",
             "title": "Tag Ids",
             "description": "Conversation tag ids assigned to this conversation."
+          },
+          "otlp_traces": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "OpenTelemetry trace payload when the request uses format=opentelemetry; otherwise omitted."
           }
         },
         "type": "object",
@@ -57176,6 +58464,10 @@
           "tax_cents": 100
         }
       },
+      "ItemId": {
+        "type": "string",
+        "pattern": "^proditem_[a-z0-9]{26}$"
+      },
       "KnowledgeBaseContentSearchResponseModel": {
         "properties": {
           "results": {
@@ -58374,6 +59666,68 @@
         "type": "object",
         "title": "LanguageDetectionToolResultModel"
       },
+      "LanguageInfo": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "The language code (e.g. 'en', 'fr', 'es-ES')."
+          },
+          "label": {
+            "type": "string",
+            "title": "Label",
+            "description": "The human-readable language name (e.g. 'English', 'French', 'Spanish (Spain)')."
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "label"
+        ],
+        "title": "LanguageInfo",
+        "example": {
+          "code": "es-ES",
+          "label": "Spanish (Spain)"
+        }
+      },
+      "LanguagePairInfo": {
+        "properties": {
+          "source_language": {
+            "$ref": "#/components/schemas/LanguageInfo",
+            "description": "The source language."
+          },
+          "destination_languages": {
+            "items": {
+              "$ref": "#/components/schemas/LanguageInfo"
+            },
+            "type": "array",
+            "title": "Destination Languages",
+            "description": "The available destination languages for this source language."
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_language",
+          "destination_languages"
+        ],
+        "title": "LanguagePairInfo",
+        "example": {
+          "destination_languages": [
+            {
+              "code": "es-ES",
+              "label": "Spanish (Spain)"
+            },
+            {
+              "code": "fr",
+              "label": "French"
+            }
+          ],
+          "source_language": {
+            "code": "en",
+            "label": "English"
+          }
+        }
+      },
       "LanguagePreset-Input": {
         "properties": {
           "overrides": {
@@ -59085,6 +60439,35 @@
                 "type": "object"
               },
               "name": "tool2"
+            }
+          ]
+        }
+      },
+      "ListOrdersResponse": {
+        "properties": {
+          "orders": {
+            "items": {
+              "$ref": "#/components/schemas/OrderSummary"
+            },
+            "type": "array",
+            "title": "Orders",
+            "description": "The list of orders matching the query."
+          }
+        },
+        "type": "object",
+        "required": [
+          "orders"
+        ],
+        "title": "ListOrdersResponse",
+        "example": {
+          "orders": [
+            {
+              "name": "Spanish Dubs",
+              "order_id": "prodorder_01jgatk6h0fwxrtbjade61yqhx",
+              "state": "submitted",
+              "submitted_at": "2025-03-15T10:30:00Z",
+              "total_amount_usd": 11.0,
+              "updated_at": "2025-03-15T10:30:00Z"
             }
           ]
         }
@@ -61252,6 +62635,10 @@
         ],
         "title": "MatchAnythingParameterEvaluationStrategy"
       },
+      "MediaId": {
+        "type": "string",
+        "pattern": "^prodmedia_[a-z0-9]{26}$"
+      },
       "MemoryEntrySearchResult": {
         "properties": {
           "entry_id": {
@@ -62485,6 +63872,371 @@
         "title": "OrchestratorToolMockBehaviorConfig",
         "description": "Orchestrator-side config: tools are identified by resolved names."
       },
+      "OrderDeliverablesResponse": {
+        "properties": {
+          "deliverables": {
+            "items": {
+              "$ref": "#/components/schemas/DeliverableInfo"
+            },
+            "type": "array",
+            "title": "Deliverables",
+            "description": "The list of delivered files for the order. Empty if the order is not yet completed."
+          }
+        },
+        "type": "object",
+        "required": [
+          "deliverables"
+        ],
+        "title": "OrderDeliverablesResponse",
+        "example": {
+          "deliverables": [
+            {
+              "content_type": "video/mp4",
+              "name": "output_fr.mp4",
+              "signed_url": "https://storage.googleapis.com/example-bucket/deliverables/output_fr.mp4?X-Goog-Signature=...",
+              "version": 1
+            }
+          ]
+        }
+      },
+      "OrderId": {
+        "type": "string",
+        "pattern": "^prodorder_[a-z0-9]{26}$"
+      },
+      "OrderItemInfo": {
+        "properties": {
+          "item_id": {
+            "$ref": "#/components/schemas/ItemId",
+            "description": "The ID of the order item."
+          },
+          "item": {
+            "$ref": "#/components/schemas/RootModel_Annotated_Union_DubOrderItemRequest__SubtitleOrderItemRequest___FieldInfo_annotation_NoneType__required_True__discriminator__kind____-Output",
+            "description": "The item configuration details."
+          },
+          "quote": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/QuoteInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The quoted price for this item."
+          }
+        },
+        "type": "object",
+        "required": [
+          "item_id",
+          "item"
+        ],
+        "title": "OrderItemInfo",
+        "example": {
+          "item": {
+            "captions_sdh": false,
+            "destination_languages": [
+              "hi",
+              "fr-FR",
+              "de"
+            ],
+            "include_captions": true,
+            "include_source_captions": false,
+            "instructions": "Voices don't need to match the originals, prioritize native-sounding voices",
+            "kind": "dub",
+            "media_id": "prodmedia_01jgatk6h0fwxrtbjade61yqhx",
+            "source_language": "en"
+          },
+          "item_id": "proditem_01jgd3qhejfs7rm6swknz2ytjb",
+          "quote": {
+            "amount_usd": 11.0
+          }
+        }
+      },
+      "OrderItemKind": {
+        "type": "string",
+        "enum": [
+          "dub",
+          "subtitles"
+        ],
+        "title": "OrderItemKind"
+      },
+      "OrderMediaResponse": {
+        "properties": {
+          "media_id": {
+            "$ref": "#/components/schemas/MediaId",
+            "description": "The ID of the media file."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The original filename of the uploaded media."
+          },
+          "content_type": {
+            "type": "string",
+            "title": "Content Type",
+            "description": "The MIME type of the media file (e.g. 'video/mp4')."
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language",
+            "description": "The detected or declared language of the media, if available."
+          },
+          "signed_url": {
+            "type": "string",
+            "title": "Signed Url",
+            "description": "A time-limited URL to download the media file."
+          }
+        },
+        "type": "object",
+        "required": [
+          "media_id",
+          "name",
+          "content_type",
+          "signed_url"
+        ],
+        "title": "OrderMediaResponse",
+        "example": {
+          "content_type": "video/mp4",
+          "language": "en",
+          "media_id": "prodmedia_01jgb2zd68f8f9tfvbb968wb8z",
+          "name": "example.mp4",
+          "signed_url": "https://storage.googleapis.com/example-bucket/media/example.mp4?X-Goog-Signature=..."
+        }
+      },
+      "OrderRequestState": {
+        "type": "string",
+        "enum": [
+          "open",
+          "submitted",
+          "paid",
+          "accepted",
+          "rejected",
+          "done"
+        ],
+        "title": "OrderRequestState"
+      },
+      "OrderResponse": {
+        "properties": {
+          "order_id": {
+            "$ref": "#/components/schemas/OrderId",
+            "description": "The ID of the order."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The display name of the order."
+          },
+          "state": {
+            "$ref": "#/components/schemas/OrderState",
+            "description": "The current state of the order."
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/OrderItemInfo"
+            },
+            "type": "array",
+            "title": "Items",
+            "description": "The list of items in this order with their quotes."
+          },
+          "total_amount_usd": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Amount Usd",
+            "description": "The total price for all items in USD. Excluded from response until quotes are available."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "The timestamp when the order was created."
+          },
+          "submitted_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Submitted At",
+            "description": "The timestamp when the order was submitted, if applicable."
+          },
+          "paid_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paid At",
+            "description": "The timestamp when payment was received, if applicable."
+          },
+          "accepted_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Accepted At",
+            "description": "The timestamp when the order was accepted for production, if applicable."
+          },
+          "completed_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At",
+            "description": "The timestamp when the order was completed, if applicable."
+          }
+        },
+        "type": "object",
+        "required": [
+          "order_id",
+          "name",
+          "state",
+          "items",
+          "created_at"
+        ],
+        "title": "OrderResponse",
+        "example": {
+          "created_at": "2025-03-15T10:00:00Z",
+          "items": [
+            {
+              "item": {
+                "captions_sdh": false,
+                "destination_languages": [
+                  "hi",
+                  "fr-FR",
+                  "de"
+                ],
+                "include_captions": true,
+                "include_source_captions": false,
+                "instructions": "Voices don't need to match the originals, prioritize native-sounding voices",
+                "kind": "dub",
+                "media_id": "prodmedia_01jgb2zd68f8f9tfvbb968wb8z",
+                "source_language": "en"
+              },
+              "item_id": "proditem_01jgd3qhejfs7rm6swknz2ytjb",
+              "quote": {
+                "amount_usd": 11.0
+              }
+            }
+          ],
+          "name": "Spanish Dubs",
+          "order_id": "prodorder_01jgatk6h0fwxrtbjade61yqhx",
+          "state": "open",
+          "total_amount_usd": 11.0
+        }
+      },
+      "OrderState": {
+        "type": "string",
+        "enum": [
+          "open",
+          "submitted",
+          "paid",
+          "accepted",
+          "rejected",
+          "done"
+        ],
+        "title": "OrderState"
+      },
+      "OrderSummary": {
+        "properties": {
+          "order_id": {
+            "$ref": "#/components/schemas/OrderId",
+            "description": "The ID of the order."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The display name of the order."
+          },
+          "state": {
+            "$ref": "#/components/schemas/OrderState",
+            "description": "The current state of the order."
+          },
+          "total_amount_usd": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Amount Usd",
+            "description": "The total price for all items in USD. Excluded from response until quotes are available."
+          },
+          "submitted_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Submitted At",
+            "description": "The timestamp when the order was submitted, if applicable."
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At",
+            "description": "The timestamp when the order was last modified, if applicable."
+          }
+        },
+        "type": "object",
+        "required": [
+          "order_id",
+          "name",
+          "state"
+        ],
+        "title": "OrderSummary",
+        "example": {
+          "name": "Spanish Dubs",
+          "order_id": "prodorder_01jgatk6h0fwxrtbjade61yqhx",
+          "state": "submitted",
+          "submitted_at": "2025-03-15T10:30:00Z",
+          "total_amount_usd": 11.0,
+          "updated_at": "2025-03-15T10:30:00Z"
+        }
+      },
       "OutboundCallRecipient": {
         "properties": {
           "id": {
@@ -62655,6 +64407,67 @@
           "address"
         ],
         "title": "OutboundSIPTrunkConfigRequestModel"
+      },
+      "PairedLanguagesResponse": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "pair",
+            "title": "Kind",
+            "description": "Indicates this response contains source-to-destination language pairs.",
+            "default": "pair"
+          },
+          "language_pairs": {
+            "items": {
+              "$ref": "#/components/schemas/LanguagePairInfo"
+            },
+            "type": "array",
+            "title": "Language Pairs",
+            "description": "The list of available source-to-destination language mappings."
+          }
+        },
+        "type": "object",
+        "required": [
+          "language_pairs"
+        ],
+        "title": "PairedLanguagesResponse",
+        "example": {
+          "kind": "pair",
+          "language_pairs": [
+            {
+              "destination_languages": [
+                {
+                  "code": "es",
+                  "label": "Spanish"
+                },
+                {
+                  "code": "es-ES",
+                  "label": "Spanish (Spain)"
+                },
+                {
+                  "code": "fr",
+                  "label": "French"
+                }
+              ],
+              "source_language": {
+                "code": "en",
+                "label": "English"
+              }
+            },
+            {
+              "destination_languages": [
+                {
+                  "code": "en",
+                  "label": "English"
+                }
+              ],
+              "source_language": {
+                "code": "es-ES",
+                "label": "Spanish (Spain)"
+              }
+            }
+          ]
+        }
       },
       "PatchConvAIDashboardSettingsRequest": {
         "properties": {
@@ -67902,6 +69715,23 @@
         ],
         "title": "QueryParamsJsonSchema"
       },
+      "QuoteInfo": {
+        "properties": {
+          "amount_usd": {
+            "type": "number",
+            "title": "Amount Usd",
+            "description": "The quoted price for this item in USD. Use the order's total_amount_usd for the combined order total."
+          }
+        },
+        "type": "object",
+        "required": [
+          "amount_usd"
+        ],
+        "title": "QuoteInfo",
+        "example": {
+          "amount_usd": 11.0
+        }
+      },
       "RAGDocumentIndexResponseModel": {
         "properties": {
           "id": {
@@ -68620,6 +70450,39 @@
         "title": "RegisterForGroupSessionParams",
         "description": "Register a client for a scheduled group session."
       },
+      "RegisterMediaResponse": {
+        "properties": {
+          "media_id": {
+            "$ref": "#/components/schemas/MediaId",
+            "description": "The ID of the uploaded media file."
+          }
+        },
+        "type": "object",
+        "required": [
+          "media_id"
+        ],
+        "title": "RegisterMediaResponse",
+        "example": {
+          "media_id": "prodmedia_01jgb2zd68f8f9tfvbb968wb8z"
+        }
+      },
+      "RemoveOrderItemResponse": {
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "title": "Success",
+            "description": "Whether the item was successfully removed."
+          }
+        },
+        "type": "object",
+        "required": [
+          "success"
+        ],
+        "title": "RemoveOrderItemResponse",
+        "example": {
+          "success": true
+        }
+      },
       "Render": {
         "properties": {
           "id": {
@@ -69215,6 +71078,60 @@
           "reviewed_at_unix"
         ],
         "title": "ReviewResponseModel"
+      },
+      "RootModel_Annotated_Union_DubOrderItemRequest__SubtitleOrderItemRequest___FieldInfo_annotation_NoneType__required_True__discriminator__kind____-Input": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DubOrderItemRequest"
+          },
+          {
+            "$ref": "#/components/schemas/SubtitleOrderItemRequest"
+          }
+        ],
+        "title": "RootModel[Annotated[Union[DubOrderItemRequest, SubtitleOrderItemRequest], FieldInfo(annotation=NoneType, required=True, discriminator='kind')]]",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "dub": "#/components/schemas/DubOrderItemRequest",
+            "subtitles": "#/components/schemas/SubtitleOrderItemRequest"
+          }
+        }
+      },
+      "RootModel_Annotated_Union_DubOrderItemRequest__SubtitleOrderItemRequest___FieldInfo_annotation_NoneType__required_True__discriminator__kind____-Output": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DubOrderItemRequest"
+          },
+          {
+            "$ref": "#/components/schemas/SubtitleOrderItemRequest"
+          }
+        ],
+        "title": "RootModel[Annotated[Union[DubOrderItemRequest, SubtitleOrderItemRequest], FieldInfo(annotation=NoneType, required=True, discriminator='kind')]]",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "dub": "#/components/schemas/DubOrderItemRequest",
+            "subtitles": "#/components/schemas/SubtitleOrderItemRequest"
+          }
+        }
+      },
+      "RootModel_Annotated_Union_PairedLanguagesResponse__SingleLanguagesResponse___FieldInfo_annotation_NoneType__required_True__discriminator__kind____": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/PairedLanguagesResponse"
+          },
+          {
+            "$ref": "#/components/schemas/SingleLanguagesResponse"
+          }
+        ],
+        "title": "RootModel[Annotated[Union[PairedLanguagesResponse, SingleLanguagesResponse], FieldInfo(annotation=NoneType, required=True, discriminator='kind')]]",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "pair": "#/components/schemas/PairedLanguagesResponse",
+            "single": "#/components/schemas/SingleLanguagesResponse"
+          }
+        }
       },
       "RunAgentTestsRequestModel": {
         "properties": {
@@ -70886,6 +72803,47 @@
         "type": "object",
         "title": "SimulationToolMockBehaviorConfig",
         "description": "Simulation/preview-side config: tools are identified by IDs, resolved to names at runtime."
+      },
+      "SingleLanguagesResponse": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "single",
+            "title": "Kind",
+            "description": "Indicates this response contains single languages (not source-to-destination pairs).",
+            "default": "single"
+          },
+          "languages": {
+            "items": {
+              "$ref": "#/components/schemas/LanguageInfo"
+            },
+            "type": "array",
+            "title": "Languages",
+            "description": "The list of available languages."
+          }
+        },
+        "type": "object",
+        "required": [
+          "languages"
+        ],
+        "title": "SingleLanguagesResponse",
+        "example": {
+          "kind": "single",
+          "languages": [
+            {
+              "code": "en",
+              "label": "English"
+            },
+            {
+              "code": "es-ES",
+              "label": "Spanish (Spain)"
+            },
+            {
+              "code": "fr",
+              "label": "French"
+            }
+          ]
+        }
       },
       "SingleTestRunRequestModel": {
         "properties": {
@@ -72877,6 +74835,36 @@
         ],
         "title": "StudioTextStyleShadowModel"
       },
+      "SubmitOrderResponse": {
+        "properties": {
+          "order_id": {
+            "$ref": "#/components/schemas/OrderId",
+            "description": "The ID of the submitted order."
+          },
+          "state": {
+            "$ref": "#/components/schemas/OrderState",
+            "description": "The current state of the order after submission."
+          },
+          "submitted_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Submitted At",
+            "description": "The timestamp when the order was submitted."
+          }
+        },
+        "type": "object",
+        "required": [
+          "order_id",
+          "state",
+          "submitted_at"
+        ],
+        "title": "SubmitOrderResponse",
+        "example": {
+          "order_id": "prodorder_01jgatk6h0fwxrtbjade61yqhx",
+          "state": "submitted",
+          "submitted_at": "2025-03-15T10:30:00Z"
+        }
+      },
       "SubscriptionResponseModel": {
         "properties": {
           "tier": {
@@ -73095,6 +75083,88 @@
           "free_disabled"
         ],
         "title": "SubscriptionStatusType"
+      },
+      "SubtitleOrderItemRequest": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "subtitles",
+            "title": "Kind",
+            "description": "The type of order item.",
+            "default": "subtitles"
+          },
+          "media_ids": {
+            "items": {
+              "$ref": "#/components/schemas/MediaId"
+            },
+            "type": "array",
+            "title": "Media Ids",
+            "description": "The IDs of the uploaded media files to generate subtitles for."
+          },
+          "source_language": {
+            "type": "string",
+            "title": "Source Language",
+            "description": "The language code of the source media (e.g. 'en', 'es')."
+          },
+          "destination_languages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Destination Languages",
+            "description": "List of target language codes. Subtitles will be generated for each media file in each destination language."
+          },
+          "cue_options": {
+            "$ref": "#/components/schemas/CueOptionsRequest",
+            "description": "Formatting options for subtitle cues such as duration, line count, and character limits."
+          },
+          "sdh": {
+            "type": "boolean",
+            "title": "Sdh",
+            "description": "Whether subtitles should use SDH format, which includes descriptions for deaf and hard-of-hearing viewers.",
+            "default": false
+          },
+          "instructions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Instructions",
+            "description": "Optional free-text instructions for the subtitling team."
+          }
+        },
+        "type": "object",
+        "required": [
+          "media_ids",
+          "source_language",
+          "destination_languages"
+        ],
+        "title": "SubtitleOrderItemRequest",
+        "example": {
+          "cue_options": {
+            "max_chars_per_line": 42,
+            "max_duration_ms": 7000,
+            "max_lines_per_cue": 2,
+            "min_duration_ms": 1000
+          },
+          "destination_languages": [
+            "hi",
+            "fr-FR",
+            "de"
+          ],
+          "instructions": "Keep reading speed moderate; preserve humor in idioms.",
+          "kind": "subtitles",
+          "media_ids": [
+            "prodmedia_01jgatk6h0fwxrtbjade61yqhx",
+            "prodmedia_01jgb2zd68f8f9tfvbb968wb8z"
+          ],
+          "sdh": false,
+          "source_language": "en"
+        }
       },
       "SuggestedAudioTag": {
         "properties": {
@@ -77051,6 +79121,42 @@
         "type": "object",
         "title": "UpdateOAuth2JWTRequest"
       },
+      "UpdateOrderRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Name",
+            "description": "The new name for the order."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "UpdateOrderRequest",
+        "example": {
+          "name": "Spanish Dubs"
+        }
+      },
+      "UpdateOrderResponse": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The updated order name."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "UpdateOrderResponse",
+        "example": {
+          "name": "Spanish Dubs"
+        }
+      },
       "UpdatePhoneNumberRequest": {
         "properties": {
           "agent_id": {
@@ -77627,6 +79733,99 @@
         "title": "UpdateWorkspaceMemberResponseModel",
         "example": {
           "status": "ok"
+        }
+      },
+      "UpsertOrderItemRequest": {
+        "properties": {
+          "item": {
+            "$ref": "#/components/schemas/RootModel_Annotated_Union_DubOrderItemRequest__SubtitleOrderItemRequest___FieldInfo_annotation_NoneType__required_True__discriminator__kind____-Input",
+            "description": "The order item to add or update."
+          },
+          "item_id": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ItemId"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The ID of an existing item to update. Omit to create a new item."
+          }
+        },
+        "type": "object",
+        "required": [
+          "item"
+        ],
+        "title": "UpsertOrderItemRequest",
+        "examples": [
+          {
+            "item": {
+              "captions_sdh": false,
+              "destination_languages": [
+                "hi",
+                "fr-FR",
+                "de"
+              ],
+              "include_captions": true,
+              "include_source_captions": false,
+              "instructions": "Voices don't need to match the originals, prioritize native-sounding voices",
+              "kind": "dub",
+              "media_id": "prodmedia_01jgatk6h0fwxrtbjade61yqhx",
+              "source_language": "en"
+            }
+          },
+          {
+            "item": {
+              "cue_options": {
+                "max_chars_per_line": 42,
+                "max_lines_per_cue": 2
+              },
+              "destination_languages": [
+                "hi",
+                "fr-FR",
+                "de"
+              ],
+              "instructions": "Avoid splitting noun phrases across lines.",
+              "kind": "subtitles",
+              "media_ids": [
+                "prodmedia_01jgatk6h0fwxrtbjade61yqhx",
+                "prodmedia_01jgb2zd68f8f9tfvbb968wb8z"
+              ],
+              "sdh": false,
+              "source_language": "en"
+            }
+          }
+        ]
+      },
+      "UpsertOrderItemResponse": {
+        "properties": {
+          "item_id": {
+            "$ref": "#/components/schemas/ItemId",
+            "description": "The ID of the upserted order item."
+          },
+          "quote": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/QuoteInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The quoted price for this item."
+          }
+        },
+        "type": "object",
+        "required": [
+          "item_id"
+        ],
+        "title": "UpsertOrderItemResponse",
+        "example": {
+          "item_id": "proditem_01jgd3qhejfs7rm6swknz2ytjb",
+          "quote": {
+            "amount_usd": 11.0
+          }
         }
       },
       "UrlModel": {
@@ -85650,7 +87849,8 @@
           "transcription_tasks",
           "avatars",
           "avatar_video_generations",
-          "resource_collection"
+          "resource_collection",
+          "studio_projects"
         ],
         "title": "WorkspaceResourceType",
         "description": "Resource types that can be shared in the workspace. The name always need to match the collection names"
@@ -85892,6 +88092,10 @@
     {
       "name": "models",
       "description": "Access the different models of the platform."
+    },
+    {
+      "name": "productions",
+      "description": "Access and manage ElevenProductions orders."
     },
     {
       "name": "voices",

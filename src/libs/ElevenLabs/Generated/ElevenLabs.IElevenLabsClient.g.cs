@@ -121,6 +121,11 @@ namespace ElevenLabs
         public MusicGenerationClient MusicGeneration { get; }
 
         /// <summary>
+        /// Access and manage ElevenProductions orders.
+        /// </summary>
+        public ProductionsClient Productions { get; }
+
+        /// <summary>
         /// 
         /// </summary>
         public PronunciationDictionariesClient PronunciationDictionaries { get; }

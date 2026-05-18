@@ -11,11 +11,16 @@ namespace ElevenLabs
         /// <param name="conversationId">
         /// The id of the conversation you're taking the action on.
         /// </param>
+        /// <param name="format">
+        /// Response format. Defaults to 'json'. Set to 'opentelemetry' for an OTLP-compatible trace payload using the same structure as the post-call webhook.<br/>
+        /// Default Value: json
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetConversationResponseModel> Get6Async(
             string conversationId,
+            global::ElevenLabs.GetConversationHistoryRouteFormat? format = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -25,11 +30,16 @@ namespace ElevenLabs
         /// <param name="conversationId">
         /// The id of the conversation you're taking the action on.
         /// </param>
+        /// <param name="format">
+        /// Response format. Defaults to 'json'. Set to 'opentelemetry' for an OTLP-compatible trace payload using the same structure as the post-call webhook.<br/>
+        /// Default Value: json
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetConversationResponseModel>> Get6AsResponseAsync(
             string conversationId,
+            global::ElevenLabs.GetConversationHistoryRouteFormat? format = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
