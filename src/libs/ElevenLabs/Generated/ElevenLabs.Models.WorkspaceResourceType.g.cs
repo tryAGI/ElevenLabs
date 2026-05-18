@@ -151,6 +151,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        StudioProjects,
+        /// <summary>
+        /// 
+        /// </summary>
         TranscriptionTasks,
         /// <summary>
         /// 
@@ -213,6 +217,7 @@ namespace ElevenLabs
                 WorkspaceResourceType.ResourceCollection => "resource_collection",
                 WorkspaceResourceType.ResourceLocators => "resource_locators",
                 WorkspaceResourceType.Songs => "songs",
+                WorkspaceResourceType.StudioProjects => "studio_projects",
                 WorkspaceResourceType.TranscriptionTasks => "transcription_tasks",
                 WorkspaceResourceType.Voice => "voice",
                 WorkspaceResourceType.VoiceCollection => "voice_collection",
@@ -262,6 +267,7 @@ namespace ElevenLabs
                 "resource_collection" => WorkspaceResourceType.ResourceCollection,
                 "resource_locators" => WorkspaceResourceType.ResourceLocators,
                 "songs" => WorkspaceResourceType.Songs,
+                "studio_projects" => WorkspaceResourceType.StudioProjects,
                 "transcription_tasks" => WorkspaceResourceType.TranscriptionTasks,
                 "voice" => WorkspaceResourceType.Voice,
                 "voice_collection" => WorkspaceResourceType.VoiceCollection,

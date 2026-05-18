@@ -176,6 +176,15 @@ namespace ElevenLabs
         };
 
         /// <summary>
+        /// Access and manage ElevenProductions orders.
+        /// </summary>
+        public ProductionsClient Productions => new ProductionsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
         /// 
         /// </summary>
         public PronunciationDictionariesClient PronunciationDictionaries => new PronunciationDictionariesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)

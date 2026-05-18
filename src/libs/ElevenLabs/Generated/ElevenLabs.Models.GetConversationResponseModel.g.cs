@@ -120,6 +120,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? TagIds { get; set; }
 
         /// <summary>
+        /// OpenTelemetry trace payload when the request uses format=opentelemetry; otherwise omitted.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("otlp_traces")]
+        public object? OtlpTraces { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -151,6 +157,9 @@ namespace ElevenLabs
         /// <param name="tagIds">
         /// Conversation tag ids assigned to this conversation.
         /// </param>
+        /// <param name="otlpTraces">
+        /// OpenTelemetry trace payload when the request uses format=opentelemetry; otherwise omitted.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -171,7 +180,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.VisitedAgentRef>? visitedAgents,
             global::ElevenLabs.ConversationInitiationClientDataRequestOutput? conversationInitiationClientData,
             string? environment,
-            global::System.Collections.Generic.IList<string>? tagIds)
+            global::System.Collections.Generic.IList<string>? tagIds,
+            object? otlpTraces)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.AgentName = agentName;
@@ -190,6 +200,7 @@ namespace ElevenLabs
             this.HasResponseAudio = hasResponseAudio;
             this.Transcript = transcript ?? throw new global::System.ArgumentNullException(nameof(transcript));
             this.TagIds = tagIds;
+            this.OtlpTraces = otlpTraces;
         }
 
         /// <summary>
