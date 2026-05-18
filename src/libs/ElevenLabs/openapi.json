@@ -23514,58 +23514,6 @@
         "x-fern-sdk-method-name": "delete"
       }
     },
-    "/v1/convai/api-integrations/docs": {
-      "get": {
-        "tags": [
-          "Agent Platform"
-        ],
-        "summary": "Get Integration Docs",
-        "description": "Get MDX documentation for all integrations that have it. Returns docs for publicly available integrations when unauthenticated, and includes feature-flagged integrations when authenticated.",
-        "operationId": "get_api_integration_docs",
-        "parameters": [
-          {
-            "name": "xi-api-key",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
-              "title": "Xi-Api-Key"
-            },
-            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListResponse_ApiIntegrationDocResponse_"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/v1/convai/whatsapp-accounts/{phone_number_id}": {
       "get": {
         "tags": [
@@ -31300,37 +31248,6 @@
         ],
         "title": "AnalysisScope",
         "default": "conversation"
-      },
-      "ApiIntegrationDocResponse": {
-        "properties": {
-          "id": {
-            "type": "string",
-            "title": "Id",
-            "description": "Integration identifier"
-          },
-          "name": {
-            "type": "string",
-            "title": "Name",
-            "description": "Display name of the integration"
-          },
-          "doc_mdx": {
-            "type": "string",
-            "title": "Doc Mdx",
-            "description": "Full MDX documentation content for the integration"
-          }
-        },
-        "type": "object",
-        "required": [
-          "id",
-          "name",
-          "doc_mdx"
-        ],
-        "title": "ApiIntegrationDocResponse",
-        "example": {
-          "doc_mdx": "## Overview\n\nConnect your ElevenLabs AI agents with HubSpot CRM.\n\n{/* app:end */}\n\n## Demo video\n...",
-          "id": "hubspot",
-          "name": "HubSpot"
-        }
       },
       "ApiIntegrationOAuth2AuthCodeResponse": {
         "properties": {
@@ -59116,26 +59033,6 @@
           "results"
         ],
         "title": "ListResponse[AgentBranchSummary]"
-      },
-      "ListResponse_ApiIntegrationDocResponse_": {
-        "properties": {
-          "meta": {
-            "$ref": "#/components/schemas/ListResponseMeta",
-            "default": {}
-          },
-          "results": {
-            "items": {
-              "$ref": "#/components/schemas/ApiIntegrationDocResponse"
-            },
-            "type": "array",
-            "title": "Results"
-          }
-        },
-        "type": "object",
-        "required": [
-          "results"
-        ],
-        "title": "ListResponse[ApiIntegrationDocResponse]"
       },
       "ListServicesParams": {
         "properties": {
