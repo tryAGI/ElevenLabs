@@ -292,7 +292,7 @@
       "Slug": "public-create-order",
       "Description": "Creates a new Productions order in the workspace. The order starts in the open state and can be configured with items before submission.",
       "Language": "http",
-      "Code": "### Create Order\n# @name public_create_order\nPOST {{host}}/v1/productions/workspace/{{workspace_id}}/orders\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Create Order\n# @name public_create_order\nPOST {{host}}/v1/productions/orders\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "public_create_order",
       "Setup": null
@@ -303,7 +303,7 @@
       "Slug": "public-get-order",
       "Description": "Retrieves full details for a Productions order.\n\nQuote and pricing information may not be available immediately; if you wish to see the quote before submission, you may need to poll the order details until it is ready.",
       "Language": "http",
-      "Code": "### Get Order\n# @name public_get_order\nGET {{host}}/v1/productions/workspace/{{workspace_id}}/orders/{{order_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Get Order\n# @name public_get_order\nGET {{host}}/v1/productions/orders/{{order_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "public_get_order",
       "Setup": null
@@ -314,7 +314,7 @@
       "Slug": "public-get-media-info",
       "Description": "Retrieves metadata and a time-limited download URL for a previously uploaded media file.",
       "Language": "http",
-      "Code": "### Get Media Info\n# @name public_get_media_info\nGET {{host}}/v1/productions/workspace/{{workspace_id}}/orders/{{order_id}}/media/{{media_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Get Media Info\n# @name public_get_media_info\nGET {{host}}/v1/productions/orders/{{order_id}}/media/{{media_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "public_get_media_info",
       "Setup": null
@@ -347,7 +347,7 @@
       "Slug": "public-register-media",
       "Description": "Registers a media file with an order, either by uploading it directly or by providing a URL to fetch it from. Exactly one of \u0060media\u0060 or \u0060media_url\u0060 must be provided. The registered media can then be referenced when adding order items.",
       "Language": "http",
-      "Code": "### Register Media\n# @name public_register_media\nPOST {{host}}/v1/productions/workspace/{{workspace_id}}/orders/{{order_id}}/media\nxi-api-key: {{api_key}}\nContent-Type: multipart/form-data\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Register Media\n# @name public_register_media\nPOST {{host}}/v1/productions/orders/{{order_id}}/media\nxi-api-key: {{api_key}}\nContent-Type: multipart/form-data\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "public_register_media",
       "Setup": null
@@ -358,7 +358,7 @@
       "Slug": "public-remove-order-item",
       "Description": "Removes an order item from an open order.",
       "Language": "http",
-      "Code": "### Remove Order Item\n# @name public_remove_order_item\nDELETE {{host}}/v1/productions/workspace/{{workspace_id}}/orders/{{order_id}}/items/{{item_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Remove Order Item\n# @name public_remove_order_item\nDELETE {{host}}/v1/productions/orders/{{order_id}}/items/{{item_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "public_remove_order_item",
       "Setup": null
@@ -369,7 +369,7 @@
       "Slug": "public-submit-order",
       "Description": "Submits an open order for processing. The order must have at least one item. Once submitted, items can no longer be modified.\n\nUpon submission, the workspace will be charged for the order. The quote is based on information extracted from the uploaded media, such as its duration. The quote may not be available immediately; if you wish to see the quote before submission, you may need to poll the order details until the quote is ready.",
       "Language": "http",
-      "Code": "### Submit Order\n# @name public_submit_order\nPOST {{host}}/v1/productions/workspace/{{workspace_id}}/orders/{{order_id}}/submit\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Submit Order\n# @name public_submit_order\nPOST {{host}}/v1/productions/orders/{{order_id}}/submit\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "public_submit_order",
       "Setup": null
@@ -380,7 +380,7 @@
       "Slug": "public-update-order",
       "Description": "Updates an open order.",
       "Language": "http",
-      "Code": "### Update Order\n# @name public_update_order\nPATCH {{host}}/v1/productions/workspace/{{workspace_id}}/orders/{{order_id}}\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022request\u0022: {\n    \u0022name\u0022: \u0022Spanish Dubs\u0022\n  }\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Update Order\n# @name public_update_order\nPATCH {{host}}/v1/productions/orders/{{order_id}}\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022request\u0022: {\n    \u0022name\u0022: \u0022Spanish Dubs\u0022\n  }\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "public_update_order",
       "Setup": null
@@ -391,7 +391,7 @@
       "Slug": "public-upsert-order-item",
       "Description": "Adds or updates an order item on an open order. Returns the item ID and the quoted price.",
       "Language": "http",
-      "Code": "### Upsert Order Item\n# @name public_upsert_order_item\nPOST {{host}}/v1/productions/workspace/{{workspace_id}}/orders/{{order_id}}/items\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022request\u0022: {\n    \u0022item\u0022: {\n      \u0022captions_sdh\u0022: false,\n      \u0022destination_languages\u0022: [\n        \u0022hi\u0022,\n        \u0022fr-FR\u0022,\n        \u0022de\u0022\n      ],\n      \u0022include_captions\u0022: true,\n      \u0022include_source_captions\u0022: false,\n      \u0022instructions\u0022: \u0022Voices don\\u0027t need to match the originals, prioritize native-sounding voices\u0022,\n      \u0022kind\u0022: \u0022dub\u0022,\n      \u0022media_id\u0022: \u0022prodmedia_01jgatk6h0fwxrtbjade61yqhx\u0022,\n      \u0022source_language\u0022: \u0022en\u0022\n    },\n    \u0022item_id\u0022: \u0022string\u0022\n  }\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Upsert Order Item\n# @name public_upsert_order_item\nPOST {{host}}/v1/productions/orders/{{order_id}}/items\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022request\u0022: {\n    \u0022item\u0022: {\n      \u0022captions_sdh\u0022: false,\n      \u0022destination_languages\u0022: [\n        \u0022hi\u0022,\n        \u0022fr-FR\u0022,\n        \u0022de\u0022\n      ],\n      \u0022include_captions\u0022: true,\n      \u0022include_source_captions\u0022: false,\n      \u0022instructions\u0022: \u0022Voices don\\u0027t need to match the originals, prioritize native-sounding voices\u0022,\n      \u0022kind\u0022: \u0022dub\u0022,\n      \u0022media_id\u0022: \u0022prodmedia_01jgatk6h0fwxrtbjade61yqhx\u0022,\n      \u0022source_language\u0022: \u0022en\u0022\n    },\n    \u0022item_id\u0022: \u0022string\u0022\n  }\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "public_upsert_order_item",
       "Setup": null

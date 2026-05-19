@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The media file to upload. Mutually exclusive with media_url.
+    /// The MIME type for URL-sourced media (e.g. 'video/mp4'). Required when using media_url.
     /// </summary>
-    public sealed partial class BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPostMedia
+    public sealed partial class BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPostMediaUrlContentType
     {
 
         /// <summary>

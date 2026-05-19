@@ -8,9 +8,6 @@ namespace ElevenLabs
         /// List Orders<br/>
         /// Lists Productions orders in the workspace. Supports filtering by status and date range, with pagination.
         /// </summary>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="pageSize">
         /// Maximum number of orders to return per page.<br/>
         /// Default Value: 20
@@ -32,7 +29,6 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.ListOrdersResponse> ListAsync(
-            string workspaceId,
             int? pageSize = default,
             int? offset = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.OrderRequestState>? status = default,
@@ -44,9 +40,6 @@ namespace ElevenLabs
         /// List Orders<br/>
         /// Lists Productions orders in the workspace. Supports filtering by status and date range, with pagination.
         /// </summary>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="pageSize">
         /// Maximum number of orders to return per page.<br/>
         /// Default Value: 20
@@ -68,7 +61,6 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListOrdersResponse>> ListAsResponseAsync(
-            string workspaceId,
             int? pageSize = default,
             int? offset = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.OrderRequestState>? status = default,

@@ -28,14 +28,12 @@ namespace ElevenLabs
         partial void PrepareGet2Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string orderId,
-            ref string mediaId,
-            ref string workspaceId);
+            ref string mediaId);
         partial void PrepareGet2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string orderId,
-            string mediaId,
-            string workspaceId);
+            string mediaId);
         partial void ProcessGet2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -55,23 +53,18 @@ namespace ElevenLabs
         /// <param name="mediaId">
         /// The ID of the media file.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.OrderMediaResponse> Get2Async(
             string orderId,
             string mediaId,
-            string workspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get2AsResponseAsync(
                 orderId: orderId,
                 mediaId: mediaId,
-                workspaceId: workspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -88,16 +81,12 @@ namespace ElevenLabs
         /// <param name="mediaId">
         /// The ID of the media file.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.OrderMediaResponse>> Get2AsResponseAsync(
             string orderId,
             string mediaId,
-            string workspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -106,8 +95,7 @@ namespace ElevenLabs
             PrepareGet2Arguments(
                 httpClient: HttpClient,
                 orderId: ref orderId,
-                mediaId: ref mediaId,
-                workspaceId: ref workspaceId);
+                mediaId: ref mediaId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -133,7 +121,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/productions/workspace/{workspaceId}/orders/{orderId}/media/{mediaId}",
+                                path: $"/v1/productions/orders/{orderId}/media/{mediaId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -176,8 +164,7 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     orderId: orderId!,
-                    mediaId: mediaId!,
-                    workspaceId: workspaceId!);
+                    mediaId: mediaId!);
 
                 return __httpRequest;
             }
@@ -196,7 +183,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get2",
                                 methodName: "Get2Async",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/media/{mediaId}\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/media/{mediaId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -230,7 +217,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get2",
                                 methodName: "Get2Async",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/media/{mediaId}\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/media/{mediaId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -271,7 +258,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get2",
                                 methodName: "Get2Async",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/media/{mediaId}\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/media/{mediaId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -319,7 +306,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get2",
                                 methodName: "Get2Async",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/media/{mediaId}\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/media/{mediaId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -341,7 +328,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get2",
                                 methodName: "Get2Async",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/media/{mediaId}\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/media/{mediaId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,

@@ -27,13 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareList2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string orderId,
-            ref string workspaceId);
+            ref string orderId);
         partial void PrepareList2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string orderId,
-            string workspaceId);
+            string orderId);
         partial void ProcessList2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -50,21 +48,16 @@ namespace ElevenLabs
         /// <param name="orderId">
         /// The ID of the order.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.OrderDeliverablesResponse> List2Async(
             string orderId,
-            string workspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List2AsResponseAsync(
                 orderId: orderId,
-                workspaceId: workspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -78,15 +71,11 @@ namespace ElevenLabs
         /// <param name="orderId">
         /// The ID of the order.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.OrderDeliverablesResponse>> List2AsResponseAsync(
             string orderId,
-            string workspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -94,8 +83,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareList2Arguments(
                 httpClient: HttpClient,
-                orderId: ref orderId,
-                workspaceId: ref workspaceId);
+                orderId: ref orderId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -121,7 +109,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/productions/workspace/{workspaceId}/orders/{orderId}/deliverables",
+                                path: $"/v1/productions/orders/{orderId}/deliverables",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -163,8 +151,7 @@ namespace ElevenLabs
                 PrepareList2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    orderId: orderId!,
-                    workspaceId: workspaceId!);
+                    orderId: orderId!);
 
                 return __httpRequest;
             }
@@ -183,7 +170,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List2",
                                 methodName: "List2Async",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/deliverables\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/deliverables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -217,7 +204,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List2",
                                 methodName: "List2Async",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/deliverables\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/deliverables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -258,7 +245,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List2",
                                 methodName: "List2Async",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/deliverables\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/deliverables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -306,7 +293,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List2",
                                 methodName: "List2Async",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/deliverables\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/deliverables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -328,7 +315,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List2",
                                 methodName: "List2Async",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/deliverables\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/deliverables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,

@@ -11,18 +11,14 @@ namespace ElevenLabs
         /// <param name="orderId">
         /// The ID of the order to which this media will be attached.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.RegisterMediaResponse> RegisterAsync(
             string orderId,
-            string workspaceId,
 
-            global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPost request,
+            global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -31,9 +27,6 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="orderId">
         /// The ID of the order to which this media will be attached.
-        /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -41,9 +34,8 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.RegisterMediaResponse>> RegisterAsResponseAsync(
             string orderId,
-            string workspaceId,
 
-            global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPost request,
+            global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -53,11 +45,8 @@ namespace ElevenLabs
         /// <param name="orderId">
         /// The ID of the order to which this media will be attached.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="declaredLanguage">
-        /// The language code of the media content (e.g. 'en', 'es').
+        /// The language code of the media content (e.g. 'en', 'es-ES'). Must be a supported source language for some order item kind.
         /// </param>
         /// <param name="media">
         /// The media file to upload. Mutually exclusive with media_url.
@@ -79,7 +68,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.RegisterMediaResponse> RegisterAsync(
             string orderId,
-            string workspaceId,
             string declaredLanguage,
             byte[]? media = default,
             string? medianame = default,

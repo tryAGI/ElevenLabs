@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class BodyUpdateOrderV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdPatch
+    public sealed partial class BodyUpdateOrderV1ProductionsOrdersOrderIdPatch
     {
         /// <summary>
         /// Example: {"name":"Spanish Dubs"}
@@ -23,7 +23,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyUpdateOrderV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdPatch" /> class.
+        /// Initializes a new instance of the <see cref="BodyUpdateOrderV1ProductionsOrdersOrderIdPatch" /> class.
         /// </summary>
         /// <param name="request">
         /// Example: {"name":"Spanish Dubs"}
@@ -31,16 +31,16 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public BodyUpdateOrderV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdPatch(
+        public BodyUpdateOrderV1ProductionsOrdersOrderIdPatch(
             global::ElevenLabs.UpdateOrderRequest request)
         {
             this.Request = request ?? throw new global::System.ArgumentNullException(nameof(request));
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyUpdateOrderV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdPatch" /> class.
+        /// Initializes a new instance of the <see cref="BodyUpdateOrderV1ProductionsOrdersOrderIdPatch" /> class.
         /// </summary>
-        public BodyUpdateOrderV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdPatch()
+        public BodyUpdateOrderV1ProductionsOrdersOrderIdPatch()
         {
         }
 

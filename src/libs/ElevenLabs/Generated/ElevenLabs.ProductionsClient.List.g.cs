@@ -27,7 +27,6 @@ namespace ElevenLabs
             };
         partial void PrepareListArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string workspaceId,
             ref int? pageSize,
             ref int? offset,
             global::System.Collections.Generic.IList<global::ElevenLabs.OrderRequestState>? status,
@@ -36,7 +35,6 @@ namespace ElevenLabs
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string workspaceId,
             int? pageSize,
             int? offset,
             global::System.Collections.Generic.IList<global::ElevenLabs.OrderRequestState>? status,
@@ -55,9 +53,6 @@ namespace ElevenLabs
         /// List Orders<br/>
         /// Lists Productions orders in the workspace. Supports filtering by status and date range, with pagination.
         /// </summary>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="pageSize">
         /// Maximum number of orders to return per page.<br/>
         /// Default Value: 20
@@ -79,7 +74,6 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListOrdersResponse> ListAsync(
-            string workspaceId,
             int? pageSize = default,
             int? offset = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.OrderRequestState>? status = default,
@@ -89,7 +83,6 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ListAsResponseAsync(
-                workspaceId: workspaceId,
                 pageSize: pageSize,
                 offset: offset,
                 status: status,
@@ -105,9 +98,6 @@ namespace ElevenLabs
         /// List Orders<br/>
         /// Lists Productions orders in the workspace. Supports filtering by status and date range, with pagination.
         /// </summary>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="pageSize">
         /// Maximum number of orders to return per page.<br/>
         /// Default Value: 20
@@ -129,7 +119,6 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListOrdersResponse>> ListAsResponseAsync(
-            string workspaceId,
             int? pageSize = default,
             int? offset = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.OrderRequestState>? status = default,
@@ -142,7 +131,6 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareListArguments(
                 httpClient: HttpClient,
-                workspaceId: ref workspaceId,
                 pageSize: ref pageSize,
                 offset: ref offset,
                 status: status,
@@ -173,7 +161,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/productions/workspace/{workspaceId}/orders",
+                                path: "/v1/productions/orders",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
@@ -222,7 +210,6 @@ namespace ElevenLabs
                 PrepareListRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    workspaceId: workspaceId!,
                     pageSize: pageSize,
                     offset: offset,
                     status: status,
@@ -246,7 +233,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List",
                                 methodName: "ListAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders\"",
+                                pathTemplate: "\"/v1/productions/orders\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -280,7 +267,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List",
                                 methodName: "ListAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders\"",
+                                pathTemplate: "\"/v1/productions/orders\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -321,7 +308,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List",
                                 methodName: "ListAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders\"",
+                                pathTemplate: "\"/v1/productions/orders\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -369,7 +356,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List",
                                 methodName: "ListAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders\"",
+                                pathTemplate: "\"/v1/productions/orders\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -391,7 +378,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List",
                                 methodName: "ListAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders\"",
+                                pathTemplate: "\"/v1/productions/orders\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,

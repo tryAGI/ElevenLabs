@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// The filename for URL-sourced media (e.g. 'example.mp4'). Required when using media_url.
     /// </summary>
-    public sealed partial class BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPostMediaUrlFilename
+    public sealed partial class BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPostMediaUrlFilename
     {
 
         /// <summary>

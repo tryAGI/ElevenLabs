@@ -6,10 +6,10 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPost
+    public sealed partial class BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost
     {
         /// <summary>
-        /// The language code of the media content (e.g. 'en', 'es').
+        /// The language code of the media content (e.g. 'en', 'es-ES'). Must be a supported source language for some order item kind.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("declared_language")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -52,10 +52,10 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost" /> class.
         /// </summary>
         /// <param name="declaredLanguage">
-        /// The language code of the media content (e.g. 'en', 'es').
+        /// The language code of the media content (e.g. 'en', 'es-ES'). Must be a supported source language for some order item kind.
         /// </param>
         /// <param name="media">
         /// The media file to upload. Mutually exclusive with media_url.
@@ -75,7 +75,7 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPost(
+        public BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost(
             string declaredLanguage,
             byte[]? media,
             string? medianame,
@@ -92,9 +92,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost" /> class.
         /// </summary>
-        public BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPost()
+        public BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost()
         {
         }
 

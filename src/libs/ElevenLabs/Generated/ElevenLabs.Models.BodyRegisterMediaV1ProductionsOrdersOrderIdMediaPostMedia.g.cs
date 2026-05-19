@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// A URL to fetch the media file from. Mutually exclusive with media.
+    /// The media file to upload. Mutually exclusive with media_url.
     /// </summary>
-    public sealed partial class BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPostMediaUrl
+    public sealed partial class BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPostMedia
     {
 
         /// <summary>

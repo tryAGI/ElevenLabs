@@ -1624,7 +1624,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPost? Type399 { get; set; }
+        public global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost? Type399 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -1896,7 +1896,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyUpdateOrderV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdPatch? Type467 { get; set; }
+        public global::ElevenLabs.BodyUpdateOrderV1ProductionsOrdersOrderIdPatch? Type467 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -1920,7 +1920,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.BodyUpsertOrderItemV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdItemsPost? Type473 { get; set; }
+        public global::ElevenLabs.BodyUpsertOrderItemV1ProductionsOrdersOrderIdItemsPost? Type473 { get; set; }
         /// <summary>
         /// 
         /// </summary>

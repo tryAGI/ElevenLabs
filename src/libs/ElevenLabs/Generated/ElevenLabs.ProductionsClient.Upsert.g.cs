@@ -28,14 +28,12 @@ namespace ElevenLabs
         partial void PrepareUpsertArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string orderId,
-            ref string workspaceId,
-            global::ElevenLabs.BodyUpsertOrderItemV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdItemsPost request);
+            global::ElevenLabs.BodyUpsertOrderItemV1ProductionsOrdersOrderIdItemsPost request);
         partial void PrepareUpsertRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string orderId,
-            string workspaceId,
-            global::ElevenLabs.BodyUpsertOrderItemV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdItemsPost request);
+            global::ElevenLabs.BodyUpsertOrderItemV1ProductionsOrdersOrderIdItemsPost request);
         partial void ProcessUpsertResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -52,24 +50,19 @@ namespace ElevenLabs
         /// <param name="orderId">
         /// The ID of the order.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpsertOrderItemResponse> UpsertAsync(
             string orderId,
-            string workspaceId,
 
-            global::ElevenLabs.BodyUpsertOrderItemV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdItemsPost request,
+            global::ElevenLabs.BodyUpsertOrderItemV1ProductionsOrdersOrderIdItemsPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await UpsertAsResponseAsync(
                 orderId: orderId,
-                workspaceId: workspaceId,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -85,18 +78,14 @@ namespace ElevenLabs
         /// <param name="orderId">
         /// The ID of the order.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.UpsertOrderItemResponse>> UpsertAsResponseAsync(
             string orderId,
-            string workspaceId,
 
-            global::ElevenLabs.BodyUpsertOrderItemV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdItemsPost request,
+            global::ElevenLabs.BodyUpsertOrderItemV1ProductionsOrdersOrderIdItemsPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -107,7 +96,6 @@ namespace ElevenLabs
             PrepareUpsertArguments(
                 httpClient: HttpClient,
                 orderId: ref orderId,
-                workspaceId: ref workspaceId,
                 request: request);
 
 
@@ -134,7 +122,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/productions/workspace/{workspaceId}/orders/{orderId}/items",
+                                path: $"/v1/productions/orders/{orderId}/items",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -183,7 +171,6 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     orderId: orderId!,
-                    workspaceId: workspaceId!,
                     request: request);
 
                 return __httpRequest;
@@ -203,7 +190,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Upsert",
                                 methodName: "UpsertAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/items\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/items\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -237,7 +224,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Upsert",
                                 methodName: "UpsertAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/items\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/items\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -278,7 +265,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Upsert",
                                 methodName: "UpsertAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/items\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/items\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -326,7 +313,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Upsert",
                                 methodName: "UpsertAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/items\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/items\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -348,7 +335,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Upsert",
                                 methodName: "UpsertAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/items\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/items\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -508,28 +495,23 @@ namespace ElevenLabs
         /// <param name="orderId">
         /// The ID of the order.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.UpsertOrderItemResponse> UpsertAsync(
             string orderId,
-            string workspaceId,
             global::ElevenLabs.UpsertOrderItemRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyUpsertOrderItemV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdItemsPost
+            var __request = new global::ElevenLabs.BodyUpsertOrderItemV1ProductionsOrdersOrderIdItemsPost
             {
                 Request = request,
             };
 
             return await UpsertAsync(
                 orderId: orderId,
-                workspaceId: workspaceId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
