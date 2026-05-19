@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"characters_converted":500,"characters_unconverted":1000,"paragraphs_converted":20,"paragraphs_unconverted":10,"voice_statistics":[{"characters_converted":300,"characters_unconverted":600,"voice_id":"voice123"},{"characters_converted":200,"characters_unconverted":400,"voice_id":"voice456"}]}
+    /// Example: {"characters_converted":500,"characters_unconverted":1000,"credits_needed_to_convert":1000,"paragraphs_converted":20,"paragraphs_unconverted":10,"voice_statistics":[{"characters_converted":300,"characters_unconverted":600,"voice_id":"voice123"},{"characters_converted":200,"characters_unconverted":400,"voice_id":"voice456"}]}
     /// </summary>
     public sealed partial class ChapterStatisticsResponseModel
     {
@@ -37,6 +37,12 @@ namespace ElevenLabs
         public required int ParagraphsUnconverted { get; set; }
 
         /// <summary>
+        /// The number of credits needed to convert the remaining paragraphs.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("credits_needed_to_convert")]
+        public int? CreditsNeededToConvert { get; set; }
+
+        /// <summary>
         /// Per-voice breakdown of character counts.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_statistics")]
@@ -63,6 +69,9 @@ namespace ElevenLabs
         /// <param name="paragraphsUnconverted">
         /// The number of unconverted paragraphs.
         /// </param>
+        /// <param name="creditsNeededToConvert">
+        /// The number of credits needed to convert the remaining paragraphs.
+        /// </param>
         /// <param name="voiceStatistics">
         /// Per-voice breakdown of character counts.
         /// </param>
@@ -74,12 +83,14 @@ namespace ElevenLabs
             int charactersConverted,
             int paragraphsConverted,
             int paragraphsUnconverted,
+            int? creditsNeededToConvert,
             global::System.Collections.Generic.IList<global::ElevenLabs.VoiceStatisticsResponseModel>? voiceStatistics)
         {
             this.CharactersUnconverted = charactersUnconverted;
             this.CharactersConverted = charactersConverted;
             this.ParagraphsConverted = paragraphsConverted;
             this.ParagraphsUnconverted = paragraphsUnconverted;
+            this.CreditsNeededToConvert = creditsNeededToConvert;
             this.VoiceStatistics = voiceStatistics;
         }
 

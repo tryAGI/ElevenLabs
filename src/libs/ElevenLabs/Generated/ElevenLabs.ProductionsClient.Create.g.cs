@@ -26,12 +26,10 @@ namespace ElevenLabs
             {                s_CreateSecurityRequirement0,
             };
         partial void PrepareCreateArguments(
-            global::System.Net.Http.HttpClient httpClient,
-            ref string workspaceId);
+            global::System.Net.Http.HttpClient httpClient);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string workspaceId);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -45,19 +43,14 @@ namespace ElevenLabs
         /// Create Order<br/>
         /// Creates a new Productions order in the workspace. The order starts in the open state and can be configured with items before submission.
         /// </summary>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateOrderResponse> CreateAsync(
-            string workspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await CreateAsResponseAsync(
-                workspaceId: workspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -68,22 +61,17 @@ namespace ElevenLabs
         /// Create Order<br/>
         /// Creates a new Productions order in the workspace. The order starts in the open state and can be configured with items before submission.
         /// </summary>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateOrderResponse>> CreateAsResponseAsync(
-            string workspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareCreateArguments(
-                httpClient: HttpClient,
-                workspaceId: ref workspaceId);
+                httpClient: HttpClient);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -109,7 +97,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/productions/workspace/{workspaceId}/orders",
+                                path: "/v1/productions/orders",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -150,8 +138,7 @@ namespace ElevenLabs
                     request: __httpRequest);
                 PrepareCreateRequest(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest,
-                    workspaceId: workspaceId!);
+                    httpRequestMessage: __httpRequest);
 
                 return __httpRequest;
             }
@@ -170,7 +157,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create",
                                 methodName: "CreateAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders\"",
+                                pathTemplate: "\"/v1/productions/orders\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -204,7 +191,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create",
                                 methodName: "CreateAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders\"",
+                                pathTemplate: "\"/v1/productions/orders\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -245,7 +232,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create",
                                 methodName: "CreateAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders\"",
+                                pathTemplate: "\"/v1/productions/orders\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -293,7 +280,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create",
                                 methodName: "CreateAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders\"",
+                                pathTemplate: "\"/v1/productions/orders\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -315,7 +302,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create",
                                 methodName: "CreateAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders\"",
+                                pathTemplate: "\"/v1/productions/orders\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,

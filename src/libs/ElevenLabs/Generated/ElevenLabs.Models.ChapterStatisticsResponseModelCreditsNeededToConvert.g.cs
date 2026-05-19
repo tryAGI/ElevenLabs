@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The MIME type for URL-sourced media (e.g. 'video/mp4'). Required when using media_url.
+    /// The number of credits needed to convert the remaining paragraphs.
     /// </summary>
-    public sealed partial class BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPostMediaUrlContentType
+    public sealed partial class ChapterStatisticsResponseModelCreditsNeededToConvert
     {
 
         /// <summary>

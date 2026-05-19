@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public sealed partial class BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPostMediaUrlContentType
+    public sealed partial class BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPostMedia
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -34,14 +34,14 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPostMediaUrlContentType? FromJson(
+        public static global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPostMedia? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPostMediaUrlContentType),
-                jsonSerializerContext) as global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPostMediaUrlContentType;
+                typeof(global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPostMedia),
+                jsonSerializerContext) as global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPostMedia;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPostMediaUrlContentType? FromJson(
+        public static global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPostMedia? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPostMediaUrlContentType>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPostMedia>(
                 json,
                 jsonSerializerOptions);
         }
@@ -63,14 +63,14 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPostMediaUrlContentType?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPostMedia?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPostMediaUrlContentType),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPostMediaUrlContentType;
+                typeof(global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPostMedia),
+                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPostMedia;
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPostMediaUrlContentType?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPostMedia?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPostMediaUrlContentType?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPostMedia?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

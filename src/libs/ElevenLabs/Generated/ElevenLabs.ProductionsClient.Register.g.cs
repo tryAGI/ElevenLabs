@@ -28,14 +28,12 @@ namespace ElevenLabs
         partial void PrepareRegisterArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string orderId,
-            ref string workspaceId,
-            global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPost request);
+            global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost request);
         partial void PrepareRegisterRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string orderId,
-            string workspaceId,
-            global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPost request);
+            global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost request);
         partial void ProcessRegisterResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -52,24 +50,19 @@ namespace ElevenLabs
         /// <param name="orderId">
         /// The ID of the order to which this media will be attached.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.RegisterMediaResponse> RegisterAsync(
             string orderId,
-            string workspaceId,
 
-            global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPost request,
+            global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await RegisterAsResponseAsync(
                 orderId: orderId,
-                workspaceId: workspaceId,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -85,18 +78,14 @@ namespace ElevenLabs
         /// <param name="orderId">
         /// The ID of the order to which this media will be attached.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.RegisterMediaResponse>> RegisterAsResponseAsync(
             string orderId,
-            string workspaceId,
 
-            global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPost request,
+            global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -107,7 +96,6 @@ namespace ElevenLabs
             PrepareRegisterArguments(
                 httpClient: HttpClient,
                 orderId: ref orderId,
-                workspaceId: ref workspaceId,
                 request: request);
 
 
@@ -134,7 +122,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/productions/workspace/{workspaceId}/orders/{orderId}/media",
+                                path: $"/v1/productions/orders/{orderId}/media",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -170,10 +158,6 @@ namespace ElevenLabs
                             __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(orderId ?? string.Empty),
                                 name: "\"order_id\"");
-
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(workspaceId ?? string.Empty),
-                                name: "\"workspace_id\"");
 
                             __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(request.DeclaredLanguage ?? string.Empty),
@@ -260,7 +244,6 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     orderId: orderId!,
-                    workspaceId: workspaceId!,
                     request: request);
 
                 return __httpRequest;
@@ -280,7 +263,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Register",
                                 methodName: "RegisterAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/media\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/media\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -314,7 +297,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Register",
                                 methodName: "RegisterAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/media\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/media\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -355,7 +338,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Register",
                                 methodName: "RegisterAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/media\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/media\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -403,7 +386,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Register",
                                 methodName: "RegisterAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/media\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/media\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -425,7 +408,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Register",
                                 methodName: "RegisterAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/media\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/media\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -585,11 +568,8 @@ namespace ElevenLabs
         /// <param name="orderId">
         /// The ID of the order to which this media will be attached.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="declaredLanguage">
-        /// The language code of the media content (e.g. 'en', 'es').
+        /// The language code of the media content (e.g. 'en', 'es-ES'). Must be a supported source language for some order item kind.
         /// </param>
         /// <param name="media">
         /// The media file to upload. Mutually exclusive with media_url.
@@ -611,7 +591,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.RegisterMediaResponse> RegisterAsync(
             string orderId,
-            string workspaceId,
             string declaredLanguage,
             byte[]? media = default,
             string? medianame = default,
@@ -621,7 +600,7 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyRegisterMediaV1ProductionsWorkspaceWorkspaceIdOrdersOrderIdMediaPost
+            var __request = new global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost
             {
                 DeclaredLanguage = declaredLanguage,
                 Media = media,
@@ -633,7 +612,6 @@ namespace ElevenLabs
 
             return await RegisterAsync(
                 orderId: orderId,
-                workspaceId: workspaceId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

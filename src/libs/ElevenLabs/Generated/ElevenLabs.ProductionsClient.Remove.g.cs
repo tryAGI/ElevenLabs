@@ -28,14 +28,12 @@ namespace ElevenLabs
         partial void PrepareRemoveArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string orderId,
-            ref string itemId,
-            ref string workspaceId);
+            ref string itemId);
         partial void PrepareRemoveRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string orderId,
-            string itemId,
-            string workspaceId);
+            string itemId);
         partial void ProcessRemoveResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -55,23 +53,18 @@ namespace ElevenLabs
         /// <param name="itemId">
         /// The ID of the order item.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.RemoveOrderItemResponse> RemoveAsync(
             string orderId,
             string itemId,
-            string workspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await RemoveAsResponseAsync(
                 orderId: orderId,
                 itemId: itemId,
-                workspaceId: workspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -88,16 +81,12 @@ namespace ElevenLabs
         /// <param name="itemId">
         /// The ID of the order item.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.RemoveOrderItemResponse>> RemoveAsResponseAsync(
             string orderId,
             string itemId,
-            string workspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -106,8 +95,7 @@ namespace ElevenLabs
             PrepareRemoveArguments(
                 httpClient: HttpClient,
                 orderId: ref orderId,
-                itemId: ref itemId,
-                workspaceId: ref workspaceId);
+                itemId: ref itemId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -133,7 +121,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/productions/workspace/{workspaceId}/orders/{orderId}/items/{itemId}",
+                                path: $"/v1/productions/orders/{orderId}/items/{itemId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -176,8 +164,7 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     orderId: orderId!,
-                    itemId: itemId!,
-                    workspaceId: workspaceId!);
+                    itemId: itemId!);
 
                 return __httpRequest;
             }
@@ -196,7 +183,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Remove",
                                 methodName: "RemoveAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/items/{itemId}\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/items/{itemId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -230,7 +217,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Remove",
                                 methodName: "RemoveAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/items/{itemId}\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/items/{itemId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -271,7 +258,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Remove",
                                 methodName: "RemoveAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/items/{itemId}\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/items/{itemId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -319,7 +306,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Remove",
                                 methodName: "RemoveAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/items/{itemId}\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/items/{itemId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -341,7 +328,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Remove",
                                 methodName: "RemoveAsync",
-                                pathTemplate: "$\"/v1/productions/workspace/{workspaceId}/orders/{orderId}/items/{itemId}\"",
+                                pathTemplate: "$\"/v1/productions/orders/{orderId}/items/{itemId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,

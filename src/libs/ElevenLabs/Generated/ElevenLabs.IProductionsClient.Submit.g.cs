@@ -12,15 +12,11 @@ namespace ElevenLabs
         /// <param name="orderId">
         /// The ID of the order.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.SubmitOrderResponse> SubmitAsync(
             string orderId,
-            string workspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -31,15 +27,11 @@ namespace ElevenLabs
         /// <param name="orderId">
         /// The ID of the order.
         /// </param>
-        /// <param name="workspaceId">
-        /// The ID of the workspace.
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SubmitOrderResponse>> SubmitAsResponseAsync(
             string orderId,
-            string workspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

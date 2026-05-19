@@ -25,6 +25,7 @@ namespace ElevenLabs
         public required global::System.DateTimeOffset EndTime { get; set; }
 
         /// <summary>
+        /// Bucket size in seconds. Each row in the response covers this many seconds of usage. For example, pass 3600 for hourly buckets or 86400 for daily buckets.<br/>
         /// Default Value: 60
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("interval_seconds")]
@@ -58,6 +59,7 @@ namespace ElevenLabs
         /// End of the time range as a Unix timestamp in milliseconds. Must be at least 2020-01-01.
         /// </param>
         /// <param name="intervalSeconds">
+        /// Bucket size in seconds. Each row in the response covers this many seconds of usage. For example, pass 3600 for hourly buckets or 86400 for daily buckets.<br/>
         /// Default Value: 60
         /// </param>
         /// <param name="groupBy"></param>

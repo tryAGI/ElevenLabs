@@ -30,6 +30,12 @@ namespace ElevenLabs
         public required int CharactersConverted { get; set; }
 
         /// <summary>
+        /// The number of credits needed to convert the remaining audio for this voice.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("credits_needed_to_convert")]
+        public int? CreditsNeededToConvert { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -47,17 +53,22 @@ namespace ElevenLabs
         /// <param name="charactersConverted">
         /// The number of converted characters for this voice.
         /// </param>
+        /// <param name="creditsNeededToConvert">
+        /// The number of credits needed to convert the remaining audio for this voice.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public VoiceStatisticsResponseModel(
             string voiceId,
             int charactersUnconverted,
-            int charactersConverted)
+            int charactersConverted,
+            int? creditsNeededToConvert)
         {
             this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
             this.CharactersUnconverted = charactersUnconverted;
             this.CharactersConverted = charactersConverted;
+            this.CreditsNeededToConvert = creditsNeededToConvert;
         }
 
         /// <summary>
