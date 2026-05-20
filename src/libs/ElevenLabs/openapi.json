@@ -24782,7 +24782,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateSpeechEngineResponse"
+                  "$ref": "#/components/schemas/SpeechEngineResponse"
                 }
               }
             }
@@ -40463,6 +40463,15 @@
             "description": "Optional list of style tags (e.g. ['upbeat', 'cinematic']). A maximum of 10 tags is allowed.",
             "default": []
           },
+          "model_id": {
+            "type": "string",
+            "enum": [
+              "music_v1"
+            ],
+            "title": "Model Id",
+            "description": "The model to use for the generation.",
+            "default": "music_v1"
+          },
           "sign_with_c2pa": {
             "type": "boolean",
             "title": "Sign With C2Pa",
@@ -49659,6 +49668,10 @@
             "type": "array",
             "title": "Tags",
             "description": "Tags for categorization"
+          },
+          "overrides": {
+            "$ref": "#/components/schemas/SpeechEngineConversationInitiationClientDataConfig",
+            "description": "Override settings the client may set during conversation initiation"
           }
         },
         "type": "object",
@@ -49666,23 +49679,6 @@
           "speech_engine"
         ],
         "title": "CreateSpeechEngineRequest"
-      },
-      "CreateSpeechEngineResponse": {
-        "properties": {
-          "speech_engine_id": {
-            "type": "string",
-            "title": "Speech Engine Id",
-            "description": "The speech engine resource ID"
-          }
-        },
-        "type": "object",
-        "required": [
-          "speech_engine_id"
-        ],
-        "title": "CreateSpeechEngineResponse",
-        "example": {
-          "speech_engine_id": "seng_3701k3ttaq12ewp8b7qv5rfyszkz"
-        }
       },
       "CreateStaffParams": {
         "properties": {
@@ -73551,6 +73547,18 @@
         ],
         "title": "SpeechEngineConfig"
       },
+      "SpeechEngineConversationInitiationClientDataConfig": {
+        "properties": {
+          "first_message": {
+            "type": "boolean",
+            "title": "First Message",
+            "description": "Whether the first message can be overridden by the client",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "SpeechEngineConversationInitiationClientDataConfig"
+      },
       "SpeechEngineResponse": {
         "properties": {
           "speech_engine_id": {
@@ -73604,6 +73612,10 @@
             "title": "Tags",
             "description": "Arbitrary tags for categorization and filtering"
           },
+          "overrides": {
+            "$ref": "#/components/schemas/SpeechEngineConversationInitiationClientDataConfig",
+            "description": "Override settings the client may set during conversation initiation"
+          },
           "metadata": {
             "$ref": "#/components/schemas/AgentMetadataDBModel",
             "description": "Creation and update timestamps with source information"
@@ -73622,6 +73634,7 @@
           "call_limits",
           "language",
           "tags",
+          "overrides",
           "metadata"
         ],
         "title": "SpeechEngineResponse",
@@ -73654,6 +73667,9 @@
             "updated_at_unix_secs": 1714000000
           },
           "name": "My Speech Engine",
+          "overrides": {
+            "first_message": false
+          },
           "privacy": {
             "apply_to_existing_conversations": false,
             "delete_audio": false,
@@ -79486,6 +79502,16 @@
               }
             ],
             "title": "Tags"
+          },
+          "overrides": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SpeechEngineConversationInitiationClientDataConfig"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",

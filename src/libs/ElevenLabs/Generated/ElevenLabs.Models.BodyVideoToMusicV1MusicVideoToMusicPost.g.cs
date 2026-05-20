@@ -32,6 +32,14 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? Tags { get; set; }
 
         /// <summary>
+        /// The model to use for the generation.<br/>
+        /// Default Value: music_v1
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyVideoToMusicV1MusicVideoToMusicPostModelIdJsonConverter))]
+        public global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? ModelId { get; set; }
+
+        /// <summary>
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
         /// </summary>
@@ -60,6 +68,10 @@ namespace ElevenLabs
         /// Optional list of style tags (e.g. ['upbeat', 'cinematic']). A maximum of 10 tags is allowed.<br/>
         /// Default Value: []
         /// </param>
+        /// <param name="modelId">
+        /// The model to use for the generation.<br/>
+        /// Default Value: music_v1
+        /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
@@ -71,11 +83,13 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<byte[]> videos,
             string? description,
             global::System.Collections.Generic.IList<string>? tags,
+            global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? modelId,
             bool? signWithC2pa)
         {
             this.Videos = videos ?? throw new global::System.ArgumentNullException(nameof(videos));
             this.Description = description;
             this.Tags = tags;
+            this.ModelId = modelId;
             this.SignWithC2pa = signWithC2pa;
         }
 

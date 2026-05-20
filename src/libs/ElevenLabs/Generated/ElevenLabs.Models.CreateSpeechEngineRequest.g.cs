@@ -84,6 +84,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? Tags { get; set; }
 
         /// <summary>
+        /// Override settings the client may set during conversation initiation
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("overrides")]
+        public global::ElevenLabs.SpeechEngineConversationInitiationClientDataConfig? Overrides { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -130,6 +136,9 @@ namespace ElevenLabs
         /// <param name="tags">
         /// Tags for categorization
         /// </param>
+        /// <param name="overrides">
+        /// Override settings the client may set during conversation initiation
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -143,7 +152,8 @@ namespace ElevenLabs
             global::ElevenLabs.PrivacyConfigInput? privacy,
             global::ElevenLabs.AgentCallLimits? callLimits,
             string? language,
-            global::System.Collections.Generic.IList<string>? tags)
+            global::System.Collections.Generic.IList<string>? tags,
+            global::ElevenLabs.SpeechEngineConversationInitiationClientDataConfig? overrides)
         {
             this.Name = name;
             this.SpeechEngine = speechEngine ?? throw new global::System.ArgumentNullException(nameof(speechEngine));
@@ -155,6 +165,7 @@ namespace ElevenLabs
             this.CallLimits = callLimits;
             this.Language = language;
             this.Tags = tags;
+            this.Overrides = overrides;
         }
 
         /// <summary>
