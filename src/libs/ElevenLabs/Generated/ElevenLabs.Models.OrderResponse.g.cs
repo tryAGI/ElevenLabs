@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"created_at":"2025-03-15T10:00:00Z","items":[{"item":{"captions_sdh":false,"destination_languages":["hi","fr-FR","de"],"include_captions":true,"include_source_captions":false,"instructions":"Voices don\u0027t need to match the originals, prioritize native-sounding voices","kind":"dub","media_id":"prodmedia_01jgb2zd68f8f9tfvbb968wb8z","source_language":"en"},"item_id":"proditem_01jgd3qhejfs7rm6swknz2ytjb","quote":{"amount_usd":11.0}}],"name":"Spanish Dubs","order_id":"prodorder_01jgatk6h0fwxrtbjade61yqhx","state":"open","total_amount_usd":11.0}
+    /// Example: {"created_at":"2025-03-15T10:00:00Z","items":[{"item":{"captions_sdh":false,"destination_languages":["hi","fr-FR","de"],"include_captions":true,"include_source_captions":false,"instructions":"Voices don\u0027t need to match the originals, prioritize native-sounding voices","kind":"dub","media_id":"prodmedia_01jgb2zd68f8f9tfvbb968wb8z","source_language":"en"},"item_id":"proditem_01jgd3qhejfs7rm6swknz2ytjb","quote":{"amount_usd":11.0}}],"name":"Spanish Dubs","order_id":"prodorder_01jgatk6h0fwxrtbjade61yqhx","sandbox":false,"state":"open","total_amount_usd":11.0}
     /// </summary>
     public sealed partial class OrderResponse
     {
@@ -42,6 +42,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_amount_usd")]
         public double? TotalAmountUsd { get; set; }
+
+        /// <summary>
+        /// Whether this is a sandbox order that auto-progresses without producer intervention.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sandbox")]
+        public bool? Sandbox { get; set; }
 
         /// <summary>
         /// The timestamp when the order was created.
@@ -101,6 +108,10 @@ namespace ElevenLabs
         /// <param name="totalAmountUsd">
         /// The total price for all items in USD. Excluded from response until quotes are available.
         /// </param>
+        /// <param name="sandbox">
+        /// Whether this is a sandbox order that auto-progresses without producer intervention.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="submittedAt">
         /// The timestamp when the order was submitted, if applicable.
         /// </param>
@@ -123,6 +134,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.OrderItemInfo> items,
             global::System.DateTime createdAt,
             double? totalAmountUsd,
+            bool? sandbox,
             global::System.DateTime? submittedAt,
             global::System.DateTime? paidAt,
             global::System.DateTime? acceptedAt,
@@ -133,6 +145,7 @@ namespace ElevenLabs
             this.State = state;
             this.Items = items ?? throw new global::System.ArgumentNullException(nameof(items));
             this.TotalAmountUsd = totalAmountUsd;
+            this.Sandbox = sandbox;
             this.CreatedAt = createdAt;
             this.SubmittedAt = submittedAt;
             this.PaidAt = paidAt;
