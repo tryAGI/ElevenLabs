@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"name":"Spanish Dubs","order_id":"prodorder_01jgatk6h0fwxrtbjade61yqhx","state":"submitted","submitted_at":"2025-03-15T10:30:00Z","total_amount_usd":11.0,"updated_at":"2025-03-15T10:30:00Z"}
+    /// Example: {"name":"Spanish Dubs","order_id":"prodorder_01jgatk6h0fwxrtbjade61yqhx","sandbox":false,"state":"submitted","submitted_at":"2025-03-15T10:30:00Z","total_amount_usd":11.0,"updated_at":"2025-03-15T10:30:00Z"}
     /// </summary>
     public sealed partial class OrderSummary
     {
@@ -35,6 +35,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_amount_usd")]
         public double? TotalAmountUsd { get; set; }
+
+        /// <summary>
+        /// Whether this is a sandbox order that auto-progresses without producer intervention.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sandbox")]
+        public bool? Sandbox { get; set; }
 
         /// <summary>
         /// The timestamp when the order was submitted, if applicable.
@@ -69,6 +76,10 @@ namespace ElevenLabs
         /// <param name="totalAmountUsd">
         /// The total price for all items in USD. Excluded from response until quotes are available.
         /// </param>
+        /// <param name="sandbox">
+        /// Whether this is a sandbox order that auto-progresses without producer intervention.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="submittedAt">
         /// The timestamp when the order was submitted, if applicable.
         /// </param>
@@ -83,6 +94,7 @@ namespace ElevenLabs
             string name,
             global::ElevenLabs.OrderState state,
             double? totalAmountUsd,
+            bool? sandbox,
             global::System.DateTime? submittedAt,
             global::System.DateTime? updatedAt)
         {
@@ -90,6 +102,7 @@ namespace ElevenLabs
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.State = state;
             this.TotalAmountUsd = totalAmountUsd;
+            this.Sandbox = sandbox;
             this.SubmittedAt = submittedAt;
             this.UpdatedAt = updatedAt;
         }

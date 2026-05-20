@@ -4,19 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"order_id":"prodorder_01jgatk6h0fwxrtbjade61yqhx","sandbox":false}
+    /// Example: {"sandbox":false}
     /// </summary>
-    public sealed partial class CreateOrderResponse
+    public sealed partial class CreateOrderRequest
     {
         /// <summary>
-        /// The ID of the newly created order.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("order_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string OrderId { get; set; }
-
-        /// <summary>
-        /// Whether this is a sandbox order.<br/>
+        /// When true, creates a sandbox order that auto-progresses without producer intervention.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sandbox")]
@@ -29,30 +22,25 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateOrderResponse" /> class.
+        /// Initializes a new instance of the <see cref="CreateOrderRequest" /> class.
         /// </summary>
-        /// <param name="orderId">
-        /// The ID of the newly created order.
-        /// </param>
         /// <param name="sandbox">
-        /// Whether this is a sandbox order.<br/>
+        /// When true, creates a sandbox order that auto-progresses without producer intervention.<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public CreateOrderResponse(
-            string orderId,
+        public CreateOrderRequest(
             bool? sandbox)
         {
-            this.OrderId = orderId ?? throw new global::System.ArgumentNullException(nameof(orderId));
             this.Sandbox = sandbox;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateOrderResponse" /> class.
+        /// Initializes a new instance of the <see cref="CreateOrderRequest" /> class.
         /// </summary>
-        public CreateOrderResponse()
+        public CreateOrderRequest()
         {
         }
 

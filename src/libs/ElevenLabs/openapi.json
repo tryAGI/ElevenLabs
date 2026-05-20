@@ -26044,6 +26044,23 @@
             "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateOrderRequest"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Request"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -49170,11 +49187,32 @@
         "title": "CreateOAuth2JWTRequest",
         "description": "Request model for creating OAuth2 JWT auth connections - inherits common settings and includes sensitive fields"
       },
+      "CreateOrderRequest": {
+        "properties": {
+          "sandbox": {
+            "type": "boolean",
+            "title": "Sandbox",
+            "description": "When true, creates a sandbox order that auto-progresses without producer intervention.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "CreateOrderRequest",
+        "example": {
+          "sandbox": false
+        }
+      },
       "CreateOrderResponse": {
         "properties": {
           "order_id": {
             "$ref": "#/components/schemas/OrderId",
             "description": "The ID of the newly created order."
+          },
+          "sandbox": {
+            "type": "boolean",
+            "title": "Sandbox",
+            "description": "Whether this is a sandbox order.",
+            "default": false
           }
         },
         "type": "object",
@@ -49183,7 +49221,8 @@
         ],
         "title": "CreateOrderResponse",
         "example": {
-          "order_id": "prodorder_01jgatk6h0fwxrtbjade61yqhx"
+          "order_id": "prodorder_01jgatk6h0fwxrtbjade61yqhx",
+          "sandbox": false
         }
       },
       "CreatePhoneNumberResponseModel": {
@@ -63958,6 +63997,12 @@
             "title": "Total Amount Usd",
             "description": "The total price for all items in USD. Excluded from response until quotes are available."
           },
+          "sandbox": {
+            "type": "boolean",
+            "title": "Sandbox",
+            "description": "Whether this is a sandbox order that auto-progresses without producer intervention.",
+            "default": false
+          },
           "created_at": {
             "type": "string",
             "format": "date-time",
@@ -64052,6 +64097,7 @@
           ],
           "name": "Spanish Dubs",
           "order_id": "prodorder_01jgatk6h0fwxrtbjade61yqhx",
+          "sandbox": false,
           "state": "open",
           "total_amount_usd": 11.0
         }
@@ -64095,6 +64141,12 @@
             "title": "Total Amount Usd",
             "description": "The total price for all items in USD. Excluded from response until quotes are available."
           },
+          "sandbox": {
+            "type": "boolean",
+            "title": "Sandbox",
+            "description": "Whether this is a sandbox order that auto-progresses without producer intervention.",
+            "default": false
+          },
           "submitted_at": {
             "anyOf": [
               {
@@ -64132,6 +64184,7 @@
         "example": {
           "name": "Spanish Dubs",
           "order_id": "prodorder_01jgatk6h0fwxrtbjade61yqhx",
+          "sandbox": false,
           "state": "submitted",
           "submitted_at": "2025-03-15T10:30:00Z",
           "total_amount_usd": 11.0,
