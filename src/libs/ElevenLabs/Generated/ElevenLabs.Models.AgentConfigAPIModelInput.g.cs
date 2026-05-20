@@ -50,6 +50,12 @@ namespace ElevenLabs
         public string? MaxConversationDurationMessage { get; set; }
 
         /// <summary>
+        /// Per-channel response behavior overrides for text conversations. Built-in channel defaults apply when unset.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text_behavior_overrides")]
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.BehaviorOverride>? TextBehaviorOverrides { get; set; }
+
+        /// <summary>
         /// The prompt for the agent<br/>
         /// Example: {"knowledge_base":[],"llm":"gemini-2.0-flash-001","max_tokens":-1,"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","temperature":0.0,"tool_ids":[],"tools":[]}
         /// </summary>
@@ -88,6 +94,9 @@ namespace ElevenLabs
         /// <param name="maxConversationDurationMessage">
         /// If non-empty, the message the agent will send when max conversation duration is reached.
         /// </param>
+        /// <param name="textBehaviorOverrides">
+        /// Per-channel response behavior overrides for text conversations. Built-in channel defaults apply when unset.
+        /// </param>
         /// <param name="prompt">
         /// The prompt for the agent<br/>
         /// Example: {"knowledge_base":[],"llm":"gemini-2.0-flash-001","max_tokens":-1,"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","temperature":0.0,"tool_ids":[],"tools":[]}
@@ -102,6 +111,7 @@ namespace ElevenLabs
             global::ElevenLabs.DynamicVariablesConfigInput? dynamicVariables,
             bool? disableFirstMessageInterruptions,
             string? maxConversationDurationMessage,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.BehaviorOverride>? textBehaviorOverrides,
             global::ElevenLabs.PromptAgentAPIModelInput? prompt)
         {
             this.FirstMessage = firstMessage;
@@ -110,6 +120,7 @@ namespace ElevenLabs
             this.DynamicVariables = dynamicVariables;
             this.DisableFirstMessageInterruptions = disableFirstMessageInterruptions;
             this.MaxConversationDurationMessage = maxConversationDurationMessage;
+            this.TextBehaviorOverrides = textBehaviorOverrides;
             this.Prompt = prompt;
         }
 
