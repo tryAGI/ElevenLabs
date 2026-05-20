@@ -49,7 +49,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateSpeechEngineResponse> CreateAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechEngineResponse> CreateAsync(
 
             global::ElevenLabs.CreateSpeechEngineRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -72,7 +72,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateSpeechEngineResponse>> CreateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SpeechEngineResponse>> CreateAsResponseAsync(
 
             global::ElevenLabs.CreateSpeechEngineRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -397,9 +397,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.CreateSpeechEngineResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.SpeechEngineResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateSpeechEngineResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SpeechEngineResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -431,9 +431,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.CreateSpeechEngineResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.SpeechEngineResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateSpeechEngineResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SpeechEngineResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -517,10 +517,13 @@ namespace ElevenLabs
         /// <param name="tags">
         /// Tags for categorization
         /// </param>
+        /// <param name="overrides">
+        /// Override settings the client may set during conversation initiation
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateSpeechEngineResponse> CreateAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechEngineResponse> CreateAsync(
             global::ElevenLabs.SpeechEngineConfig speechEngine,
             string? name = default,
             global::ElevenLabs.ASRConversationalConfig? asr = default,
@@ -531,6 +534,7 @@ namespace ElevenLabs
             global::ElevenLabs.AgentCallLimits? callLimits = default,
             string? language = default,
             global::System.Collections.Generic.IList<string>? tags = default,
+            global::ElevenLabs.SpeechEngineConversationInitiationClientDataConfig? overrides = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -546,6 +550,7 @@ namespace ElevenLabs
                 CallLimits = callLimits,
                 Language = language,
                 Tags = tags,
+                Overrides = overrides,
             };
 
             return await CreateAsync(

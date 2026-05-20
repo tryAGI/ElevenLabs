@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"asr":{"keywords":[],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"},"call_limits":{"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000},"conversation":{"client_events":["audio","interruption","agent_response","user_transcript"],"max_duration_seconds":600},"language":"en","metadata":{"created_at_unix_secs":1714000000,"created_from":"api","last_updated_from":"api","updated_at_unix_secs":1714000000},"name":"My Speech Engine","privacy":{"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false},"speech_engine":{"request_headers":{},"ws_url":"wss://example.com/transcript"},"speech_engine_id":"seng_3701k3ttaq12ewp8b7qv5rfyszkz","tags":["production","v1"],"tts":{"agent_output_audio_format":"pcm_16000","model_id":"eleven_flash_v2","optimize_streaming_latency":3,"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"mode":"turn","silence_end_call_timeout":-1,"turn_eagerness":"normal","turn_timeout":7.0}}
+    /// Example: {"asr":{"keywords":[],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"},"call_limits":{"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000},"conversation":{"client_events":["audio","interruption","agent_response","user_transcript"],"max_duration_seconds":600},"language":"en","metadata":{"created_at_unix_secs":1714000000,"created_from":"api","last_updated_from":"api","updated_at_unix_secs":1714000000},"name":"My Speech Engine","overrides":{"first_message":false},"privacy":{"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false},"speech_engine":{"request_headers":{},"ws_url":"wss://example.com/transcript"},"speech_engine_id":"seng_3701k3ttaq12ewp8b7qv5rfyszkz","tags":["production","v1"],"tts":{"agent_output_audio_format":"pcm_16000","model_id":"eleven_flash_v2","optimize_streaming_latency":3,"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"mode":"turn","silence_end_call_timeout":-1,"turn_eagerness":"normal","turn_timeout":7.0}}
     /// </summary>
     public sealed partial class SpeechEngineResponse
     {
@@ -98,6 +98,13 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<string> Tags { get; set; }
 
         /// <summary>
+        /// Override settings the client may set during conversation initiation
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("overrides")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.SpeechEngineConversationInitiationClientDataConfig Overrides { get; set; }
+
+        /// <summary>
         /// Creation and update timestamps with source information
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
@@ -152,6 +159,9 @@ namespace ElevenLabs
         /// <param name="tags">
         /// Arbitrary tags for categorization and filtering
         /// </param>
+        /// <param name="overrides">
+        /// Override settings the client may set during conversation initiation
+        /// </param>
         /// <param name="metadata">
         /// Creation and update timestamps with source information
         /// </param>
@@ -170,6 +180,7 @@ namespace ElevenLabs
             global::ElevenLabs.AgentCallLimits callLimits,
             string language,
             global::System.Collections.Generic.IList<string> tags,
+            global::ElevenLabs.SpeechEngineConversationInitiationClientDataConfig overrides,
             global::ElevenLabs.AgentMetadataDBModel metadata)
         {
             this.SpeechEngineId = speechEngineId ?? throw new global::System.ArgumentNullException(nameof(speechEngineId));
@@ -183,6 +194,7 @@ namespace ElevenLabs
             this.CallLimits = callLimits ?? throw new global::System.ArgumentNullException(nameof(callLimits));
             this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
             this.Tags = tags ?? throw new global::System.ArgumentNullException(nameof(tags));
+            this.Overrides = overrides ?? throw new global::System.ArgumentNullException(nameof(overrides));
             this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
         }
 

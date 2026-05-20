@@ -505,6 +505,7 @@ namespace ElevenLabs
         /// <param name="callLimits"></param>
         /// <param name="language"></param>
         /// <param name="tags"></param>
+        /// <param name="overrides"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -520,6 +521,7 @@ namespace ElevenLabs
             global::ElevenLabs.AgentCallLimits? callLimits = default,
             string? language = default,
             global::System.Collections.Generic.IList<string>? tags = default,
+            global::ElevenLabs.SpeechEngineConversationInitiationClientDataConfig? overrides = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -535,6 +537,7 @@ namespace ElevenLabs
                 CallLimits = callLimits,
                 Language = language,
                 Tags = tags,
+                Overrides = overrides,
             };
 
             return await UpdateAsync(

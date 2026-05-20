@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.CreateSpeechEngineResponse> CreateAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechEngineResponse> CreateAsync(
 
             global::ElevenLabs.CreateSpeechEngineRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateSpeechEngineResponse>> CreateAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SpeechEngineResponse>> CreateAsResponseAsync(
 
             global::ElevenLabs.CreateSpeechEngineRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -72,10 +72,13 @@ namespace ElevenLabs
         /// <param name="tags">
         /// Tags for categorization
         /// </param>
+        /// <param name="overrides">
+        /// Override settings the client may set during conversation initiation
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.CreateSpeechEngineResponse> CreateAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechEngineResponse> CreateAsync(
             global::ElevenLabs.SpeechEngineConfig speechEngine,
             string? name = default,
             global::ElevenLabs.ASRConversationalConfig? asr = default,
@@ -86,6 +89,7 @@ namespace ElevenLabs
             global::ElevenLabs.AgentCallLimits? callLimits = default,
             string? language = default,
             global::System.Collections.Generic.IList<string>? tags = default,
+            global::ElevenLabs.SpeechEngineConversationInitiationClientDataConfig? overrides = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

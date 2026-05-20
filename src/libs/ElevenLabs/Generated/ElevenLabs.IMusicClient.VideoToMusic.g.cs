@@ -79,6 +79,10 @@ namespace ElevenLabs
         /// Optional list of style tags (e.g. ['upbeat', 'cinematic']). A maximum of 10 tags is allowed.<br/>
         /// Default Value: []
         /// </param>
+        /// <param name="modelId">
+        /// The model to use for the generation.<br/>
+        /// Default Value: music_v1
+        /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
@@ -91,6 +95,7 @@ namespace ElevenLabs
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
+            global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? modelId = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -118,6 +123,10 @@ namespace ElevenLabs
         /// Optional list of style tags (e.g. ['upbeat', 'cinematic']). A maximum of 10 tags is allowed.<br/>
         /// Default Value: []
         /// </param>
+        /// <param name="modelId">
+        /// The model to use for the generation.<br/>
+        /// Default Value: music_v1
+        /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
@@ -131,6 +140,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IReadOnlyList<string>? videosFileNames = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
+            global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? modelId = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -156,6 +166,10 @@ namespace ElevenLabs
         /// <param name="tags">
         /// Optional list of style tags (e.g. ['upbeat', 'cinematic']). A maximum of 10 tags is allowed.<br/>
         /// Default Value: []
+        /// </param>
+        /// <param name="modelId">
+        /// The model to use for the generation.<br/>
+        /// Default Value: music_v1
         /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
@@ -170,6 +184,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IReadOnlyList<string>? videosFileNames = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
+            global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? modelId = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -196,6 +211,10 @@ namespace ElevenLabs
         /// Optional list of style tags (e.g. ['upbeat', 'cinematic']). A maximum of 10 tags is allowed.<br/>
         /// Default Value: []
         /// </param>
+        /// <param name="modelId">
+        /// The model to use for the generation.<br/>
+        /// Default Value: music_v1
+        /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
@@ -209,6 +228,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IReadOnlyList<string>? videosFileNames = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
+            global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? modelId = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
