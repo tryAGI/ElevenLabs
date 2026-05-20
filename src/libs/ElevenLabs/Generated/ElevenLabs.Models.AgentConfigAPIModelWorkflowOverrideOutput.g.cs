@@ -45,6 +45,12 @@ namespace ElevenLabs
         public string? MaxConversationDurationMessage { get; set; }
 
         /// <summary>
+        /// Per-channel response behavior overrides for text conversations. Built-in channel defaults apply when unset.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text_behavior_overrides")]
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.BehaviorOverride>? TextBehaviorOverrides { get; set; }
+
+        /// <summary>
         /// The prompt for the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
@@ -77,6 +83,9 @@ namespace ElevenLabs
         /// <param name="maxConversationDurationMessage">
         /// If non-empty, the message the agent will send when max conversation duration is reached.
         /// </param>
+        /// <param name="textBehaviorOverrides">
+        /// Per-channel response behavior overrides for text conversations. Built-in channel defaults apply when unset.
+        /// </param>
         /// <param name="prompt">
         /// The prompt for the agent
         /// </param>
@@ -90,6 +99,7 @@ namespace ElevenLabs
             global::ElevenLabs.DynamicVariablesConfigWorkflowOverrideOutput? dynamicVariables,
             bool? disableFirstMessageInterruptions,
             string? maxConversationDurationMessage,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.BehaviorOverride>? textBehaviorOverrides,
             global::ElevenLabs.PromptAgentAPIModelWorkflowOverrideOutput? prompt)
         {
             this.FirstMessage = firstMessage;
@@ -98,6 +108,7 @@ namespace ElevenLabs
             this.DynamicVariables = dynamicVariables;
             this.DisableFirstMessageInterruptions = disableFirstMessageInterruptions;
             this.MaxConversationDurationMessage = maxConversationDurationMessage;
+            this.TextBehaviorOverrides = textBehaviorOverrides;
             this.Prompt = prompt;
         }
 

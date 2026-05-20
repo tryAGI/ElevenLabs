@@ -28,6 +28,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        IntercomIntegration,
+        /// <summary>
+        /// 
+        /// </summary>
         JsSdk,
         /// <summary>
         /// 
@@ -103,6 +107,7 @@ namespace ElevenLabs
                 ConversationInitiationSource.FlutterSdk => "flutter_sdk",
                 ConversationInitiationSource.Genesys => "genesys",
                 ConversationInitiationSource.GenesysBotConnector => "genesys_bot_connector",
+                ConversationInitiationSource.IntercomIntegration => "intercom_integration",
                 ConversationInitiationSource.JsSdk => "js_sdk",
                 ConversationInitiationSource.NodeJsSdk => "node_js_sdk",
                 ConversationInitiationSource.PythonSdk => "python_sdk",
@@ -132,6 +137,7 @@ namespace ElevenLabs
                 "flutter_sdk" => ConversationInitiationSource.FlutterSdk,
                 "genesys" => ConversationInitiationSource.Genesys,
                 "genesys_bot_connector" => ConversationInitiationSource.GenesysBotConnector,
+                "intercom_integration" => ConversationInitiationSource.IntercomIntegration,
                 "js_sdk" => ConversationInitiationSource.JsSdk,
                 "node_js_sdk" => ConversationInitiationSource.NodeJsSdk,
                 "python_sdk" => ConversationInitiationSource.PythonSdk,

@@ -30241,6 +30241,24 @@
             "x-convai-client-override": true,
             "x-convai-language-override": true
           },
+          "text_behavior_overrides": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/BehaviorOverride"
+                },
+                "propertyNames": {
+                  "$ref": "#/components/schemas/ConversationInitiationSource"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Text Behavior Overrides",
+            "description": "Per-channel response behavior overrides for text conversations. Built-in channel defaults apply when unset."
+          },
           "prompt": {
             "$ref": "#/components/schemas/PromptAgentAPIModel-Input",
             "description": "The prompt for the agent"
@@ -30294,6 +30312,24 @@
             "default": "",
             "x-convai-client-override": true,
             "x-convai-language-override": true
+          },
+          "text_behavior_overrides": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/BehaviorOverride"
+                },
+                "propertyNames": {
+                  "$ref": "#/components/schemas/ConversationInitiationSource"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Text Behavior Overrides",
+            "description": "Per-channel response behavior overrides for text conversations. Built-in channel defaults apply when unset."
           },
           "prompt": {
             "$ref": "#/components/schemas/PromptAgentAPIModel-Output",
@@ -30385,6 +30421,24 @@
             "description": "If non-empty, the message the agent will send when max conversation duration is reached.",
             "x-convai-client-override": true,
             "x-convai-language-override": true
+          },
+          "text_behavior_overrides": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/BehaviorOverride"
+                },
+                "propertyNames": {
+                  "$ref": "#/components/schemas/ConversationInitiationSource"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Text Behavior Overrides",
+            "description": "Per-channel response behavior overrides for text conversations. Built-in channel defaults apply when unset."
           },
           "prompt": {
             "anyOf": [
@@ -30497,6 +30551,24 @@
             "description": "If non-empty, the message the agent will send when max conversation duration is reached.",
             "x-convai-client-override": true,
             "x-convai-language-override": true
+          },
+          "text_behavior_overrides": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/BehaviorOverride"
+                },
+                "propertyNames": {
+                  "$ref": "#/components/schemas/ConversationInitiationSource"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Text Behavior Overrides",
+            "description": "Per-channel response behavior overrides for text conversations. Built-in channel defaults apply when unset."
           },
           "prompt": {
             "anyOf": [
@@ -34725,6 +34797,45 @@
         ],
         "title": "BearerAuthResponse",
         "description": "Response model for bearer auth"
+      },
+      "BehaviorOverride": {
+        "properties": {
+          "verbosity": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Verbosity"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Verbosity override. Underlying default applies when unset."
+          },
+          "output_format": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OutputFormat"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Output format override. Underlying default applies when unset."
+          },
+          "interaction_budget": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/InteractionBudget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Interaction budget override. Underlying default applies when unset."
+          }
+        },
+        "type": "object",
+        "title": "BehaviorOverride"
       },
       "BillingPeriod": {
         "type": "string",
@@ -47665,6 +47776,7 @@
           "flutter_sdk",
           "zendesk_integration",
           "slack_integration",
+          "intercom_integration",
           "template_preview",
           "genesys_bot_connector"
         ],
@@ -58271,6 +58383,14 @@
         ],
         "title": "IntegrationType"
       },
+      "InteractionBudget": {
+        "type": "string",
+        "enum": [
+          "realtime",
+          "async"
+        ],
+        "title": "InteractionBudget"
+      },
       "InvoiceResponseModel": {
         "properties": {
           "amount_due_cents": {
@@ -64361,6 +64481,14 @@
           "address"
         ],
         "title": "OutboundSIPTrunkConfigRequestModel"
+      },
+      "OutputFormat": {
+        "type": "string",
+        "enum": [
+          "plain_text",
+          "markdown"
+        ],
+        "title": "OutputFormat"
       },
       "PairedLanguagesResponse": {
         "properties": {
@@ -80360,6 +80488,15 @@
           "type"
         ],
         "title": "ValidationError"
+      },
+      "Verbosity": {
+        "type": "string",
+        "enum": [
+          "auto",
+          "concise",
+          "thorough"
+        ],
+        "title": "Verbosity"
       },
       "VerificationAttemptResponseModel": {
         "properties": {
