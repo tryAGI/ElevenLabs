@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"has_more":false,"speech_engines":[{"created_at_unix_secs":1714000000,"name":"My Speech Engine","speech_engine_id":"seng_3701k3ttaq12ewp8b7qv5rfyszkz","tags":["production","v1"]}]}
+    /// Example: {"has_more":false,"speech_engines":[{"access_info":{"creator_email":"john@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"},"created_at_unix_secs":1714000000,"name":"My Speech Engine","speech_engine_id":"seng_3701k3ttaq12ewp8b7qv5rfyszkz","tags":["production","v1"]}]}
     /// </summary>
     public sealed partial class ListSpeechEnginesResponse
     {

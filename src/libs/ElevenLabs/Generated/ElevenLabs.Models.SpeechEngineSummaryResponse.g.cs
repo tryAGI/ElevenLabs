@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"created_at_unix_secs":1714000000,"name":"My Speech Engine","speech_engine_id":"seng_3701k3ttaq12ewp8b7qv5rfyszkz","tags":["production","v1"]}
+    /// Example: {"access_info":{"creator_email":"john@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"},"created_at_unix_secs":1714000000,"name":"My Speech Engine","speech_engine_id":"seng_3701k3ttaq12ewp8b7qv5rfyszkz","tags":["production","v1"]}
     /// </summary>
     public sealed partial class SpeechEngineSummaryResponse
     {
@@ -37,6 +37,15 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<string> Tags { get; set; }
 
         /// <summary>
+        /// The access information of the speech engine for the user<br/>
+        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// </summary>
+        /// <example>{"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -57,6 +66,10 @@ namespace ElevenLabs
         /// <param name="tags">
         /// Arbitrary tags for categorization and filtering
         /// </param>
+        /// <param name="accessInfo">
+        /// The access information of the speech engine for the user<br/>
+        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -64,12 +77,14 @@ namespace ElevenLabs
             string speechEngineId,
             string name,
             int createdAtUnixSecs,
-            global::System.Collections.Generic.IList<string> tags)
+            global::System.Collections.Generic.IList<string> tags,
+            global::ElevenLabs.ResourceAccessInfo accessInfo)
         {
             this.SpeechEngineId = speechEngineId ?? throw new global::System.ArgumentNullException(nameof(speechEngineId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.CreatedAtUnixSecs = createdAtUnixSecs;
             this.Tags = tags ?? throw new global::System.ArgumentNullException(nameof(tags));
+            this.AccessInfo = accessInfo ?? throw new global::System.ArgumentNullException(nameof(accessInfo));
         }
 
         /// <summary>

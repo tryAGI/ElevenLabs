@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Code,
+        /// <summary>
+        /// 
+        /// </summary>
         Mcp,
         /// <summary>
         /// 
@@ -39,6 +43,7 @@ namespace ElevenLabs
             return value switch
             {
                 ToolRequestModelToolConfigDiscriminatorType.Client => "client",
+                ToolRequestModelToolConfigDiscriminatorType.Code => "code",
                 ToolRequestModelToolConfigDiscriminatorType.Mcp => "mcp",
                 ToolRequestModelToolConfigDiscriminatorType.System => "system",
                 ToolRequestModelToolConfigDiscriminatorType.Webhook => "webhook",
@@ -53,6 +58,7 @@ namespace ElevenLabs
             return value switch
             {
                 "client" => ToolRequestModelToolConfigDiscriminatorType.Client,
+                "code" => ToolRequestModelToolConfigDiscriminatorType.Code,
                 "mcp" => ToolRequestModelToolConfigDiscriminatorType.Mcp,
                 "system" => ToolRequestModelToolConfigDiscriminatorType.System,
                 "webhook" => ToolRequestModelToolConfigDiscriminatorType.Webhook,

@@ -19,9 +19,9 @@ namespace ElevenLabs
         /// The item configuration details.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("item")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutputJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.OrderItemRequestOutputJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput Item { get; set; }
+        public required global::ElevenLabs.OrderItemRequestOutput Item { get; set; }
 
         /// <summary>
         /// The quoted price for this item.
@@ -52,7 +52,7 @@ namespace ElevenLabs
 #endif
         public OrderItemInfo(
             string itemId,
-            global::ElevenLabs.RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindOutput item,
+            global::ElevenLabs.OrderItemRequestOutput item,
             global::ElevenLabs.QuoteInfo? quote)
         {
             this.ItemId = itemId ?? throw new global::System.ArgumentNullException(nameof(itemId));

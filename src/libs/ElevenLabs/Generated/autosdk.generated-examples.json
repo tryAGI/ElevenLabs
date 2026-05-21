@@ -666,7 +666,7 @@
       "Slug": "list-speech-engines",
       "Description": "Returns a paginated list of Speech Engine resources.",
       "Language": "csharp",
-      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.ListAsync();\n\n// Example response:\n// {\n//   \u0022has_more\u0022: false,\n//   \u0022speech_engines\u0022: [\n//     {\n//       \u0022created_at_unix_secs\u0022: 1714000000,\n//       \u0022name\u0022: \u0022My Speech Engine\u0022,\n//       \u0022speech_engine_id\u0022: \u0022seng_3701k3ttaq12ewp8b7qv5rfyszkz\u0022,\n//       \u0022tags\u0022: [\n//         \u0022production\u0022,\n//         \u0022v1\u0022\n//       ]\n//     }\n//   ]\n// }",
+      "Code": "using var client = new ElevenLabsClient(apiKey);\nvar response = await client.ListAsync();\n\n// Example response:\n// {\n//   \u0022has_more\u0022: false,\n//   \u0022speech_engines\u0022: [\n//     {\n//       \u0022access_info\u0022: {\n//         \u0022creator_email\u0022: \u0022john@example.com\u0022,\n//         \u0022creator_name\u0022: \u0022John Doe\u0022,\n//         \u0022is_creator\u0022: true,\n//         \u0022role\u0022: \u0022admin\u0022\n//       },\n//       \u0022created_at_unix_secs\u0022: 1714000000,\n//       \u0022name\u0022: \u0022My Speech Engine\u0022,\n//       \u0022speech_engine_id\u0022: \u0022seng_3701k3ttaq12ewp8b7qv5rfyszkz\u0022,\n//       \u0022tags\u0022: [\n//         \u0022production\u0022,\n//         \u0022v1\u0022\n//       ]\n//     }\n//   ]\n// }",
       "Format": "sdk",
       "OperationId": "list_speech_engines",
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."

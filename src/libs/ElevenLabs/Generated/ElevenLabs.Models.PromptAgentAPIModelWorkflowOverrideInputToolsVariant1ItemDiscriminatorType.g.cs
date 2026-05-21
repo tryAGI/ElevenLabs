@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Code,
+        /// <summary>
+        /// 
+        /// </summary>
         Mcp,
         /// <summary>
         /// 
@@ -48,6 +52,7 @@ namespace ElevenLabs
             {
                 PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType.ApiIntegrationWebhook => "api_integration_webhook",
                 PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType.Client => "client",
+                PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType.Code => "code",
                 PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType.Mcp => "mcp",
                 PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType.Smb => "smb",
                 PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType.System => "system",
@@ -64,6 +69,7 @@ namespace ElevenLabs
             {
                 "api_integration_webhook" => PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType.ApiIntegrationWebhook,
                 "client" => PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType.Client,
+                "code" => PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType.Code,
                 "mcp" => PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType.Mcp,
                 "smb" => PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType.Smb,
                 "system" => PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType.System,

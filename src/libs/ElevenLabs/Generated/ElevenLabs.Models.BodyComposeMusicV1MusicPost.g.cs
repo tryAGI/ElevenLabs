@@ -17,6 +17,12 @@ namespace ElevenLabs
         public string? Prompt { get; set; }
 
         /// <summary>
+        /// Optional generation mode hint for prompt-based music generation. Can only be used with `prompt`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("generation_mode")]
+        public global::ElevenLabs.MusicGenerationMode? GenerationMode { get; set; }
+
+        /// <summary>
         /// A music prompt. Deprecated. Use `composition_plan` instead.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("music_prompt")]
@@ -115,6 +121,9 @@ namespace ElevenLabs
         /// <param name="prompt">
         /// A simple text prompt to generate a song from. Cannot be used in conjunction with `composition_plan`.
         /// </param>
+        /// <param name="generationMode">
+        /// Optional generation mode hint for prompt-based music generation. Can only be used with `prompt`.
+        /// </param>
         /// <param name="lyricsText">
         /// The lyrics text to use for the generation.
         /// </param>
@@ -163,6 +172,7 @@ namespace ElevenLabs
 #endif
         public BodyComposeMusicV1MusicPost(
             string? prompt,
+            global::ElevenLabs.MusicGenerationMode? generationMode,
             string? lyricsText,
             global::ElevenLabs.MusicPrompt? compositionPlan,
             int? musicLengthMs,
@@ -177,6 +187,7 @@ namespace ElevenLabs
             bool? signWithC2pa)
         {
             this.Prompt = prompt;
+            this.GenerationMode = generationMode;
             this.LyricsText = lyricsText;
             this.CompositionPlan = compositionPlan;
             this.MusicLengthMs = musicLengthMs;
