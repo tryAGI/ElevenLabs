@@ -12,9 +12,9 @@ namespace ElevenLabs
         /// The order item to add or update.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("item")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindInputJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.OrderItemRequestInputJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindInput Item { get; set; }
+        public required global::ElevenLabs.OrderItemRequestInput Item { get; set; }
 
         /// <summary>
         /// The ID of an existing item to update. Omit to create a new item.
@@ -41,7 +41,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UpsertOrderItemRequest(
-            global::ElevenLabs.RootModelAnnotatedUnionDubOrderItemRequestSubtitleOrderItemRequestFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKindInput item,
+            global::ElevenLabs.OrderItemRequestInput item,
             string? itemId)
         {
             this.Item = item;

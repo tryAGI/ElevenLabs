@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Code,
+        /// <summary>
+        /// 
+        /// </summary>
         Mcp,
         /// <summary>
         /// 
@@ -48,6 +52,7 @@ namespace ElevenLabs
             {
                 ReferencedToolCommonModelType.ApiIntegrationWebhook => "api_integration_webhook",
                 ReferencedToolCommonModelType.Client => "client",
+                ReferencedToolCommonModelType.Code => "code",
                 ReferencedToolCommonModelType.Mcp => "mcp",
                 ReferencedToolCommonModelType.System => "system",
                 ReferencedToolCommonModelType.Webhook => "webhook",
@@ -64,6 +69,7 @@ namespace ElevenLabs
             {
                 "api_integration_webhook" => ReferencedToolCommonModelType.ApiIntegrationWebhook,
                 "client" => ReferencedToolCommonModelType.Client,
+                "code" => ReferencedToolCommonModelType.Code,
                 "mcp" => ReferencedToolCommonModelType.Mcp,
                 "system" => ReferencedToolCommonModelType.System,
                 "webhook" => ReferencedToolCommonModelType.Webhook,

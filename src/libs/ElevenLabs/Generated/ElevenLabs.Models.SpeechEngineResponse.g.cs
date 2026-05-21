@@ -112,6 +112,12 @@ namespace ElevenLabs
         public required global::ElevenLabs.AgentMetadataDBModel Metadata { get; set; }
 
         /// <summary>
+        /// The access information of the speech engine for the user
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
+        public global::ElevenLabs.ResourceAccessInfo? AccessInfo { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -165,6 +171,9 @@ namespace ElevenLabs
         /// <param name="metadata">
         /// Creation and update timestamps with source information
         /// </param>
+        /// <param name="accessInfo">
+        /// The access information of the speech engine for the user
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -181,7 +190,8 @@ namespace ElevenLabs
             string language,
             global::System.Collections.Generic.IList<string> tags,
             global::ElevenLabs.SpeechEngineConversationInitiationClientDataConfig overrides,
-            global::ElevenLabs.AgentMetadataDBModel metadata)
+            global::ElevenLabs.AgentMetadataDBModel metadata,
+            global::ElevenLabs.ResourceAccessInfo? accessInfo)
         {
             this.SpeechEngineId = speechEngineId ?? throw new global::System.ArgumentNullException(nameof(speechEngineId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -196,6 +206,7 @@ namespace ElevenLabs
             this.Tags = tags ?? throw new global::System.ArgumentNullException(nameof(tags));
             this.Overrides = overrides ?? throw new global::System.ArgumentNullException(nameof(overrides));
             this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
+            this.AccessInfo = accessInfo;
         }
 
         /// <summary>

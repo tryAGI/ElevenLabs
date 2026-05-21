@@ -51,7 +51,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.RootModelAnnotatedUnionPairedLanguagesResponseSingleLanguagesResponseFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKind> List3Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.LanguagesResponse> List3Async(
             global::ElevenLabs.OrderItemKind orderItemKind,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -74,7 +74,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.RootModelAnnotatedUnionPairedLanguagesResponseSingleLanguagesResponseFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKind>> List3AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LanguagesResponse>> List3AsResponseAsync(
             global::ElevenLabs.OrderItemKind orderItemKind,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -390,9 +390,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.RootModelAnnotatedUnionPairedLanguagesResponseSingleLanguagesResponseFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKind.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.LanguagesResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.RootModelAnnotatedUnionPairedLanguagesResponseSingleLanguagesResponseFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKind>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LanguagesResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -424,9 +424,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.RootModelAnnotatedUnionPairedLanguagesResponseSingleLanguagesResponseFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKind.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.LanguagesResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.RootModelAnnotatedUnionPairedLanguagesResponseSingleLanguagesResponseFieldInfoAnnotationNoneTypeRequiredTrueDiscriminatorKind>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LanguagesResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

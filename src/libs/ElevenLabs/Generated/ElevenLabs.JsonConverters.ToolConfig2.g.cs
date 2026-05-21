@@ -49,6 +49,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.MCPToolConfigOutput)}");
                 mcp = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.CodeToolConfigOutput? code = default;
+            if (discriminator?.Type == global::ElevenLabs.ToolResponseModelToolConfigDiscriminatorType.Code)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CodeToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CodeToolConfigOutput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CodeToolConfigOutput)}");
+                code = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var __value = new global::ElevenLabs.ToolConfig2(
                 discriminator?.Type,
@@ -58,7 +65,9 @@ namespace ElevenLabs.JsonConverters
 
                 system,
 
-                mcp
+                mcp,
+
+                code
                 );
 
             return __value;
@@ -96,6 +105,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MCPToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MCPToolConfigOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.MCPToolConfigOutput).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Mcp!, typeInfo);
+            }
+            else if (value.IsCode)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CodeToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CodeToolConfigOutput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CodeToolConfigOutput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Code!, typeInfo);
             }
         }
     }
