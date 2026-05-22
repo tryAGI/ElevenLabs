@@ -48062,7 +48062,9 @@
           "flutter_sdk",
           "zendesk_integration",
           "slack_integration",
+          "telegram_integration",
           "intercom_integration",
+          "freshdesk_integration",
           "template_preview",
           "genesys_bot_connector"
         ],
@@ -83257,6 +83259,15 @@
             "description": "Content type for the request body. Only applies to POST/PUT/PATCH requests.",
             "default": "application/json"
           },
+          "auth_resolved_params": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true,
+            "title": "Auth Resolved Params",
+            "description": "URL placeholders resolved from the auth connection (e.g. secrets injected via UrlSecretAuthConnection) rather than from path_params_schema."
+          },
           "auth_connection": {
             "anyOf": [
               {
@@ -83392,6 +83403,14 @@
             "title": "Content Type",
             "description": "Content type for the request body. Only applies to POST/PUT/PATCH requests.",
             "default": "application/json"
+          },
+          "auth_resolved_params": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Auth Resolved Params",
+            "description": "URL placeholders resolved from the auth connection (e.g. secrets injected via UrlSecretAuthConnection) rather than from path_params_schema."
           },
           "auth_connection": {
             "anyOf": [

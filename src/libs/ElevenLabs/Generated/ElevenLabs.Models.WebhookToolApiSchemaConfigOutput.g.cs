@@ -62,6 +62,12 @@ namespace ElevenLabs
         public global::ElevenLabs.WebhookToolApiSchemaConfigOutputContentType? ContentType { get; set; }
 
         /// <summary>
+        /// URL placeholders resolved from the auth connection (e.g. secrets injected via UrlSecretAuthConnection) rather than from path_params_schema.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auth_resolved_params")]
+        public global::System.Collections.Generic.IList<string>? AuthResolvedParams { get; set; }
+
+        /// <summary>
         /// Optional auth connection to use for authentication with this webhook
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_connection")]
@@ -103,6 +109,9 @@ namespace ElevenLabs
         /// Content type for the request body. Only applies to POST/PUT/PATCH requests.<br/>
         /// Default Value: application/json
         /// </param>
+        /// <param name="authResolvedParams">
+        /// URL placeholders resolved from the auth connection (e.g. secrets injected via UrlSecretAuthConnection) rather than from path_params_schema.
+        /// </param>
         /// <param name="authConnection">
         /// Optional auth connection to use for authentication with this webhook
         /// </param>
@@ -118,6 +127,7 @@ namespace ElevenLabs
             global::ElevenLabs.ObjectJsonSchemaPropertyOutput? requestBodySchema,
             global::ElevenLabs.ObjectJsonSchemaPropertyOutput? responseBodySchema,
             global::ElevenLabs.WebhookToolApiSchemaConfigOutputContentType? contentType,
+            global::System.Collections.Generic.IList<string>? authResolvedParams,
             global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection)
         {
             this.RequestHeaders = requestHeaders;
@@ -128,6 +138,7 @@ namespace ElevenLabs
             this.RequestBodySchema = requestBodySchema;
             this.ResponseBodySchema = responseBodySchema;
             this.ContentType = contentType;
+            this.AuthResolvedParams = authResolvedParams;
             this.AuthConnection = authConnection;
         }
 
