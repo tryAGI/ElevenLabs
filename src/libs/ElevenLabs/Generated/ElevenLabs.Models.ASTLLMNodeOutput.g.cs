@@ -69,17 +69,5 @@ namespace ElevenLabs
         {
         }
 
-        /// <summary>
-        /// Creates a new <see cref="ASTLLMNodeOutput"/> from its single non-const required field,
-        /// hardcoding any const discriminator fields.
-        /// </summary>
-        public static ASTLLMNodeOutput FromValueSchema(global::ElevenLabs.LLMLiteralJsonSchemaProperty valueSchema)
-        {
-            return new ASTLLMNodeOutput
-            {
-                ValueSchema = valueSchema,
-            };
-        }
-
     }
 }
