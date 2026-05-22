@@ -20,6 +20,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        FreshdeskIntegration,
+        /// <summary>
+        /// 
+        /// </summary>
         Genesys,
         /// <summary>
         /// 
@@ -64,6 +68,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        TelegramIntegration,
+        /// <summary>
+        /// 
+        /// </summary>
         TemplatePreview,
         /// <summary>
         /// 
@@ -105,6 +113,7 @@ namespace ElevenLabs
             {
                 ConversationInitiationSource.AndroidSdk => "android_sdk",
                 ConversationInitiationSource.FlutterSdk => "flutter_sdk",
+                ConversationInitiationSource.FreshdeskIntegration => "freshdesk_integration",
                 ConversationInitiationSource.Genesys => "genesys",
                 ConversationInitiationSource.GenesysBotConnector => "genesys_bot_connector",
                 ConversationInitiationSource.IntercomIntegration => "intercom_integration",
@@ -116,6 +125,7 @@ namespace ElevenLabs
                 ConversationInitiationSource.SipTrunk => "sip_trunk",
                 ConversationInitiationSource.SlackIntegration => "slack_integration",
                 ConversationInitiationSource.SwiftSdk => "swift_sdk",
+                ConversationInitiationSource.TelegramIntegration => "telegram_integration",
                 ConversationInitiationSource.TemplatePreview => "template_preview",
                 ConversationInitiationSource.Twilio => "twilio",
                 ConversationInitiationSource.TwilioSms => "twilio_sms",
@@ -135,6 +145,7 @@ namespace ElevenLabs
             {
                 "android_sdk" => ConversationInitiationSource.AndroidSdk,
                 "flutter_sdk" => ConversationInitiationSource.FlutterSdk,
+                "freshdesk_integration" => ConversationInitiationSource.FreshdeskIntegration,
                 "genesys" => ConversationInitiationSource.Genesys,
                 "genesys_bot_connector" => ConversationInitiationSource.GenesysBotConnector,
                 "intercom_integration" => ConversationInitiationSource.IntercomIntegration,
@@ -146,6 +157,7 @@ namespace ElevenLabs
                 "sip_trunk" => ConversationInitiationSource.SipTrunk,
                 "slack_integration" => ConversationInitiationSource.SlackIntegration,
                 "swift_sdk" => ConversationInitiationSource.SwiftSdk,
+                "telegram_integration" => ConversationInitiationSource.TelegramIntegration,
                 "template_preview" => ConversationInitiationSource.TemplatePreview,
                 "twilio" => ConversationInitiationSource.Twilio,
                 "twilio_sms" => ConversationInitiationSource.TwilioSms,
