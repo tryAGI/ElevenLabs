@@ -36,6 +36,11 @@ public sealed record RealtimeSpeechToTextOptions
     public string? LanguageCode { get; init; }
 
     /// <summary>
+    /// Key terms to bias realtime transcription toward.
+    /// </summary>
+    public IReadOnlyList<string>? Keyterms { get; init; }
+
+    /// <summary>
     /// Commit strategy for transcription.
     /// </summary>
     public RealtimeCommitStrategy CommitStrategy { get; init; } = RealtimeCommitStrategy.Manual;
