@@ -33,6 +33,7 @@ autosdk generate openapi.json \
   --exclude-deprecated-operations \
   --methodNamingConvention MethodAndPath \
   --security-scheme ApiKey:Header:xi-api-key \
+  --auth-env-var ELEVENLABS_API_KEY \
   --base-url https://api.elevenlabs.io
 
 autosdk generate asyncapi.json \
@@ -42,4 +43,5 @@ autosdk generate asyncapi.json \
   --targetFramework net10.0 \
   --output Generated \
   --security-scheme ApiKey:Header:xi-api-key \
+  --auth-env-var ELEVENLABS_API_KEY \
   --base-url https://api.elevenlabs.io

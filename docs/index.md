@@ -1,6 +1,6 @@
 <div class="docs-hero">
   <h1>ElevenLabs</h1>
-  <p class="docs-hero-lead">.NET SDK for ElevenLabs text to speech, speech to text, voice cloning, sound generation, and realtime transcription.</p>
+  <p class="docs-hero-lead">.NET SDK for ElevenLabs text to speech, speech to text, music generation, voice cloning, sound generation, and realtime transcription.</p>
   <div class="docs-badge-row">
     <a href="https://www.nuget.org/packages/ElevenLabs/"><img alt="Nuget package" src="https://img.shields.io/nuget/vpre/ElevenLabs"></a>
     <a href="https://github.com/tryAGI/ElevenLabs/actions/workflows/dotnet.yml"><img alt="dotnet" src="https://github.com/tryAGI/ElevenLabs/actions/workflows/dotnet.yml/badge.svg?branch=main"></a>
@@ -16,7 +16,7 @@
 <div class="docs-feature-grid">
   <div class="docs-feature-card">
     <h3>Speech and audio coverage</h3>
-    <p>Use one client for text to speech, speech to text, sound generation, and voice cloning workflows.</p>
+    <p>Use one client for text to speech, speech to text, music generation, sound generation, and voice cloning workflows.</p>
   </div>
   <div class="docs-feature-card">
     <h3>Realtime transcription</h3>
@@ -187,6 +187,32 @@ byte[] soundBytes = await client.TextToSoundEffects.ConvertAsync(
 // Persist the result to a local file.
 await File.WriteAllBytesAsync("ocean-wave.mp3", soundBytes);
 Console.WriteLine($"Saved {soundBytes.Length} bytes to ocean-wave.mp3");
+```
+
+### Eleven Music
+Create a short composition plan with Eleven Music, generate a minimum-length instrumental track from it, and save the returned audio bytes.
+
+```csharp
+using var client = new ElevenLabsClient(apiKey);
+
+const string prompt =
+    "Create a short upbeat instrumental synthwave loop with bright arpeggios and a steady drum groove.";
+
+// Create a structured composition plan from a natural-language prompt.
+MusicPrompt compositionPlan = await client.MusicGeneration.CreateAsync(
+    prompt: prompt,
+    musicLengthMs: 3000);
+
+Console.WriteLine($"Generated {compositionPlan.Sections.Count} music section(s).");
+
+// Generate music from the composition plan.
+byte[] musicBytes = await client.Music.ComposeAsync(
+    outputFormat: AllowedOutputFormats.Mp32205032,
+    compositionPlan: compositionPlan);
+
+// Persist the result to a local file.
+await File.WriteAllBytesAsync("eleven-music.mp3", musicBytes);
+Console.WriteLine($"Saved {musicBytes.Length} bytes to eleven-music.mp3");
 ```
 
 ### Speech to Text from a File

@@ -201,8 +201,11 @@ public partial class Tests
         try
         {
             await client.ConvertAsync(
-                modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1,
-                sourceUrl: "https://example.com/audio.wav");
+                request: new BodySpeechToTextV1SpeechToTextPost
+                {
+                    ModelId = BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1,
+                    SourceUrl = "https://example.com/audio.wav",
+                });
         }
         catch (InvalidOperationException)
         {
