@@ -133,7 +133,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/dubbing/{dubbingId}/transcripts/{languageCode}/format/{formatType}",
+                                path: $"/v1/dubbing/{dubbingId}/transcripts/{languageCode}/format/{(global::System.Uri.EscapeDataString(formatType.ToValueString()))}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -196,7 +196,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get5",
                                 methodName: "Get5Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/transcripts/{languageCode}/format/{formatType}\"",
+                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/transcripts/{languageCode}/format/{(global::System.Uri.EscapeDataString(formatType.ToValueString()))}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -230,7 +230,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get5",
                                 methodName: "Get5Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/transcripts/{languageCode}/format/{formatType}\"",
+                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/transcripts/{languageCode}/format/{(global::System.Uri.EscapeDataString(formatType.ToValueString()))}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -271,7 +271,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get5",
                                 methodName: "Get5Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/transcripts/{languageCode}/format/{formatType}\"",
+                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/transcripts/{languageCode}/format/{(global::System.Uri.EscapeDataString(formatType.ToValueString()))}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -319,7 +319,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get5",
                                 methodName: "Get5Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/transcripts/{languageCode}/format/{formatType}\"",
+                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/transcripts/{languageCode}/format/{(global::System.Uri.EscapeDataString(formatType.ToValueString()))}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -341,7 +341,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get5",
                                 methodName: "Get5Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/transcripts/{languageCode}/format/{formatType}\"",
+                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/transcripts/{languageCode}/format/{(global::System.Uri.EscapeDataString(formatType.ToValueString()))}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,

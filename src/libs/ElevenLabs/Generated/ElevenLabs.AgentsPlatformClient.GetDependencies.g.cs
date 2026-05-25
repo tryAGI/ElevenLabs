@@ -139,7 +139,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/secrets/{secretId}/dependencies/{resourceType}",
+                                path: $"/v1/convai/secrets/{secretId}/dependencies/{(global::System.Uri.EscapeDataString(resourceType.ToValueString()))}",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
@@ -207,7 +207,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetDependencies",
                                 methodName: "GetDependenciesAsync",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}/dependencies/{resourceType}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}/dependencies/{(global::System.Uri.EscapeDataString(resourceType.ToValueString()))}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -241,7 +241,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetDependencies",
                                 methodName: "GetDependenciesAsync",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}/dependencies/{resourceType}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}/dependencies/{(global::System.Uri.EscapeDataString(resourceType.ToValueString()))}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -282,7 +282,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetDependencies",
                                 methodName: "GetDependenciesAsync",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}/dependencies/{resourceType}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}/dependencies/{(global::System.Uri.EscapeDataString(resourceType.ToValueString()))}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -330,7 +330,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetDependencies",
                                 methodName: "GetDependenciesAsync",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}/dependencies/{resourceType}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}/dependencies/{(global::System.Uri.EscapeDataString(resourceType.ToValueString()))}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -352,7 +352,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetDependencies",
                                 methodName: "GetDependenciesAsync",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}/dependencies/{resourceType}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}/dependencies/{(global::System.Uri.EscapeDataString(resourceType.ToValueString()))}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,

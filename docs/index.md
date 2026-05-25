@@ -331,7 +331,8 @@ await foreach (var evt in session.ReadEventsAsync(cts.Token))
     }
 }
 
-// Inspect close details when the server or client closes the socket.
+// CloseStatus is null if this loop exits before a WebSocket close frame is observed.
+// The await using block still closes the socket normally when the session is disposed.
 Console.WriteLine(session.CloseStatus is null
     ? "Realtime socket is still open."
     : $"Realtime socket closed: {session.CloseStatus} - {session.CloseStatusDescription}");

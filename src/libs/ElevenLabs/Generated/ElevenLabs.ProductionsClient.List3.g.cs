@@ -109,7 +109,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/productions/orders/languages/{orderItemKind}",
+                                path: $"/v1/productions/orders/languages/{(global::System.Uri.EscapeDataString(orderItemKind.ToValueString()))}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -170,7 +170,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List3",
                                 methodName: "List3Async",
-                                pathTemplate: "$\"/v1/productions/orders/languages/{orderItemKind}\"",
+                                pathTemplate: "$\"/v1/productions/orders/languages/{(global::System.Uri.EscapeDataString(orderItemKind.ToValueString()))}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -204,7 +204,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List3",
                                 methodName: "List3Async",
-                                pathTemplate: "$\"/v1/productions/orders/languages/{orderItemKind}\"",
+                                pathTemplate: "$\"/v1/productions/orders/languages/{(global::System.Uri.EscapeDataString(orderItemKind.ToValueString()))}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -245,7 +245,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List3",
                                 methodName: "List3Async",
-                                pathTemplate: "$\"/v1/productions/orders/languages/{orderItemKind}\"",
+                                pathTemplate: "$\"/v1/productions/orders/languages/{(global::System.Uri.EscapeDataString(orderItemKind.ToValueString()))}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -293,7 +293,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List3",
                                 methodName: "List3Async",
-                                pathTemplate: "$\"/v1/productions/orders/languages/{orderItemKind}\"",
+                                pathTemplate: "$\"/v1/productions/orders/languages/{(global::System.Uri.EscapeDataString(orderItemKind.ToValueString()))}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -315,7 +315,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List3",
                                 methodName: "List3Async",
-                                pathTemplate: "$\"/v1/productions/orders/languages/{orderItemKind}\"",
+                                pathTemplate: "$\"/v1/productions/orders/languages/{(global::System.Uri.EscapeDataString(orderItemKind.ToValueString()))}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,

@@ -3,7 +3,11 @@ set -euo pipefail
 
 # OpenAPI spec: https://api.elevenlabs.io/openapi.json (+ AsyncAPI)
 
-dotnet tool install --global autosdk.cli --prerelease
+if dotnet tool list --global | grep -q '^autosdk\.cli[[:space:]]'; then
+  dotnet tool update --global autosdk.cli --prerelease
+else
+  dotnet tool install --global autosdk.cli --prerelease
+fi
 rm -rf Generated
 curl --fail --silent --show-error -L https://api.elevenlabs.io/openapi.json | jq '
   # The upstream GenerationNode response spec lists every model-specific parameter

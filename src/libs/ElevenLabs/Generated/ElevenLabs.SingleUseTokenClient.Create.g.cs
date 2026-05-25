@@ -105,7 +105,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/single-use-token/{tokenType}",
+                                path: $"/v1/single-use-token/{(global::System.Uri.EscapeDataString(tokenType.ToValueString()))}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -166,7 +166,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create",
                                 methodName: "CreateAsync",
-                                pathTemplate: "$\"/v1/single-use-token/{tokenType}\"",
+                                pathTemplate: "$\"/v1/single-use-token/{(global::System.Uri.EscapeDataString(tokenType.ToValueString()))}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -200,7 +200,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create",
                                 methodName: "CreateAsync",
-                                pathTemplate: "$\"/v1/single-use-token/{tokenType}\"",
+                                pathTemplate: "$\"/v1/single-use-token/{(global::System.Uri.EscapeDataString(tokenType.ToValueString()))}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -241,7 +241,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create",
                                 methodName: "CreateAsync",
-                                pathTemplate: "$\"/v1/single-use-token/{tokenType}\"",
+                                pathTemplate: "$\"/v1/single-use-token/{(global::System.Uri.EscapeDataString(tokenType.ToValueString()))}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -289,7 +289,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create",
                                 methodName: "CreateAsync",
-                                pathTemplate: "$\"/v1/single-use-token/{tokenType}\"",
+                                pathTemplate: "$\"/v1/single-use-token/{(global::System.Uri.EscapeDataString(tokenType.ToValueString()))}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -311,7 +311,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create",
                                 methodName: "CreateAsync",
-                                pathTemplate: "$\"/v1/single-use-token/{tokenType}\"",
+                                pathTemplate: "$\"/v1/single-use-token/{(global::System.Uri.EscapeDataString(tokenType.ToValueString()))}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
