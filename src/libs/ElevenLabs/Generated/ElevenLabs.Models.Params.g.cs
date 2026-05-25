@@ -200,7 +200,7 @@ namespace ElevenLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateClient' but the value was {ToString()}.");
 
         /// <summary>
-        /// Delete an existing client from the system.
+        /// Delete a client, cascading deletion of all their appointments first.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteClientParams? DeleteClient { get; init; }
