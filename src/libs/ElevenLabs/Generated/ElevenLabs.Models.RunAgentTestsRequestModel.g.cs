@@ -28,6 +28,13 @@ namespace ElevenLabs
         public string? BranchId { get; set; }
 
         /// <summary>
+        /// Number of times to run each test. When greater than 1, results are grouped and summarized.<br/>
+        /// Default Value: 1
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("repeat_count")]
+        public int? RepeatCount { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -45,17 +52,23 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// ID of the branch to run the tests on. If not provided, the tests will be run on the agent default configuration.
         /// </param>
+        /// <param name="repeatCount">
+        /// Number of times to run each test. When greater than 1, results are grouped and summarized.<br/>
+        /// Default Value: 1
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RunAgentTestsRequestModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.SingleTestRunRequestModel> tests,
             global::ElevenLabs.AdhocAgentConfigOverrideForTestRequestModel? agentConfigOverride,
-            string? branchId)
+            string? branchId,
+            int? repeatCount)
         {
             this.Tests = tests ?? throw new global::System.ArgumentNullException(nameof(tests));
             this.AgentConfigOverride = agentConfigOverride;
             this.BranchId = branchId;
+            this.RepeatCount = repeatCount;
         }
 
         /// <summary>

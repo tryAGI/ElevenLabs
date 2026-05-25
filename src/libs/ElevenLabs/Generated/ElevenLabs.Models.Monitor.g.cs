@@ -16,6 +16,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ElevatedToolFailureRate,
+        /// <summary>
+        /// 
+        /// </summary>
+        WebhookErrorSpike,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace ElevenLabs
             {
                 Monitor.ElevatedConversationFailureRate => "elevated_conversation_failure_rate",
                 Monitor.ElevatedToolFailureRate => "elevated_tool_failure_rate",
+                Monitor.WebhookErrorSpike => "webhook_error_spike",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace ElevenLabs
             {
                 "elevated_conversation_failure_rate" => Monitor.ElevatedConversationFailureRate,
                 "elevated_tool_failure_rate" => Monitor.ElevatedToolFailureRate,
+                "webhook_error_spike" => Monitor.WebhookErrorSpike,
                 _ => null,
             };
         }

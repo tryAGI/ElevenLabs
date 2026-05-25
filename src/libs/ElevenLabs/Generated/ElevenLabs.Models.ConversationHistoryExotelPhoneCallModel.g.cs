@@ -1,0 +1,110 @@
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed partial class ConversationHistoryExotelPhoneCallModel
+    {
+        /// <summary>
+        /// Default Value: inbound
+        /// </summary>
+        /// <default>global::ElevenLabs.TelephonyDirection.Inbound</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("direction")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TelephonyDirectionJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.TelephonyDirection Direction { get; set; } = global::ElevenLabs.TelephonyDirection.Inbound;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string PhoneNumberId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_number")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string AgentNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("external_number")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string ExternalNumber { get; set; }
+
+        /// <summary>
+        /// Default Value: exotel
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        public string? Type { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("stream_sid")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string StreamSid { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("call_sid")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string CallSid { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConversationHistoryExotelPhoneCallModel" /> class.
+        /// </summary>
+        /// <param name="direction">
+        /// Default Value: inbound
+        /// </param>
+        /// <param name="phoneNumberId"></param>
+        /// <param name="agentNumber"></param>
+        /// <param name="externalNumber"></param>
+        /// <param name="streamSid"></param>
+        /// <param name="callSid"></param>
+        /// <param name="type">
+        /// Default Value: exotel
+        /// </param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public ConversationHistoryExotelPhoneCallModel(
+            global::ElevenLabs.TelephonyDirection direction,
+            string phoneNumberId,
+            string agentNumber,
+            string externalNumber,
+            string streamSid,
+            string callSid,
+            string? type)
+        {
+            this.Direction = direction;
+            this.PhoneNumberId = phoneNumberId ?? throw new global::System.ArgumentNullException(nameof(phoneNumberId));
+            this.AgentNumber = agentNumber ?? throw new global::System.ArgumentNullException(nameof(agentNumber));
+            this.ExternalNumber = externalNumber ?? throw new global::System.ArgumentNullException(nameof(externalNumber));
+            this.Type = type;
+            this.StreamSid = streamSid ?? throw new global::System.ArgumentNullException(nameof(streamSid));
+            this.CallSid = callSid ?? throw new global::System.ArgumentNullException(nameof(callSid));
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConversationHistoryExotelPhoneCallModel" /> class.
+        /// </summary>
+        public ConversationHistoryExotelPhoneCallModel()
+        {
+        }
+
+    }
+}

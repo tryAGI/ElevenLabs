@@ -63,6 +63,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToNumberResultSipSuccessModel)}");
                 transferToNumberSipSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.TransferToNumberResultExotelSuccessModel? transferToNumberExotelSuccess = default;
+            if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToNumberExotelSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultExotelSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultExotelSuccessModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToNumberResultExotelSuccessModel)}");
+                transferToNumberExotelSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.TransferToNumberResultErrorModel? transferToNumberError = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToNumberError)
             {
@@ -127,6 +134,8 @@ namespace ElevenLabs.JsonConverters
 
                 transferToNumberSipSuccess,
 
+                transferToNumberExotelSuccess,
+
                 transferToNumberError,
 
                 skipTurnSuccess,
@@ -189,6 +198,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultSipSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultSipSuccessModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToNumberResultSipSuccessModel).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToNumberSipSuccess!, typeInfo);
+            }
+            else if (value.IsTransferToNumberExotelSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultExotelSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultExotelSuccessModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToNumberResultExotelSuccessModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToNumberExotelSuccess!, typeInfo);
             }
             else if (value.IsTransferToNumberError)
             {

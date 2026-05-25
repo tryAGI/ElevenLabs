@@ -16,6 +16,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Exotel,
+        /// <summary>
+        /// 
+        /// </summary>
         FlutterSdk,
         /// <summary>
         /// 
@@ -112,6 +116,7 @@ namespace ElevenLabs
             return value switch
             {
                 ConversationInitiationSource.AndroidSdk => "android_sdk",
+                ConversationInitiationSource.Exotel => "exotel",
                 ConversationInitiationSource.FlutterSdk => "flutter_sdk",
                 ConversationInitiationSource.FreshdeskIntegration => "freshdesk_integration",
                 ConversationInitiationSource.Genesys => "genesys",
@@ -144,6 +149,7 @@ namespace ElevenLabs
             return value switch
             {
                 "android_sdk" => ConversationInitiationSource.AndroidSdk,
+                "exotel" => ConversationInitiationSource.Exotel,
                 "flutter_sdk" => ConversationInitiationSource.FlutterSdk,
                 "freshdesk_integration" => ConversationInitiationSource.FreshdeskIntegration,
                 "genesys" => ConversationInitiationSource.Genesys,

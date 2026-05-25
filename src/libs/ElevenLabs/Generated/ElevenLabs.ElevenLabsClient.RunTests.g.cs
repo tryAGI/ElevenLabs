@@ -499,6 +499,10 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// ID of the branch to run the tests on. If not provided, the tests will be run on the agent default configuration.
         /// </param>
+        /// <param name="repeatCount">
+        /// Number of times to run each test. When greater than 1, results are grouped and summarized.<br/>
+        /// Default Value: 1
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -507,6 +511,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.SingleTestRunRequestModel> tests,
             global::ElevenLabs.AdhocAgentConfigOverrideForTestRequestModel? agentConfigOverride = default,
             string? branchId = default,
+            int? repeatCount = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -515,6 +520,7 @@ namespace ElevenLabs
                 Tests = tests,
                 AgentConfigOverride = agentConfigOverride,
                 BranchId = branchId,
+                RepeatCount = repeatCount,
             };
 
             return await RunTestsAsync(

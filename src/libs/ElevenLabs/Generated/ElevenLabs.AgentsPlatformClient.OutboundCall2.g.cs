@@ -27,11 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareOutboundCall2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.BodyMakeAnOutboundCallViaWhatsAppV1ConvaiWhatsappOutboundCallPost request);
+            global::ElevenLabs.BodyHandleAnOutboundCallViaExotelV1ConvaiExotelOutboundCallPost request);
         partial void PrepareOutboundCall2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.BodyMakeAnOutboundCallViaWhatsAppV1ConvaiWhatsappOutboundCallPost request);
+            global::ElevenLabs.BodyHandleAnOutboundCallViaExotelV1ConvaiExotelOutboundCallPost request);
         partial void ProcessOutboundCall2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,16 +42,16 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Make An Outbound Call Via Whatsapp<br/>
-        /// Make an outbound call via WhatsApp
+        /// Handle An Outbound Call Via Exotel<br/>
+        /// Handle an outbound call via Exotel Connect API
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WhatsAppOutboundCallResponse> OutboundCall2Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ExotelOutboundCallResponse> OutboundCall2Async(
 
-            global::ElevenLabs.BodyMakeAnOutboundCallViaWhatsAppV1ConvaiWhatsappOutboundCallPost request,
+            global::ElevenLabs.BodyHandleAnOutboundCallViaExotelV1ConvaiExotelOutboundCallPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -65,16 +65,16 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Make An Outbound Call Via Whatsapp<br/>
-        /// Make an outbound call via WhatsApp
+        /// Handle An Outbound Call Via Exotel<br/>
+        /// Handle an outbound call via Exotel Connect API
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WhatsAppOutboundCallResponse>> OutboundCall2AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ExotelOutboundCallResponse>> OutboundCall2AsResponseAsync(
 
-            global::ElevenLabs.BodyMakeAnOutboundCallViaWhatsAppV1ConvaiWhatsappOutboundCallPost request,
+            global::ElevenLabs.BodyHandleAnOutboundCallViaExotelV1ConvaiExotelOutboundCallPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -110,7 +110,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/whatsapp/outbound-call",
+                                path: "/v1/convai/exotel/outbound-call",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -177,7 +177,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "OutboundCall2",
                                 methodName: "OutboundCall2Async",
-                                pathTemplate: "\"/v1/convai/whatsapp/outbound-call\"",
+                                pathTemplate: "\"/v1/convai/exotel/outbound-call\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -211,7 +211,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "OutboundCall2",
                                 methodName: "OutboundCall2Async",
-                                pathTemplate: "\"/v1/convai/whatsapp/outbound-call\"",
+                                pathTemplate: "\"/v1/convai/exotel/outbound-call\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -252,7 +252,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "OutboundCall2",
                                 methodName: "OutboundCall2Async",
-                                pathTemplate: "\"/v1/convai/whatsapp/outbound-call\"",
+                                pathTemplate: "\"/v1/convai/exotel/outbound-call\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -300,7 +300,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "OutboundCall2",
                                 methodName: "OutboundCall2Async",
-                                pathTemplate: "\"/v1/convai/whatsapp/outbound-call\"",
+                                pathTemplate: "\"/v1/convai/exotel/outbound-call\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -322,7 +322,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "OutboundCall2",
                                 methodName: "OutboundCall2Async",
-                                pathTemplate: "\"/v1/convai/whatsapp/outbound-call\"",
+                                pathTemplate: "\"/v1/convai/exotel/outbound-call\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -396,9 +396,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.WhatsAppOutboundCallResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ExotelOutboundCallResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WhatsAppOutboundCallResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ExotelOutboundCallResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -428,9 +428,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.WhatsAppOutboundCallResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ExotelOutboundCallResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WhatsAppOutboundCallResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ExotelOutboundCallResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -471,36 +471,35 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Make An Outbound Call Via Whatsapp<br/>
-        /// Make an outbound call via WhatsApp
+        /// Handle An Outbound Call Via Exotel<br/>
+        /// Handle an outbound call via Exotel Connect API
         /// </summary>
-        /// <param name="whatsappPhoneNumberId"></param>
-        /// <param name="whatsappUserId"></param>
-        /// <param name="whatsappCallPermissionRequestTemplateName"></param>
-        /// <param name="whatsappCallPermissionRequestTemplateLanguageCode"></param>
         /// <param name="agentId"></param>
+        /// <param name="agentPhoneNumberId"></param>
+        /// <param name="toNumber"></param>
         /// <param name="conversationInitiationClientData"></param>
+        /// <param name="telephonyCallConfig">
+        /// Default Value: {"ringing_timeout_secs":60}
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WhatsAppOutboundCallResponse> OutboundCall2Async(
-            string whatsappPhoneNumberId,
-            string whatsappUserId,
-            string whatsappCallPermissionRequestTemplateName,
-            string whatsappCallPermissionRequestTemplateLanguageCode,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ExotelOutboundCallResponse> OutboundCall2Async(
             string agentId,
+            string agentPhoneNumberId,
+            string toNumber,
             global::ElevenLabs.ConversationInitiationClientDataRequestInput? conversationInitiationClientData = default,
+            global::ElevenLabs.TelephonyCallConfig? telephonyCallConfig = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyMakeAnOutboundCallViaWhatsAppV1ConvaiWhatsappOutboundCallPost
+            var __request = new global::ElevenLabs.BodyHandleAnOutboundCallViaExotelV1ConvaiExotelOutboundCallPost
             {
-                WhatsappPhoneNumberId = whatsappPhoneNumberId,
-                WhatsappUserId = whatsappUserId,
-                WhatsappCallPermissionRequestTemplateName = whatsappCallPermissionRequestTemplateName,
-                WhatsappCallPermissionRequestTemplateLanguageCode = whatsappCallPermissionRequestTemplateLanguageCode,
                 AgentId = agentId,
+                AgentPhoneNumberId = agentPhoneNumberId,
+                ToNumber = toNumber,
                 ConversationInitiationClientData = conversationInitiationClientData,
+                TelephonyCallConfig = telephonyCallConfig,
             };
 
             return await OutboundCall2Async(
