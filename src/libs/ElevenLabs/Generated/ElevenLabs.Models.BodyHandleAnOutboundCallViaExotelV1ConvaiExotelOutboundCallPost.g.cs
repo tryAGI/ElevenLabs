@@ -1,0 +1,85 @@
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed partial class BodyHandleAnOutboundCallViaExotelV1ConvaiExotelOutboundCallPost
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string AgentId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_phone_number_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string AgentPhoneNumberId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("to_number")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string ToNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_client_data")]
+        public global::ElevenLabs.ConversationInitiationClientDataRequestInput? ConversationInitiationClientData { get; set; }
+
+        /// <summary>
+        /// Default Value: {"ringing_timeout_secs":60}
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("telephony_call_config")]
+        public global::ElevenLabs.TelephonyCallConfig? TelephonyCallConfig { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BodyHandleAnOutboundCallViaExotelV1ConvaiExotelOutboundCallPost" /> class.
+        /// </summary>
+        /// <param name="agentId"></param>
+        /// <param name="agentPhoneNumberId"></param>
+        /// <param name="toNumber"></param>
+        /// <param name="conversationInitiationClientData"></param>
+        /// <param name="telephonyCallConfig">
+        /// Default Value: {"ringing_timeout_secs":60}
+        /// </param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public BodyHandleAnOutboundCallViaExotelV1ConvaiExotelOutboundCallPost(
+            string agentId,
+            string agentPhoneNumberId,
+            string toNumber,
+            global::ElevenLabs.ConversationInitiationClientDataRequestInput? conversationInitiationClientData,
+            global::ElevenLabs.TelephonyCallConfig? telephonyCallConfig)
+        {
+            this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
+            this.AgentPhoneNumberId = agentPhoneNumberId ?? throw new global::System.ArgumentNullException(nameof(agentPhoneNumberId));
+            this.ToNumber = toNumber ?? throw new global::System.ArgumentNullException(nameof(toNumber));
+            this.ConversationInitiationClientData = conversationInitiationClientData;
+            this.TelephonyCallConfig = telephonyCallConfig;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BodyHandleAnOutboundCallViaExotelV1ConvaiExotelOutboundCallPost" /> class.
+        /// </summary>
+        public BodyHandleAnOutboundCallViaExotelV1ConvaiExotelOutboundCallPost()
+        {
+        }
+
+    }
+}

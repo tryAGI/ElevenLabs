@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Exotel,
+        /// <summary>
+        /// 
+        /// </summary>
         SipTrunk,
         /// <summary>
         /// 
@@ -30,6 +34,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                TelephonyProvider.Exotel => "exotel",
                 TelephonyProvider.SipTrunk => "sip_trunk",
                 TelephonyProvider.Twilio => "twilio",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -42,6 +47,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "exotel" => TelephonyProvider.Exotel,
                 "sip_trunk" => TelephonyProvider.SipTrunk,
                 "twilio" => TelephonyProvider.Twilio,
                 _ => null,

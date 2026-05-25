@@ -27,11 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareOutboundCall3Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost request);
+            global::ElevenLabs.BodyMakeAnOutboundCallViaWhatsAppV1ConvaiWhatsappOutboundCallPost request);
         partial void PrepareOutboundCall3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost request);
+            global::ElevenLabs.BodyMakeAnOutboundCallViaWhatsAppV1ConvaiWhatsappOutboundCallPost request);
         partial void ProcessOutboundCall3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,16 +42,16 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Handle An Outbound Call Via Sip Trunk<br/>
-        /// Handle an outbound call via SIP trunk
+        /// Make An Outbound Call Via Whatsapp<br/>
+        /// Make an outbound call via WhatsApp
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SIPTrunkOutboundCallResponse> OutboundCall3Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WhatsAppOutboundCallResponse> OutboundCall3Async(
 
-            global::ElevenLabs.BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost request,
+            global::ElevenLabs.BodyMakeAnOutboundCallViaWhatsAppV1ConvaiWhatsappOutboundCallPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -65,16 +65,16 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Handle An Outbound Call Via Sip Trunk<br/>
-        /// Handle an outbound call via SIP trunk
+        /// Make An Outbound Call Via Whatsapp<br/>
+        /// Make an outbound call via WhatsApp
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SIPTrunkOutboundCallResponse>> OutboundCall3AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WhatsAppOutboundCallResponse>> OutboundCall3AsResponseAsync(
 
-            global::ElevenLabs.BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost request,
+            global::ElevenLabs.BodyMakeAnOutboundCallViaWhatsAppV1ConvaiWhatsappOutboundCallPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -110,7 +110,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/sip-trunk/outbound-call",
+                                path: "/v1/convai/whatsapp/outbound-call",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -177,7 +177,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "OutboundCall3",
                                 methodName: "OutboundCall3Async",
-                                pathTemplate: "\"/v1/convai/sip-trunk/outbound-call\"",
+                                pathTemplate: "\"/v1/convai/whatsapp/outbound-call\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -211,7 +211,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "OutboundCall3",
                                 methodName: "OutboundCall3Async",
-                                pathTemplate: "\"/v1/convai/sip-trunk/outbound-call\"",
+                                pathTemplate: "\"/v1/convai/whatsapp/outbound-call\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -252,7 +252,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "OutboundCall3",
                                 methodName: "OutboundCall3Async",
-                                pathTemplate: "\"/v1/convai/sip-trunk/outbound-call\"",
+                                pathTemplate: "\"/v1/convai/whatsapp/outbound-call\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -300,7 +300,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "OutboundCall3",
                                 methodName: "OutboundCall3Async",
-                                pathTemplate: "\"/v1/convai/sip-trunk/outbound-call\"",
+                                pathTemplate: "\"/v1/convai/whatsapp/outbound-call\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -322,7 +322,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "OutboundCall3",
                                 methodName: "OutboundCall3Async",
-                                pathTemplate: "\"/v1/convai/sip-trunk/outbound-call\"",
+                                pathTemplate: "\"/v1/convai/whatsapp/outbound-call\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -396,9 +396,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.SIPTrunkOutboundCallResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.WhatsAppOutboundCallResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SIPTrunkOutboundCallResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WhatsAppOutboundCallResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -428,9 +428,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.SIPTrunkOutboundCallResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.WhatsAppOutboundCallResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SIPTrunkOutboundCallResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WhatsAppOutboundCallResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -471,35 +471,36 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Handle An Outbound Call Via Sip Trunk<br/>
-        /// Handle an outbound call via SIP trunk
+        /// Make An Outbound Call Via Whatsapp<br/>
+        /// Make an outbound call via WhatsApp
         /// </summary>
+        /// <param name="whatsappPhoneNumberId"></param>
+        /// <param name="whatsappUserId"></param>
+        /// <param name="whatsappCallPermissionRequestTemplateName"></param>
+        /// <param name="whatsappCallPermissionRequestTemplateLanguageCode"></param>
         /// <param name="agentId"></param>
-        /// <param name="agentPhoneNumberId"></param>
-        /// <param name="toNumber"></param>
         /// <param name="conversationInitiationClientData"></param>
-        /// <param name="telephonyCallConfig">
-        /// Default Value: {"ringing_timeout_secs":60}
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SIPTrunkOutboundCallResponse> OutboundCall3Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WhatsAppOutboundCallResponse> OutboundCall3Async(
+            string whatsappPhoneNumberId,
+            string whatsappUserId,
+            string whatsappCallPermissionRequestTemplateName,
+            string whatsappCallPermissionRequestTemplateLanguageCode,
             string agentId,
-            string agentPhoneNumberId,
-            string toNumber,
             global::ElevenLabs.ConversationInitiationClientDataRequestInput? conversationInitiationClientData = default,
-            global::ElevenLabs.TelephonyCallConfig? telephonyCallConfig = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost
+            var __request = new global::ElevenLabs.BodyMakeAnOutboundCallViaWhatsAppV1ConvaiWhatsappOutboundCallPost
             {
+                WhatsappPhoneNumberId = whatsappPhoneNumberId,
+                WhatsappUserId = whatsappUserId,
+                WhatsappCallPermissionRequestTemplateName = whatsappCallPermissionRequestTemplateName,
+                WhatsappCallPermissionRequestTemplateLanguageCode = whatsappCallPermissionRequestTemplateLanguageCode,
                 AgentId = agentId,
-                AgentPhoneNumberId = agentPhoneNumberId,
-                ToNumber = toNumber,
                 ConversationInitiationClientData = conversationInitiationClientData,
-                TelephonyCallConfig = telephonyCallConfig,
             };
 
             return await OutboundCall3Async(

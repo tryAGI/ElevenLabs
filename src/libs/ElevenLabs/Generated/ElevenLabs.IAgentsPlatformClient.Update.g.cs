@@ -1,5 +1,7 @@
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial interface IAgentsPlatformClient
@@ -12,7 +14,7 @@ namespace ElevenLabs
         /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="enableVersioningIfNotEnabled">
-        /// Enable versioning for the agent, if not already enabled<br/>
+        /// Deprecated: all agents are versioned. This parameter is ignored.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="branchId">
@@ -38,7 +40,7 @@ namespace ElevenLabs
         /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="enableVersioningIfNotEnabled">
-        /// Enable versioning for the agent, if not already enabled<br/>
+        /// Deprecated: all agents are versioned. This parameter is ignored.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="branchId">
@@ -64,7 +66,7 @@ namespace ElevenLabs
         /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="enableVersioningIfNotEnabled">
-        /// Enable versioning for the agent, if not already enabled<br/>
+        /// Deprecated: all agents are versioned. This parameter is ignored.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="branchId">

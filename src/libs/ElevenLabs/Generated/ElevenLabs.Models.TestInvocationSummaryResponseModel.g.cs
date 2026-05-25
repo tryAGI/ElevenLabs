@@ -76,6 +76,13 @@ namespace ElevenLabs
         public global::ElevenLabs.ResourceAccessInfo? AccessInfo { get; set; }
 
         /// <summary>
+        /// Number of times each test was repeated in this invocation<br/>
+        /// Default Value: 1
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("repeat_count")]
+        public int? RepeatCount { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -114,6 +121,10 @@ namespace ElevenLabs
         /// <param name="accessInfo">
         /// The access information of the test invocation
         /// </param>
+        /// <param name="repeatCount">
+        /// Number of times each test was repeated in this invocation<br/>
+        /// Default Value: 1
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -127,7 +138,8 @@ namespace ElevenLabs
             string title,
             string? agentId,
             string? branchId,
-            global::ElevenLabs.ResourceAccessInfo? accessInfo)
+            global::ElevenLabs.ResourceAccessInfo? accessInfo,
+            int? repeatCount)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.AgentId = agentId;
@@ -139,6 +151,7 @@ namespace ElevenLabs
             this.PendingCount = pendingCount;
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.AccessInfo = accessInfo;
+            this.RepeatCount = repeatCount;
         }
 
         /// <summary>

@@ -109,6 +109,14 @@ namespace ElevenLabs
         public global::ElevenLabs.ObjectJsonSchemaPropertyOutput? Parameters { get; set; }
 
         /// <summary>
+        /// Configuration for dynamic variables<br/>
+        /// Example: {"dynamic_variable_placeholders":{"user_name":"John Doe"}}
+        /// </summary>
+        /// <example>{"dynamic_variable_placeholders":{"user_name":"John Doe"}}</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
+        public global::ElevenLabs.DynamicVariablesConfigOutput? DynamicVariables { get; set; }
+
+        /// <summary>
         /// Determines when and how the tool executes: 'immediate' executes the tool right away when requested by the LLM, 'post_tool_speech' waits for the agent to finish speaking before executing, 'async' runs the tool in the background without blocking - best for long-running operations.<br/>
         /// Default Value: immediate
         /// </summary>
@@ -168,6 +176,10 @@ namespace ElevenLabs
         /// <param name="parameters">
         /// Schema for parameters the LLM provides to the code tool via `args`
         /// </param>
+        /// <param name="dynamicVariables">
+        /// Configuration for dynamic variables<br/>
+        /// Example: {"dynamic_variable_placeholders":{"user_name":"John Doe"}}
+        /// </param>
         /// <param name="executionMode">
         /// Determines when and how the tool executes: 'immediate' executes the tool right away when requested by the LLM, 'post_tool_speech' waits for the agent to finish speaking before executing, 'async' runs the tool in the background without blocking - best for long-running operations.<br/>
         /// Default Value: immediate
@@ -189,6 +201,7 @@ namespace ElevenLabs
             global::ElevenLabs.ToolErrorHandlingMode? toolErrorHandlingMode,
             global::System.Collections.Generic.Dictionary<string, string>? dependencies,
             global::ElevenLabs.ObjectJsonSchemaPropertyOutput? parameters,
+            global::ElevenLabs.DynamicVariablesConfigOutput? dynamicVariables,
             global::ElevenLabs.ToolExecutionMode? executionMode)
         {
             this.Type = type;
@@ -204,6 +217,7 @@ namespace ElevenLabs
             this.SourceCode = sourceCode ?? throw new global::System.ArgumentNullException(nameof(sourceCode));
             this.Dependencies = dependencies;
             this.Parameters = parameters;
+            this.DynamicVariables = dynamicVariables;
             this.ExecutionMode = executionMode;
         }
 

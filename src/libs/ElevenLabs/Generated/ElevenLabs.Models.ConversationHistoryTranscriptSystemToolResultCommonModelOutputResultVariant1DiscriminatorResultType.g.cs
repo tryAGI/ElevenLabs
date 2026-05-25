@@ -51,6 +51,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        TransferToNumberExotelSuccess,
+        /// <summary>
+        /// 
+        /// </summary>
         TransferToNumberSipSuccess,
         /// <summary>
         /// 
@@ -84,6 +88,7 @@ namespace ElevenLabs
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToAgentError => "transfer_to_agent_error",
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToAgentSuccess => "transfer_to_agent_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToNumberError => "transfer_to_number_error",
+                ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToNumberExotelSuccess => "transfer_to_number_exotel_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToNumberSipSuccess => "transfer_to_number_sip_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToNumberTwilioSuccess => "transfer_to_number_twilio_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.VoicemailDetectionSuccess => "voicemail_detection_success",
@@ -107,6 +112,7 @@ namespace ElevenLabs
                 "transfer_to_agent_error" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToAgentError,
                 "transfer_to_agent_success" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToAgentSuccess,
                 "transfer_to_number_error" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToNumberError,
+                "transfer_to_number_exotel_success" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToNumberExotelSuccess,
                 "transfer_to_number_sip_success" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToNumberSipSuccess,
                 "transfer_to_number_twilio_success" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToNumberTwilioSuccess,
                 "voicemail_detection_success" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.VoicemailDetectionSuccess,

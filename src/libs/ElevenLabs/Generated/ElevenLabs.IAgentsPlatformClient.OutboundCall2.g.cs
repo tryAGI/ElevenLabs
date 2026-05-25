@@ -5,51 +5,51 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Make An Outbound Call Via Whatsapp<br/>
-        /// Make an outbound call via WhatsApp
+        /// Handle An Outbound Call Via Exotel<br/>
+        /// Handle an outbound call via Exotel Connect API
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.WhatsAppOutboundCallResponse> OutboundCall2Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ExotelOutboundCallResponse> OutboundCall2Async(
 
-            global::ElevenLabs.BodyMakeAnOutboundCallViaWhatsAppV1ConvaiWhatsappOutboundCallPost request,
+            global::ElevenLabs.BodyHandleAnOutboundCallViaExotelV1ConvaiExotelOutboundCallPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Make An Outbound Call Via Whatsapp<br/>
-        /// Make an outbound call via WhatsApp
+        /// Handle An Outbound Call Via Exotel<br/>
+        /// Handle an outbound call via Exotel Connect API
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WhatsAppOutboundCallResponse>> OutboundCall2AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ExotelOutboundCallResponse>> OutboundCall2AsResponseAsync(
 
-            global::ElevenLabs.BodyMakeAnOutboundCallViaWhatsAppV1ConvaiWhatsappOutboundCallPost request,
+            global::ElevenLabs.BodyHandleAnOutboundCallViaExotelV1ConvaiExotelOutboundCallPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Make An Outbound Call Via Whatsapp<br/>
-        /// Make an outbound call via WhatsApp
+        /// Handle An Outbound Call Via Exotel<br/>
+        /// Handle an outbound call via Exotel Connect API
         /// </summary>
-        /// <param name="whatsappPhoneNumberId"></param>
-        /// <param name="whatsappUserId"></param>
-        /// <param name="whatsappCallPermissionRequestTemplateName"></param>
-        /// <param name="whatsappCallPermissionRequestTemplateLanguageCode"></param>
         /// <param name="agentId"></param>
+        /// <param name="agentPhoneNumberId"></param>
+        /// <param name="toNumber"></param>
         /// <param name="conversationInitiationClientData"></param>
+        /// <param name="telephonyCallConfig">
+        /// Default Value: {"ringing_timeout_secs":60}
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.WhatsAppOutboundCallResponse> OutboundCall2Async(
-            string whatsappPhoneNumberId,
-            string whatsappUserId,
-            string whatsappCallPermissionRequestTemplateName,
-            string whatsappCallPermissionRequestTemplateLanguageCode,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ExotelOutboundCallResponse> OutboundCall2Async(
             string agentId,
+            string agentPhoneNumberId,
+            string toNumber,
             global::ElevenLabs.ConversationInitiationClientDataRequestInput? conversationInitiationClientData = default,
+            global::ElevenLabs.TelephonyCallConfig? telephonyCallConfig = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

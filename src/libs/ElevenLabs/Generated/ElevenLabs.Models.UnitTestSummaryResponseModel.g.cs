@@ -77,6 +77,12 @@ namespace ElevenLabs
         public int? ChildrenCount { get; set; }
 
         /// <summary>
+        /// Channel the test simulates the conversation as. Null for folders or default behavior.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_source")]
+        public global::ElevenLabs.ConversationInitiationSource? ConversationInitiationSource { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -116,6 +122,9 @@ namespace ElevenLabs
         /// <param name="childrenCount">
         /// Number of direct children (tests and subfolders) for folders only
         /// </param>
+        /// <param name="conversationInitiationSource">
+        /// Channel the test simulates the conversation as. Null for folders or default behavior.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -129,7 +138,8 @@ namespace ElevenLabs
             global::ElevenLabs.AgentTestEntityType? entityType,
             string? folderParentId,
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentTestFolderPathSegmentResponseModel>? folderPath,
-            int? childrenCount)
+            int? childrenCount,
+            global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -141,6 +151,7 @@ namespace ElevenLabs
             this.FolderParentId = folderParentId;
             this.FolderPath = folderPath;
             this.ChildrenCount = childrenCount;
+            this.ConversationInitiationSource = conversationInitiationSource;
         }
 
         /// <summary>

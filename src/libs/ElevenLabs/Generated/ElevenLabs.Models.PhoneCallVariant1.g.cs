@@ -55,6 +55,43 @@ namespace ElevenLabs
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
+        public global::ElevenLabs.ConversationHistoryExotelPhoneCallModel? Exotel { get; init; }
+#else
+        public global::ElevenLabs.ConversationHistoryExotelPhoneCallModel? Exotel { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Exotel))]
+#endif
+        public bool IsExotel => Exotel != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickExotel(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ConversationHistoryExotelPhoneCallModel? value)
+        {
+            value = Exotel;
+            return IsExotel;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.ConversationHistoryExotelPhoneCallModel PickExotel() => IsExotel
+            ? Exotel!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Exotel' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
         public global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel? SipTrunking { get; init; }
 #else
         public global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel? SipTrunking { get; }
@@ -113,6 +150,29 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator PhoneCallVariant1(global::ElevenLabs.ConversationHistoryExotelPhoneCallModel value) => new PhoneCallVariant1((global::ElevenLabs.ConversationHistoryExotelPhoneCallModel?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ConversationHistoryExotelPhoneCallModel?(PhoneCallVariant1 @this) => @this.Exotel;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PhoneCallVariant1(global::ElevenLabs.ConversationHistoryExotelPhoneCallModel? value)
+        {
+            Exotel = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static PhoneCallVariant1 FromExotel(global::ElevenLabs.ConversationHistoryExotelPhoneCallModel? value) => new PhoneCallVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator PhoneCallVariant1(global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel value) => new PhoneCallVariant1((global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel?)value);
 
         /// <summary>
@@ -139,12 +199,14 @@ namespace ElevenLabs
         public PhoneCallVariant1(
             global::ElevenLabs.ConversationHistoryMetadataCommonModelPhoneCallVariant1DiscriminatorType? type,
             global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel? twilio,
+            global::ElevenLabs.ConversationHistoryExotelPhoneCallModel? exotel,
             global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel? sipTrunking
             )
         {
             Type = type;
 
             Twilio = twilio;
+            Exotel = exotel;
             SipTrunking = sipTrunking;
         }
 
@@ -153,6 +215,7 @@ namespace ElevenLabs
         /// </summary>
         public object? Object =>
             SipTrunking as object ??
+            Exotel as object ??
             Twilio as object 
             ;
 
@@ -161,6 +224,7 @@ namespace ElevenLabs
         /// </summary>
         public override string? ToString() =>
             Twilio?.ToString() ??
+            Exotel?.ToString() ??
             SipTrunking?.ToString() 
             ;
 
@@ -169,7 +233,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsTwilio && !IsSipTrunking || !IsTwilio && IsSipTrunking;
+            return IsTwilio && !IsExotel && !IsSipTrunking || !IsTwilio && IsExotel && !IsSipTrunking || !IsTwilio && !IsExotel && IsSipTrunking;
         }
 
         /// <summary>
@@ -177,6 +241,7 @@ namespace ElevenLabs
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel, TResult>? twilio = null,
+            global::System.Func<global::ElevenLabs.ConversationHistoryExotelPhoneCallModel, TResult>? exotel = null,
             global::System.Func<global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel, TResult>? sipTrunking = null,
             bool validate = true)
         {
@@ -188,6 +253,10 @@ namespace ElevenLabs
             if (IsTwilio && twilio != null)
             {
                 return twilio(Twilio!);
+            }
+            else if (IsExotel && exotel != null)
+            {
+                return exotel(Exotel!);
             }
             else if (IsSipTrunking && sipTrunking != null)
             {
@@ -203,6 +272,8 @@ namespace ElevenLabs
         public void Match(
             global::System.Action<global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel>? twilio = null,
 
+            global::System.Action<global::ElevenLabs.ConversationHistoryExotelPhoneCallModel>? exotel = null,
+
             global::System.Action<global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel>? sipTrunking = null,
             bool validate = true)
         {
@@ -214,6 +285,10 @@ namespace ElevenLabs
             if (IsTwilio)
             {
                 twilio?.Invoke(Twilio!);
+            }
+            else if (IsExotel)
+            {
+                exotel?.Invoke(Exotel!);
             }
             else if (IsSipTrunking)
             {
@@ -226,6 +301,7 @@ namespace ElevenLabs
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel>? twilio = null,
+            global::System.Action<global::ElevenLabs.ConversationHistoryExotelPhoneCallModel>? exotel = null,
             global::System.Action<global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel>? sipTrunking = null,
             bool validate = true)
         {
@@ -237,6 +313,10 @@ namespace ElevenLabs
             if (IsTwilio)
             {
                 twilio?.Invoke(Twilio!);
+            }
+            else if (IsExotel)
+            {
+                exotel?.Invoke(Exotel!);
             }
             else if (IsSipTrunking)
             {
@@ -253,6 +333,8 @@ namespace ElevenLabs
             {
                 Twilio,
                 typeof(global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel),
+                Exotel,
+                typeof(global::ElevenLabs.ConversationHistoryExotelPhoneCallModel),
                 SipTrunking,
                 typeof(global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel),
             };
@@ -272,6 +354,7 @@ namespace ElevenLabs
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel?>.Default.Equals(Twilio, other.Twilio) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryExotelPhoneCallModel?>.Default.Equals(Exotel, other.Exotel) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel?>.Default.Equals(SipTrunking, other.SipTrunking) 
                 ;
         }

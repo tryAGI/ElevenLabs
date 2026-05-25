@@ -2970,6 +2970,189 @@
         "x-fern-sdk-method-name": "get"
       }
     },
+    "/v1/voices/settings/default": {
+      "get": {
+        "tags": [
+          "voices",
+          "voices"
+        ],
+        "summary": "Get Default Voice Settings.",
+        "description": "Gets the default settings for voices. \"similarity_boost\" corresponds to\"Clarity + Similarity Enhancement\" in the web app and \"stability\" corresponds to \"Stability\" slider in the web app.",
+        "operationId": "get_voice_settings_default",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceSettingsResponseModel"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "voices",
+          "settings"
+        ],
+        "x-fern-sdk-method-name": "get_default"
+      }
+    },
+    "/v1/voices/{voice_id}/settings": {
+      "get": {
+        "tags": [
+          "voices",
+          "voices"
+        ],
+        "summary": "Get Voice Settings",
+        "description": "Returns the settings for a specific voice. \"similarity_boost\" corresponds to\"Clarity + Similarity Enhancement\" in the web app and \"stability\" corresponds to \"Stability\" slider in the web app.",
+        "operationId": "get_voice_settings",
+        "parameters": [
+          {
+            "name": "voice_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.",
+              "examples": [
+                "21m00Tcm4TlvDq8ikWAM"
+              ],
+              "title": "Voice Id"
+            },
+            "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceSettingsResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "voices",
+          "settings"
+        ],
+        "x-fern-sdk-method-name": "get"
+      }
+    },
+    "/v1/voices/{voice_id}/settings/edit": {
+      "post": {
+        "tags": [
+          "voices",
+          "voices"
+        ],
+        "summary": "Edit Voice Settings",
+        "description": "Edit your settings for a specific voice. \"similarity_boost\" corresponds to \"Clarity + Similarity Enhancement\" in the web app and \"stability\" corresponds to \"Stability\" slider in the web app.",
+        "operationId": "edit_voice_settings",
+        "parameters": [
+          {
+            "name": "voice_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.",
+              "examples": [
+                "21m00Tcm4TlvDq8ikWAM"
+              ],
+              "title": "Voice Id"
+            },
+            "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VoiceSettingsResponseModel",
+                "description": "The settings for a specific voice."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EditVoiceSettingsResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "voices",
+          "settings"
+        ],
+        "x-fern-sdk-method-name": "update"
+      }
+    },
     "/v1/voices": {
       "get": {
         "tags": [
@@ -3301,104 +3484,6 @@
         "x-fern-sdk-method-name": "search"
       }
     },
-    "/v1/voices/settings/default": {
-      "get": {
-        "tags": [
-          "voices"
-        ],
-        "summary": "Get Default Voice Settings.",
-        "description": "Gets the default settings for voices. \"similarity_boost\" corresponds to\"Clarity + Similarity Enhancement\" in the web app and \"stability\" corresponds to \"Stability\" slider in the web app.",
-        "operationId": "get_voice_settings_default",
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VoiceSettingsResponseModel"
-                }
-              }
-            }
-          }
-        },
-        "x-fern-sdk-group-name": [
-          "voices",
-          "settings"
-        ],
-        "x-fern-sdk-method-name": "get_default"
-      }
-    },
-    "/v1/voices/{voice_id}/settings": {
-      "get": {
-        "tags": [
-          "voices"
-        ],
-        "summary": "Get Voice Settings",
-        "description": "Returns the settings for a specific voice. \"similarity_boost\" corresponds to\"Clarity + Similarity Enhancement\" in the web app and \"stability\" corresponds to \"Stability\" slider in the web app.",
-        "operationId": "get_voice_settings",
-        "parameters": [
-          {
-            "name": "voice_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.",
-              "examples": [
-                "21m00Tcm4TlvDq8ikWAM"
-              ],
-              "title": "Voice Id"
-            },
-            "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
-          },
-          {
-            "name": "xi-api-key",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
-              "title": "Xi-Api-Key"
-            },
-            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VoiceSettingsResponseModel"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "x-fern-sdk-group-name": [
-          "voices",
-          "settings"
-        ],
-        "x-fern-sdk-method-name": "get"
-      }
-    },
     "/v1/voices/{voice_id}": {
       "get": {
         "tags": [
@@ -3545,88 +3630,6 @@
         },
         "x-fern-sdk-group-name": "voices",
         "x-fern-sdk-method-name": "delete"
-      }
-    },
-    "/v1/voices/{voice_id}/settings/edit": {
-      "post": {
-        "tags": [
-          "voices"
-        ],
-        "summary": "Edit Voice Settings",
-        "description": "Edit your settings for a specific voice. \"similarity_boost\" corresponds to \"Clarity + Similarity Enhancement\" in the web app and \"stability\" corresponds to \"Stability\" slider in the web app.",
-        "operationId": "edit_voice_settings",
-        "parameters": [
-          {
-            "name": "voice_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.",
-              "examples": [
-                "21m00Tcm4TlvDq8ikWAM"
-              ],
-              "title": "Voice Id"
-            },
-            "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
-          },
-          {
-            "name": "xi-api-key",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
-              "title": "Xi-Api-Key"
-            },
-            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/VoiceSettingsResponseModel",
-                "description": "The settings for a specific voice."
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EditVoiceSettingsResponseModel"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "x-fern-sdk-group-name": [
-          "voices",
-          "settings"
-        ],
-        "x-fern-sdk-method-name": "update"
       }
     },
     "/v1/voices/add": {
@@ -12363,6 +12366,73 @@
         "x-fern-sdk-method-name": "register_call"
       }
     },
+    "/v1/convai/exotel/outbound-call": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Handle An Outbound Call Via Exotel",
+        "description": "Handle an outbound call via Exotel Connect API",
+        "operationId": "handle_exotel_outbound_call",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Handle_an_outbound_call_via_Exotel_v1_convai_exotel_outbound_call_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExotelOutboundCallResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "exotel"
+        ],
+        "x-fern-sdk-method-name": "outbound_call"
+      }
+    },
     "/v1/convai/whatsapp/outbound-call": {
       "post": {
         "tags": [
@@ -12512,11 +12582,13 @@
             "required": false,
             "schema": {
               "type": "boolean",
-              "description": "Enable versioning for the agent",
+              "description": "Deprecated: all agents are versioned. This parameter is ignored.",
+              "deprecated": true,
               "default": true,
               "title": "Enable Versioning"
             },
-            "description": "Enable versioning for the agent"
+            "description": "Deprecated: all agents are versioned. This parameter is ignored.",
+            "deprecated": true
           },
           {
             "name": "xi-api-key",
@@ -12813,11 +12885,13 @@
             "required": false,
             "schema": {
               "type": "boolean",
-              "description": "Enable versioning for the agent, if not already enabled",
+              "description": "Deprecated: all agents are versioned. This parameter is ignored.",
+              "deprecated": true,
               "default": true,
               "title": "Enable Versioning If Not Enabled"
             },
-            "description": "Enable versioning for the agent, if not already enabled"
+            "description": "Deprecated: all agents are versioned. This parameter is ignored.",
+            "deprecated": true
           },
           {
             "name": "branch_id",
@@ -17341,7 +17415,7 @@
           "Agents Platform"
         ],
         "summary": "Import Phone Number",
-        "description": "Import Phone Number from provider configuration (Twilio or SIP trunk)",
+        "description": "Import Phone Number from provider configuration (Twilio, Exotel, or SIP trunk)",
         "operationId": "create_phone_number_route",
         "parameters": [
           {
@@ -17371,6 +17445,9 @@
                 "anyOf": [
                   {
                     "$ref": "#/components/schemas/CreateTwilioPhoneNumberRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateExotelPhoneNumberRequest"
                   },
                   {
                     "$ref": "#/components/schemas/CreateSIPTrunkPhoneNumberRequestV2"
@@ -17450,6 +17527,9 @@
                         "$ref": "#/components/schemas/GetPhoneNumberTwilioResponseModel"
                       },
                       {
+                        "$ref": "#/components/schemas/GetPhoneNumberExotelResponseModel"
+                      },
+                      {
                         "$ref": "#/components/schemas/GetPhoneNumberSIPTrunkResponseModel"
                       }
                     ],
@@ -17457,6 +17537,7 @@
                       "propertyName": "provider",
                       "mapping": {
                         "twilio": "#/components/schemas/GetPhoneNumberTwilioResponseModel",
+                        "exotel": "#/components/schemas/GetPhoneNumberExotelResponseModel",
                         "sip_trunk": "#/components/schemas/GetPhoneNumberSIPTrunkResponseModel"
                       }
                     }
@@ -17538,6 +17619,9 @@
                       "$ref": "#/components/schemas/GetPhoneNumberTwilioResponseModel"
                     },
                     {
+                      "$ref": "#/components/schemas/GetPhoneNumberExotelResponseModel"
+                    },
+                    {
                       "$ref": "#/components/schemas/GetPhoneNumberSIPTrunkResponseModel"
                     }
                   ],
@@ -17545,6 +17629,7 @@
                     "propertyName": "provider",
                     "mapping": {
                       "twilio": "#/components/schemas/GetPhoneNumberTwilioResponseModel",
+                      "exotel": "#/components/schemas/GetPhoneNumberExotelResponseModel",
                       "sip_trunk": "#/components/schemas/GetPhoneNumberSIPTrunkResponseModel"
                     }
                   },
@@ -17702,6 +17787,9 @@
                       "$ref": "#/components/schemas/GetPhoneNumberTwilioResponseModel"
                     },
                     {
+                      "$ref": "#/components/schemas/GetPhoneNumberExotelResponseModel"
+                    },
+                    {
                       "$ref": "#/components/schemas/GetPhoneNumberSIPTrunkResponseModel"
                     }
                   ],
@@ -17709,6 +17797,7 @@
                     "propertyName": "provider",
                     "mapping": {
                       "twilio": "#/components/schemas/GetPhoneNumberTwilioResponseModel",
+                      "exotel": "#/components/schemas/GetPhoneNumberExotelResponseModel",
                       "sip_trunk": "#/components/schemas/GetPhoneNumberSIPTrunkResponseModel"
                     }
                   },
@@ -37809,6 +37898,45 @@
         "type": "object",
         "title": "Body_Get_similar_library_voices_v1_similar_voices_post"
       },
+      "Body_Handle_an_outbound_call_via_Exotel_v1_convai_exotel_outbound_call_post": {
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
+          },
+          "agent_phone_number_id": {
+            "type": "string",
+            "title": "Agent Phone Number Id"
+          },
+          "to_number": {
+            "type": "string",
+            "title": "To Number"
+          },
+          "conversation_initiation_client_data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationInitiationClientDataRequest-Input"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "telephony_call_config": {
+            "$ref": "#/components/schemas/TelephonyCallConfig",
+            "default": {
+              "ringing_timeout_secs": 60
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "agent_id",
+          "agent_phone_number_id",
+          "to_number"
+        ],
+        "title": "Body_Handle_an_outbound_call_via_Exotel_v1_convai_exotel_outbound_call_post"
+      },
       "Body_Handle_an_outbound_call_via_SIP_trunk_v1_convai_sip_trunk_outbound_call_post": {
         "properties": {
           "agent_id": {
@@ -41789,6 +41917,15 @@
         "title": "BreakdownTypes",
         "description": "How to break down the information. Cannot be \"user\" or \"api_key\" if include_workspace_metrics is False."
       },
+      "BucketingStatus": {
+        "type": "string",
+        "enum": [
+          "pending",
+          "completed",
+          "failed"
+        ],
+        "title": "BucketingStatus"
+      },
       "BuiltInTools-Input": {
         "properties": {
           "end_call": {
@@ -43973,6 +44110,10 @@
             ],
             "description": "Schema for parameters the LLM provides to the code tool via `args`"
           },
+          "dynamic_variables": {
+            "$ref": "#/components/schemas/DynamicVariablesConfig-Input",
+            "description": "Configuration for dynamic variables"
+          },
           "execution_mode": {
             "$ref": "#/components/schemas/ToolExecutionMode",
             "description": "Determines when and how the tool executes: 'immediate' executes the tool right away when requested by the LLM, 'post_tool_speech' waits for the agent to finish speaking before executing, 'async' runs the tool in the background without blocking - best for long-running operations.",
@@ -44097,6 +44238,10 @@
               }
             ],
             "description": "Schema for parameters the LLM provides to the code tool via `args`"
+          },
+          "dynamic_variables": {
+            "$ref": "#/components/schemas/DynamicVariablesConfig-Output",
+            "description": "Configuration for dynamic variables"
           },
           "execution_mode": {
             "$ref": "#/components/schemas/ToolExecutionMode",
@@ -45661,6 +45806,49 @@
         ],
         "title": "ConversationHistoryEvaluationCriteriaResultCommonModel"
       },
+      "ConversationHistoryExotelPhoneCallModel": {
+        "properties": {
+          "direction": {
+            "$ref": "#/components/schemas/TelephonyDirection"
+          },
+          "phone_number_id": {
+            "type": "string",
+            "title": "Phone Number Id"
+          },
+          "agent_number": {
+            "type": "string",
+            "title": "Agent Number"
+          },
+          "external_number": {
+            "type": "string",
+            "title": "External Number"
+          },
+          "type": {
+            "type": "string",
+            "const": "exotel",
+            "title": "Type",
+            "default": "exotel"
+          },
+          "stream_sid": {
+            "type": "string",
+            "title": "Stream Sid"
+          },
+          "call_sid": {
+            "type": "string",
+            "title": "Call Sid"
+          }
+        },
+        "type": "object",
+        "required": [
+          "direction",
+          "phone_number_id",
+          "agent_number",
+          "external_number",
+          "stream_sid",
+          "call_sid"
+        ],
+        "title": "ConversationHistoryExotelPhoneCallModel"
+      },
       "ConversationHistoryFeedbackCommonModel": {
         "properties": {
           "type": {
@@ -45772,12 +45960,16 @@
                     "$ref": "#/components/schemas/ConversationHistoryTwilioPhoneCallModel"
                   },
                   {
+                    "$ref": "#/components/schemas/ConversationHistoryExotelPhoneCallModel"
+                  },
+                  {
                     "$ref": "#/components/schemas/ConversationHistorySIPTrunkingPhoneCallModel"
                   }
                 ],
                 "discriminator": {
                   "propertyName": "type",
                   "mapping": {
+                    "exotel": "#/components/schemas/ConversationHistoryExotelPhoneCallModel",
                     "sip_trunking": "#/components/schemas/ConversationHistorySIPTrunkingPhoneCallModel",
                     "twilio": "#/components/schemas/ConversationHistoryTwilioPhoneCallModel"
                   }
@@ -46989,6 +47181,9 @@
                     "$ref": "#/components/schemas/TransferToNumberResultSipSuccessModel"
                   },
                   {
+                    "$ref": "#/components/schemas/TransferToNumberResultExotelSuccessModel"
+                  },
+                  {
                     "$ref": "#/components/schemas/TransferToNumberResultErrorModel"
                   },
                   {
@@ -47023,6 +47218,7 @@
                     "transfer_to_agent_error": "#/components/schemas/TransferToAgentToolResultErrorModel",
                     "transfer_to_agent_success": "#/components/schemas/TransferToAgentToolResultSuccessModel",
                     "transfer_to_number_error": "#/components/schemas/TransferToNumberResultErrorModel",
+                    "transfer_to_number_exotel_success": "#/components/schemas/TransferToNumberResultExotelSuccessModel",
                     "transfer_to_number_sip_success": "#/components/schemas/TransferToNumberResultSipSuccessModel",
                     "transfer_to_number_twilio_success": "#/components/schemas/TransferToNumberResultTwilioSuccessModel",
                     "voicemail_detection_success": "#/components/schemas/VoiceMailDetectionResultSuccessModel"
@@ -47124,6 +47320,9 @@
                     "$ref": "#/components/schemas/TransferToNumberResultSipSuccessModel"
                   },
                   {
+                    "$ref": "#/components/schemas/TransferToNumberResultExotelSuccessModel"
+                  },
+                  {
                     "$ref": "#/components/schemas/TransferToNumberResultErrorModel"
                   },
                   {
@@ -47158,6 +47357,7 @@
                     "transfer_to_agent_error": "#/components/schemas/TransferToAgentToolResultErrorModel",
                     "transfer_to_agent_success": "#/components/schemas/TransferToAgentToolResultSuccessModel",
                     "transfer_to_number_error": "#/components/schemas/TransferToNumberResultErrorModel",
+                    "transfer_to_number_exotel_success": "#/components/schemas/TransferToNumberResultExotelSuccessModel",
                     "transfer_to_number_sip_success": "#/components/schemas/TransferToNumberResultSipSuccessModel",
                     "transfer_to_number_twilio_success": "#/components/schemas/TransferToNumberResultTwilioSuccessModel",
                     "voicemail_detection_success": "#/components/schemas/VoiceMailDetectionResultSuccessModel"
@@ -48055,6 +48255,7 @@
           "widget",
           "sip_trunk",
           "twilio",
+          "exotel",
           "genesys",
           "swift_sdk",
           "whatsapp",
@@ -49322,6 +49523,97 @@
         ],
         "title": "CreateCustomHeaderAuthRequest"
       },
+      "CreateExotelPhoneNumberRequest": {
+        "properties": {
+          "phone_number": {
+            "type": "string",
+            "title": "Phone Number",
+            "description": "Phone number"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label",
+            "description": "Label for the phone number"
+          },
+          "supports_inbound": {
+            "type": "boolean",
+            "title": "Supports Inbound",
+            "description": "This field is deprecated and will be removed in the future. Whether this phone number supports inbound calls",
+            "default": true,
+            "deprecated": true
+          },
+          "supports_outbound": {
+            "type": "boolean",
+            "title": "Supports Outbound",
+            "description": "This field is deprecated and will be removed in the future. Whether this phone number supports outbound calls",
+            "default": true,
+            "deprecated": true
+          },
+          "provider": {
+            "type": "string",
+            "const": "exotel",
+            "title": "Provider",
+            "default": "exotel"
+          },
+          "account_sid": {
+            "type": "string",
+            "title": "Account Sid",
+            "description": "Exotel Account SID"
+          },
+          "api_key": {
+            "type": "string",
+            "title": "Api Key",
+            "description": "Exotel API Key"
+          },
+          "api_token": {
+            "type": "string",
+            "title": "Api Token",
+            "description": "Exotel API Token"
+          },
+          "api_subdomain": {
+            "$ref": "#/components/schemas/ExotelApiSubdomain",
+            "description": "Exotel region-specific API host"
+          },
+          "app_id": {
+            "type": "string",
+            "title": "App Id",
+            "description": "Exotel applet identifier used in Calls/connect"
+          },
+          "applet_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Applet Url",
+            "description": "Optional full applet URL override. Defaults to Exotel start_voice URL derived from account SID and app ID."
+          }
+        },
+        "type": "object",
+        "required": [
+          "phone_number",
+          "label",
+          "account_sid",
+          "api_key",
+          "api_token",
+          "api_subdomain",
+          "app_id"
+        ],
+        "title": "CreateExotelPhoneNumberRequest",
+        "example": {
+          "account_sid": "your-account-sid",
+          "api_key": "your-api-key",
+          "api_subdomain": "api.in.exotel.com",
+          "api_token": "********",
+          "app_id": "12345",
+          "label": "Exotel Outbound",
+          "phone_number": "+919999999999",
+          "provider": "exotel"
+        }
+      },
       "CreateHolidayParams": {
         "properties": {
           "smb_tool_type": {
@@ -49787,6 +50079,17 @@
             "maxItems": 200,
             "title": "Chat History"
           },
+          "conversation_initiation_source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationInitiationSource"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Simulate the test as if the conversation originated from this channel."
+          },
           "type": {
             "type": "string",
             "const": "llm",
@@ -49970,6 +50273,17 @@
             "type": "array",
             "maxItems": 200,
             "title": "Chat History"
+          },
+          "conversation_initiation_source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationInitiationSource"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Simulate the test as if the conversation originated from this channel."
           },
           "type": {
             "type": "string",
@@ -50190,6 +50504,17 @@
             "type": "array",
             "maxItems": 200,
             "title": "Chat History"
+          },
+          "conversation_initiation_source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationInitiationSource"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Simulate the test as if the conversation originated from this channel."
           },
           "type": {
             "type": "string",
@@ -53679,6 +54004,57 @@
         ],
         "title": "ExactParameterEvaluationStrategy"
       },
+      "ExotelApiSubdomain": {
+        "type": "string",
+        "enum": [
+          "api.in.exotel.com",
+          "api.exotel.com"
+        ],
+        "title": "ExotelApiSubdomain"
+      },
+      "ExotelOutboundCallResponse": {
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "title": "Success"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "conversation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Conversation Id"
+          },
+          "callSid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Callsid",
+            "description": "Exotel CallSid for the originated call"
+          }
+        },
+        "type": "object",
+        "required": [
+          "success",
+          "message",
+          "conversation_id",
+          "callSid"
+        ],
+        "title": "ExotelOutboundCallResponse"
+      },
       "ExportOptions": {
         "oneOf": [
           {
@@ -54698,12 +55074,16 @@
                   "$ref": "#/components/schemas/GetPhoneNumberTwilioResponseModel"
                 },
                 {
+                  "$ref": "#/components/schemas/GetPhoneNumberExotelResponseModel"
+                },
+                {
                   "$ref": "#/components/schemas/GetPhoneNumberSIPTrunkResponseModel"
                 }
               ],
               "discriminator": {
                 "propertyName": "provider",
                 "mapping": {
+                  "exotel": "#/components/schemas/GetPhoneNumberExotelResponseModel",
                   "sip_trunk": "#/components/schemas/GetPhoneNumberSIPTrunkResponseModel",
                   "twilio": "#/components/schemas/GetPhoneNumberTwilioResponseModel"
                 }
@@ -56510,6 +56890,70 @@
         ],
         "title": "GetOrCreateRAGIndexRequestModel"
       },
+      "GetPhoneNumberExotelResponseModel": {
+        "properties": {
+          "phone_number": {
+            "type": "string",
+            "title": "Phone Number",
+            "description": "Phone number"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label",
+            "description": "Label for the phone number"
+          },
+          "supports_inbound": {
+            "type": "boolean",
+            "title": "Supports Inbound",
+            "description": "This field is deprecated and will be removed in the future. Whether this phone number supports inbound calls",
+            "default": true,
+            "deprecated": true
+          },
+          "supports_outbound": {
+            "type": "boolean",
+            "title": "Supports Outbound",
+            "description": "This field is deprecated and will be removed in the future. Whether this phone number supports outbound calls",
+            "default": true,
+            "deprecated": true
+          },
+          "phone_number_id": {
+            "type": "string",
+            "title": "Phone Number Id",
+            "description": "The ID of the phone number"
+          },
+          "assigned_agent": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PhoneNumberAgentInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The agent that is assigned to the phone number"
+          },
+          "provider": {
+            "type": "string",
+            "const": "exotel",
+            "title": "Provider",
+            "description": "Phone provider",
+            "default": "exotel"
+          }
+        },
+        "type": "object",
+        "required": [
+          "phone_number",
+          "label",
+          "phone_number_id"
+        ],
+        "title": "GetPhoneNumberExotelResponseModel",
+        "example": {
+          "label": "Exotel Outbound",
+          "phone_number": "+919999999999",
+          "phone_number_id": "phnum_X3Pbu5gP6NNKBscdCdwB",
+          "provider": "exotel"
+        }
+      },
       "GetPhoneNumberInboundSIPTrunkConfigResponseModel": {
         "properties": {
           "allowed_addresses": {
@@ -57187,6 +57631,17 @@
             "maxItems": 200,
             "title": "Chat History"
           },
+          "conversation_initiation_source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationInitiationSource"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Simulate the test as if the conversation originated from this channel."
+          },
           "type": {
             "type": "string",
             "const": "llm",
@@ -57382,6 +57837,17 @@
             "type": "array",
             "maxItems": 200,
             "title": "Chat History"
+          },
+          "conversation_initiation_source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationInitiationSource"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Simulate the test as if the conversation originated from this channel."
           },
           "type": {
             "type": "string",
@@ -57619,6 +58085,29 @@
             ],
             "title": "Folder Id"
           },
+          "repeat_count": {
+            "type": "integer",
+            "title": "Repeat Count",
+            "default": 1
+          },
+          "bucketing_status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BucketingStatus"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "None when repeat_count==1 (no bucketing). Otherwise tracks bucketing lifecycle."
+          },
+          "result_groups": {
+            "items": {
+              "$ref": "#/components/schemas/TestRunResultSummary"
+            },
+            "type": "array",
+            "title": "Result Groups"
+          },
           "test_runs": {
             "items": {
               "$ref": "#/components/schemas/UnitTestRunResponseModel"
@@ -57711,6 +58200,17 @@
             "type": "array",
             "maxItems": 200,
             "title": "Chat History"
+          },
+          "conversation_initiation_source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationInitiationSource"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Simulate the test as if the conversation originated from this channel."
           },
           "type": {
             "type": "string",
@@ -59211,6 +59711,7 @@
           "gemini-3.1-pro-preview",
           "gemini-3.1-flash-lite-preview",
           "gemini-3.1-flash-lite",
+          "gemini-3.5-flash",
           "claude-sonnet-4-5",
           "claude-opus-4-7",
           "claude-sonnet-4-6",
@@ -63463,7 +63964,8 @@
         "type": "string",
         "enum": [
           "elevated_conversation_failure_rate",
-          "elevated_tool_failure_rate"
+          "elevated_tool_failure_rate",
+          "webhook_error_spike"
         ],
         "title": "Monitor"
       },
@@ -71329,6 +71831,17 @@
             "maxItems": 200,
             "title": "Chat History"
           },
+          "conversation_initiation_source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationInitiationSource"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Simulate the test as if the conversation originated from this channel."
+          },
           "type": {
             "type": "string",
             "const": "llm",
@@ -71567,6 +72080,14 @@
             ],
             "title": "Branch Id",
             "description": "ID of the branch to run the tests on. If not provided, the tests will be run on the agent default configuration."
+          },
+          "repeat_count": {
+            "type": "integer",
+            "maximum": 20.0,
+            "minimum": 1.0,
+            "title": "Repeat Count",
+            "description": "Number of times to run each test. When greater than 1, results are grouped and summarized.",
+            "default": 1
           }
         },
         "type": "object",
@@ -73110,6 +73631,17 @@
             "type": "array",
             "maxItems": 200,
             "title": "Chat History"
+          },
+          "conversation_initiation_source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationInitiationSource"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Simulate the test as if the conversation originated from this channel."
           },
           "type": {
             "type": "string",
@@ -76770,7 +77302,8 @@
         "type": "string",
         "enum": [
           "twilio",
-          "sip_trunk"
+          "sip_trunk",
+          "exotel"
         ],
         "title": "TelephonyProvider"
       },
@@ -76984,6 +77517,12 @@
               }
             ],
             "description": "The access information of the test invocation"
+          },
+          "repeat_count": {
+            "type": "integer",
+            "title": "Repeat Count",
+            "description": "Number of times each test was repeated in this invocation",
+            "default": 1
           }
         },
         "type": "object",
@@ -77030,6 +77569,75 @@
           "ran_by_user_email"
         ],
         "title": "TestRunMetadata"
+      },
+      "TestRunResultBucket": {
+        "properties": {
+          "test_run_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Test Run Ids"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "Short one-line title for this bucket"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason",
+            "description": "Short summary of why the test runs in this bucket passed or failed"
+          },
+          "status": {
+            "$ref": "#/components/schemas/TestRunStatus"
+          }
+        },
+        "type": "object",
+        "required": [
+          "test_run_ids",
+          "title",
+          "reason",
+          "status"
+        ],
+        "title": "TestRunResultBucket"
+      },
+      "TestRunResultSummary": {
+        "properties": {
+          "test_id": {
+            "type": "string",
+            "title": "Test Id"
+          },
+          "test_name": {
+            "type": "string",
+            "title": "Test Name"
+          },
+          "workflow_node_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Workflow Node Id"
+          },
+          "buckets": {
+            "items": {
+              "$ref": "#/components/schemas/TestRunResultBucket"
+            },
+            "type": "array",
+            "title": "Buckets"
+          }
+        },
+        "type": "object",
+        "required": [
+          "test_id",
+          "test_name",
+          "buckets"
+        ],
+        "title": "TestRunResultSummary"
       },
       "TestRunStatus": {
         "type": "string",
@@ -77412,6 +78020,17 @@
             "type": "array",
             "maxItems": 200,
             "title": "Chat History"
+          },
+          "conversation_initiation_source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationInitiationSource"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Simulate the test as if the conversation originated from this channel."
           },
           "type": {
             "type": "string",
@@ -78118,6 +78737,53 @@
           "error"
         ],
         "title": "TransferToNumberResultErrorModel"
+      },
+      "TransferToNumberResultExotelSuccessModel": {
+        "properties": {
+          "result_type": {
+            "type": "string",
+            "const": "transfer_to_number_exotel_success",
+            "title": "Result Type",
+            "default": "transfer_to_number_exotel_success"
+          },
+          "status": {
+            "type": "string",
+            "const": "success",
+            "title": "Status",
+            "default": "success"
+          },
+          "transfer_number": {
+            "type": "string",
+            "title": "Transfer Number"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "type": "object",
+        "required": [
+          "transfer_number"
+        ],
+        "title": "TransferToNumberResultExotelSuccessModel"
       },
       "TransferToNumberResultSipSuccessModel": {
         "properties": {
@@ -78962,6 +79628,17 @@
             ],
             "title": "Children Count",
             "description": "Number of direct children (tests and subfolders) for folders only"
+          },
+          "conversation_initiation_source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationInitiationSource"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Channel the test simulates the conversation as. Null for folders or default behavior."
           }
         },
         "type": "object",
@@ -79743,6 +80420,17 @@
             "maxItems": 200,
             "title": "Chat History"
           },
+          "conversation_initiation_source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationInitiationSource"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Simulate the test as if the conversation originated from this channel."
+          },
           "type": {
             "type": "string",
             "const": "llm",
@@ -79837,6 +80525,17 @@
             "type": "array",
             "maxItems": 200,
             "title": "Chat History"
+          },
+          "conversation_initiation_source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationInitiationSource"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Simulate the test as if the conversation originated from this channel."
           },
           "type": {
             "type": "string",
@@ -80088,6 +80787,17 @@
             "type": "array",
             "maxItems": 200,
             "title": "Chat History"
+          },
+          "conversation_initiation_source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationInitiationSource"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Simulate the test as if the conversation originated from this channel."
           },
           "type": {
             "type": "string",
