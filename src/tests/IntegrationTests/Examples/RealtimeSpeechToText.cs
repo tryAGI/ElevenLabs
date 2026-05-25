@@ -22,6 +22,7 @@ public partial class Tests
             {
                 AudioFormat = RealtimeAudioFormat.Pcm24000,
                 CommitStrategy = RealtimeCommitStrategy.Manual,
+                Keyterms = ["ElevenLabs", "AutoSDK", "Haven"],
             },
             cancellationToken: cts.Token);
 
@@ -72,6 +73,11 @@ public partial class Tests
                 break;
             }
         }
+
+        //// Inspect close details when the server or client closes the socket.
+        Console.WriteLine(session.CloseStatus is null
+            ? "Realtime socket is still open."
+            : $"Realtime socket closed: {session.CloseStatus} - {session.CloseStatusDescription}");
 
         channels.Should().Be(1);
         transcript.Should().NotBeNullOrWhiteSpace();

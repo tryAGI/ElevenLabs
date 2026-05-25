@@ -14,6 +14,7 @@ await using var session = await client.ConnectRealtimeAsync(
     {
         AudioFormat = RealtimeAudioFormat.Pcm24000,
         CommitStrategy = RealtimeCommitStrategy.Manual,
+        Keyterms = ["ElevenLabs", "AutoSDK", "Haven"],
     },
     cancellationToken: cts.Token);
 
@@ -64,4 +65,9 @@ await foreach (var evt in session.ReadEventsAsync(cts.Token))
         break;
     }
 }
+
+// Inspect close details when the server or client closes the socket.
+Console.WriteLine(session.CloseStatus is null
+    ? "Realtime socket is still open."
+    : $"Realtime socket closed: {session.CloseStatus} - {session.CloseStatusDescription}");
 ```
