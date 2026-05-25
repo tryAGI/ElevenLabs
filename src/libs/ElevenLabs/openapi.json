@@ -31556,8 +31556,26 @@
       "AgentTransfer": {
         "properties": {
           "agent_id": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Agent Id"
+          },
+          "node_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Node Id"
           },
           "condition": {
             "type": "string",
@@ -31592,7 +31610,6 @@
         },
         "type": "object",
         "required": [
-          "agent_id",
           "condition"
         ],
         "title": "AgentTransfer"
@@ -51229,7 +51246,7 @@
         },
         "type": "object",
         "title": "DeleteClientParams",
-        "description": "Delete an existing client from the system."
+        "description": "Delete a client, cascading deletion of all their appointments first."
       },
       "DeleteDubbingResponseModel": {
         "properties": {
@@ -78642,6 +78659,17 @@
           "to_agent": {
             "type": "string",
             "title": "To Agent"
+          },
+          "to_node": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To Node"
           },
           "condition": {
             "type": "string",

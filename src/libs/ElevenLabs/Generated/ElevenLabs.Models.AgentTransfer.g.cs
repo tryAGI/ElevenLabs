@@ -12,8 +12,13 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string? AgentId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("node_id")]
+        public string? NodeId { get; set; }
 
         /// <summary>
         /// 
@@ -55,8 +60,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentTransfer" /> class.
         /// </summary>
-        /// <param name="agentId"></param>
         /// <param name="condition"></param>
+        /// <param name="agentId"></param>
+        /// <param name="nodeId"></param>
         /// <param name="delayMs">
         /// Default Value: 0
         /// </param>
@@ -71,14 +77,16 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AgentTransfer(
-            string agentId,
             string condition,
+            string? agentId,
+            string? nodeId,
             int? delayMs,
             string? transferMessage,
             bool? enableTransferredAgentFirstMessage,
             bool? isWorkflowNodeTransfer)
         {
-            this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
+            this.AgentId = agentId;
+            this.NodeId = nodeId;
             this.Condition = condition ?? throw new global::System.ArgumentNullException(nameof(condition));
             this.DelayMs = delayMs;
             this.TransferMessage = transferMessage;

@@ -37,6 +37,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("to_node")]
+        public string? ToNode { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("condition")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Condition { get; set; }
@@ -83,6 +89,7 @@ namespace ElevenLabs
         /// <param name="status">
         /// Default Value: success
         /// </param>
+        /// <param name="toNode"></param>
         /// <param name="delayMs">
         /// Default Value: 0
         /// </param>
@@ -100,6 +107,7 @@ namespace ElevenLabs
             string condition,
             string? resultType,
             string? status,
+            string? toNode,
             int? delayMs,
             string? transferMessage,
             bool? enableTransferredAgentFirstMessage,
@@ -109,6 +117,7 @@ namespace ElevenLabs
             this.Status = status;
             this.FromAgent = fromAgent ?? throw new global::System.ArgumentNullException(nameof(fromAgent));
             this.ToAgent = toAgent ?? throw new global::System.ArgumentNullException(nameof(toAgent));
+            this.ToNode = toNode;
             this.Condition = condition ?? throw new global::System.ArgumentNullException(nameof(condition));
             this.DelayMs = delayMs;
             this.TransferMessage = transferMessage;

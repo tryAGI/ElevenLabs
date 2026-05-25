@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Delete an existing client from the system.
+    /// Delete a client, cascading deletion of all their appointments first.
     /// </summary>
     public sealed partial class DeleteClientParams
     {
