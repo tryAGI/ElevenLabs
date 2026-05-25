@@ -90,33 +90,33 @@ public sealed partial class SpeechToText2Client
             AddQuery(query, "include_language_detection", "true");
         }
 
-        if (options.VadSilenceThresholdSeconds.HasValue)
+        if (options.VadSilenceThresholdSeconds is { } vadSilenceThresholdSeconds)
         {
             AddQuery(query, "vad_silence_threshold_secs",
-                options.VadSilenceThresholdSeconds.Value.ToString(System.Globalization.CultureInfo.InvariantCulture));
+                vadSilenceThresholdSeconds.ToString(System.Globalization.CultureInfo.InvariantCulture));
         }
 
-        if (options.VadThreshold.HasValue)
+        if (options.VadThreshold is { } vadThreshold)
         {
             AddQuery(query, "vad_threshold",
-                options.VadThreshold.Value.ToString(System.Globalization.CultureInfo.InvariantCulture));
+                vadThreshold.ToString(System.Globalization.CultureInfo.InvariantCulture));
         }
 
-        if (options.MinSpeechDurationMs.HasValue)
+        if (options.MinSpeechDurationMs is { } minSpeechDurationMs)
         {
             AddQuery(query, "min_speech_duration_ms",
-                options.MinSpeechDurationMs.Value.ToString(CultureInfo.InvariantCulture));
+                minSpeechDurationMs.ToString(CultureInfo.InvariantCulture));
         }
 
-        if (options.MinSilenceDurationMs.HasValue)
+        if (options.MinSilenceDurationMs is { } minSilenceDurationMs)
         {
             AddQuery(query, "min_silence_duration_ms",
-                options.MinSilenceDurationMs.Value.ToString(CultureInfo.InvariantCulture));
+                minSilenceDurationMs.ToString(CultureInfo.InvariantCulture));
         }
 
-        if (options.EnableLogging.HasValue)
+        if (options.EnableLogging is { } enableLogging)
         {
-            AddQuery(query, "enable_logging", options.EnableLogging.Value ? "true" : "false");
+            AddQuery(query, "enable_logging", enableLogging ? "true" : "false");
         }
 
         var path = CombinePaths(baseUri.AbsolutePath, RealtimePath);
