@@ -119,6 +119,14 @@ public sealed partial class SpeechToText2Client
             AddQuery(query, "enable_logging", options.EnableLogging.Value ? "true" : "false");
         }
 
+        if (options.Keyterms is { } keyterms)
+        {
+            foreach (var keyterm in keyterms)
+            {
+                AddQuery(query, "keyterms", keyterm);
+            }
+        }
+
         var path = CombinePaths(baseUri.AbsolutePath, RealtimePath);
         var builder = new UriBuilder(baseUri)
         {
