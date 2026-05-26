@@ -814,5 +814,150 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps List2Async as an IAsyncEnumerable<global::ElevenLabs.ConversationSummaryResponseModel> that auto-pages over the response.
+        /// </summary>
+        /// <param name="agentId">
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
+        /// </param>
+        /// <param name="callSuccessful">
+        /// The result of the success evaluation
+        /// </param>
+        /// <param name="callStartBeforeUnix">
+        /// Unix timestamp (in seconds) to filter conversations up to this start date.
+        /// </param>
+        /// <param name="callStartAfterUnix">
+        /// Unix timestamp (in seconds) to filter conversations after to this start date.
+        /// </param>
+        /// <param name="callDurationMinSecs">
+        /// Minimum call duration in seconds.
+        /// </param>
+        /// <param name="callDurationMaxSecs">
+        /// Maximum call duration in seconds.
+        /// </param>
+        /// <param name="ratingMax">
+        /// Maximum overall rating (1-5).
+        /// </param>
+        /// <param name="ratingMin">
+        /// Minimum overall rating (1-5).
+        /// </param>
+        /// <param name="hasFeedbackComment">
+        /// Filter conversations with user feedback comments.
+        /// </param>
+        /// <param name="userId">
+        /// Filter conversations by the user ID who initiated them.
+        /// </param>
+        /// <param name="evaluationParams">
+        /// Evaluation filters. Repeat param. Format: criteria_id:result. Example: eval=value_framing:success
+        /// </param>
+        /// <param name="dataCollectionParams">
+        /// Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values.
+        /// </param>
+        /// <param name="toolNames">
+        /// Filter conversations by tool names used during the call.
+        /// </param>
+        /// <param name="toolNamesSuccessful">
+        /// Filter conversations by tool names that had successful calls.
+        /// </param>
+        /// <param name="toolNamesErrored">
+        /// Filter conversations by tool names that had errored calls.
+        /// </param>
+        /// <param name="mainLanguages">
+        /// Filter conversations by detected main language (language code).
+        /// </param>
+        /// <param name="pageSize">
+        /// How many conversations to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="summaryMode">
+        /// Whether to include transcript summaries in the response.<br/>
+        /// Default Value: exclude
+        /// </param>
+        /// <param name="search">
+        /// Full-text or fuzzy search over transcript messages
+        /// </param>
+        /// <param name="conversationInitiationSource"></param>
+        /// <param name="textOnly"></param>
+        /// <param name="branchId">
+        /// Filter conversations by branch ID.
+        /// </param>
+        /// <param name="topicIds">
+        /// Filter conversations by topic IDs assigned during topic discovery.
+        /// </param>
+        /// <param name="excludeStatuses">
+        /// Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.
+        /// </param>
+        /// <param name="tagIds">
+        /// Filter conversations by conversation tag IDs assigned via the conversation-tags endpoints.
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ConversationSummaryResponseModel> List2AutoPagingAsync(
+              string? agentId = default,
+            global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
+            int? callStartBeforeUnix = default,
+            int? callStartAfterUnix = default,
+            int? callDurationMinSecs = default,
+            int? callDurationMaxSecs = default,
+            int? ratingMax = default,
+            int? ratingMin = default,
+            bool? hasFeedbackComment = default,
+            string? userId = default,
+            global::System.Collections.Generic.IList<string>? evaluationParams = default,
+            global::System.Collections.Generic.IList<string>? dataCollectionParams = default,
+            global::System.Collections.Generic.IList<string>? toolNames = default,
+            global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
+            global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
+            global::System.Collections.Generic.IList<string>? mainLanguages = default,
+            int? pageSize = default,
+            global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode = default,
+            string? search = default,
+            global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
+            bool? textOnly = default,
+            string? branchId = default,
+            global::System.Collections.Generic.IList<string>? topicIds = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
+            global::System.Collections.Generic.IList<string>? tagIds = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetConversationsPageResponseModel, global::ElevenLabs.ConversationSummaryResponseModel>(
+                fetchPage: (__cursor, __ct) => List2Async(
+                    cursor: __cursor,
+                    agentId: agentId,
+                    callSuccessful: callSuccessful,
+                    callStartBeforeUnix: callStartBeforeUnix,
+                    callStartAfterUnix: callStartAfterUnix,
+                    callDurationMinSecs: callDurationMinSecs,
+                    callDurationMaxSecs: callDurationMaxSecs,
+                    ratingMax: ratingMax,
+                    ratingMin: ratingMin,
+                    hasFeedbackComment: hasFeedbackComment,
+                    userId: userId,
+                    evaluationParams: evaluationParams,
+                    dataCollectionParams: dataCollectionParams,
+                    toolNames: toolNames,
+                    toolNamesSuccessful: toolNamesSuccessful,
+                    toolNamesErrored: toolNamesErrored,
+                    mainLanguages: mainLanguages,
+                    pageSize: pageSize,
+                    summaryMode: summaryMode,
+                    search: search,
+                    conversationInitiationSource: conversationInitiationSource,
+                    textOnly: textOnly,
+                    branchId: branchId,
+                    topicIds: topicIds,
+                    excludeStatuses: excludeStatuses,
+                    tagIds: tagIds,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.ConversationSummaryResponseModel>?)__response.Conversations,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

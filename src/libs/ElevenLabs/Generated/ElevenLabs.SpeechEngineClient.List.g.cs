@@ -526,5 +526,49 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps ListAsync as an IAsyncEnumerable<global::ElevenLabs.SpeechEngineSummaryResponse> that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many Speech Engines to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="search">
+        /// Search term to filter Speech Engines by name
+        /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: desc
+        /// </param>
+        /// <param name="sortBy">
+        /// The field to sort the results by
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.SpeechEngineSummaryResponse> ListAutoPagingAsync(
+              int? pageSize = default,
+            string? search = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
+            global::ElevenLabs.AgentSortBy? sortBy = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.ListSpeechEnginesResponse, global::ElevenLabs.SpeechEngineSummaryResponse>(
+                fetchPage: (__cursor, __ct) => ListAsync(
+                    pageSize: pageSize,
+                    search: search,
+                    sortDirection: sortDirection,
+                    sortBy: sortBy,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.SpeechEngineSummaryResponse>?)__response.SpeechEngines,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

@@ -94,5 +94,45 @@ namespace ElevenLabs
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Wraps List9Async as an IAsyncEnumerable<global::ElevenLabs.ToolResponseModel> that auto-pages over the response.
+        /// </summary>
+        /// <param name="search">
+        /// If specified, the endpoint returns only tools whose names start with this string.
+        /// </param>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.
+        /// </param>
+        /// <param name="showOnlyOwnedDocuments">
+        /// If set to true, the endpoint will return only tools owned by you (and not shared from somebody else). Deprecated: use created_by_user_id instead.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter tools by creator user ID. When set, only tools created by this user are returned. Takes precedence over show_only_owned_documents. Use '@me' to refer to the authenticated user.
+        /// </param>
+        /// <param name="types">
+        /// If present, the endpoint will return only tools of the given types.
+        /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: desc
+        /// </param>
+        /// <param name="sortBy">
+        /// The field to sort the results by
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ToolResponseModel> List9AutoPagingAsync(
+              string? search = default,
+            int? pageSize = default,
+            bool? showOnlyOwnedDocuments = default,
+            string? createdByUserId = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
+            global::ElevenLabs.ToolSortBy? sortBy = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
     }
 }

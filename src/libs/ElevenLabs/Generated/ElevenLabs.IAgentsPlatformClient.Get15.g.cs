@@ -90,5 +90,43 @@ namespace ElevenLabs
             double? endTime = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Wraps Get15Async as an IAsyncEnumerable<global::ElevenLabs.ToolExecutionResponseModel> that auto-pages over the response.
+        /// </summary>
+        /// <param name="toolId">
+        /// ID of the requested tool.
+        /// </param>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="isError">
+        /// Filter by error status. If not provided, returns all executions.
+        /// </param>
+        /// <param name="agentId">
+        /// Filter by agent ID.
+        /// </param>
+        /// <param name="branchId">
+        /// Filter by agent branch ID.
+        /// </param>
+        /// <param name="startTime">
+        /// Filter executions from this Unix timestamp (inclusive).
+        /// </param>
+        /// <param name="endTime">
+        /// Filter executions until this Unix timestamp (inclusive).
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ToolExecutionResponseModel> Get15AutoPagingAsync(
+            string toolId,             int? pageSize = default,
+            bool? isError = default,
+            string? agentId = default,
+            string? branchId = default,
+            double? startTime = default,
+            double? endTime = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
     }
 }

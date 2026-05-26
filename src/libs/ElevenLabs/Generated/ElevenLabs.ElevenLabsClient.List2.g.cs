@@ -496,5 +496,38 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps List2Async as an IAsyncEnumerable<global::ElevenLabs.TestInvocationSummaryResponseModel> that auto-pages over the response.
+        /// </summary>
+        /// <param name="agentId">
+        /// Filter by agent ID
+        /// </param>
+        /// <param name="pageSize">
+        /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.TestInvocationSummaryResponseModel> List2AutoPagingAsync(
+              string? agentId = default,
+            int? pageSize = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetTestInvocationsPageResponseModel, global::ElevenLabs.TestInvocationSummaryResponseModel>(
+                fetchPage: (__cursor, __ct) => List2Async(
+                    agentId: agentId,
+                    pageSize: pageSize,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.TestInvocationSummaryResponseModel>?)__response.Results,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

@@ -62,5 +62,30 @@ namespace ElevenLabs
             string? sortDirection = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Wraps ListAsync as an IAsyncEnumerable<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel> that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many pronunciation dictionaries to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="sort">
+        /// Which field to sort by, one of 'created_at_unix' or 'name'.<br/>
+        /// Default Value: creation_time_unix
+        /// </param>
+        /// <param name="sortDirection">
+        /// Which direction to sort the voices in. 'ascending' or 'descending'.<br/>
+        /// Default Value: DESCENDING
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel> ListAutoPagingAsync(
+              int? pageSize = default,
+            global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort = default,
+            string? sortDirection = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
     }
 }

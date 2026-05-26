@@ -58,5 +58,27 @@ namespace ElevenLabs
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Wraps SearchAsync as an IAsyncEnumerable<global::ElevenLabs.MessagesSearchResult> that auto-pages over the response.
+        /// </summary>
+        /// <param name="textQuery">
+        /// The search query text for semantic similarity matching
+        /// </param>
+        /// <param name="agentId">
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
+        /// </param>
+        /// <param name="pageSize">
+        /// Number of results per page. Max 50.<br/>
+        /// Default Value: 20
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.MessagesSearchResult> SearchAutoPagingAsync(
+            string textQuery,             string? agentId = default,
+            int? pageSize = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
     }
 }

@@ -565,5 +565,62 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps Get15Async as an IAsyncEnumerable<global::ElevenLabs.ToolExecutionResponseModel> that auto-pages over the response.
+        /// </summary>
+        /// <param name="toolId">
+        /// ID of the requested tool.
+        /// </param>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="isError">
+        /// Filter by error status. If not provided, returns all executions.
+        /// </param>
+        /// <param name="agentId">
+        /// Filter by agent ID.
+        /// </param>
+        /// <param name="branchId">
+        /// Filter by agent branch ID.
+        /// </param>
+        /// <param name="startTime">
+        /// Filter executions from this Unix timestamp (inclusive).
+        /// </param>
+        /// <param name="endTime">
+        /// Filter executions until this Unix timestamp (inclusive).
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ToolExecutionResponseModel> Get15AutoPagingAsync(
+            string toolId,             int? pageSize = default,
+            bool? isError = default,
+            string? agentId = default,
+            string? branchId = default,
+            double? startTime = default,
+            double? endTime = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetToolExecutionsPageResponseModel, global::ElevenLabs.ToolExecutionResponseModel>(
+                fetchPage: (__cursor, __ct) => Get15Async(
+                    toolId: toolId,
+                    cursor: __cursor,
+                    pageSize: pageSize,
+                    isError: isError,
+                    agentId: agentId,
+                    branchId: branchId,
+                    startTime: startTime,
+                    endTime: endTime,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.ToolExecutionResponseModel>?)__response.Executions,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }
