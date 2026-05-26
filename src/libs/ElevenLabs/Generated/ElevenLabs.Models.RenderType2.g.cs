@@ -36,6 +36,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Wav,
+        /// <summary>
+        /// 
+        /// </summary>
+        Zip,
     }
 
     /// <summary>
@@ -57,6 +61,7 @@ namespace ElevenLabs
                 RenderType2.Mp4 => "mp4",
                 RenderType2.TracksZip => "tracks_zip",
                 RenderType2.Wav => "wav",
+                RenderType2.Zip => "zip",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -74,6 +79,7 @@ namespace ElevenLabs
                 "mp4" => RenderType2.Mp4,
                 "tracks_zip" => RenderType2.TracksZip,
                 "wav" => RenderType2.Wav,
+                "zip" => RenderType2.Zip,
                 _ => null,
             };
         }

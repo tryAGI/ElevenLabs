@@ -71527,7 +71527,8 @@
           "wav",
           "aaf",
           "tracks_zip",
-          "clips_zip"
+          "clips_zip",
+          "zip"
         ],
         "title": "RenderType"
       },
