@@ -82,5 +82,40 @@ namespace ElevenLabs
             string? activityName = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Wraps List2Async as an IAsyncEnumerable<global::ElevenLabs.WorkspaceAuditLogEntryResponse> that auto-pages over the response.
+        /// </summary>
+        /// <param name="limit">
+        /// Maximum number of entries per page<br/>
+        /// Default Value: 50
+        /// </param>
+        /// <param name="timeFromUnixMs">
+        /// Only include entries at or after this time (ms since epoch)
+        /// </param>
+        /// <param name="timeToUnixMs">
+        /// Only include entries at or before this time (ms since epoch)
+        /// </param>
+        /// <param name="actorUid">
+        /// Filter by actor user ID
+        /// </param>
+        /// <param name="className">
+        /// Filter by OCSF event class name (e.g. Account Change)
+        /// </param>
+        /// <param name="activityName">
+        /// Filter by audit activity name (e.g. Subscription Creation)
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.WorkspaceAuditLogEntryResponse> List2AutoPagingAsync(
+              int? limit = default,
+            int? timeFromUnixMs = default,
+            int? timeToUnixMs = default,
+            string? actorUid = default,
+            string? className = default,
+            string? activityName = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
     }
 }

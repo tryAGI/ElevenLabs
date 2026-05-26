@@ -68,5 +68,33 @@ namespace ElevenLabs
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Wraps ListAsync as an IAsyncEnumerable<global::ElevenLabs.SpeechEngineSummaryResponse> that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many Speech Engines to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="search">
+        /// Search term to filter Speech Engines by name
+        /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: desc
+        /// </param>
+        /// <param name="sortBy">
+        /// The field to sort the results by
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.SpeechEngineSummaryResponse> ListAutoPagingAsync(
+              int? pageSize = default,
+            string? search = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
+            global::ElevenLabs.AgentSortBy? sortBy = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
     }
 }

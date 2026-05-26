@@ -508,5 +508,42 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps List10Async as an IAsyncEnumerable<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig> that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100. If not provided, returns all secrets.
+        /// </param>
+        /// <param name="dependencyLimit">
+        /// Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100.
+        /// </param>
+        /// <param name="search">
+        /// If specified, returns only secrets whose names start with this string.
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig> List10AutoPagingAsync(
+              int? pageSize = default,
+            int? dependencyLimit = default,
+            string? search = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetWorkspaceSecretsResponseModel, global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig>(
+                fetchPage: (__cursor, __ct) => List10Async(
+                    pageSize: pageSize,
+                    dependencyLimit: dependencyLimit,
+                    search: search,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig>?)__response.Secrets,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

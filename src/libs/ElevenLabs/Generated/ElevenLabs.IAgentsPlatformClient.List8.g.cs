@@ -60,5 +60,28 @@ namespace ElevenLabs
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Wraps List8Async as an IAsyncEnumerable<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel> that auto-pages over the response.
+        /// </summary>
+        /// <param name="documentationId">
+        /// The id of a document from the knowledge base. This is returned on document addition.
+        /// </param>
+        /// <param name="embeddingModel">
+        /// The embedding model used to retrieve the chunk.<br/>
+        /// Default Value: e5_mistral_7b_instruct
+        /// </param>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel> List8AutoPagingAsync(
+            string documentationId,             global::ElevenLabs.EmbeddingModelEnum embeddingModel = global::ElevenLabs.EmbeddingModelEnum.E5Mistral7bInstruct,
+            int? pageSize = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
     }
 }

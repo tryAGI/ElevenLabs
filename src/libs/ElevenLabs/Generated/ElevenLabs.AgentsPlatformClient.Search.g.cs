@@ -510,5 +510,42 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps SearchAsync as an IAsyncEnumerable<global::ElevenLabs.MessagesSearchResult> that auto-pages over the response.
+        /// </summary>
+        /// <param name="textQuery">
+        /// The search query text for semantic similarity matching
+        /// </param>
+        /// <param name="agentId">
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
+        /// </param>
+        /// <param name="pageSize">
+        /// Number of results per page. Max 50.<br/>
+        /// Default Value: 20
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.MessagesSearchResult> SearchAutoPagingAsync(
+            string textQuery,             string? agentId = default,
+            int? pageSize = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.MessagesSearchResponse, global::ElevenLabs.MessagesSearchResult>(
+                fetchPage: (__cursor, __ct) => SearchAsync(
+                    textQuery: textQuery,
+                    agentId: agentId,
+                    pageSize: pageSize,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.MessagesSearchResult>?)__response.Results,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

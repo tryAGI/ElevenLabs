@@ -544,5 +544,56 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps ListAsync as an IAsyncEnumerable<global::ElevenLabs.DubbingMetadataResponse> that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many dubs to return at maximum. Can not exceed 200, defaults to 100.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="dubbingStatus">
+        /// What state the dub is currently in.
+        /// </param>
+        /// <param name="filterByCreator">
+        /// Filters who created the resources being listed, whether it was the user running the request or someone else that shared the resource with them.<br/>
+        /// Default Value: all
+        /// </param>
+        /// <param name="orderBy">
+        /// The field to use for ordering results from this query.<br/>
+        /// Default Value: created_at
+        /// </param>
+        /// <param name="orderDirection">
+        /// The order direction to use for results from this query.<br/>
+        /// Default Value: DESCENDING
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.DubbingMetadataResponse> ListAutoPagingAsync(
+              int? pageSize = default,
+            global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus = default,
+            global::ElevenLabs.ListDubsFilterByCreator? filterByCreator = default,
+            string? orderBy = default,
+            global::ElevenLabs.ListDubsOrderDirection? orderDirection = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.DubbingMetadataPageResponseModel, global::ElevenLabs.DubbingMetadataResponse>(
+                fetchPage: (__cursor, __ct) => ListAsync(
+                    cursor: __cursor,
+                    pageSize: pageSize,
+                    dubbingStatus: dubbingStatus,
+                    filterByCreator: filterByCreator,
+                    orderBy: orderBy,
+                    orderDirection: orderDirection,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.DubbingMetadataResponse>?)__response.Dubs,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

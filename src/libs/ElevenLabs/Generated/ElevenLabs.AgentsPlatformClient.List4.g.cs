@@ -482,5 +482,33 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps List4Async as an IAsyncEnumerable<global::ElevenLabs.ConversationTagResponseModel> that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many conversation tags to return. Can not exceed 100.<br/>
+        /// Default Value: 100
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ConversationTagResponseModel> List4AutoPagingAsync(
+              int? pageSize = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetConversationTagsPageResponseModel, global::ElevenLabs.ConversationTagResponseModel>(
+                fetchPage: (__cursor, __ct) => List4Async(
+                    pageSize: pageSize,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.ConversationTagResponseModel>?)__response.ConversationTags,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

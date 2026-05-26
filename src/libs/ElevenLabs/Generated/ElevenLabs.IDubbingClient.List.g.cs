@@ -80,5 +80,39 @@ namespace ElevenLabs
             global::ElevenLabs.ListDubsOrderDirection? orderDirection = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Wraps ListAsync as an IAsyncEnumerable<global::ElevenLabs.DubbingMetadataResponse> that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many dubs to return at maximum. Can not exceed 200, defaults to 100.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="dubbingStatus">
+        /// What state the dub is currently in.
+        /// </param>
+        /// <param name="filterByCreator">
+        /// Filters who created the resources being listed, whether it was the user running the request or someone else that shared the resource with them.<br/>
+        /// Default Value: all
+        /// </param>
+        /// <param name="orderBy">
+        /// The field to use for ordering results from this query.<br/>
+        /// Default Value: created_at
+        /// </param>
+        /// <param name="orderDirection">
+        /// The order direction to use for results from this query.<br/>
+        /// Default Value: DESCENDING
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.DubbingMetadataResponse> ListAutoPagingAsync(
+              int? pageSize = default,
+            global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus = default,
+            global::ElevenLabs.ListDubsFilterByCreator? filterByCreator = default,
+            string? orderBy = default,
+            global::ElevenLabs.ListDubsOrderDirection? orderDirection = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
     }
 }

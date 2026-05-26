@@ -511,5 +511,43 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps List8Async as an IAsyncEnumerable<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel> that auto-pages over the response.
+        /// </summary>
+        /// <param name="documentationId">
+        /// The id of a document from the knowledge base. This is returned on document addition.
+        /// </param>
+        /// <param name="embeddingModel">
+        /// The embedding model used to retrieve the chunk.<br/>
+        /// Default Value: e5_mistral_7b_instruct
+        /// </param>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel> List8AutoPagingAsync(
+            string documentationId,             global::ElevenLabs.EmbeddingModelEnum embeddingModel = global::ElevenLabs.EmbeddingModelEnum.E5Mistral7bInstruct,
+            int? pageSize = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.KnowledgeBaseDocumentChunksResponseModel, global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel>(
+                fetchPage: (__cursor, __ct) => List8Async(
+                    documentationId: documentationId,
+                    embeddingModel: embeddingModel,
+                    pageSize: pageSize,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel>?)__response.Chunks,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

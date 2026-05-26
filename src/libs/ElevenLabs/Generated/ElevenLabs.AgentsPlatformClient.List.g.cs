@@ -574,5 +574,66 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps ListAsync as an IAsyncEnumerable<global::ElevenLabs.AgentSummaryResponseModel> that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many Agents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="search">
+        /// Search by agents name.
+        /// </param>
+        /// <param name="archived">
+        /// Filter agents by archived status<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="showOnlyOwnedAgents">
+        /// If set to true, the endpoint will omit any agents that were shared with you by someone else and include only the ones you own. Deprecated: use created_by_user_id instead.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter agents by creator user ID. When set, only agents created by this user are returned. Takes precedence over show_only_owned_agents. Use '@me' to refer to the authenticated user.
+        /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: desc
+        /// </param>
+        /// <param name="sortBy">
+        /// The field to sort the results by
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentSummaryResponseModel> ListAutoPagingAsync(
+              int? pageSize = default,
+            string? search = default,
+            bool? archived = default,
+            bool? showOnlyOwnedAgents = default,
+            string? createdByUserId = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
+            global::ElevenLabs.AgentSortBy? sortBy = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetAgentsPageResponseModel, global::ElevenLabs.AgentSummaryResponseModel>(
+                fetchPage: (__cursor, __ct) => ListAsync(
+                    pageSize: pageSize,
+                    search: search,
+                    archived: archived,
+                    showOnlyOwnedAgents: showOnlyOwnedAgents,
+                    createdByUserId: createdByUserId,
+                    sortDirection: sortDirection,
+                    sortBy: sortBy,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.AgentSummaryResponseModel>?)__response.Agents,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }
