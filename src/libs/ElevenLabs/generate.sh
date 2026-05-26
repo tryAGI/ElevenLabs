@@ -35,6 +35,10 @@ autosdk generate openapi.json \
   --targetFramework net10.0 \
   --output Generated \
   --exclude-deprecated-operations \
+  --generate-http-exception-hierarchy \
+  --generate-retry-handler \
+  --generate-pageable-helpers \
+  --generate-multipart-upload-helpers \
   --methodNamingConvention MethodAndPath \
   --security-scheme ApiKey:Header:xi-api-key \
   --auth-env-var ELEVENLABS_API_KEY \
