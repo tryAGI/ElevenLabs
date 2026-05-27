@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePost
     {
         /// <summary>
-        /// Role to update the target principal with.
+        /// Role to grant to the target: one of 'admin', 'editor', 'commenter', or 'viewer'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostRoleJsonConverter))]
@@ -31,13 +31,13 @@ namespace ElevenLabs
         public string? UserEmail { get; set; }
 
         /// <summary>
-        /// The ID of the target group. To target the permissions principals have by default on this resource, use the value 'default'.
+        /// The ID of the target group. Use 'default' to set the resource's baseline role — every workspace member receives this role unless they hold a higher one through a direct user grant, group membership, or workspace (service account) API key.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("group_id")]
         public string? GroupId { get; set; }
 
         /// <summary>
-        /// The ID of the target workspace API key. This isn't the same as the key itself that would you pass in the header for authentication. Workspace admins can find this in the workspace settings UI.
+        /// The ID of the target workspace (service account) API key. This is not the API key string itself that you pass in the header for authentication — it is the key's ID, which workspace admins can find under Developers → Service Accounts.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspace_api_key_id")]
         public string? WorkspaceApiKeyId { get; set; }
@@ -52,7 +52,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePost" /> class.
         /// </summary>
         /// <param name="role">
-        /// Role to update the target principal with.
+        /// Role to grant to the target: one of 'admin', 'editor', 'commenter', or 'viewer'.
         /// </param>
         /// <param name="resourceType">
         /// Resource type of the target resource.
@@ -61,10 +61,10 @@ namespace ElevenLabs
         /// The email of the user or service account.
         /// </param>
         /// <param name="groupId">
-        /// The ID of the target group. To target the permissions principals have by default on this resource, use the value 'default'.
+        /// The ID of the target group. Use 'default' to set the resource's baseline role — every workspace member receives this role unless they hold a higher one through a direct user grant, group membership, or workspace (service account) API key.
         /// </param>
         /// <param name="workspaceApiKeyId">
-        /// The ID of the target workspace API key. This isn't the same as the key itself that would you pass in the header for authentication. Workspace admins can find this in the workspace settings UI.
+        /// The ID of the target workspace (service account) API key. This is not the API key string itself that you pass in the header for authentication — it is the key's ID, which workspace admins can find under Developers → Service Accounts.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Role to update the target principal with.
+    /// Role to grant to the target: one of 'admin', 'editor', 'commenter', or 'viewer'.
     /// </summary>
     public enum BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostRole
     {
         /// <summary>
-        /// 
+        /// one of 'admin', 'editor', 'commenter', or 'viewer'.
         /// </summary>
         Admin,
         /// <summary>
-        /// 
+        /// one of 'admin', 'editor', 'commenter', or 'viewer'.
         /// </summary>
         Commenter,
         /// <summary>
-        /// 
+        /// one of 'admin', 'editor', 'commenter', or 'viewer'.
         /// </summary>
         Editor,
         /// <summary>
-        /// 
+        /// one of 'admin', 'editor', 'commenter', or 'viewer'.
         /// </summary>
         Viewer,
     }
