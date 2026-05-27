@@ -11,10 +11,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Append,
-        /// <summary>
-        /// 
-        /// </summary>
         Skills,
     }
 
@@ -30,7 +26,6 @@ namespace ElevenLabs
         {
             return value switch
             {
-                ProcedureCompilerMode.Append => "append",
                 ProcedureCompilerMode.Skills => "skills",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -42,7 +37,6 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "append" => ProcedureCompilerMode.Append,
                 "skills" => ProcedureCompilerMode.Skills,
                 _ => null,
             };

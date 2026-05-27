@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The ID of the target group. To target the permissions principals have by default on this resource, use the value 'default'.
+    /// The ID of the target group. Use 'default' to set the resource's baseline role — every workspace member receives this role unless they hold a higher one through a direct user grant, group membership, or workspace (service account) API key.
     /// </summary>
     public sealed partial class BodyUnshareWorkspaceResourceV1WorkspaceResourcesResourceIdUnsharePostGroupId
     {
