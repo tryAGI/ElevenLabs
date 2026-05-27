@@ -510,5 +510,42 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps Search2Async as an IAsyncEnumerable&lt;global::ElevenLabs.KnowledgeBaseContentSearchResult&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="query">
+        /// The search query text
+        /// </param>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="types">
+        /// If present, the endpoint will return only documents of the given types.
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.KnowledgeBaseContentSearchResult> Search2AutoPagingAsync(
+            string query,             int? pageSize = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? types = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.KnowledgeBaseContentSearchResponseModel, global::ElevenLabs.KnowledgeBaseContentSearchResult>(
+                fetchPage: (__cursor, __ct) => Search2Async(
+                    query: query,
+                    pageSize: pageSize,
+                    types: types,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.KnowledgeBaseContentSearchResult>?)__response.Results,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

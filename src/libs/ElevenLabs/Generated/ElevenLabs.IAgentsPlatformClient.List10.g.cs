@@ -56,5 +56,27 @@ namespace ElevenLabs
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Wraps List10Async as an IAsyncEnumerable&lt;global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100. If not provided, returns all secrets.
+        /// </param>
+        /// <param name="dependencyLimit">
+        /// Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100.
+        /// </param>
+        /// <param name="search">
+        /// If specified, returns only secrets whose names start with this string.
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig> List10AutoPagingAsync(
+              int? pageSize = default,
+            int? dependencyLimit = default,
+            string? search = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
     }
 }

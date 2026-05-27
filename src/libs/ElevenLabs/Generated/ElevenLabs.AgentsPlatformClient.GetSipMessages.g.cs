@@ -493,5 +493,36 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps GetSipMessagesAsync as an IAsyncEnumerable&lt;global::ElevenLabs.SIPLogMessage&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="conversationId">
+        /// The id of the conversation you're taking the action on.
+        /// </param>
+        /// <param name="pageSize">
+        /// Default Value: 20
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.SIPLogMessage> GetSipMessagesAutoPagingAsync(
+            string conversationId,             int? pageSize = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetSIPLogMessagesResponse, global::ElevenLabs.SIPLogMessage>(
+                fetchPage: (__cursor, __ct) => GetSipMessagesAsync(
+                    conversationId: conversationId,
+                    pageSize: pageSize,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.SIPLogMessage>?)__response.SipMessages,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

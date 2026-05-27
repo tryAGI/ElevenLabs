@@ -498,5 +498,38 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps ListAsync as an IAsyncEnumerable&lt;global::ElevenLabs.AudioIsolationHistoryItemResponseModel&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many history items to return at maximum. Defaults to 100.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="search">
+        /// Optional search term used for filtering audio isolation history (title/text).
+        /// </param> 
+        /// <param name="page">Initial page number to start enumerating from. Defaults to 1.</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AudioIsolationHistoryItemResponseModel> ListAutoPagingAsync(
+              int? pageSize = default,
+            string? search = default,
+            int? page = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.OffsetAsync<global::ElevenLabs.GetAudioIsolationHistoryResponseModel, global::ElevenLabs.AudioIsolationHistoryItemResponseModel>(
+                fetchPage: (__page, __ct) => ListAsync(
+                    pageSize: pageSize,
+                    page: __page,
+                    search: search,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.AudioIsolationHistoryItemResponseModel>?)__response.Items,
+                hasMore: static __response => __response is not null && __response.HasMore,
+                initialPage: page ?? 1,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

@@ -48,5 +48,22 @@ namespace ElevenLabs
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Wraps GetSipMessagesAsync as an IAsyncEnumerable&lt;global::ElevenLabs.SIPLogMessage&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="conversationId">
+        /// The id of the conversation you're taking the action on.
+        /// </param>
+        /// <param name="pageSize">
+        /// Default Value: 20
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.SIPLogMessage> GetSipMessagesAutoPagingAsync(
+            string conversationId,             int? pageSize = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
     }
 }

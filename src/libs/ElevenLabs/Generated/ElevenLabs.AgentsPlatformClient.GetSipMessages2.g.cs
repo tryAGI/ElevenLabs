@@ -493,5 +493,36 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps GetSipMessages2Async as an IAsyncEnumerable&lt;global::ElevenLabs.SIPLogMessage&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="phoneNumberId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="pageSize">
+        /// Default Value: 20
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.SIPLogMessage> GetSipMessages2AutoPagingAsync(
+            string phoneNumberId,             int? pageSize = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetSIPLogMessagesResponse, global::ElevenLabs.SIPLogMessage>(
+                fetchPage: (__cursor, __ct) => GetSipMessages2Async(
+                    phoneNumberId: phoneNumberId,
+                    pageSize: pageSize,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.SIPLogMessage>?)__response.SipMessages,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

@@ -66,5 +66,32 @@ namespace ElevenLabs
             global::ElevenLabs.ListEnvironmentVariablesType2? type = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Wraps List16Async as an IAsyncEnumerable&lt;global::ElevenLabs.EnvironmentVariableResponse&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// Number of items to return (1-100)<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="label">
+        /// Filter by exact label match
+        /// </param>
+        /// <param name="environment">
+        /// Filter to only return variables that have this environment. When specified, the values dict in the response will only contain this environment.
+        /// </param>
+        /// <param name="type">
+        /// Filter by variable type
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.EnvironmentVariableResponse> List16AutoPagingAsync(
+              int? pageSize = default,
+            string? label = default,
+            string? environment = default,
+            global::ElevenLabs.ListEnvironmentVariablesType2? type = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
     }
 }

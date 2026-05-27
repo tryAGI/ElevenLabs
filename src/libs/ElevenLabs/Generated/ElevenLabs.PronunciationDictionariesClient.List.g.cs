@@ -514,5 +514,45 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps ListAsync as an IAsyncEnumerable&lt;global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many pronunciation dictionaries to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="sort">
+        /// Which field to sort by, one of 'created_at_unix' or 'name'.<br/>
+        /// Default Value: creation_time_unix
+        /// </param>
+        /// <param name="sortDirection">
+        /// Which direction to sort the voices in. 'ascending' or 'descending'.<br/>
+        /// Default Value: DESCENDING
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel> ListAutoPagingAsync(
+              int? pageSize = default,
+            global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort = default,
+            string? sortDirection = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetPronunciationDictionariesMetadataResponseModel, global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel>(
+                fetchPage: (__cursor, __ct) => ListAsync(
+                    cursor: __cursor,
+                    pageSize: pageSize,
+                    sort: sort,
+                    sortDirection: sortDirection,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel>?)__response.PronunciationDictionaries,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

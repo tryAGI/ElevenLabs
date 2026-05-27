@@ -50,5 +50,24 @@ namespace ElevenLabs
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Wraps List2Async as an IAsyncEnumerable&lt;global::ElevenLabs.TestInvocationSummaryResponseModel&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="agentId">
+        /// Filter by agent ID
+        /// </param>
+        /// <param name="pageSize">
+        /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.TestInvocationSummaryResponseModel> List2AutoPagingAsync(
+              string? agentId = default,
+            int? pageSize = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
     }
 }

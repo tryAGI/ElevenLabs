@@ -556,5 +556,48 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps List16Async as an IAsyncEnumerable&lt;global::ElevenLabs.EnvironmentVariableResponse&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// Number of items to return (1-100)<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="label">
+        /// Filter by exact label match
+        /// </param>
+        /// <param name="environment">
+        /// Filter to only return variables that have this environment. When specified, the values dict in the response will only contain this environment.
+        /// </param>
+        /// <param name="type">
+        /// Filter by variable type
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.EnvironmentVariableResponse> List16AutoPagingAsync(
+              int? pageSize = default,
+            string? label = default,
+            string? environment = default,
+            global::ElevenLabs.ListEnvironmentVariablesType2? type = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.EnvironmentVariablesListResponse, global::ElevenLabs.EnvironmentVariableResponse>(
+                fetchPage: (__cursor, __ct) => List16Async(
+                    cursor: __cursor,
+                    pageSize: pageSize,
+                    label: label,
+                    environment: environment,
+                    type: type,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.EnvironmentVariableResponse>?)__response.EnvironmentVariables,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

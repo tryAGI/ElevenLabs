@@ -52,5 +52,24 @@ namespace ElevenLabs
             string? search = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Wraps ListAsync as an IAsyncEnumerable&lt;global::ElevenLabs.AudioIsolationHistoryItemResponseModel&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many history items to return at maximum. Defaults to 100.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="search">
+        /// Optional search term used for filtering audio isolation history (title/text).
+        /// </param> 
+        /// <param name="page">Initial page number to start enumerating from. Defaults to 1.</param>
+        /// <param name="cancellationToken"></param>
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AudioIsolationHistoryItemResponseModel> ListAutoPagingAsync(
+              int? pageSize = default,
+            string? search = default,
+            int? page = null,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
     }
 }
