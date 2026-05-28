@@ -326,9 +326,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.LoadProcedureToolConfig? LoadProcedure { get; init; }
+        public global::ElevenLabs.LoadProcedureToolConfigInput? LoadProcedure { get; init; }
 #else
-        public global::ElevenLabs.LoadProcedureToolConfig? LoadProcedure { get; }
+        public global::ElevenLabs.LoadProcedureToolConfigInput? LoadProcedure { get; }
 #endif
 
         /// <summary>
@@ -346,7 +346,7 @@ namespace ElevenLabs
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::ElevenLabs.LoadProcedureToolConfig? value)
+            out global::ElevenLabs.LoadProcedureToolConfigInput? value)
         {
             value = LoadProcedure;
             return IsLoadProcedure;
@@ -355,7 +355,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.LoadProcedureToolConfig PickLoadProcedure() => IsLoadProcedure
+        public global::ElevenLabs.LoadProcedureToolConfigInput PickLoadProcedure() => IsLoadProcedure
             ? LoadProcedure!
             : throw new global::System.InvalidOperationException($"Expected union variant 'LoadProcedure' but the value was {ToString()}.");
         /// <summary>
@@ -545,17 +545,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator Params2(global::ElevenLabs.LoadProcedureToolConfig value) => new Params2((global::ElevenLabs.LoadProcedureToolConfig?)value);
+        public static implicit operator Params2(global::ElevenLabs.LoadProcedureToolConfigInput value) => new Params2((global::ElevenLabs.LoadProcedureToolConfigInput?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.LoadProcedureToolConfig?(Params2 @this) => @this.LoadProcedure;
+        public static implicit operator global::ElevenLabs.LoadProcedureToolConfigInput?(Params2 @this) => @this.LoadProcedure;
 
         /// <summary>
         /// 
         /// </summary>
-        public Params2(global::ElevenLabs.LoadProcedureToolConfig? value)
+        public Params2(global::ElevenLabs.LoadProcedureToolConfigInput? value)
         {
             LoadProcedure = value;
         }
@@ -563,7 +563,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static Params2 FromLoadProcedure(global::ElevenLabs.LoadProcedureToolConfig? value) => new Params2(value);
+        public static Params2 FromLoadProcedure(global::ElevenLabs.LoadProcedureToolConfigInput? value) => new Params2(value);
 
         /// <summary>
         /// 
@@ -578,7 +578,7 @@ namespace ElevenLabs
             global::ElevenLabs.PlayDTMFToolConfig? playKeypadTouchTone,
             global::ElevenLabs.VoicemailDetectionToolConfig? voicemailDetection,
             global::ElevenLabs.KnowledgeBaseRagToolConfig? knowledgeBaseRag,
-            global::ElevenLabs.LoadProcedureToolConfig? loadProcedure
+            global::ElevenLabs.LoadProcedureToolConfigInput? loadProcedure
             )
         {
             SystemToolType = systemToolType;
@@ -644,7 +644,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.PlayDTMFToolConfig, TResult>? playKeypadTouchTone = null,
             global::System.Func<global::ElevenLabs.VoicemailDetectionToolConfig, TResult>? voicemailDetection = null,
             global::System.Func<global::ElevenLabs.KnowledgeBaseRagToolConfig, TResult>? knowledgeBaseRag = null,
-            global::System.Func<global::ElevenLabs.LoadProcedureToolConfig, TResult>? loadProcedure = null,
+            global::System.Func<global::ElevenLabs.LoadProcedureToolConfigInput, TResult>? loadProcedure = null,
             bool validate = true)
         {
             if (validate)
@@ -712,7 +712,7 @@ namespace ElevenLabs
 
             global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolConfig>? knowledgeBaseRag = null,
 
-            global::System.Action<global::ElevenLabs.LoadProcedureToolConfig>? loadProcedure = null,
+            global::System.Action<global::ElevenLabs.LoadProcedureToolConfigInput>? loadProcedure = null,
             bool validate = true)
         {
             if (validate)
@@ -770,7 +770,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.PlayDTMFToolConfig>? playKeypadTouchTone = null,
             global::System.Action<global::ElevenLabs.VoicemailDetectionToolConfig>? voicemailDetection = null,
             global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolConfig>? knowledgeBaseRag = null,
-            global::System.Action<global::ElevenLabs.LoadProcedureToolConfig>? loadProcedure = null,
+            global::System.Action<global::ElevenLabs.LoadProcedureToolConfigInput>? loadProcedure = null,
             bool validate = true)
         {
             if (validate)
@@ -840,7 +840,7 @@ namespace ElevenLabs
                 KnowledgeBaseRag,
                 typeof(global::ElevenLabs.KnowledgeBaseRagToolConfig),
                 LoadProcedure,
-                typeof(global::ElevenLabs.LoadProcedureToolConfig),
+                typeof(global::ElevenLabs.LoadProcedureToolConfigInput),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -865,7 +865,7 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PlayDTMFToolConfig?>.Default.Equals(PlayKeypadTouchTone, other.PlayKeypadTouchTone) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.VoicemailDetectionToolConfig?>.Default.Equals(VoicemailDetection, other.VoicemailDetection) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.KnowledgeBaseRagToolConfig?>.Default.Equals(KnowledgeBaseRag, other.KnowledgeBaseRag) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.LoadProcedureToolConfig?>.Default.Equals(LoadProcedure, other.LoadProcedure) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.LoadProcedureToolConfigInput?>.Default.Equals(LoadProcedure, other.LoadProcedure) 
                 ;
         }
 

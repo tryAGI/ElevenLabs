@@ -30,6 +30,13 @@ namespace ElevenLabs
         public required string Content { get; set; }
 
         /// <summary>
+        /// Default Value: free_form
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProcedureTypeJsonConverter))]
+        public global::ElevenLabs.ProcedureType? Type { get; set; }
+
+        /// <summary>
         /// Agent ID of the procedure
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
@@ -63,6 +70,9 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Agent ID of the procedure
         /// </param>
+        /// <param name="type">
+        /// Default Value: free_form
+        /// </param>
         /// <param name="versionId">
         /// Version ID of a version of the procedure. None for a procedure never versioned.
         /// </param>
@@ -74,11 +84,13 @@ namespace ElevenLabs
             string name,
             string content,
             string agentId,
+            global::ElevenLabs.ProcedureType? type,
             string? versionId)
         {
             this.ProcedureId = procedureId ?? throw new global::System.ArgumentNullException(nameof(procedureId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
+            this.Type = type;
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.VersionId = versionId;
         }
