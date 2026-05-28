@@ -19,10 +19,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Code,
-        /// <summary>
-        /// 
-        /// </summary>
         Mcp,
         /// <summary>
         /// 
@@ -52,7 +48,6 @@ namespace ElevenLabs
             {
                 PromptAgentAPIModelInputToolDiscriminatorType.ApiIntegrationWebhook => "api_integration_webhook",
                 PromptAgentAPIModelInputToolDiscriminatorType.Client => "client",
-                PromptAgentAPIModelInputToolDiscriminatorType.Code => "code",
                 PromptAgentAPIModelInputToolDiscriminatorType.Mcp => "mcp",
                 PromptAgentAPIModelInputToolDiscriminatorType.Smb => "smb",
                 PromptAgentAPIModelInputToolDiscriminatorType.System => "system",
@@ -69,7 +64,6 @@ namespace ElevenLabs
             {
                 "api_integration_webhook" => PromptAgentAPIModelInputToolDiscriminatorType.ApiIntegrationWebhook,
                 "client" => PromptAgentAPIModelInputToolDiscriminatorType.Client,
-                "code" => PromptAgentAPIModelInputToolDiscriminatorType.Code,
                 "mcp" => PromptAgentAPIModelInputToolDiscriminatorType.Mcp,
                 "smb" => PromptAgentAPIModelInputToolDiscriminatorType.Smb,
                 "system" => PromptAgentAPIModelInputToolDiscriminatorType.System,

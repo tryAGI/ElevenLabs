@@ -30,11 +30,16 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<string> EdgeOrder { get; set; }
 
         /// <summary>
-        /// The ID of the agent to transfer the conversation to.
+        /// The ID of the agent to transfer the conversation to. None means transfer within the current agent.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AgentId { get; set; }
+        public string? AgentId { get; set; }
+
+        /// <summary>
+        /// Optional target node ID in the destination agent's workflow. When set, the transfer starts at this node instead of the default entry node.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("node_id")]
+        public string? NodeId { get; set; }
 
         /// <summary>
         /// Artificial delay in milliseconds applied before transferring the conversation.<br/>
@@ -73,9 +78,6 @@ namespace ElevenLabs
         /// <param name="edgeOrder">
         /// The ids of outgoing edges in the order they should be evaluated.
         /// </param>
-        /// <param name="agentId">
-        /// The ID of the agent to transfer the conversation to.
-        /// </param>
         /// <param name="delayMs">
         /// Artificial delay in milliseconds applied before transferring the conversation.<br/>
         /// Default Value: 0
@@ -83,6 +85,12 @@ namespace ElevenLabs
         /// <param name="enableTransferredAgentFirstMessage">
         /// Whether to enable the transferred agent to send its configured first message after the transfer.<br/>
         /// Default Value: false
+        /// </param>
+        /// <param name="agentId">
+        /// The ID of the agent to transfer the conversation to. None means transfer within the current agent.
+        /// </param>
+        /// <param name="nodeId">
+        /// Optional target node ID in the destination agent's workflow. When set, the transfer starts at this node instead of the default entry node.
         /// </param>
         /// <param name="transferMessage">
         /// Optional message sent to the user before the transfer is initiated.
@@ -96,16 +104,18 @@ namespace ElevenLabs
         public WorkflowStandaloneAgentNodeModelOutput(
             global::ElevenLabs.PositionOutput position,
             global::System.Collections.Generic.IList<string> edgeOrder,
-            string agentId,
             int delayMs,
             bool enableTransferredAgentFirstMessage,
+            string? agentId,
+            string? nodeId,
             string? transferMessage,
             string type = "standalone_agent")
         {
             this.Type = type;
             this.Position = position ?? throw new global::System.ArgumentNullException(nameof(position));
             this.EdgeOrder = edgeOrder ?? throw new global::System.ArgumentNullException(nameof(edgeOrder));
-            this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
+            this.AgentId = agentId;
+            this.NodeId = nodeId;
             this.DelayMs = delayMs;
             this.TransferMessage = transferMessage;
             this.EnableTransferredAgentFirstMessage = enableTransferredAgentFirstMessage;

@@ -37557,6 +37557,21 @@
             ],
             "title": "Csv Fps",
             "description": "Frames per second to use when parsing a CSV file for dubbing. If not provided, FPS will be inferred from timecodes."
+          },
+          "hcaptcha_token": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "HCaptcha token",
+            "description": "HCaptcha token used to prevent spam, generated on the frontend either automatically or when the client solves the hCaptcha challenge.\n",
+            "examples": [
+              "10000000-aaaa-bbbb-cccc-000000000000"
+            ]
           }
         },
         "type": "object",
@@ -44018,264 +44033,6 @@
         ],
         "title": "CodeToolAllowedDomain"
       },
-      "CodeToolConfig-Input": {
-        "properties": {
-          "type": {
-            "type": "string",
-            "const": "code",
-            "title": "Type",
-            "description": "The type of tool",
-            "default": "code"
-          },
-          "name": {
-            "type": "string",
-            "minLength": 0,
-            "pattern": "^[a-zA-Z0-9_-]{1,64}$",
-            "title": "Name"
-          },
-          "description": {
-            "type": "string",
-            "minLength": 0,
-            "title": "Description",
-            "description": "Description of when the tool should be used and what it does."
-          },
-          "response_timeout_secs": {
-            "type": "integer",
-            "maximum": 120.0,
-            "minimum": 5.0,
-            "title": "Response Timeout Secs",
-            "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).",
-            "default": 20
-          },
-          "disable_interruptions": {
-            "type": "boolean",
-            "title": "Disable Interruptions",
-            "description": "If true, the user will not be able to interrupt the agent while this tool is running.",
-            "default": false
-          },
-          "force_pre_tool_speech": {
-            "type": "boolean",
-            "title": "Force Pre Tool Speech",
-            "description": "DEPRECATED: use `pre_tool_speech` instead. If true, the agent will speak before the tool call.",
-            "default": false,
-            "deprecated": true
-          },
-          "pre_tool_speech": {
-            "$ref": "#/components/schemas/PreToolSpeechMode",
-            "description": "Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.",
-            "default": "auto"
-          },
-          "assignments": {
-            "items": {
-              "$ref": "#/components/schemas/DynamicVariableAssignment"
-            },
-            "type": "array",
-            "title": "Assignments",
-            "description": "Configuration for extracting values from tool responses and assigning them to dynamic variables"
-          },
-          "tool_call_sound": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ToolCallSoundType"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Predefined tool call sound type to play during tool execution. If not specified, no tool call sound will be played.",
-            "x-convai-client-override": true
-          },
-          "tool_call_sound_behavior": {
-            "$ref": "#/components/schemas/ToolCallSoundBehavior",
-            "description": "Determines when the tool call sound should play. 'auto' only plays when there's pre-tool speech, 'always' plays for every tool call.",
-            "default": "auto"
-          },
-          "tool_error_handling_mode": {
-            "$ref": "#/components/schemas/ToolErrorHandlingMode",
-            "description": "Controls how tool errors are processed before being shared with the agent. 'auto' determines handling based on tool type (summarized for native integrations, hide for others), 'summarized' sends an LLM-generated summary, 'passthrough' sends the raw error, 'hide' does not share the error with the agent.",
-            "default": "auto"
-          },
-          "source_code": {
-            "type": "string",
-            "minLength": 1,
-            "title": "Source Code",
-            "description": "TypeScript/JavaScript source code that implements the tool logic"
-          },
-          "dependencies": {
-            "anyOf": [
-              {
-                "additionalProperties": {
-                  "type": "string"
-                },
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Dependencies",
-            "description": "npm dependencies as a package-name → version map (e.g. {\"lodash\": \"^4.17.21\"})"
-          },
-          "parameters": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ObjectJsonSchemaProperty-Input"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Schema for parameters the LLM provides to the code tool via `args`"
-          },
-          "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig-Input",
-            "description": "Configuration for dynamic variables"
-          },
-          "execution_mode": {
-            "$ref": "#/components/schemas/ToolExecutionMode",
-            "description": "Determines when and how the tool executes: 'immediate' executes the tool right away when requested by the LLM, 'post_tool_speech' waits for the agent to finish speaking before executing, 'async' runs the tool in the background without blocking - best for long-running operations.",
-            "default": "immediate"
-          }
-        },
-        "type": "object",
-        "required": [
-          "name",
-          "description",
-          "source_code"
-        ],
-        "title": "CodeToolConfig",
-        "description": "A code tool runs user-provided TypeScript/JavaScript in a sandboxed isolate.",
-        "x-fern-ignore": true
-      },
-      "CodeToolConfig-Output": {
-        "properties": {
-          "type": {
-            "type": "string",
-            "const": "code",
-            "title": "Type",
-            "description": "The type of tool",
-            "default": "code"
-          },
-          "name": {
-            "type": "string",
-            "minLength": 0,
-            "pattern": "^[a-zA-Z0-9_-]{1,64}$",
-            "title": "Name"
-          },
-          "description": {
-            "type": "string",
-            "minLength": 0,
-            "title": "Description",
-            "description": "Description of when the tool should be used and what it does."
-          },
-          "response_timeout_secs": {
-            "type": "integer",
-            "maximum": 120.0,
-            "minimum": 5.0,
-            "title": "Response Timeout Secs",
-            "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).",
-            "default": 20
-          },
-          "disable_interruptions": {
-            "type": "boolean",
-            "title": "Disable Interruptions",
-            "description": "If true, the user will not be able to interrupt the agent while this tool is running.",
-            "default": false
-          },
-          "force_pre_tool_speech": {
-            "type": "boolean",
-            "title": "Force Pre Tool Speech",
-            "description": "DEPRECATED: use `pre_tool_speech` instead. If true, the agent will speak before the tool call.",
-            "default": false,
-            "deprecated": true
-          },
-          "pre_tool_speech": {
-            "$ref": "#/components/schemas/PreToolSpeechMode",
-            "description": "Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.",
-            "default": "auto"
-          },
-          "assignments": {
-            "items": {
-              "$ref": "#/components/schemas/DynamicVariableAssignment"
-            },
-            "type": "array",
-            "title": "Assignments",
-            "description": "Configuration for extracting values from tool responses and assigning them to dynamic variables"
-          },
-          "tool_call_sound": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ToolCallSoundType"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Predefined tool call sound type to play during tool execution. If not specified, no tool call sound will be played.",
-            "x-convai-client-override": true
-          },
-          "tool_call_sound_behavior": {
-            "$ref": "#/components/schemas/ToolCallSoundBehavior",
-            "description": "Determines when the tool call sound should play. 'auto' only plays when there's pre-tool speech, 'always' plays for every tool call.",
-            "default": "auto"
-          },
-          "tool_error_handling_mode": {
-            "$ref": "#/components/schemas/ToolErrorHandlingMode",
-            "description": "Controls how tool errors are processed before being shared with the agent. 'auto' determines handling based on tool type (summarized for native integrations, hide for others), 'summarized' sends an LLM-generated summary, 'passthrough' sends the raw error, 'hide' does not share the error with the agent.",
-            "default": "auto"
-          },
-          "source_code": {
-            "type": "string",
-            "minLength": 1,
-            "title": "Source Code",
-            "description": "TypeScript/JavaScript source code that implements the tool logic"
-          },
-          "dependencies": {
-            "anyOf": [
-              {
-                "additionalProperties": {
-                  "type": "string"
-                },
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Dependencies",
-            "description": "npm dependencies as a package-name → version map (e.g. {\"lodash\": \"^4.17.21\"})"
-          },
-          "parameters": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ObjectJsonSchemaProperty-Output"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Schema for parameters the LLM provides to the code tool via `args`"
-          },
-          "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig-Output",
-            "description": "Configuration for dynamic variables"
-          },
-          "execution_mode": {
-            "$ref": "#/components/schemas/ToolExecutionMode",
-            "description": "Determines when and how the tool executes: 'immediate' executes the tool right away when requested by the LLM, 'post_tool_speech' waits for the agent to finish speaking before executing, 'async' runs the tool in the background without blocking - best for long-running operations.",
-            "default": "immediate"
-          }
-        },
-        "type": "object",
-        "required": [
-          "name",
-          "description",
-          "source_code"
-        ],
-        "title": "CodeToolConfig",
-        "description": "A code tool runs user-provided TypeScript/JavaScript in a sandboxed isolate.",
-        "x-fern-ignore": true
-      },
       "ColumnFilter": {
         "properties": {
           "column": {
@@ -46906,7 +46663,8 @@
                 "enum": [
                   "client",
                   "webhook",
-                  "mcp"
+                  "mcp",
+                  "code"
                 ]
               },
               {
@@ -69151,9 +68909,6 @@
                 },
                 {
                   "$ref": "#/components/schemas/SMBToolConfig"
-                },
-                {
-                  "$ref": "#/components/schemas/CodeToolConfig-Input"
                 }
               ],
               "description": "The type of tool",
@@ -69162,7 +68917,6 @@
                 "mapping": {
                   "api_integration_webhook": "#/components/schemas/ApiIntegrationWebhookToolConfig-Input",
                   "client": "#/components/schemas/ClientToolConfig-Input",
-                  "code": "#/components/schemas/CodeToolConfig-Input",
                   "mcp": "#/components/schemas/MCPToolConfig-Input",
                   "smb": "#/components/schemas/SMBToolConfig",
                   "system": "#/components/schemas/SystemToolConfig-Input",
@@ -69377,9 +69131,6 @@
                 },
                 {
                   "$ref": "#/components/schemas/SMBToolConfig"
-                },
-                {
-                  "$ref": "#/components/schemas/CodeToolConfig-Output"
                 }
               ],
               "description": "The type of tool",
@@ -69388,7 +69139,6 @@
                 "mapping": {
                   "api_integration_webhook": "#/components/schemas/ApiIntegrationWebhookToolConfig-Output",
                   "client": "#/components/schemas/ClientToolConfig-Output",
-                  "code": "#/components/schemas/CodeToolConfig-Output",
                   "mcp": "#/components/schemas/MCPToolConfig-Output",
                   "smb": "#/components/schemas/SMBToolConfig",
                   "system": "#/components/schemas/SystemToolConfig-Output",
@@ -69866,9 +69616,6 @@
                     },
                     {
                       "$ref": "#/components/schemas/SMBToolConfig"
-                    },
-                    {
-                      "$ref": "#/components/schemas/CodeToolConfig-Input"
                     }
                   ],
                   "description": "The type of tool",
@@ -69877,7 +69624,6 @@
                     "mapping": {
                       "api_integration_webhook": "#/components/schemas/ApiIntegrationWebhookToolConfig-Input",
                       "client": "#/components/schemas/ClientToolConfig-Input",
-                      "code": "#/components/schemas/CodeToolConfig-Input",
                       "mcp": "#/components/schemas/MCPToolConfig-Input",
                       "smb": "#/components/schemas/SMBToolConfig",
                       "system": "#/components/schemas/SystemToolConfig-Input",
@@ -70153,9 +69899,6 @@
                     },
                     {
                       "$ref": "#/components/schemas/SMBToolConfig"
-                    },
-                    {
-                      "$ref": "#/components/schemas/CodeToolConfig-Output"
                     }
                   ],
                   "description": "The type of tool",
@@ -70164,7 +69907,6 @@
                     "mapping": {
                       "api_integration_webhook": "#/components/schemas/ApiIntegrationWebhookToolConfig-Output",
                       "client": "#/components/schemas/ClientToolConfig-Output",
-                      "code": "#/components/schemas/CodeToolConfig-Output",
                       "mcp": "#/components/schemas/MCPToolConfig-Output",
                       "smb": "#/components/schemas/SMBToolConfig",
                       "system": "#/components/schemas/SystemToolConfig-Output",
@@ -71643,6 +71385,24 @@
             ],
             "title": "Anonymous Access Level Override",
             "description": "The access level for anonymous users. If None, the resource is not shared publicly."
+          },
+          "access_source": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "creator",
+                  "explicit",
+                  "workspace_admin",
+                  "workspace_default"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Access Source",
+            "description": "Why the requesting user has access to this resource. 'creator' = caller is the owner. 'explicit' = caller (or one of their workspace groups) is listed in role_to_group_ids beyond the workspace-wide everyone group. 'workspace_default' = the workspace-wide everyone group is listed in role_to_group_ids (every non-anon workspace member, including admins, sees this resource). 'workspace_admin' = caller is a workspace admin and the admin seat is the *only* path to access; reserved for docs nobody else can see. Lets the UI disclose why an admin-bypass viewer sees a doc that wasn't explicitly shared with them."
           }
         },
         "type": "object",
@@ -71654,6 +71414,7 @@
         ],
         "title": "ResourceAccessInfo",
         "example": {
+          "access_source": "creator",
           "creator_email": "john.doe@example.com",
           "creator_name": "John Doe",
           "is_creator": true,
@@ -78307,9 +78068,6 @@
               },
               {
                 "$ref": "#/components/schemas/MCPToolConfig-Input"
-              },
-              {
-                "$ref": "#/components/schemas/CodeToolConfig-Input"
               }
             ],
             "title": "Tool Config",
@@ -78318,7 +78076,6 @@
               "propertyName": "type",
               "mapping": {
                 "client": "#/components/schemas/ClientToolConfig-Input",
-                "code": "#/components/schemas/CodeToolConfig-Input",
                 "mcp": "#/components/schemas/MCPToolConfig-Input",
                 "system": "#/components/schemas/SystemToolConfig-Input",
                 "webhook": "#/components/schemas/WebhookToolConfig-Input"
@@ -78410,9 +78167,6 @@
               },
               {
                 "$ref": "#/components/schemas/MCPToolConfig-Output"
-              },
-              {
-                "$ref": "#/components/schemas/CodeToolConfig-Output"
               }
             ],
             "title": "Tool Config",
@@ -78421,7 +78175,6 @@
               "propertyName": "type",
               "mapping": {
                 "client": "#/components/schemas/ClientToolConfig-Output",
-                "code": "#/components/schemas/CodeToolConfig-Output",
                 "mcp": "#/components/schemas/MCPToolConfig-Output",
                 "system": "#/components/schemas/SystemToolConfig-Output",
                 "webhook": "#/components/schemas/WebhookToolConfig-Output"
@@ -78477,8 +78230,7 @@
           "workflow",
           "api_integration_webhook",
           "api_integration_mcp",
-          "smb",
-          "code"
+          "smb"
         ],
         "title": "ToolType"
       },
@@ -78487,8 +78239,7 @@
         "enum": [
           "webhook",
           "client",
-          "api_integration_webhook",
-          "code"
+          "api_integration_webhook"
         ],
         "title": "ToolTypeFilter"
       },
@@ -87900,9 +87651,29 @@
             "description": "The ids of outgoing edges in the order they should be evaluated."
           },
           "agent_id": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Agent Id",
-            "description": "The ID of the agent to transfer the conversation to."
+            "description": "The ID of the agent to transfer the conversation to. None means transfer within the current agent."
+          },
+          "node_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Node Id",
+            "description": "Optional target node ID in the destination agent's workflow. When set, the transfer starts at this node instead of the default entry node."
           },
           "delay_ms": {
             "type": "integer",
@@ -87930,9 +87701,6 @@
           }
         },
         "type": "object",
-        "required": [
-          "agent_id"
-        ],
         "title": "WorkflowStandaloneAgentNodeModel"
       },
       "WorkflowStandaloneAgentNodeModel-Output": {
@@ -87956,9 +87724,29 @@
             "description": "The ids of outgoing edges in the order they should be evaluated."
           },
           "agent_id": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Agent Id",
-            "description": "The ID of the agent to transfer the conversation to."
+            "description": "The ID of the agent to transfer the conversation to. None means transfer within the current agent."
+          },
+          "node_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Node Id",
+            "description": "Optional target node ID in the destination agent's workflow. When set, the transfer starts at this node instead of the default entry node."
           },
           "delay_ms": {
             "type": "integer",
@@ -87991,6 +87779,7 @@
           "position",
           "edge_order",
           "agent_id",
+          "node_id",
           "delay_ms",
           "transfer_message",
           "enable_transferred_agent_first_message"

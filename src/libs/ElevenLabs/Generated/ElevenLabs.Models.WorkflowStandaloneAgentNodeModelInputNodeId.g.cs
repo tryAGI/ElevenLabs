@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Predefined tool call sound type to play during tool execution. If not specified, no tool call sound will be played.
+    /// Optional target node ID in the destination agent's workflow. When set, the transfer starts at this node instead of the default entry node.
     /// </summary>
-    public sealed partial class CodeToolConfigInputToolCallSound
+    public sealed partial class WorkflowStandaloneAgentNodeModelInputNodeId
     {
 
         /// <summary>

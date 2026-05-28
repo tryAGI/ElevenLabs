@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// npm dependencies as a package-name → version map (e.g. {"lodash": "^4.17.21"})
+    /// The ID of the agent to transfer the conversation to. None means transfer within the current agent.
     /// </summary>
-    public sealed partial class CodeToolConfigInputDependencies
+    public sealed partial class WorkflowStandaloneAgentNodeModelOutputAgentId
     {
 
         /// <summary>
