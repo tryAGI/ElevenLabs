@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public sealed partial class LoadProcedureToolConfigProcedures
+    public sealed partial class LoadProcedureToolConfigOutputProcedures
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -34,14 +34,14 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::ElevenLabs.LoadProcedureToolConfigProcedures? FromJson(
+        public static global::ElevenLabs.LoadProcedureToolConfigOutputProcedures? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::ElevenLabs.LoadProcedureToolConfigProcedures),
-                jsonSerializerContext) as global::ElevenLabs.LoadProcedureToolConfigProcedures;
+                typeof(global::ElevenLabs.LoadProcedureToolConfigOutputProcedures),
+                jsonSerializerContext) as global::ElevenLabs.LoadProcedureToolConfigOutputProcedures;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::ElevenLabs.LoadProcedureToolConfigProcedures? FromJson(
+        public static global::ElevenLabs.LoadProcedureToolConfigOutputProcedures? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.LoadProcedureToolConfigProcedures>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.LoadProcedureToolConfigOutputProcedures>(
                 json,
                 jsonSerializerOptions);
         }
@@ -63,14 +63,14 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.LoadProcedureToolConfigProcedures?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.LoadProcedureToolConfigOutputProcedures?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::ElevenLabs.LoadProcedureToolConfigProcedures),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.LoadProcedureToolConfigProcedures;
+                typeof(global::ElevenLabs.LoadProcedureToolConfigOutputProcedures),
+                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.LoadProcedureToolConfigOutputProcedures;
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.LoadProcedureToolConfigProcedures?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.LoadProcedureToolConfigOutputProcedures?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.LoadProcedureToolConfigProcedures?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.LoadProcedureToolConfigOutputProcedures?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

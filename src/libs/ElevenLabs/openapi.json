@@ -61402,7 +61402,26 @@
         "title": "LivekitStackType",
         "default": "standard"
       },
-      "LoadProcedureToolConfig": {
+      "LoadProcedureToolConfig-Input": {
+        "properties": {
+          "system_tool_type": {
+            "type": "string",
+            "const": "load_procedure",
+            "title": "System Tool Type",
+            "default": "load_procedure"
+          },
+          "procedures": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ProcedureAtVersion"
+            },
+            "type": "object",
+            "title": "Procedures"
+          }
+        },
+        "type": "object",
+        "title": "LoadProcedureToolConfig"
+      },
+      "LoadProcedureToolConfig-Output": {
         "properties": {
           "system_tool_type": {
             "type": "string",
@@ -66534,6 +66553,10 @@
             "title": "Content",
             "description": "Procedure content"
           },
+          "type": {
+            "$ref": "#/components/schemas/ProcedureType",
+            "default": "free_form"
+          },
           "agent_id": {
             "type": "string",
             "title": "Agent Id",
@@ -66615,6 +66638,15 @@
         },
         "type": "object",
         "title": "ProcedureSettings"
+      },
+      "ProcedureType": {
+        "type": "string",
+        "enum": [
+          "free_form",
+          "deterministic"
+        ],
+        "title": "ProcedureType",
+        "default": "free_form"
       },
       "ProjectCreationMetaResponseModel": {
         "properties": {
@@ -76151,7 +76183,7 @@
                 "$ref": "#/components/schemas/KnowledgeBaseRagToolConfig"
               },
               {
-                "$ref": "#/components/schemas/LoadProcedureToolConfig"
+                "$ref": "#/components/schemas/LoadProcedureToolConfig-Input"
               }
             ],
             "title": "Params",
@@ -76161,7 +76193,7 @@
                 "end_call": "#/components/schemas/EndCallToolConfig",
                 "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
-                "load_procedure": "#/components/schemas/LoadProcedureToolConfig",
+                "load_procedure": "#/components/schemas/LoadProcedureToolConfig-Input",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
                 "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig",
@@ -76301,7 +76333,7 @@
                 "$ref": "#/components/schemas/KnowledgeBaseRagToolConfig"
               },
               {
-                "$ref": "#/components/schemas/LoadProcedureToolConfig"
+                "$ref": "#/components/schemas/LoadProcedureToolConfig-Output"
               }
             ],
             "title": "Params",
@@ -76311,7 +76343,7 @@
                 "end_call": "#/components/schemas/EndCallToolConfig",
                 "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
-                "load_procedure": "#/components/schemas/LoadProcedureToolConfig",
+                "load_procedure": "#/components/schemas/LoadProcedureToolConfig-Output",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
                 "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig",
