@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Optional target node ID in the destination agent's workflow. When set, the transfer starts at this node instead of the default entry node.
     /// </summary>
-    public sealed partial class CodeToolConfigOutputDependencies2
+    public sealed partial class WorkflowStandaloneAgentNodeModelOutputNodeId
     {
 
         /// <summary>

@@ -163,43 +163,6 @@ namespace ElevenLabs
         public global::ElevenLabs.MCPToolConfigInput PickMcp() => IsMcp
             ? Mcp!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Mcp' but the value was {ToString()}.");
-
-        /// <summary>
-        /// A code tool runs user-provided TypeScript/JavaScript in a sandboxed isolate.
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::ElevenLabs.CodeToolConfigInput? Code { get; init; }
-#else
-        public global::ElevenLabs.CodeToolConfigInput? Code { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Code))]
-#endif
-        public bool IsCode => Code != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool TryPickCode(
-#if NET6_0_OR_GREATER
-            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
-#endif
-            out global::ElevenLabs.CodeToolConfigInput? value)
-        {
-            value = Code;
-            return IsCode;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public global::ElevenLabs.CodeToolConfigInput PickCode() => IsCode
-            ? Code!
-            : throw new global::System.InvalidOperationException($"Expected union variant 'Code' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -295,36 +258,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ToolConfig(global::ElevenLabs.CodeToolConfigInput value) => new ToolConfig((global::ElevenLabs.CodeToolConfigInput?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::ElevenLabs.CodeToolConfigInput?(ToolConfig @this) => @this.Code;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ToolConfig(global::ElevenLabs.CodeToolConfigInput? value)
-        {
-            Code = value;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static ToolConfig FromCode(global::ElevenLabs.CodeToolConfigInput? value) => new ToolConfig(value);
-
-        /// <summary>
-        /// 
-        /// </summary>
         public ToolConfig(
             global::ElevenLabs.ToolRequestModelToolConfigDiscriminatorType? type,
             global::ElevenLabs.WebhookToolConfigInput? webhook,
             global::ElevenLabs.ClientToolConfigInput? client,
             global::ElevenLabs.SystemToolConfigInput? system,
-            global::ElevenLabs.MCPToolConfigInput? mcp,
-            global::ElevenLabs.CodeToolConfigInput? code
+            global::ElevenLabs.MCPToolConfigInput? mcp
             )
         {
             Type = type;
@@ -333,14 +272,12 @@ namespace ElevenLabs
             Client = client;
             System = system;
             Mcp = mcp;
-            Code = code;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
-            Code as object ??
             Mcp as object ??
             System as object ??
             Client as object ??
@@ -354,8 +291,7 @@ namespace ElevenLabs
             Webhook?.ToString() ??
             Client?.ToString() ??
             System?.ToString() ??
-            Mcp?.ToString() ??
-            Code?.ToString() 
+            Mcp?.ToString() 
             ;
 
         /// <summary>
@@ -363,7 +299,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsWebhook && !IsClient && !IsSystem && !IsMcp && !IsCode || !IsWebhook && IsClient && !IsSystem && !IsMcp && !IsCode || !IsWebhook && !IsClient && IsSystem && !IsMcp && !IsCode || !IsWebhook && !IsClient && !IsSystem && IsMcp && !IsCode || !IsWebhook && !IsClient && !IsSystem && !IsMcp && IsCode;
+            return IsWebhook && !IsClient && !IsSystem && !IsMcp || !IsWebhook && IsClient && !IsSystem && !IsMcp || !IsWebhook && !IsClient && IsSystem && !IsMcp || !IsWebhook && !IsClient && !IsSystem && IsMcp;
         }
 
         /// <summary>
@@ -374,7 +310,6 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.ClientToolConfigInput, TResult>? client = null,
             global::System.Func<global::ElevenLabs.SystemToolConfigInput, TResult>? system = null,
             global::System.Func<global::ElevenLabs.MCPToolConfigInput, TResult>? mcp = null,
-            global::System.Func<global::ElevenLabs.CodeToolConfigInput, TResult>? code = null,
             bool validate = true)
         {
             if (validate)
@@ -398,10 +333,6 @@ namespace ElevenLabs
             {
                 return mcp(Mcp!);
             }
-            else if (IsCode && code != null)
-            {
-                return code(Code!);
-            }
 
             return default(TResult);
         }
@@ -417,8 +348,6 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.SystemToolConfigInput>? system = null,
 
             global::System.Action<global::ElevenLabs.MCPToolConfigInput>? mcp = null,
-
-            global::System.Action<global::ElevenLabs.CodeToolConfigInput>? code = null,
             bool validate = true)
         {
             if (validate)
@@ -441,10 +370,6 @@ namespace ElevenLabs
             else if (IsMcp)
             {
                 mcp?.Invoke(Mcp!);
-            }
-            else if (IsCode)
-            {
-                code?.Invoke(Code!);
             }
         }
 
@@ -456,7 +381,6 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.ClientToolConfigInput>? client = null,
             global::System.Action<global::ElevenLabs.SystemToolConfigInput>? system = null,
             global::System.Action<global::ElevenLabs.MCPToolConfigInput>? mcp = null,
-            global::System.Action<global::ElevenLabs.CodeToolConfigInput>? code = null,
             bool validate = true)
         {
             if (validate)
@@ -479,10 +403,6 @@ namespace ElevenLabs
             else if (IsMcp)
             {
                 mcp?.Invoke(Mcp!);
-            }
-            else if (IsCode)
-            {
-                code?.Invoke(Code!);
             }
         }
 
@@ -501,8 +421,6 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.SystemToolConfigInput),
                 Mcp,
                 typeof(global::ElevenLabs.MCPToolConfigInput),
-                Code,
-                typeof(global::ElevenLabs.CodeToolConfigInput),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -522,8 +440,7 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WebhookToolConfigInput?>.Default.Equals(Webhook, other.Webhook) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ClientToolConfigInput?>.Default.Equals(Client, other.Client) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SystemToolConfigInput?>.Default.Equals(System, other.System) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MCPToolConfigInput?>.Default.Equals(Mcp, other.Mcp) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CodeToolConfigInput?>.Default.Equals(Code, other.Code) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MCPToolConfigInput?>.Default.Equals(Mcp, other.Mcp) 
                 ;
         }
 

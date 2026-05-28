@@ -114,6 +114,9 @@ namespace ElevenLabs
         /// <param name="csvFps">
         /// Frames per second to use when parsing a CSV file for dubbing. If not provided, FPS will be inferred from timecodes.
         /// </param>
+        /// <param name="hcaptchaToken">
+        /// HCaptcha token used to prevent spam, generated on the frontend either automatically or when the client solves the hCaptcha challenge.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -142,6 +145,7 @@ namespace ElevenLabs
             bool? disableVoiceCloning = default,
             global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPostMode? mode = default,
             double? csvFps = default,
+            string? hcaptchaToken = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

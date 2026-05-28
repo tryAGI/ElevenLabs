@@ -162,6 +162,12 @@ namespace ElevenLabs
         public double? CsvFps { get; set; }
 
         /// <summary>
+        /// HCaptcha token used to prevent spam, generated on the frontend either automatically or when the client solves the hCaptcha challenge.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("hcaptcha_token")]
+        public string? HcaptchaToken { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -250,6 +256,9 @@ namespace ElevenLabs
         /// <param name="csvFps">
         /// Frames per second to use when parsing a CSV file for dubbing. If not provided, FPS will be inferred from timecodes.
         /// </param>
+        /// <param name="hcaptchaToken">
+        /// HCaptcha token used to prevent spam, generated on the frontend either automatically or when the client solves the hCaptcha challenge.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -277,7 +286,8 @@ namespace ElevenLabs
             bool? dubbingStudio,
             bool? disableVoiceCloning,
             global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPostMode? mode,
-            double? csvFps)
+            double? csvFps,
+            string? hcaptchaToken)
         {
             this.File = file;
             this.Filename = filename;
@@ -303,6 +313,7 @@ namespace ElevenLabs
             this.DisableVoiceCloning = disableVoiceCloning;
             this.Mode = mode;
             this.CsvFps = csvFps;
+            this.HcaptchaToken = hcaptchaToken;
         }
 
         /// <summary>

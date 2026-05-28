@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+    /// Example: {"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
     /// </summary>
     public sealed partial class ResourceAccessInfo
     {
@@ -44,6 +44,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ResourceAccessInfoAnonymousAccessLevelOverride2? AnonymousAccessLevelOverride { get; set; }
 
         /// <summary>
+        /// Why the requesting user has access to this resource. 'creator' = caller is the owner. 'explicit' = caller (or one of their workspace groups) is listed in role_to_group_ids beyond the workspace-wide everyone group. 'workspace_default' = the workspace-wide everyone group is listed in role_to_group_ids (every non-anon workspace member, including admins, sees this resource). 'workspace_admin' = caller is a workspace admin and the admin seat is the *only* path to access; reserved for docs nobody else can see. Lets the UI disclose why an admin-bypass viewer sees a doc that wasn't explicitly shared with them.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("access_source")]
+        public global::ElevenLabs.ResourceAccessInfoAccessSource2? AccessSource { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -67,6 +73,9 @@ namespace ElevenLabs
         /// <param name="anonymousAccessLevelOverride">
         /// The access level for anonymous users. If None, the resource is not shared publicly.
         /// </param>
+        /// <param name="accessSource">
+        /// Why the requesting user has access to this resource. 'creator' = caller is the owner. 'explicit' = caller (or one of their workspace groups) is listed in role_to_group_ids beyond the workspace-wide everyone group. 'workspace_default' = the workspace-wide everyone group is listed in role_to_group_ids (every non-anon workspace member, including admins, sees this resource). 'workspace_admin' = caller is a workspace admin and the admin seat is the *only* path to access; reserved for docs nobody else can see. Lets the UI disclose why an admin-bypass viewer sees a doc that wasn't explicitly shared with them.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -75,13 +84,15 @@ namespace ElevenLabs
             string creatorName,
             string creatorEmail,
             global::ElevenLabs.ResourceAccessInfoRole role,
-            global::ElevenLabs.ResourceAccessInfoAnonymousAccessLevelOverride2? anonymousAccessLevelOverride)
+            global::ElevenLabs.ResourceAccessInfoAnonymousAccessLevelOverride2? anonymousAccessLevelOverride,
+            global::ElevenLabs.ResourceAccessInfoAccessSource2? accessSource)
         {
             this.IsCreator = isCreator;
             this.CreatorName = creatorName ?? throw new global::System.ArgumentNullException(nameof(creatorName));
             this.CreatorEmail = creatorEmail ?? throw new global::System.ArgumentNullException(nameof(creatorEmail));
             this.Role = role;
             this.AnonymousAccessLevelOverride = anonymousAccessLevelOverride;
+            this.AccessSource = accessSource;
         }
 
         /// <summary>
