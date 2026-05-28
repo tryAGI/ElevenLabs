@@ -462,6 +462,20 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ReportKnowledgeGapParams)}");
                 reportKnowledgeGap = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.OptInSmsReminderParams? optInSmsReminder = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.OptInSmsReminder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OptInSmsReminderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OptInSmsReminderParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OptInSmsReminderParams)}");
+                optInSmsReminder = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.OptOutSmsReminderParams? optOutSmsReminder = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.OptOutSmsReminder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OptOutSmsReminderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OptOutSmsReminderParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OptOutSmsReminderParams)}");
+                optOutSmsReminder = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var __value = new global::ElevenLabs.Params(
                 discriminator?.SmbToolType,
@@ -589,7 +603,11 @@ namespace ElevenLabs.JsonConverters
 
                 leaveMessage,
 
-                reportKnowledgeGap
+                reportKnowledgeGap,
+
+                optInSmsReminder,
+
+                optOutSmsReminder
                 );
 
             return __value;
@@ -981,6 +999,18 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ReportKnowledgeGapParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ReportKnowledgeGapParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ReportKnowledgeGapParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.ReportKnowledgeGap!, typeInfo);
+            }
+            else if (value.IsOptInSmsReminder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OptInSmsReminderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OptInSmsReminderParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OptInSmsReminderParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.OptInSmsReminder!, typeInfo);
+            }
+            else if (value.IsOptOutSmsReminder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OptOutSmsReminderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OptOutSmsReminderParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OptOutSmsReminderParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.OptOutSmsReminder!, typeInfo);
             }
         }
     }

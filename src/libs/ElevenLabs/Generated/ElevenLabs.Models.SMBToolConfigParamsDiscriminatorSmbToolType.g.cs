@@ -191,6 +191,14 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        OptInSmsReminder,
+        /// <summary>
+        /// 
+        /// </summary>
+        OptOutSmsReminder,
+        /// <summary>
+        /// 
+        /// </summary>
         RegisterForGroupSession,
         /// <summary>
         /// 
@@ -319,6 +327,8 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListProducts => "list_products",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListServices => "list_services",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListStaff => "list_staff",
+                SMBToolConfigParamsDiscriminatorSmbToolType.OptInSmsReminder => "opt_in_sms_reminder",
+                SMBToolConfigParamsDiscriminatorSmbToolType.OptOutSmsReminder => "opt_out_sms_reminder",
                 SMBToolConfigParamsDiscriminatorSmbToolType.RegisterForGroupSession => "register_for_group_session",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ReportKnowledgeGap => "report_knowledge_gap",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ScheduleGroupSession => "schedule_group_session",
@@ -392,6 +402,8 @@ namespace ElevenLabs
                 "list_products" => SMBToolConfigParamsDiscriminatorSmbToolType.ListProducts,
                 "list_services" => SMBToolConfigParamsDiscriminatorSmbToolType.ListServices,
                 "list_staff" => SMBToolConfigParamsDiscriminatorSmbToolType.ListStaff,
+                "opt_in_sms_reminder" => SMBToolConfigParamsDiscriminatorSmbToolType.OptInSmsReminder,
+                "opt_out_sms_reminder" => SMBToolConfigParamsDiscriminatorSmbToolType.OptOutSmsReminder,
                 "register_for_group_session" => SMBToolConfigParamsDiscriminatorSmbToolType.RegisterForGroupSession,
                 "report_knowledge_gap" => SMBToolConfigParamsDiscriminatorSmbToolType.ReportKnowledgeGap,
                 "schedule_group_session" => SMBToolConfigParamsDiscriminatorSmbToolType.ScheduleGroupSession,

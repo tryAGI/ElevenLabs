@@ -118,12 +118,6 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("alerting")]
-        public global::ElevenLabs.AgentAlertingSettings? Alerting { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("safety")]
         public global::ElevenLabs.SafetyResponseModel? Safety { get; set; }
 
@@ -190,7 +184,6 @@ namespace ElevenLabs
         /// Default LLM model for post-call analysis (evaluation and data collection)<br/>
         /// Default Value: gemini-2.5-flash
         /// </param>
-        /// <param name="alerting"></param>
         /// <param name="safety"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -211,7 +204,6 @@ namespace ElevenLabs
             global::ElevenLabs.PrivacyConfigOutput? privacy,
             global::ElevenLabs.AgentTrustContext? trustContext,
             global::ElevenLabs.Llm? analysisLlm,
-            global::ElevenLabs.AgentAlertingSettings? alerting,
             global::ElevenLabs.SafetyResponseModel? safety)
         {
             this.Evaluation = evaluation;
@@ -229,7 +221,6 @@ namespace ElevenLabs
             this.Privacy = privacy;
             this.TrustContext = trustContext;
             this.AnalysisLlm = analysisLlm;
-            this.Alerting = alerting;
             this.Safety = safety;
         }
 

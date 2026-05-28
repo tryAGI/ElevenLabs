@@ -31168,16 +31168,6 @@
             "$ref": "#/components/schemas/LLM",
             "description": "Default LLM model for post-call analysis (evaluation and data collection)",
             "default": "gemini-2.5-flash"
-          },
-          "alerting": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AgentAlertingSettings"
-              },
-              {
-                "type": "null"
-              }
-            ]
           }
         },
         "type": "object",
@@ -31271,16 +31261,6 @@
             "$ref": "#/components/schemas/LLM",
             "description": "Default LLM model for post-call analysis (evaluation and data collection)",
             "default": "gemini-2.5-flash"
-          },
-          "alerting": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AgentAlertingSettings"
-              },
-              {
-                "type": "null"
-              }
-            ]
           },
           "safety": {
             "$ref": "#/components/schemas/SafetyResponseModel"
@@ -64493,6 +64473,30 @@
         "type": "object",
         "title": "ObjectJsonSchemaProperty"
       },
+      "OptInSmsReminderParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "opt_in_sms_reminder",
+            "title": "Smb Tool Type",
+            "default": "opt_in_sms_reminder"
+          }
+        },
+        "type": "object",
+        "title": "OptInSmsReminderParams"
+      },
+      "OptOutSmsReminderParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "opt_out_sms_reminder",
+            "title": "Smb Tool Type",
+            "default": "opt_out_sms_reminder"
+          }
+        },
+        "type": "object",
+        "title": "OptOutSmsReminderParams"
+      },
       "OrbAvatar": {
         "properties": {
           "type": {
@@ -72368,6 +72372,12 @@
               },
               {
                 "$ref": "#/components/schemas/ReportKnowledgeGapParams"
+              },
+              {
+                "$ref": "#/components/schemas/OptInSmsReminderParams"
+              },
+              {
+                "$ref": "#/components/schemas/OptOutSmsReminderParams"
               }
             ],
             "title": "Params",
@@ -72419,6 +72429,8 @@
                 "list_products": "#/components/schemas/ListProductsParams",
                 "list_services": "#/components/schemas/ListServicesParams",
                 "list_staff": "#/components/schemas/ListStaffParams",
+                "opt_in_sms_reminder": "#/components/schemas/OptInSmsReminderParams",
+                "opt_out_sms_reminder": "#/components/schemas/OptOutSmsReminderParams",
                 "register_for_group_session": "#/components/schemas/RegisterForGroupSessionParams",
                 "report_knowledge_gap": "#/components/schemas/ReportKnowledgeGapParams",
                 "schedule_group_session": "#/components/schemas/ScheduleGroupSessionParams",
