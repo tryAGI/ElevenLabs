@@ -9395,6 +9395,61 @@
         "x-fern-sdk-method-name": "list"
       }
     },
+    "/v1/api-key/revoke-self": {
+      "delete": {
+        "tags": [
+          "workspace",
+          "api-key"
+        ],
+        "summary": "Revoke Self",
+        "description": "Revoke the API key used to authenticate this request",
+        "operationId": "revoke_self",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "api_key"
+        ],
+        "x-fern-sdk-method-name": "revoke_self"
+      }
+    },
     "/v1/service-accounts/{service_account_user_id}/api-keys": {
       "get": {
         "tags": [
@@ -39210,7 +39265,7 @@
               }
             ],
             "title": "Cloud Storage Url",
-            "description": "The HTTPS URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be accessible via HTTPS and the file size must be less than 2GB. Any valid HTTPS URL is accepted, including URLs from cloud storage providers (AWS S3, Google Cloud Storage, Cloudflare R2, etc.), CDNs, or any other HTTPS source. URLs can be pre-signed or include authentication tokens in query parameters.",
+            "description": "[Deprecated] This parameter is deprecated and will be removed in the future. Use 'source_url' instead.The HTTPS URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be accessible via HTTPS and the file size must be less than 2GB. Any valid HTTPS URL is accepted, including URLs from cloud storage providers (AWS S3, Google Cloud Storage, Cloudflare R2, etc.), CDNs, or any other HTTPS source. URLs can be pre-signed or include authentication tokens in query parameters.",
             "deprecated": true,
             "examples": [
               "https://storage.googleapis.com/my-bucket/folder/audio.mp3",
@@ -66620,6 +66675,11 @@
             "title": "Name",
             "description": "Procedure name",
             "default": ""
+          },
+          "type": {
+            "$ref": "#/components/schemas/ProcedureType",
+            "description": "Procedure type",
+            "default": "free_form"
           }
         },
         "type": "object",
@@ -66630,6 +66690,7 @@
         "example": {
           "name": "Customer Support Procedure",
           "procedure_id": "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3",
+          "type": "free_form",
           "version_id": "agtprcv_7rbqxer9o12cyxi55ckw6sgz1dl4"
         }
       },
