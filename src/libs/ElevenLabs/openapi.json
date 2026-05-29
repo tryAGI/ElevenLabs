@@ -9395,16 +9395,27 @@
         "x-fern-sdk-method-name": "list"
       }
     },
-    "/v1/api-key/revoke-self": {
+    "/v1/workspaces/api-keys/revoke": {
       "delete": {
         "tags": [
           "workspace",
           "api-key"
         ],
-        "summary": "Revoke Self",
-        "description": "Revoke the API key used to authenticate this request",
-        "operationId": "revoke_self",
+        "summary": "Revoke Api Key",
+        "description": "Revoke the API key used to authenticate this request. Requires the query parameter `api_key_name=self` as an explicit confirmation.",
+        "operationId": "revoke",
         "parameters": [
+          {
+            "name": "api_key_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Must be set to `self` to revoke the API key used to authenticate this request. Required as an explicit confirmation to avoid accidental revocation.",
+              "title": "Api Key Name"
+            },
+            "description": "Must be set to `self` to revoke the API key used to authenticate this request. Required as an explicit confirmation to avoid accidental revocation."
+          },
           {
             "name": "xi-api-key",
             "in": "header",
@@ -9445,9 +9456,10 @@
           }
         },
         "x-fern-sdk-group-name": [
-          "api_key"
+          "workspaces",
+          "api_keys"
         ],
-        "x-fern-sdk-method-name": "revoke_self"
+        "x-fern-sdk-method-name": "revoke"
       }
     },
     "/v1/service-accounts/{service_account_user_id}/api-keys": {
@@ -16776,6 +16788,27 @@
               "title": "Branch Id"
             },
             "description": "Filter conversations by branch ID."
+          },
+          {
+            "name": "topic_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations by topic IDs assigned during topic discovery.",
+              "title": "Topic Ids"
+            },
+            "description": "Filter conversations by topic IDs assigned during topic discovery."
           },
           {
             "name": "sort_by",
@@ -63487,6 +63520,20 @@
             "type": "string",
             "title": "Chunk Text"
           },
+          "chunk_highlights": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/SearchHighlightSegment"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Chunk Highlights"
+          },
           "score": {
             "type": "number",
             "title": "Score"
@@ -63506,7 +63553,7 @@
           "conversation_start_time_unix_secs"
         ],
         "title": "MessagesSearchResult",
-        "description": "transcript_index: index of the message in the conversation transcript\nchunk_text: text of the transcript; transcript messages if very long could have several chunks.\nscore: similarity score of the message to the search query"
+        "description": "transcript_index: index of the message in the conversation transcript\nchunk_text: text of the transcript; transcript messages if very long could have several chunks.\nchunk_highlights: chunk_text split into matched/unmatched segments for highlighting.\n    Only populated for keyword/text search, not semantic search.\nscore: similarity score of the message to the search query"
       },
       "MetricRecord": {
         "properties": {
@@ -64091,7 +64138,8 @@
         "enum": [
           "track",
           "loop",
-          "ambience"
+          "ambience",
+          "video_to_music"
         ],
         "title": "MusicGenerationMode"
       },
@@ -73859,6 +73907,23 @@
             "title": "Use Llm Generated Message",
             "description": "If enabled, the soft timeout message will be generated dynamically instead of using the static message.",
             "default": false
+          },
+          "llm_generated_message_prompt_override": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 1000,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Llm Generated Message Prompt Override",
+            "description": "Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used.",
+            "examples": [
+              "Output a SHORT neutral filler phrase (1-4 words MAX) acknowledging you heard the user."
+            ]
           }
         },
         "type": "object",
@@ -73944,6 +74009,21 @@
             ],
             "title": "Use Llm Generated Message",
             "description": "If enabled, the soft timeout message will be generated dynamically instead of using the static message."
+          },
+          "llm_generated_message_prompt_override": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Llm Generated Message Prompt Override",
+            "description": "Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used.",
+            "examples": [
+              "Output a SHORT neutral filler phrase (1-4 words MAX) acknowledging you heard the user."
+            ]
           }
         },
         "type": "object",
