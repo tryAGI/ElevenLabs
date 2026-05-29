@@ -15704,6 +15704,24 @@
             "description": "Filter conversations by conversation tag IDs assigned via the conversation-tags endpoints."
           },
           {
+            "name": "workflow_node_entered_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations to only those that entered the given node.",
+              "title": "Workflow Node Entered Id"
+            },
+            "description": "Filter conversations to only those that entered the given node."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
