@@ -49,6 +49,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             bool? textOnly,
             ref string? branchId,
+            global::System.Collections.Generic.IList<string>? topicIds,
             ref global::ElevenLabs.MessageSearchSortBy? sortBy,
             ref string? cursor);
         partial void PrepareTextSearchRequest(
@@ -76,6 +77,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             bool? textOnly,
             string? branchId,
+            global::System.Collections.Generic.IList<string>? topicIds,
             global::ElevenLabs.MessageSearchSortBy? sortBy,
             string? cursor);
         partial void ProcessTextSearchResponse(
@@ -155,6 +157,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
+        /// <param name="topicIds">
+        /// Filter conversations by topic IDs assigned during topic discovery.
+        /// </param>
         /// <param name="sortBy">
         /// Sort order for search results. 'search_score' sorts by search score, 'created_at' sorts by conversation start time.<br/>
         /// Default Value: search_score
@@ -188,6 +193,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
             string? branchId = default,
+            global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -216,6 +222,7 @@ namespace ElevenLabs
                 conversationInitiationSource: conversationInitiationSource,
                 textOnly: textOnly,
                 branchId: branchId,
+                topicIds: topicIds,
                 sortBy: sortBy,
                 cursor: cursor,
                 requestOptions: requestOptions,
@@ -292,6 +299,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
+        /// <param name="topicIds">
+        /// Filter conversations by topic IDs assigned during topic discovery.
+        /// </param>
         /// <param name="sortBy">
         /// Sort order for search results. 'search_score' sorts by search score, 'created_at' sorts by conversation start time.<br/>
         /// Default Value: search_score
@@ -325,6 +335,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
             string? branchId = default,
+            global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -356,6 +367,7 @@ namespace ElevenLabs
                 conversationInitiationSource: conversationInitiationSource,
                 textOnly: textOnly,
                 branchId: ref branchId,
+                topicIds: topicIds,
                 sortBy: ref sortBy,
                 cursor: ref cursor);
 
@@ -408,6 +420,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("conversation_initiation_source", conversationInitiationSource?.ToString())
                                 .AddOptionalParameter("text_only", textOnly?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("branch_id", branchId)
+                                .AddOptionalParameter("topic_ids", topicIds?.ToString())
                                 .AddOptionalParameter("sort_by", sortBy?.ToValueString())
                                 .AddOptionalParameter("cursor", cursor)
                                 ;
@@ -473,6 +486,7 @@ namespace ElevenLabs
                     conversationInitiationSource: conversationInitiationSource,
                     textOnly: textOnly,
                     branchId: branchId,
+                    topicIds: topicIds,
                     sortBy: sortBy,
                     cursor: cursor);
 
@@ -854,6 +868,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
+        /// <param name="topicIds">
+        /// Filter conversations by topic IDs assigned during topic discovery.
+        /// </param>
         /// <param name="sortBy">
         /// Sort order for search results. 'search_score' sorts by search score, 'created_at' sorts by conversation start time.<br/>
         /// Default Value: search_score
@@ -882,6 +899,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
             string? branchId = default,
+            global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -910,6 +928,7 @@ namespace ElevenLabs
                     conversationInitiationSource: conversationInitiationSource,
                     textOnly: textOnly,
                     branchId: branchId,
+                    topicIds: topicIds,
                     sortBy: sortBy,
                     cursor: __cursor,
                     cancellationToken: __ct),

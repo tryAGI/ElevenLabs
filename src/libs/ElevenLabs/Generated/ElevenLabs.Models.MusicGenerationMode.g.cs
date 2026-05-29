@@ -20,6 +20,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Track,
+        /// <summary>
+        /// 
+        /// </summary>
+        VideoToMusic,
     }
 
     /// <summary>
@@ -37,6 +41,7 @@ namespace ElevenLabs
                 MusicGenerationMode.Ambience => "ambience",
                 MusicGenerationMode.Loop => "loop",
                 MusicGenerationMode.Track => "track",
+                MusicGenerationMode.VideoToMusic => "video_to_music",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -50,6 +55,7 @@ namespace ElevenLabs
                 "ambience" => MusicGenerationMode.Ambience,
                 "loop" => MusicGenerationMode.Loop,
                 "track" => MusicGenerationMode.Track,
+                "video_to_music" => MusicGenerationMode.VideoToMusic,
                 _ => null,
             };
         }

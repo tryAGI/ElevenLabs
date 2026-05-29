@@ -27,6 +27,12 @@ namespace ElevenLabs
         public bool? UseLlmGeneratedMessage { get; set; }
 
         /// <summary>
+        /// Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("llm_generated_message_prompt_override")]
+        public string? LlmGeneratedMessagePromptOverride { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -44,17 +50,22 @@ namespace ElevenLabs
         /// <param name="useLlmGeneratedMessage">
         /// If enabled, the soft timeout message will be generated dynamically instead of using the static message.
         /// </param>
+        /// <param name="llmGeneratedMessagePromptOverride">
+        /// Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SoftTimeoutConfigWorkflowOverride(
             double? timeoutSeconds,
             string? message,
-            bool? useLlmGeneratedMessage)
+            bool? useLlmGeneratedMessage,
+            string? llmGeneratedMessagePromptOverride)
         {
             this.TimeoutSeconds = timeoutSeconds;
             this.Message = message;
             this.UseLlmGeneratedMessage = useLlmGeneratedMessage;
+            this.LlmGeneratedMessagePromptOverride = llmGeneratedMessagePromptOverride;
         }
 
         /// <summary>

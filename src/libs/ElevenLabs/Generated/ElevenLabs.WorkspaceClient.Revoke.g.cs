@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_RevokeSelfSecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_RevokeSecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,36 +21,43 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_RevokeSelfSecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_RevokeSecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_RevokeSelfSecurityRequirement0,
+            {                s_RevokeSecurityRequirement0,
             };
-        partial void PrepareRevokeSelfArguments(
-            global::System.Net.Http.HttpClient httpClient);
-        partial void PrepareRevokeSelfRequest(
+        partial void PrepareRevokeArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
-        partial void ProcessRevokeSelfResponse(
+            ref string apiKeyName);
+        partial void PrepareRevokeRequest(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string apiKeyName);
+        partial void ProcessRevokeResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessRevokeSelfResponseContent(
+        partial void ProcessRevokeResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Revoke Self<br/>
-        /// Revoke the API key used to authenticate this request
+        /// Revoke Api Key<br/>
+        /// Revoke the API key used to authenticate this request. Requires the query parameter `api_key_name=self` as an explicit confirmation.
         /// </summary>
+        /// <param name="apiKeyName">
+        /// Must be set to `self` to revoke the API key used to authenticate this request. Required as an explicit confirmation to avoid accidental revocation.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> RevokeSelfAsync(
+        public async global::System.Threading.Tasks.Task<string> RevokeAsync(
+            string apiKeyName,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await RevokeSelfAsResponseAsync(
+            var __response = await RevokeAsResponseAsync(
+                apiKeyName: apiKeyName,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -58,26 +65,31 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Revoke Self<br/>
-        /// Revoke the API key used to authenticate this request
+        /// Revoke Api Key<br/>
+        /// Revoke the API key used to authenticate this request. Requires the query parameter `api_key_name=self` as an explicit confirmation.
         /// </summary>
+        /// <param name="apiKeyName">
+        /// Must be set to `self` to revoke the API key used to authenticate this request. Required as an explicit confirmation to avoid accidental revocation.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> RevokeSelfAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> RevokeAsResponseAsync(
+            string apiKeyName,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareRevokeSelfArguments(
-                httpClient: HttpClient);
+            PrepareRevokeArguments(
+                httpClient: HttpClient,
+                apiKeyName: ref apiKeyName);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_RevokeSelfSecurityRequirements,
-                operationName: "RevokeSelfAsync");
+                securityRequirements: s_RevokeSecurityRequirements,
+                operationName: "RevokeAsync");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -97,8 +109,11 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/api-key/revoke-self",
+                                path: "/v1/workspaces/api-keys/revoke",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddRequiredParameter("api_key_name", apiKeyName)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -136,9 +151,10 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareRevokeSelfRequest(
+                PrepareRevokeRequest(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    apiKeyName: apiKeyName!);
 
                 return __httpRequest;
             }
@@ -155,9 +171,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "RevokeSelf",
-                                methodName: "RevokeSelfAsync",
-                                pathTemplate: "\"/v1/api-key/revoke-self\"",
+                                operationId: "Revoke",
+                                methodName: "RevokeAsync",
+                                pathTemplate: "\"/v1/workspaces/api-keys/revoke\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -189,9 +205,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "RevokeSelf",
-                                methodName: "RevokeSelfAsync",
-                                pathTemplate: "\"/v1/api-key/revoke-self\"",
+                                operationId: "Revoke",
+                                methodName: "RevokeAsync",
+                                pathTemplate: "\"/v1/workspaces/api-keys/revoke\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -230,9 +246,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "RevokeSelf",
-                                methodName: "RevokeSelfAsync",
-                                pathTemplate: "\"/v1/api-key/revoke-self\"",
+                                operationId: "Revoke",
+                                methodName: "RevokeAsync",
+                                pathTemplate: "\"/v1/workspaces/api-keys/revoke\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -270,7 +286,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessRevokeSelfResponse(
+                ProcessRevokeResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -278,9 +294,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "RevokeSelf",
-                                methodName: "RevokeSelfAsync",
-                                pathTemplate: "\"/v1/api-key/revoke-self\"",
+                                operationId: "Revoke",
+                                methodName: "RevokeAsync",
+                                pathTemplate: "\"/v1/workspaces/api-keys/revoke\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -300,9 +316,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "RevokeSelf",
-                                methodName: "RevokeSelfAsync",
-                                pathTemplate: "\"/v1/api-key/revoke-self\"",
+                                operationId: "Revoke",
+                                methodName: "RevokeAsync",
+                                pathTemplate: "\"/v1/workspaces/api-keys/revoke\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -367,7 +383,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessRevokeSelfResponseContent(
+                                ProcessRevokeResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);

@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Filter conversations by topic IDs assigned during topic discovery.
     /// </summary>
-    public sealed partial class RevokeSelfResponse
+    public sealed partial class TextSearchConversationMessagesRouteTopicIds
     {
 
         /// <summary>
