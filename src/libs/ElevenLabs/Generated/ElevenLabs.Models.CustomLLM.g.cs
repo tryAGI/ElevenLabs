@@ -29,6 +29,13 @@ namespace ElevenLabs
         public global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIEnvVarLocator, object>? ApiKey { get; set; }
 
         /// <summary>
+        /// Optional workspace auth connection for authentication. Only auth connections that produce an Authorization Bearer token are supported; Basic auth, mTLS, custom header, and URL secret auth connections are not supported.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auth_connection")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? AuthConnection { get; set; }
+
+        /// <summary>
         /// Headers that should be included in the request
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_headers")]
@@ -66,6 +73,9 @@ namespace ElevenLabs
         /// <param name="apiKey">
         /// The API key for authentication. Either a workspace secret reference {'secret_id': '...'} or an environment variable reference {'env_var_label': '...'}.
         /// </param>
+        /// <param name="authConnection">
+        /// Optional workspace auth connection for authentication. Only auth connections that produce an Authorization Bearer token are supported; Basic auth, mTLS, custom header, and URL secret auth connections are not supported.
+        /// </param>
         /// <param name="requestHeaders">
         /// Headers that should be included in the request
         /// </param>
@@ -83,6 +93,7 @@ namespace ElevenLabs
             string url,
             string? modelId,
             global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIEnvVarLocator, object>? apiKey,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection,
             object? requestHeaders,
             string? apiVersion,
             global::ElevenLabs.CustomLLMAPIType? apiType)
@@ -90,6 +101,7 @@ namespace ElevenLabs
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.ModelId = modelId;
             this.ApiKey = apiKey;
+            this.AuthConnection = authConnection;
             this.RequestHeaders = requestHeaders;
             this.ApiVersion = apiVersion;
             this.ApiType = apiType;
