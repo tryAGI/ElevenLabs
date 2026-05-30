@@ -48165,6 +48165,58 @@
         "title": "ConversationInitiationSourceInfo",
         "description": "Information about the source of conversation initiation"
       },
+      "ConversationSentimentAnalysis": {
+        "properties": {
+          "overall_label": {
+            "type": "string",
+            "enum": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "title": "Overall Label"
+          },
+          "overall_sentiment_score": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": -1.0,
+            "title": "Overall Sentiment Score"
+          },
+          "overall_frustration_score": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Overall Frustration Score"
+          },
+          "min_user_sentiment_score": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": -1.0,
+            "title": "Min User Sentiment Score"
+          },
+          "max_user_frustration_score": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Max User Frustration Score"
+          },
+          "num_scored_user_turns": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Num Scored User Turns"
+          }
+        },
+        "type": "object",
+        "required": [
+          "overall_label",
+          "overall_sentiment_score",
+          "overall_frustration_score",
+          "min_user_sentiment_score",
+          "max_user_frustration_score",
+          "num_scored_user_turns"
+        ],
+        "title": "ConversationSentimentAnalysis"
+      },
       "ConversationSignedUrlResponseModel": {
         "properties": {
           "signed_url": {
@@ -50751,6 +50803,21 @@
             ],
             "title": "Api Key",
             "description": "The API key for authentication. Either a workspace secret reference {'secret_id': '...'} or an environment variable reference {'env_var_label': '...'}."
+          },
+          "auth_connection": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AuthConnectionLocator"
+              },
+              {
+                "$ref": "#/components/schemas/EnvironmentAuthConnectionLocator"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Auth Connection",
+            "description": "Optional workspace auth connection for authentication. Only auth connections that produce an Authorization Bearer token are supported; Basic auth, mTLS, custom header, and URL secret auth connections are not supported."
           },
           "request_headers": {
             "additionalProperties": {
@@ -71817,6 +71884,18 @@
         "type": "object",
         "title": "ResponseUnitTestModel"
       },
+      "RestoreCalendarEventParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "restore_calendar_event",
+            "title": "Smb Tool Type",
+            "default": "restore_calendar_event"
+          }
+        },
+        "type": "object",
+        "title": "RestoreCalendarEventParams"
+      },
       "ResubmitTestsRequestModel": {
         "properties": {
           "test_run_ids": {
@@ -72420,6 +72499,9 @@
                 "$ref": "#/components/schemas/CancelCalendarEventParams"
               },
               {
+                "$ref": "#/components/schemas/RestoreCalendarEventParams"
+              },
+              {
                 "$ref": "#/components/schemas/DeleteCalendarEventParams"
               },
               {
@@ -72560,6 +72642,7 @@
                 "opt_out_sms_reminder": "#/components/schemas/OptOutSmsReminderParams",
                 "register_for_group_session": "#/components/schemas/RegisterForGroupSessionParams",
                 "report_knowledge_gap": "#/components/schemas/ReportKnowledgeGapParams",
+                "restore_calendar_event": "#/components/schemas/RestoreCalendarEventParams",
                 "schedule_group_session": "#/components/schemas/ScheduleGroupSessionParams",
                 "search_clients": "#/components/schemas/SearchClientsParams",
                 "set_booking_slug": "#/components/schemas/SetBookingSlugParams",
@@ -76250,6 +76333,28 @@
           "voice_id"
         ],
         "title": "SupportedVoice"
+      },
+      "SystemEvaluationCriteria": {
+        "properties": {
+          "user_sentiment_score": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": -1.0,
+            "title": "User Sentiment Score"
+          },
+          "user_frustration_score": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "User Frustration Score"
+          }
+        },
+        "type": "object",
+        "required": [
+          "user_sentiment_score",
+          "user_frustration_score"
+        ],
+        "title": "SystemEvaluationCriteria"
       },
       "SystemToolConfig-Input": {
         "properties": {

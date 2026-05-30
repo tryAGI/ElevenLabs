@@ -273,6 +273,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CancelCalendarEventParams)}");
                 cancelCalendarEvent = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.RestoreCalendarEventParams? restoreCalendarEvent = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.RestoreCalendarEvent)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RestoreCalendarEventParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RestoreCalendarEventParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.RestoreCalendarEventParams)}");
+                restoreCalendarEvent = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.DeleteCalendarEventParams? deleteCalendarEvent = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.DeleteCalendarEvent)
             {
@@ -550,6 +557,8 @@ namespace ElevenLabs.JsonConverters
                 updateCalendarEvent,
 
                 cancelCalendarEvent,
+
+                restoreCalendarEvent,
 
                 deleteCalendarEvent,
 
@@ -837,6 +846,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CancelCalendarEventParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CancelCalendarEventParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CancelCalendarEventParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.CancelCalendarEvent!, typeInfo);
+            }
+            else if (value.IsRestoreCalendarEvent)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RestoreCalendarEventParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RestoreCalendarEventParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.RestoreCalendarEventParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RestoreCalendarEvent!, typeInfo);
             }
             else if (value.IsDeleteCalendarEvent)
             {

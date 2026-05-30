@@ -207,6 +207,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        RestoreCalendarEvent,
+        /// <summary>
+        /// 
+        /// </summary>
         ScheduleGroupSession,
         /// <summary>
         /// 
@@ -331,6 +335,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.OptOutSmsReminder => "opt_out_sms_reminder",
                 SMBToolConfigParamsDiscriminatorSmbToolType.RegisterForGroupSession => "register_for_group_session",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ReportKnowledgeGap => "report_knowledge_gap",
+                SMBToolConfigParamsDiscriminatorSmbToolType.RestoreCalendarEvent => "restore_calendar_event",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ScheduleGroupSession => "schedule_group_session",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients => "search_clients",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug => "set_booking_slug",
@@ -406,6 +411,7 @@ namespace ElevenLabs
                 "opt_out_sms_reminder" => SMBToolConfigParamsDiscriminatorSmbToolType.OptOutSmsReminder,
                 "register_for_group_session" => SMBToolConfigParamsDiscriminatorSmbToolType.RegisterForGroupSession,
                 "report_knowledge_gap" => SMBToolConfigParamsDiscriminatorSmbToolType.ReportKnowledgeGap,
+                "restore_calendar_event" => SMBToolConfigParamsDiscriminatorSmbToolType.RestoreCalendarEvent,
                 "schedule_group_session" => SMBToolConfigParamsDiscriminatorSmbToolType.ScheduleGroupSession,
                 "search_clients" => SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients,
                 "set_booking_slug" => SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug,
