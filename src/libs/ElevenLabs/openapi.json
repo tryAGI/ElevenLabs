@@ -66776,14 +66776,6 @@
         ],
         "title": "ProcedureAtVersion"
       },
-      "ProcedureCompilerMode": {
-        "type": "string",
-        "enum": [
-          "skills"
-        ],
-        "title": "ProcedureCompilerMode",
-        "default": "skills"
-      },
       "ProcedureRefResponseModel": {
         "properties": {
           "procedure_id": {
@@ -66826,16 +66818,6 @@
           "type": "free_form",
           "version_id": "agtprcv_7rbqxer9o12cyxi55ckw6sgz1dl4"
         }
-      },
-      "ProcedureSettings": {
-        "properties": {
-          "compiler_mode": {
-            "$ref": "#/components/schemas/ProcedureCompilerMode",
-            "default": "skills"
-          }
-        },
-        "type": "object",
-        "title": "ProcedureSettings"
       },
       "ProcedureType": {
         "type": "string",
