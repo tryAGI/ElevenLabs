@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Default Value: elevenlabs
+    /// Default Value: scribe_realtime
     /// </summary>
     public enum ASRProvider
     {
         /// <summary>
-        /// 
+        /// Deprecated: Use scribe_realtime instead.
         /// </summary>
         Elevenlabs,
         /// <summary>

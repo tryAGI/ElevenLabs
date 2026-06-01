@@ -28432,7 +28432,7 @@
           "provider": {
             "$ref": "#/components/schemas/ASRProvider",
             "description": "The provider of the transcription service",
-            "default": "elevenlabs"
+            "default": "scribe_realtime"
           },
           "user_input_audio_format": {
             "$ref": "#/components/schemas/ASRInputFormat",
@@ -28457,7 +28457,7 @@
             "hello",
             "world"
           ],
-          "provider": "elevenlabs",
+          "provider": "scribe_realtime",
           "quality": "high",
           "user_input_audio_format": "pcm_16000"
         }
@@ -28563,7 +28563,7 @@
             "hello",
             "world"
           ],
-          "provider": "elevenlabs",
+          "provider": "scribe_realtime",
           "quality": "high",
           "user_input_audio_format": "pcm_16000"
         }
@@ -28589,7 +28589,13 @@
           "scribe_realtime"
         ],
         "title": "ASRProvider",
-        "default": "elevenlabs"
+        "x-fern-enum": {
+          "elevenlabs": {
+            "description": "Deprecated: Use scribe_realtime instead.",
+            "deprecated": true
+          }
+        },
+        "default": "scribe_realtime"
       },
       "ASRQuality": {
         "type": "string",
@@ -48922,7 +48928,7 @@
               "hello",
               "world"
             ],
-            "provider": "elevenlabs",
+            "provider": "scribe_realtime",
             "quality": "high",
             "user_input_audio_format": "pcm_16000"
           },
@@ -49074,7 +49080,7 @@
               "hello",
               "world"
             ],
-            "provider": "elevenlabs",
+            "provider": "scribe_realtime",
             "quality": "high",
             "user_input_audio_format": "pcm_16000"
           },
