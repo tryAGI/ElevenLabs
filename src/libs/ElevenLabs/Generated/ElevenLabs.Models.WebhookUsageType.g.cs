@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AgentQaEvaluations,
+        /// <summary>
+        /// 
+        /// </summary>
         ConvAIAgentSettings,
         /// <summary>
         /// 
@@ -38,6 +42,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                WebhookUsageType.AgentQaEvaluations => "Agent QA Evaluations",
                 WebhookUsageType.ConvAIAgentSettings => "ConvAI Agent Settings",
                 WebhookUsageType.ConvAISettings => "ConvAI Settings",
                 WebhookUsageType.SpeechToText => "Speech to Text",
@@ -52,6 +57,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "Agent QA Evaluations" => WebhookUsageType.AgentQaEvaluations,
                 "ConvAI Agent Settings" => WebhookUsageType.ConvAIAgentSettings,
                 "ConvAI Settings" => WebhookUsageType.ConvAISettings,
                 "Speech to Text" => WebhookUsageType.SpeechToText,

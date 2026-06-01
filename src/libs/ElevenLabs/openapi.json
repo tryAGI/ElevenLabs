@@ -9402,7 +9402,7 @@
           "api-key"
         ],
         "summary": "Revoke Api Key",
-        "description": "Revoke the API key used to authenticate this request. Requires the query parameter `api_key_name=self` as an explicit confirmation.",
+        "description": "Revoke the API key used to authenticate this request. Requires the query parameter `api_key_name=self` as an explicit confirmation. This endpoint requires additional permissions and is not enabled by default. Reach out to your ElevenLabs contact to request access.",
         "operationId": "revoke",
         "parameters": [
           {
@@ -84464,7 +84464,8 @@
           "ConvAI Agent Settings",
           "ConvAI Settings",
           "Voice Library Removal Notices",
-          "Speech to Text"
+          "Speech to Text",
+          "Agent QA Evaluations"
         ],
         "title": "WebhookUsageType"
       },
