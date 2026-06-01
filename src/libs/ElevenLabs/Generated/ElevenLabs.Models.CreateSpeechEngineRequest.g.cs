@@ -24,9 +24,9 @@ namespace ElevenLabs
 
         /// <summary>
         /// ASR configuration<br/>
-        /// Example: {"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"}
+        /// Example: {"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"}
         /// </summary>
-        /// <example>{"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"}</example>
+        /// <example>{"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("asr")]
         public global::ElevenLabs.ASRConversationalConfig? Asr { get; set; }
 
@@ -107,7 +107,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="asr">
         /// ASR configuration<br/>
-        /// Example: {"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"}
+        /// Example: {"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"}
         /// </param>
         /// <param name="tts">
         /// TTS configuration<br/>

@@ -10,9 +10,9 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Configuration for conversational transcription<br/>
-        /// Example: {"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"}
+        /// Example: {"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"}
         /// </summary>
-        /// <example>{"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"}</example>
+        /// <example>{"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("asr")]
         public global::ElevenLabs.ASRConversationalConfig? Asr { get; set; }
 
@@ -73,7 +73,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="asr">
         /// Configuration for conversational transcription<br/>
-        /// Example: {"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"}
+        /// Example: {"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"}
         /// </param>
         /// <param name="turn">
         /// Configuration for turn detection<br/>
