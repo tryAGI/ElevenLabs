@@ -98,6 +98,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.SlackBotAuthResponse)}");
                 slackBotAuth = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.UrlSecretAuthResponse? urlSecret = default;
+            if (discriminator?.AuthType == global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType.UrlSecret)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UrlSecretAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UrlSecretAuthResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UrlSecretAuthResponse)}");
+                urlSecret = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var __value = new global::ElevenLabs.CreateAuthConnectionResponse(
                 discriminator?.AuthType,
@@ -121,7 +128,9 @@ namespace ElevenLabs.JsonConverters
 
                 whatsappAuth,
 
-                slackBotAuth
+                slackBotAuth,
+
+                urlSecret
                 );
 
             return __value;
@@ -201,6 +210,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SlackBotAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SlackBotAuthResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SlackBotAuthResponse).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.SlackBotAuth!, typeInfo);
+            }
+            else if (value.IsUrlSecret)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UrlSecretAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UrlSecretAuthResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UrlSecretAuthResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UrlSecret!, typeInfo);
             }
         }
     }

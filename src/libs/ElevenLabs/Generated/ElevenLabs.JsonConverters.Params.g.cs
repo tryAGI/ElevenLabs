@@ -392,6 +392,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UpdateBookingPageSettingsParams)}");
                 updateBookingPageSettings = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.UpdateBookingPageAppearanceParams? updateBookingPageAppearance = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBookingPageAppearance)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateBookingPageAppearanceParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateBookingPageAppearanceParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UpdateBookingPageAppearanceParams)}");
+                updateBookingPageAppearance = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.GetBookingSlugStatusParams? getBookingSlugStatus = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.GetBookingSlugStatus)
             {
@@ -591,6 +598,8 @@ namespace ElevenLabs.JsonConverters
                 getBookingPageSettings,
 
                 updateBookingPageSettings,
+
+                updateBookingPageAppearance,
 
                 getBookingSlugStatus,
 
@@ -948,6 +957,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateBookingPageSettingsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateBookingPageSettingsParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UpdateBookingPageSettingsParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateBookingPageSettings!, typeInfo);
+            }
+            else if (value.IsUpdateBookingPageAppearance)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateBookingPageAppearanceParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateBookingPageAppearanceParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UpdateBookingPageAppearanceParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateBookingPageAppearance!, typeInfo);
             }
             else if (value.IsGetBookingSlugStatus)
             {

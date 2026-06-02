@@ -231,6 +231,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        UpdateBookingPageAppearance,
+        /// <summary>
+        /// 
+        /// </summary>
         UpdateBookingPageSettings,
         /// <summary>
         /// 
@@ -341,6 +345,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug => "set_booking_slug",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentRule => "update_agent_rule",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAsset => "update_asset",
+                SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBookingPageAppearance => "update_booking_page_appearance",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBookingPageSettings => "update_booking_page_settings",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBusinessInfo => "update_business_info",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateCalendarEvent => "update_calendar_event",
@@ -417,6 +422,7 @@ namespace ElevenLabs
                 "set_booking_slug" => SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug,
                 "update_agent_rule" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentRule,
                 "update_asset" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAsset,
+                "update_booking_page_appearance" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBookingPageAppearance,
                 "update_booking_page_settings" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBookingPageSettings,
                 "update_business_info" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBusinessInfo,
                 "update_calendar_event" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateCalendarEvent,

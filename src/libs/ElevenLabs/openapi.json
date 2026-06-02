@@ -3153,6 +3153,155 @@
         "x-fern-sdk-method-name": "update"
       }
     },
+    "/v1/voices/{voice_id}": {
+      "get": {
+        "tags": [
+          "voices",
+          "voices"
+        ],
+        "summary": "Get Voice",
+        "description": "Returns metadata about a specific voice.",
+        "operationId": "get_voice_by_id",
+        "parameters": [
+          {
+            "name": "voice_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.",
+              "examples": [
+                "21m00Tcm4TlvDq8ikWAM"
+              ],
+              "title": "Voice Id"
+            },
+            "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+          },
+          {
+            "name": "with_settings",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "This parameter is now deprecated. It is ignored and will be removed in a future version.",
+              "deprecated": true,
+              "default": true,
+              "title": "With Settings"
+            },
+            "description": "This parameter is now deprecated. It is ignored and will be removed in a future version.",
+            "deprecated": true
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "voices",
+        "x-fern-sdk-method-name": "get"
+      },
+      "delete": {
+        "tags": [
+          "voices"
+        ],
+        "summary": "Delete Voice",
+        "description": "Deletes a voice by its ID.",
+        "operationId": "delete_voice",
+        "parameters": [
+          {
+            "name": "voice_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.",
+              "examples": [
+                "21m00Tcm4TlvDq8ikWAM"
+              ],
+              "title": "Voice Id"
+            },
+            "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteVoiceResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "voices",
+        "x-fern-sdk-method-name": "delete"
+      }
+    },
     "/v1/voices": {
       "get": {
         "tags": [
@@ -3482,154 +3631,6 @@
         },
         "x-fern-sdk-group-name": "voices",
         "x-fern-sdk-method-name": "search"
-      }
-    },
-    "/v1/voices/{voice_id}": {
-      "get": {
-        "tags": [
-          "voices"
-        ],
-        "summary": "Get Voice",
-        "description": "Returns metadata about a specific voice.",
-        "operationId": "get_voice_by_id",
-        "parameters": [
-          {
-            "name": "voice_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.",
-              "examples": [
-                "21m00Tcm4TlvDq8ikWAM"
-              ],
-              "title": "Voice Id"
-            },
-            "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
-          },
-          {
-            "name": "with_settings",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "boolean",
-              "description": "This parameter is now deprecated. It is ignored and will be removed in a future version.",
-              "deprecated": true,
-              "default": true,
-              "title": "With Settings"
-            },
-            "description": "This parameter is now deprecated. It is ignored and will be removed in a future version.",
-            "deprecated": true
-          },
-          {
-            "name": "xi-api-key",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
-              "title": "Xi-Api-Key"
-            },
-            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VoiceResponseModel"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "x-fern-sdk-group-name": "voices",
-        "x-fern-sdk-method-name": "get"
-      },
-      "delete": {
-        "tags": [
-          "voices"
-        ],
-        "summary": "Delete Voice",
-        "description": "Deletes a voice by its ID.",
-        "operationId": "delete_voice",
-        "parameters": [
-          {
-            "name": "voice_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.",
-              "examples": [
-                "21m00Tcm4TlvDq8ikWAM"
-              ],
-              "title": "Voice Id"
-            },
-            "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
-          },
-          {
-            "name": "xi-api-key",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
-              "title": "Xi-Api-Key"
-            },
-            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeleteVoiceResponseModel"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "x-fern-sdk-group-name": "voices",
-        "x-fern-sdk-method-name": "delete"
       }
     },
     "/v1/voices/add": {
@@ -10036,6 +10037,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/SlackBotAuthResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UrlSecretAuthResponse"
                     }
                   ],
                   "discriminator": {
@@ -10051,7 +10055,8 @@
                       "api_integration_oauth2_auth_code": "#/components/schemas/ApiIntegrationOAuth2AuthCodeResponse",
                       "api_integration_oauth2_custom_app": "#/components/schemas/ApiIntegrationOAuth2CustomAppResponse",
                       "whatsapp_auth": "#/components/schemas/WhatsAppAuthResponse",
-                      "slack_bot_auth": "#/components/schemas/SlackBotAuthResponse"
+                      "slack_bot_auth": "#/components/schemas/SlackBotAuthResponse",
+                      "url_secret": "#/components/schemas/UrlSecretAuthResponse"
                     }
                   },
                   "description": "The type of auth connection config",
@@ -10231,6 +10236,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/SlackBotAuthResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UrlSecretAuthResponse"
                     }
                   ],
                   "discriminator": {
@@ -10246,7 +10254,8 @@
                       "api_integration_oauth2_auth_code": "#/components/schemas/ApiIntegrationOAuth2AuthCodeResponse",
                       "api_integration_oauth2_custom_app": "#/components/schemas/ApiIntegrationOAuth2CustomAppResponse",
                       "whatsapp_auth": "#/components/schemas/WhatsAppAuthResponse",
-                      "slack_bot_auth": "#/components/schemas/SlackBotAuthResponse"
+                      "slack_bot_auth": "#/components/schemas/SlackBotAuthResponse",
+                      "url_secret": "#/components/schemas/UrlSecretAuthResponse"
                     }
                   },
                   "description": "The type of auth connection config",
@@ -37649,21 +37658,6 @@
             ],
             "title": "Csv Fps",
             "description": "Frames per second to use when parsing a CSV file for dubbing. If not provided, FPS will be inferred from timecodes."
-          },
-          "hcaptcha_token": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "HCaptcha token",
-            "description": "HCaptcha token used to prevent spam, generated on the frontend either automatically or when the client solves the hCaptcha challenge.\n",
-            "examples": [
-              "10000000-aaaa-bbbb-cccc-000000000000"
-            ]
           }
         },
         "type": "object",
@@ -61051,6 +61045,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/SlackBotAuthResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/UrlSecretAuthResponse"
                 }
               ],
               "description": "The type of auth connection config",
@@ -61067,6 +61064,7 @@
                   "oauth2_jwt": "#/components/schemas/OAuth2JWTResponse",
                   "private_key_jwt": "#/components/schemas/PrivateKeyJWTResponse",
                   "slack_bot_auth": "#/components/schemas/SlackBotAuthResponse",
+                  "url_secret": "#/components/schemas/UrlSecretAuthResponse",
                   "whatsapp_auth": "#/components/schemas/WhatsAppAuthResponse"
                 }
               }
@@ -72538,6 +72536,9 @@
                 "$ref": "#/components/schemas/UpdateBookingPageSettingsParams"
               },
               {
+                "$ref": "#/components/schemas/UpdateBookingPageAppearanceParams"
+              },
+              {
                 "$ref": "#/components/schemas/GetBookingSlugStatusParams"
               },
               {
@@ -72636,6 +72637,7 @@
                 "set_booking_slug": "#/components/schemas/SetBookingSlugParams",
                 "update_agent_rule": "#/components/schemas/UpdateAgentRuleParams",
                 "update_asset": "#/components/schemas/UpdateAssetParams",
+                "update_booking_page_appearance": "#/components/schemas/UpdateBookingPageAppearanceParams",
                 "update_booking_page_settings": "#/components/schemas/UpdateBookingPageSettingsParams",
                 "update_business_info": "#/components/schemas/UpdateBusinessInfoParams",
                 "update_calendar_event": "#/components/schemas/UpdateCalendarEventParams",
@@ -79945,6 +79947,18 @@
         "type": "object",
         "title": "UpdateBasicAuthRequest"
       },
+      "UpdateBookingPageAppearanceParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "update_booking_page_appearance",
+            "title": "Smb Tool Type",
+            "default": "update_booking_page_appearance"
+          }
+        },
+        "type": "object",
+        "title": "UpdateBookingPageAppearanceParams"
+      },
       "UpdateBookingPageSettingsParams": {
         "properties": {
           "smb_tool_type": {
@@ -81154,6 +81168,45 @@
         "type": "object",
         "title": "UrlModel",
         "description": "OCSF URL object.\n\nSpec: https://schema.ocsf.io/1.6.0/objects/url"
+      },
+      "UrlSecretAuthResponse": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "auth_type": {
+            "type": "string",
+            "const": "url_secret",
+            "title": "Auth Type",
+            "default": "url_secret"
+          },
+          "provider": {
+            "type": "string",
+            "title": "Provider"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "used_by": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AuthConnectionDependencies"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "provider",
+          "id"
+        ],
+        "title": "UrlSecretAuthResponse"
       },
       "UsageAggregationInterval": {
         "type": "string",
