@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// HCaptcha token used to prevent spam, generated on the frontend either automatically or when the client solves the hCaptcha challenge.
+    /// 
     /// </summary>
-    public sealed partial class BodyDubAVideoOrAnAudioFileV1DubbingPostHcaptchaToken
+    public sealed partial class UrlSecretAuthResponseUsedBy
     {
 
         /// <summary>
