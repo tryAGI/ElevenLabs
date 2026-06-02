@@ -78,6 +78,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public ContentTemplatesClient ContentTemplates { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ConversationalAiClient ConversationalAi { get; }
 
         /// <summary>

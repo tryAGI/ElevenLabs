@@ -97,6 +97,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public ContentTemplatesClient ContentTemplates => new ContentTemplatesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ConversationalAiClient ConversationalAi => new ConversationalAiClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
