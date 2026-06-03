@@ -56587,6 +56587,132 @@
           "voice_slots_used": 1
         }
       },
+      "ExternalFileSyncInfo": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ExternalSyncType",
+            "description": "Provider identifier"
+          },
+          "source_entity_id": {
+            "type": "string",
+            "title": "Source Entity Id",
+            "description": "Entity ID in the external system"
+          },
+          "integration_connection_id": {
+            "type": "string",
+            "title": "Integration Connection Id",
+            "description": "Integration connection instance ID"
+          },
+          "source_parent_entity_id": {
+            "type": "string",
+            "title": "Source Parent Entity Id",
+            "description": "Folder ID in the external system this file was synced from"
+          },
+          "source_mime_type": {
+            "type": "string",
+            "title": "Source Mime Type",
+            "description": "Original MIME type in the external system"
+          },
+          "source_modified_time": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Source Modified Time",
+            "description": "Last modified time from the external system"
+          },
+          "root_folder_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Root Folder Id",
+            "description": "KB folder ID of the sync root, used to query all entities under a sync tree"
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "source_entity_id",
+          "integration_connection_id",
+          "source_parent_entity_id",
+          "source_mime_type",
+          "source_modified_time"
+        ],
+        "title": "ExternalFileSyncInfo",
+        "description": "Tracks the link back to the original file in an external source."
+      },
+      "ExternalFolderSyncInfo": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ExternalSyncType",
+            "description": "Provider identifier"
+          },
+          "source_entity_id": {
+            "type": "string",
+            "title": "Source Entity Id",
+            "description": "Entity ID in the external system"
+          },
+          "integration_connection_id": {
+            "type": "string",
+            "title": "Integration Connection Id",
+            "description": "Integration connection instance ID"
+          },
+          "root_folder_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Root Folder Id",
+            "description": "KB folder ID of the sync root. None means this folder is the root."
+          },
+          "sync_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sync Cursor",
+            "description": "Opaque cursor for incremental sync, interpreted by the provider"
+          },
+          "last_sync_at": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Sync At",
+            "description": "Unix timestamp of last completed sync"
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "source_entity_id",
+          "integration_connection_id"
+        ],
+        "title": "ExternalFolderSyncInfo",
+        "description": "Metadata for a KB folder that mirrors an external source folder."
+      },
+      "ExternalSyncType": {
+        "type": "string",
+        "enum": [
+          "google_drive"
+        ],
+        "title": "ExternalSyncType"
+      },
       "FeatureStatusCommonModel": {
         "properties": {
           "enabled": {
@@ -58854,6 +58980,21 @@
           "filename": {
             "type": "string",
             "title": "Filename"
+          },
+          "external_sync_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExternalFileSyncInfo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "is_frozen": {
+            "type": "boolean",
+            "title": "Is Frozen",
+            "default": false
           }
         },
         "type": "object",
@@ -58930,6 +59071,21 @@
                 "type": "null"
               }
             ]
+          },
+          "external_sync_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExternalFolderSyncInfo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "is_frozen": {
+            "type": "boolean",
+            "title": "Is Frozen",
+            "default": false
           }
         },
         "type": "object",
@@ -59068,6 +59224,21 @@
             "type": "string",
             "const": "file",
             "title": "Type"
+          },
+          "external_sync_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExternalFileSyncInfo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "is_frozen": {
+            "type": "boolean",
+            "title": "Is Frozen",
+            "default": false
           }
         },
         "type": "object",
@@ -59166,6 +59337,21 @@
                 "type": "null"
               }
             ]
+          },
+          "external_sync_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExternalFolderSyncInfo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "is_frozen": {
+            "type": "boolean",
+            "title": "Is Frozen",
+            "default": false
           }
         },
         "type": "object",
