@@ -77,6 +77,18 @@ namespace ElevenLabs
         public global::ElevenLabs.AutoSyncInfo? AutoSyncInfo { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("external_sync_info")]
+        public global::ElevenLabs.ExternalFolderSyncInfo? ExternalSyncInfo { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_frozen")]
+        public bool? IsFrozen { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -100,6 +112,10 @@ namespace ElevenLabs
         /// The folder path segments leading to this entity, from root to parent folder.
         /// </param>
         /// <param name="autoSyncInfo"></param>
+        /// <param name="externalSyncInfo"></param>
+        /// <param name="isFrozen">
+        /// Default Value: false
+        /// </param>
         /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -114,6 +130,8 @@ namespace ElevenLabs
             string? folderParentId,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? folderPath,
             global::ElevenLabs.AutoSyncInfo? autoSyncInfo,
+            global::ElevenLabs.ExternalFolderSyncInfo? externalSyncInfo,
+            bool? isFrozen,
             string type = "folder")
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -126,6 +144,8 @@ namespace ElevenLabs
             this.Type = type;
             this.ChildrenCount = childrenCount;
             this.AutoSyncInfo = autoSyncInfo;
+            this.ExternalSyncInfo = externalSyncInfo;
+            this.IsFrozen = isFrozen;
         }
 
         /// <summary>
