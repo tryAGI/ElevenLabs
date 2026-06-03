@@ -124,6 +124,43 @@ namespace ElevenLabs
         public global::ElevenLabs.LLMSchemaOverride PickLlm() => IsLlm
             ? Llm!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Llm' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.OmitSchemaOverride? Omit { get; init; }
+#else
+        public global::ElevenLabs.OmitSchemaOverride? Omit { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Omit))]
+#endif
+        public bool IsOmit => Omit != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickOmit(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.OmitSchemaOverride? value)
+        {
+            value = Omit;
+            return IsOmit;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.OmitSchemaOverride PickOmit() => IsOmit
+            ? Omit!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Omit' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -196,11 +233,35 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator InputOverridesVariant13(global::ElevenLabs.OmitSchemaOverride value) => new InputOverridesVariant13((global::ElevenLabs.OmitSchemaOverride?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.OmitSchemaOverride?(InputOverridesVariant13 @this) => @this.Omit;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public InputOverridesVariant13(global::ElevenLabs.OmitSchemaOverride? value)
+        {
+            Omit = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static InputOverridesVariant13 FromOmit(global::ElevenLabs.OmitSchemaOverride? value) => new InputOverridesVariant13(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public InputOverridesVariant13(
             global::ElevenLabs.MCPToolConfigOverrideInputInputOverridesDiscriminatorSource? source,
             global::ElevenLabs.ConstantSchemaOverride? constant,
             global::ElevenLabs.DynamicVariableSchemaOverride? dynamicVariable,
-            global::ElevenLabs.LLMSchemaOverride? llm
+            global::ElevenLabs.LLMSchemaOverride? llm,
+            global::ElevenLabs.OmitSchemaOverride? omit
             )
         {
             Source = source;
@@ -208,12 +269,14 @@ namespace ElevenLabs
             Constant = constant;
             DynamicVariable = dynamicVariable;
             Llm = llm;
+            Omit = omit;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            Omit as object ??
             Llm as object ??
             DynamicVariable as object ??
             Constant as object 
@@ -225,7 +288,8 @@ namespace ElevenLabs
         public override string? ToString() =>
             Constant?.ToString() ??
             DynamicVariable?.ToString() ??
-            Llm?.ToString() 
+            Llm?.ToString() ??
+            Omit?.ToString() 
             ;
 
         /// <summary>
@@ -233,7 +297,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsConstant && !IsDynamicVariable && !IsLlm || !IsConstant && IsDynamicVariable && !IsLlm || !IsConstant && !IsDynamicVariable && IsLlm;
+            return IsConstant && !IsDynamicVariable && !IsLlm && !IsOmit || !IsConstant && IsDynamicVariable && !IsLlm && !IsOmit || !IsConstant && !IsDynamicVariable && IsLlm && !IsOmit || !IsConstant && !IsDynamicVariable && !IsLlm && IsOmit;
         }
 
         /// <summary>
@@ -243,6 +307,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.ConstantSchemaOverride, TResult>? constant = null,
             global::System.Func<global::ElevenLabs.DynamicVariableSchemaOverride, TResult>? dynamicVariable = null,
             global::System.Func<global::ElevenLabs.LLMSchemaOverride, TResult>? llm = null,
+            global::System.Func<global::ElevenLabs.OmitSchemaOverride, TResult>? omit = null,
             bool validate = true)
         {
             if (validate)
@@ -262,6 +327,10 @@ namespace ElevenLabs
             {
                 return llm(Llm!);
             }
+            else if (IsOmit && omit != null)
+            {
+                return omit(Omit!);
+            }
 
             return default(TResult);
         }
@@ -275,6 +344,8 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.DynamicVariableSchemaOverride>? dynamicVariable = null,
 
             global::System.Action<global::ElevenLabs.LLMSchemaOverride>? llm = null,
+
+            global::System.Action<global::ElevenLabs.OmitSchemaOverride>? omit = null,
             bool validate = true)
         {
             if (validate)
@@ -293,6 +364,10 @@ namespace ElevenLabs
             else if (IsLlm)
             {
                 llm?.Invoke(Llm!);
+            }
+            else if (IsOmit)
+            {
+                omit?.Invoke(Omit!);
             }
         }
 
@@ -303,6 +378,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.ConstantSchemaOverride>? constant = null,
             global::System.Action<global::ElevenLabs.DynamicVariableSchemaOverride>? dynamicVariable = null,
             global::System.Action<global::ElevenLabs.LLMSchemaOverride>? llm = null,
+            global::System.Action<global::ElevenLabs.OmitSchemaOverride>? omit = null,
             bool validate = true)
         {
             if (validate)
@@ -321,6 +397,10 @@ namespace ElevenLabs
             else if (IsLlm)
             {
                 llm?.Invoke(Llm!);
+            }
+            else if (IsOmit)
+            {
+                omit?.Invoke(Omit!);
             }
         }
 
@@ -337,6 +417,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.DynamicVariableSchemaOverride),
                 Llm,
                 typeof(global::ElevenLabs.LLMSchemaOverride),
+                Omit,
+                typeof(global::ElevenLabs.OmitSchemaOverride),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -355,7 +437,8 @@ namespace ElevenLabs
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConstantSchemaOverride?>.Default.Equals(Constant, other.Constant) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DynamicVariableSchemaOverride?>.Default.Equals(DynamicVariable, other.DynamicVariable) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.LLMSchemaOverride?>.Default.Equals(Llm, other.Llm) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.LLMSchemaOverride?>.Default.Equals(Llm, other.Llm) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.OmitSchemaOverride?>.Default.Equals(Omit, other.Omit) 
                 ;
         }
 

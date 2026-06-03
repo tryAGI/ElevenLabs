@@ -20,6 +20,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Llm,
+        /// <summary>
+        /// 
+        /// </summary>
+        Omit,
     }
 
     /// <summary>
@@ -37,6 +41,7 @@ namespace ElevenLabs
                 MCPToolConfigOverrideOutputInputOverridesDiscriminatorSource.Constant => "constant",
                 MCPToolConfigOverrideOutputInputOverridesDiscriminatorSource.DynamicVariable => "dynamic_variable",
                 MCPToolConfigOverrideOutputInputOverridesDiscriminatorSource.Llm => "llm",
+                MCPToolConfigOverrideOutputInputOverridesDiscriminatorSource.Omit => "omit",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -50,6 +55,7 @@ namespace ElevenLabs
                 "constant" => MCPToolConfigOverrideOutputInputOverridesDiscriminatorSource.Constant,
                 "dynamic_variable" => MCPToolConfigOverrideOutputInputOverridesDiscriminatorSource.DynamicVariable,
                 "llm" => MCPToolConfigOverrideOutputInputOverridesDiscriminatorSource.Llm,
+                "omit" => MCPToolConfigOverrideOutputInputOverridesDiscriminatorSource.Omit,
                 _ => null,
             };
         }
