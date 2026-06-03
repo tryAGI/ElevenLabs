@@ -18,7 +18,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("procedures")]
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureAtVersion>? Procedures { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureAtVersionInput>? Procedures { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,7 +38,7 @@ namespace ElevenLabs
 #endif
         public LoadProcedureToolConfigInput(
             string? systemToolType,
-            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureAtVersion>? procedures)
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureAtVersionInput>? procedures)
         {
             this.SystemToolType = systemToolType;
             this.Procedures = procedures;

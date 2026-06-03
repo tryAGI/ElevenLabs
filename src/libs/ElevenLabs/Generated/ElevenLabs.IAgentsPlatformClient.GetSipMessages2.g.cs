@@ -9,7 +9,7 @@ namespace ElevenLabs
         /// Get SIP messages for a phone number
         /// </summary>
         /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
+        /// The phone number ID. This is returned when a phone number is imported.
         /// </param>
         /// <param name="pageSize">
         /// Default Value: 20
@@ -31,7 +31,7 @@ namespace ElevenLabs
         /// Get SIP messages for a phone number
         /// </summary>
         /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
+        /// The phone number ID. This is returned when a phone number is imported.
         /// </param>
         /// <param name="pageSize">
         /// Default Value: 20
@@ -53,7 +53,7 @@ namespace ElevenLabs
         /// Wraps GetSipMessages2Async as an IAsyncEnumerable&lt;global::ElevenLabs.SIPLogMessage&gt; that auto-pages over the response.
         /// </summary>
         /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
+        /// The phone number ID. This is returned when a phone number is imported.
         /// </param>
         /// <param name="pageSize">
         /// Default Value: 20
