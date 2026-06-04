@@ -52146,6 +52146,17 @@
             ],
             "title": "Mature Content"
           },
+          "safesearch_adult": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Safesearch Adult"
+          },
           "origin": {
             "anyOf": [
               {
