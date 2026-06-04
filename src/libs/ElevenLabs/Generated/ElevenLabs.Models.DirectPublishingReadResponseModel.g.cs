@@ -131,6 +131,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("safesearch_adult")]
+        public bool? SafesearchAdult { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("origin")]
         public string? Origin { get; set; }
 
@@ -348,6 +354,7 @@ namespace ElevenLabs
         /// <param name="originalFileType"></param>
         /// <param name="targetAudience"></param>
         /// <param name="matureContent"></param>
+        /// <param name="safesearchAdult"></param>
         /// <param name="origin"></param>
         /// <param name="publicationDate"></param>
         /// <param name="isbn"></param>
@@ -409,6 +416,7 @@ namespace ElevenLabs
             string? originalFileType,
             global::ElevenLabs.DirectPublishingReadResponseModelTargetAudience2? targetAudience,
             bool? matureContent,
+            bool? safesearchAdult,
             string? origin,
             string? publicationDate,
             string? isbn,
@@ -461,6 +469,7 @@ namespace ElevenLabs
             this.OriginalFileType = originalFileType;
             this.TargetAudience = targetAudience;
             this.MatureContent = matureContent;
+            this.SafesearchAdult = safesearchAdult;
             this.Origin = origin;
             this.PublicationDate = publicationDate;
             this.Isbn = isbn;
