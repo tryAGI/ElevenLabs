@@ -23,15 +23,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        LoadProcedure,
-        /// <summary>
-        /// 
-        /// </summary>
         PlayKeypadTouchTone,
         /// <summary>
         /// 
         /// </summary>
         SkipTurn,
+        /// <summary>
+        /// 
+        /// </summary>
+        StartProcedure,
         /// <summary>
         /// 
         /// </summary>
@@ -61,9 +61,9 @@ namespace ElevenLabs
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.EndCall => "end_call",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.KnowledgeBaseRag => "knowledge_base_rag",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.LanguageDetection => "language_detection",
-                SystemToolConfigInputParamsDiscriminatorSystemToolType.LoadProcedure => "load_procedure",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.PlayKeypadTouchTone => "play_keypad_touch_tone",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.SkipTurn => "skip_turn",
+                SystemToolConfigInputParamsDiscriminatorSystemToolType.StartProcedure => "start_procedure",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToAgent => "transfer_to_agent",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToNumber => "transfer_to_number",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.VoicemailDetection => "voicemail_detection",
@@ -80,9 +80,9 @@ namespace ElevenLabs
                 "end_call" => SystemToolConfigInputParamsDiscriminatorSystemToolType.EndCall,
                 "knowledge_base_rag" => SystemToolConfigInputParamsDiscriminatorSystemToolType.KnowledgeBaseRag,
                 "language_detection" => SystemToolConfigInputParamsDiscriminatorSystemToolType.LanguageDetection,
-                "load_procedure" => SystemToolConfigInputParamsDiscriminatorSystemToolType.LoadProcedure,
                 "play_keypad_touch_tone" => SystemToolConfigInputParamsDiscriminatorSystemToolType.PlayKeypadTouchTone,
                 "skip_turn" => SystemToolConfigInputParamsDiscriminatorSystemToolType.SkipTurn,
+                "start_procedure" => SystemToolConfigInputParamsDiscriminatorSystemToolType.StartProcedure,
                 "transfer_to_agent" => SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToAgent,
                 "transfer_to_number" => SystemToolConfigInputParamsDiscriminatorSystemToolType.TransferToNumber,
                 "voicemail_detection" => SystemToolConfigInputParamsDiscriminatorSystemToolType.VoicemailDetection,

@@ -1746,6 +1746,18 @@
             "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs."
           },
           {
+            "name": "enable_logging",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Enable request logging.",
+              "description": "When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.",
+              "default": true
+            },
+            "description": "When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -1844,6 +1856,18 @@
               "default": "mp3_44100_128"
             },
             "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs."
+          },
+          {
+            "name": "enable_logging",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Enable request logging.",
+              "description": "When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.",
+              "default": true
+            },
+            "description": "When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers."
           },
           {
             "name": "xi-api-key",
@@ -1945,6 +1969,18 @@
               "default": "mp3_44100_128"
             },
             "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs."
+          },
+          {
+            "name": "enable_logging",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Enable request logging.",
+              "description": "When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.",
+              "default": true
+            },
+            "description": "When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers."
           },
           {
             "name": "xi-api-key",
@@ -2059,6 +2095,18 @@
               "default": "mp3_44100_128"
             },
             "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs."
+          },
+          {
+            "name": "enable_logging",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Enable request logging.",
+              "description": "When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.",
+              "default": true
+            },
+            "description": "When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers."
           },
           {
             "name": "xi-api-key",
@@ -61779,51 +61827,6 @@
         "title": "LivekitStackType",
         "default": "standard"
       },
-      "LoadProcedureToolConfig-Input": {
-        "properties": {
-          "system_tool_type": {
-            "type": "string",
-            "const": "load_procedure",
-            "title": "System Tool Type",
-            "default": "load_procedure"
-          },
-          "procedures": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/ProcedureAtVersion-Input"
-            },
-            "type": "object",
-            "title": "Procedures"
-          }
-        },
-        "type": "object",
-        "title": "LoadProcedureToolConfig"
-      },
-      "LoadProcedureToolConfig-Output": {
-        "properties": {
-          "system_tool_type": {
-            "type": "string",
-            "const": "load_procedure",
-            "title": "System Tool Type",
-            "default": "load_procedure"
-          },
-          "procedures": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/ProcedureAtVersion-Output"
-            },
-            "type": "object",
-            "title": "Procedures"
-          }
-        },
-        "type": "object",
-        "title": "LoadProcedureToolConfig"
-      },
-      "LoadProcedureToolErrorStatus": {
-        "type": "string",
-        "enum": [
-          "not_found",
-          "invalid_name"
-        ]
-      },
       "MCPApprovalPolicy": {
         "type": "string",
         "enum": [
@@ -75856,6 +75859,51 @@
           "status": "ok"
         }
       },
+      "StartProcedureToolConfig-Input": {
+        "properties": {
+          "system_tool_type": {
+            "type": "string",
+            "const": "start_procedure",
+            "title": "System Tool Type",
+            "default": "start_procedure"
+          },
+          "procedures": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ProcedureAtVersion-Input"
+            },
+            "type": "object",
+            "title": "Procedures"
+          }
+        },
+        "type": "object",
+        "title": "StartProcedureToolConfig"
+      },
+      "StartProcedureToolConfig-Output": {
+        "properties": {
+          "system_tool_type": {
+            "type": "string",
+            "const": "start_procedure",
+            "title": "System Tool Type",
+            "default": "start_procedure"
+          },
+          "procedures": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ProcedureAtVersion-Output"
+            },
+            "type": "object",
+            "title": "Procedures"
+          }
+        },
+        "type": "object",
+        "title": "StartProcedureToolConfig"
+      },
+      "StartProcedureToolErrorStatus": {
+        "type": "string",
+        "enum": [
+          "not_found",
+          "invalid_name"
+        ]
+      },
       "StartSpeakerSeparationResponseModel": {
         "properties": {
           "status": {
@@ -76769,7 +76817,7 @@
                 "$ref": "#/components/schemas/KnowledgeBaseRagToolConfig"
               },
               {
-                "$ref": "#/components/schemas/LoadProcedureToolConfig-Input"
+                "$ref": "#/components/schemas/StartProcedureToolConfig-Input"
               }
             ],
             "title": "Params",
@@ -76779,9 +76827,9 @@
                 "end_call": "#/components/schemas/EndCallToolConfig",
                 "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
-                "load_procedure": "#/components/schemas/LoadProcedureToolConfig-Input",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
+                "start_procedure": "#/components/schemas/StartProcedureToolConfig-Input",
                 "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig",
                 "transfer_to_number": "#/components/schemas/TransferToNumberToolConfig-Input",
                 "voicemail_detection": "#/components/schemas/VoicemailDetectionToolConfig"
@@ -76919,7 +76967,7 @@
                 "$ref": "#/components/schemas/KnowledgeBaseRagToolConfig"
               },
               {
-                "$ref": "#/components/schemas/LoadProcedureToolConfig-Output"
+                "$ref": "#/components/schemas/StartProcedureToolConfig-Output"
               }
             ],
             "title": "Params",
@@ -76929,9 +76977,9 @@
                 "end_call": "#/components/schemas/EndCallToolConfig",
                 "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
-                "load_procedure": "#/components/schemas/LoadProcedureToolConfig-Output",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
+                "start_procedure": "#/components/schemas/StartProcedureToolConfig-Output",
                 "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig",
                 "transfer_to_number": "#/components/schemas/TransferToNumberToolConfig-Output",
                 "voicemail_detection": "#/components/schemas/VoicemailDetectionToolConfig"
