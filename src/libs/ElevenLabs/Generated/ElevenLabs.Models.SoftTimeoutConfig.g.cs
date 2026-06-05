@@ -17,11 +17,17 @@ namespace ElevenLabs
         public double? TimeoutSeconds { get; set; }
 
         /// <summary>
-        /// Message to show when soft timeout is reached while waiting for LLM response<br/>
+        /// Message to show when the first soft timeout is reached while waiting for LLM response<br/>
         /// Default Value: Hhmmmm...yeah.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         public string? Message { get; set; }
+
+        /// <summary>
+        /// Extra static filler messages for subsequent soft timeouts in the same LLM generation. The first timeout uses `message`. If fewer messages are configured than `max_soft_timeouts_per_generation`, the last configured message is repeated; otherwise a built-in filler is used.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("additional_soft_timeout_messages")]
+        public global::System.Collections.Generic.IList<string>? AdditionalSoftTimeoutMessages { get; set; }
 
         /// <summary>
         /// If enabled, the soft timeout message will be generated dynamically instead of using the static message.<br/>
@@ -29,6 +35,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("use_llm_generated_message")]
         public bool? UseLlmGeneratedMessage { get; set; }
+
+        /// <summary>
+        /// Maximum filler messages while waiting for a single LLM response. Fires every timeout_seconds until the LLM streams content or this limit is reached.<br/>
+        /// Default Value: 1
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_soft_timeouts_per_generation")]
+        public int? MaxSoftTimeoutsPerGeneration { get; set; }
 
         /// <summary>
         /// Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used.
@@ -50,12 +63,19 @@ namespace ElevenLabs
         /// Default Value: -1F
         /// </param>
         /// <param name="message">
-        /// Message to show when soft timeout is reached while waiting for LLM response<br/>
+        /// Message to show when the first soft timeout is reached while waiting for LLM response<br/>
         /// Default Value: Hhmmmm...yeah.
+        /// </param>
+        /// <param name="additionalSoftTimeoutMessages">
+        /// Extra static filler messages for subsequent soft timeouts in the same LLM generation. The first timeout uses `message`. If fewer messages are configured than `max_soft_timeouts_per_generation`, the last configured message is repeated; otherwise a built-in filler is used.
         /// </param>
         /// <param name="useLlmGeneratedMessage">
         /// If enabled, the soft timeout message will be generated dynamically instead of using the static message.<br/>
         /// Default Value: false
+        /// </param>
+        /// <param name="maxSoftTimeoutsPerGeneration">
+        /// Maximum filler messages while waiting for a single LLM response. Fires every timeout_seconds until the LLM streams content or this limit is reached.<br/>
+        /// Default Value: 1
         /// </param>
         /// <param name="llmGeneratedMessagePromptOverride">
         /// Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used.
@@ -66,12 +86,16 @@ namespace ElevenLabs
         public SoftTimeoutConfig(
             double? timeoutSeconds,
             string? message,
+            global::System.Collections.Generic.IList<string>? additionalSoftTimeoutMessages,
             bool? useLlmGeneratedMessage,
+            int? maxSoftTimeoutsPerGeneration,
             string? llmGeneratedMessagePromptOverride)
         {
             this.TimeoutSeconds = timeoutSeconds;
             this.Message = message;
+            this.AdditionalSoftTimeoutMessages = additionalSoftTimeoutMessages;
             this.UseLlmGeneratedMessage = useLlmGeneratedMessage;
+            this.MaxSoftTimeoutsPerGeneration = maxSoftTimeoutsPerGeneration;
             this.LlmGeneratedMessagePromptOverride = llmGeneratedMessagePromptOverride;
         }
 

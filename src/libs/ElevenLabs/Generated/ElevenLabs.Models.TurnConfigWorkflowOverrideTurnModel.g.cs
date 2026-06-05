@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Message to show when the first soft timeout is reached while waiting for LLM response
+    /// Version of the turn detection model to use.
     /// </summary>
-    public sealed partial class SoftTimeoutConfigOverrideMessage
+    public sealed partial class TurnConfigWorkflowOverrideTurnModel
     {
 
         /// <summary>
