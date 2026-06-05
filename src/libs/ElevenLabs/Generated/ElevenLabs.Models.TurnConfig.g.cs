@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0},"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0}
+    /// Example: {"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0},"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_model":"turn_v3","turn_timeout":7.0}
     /// </summary>
     public sealed partial class TurnConfig
     {
@@ -67,6 +67,14 @@ namespace ElevenLabs
         public bool? RetranscribeOnTurnTimeout { get; set; }
 
         /// <summary>
+        /// Version of the turn detection model to use.<br/>
+        /// Default Value: turn_v3
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("turn_model")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TurnModelJsonConverter))]
+        public global::ElevenLabs.TurnModel? TurnModel { get; set; }
+
+        /// <summary>
         /// Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses.<br/>
         /// Example: {"message":"Hhmmmm...yeah.","timeout_seconds":2.0,"use_llm_generated_message":false}
         /// </summary>
@@ -114,6 +122,10 @@ namespace ElevenLabs
         /// When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="turnModel">
+        /// Version of the turn detection model to use.<br/>
+        /// Default Value: turn_v3
+        /// </param>
         /// <param name="softTimeoutConfig">
         /// Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses.<br/>
         /// Example: {"message":"Hhmmmm...yeah.","timeout_seconds":2.0,"use_llm_generated_message":false}
@@ -130,6 +142,7 @@ namespace ElevenLabs
             global::ElevenLabs.SpellingPatience? spellingPatience,
             bool? speculativeTurn,
             bool? retranscribeOnTurnTimeout,
+            global::ElevenLabs.TurnModel? turnModel,
             global::ElevenLabs.SoftTimeoutConfig? softTimeoutConfig)
         {
             this.TurnTimeout = turnTimeout;
@@ -140,6 +153,7 @@ namespace ElevenLabs
             this.SpellingPatience = spellingPatience;
             this.SpeculativeTurn = speculativeTurn;
             this.RetranscribeOnTurnTimeout = retranscribeOnTurnTimeout;
+            this.TurnModel = turnModel;
             this.SoftTimeoutConfig = softTimeoutConfig;
         }
 

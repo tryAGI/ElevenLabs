@@ -34530,6 +34530,10 @@
             "title": "Retranscribe On Turn Timeout",
             "description": "When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.",
             "default": false
+          },
+          "turn_model": {
+            "$ref": "#/components/schemas/TurnModel",
+            "default": "turn_v3"
           }
         },
         "type": "object",
@@ -49016,6 +49020,7 @@
             "speculative_turn": false,
             "spelling_patience": "auto",
             "turn_eagerness": "normal",
+            "turn_model": "turn_v3",
             "turn_timeout": 7.0
           },
           "vad": {
@@ -49168,6 +49173,7 @@
             "speculative_turn": false,
             "spelling_patience": "auto",
             "turn_eagerness": "normal",
+            "turn_model": "turn_v3",
             "turn_timeout": 7.0
           },
           "vad": {
@@ -74293,16 +74299,33 @@
             "maxLength": 200,
             "minLength": 1,
             "title": "Message",
-            "description": "Message to show when soft timeout is reached while waiting for LLM response",
+            "description": "Message to show when the first soft timeout is reached while waiting for LLM response",
             "default": "Hhmmmm...yeah.",
             "x-convai-client-override": true,
             "x-convai-language-override": true
+          },
+          "additional_soft_timeout_messages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 7,
+            "title": "Additional Soft Timeout Messages",
+            "description": "Extra static filler messages for subsequent soft timeouts in the same LLM generation. The first timeout uses `message`. If fewer messages are configured than `max_soft_timeouts_per_generation`, the last configured message is repeated; otherwise a built-in filler is used."
           },
           "use_llm_generated_message": {
             "type": "boolean",
             "title": "Use Llm Generated Message",
             "description": "If enabled, the soft timeout message will be generated dynamically instead of using the static message.",
             "default": false
+          },
+          "max_soft_timeouts_per_generation": {
+            "type": "integer",
+            "maximum": 8.0,
+            "minimum": 1.0,
+            "title": "Max Soft Timeouts Per Generation",
+            "description": "Maximum filler messages while waiting for a single LLM response. Fires every timeout_seconds until the LLM streams content or this limit is reached.",
+            "default": 1
           },
           "llm_generated_message_prompt_override": {
             "anyOf": [
@@ -74343,7 +74366,7 @@
               }
             ],
             "title": "Message",
-            "description": "Message to show when soft timeout is reached while waiting for LLM response",
+            "description": "Message to show when the first soft timeout is reached while waiting for LLM response",
             "x-convai-client-override": true,
             "x-convai-language-override": true
           }
@@ -74390,9 +74413,24 @@
               }
             ],
             "title": "Message",
-            "description": "Message to show when soft timeout is reached while waiting for LLM response",
+            "description": "Message to show when the first soft timeout is reached while waiting for LLM response",
             "x-convai-client-override": true,
             "x-convai-language-override": true
+          },
+          "additional_soft_timeout_messages": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Additional Soft Timeout Messages",
+            "description": "Extra static filler messages for subsequent soft timeouts in the same LLM generation. The first timeout uses `message`. If fewer messages are configured than `max_soft_timeouts_per_generation`, the last configured message is repeated; otherwise a built-in filler is used."
           },
           "use_llm_generated_message": {
             "anyOf": [
@@ -74405,6 +74443,18 @@
             ],
             "title": "Use Llm Generated Message",
             "description": "If enabled, the soft timeout message will be generated dynamically instead of using the static message."
+          },
+          "max_soft_timeouts_per_generation": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Soft Timeouts Per Generation",
+            "description": "Maximum filler messages while waiting for a single LLM response. Fires every timeout_seconds until the LLM streams content or this limit is reached."
           },
           "llm_generated_message_prompt_override": {
             "anyOf": [
@@ -79476,6 +79526,10 @@
             "description": "When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.",
             "default": false
           },
+          "turn_model": {
+            "$ref": "#/components/schemas/TurnModel",
+            "default": "turn_v3"
+          },
           "soft_timeout_config": {
             "$ref": "#/components/schemas/SoftTimeoutConfig",
             "description": "Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses."
@@ -79495,6 +79549,7 @@
           "speculative_turn": false,
           "spelling_patience": "auto",
           "turn_eagerness": "normal",
+          "turn_model": "turn_v3",
           "turn_timeout": 7.0
         }
       },
@@ -79626,6 +79681,17 @@
             "title": "Retranscribe On Turn Timeout",
             "description": "When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns."
           },
+          "turn_model": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TurnModel"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Version of the turn detection model to use."
+          },
           "soft_timeout_config": {
             "anyOf": [
               {
@@ -79653,6 +79719,7 @@
           "speculative_turn": false,
           "spelling_patience": "auto",
           "turn_eagerness": "normal",
+          "turn_model": "turn_v3",
           "turn_timeout": 7.0
         }
       },
@@ -79683,7 +79750,8 @@
           "turn_v3"
         ],
         "title": "TurnModel",
-        "description": "Version of the turn detection model to use."
+        "description": "Version of the turn detection model to use.",
+        "default": "turn_v3"
       },
       "TwilioEdgeLocation": {
         "type": "string",

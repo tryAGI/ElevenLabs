@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Message to show when the first soft timeout is reached while waiting for LLM response
+    /// Maximum filler messages while waiting for a single LLM response. Fires every timeout_seconds until the LLM streams content or this limit is reached.
     /// </summary>
-    public sealed partial class SoftTimeoutConfigOverrideMessage
+    public sealed partial class SoftTimeoutConfigWorkflowOverrideMaxSoftTimeoutsPerGeneration
     {
 
         /// <summary>
