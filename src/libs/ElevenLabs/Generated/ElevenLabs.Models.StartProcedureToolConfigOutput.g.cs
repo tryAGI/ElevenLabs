@@ -6,10 +6,10 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class LoadProcedureToolConfigOutput
+    public sealed partial class StartProcedureToolConfigOutput
     {
         /// <summary>
-        /// Default Value: load_procedure
+        /// Default Value: start_procedure
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_tool_type")]
         public string? SystemToolType { get; set; }
@@ -27,16 +27,16 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoadProcedureToolConfigOutput" /> class.
+        /// Initializes a new instance of the <see cref="StartProcedureToolConfigOutput" /> class.
         /// </summary>
         /// <param name="systemToolType">
-        /// Default Value: load_procedure
+        /// Default Value: start_procedure
         /// </param>
         /// <param name="procedures"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public LoadProcedureToolConfigOutput(
+        public StartProcedureToolConfigOutput(
             string? systemToolType,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureAtVersionOutput>? procedures)
         {
@@ -45,9 +45,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoadProcedureToolConfigOutput" /> class.
+        /// Initializes a new instance of the <see cref="StartProcedureToolConfigOutput" /> class.
         /// </summary>
-        public LoadProcedureToolConfigOutput()
+        public StartProcedureToolConfigOutput()
         {
         }
 

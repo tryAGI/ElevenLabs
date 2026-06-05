@@ -77,12 +77,12 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.KnowledgeBaseRagToolConfig)}");
                 knowledgeBaseRag = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::ElevenLabs.LoadProcedureToolConfigOutput? loadProcedure = default;
-            if (discriminator?.SystemToolType == global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType.LoadProcedure)
+            global::ElevenLabs.StartProcedureToolConfigOutput? startProcedure = default;
+            if (discriminator?.SystemToolType == global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType.StartProcedure)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.LoadProcedureToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.LoadProcedureToolConfigOutput> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.LoadProcedureToolConfigOutput)}");
-                loadProcedure = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.StartProcedureToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.StartProcedureToolConfigOutput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.StartProcedureToolConfigOutput)}");
+                startProcedure = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var __value = new global::ElevenLabs.Params3(
@@ -103,7 +103,7 @@ namespace ElevenLabs.JsonConverters
 
                 knowledgeBaseRag,
 
-                loadProcedure
+                startProcedure
                 );
 
             return __value;
@@ -166,11 +166,11 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.KnowledgeBaseRagToolConfig).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeBaseRag!, typeInfo);
             }
-            else if (value.IsLoadProcedure)
+            else if (value.IsStartProcedure)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.LoadProcedureToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.LoadProcedureToolConfigOutput?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.LoadProcedureToolConfigOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.LoadProcedure!, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.StartProcedureToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.StartProcedureToolConfigOutput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.StartProcedureToolConfigOutput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StartProcedure!, typeInfo);
             }
         }
     }

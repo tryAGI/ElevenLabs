@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class LoadProcedureToolConfigOutputProcedures
+    public sealed partial class StartProcedureToolConfigOutputProcedures
     {
 
         /// <summary>

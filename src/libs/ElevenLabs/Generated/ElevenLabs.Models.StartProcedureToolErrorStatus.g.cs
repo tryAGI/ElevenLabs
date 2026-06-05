@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public enum LoadProcedureToolErrorStatus
+    public enum StartProcedureToolErrorStatus
     {
         /// <summary>
         /// 
@@ -21,29 +21,29 @@ namespace ElevenLabs
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class LoadProcedureToolErrorStatusExtensions
+    public static class StartProcedureToolErrorStatusExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this LoadProcedureToolErrorStatus value)
+        public static string ToValueString(this StartProcedureToolErrorStatus value)
         {
             return value switch
             {
-                LoadProcedureToolErrorStatus.InvalidName => "invalid_name",
-                LoadProcedureToolErrorStatus.NotFound => "not_found",
+                StartProcedureToolErrorStatus.InvalidName => "invalid_name",
+                StartProcedureToolErrorStatus.NotFound => "not_found",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static LoadProcedureToolErrorStatus? ToEnum(string value)
+        public static StartProcedureToolErrorStatus? ToEnum(string value)
         {
             return value switch
             {
-                "invalid_name" => LoadProcedureToolErrorStatus.InvalidName,
-                "not_found" => LoadProcedureToolErrorStatus.NotFound,
+                "invalid_name" => StartProcedureToolErrorStatus.InvalidName,
+                "not_found" => StartProcedureToolErrorStatus.NotFound,
                 _ => null,
             };
         }
