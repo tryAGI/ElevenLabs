@@ -59371,7 +59371,9 @@
         "type": "string",
         "enum": [
           "realtime",
-          "async"
+          "5_minutes",
+          "10_minutes",
+          "1_hour"
         ],
         "title": "InteractionBudget"
       },
