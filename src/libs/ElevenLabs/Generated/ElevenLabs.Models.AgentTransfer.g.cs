@@ -52,6 +52,13 @@ namespace ElevenLabs
         public bool? IsWorkflowNodeTransfer { get; set; }
 
         /// <summary>
+        /// Defines whether TTS client overrides should be carried over to the transferred agent.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("preserve_client_tts_overrides")]
+        public bool? PreserveClientTtsOverrides { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -73,6 +80,10 @@ namespace ElevenLabs
         /// <param name="isWorkflowNodeTransfer">
         /// Default Value: false
         /// </param>
+        /// <param name="preserveClientTtsOverrides">
+        /// Defines whether TTS client overrides should be carried over to the transferred agent.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -83,7 +94,8 @@ namespace ElevenLabs
             int? delayMs,
             string? transferMessage,
             bool? enableTransferredAgentFirstMessage,
-            bool? isWorkflowNodeTransfer)
+            bool? isWorkflowNodeTransfer,
+            bool? preserveClientTtsOverrides)
         {
             this.AgentId = agentId;
             this.NodeId = nodeId;
@@ -92,6 +104,7 @@ namespace ElevenLabs
             this.TransferMessage = transferMessage;
             this.EnableTransferredAgentFirstMessage = enableTransferredAgentFirstMessage;
             this.IsWorkflowNodeTransfer = isWorkflowNodeTransfer;
+            this.PreserveClientTtsOverrides = preserveClientTtsOverrides;
         }
 
         /// <summary>

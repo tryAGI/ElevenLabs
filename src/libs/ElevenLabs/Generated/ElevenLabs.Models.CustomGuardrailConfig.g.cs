@@ -36,6 +36,14 @@ namespace ElevenLabs
         public global::ElevenLabs.GuardrailExecutionMode? ExecutionMode { get; set; }
 
         /// <summary>
+        /// LLM model to use for custom guardrail evaluation<br/>
+        /// Default Value: gemini-2.5-flash-lite
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.CustomGuardrailConfigModelJsonConverter))]
+        public global::ElevenLabs.CustomGuardrailConfigModel? Model { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("trigger_action")]
@@ -63,6 +71,10 @@ namespace ElevenLabs
         /// <param name="executionMode">
         /// Default Value: streaming
         /// </param>
+        /// <param name="model">
+        /// LLM model to use for custom guardrail evaluation<br/>
+        /// Default Value: gemini-2.5-flash-lite
+        /// </param>
         /// <param name="triggerAction"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -72,12 +84,14 @@ namespace ElevenLabs
             string prompt,
             bool? isEnabled,
             global::ElevenLabs.GuardrailExecutionMode? executionMode,
+            global::ElevenLabs.CustomGuardrailConfigModel? model,
             global::ElevenLabs.TriggerAction3? triggerAction)
         {
             this.IsEnabled = isEnabled;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.ExecutionMode = executionMode;
+            this.Model = model;
             this.TriggerAction = triggerAction;
         }
 

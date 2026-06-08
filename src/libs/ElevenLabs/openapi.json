@@ -31755,6 +31755,12 @@
             "type": "boolean",
             "title": "Is Workflow Node Transfer",
             "default": false
+          },
+          "preserve_client_tts_overrides": {
+            "type": "boolean",
+            "title": "Preserve Client Tts Overrides",
+            "description": "Defines whether TTS client overrides should be carried over to the transferred agent.",
+            "default": false
           }
         },
         "type": "object",
@@ -32330,6 +32336,7 @@
                 "x": 0.0,
                 "y": 0.0
               },
+              "preserve_client_tts_overrides": false,
               "type": "standalone_agent"
             },
             "tool_node_a": {
@@ -50735,6 +50742,22 @@
             "$ref": "#/components/schemas/GuardrailExecutionMode",
             "default": "streaming"
           },
+          "model": {
+            "type": "string",
+            "enum": [
+              "gemini-2.5-flash-lite",
+              "gemini-2.5-flash",
+              "gemini-3.1-flash-lite",
+              "gemini-3.5-flash",
+              "claude-haiku-4-5",
+              "claude-sonnet-4-6",
+              "gpt-5.4-nano",
+              "gpt-5.4-mini"
+            ],
+            "title": "Model",
+            "description": "LLM model to use for custom guardrail evaluation",
+            "default": "gemini-2.5-flash-lite"
+          },
           "trigger_action": {
             "oneOf": [
               {
@@ -55481,6 +55504,7 @@
                   "x": 0.0,
                   "y": 0.0
                 },
+                "preserve_client_tts_overrides": false,
                 "type": "standalone_agent"
               },
               "tool_node_a": {
@@ -79189,6 +79213,11 @@
               }
             ],
             "title": "Branch Info"
+          },
+          "preserve_client_tts_overrides": {
+            "type": "boolean",
+            "title": "Preserve Client Tts Overrides",
+            "default": false
           }
         },
         "type": "object",
@@ -88486,6 +88515,12 @@
             "title": "Enable Transferred Agent First Message",
             "description": "Whether to enable the transferred agent to send its configured first message after the transfer.",
             "default": false
+          },
+          "preserve_client_tts_overrides": {
+            "type": "boolean",
+            "title": "Preserve Client Tts Overrides",
+            "description": "Defines whether TTS client overrides should be carried over to the transferred agent.",
+            "default": false
           }
         },
         "type": "object",
@@ -88559,6 +88594,12 @@
             "title": "Enable Transferred Agent First Message",
             "description": "Whether to enable the transferred agent to send its configured first message after the transfer.",
             "default": false
+          },
+          "preserve_client_tts_overrides": {
+            "type": "boolean",
+            "title": "Preserve Client Tts Overrides",
+            "description": "Defines whether TTS client overrides should be carried over to the transferred agent.",
+            "default": false
           }
         },
         "type": "object",
@@ -88570,7 +88611,8 @@
           "node_id",
           "delay_ms",
           "transfer_message",
-          "enable_transferred_agent_first_message"
+          "enable_transferred_agent_first_message",
+          "preserve_client_tts_overrides"
         ],
         "title": "WorkflowStandaloneAgentNodeModel"
       },
