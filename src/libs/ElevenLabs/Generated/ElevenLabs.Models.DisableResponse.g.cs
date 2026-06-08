@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class RevokeResponse
+    public sealed partial class DisableResponse
     {
 
         /// <summary>

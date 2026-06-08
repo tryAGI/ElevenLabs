@@ -184,7 +184,8 @@
                 {
                   "enum": [
                     "TTS",
-                    "STS"
+                    "STS",
+                    "Flows"
                   ],
                   "type": "string"
                 },
@@ -9444,15 +9445,15 @@
         "x-fern-sdk-method-name": "list"
       }
     },
-    "/v1/workspaces/api-keys/revoke": {
-      "delete": {
+    "/v1/workspaces/api-keys/disable": {
+      "post": {
         "tags": [
           "workspace",
           "api-key"
         ],
-        "summary": "Revoke Api Key",
-        "description": "Revoke the API key used to authenticate this request. Requires the query parameter `api_key_name=self` as an explicit confirmation. This endpoint requires additional permissions and is not enabled by default. Reach out to your ElevenLabs contact to request access.",
-        "operationId": "revoke",
+        "summary": "Disable Api Key",
+        "description": "Disable the API key used to authenticate this request. Requires the query parameter `api_key_name=self` as an explicit confirmation. This endpoint requires additional permissions and is not enabled by default. Reach out to your ElevenLabs contact to request access.",
+        "operationId": "disable",
         "parameters": [
           {
             "name": "api_key_name",
@@ -9460,10 +9461,10 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "Must be set to `self` to revoke the API key used to authenticate this request. Required as an explicit confirmation to avoid accidental revocation.",
+              "description": "Must be set to `self` to disable the API key used to authenticate this request. Required as an explicit confirmation to avoid accidentally disabling the wrong key.",
               "title": "Api Key Name"
             },
-            "description": "Must be set to `self` to revoke the API key used to authenticate this request. Required as an explicit confirmation to avoid accidental revocation."
+            "description": "Must be set to `self` to disable the API key used to authenticate this request. Required as an explicit confirmation to avoid accidentally disabling the wrong key."
           },
           {
             "name": "xi-api-key",
@@ -9508,7 +9509,7 @@
           "workspaces",
           "api_keys"
         ],
-        "x-fern-sdk-method-name": "revoke"
+        "x-fern-sdk-method-name": "disable"
       }
     },
     "/v1/service-accounts/{service_account_user_id}/api-keys": {
@@ -44190,6 +44191,24 @@
         ],
         "title": "CodeToolAllowedDomain"
       },
+      "CodeToolContextVariable": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "env_var_label": {
+            "type": "string",
+            "title": "Env Var Label"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "env_var_label"
+        ],
+        "title": "CodeToolContextVariable"
+      },
       "ColumnFilter": {
         "properties": {
           "column": {
@@ -75418,7 +75437,8 @@
                   "PlayAPI",
                   "ConvAI",
                   "VoiceGeneration",
-                  "InVPC"
+                  "InVPC",
+                  "Flows"
                 ]
               },
               {
