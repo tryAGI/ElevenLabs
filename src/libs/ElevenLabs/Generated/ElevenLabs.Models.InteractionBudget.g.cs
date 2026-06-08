@@ -11,7 +11,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        Async,
+        x10Minutes,
+        /// <summary>
+        /// 
+        /// </summary>
+        x1Hour,
+        /// <summary>
+        /// 
+        /// </summary>
+        x5Minutes,
         /// <summary>
         /// 
         /// </summary>
@@ -30,7 +38,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                InteractionBudget.Async => "async",
+                InteractionBudget.x10Minutes => "10_minutes",
+                InteractionBudget.x1Hour => "1_hour",
+                InteractionBudget.x5Minutes => "5_minutes",
                 InteractionBudget.Realtime => "realtime",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -42,7 +52,9 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "async" => InteractionBudget.Async,
+                "10_minutes" => InteractionBudget.x10Minutes,
+                "1_hour" => InteractionBudget.x1Hour,
+                "5_minutes" => InteractionBudget.x5Minutes,
                 "realtime" => InteractionBudget.Realtime,
                 _ => null,
             };
