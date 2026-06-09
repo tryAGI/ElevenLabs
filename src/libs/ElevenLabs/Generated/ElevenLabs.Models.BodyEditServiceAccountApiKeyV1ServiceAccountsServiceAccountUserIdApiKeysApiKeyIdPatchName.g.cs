@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The name of the XI API key to use (used for identification purposes only).
     /// </summary>
-    public sealed partial class AgentAlertingWebhookNotifierRequestHeaders2
+    public sealed partial class BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchName
     {
 
         /// <summary>

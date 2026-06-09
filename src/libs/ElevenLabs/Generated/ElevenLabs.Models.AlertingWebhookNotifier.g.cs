@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class AgentAlertingWebhookNotifier
+    public sealed partial class AlertingWebhookNotifier
     {
         /// <summary>
         /// Default Value: webhook
@@ -22,19 +22,13 @@ namespace ElevenLabs
         public required string Url { get; set; }
 
         /// <summary>
-        /// Optional static request headers sent with each alert webhook call, for example to authenticate with the receiving endpoint.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("request_headers")]
-        public global::System.Collections.Generic.Dictionary<string, string>? RequestHeaders { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AgentAlertingWebhookNotifier" /> class.
+        /// Initializes a new instance of the <see cref="AlertingWebhookNotifier" /> class.
         /// </summary>
         /// <param name="url">
         /// The URL to send alert lifecycle notifications to.
@@ -42,26 +36,21 @@ namespace ElevenLabs
         /// <param name="type">
         /// Default Value: webhook
         /// </param>
-        /// <param name="requestHeaders">
-        /// Optional static request headers sent with each alert webhook call, for example to authenticate with the receiving endpoint.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public AgentAlertingWebhookNotifier(
+        public AlertingWebhookNotifier(
             string url,
-            string? type,
-            global::System.Collections.Generic.Dictionary<string, string>? requestHeaders)
+            string? type)
         {
             this.Type = type;
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
-            this.RequestHeaders = requestHeaders;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AgentAlertingWebhookNotifier" /> class.
+        /// Initializes a new instance of the <see cref="AlertingWebhookNotifier" /> class.
         /// </summary>
-        public AgentAlertingWebhookNotifier()
+        public AlertingWebhookNotifier()
         {
         }
 
