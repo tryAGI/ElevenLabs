@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Maximum number of credits allowed in the current billing period.
+    /// 
     /// </summary>
-    public sealed partial class WorkspaceApiKeyResponseModelCharacterLimit
+    public sealed partial class TransferToNumberResultExotelSuccessModelAgentMessage
     {
 
         /// <summary>
