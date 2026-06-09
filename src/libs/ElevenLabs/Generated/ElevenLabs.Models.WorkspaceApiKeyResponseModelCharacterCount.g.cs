@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Credits already used in the current billing period.
     /// </summary>
     public sealed partial class WorkspaceApiKeyResponseModelCharacterCount
     {

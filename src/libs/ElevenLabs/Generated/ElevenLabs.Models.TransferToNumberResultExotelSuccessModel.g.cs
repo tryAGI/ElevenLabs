@@ -36,6 +36,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_message")]
+        public string? AgentMessage { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("note")]
         public string? Note { get; set; }
 
@@ -56,6 +62,7 @@ namespace ElevenLabs
         /// Default Value: success
         /// </param>
         /// <param name="reason"></param>
+        /// <param name="agentMessage"></param>
         /// <param name="note"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -65,12 +72,14 @@ namespace ElevenLabs
             string? resultType,
             string? status,
             string? reason,
+            string? agentMessage,
             string? note)
         {
             this.ResultType = resultType;
             this.Status = status;
             this.TransferNumber = transferNumber ?? throw new global::System.ArgumentNullException(nameof(transferNumber));
             this.Reason = reason;
+            this.AgentMessage = agentMessage;
             this.Note = note;
         }
 
