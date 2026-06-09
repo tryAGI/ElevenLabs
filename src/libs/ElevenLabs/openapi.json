@@ -9699,7 +9699,6 @@
           }
         ],
         "requestBody": {
-          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -30153,100 +30152,6 @@
         ],
         "title": "AdhocAgentConfigOverrideForTestRequestModel"
       },
-      "AgentAlertingMonitorConfig": {
-        "properties": {
-          "threshold": {
-            "type": "number",
-            "maximum": 1.0,
-            "minimum": 0.0,
-            "title": "Threshold",
-            "description": "Failure rate threshold at which this monitor can notify.",
-            "default": 0.5
-          },
-          "auto_resolve_after_inactive_minutes": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Auto Resolve After Inactive Minutes",
-            "description": "How many minutes an alert can stay inactive before it is auto-resolved."
-          }
-        },
-        "type": "object",
-        "title": "AgentAlertingMonitorConfig"
-      },
-      "AgentAlertingSettings": {
-        "properties": {
-          "monitor_configs": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/AgentAlertingMonitorConfig"
-            },
-            "propertyNames": {
-              "$ref": "#/components/schemas/Monitor"
-            },
-            "type": "object",
-            "title": "Monitor Configs",
-            "description": "Alerting configuration keyed by monitor."
-          },
-          "auto_resolve_after_inactive_minutes": {
-            "type": "integer",
-            "minimum": 1.0,
-            "title": "Auto Resolve After Inactive Minutes",
-            "description": "How many minutes an alert can stay inactive before it is auto-resolved.",
-            "default": 15
-          },
-          "notifiers": {
-            "items": {
-              "$ref": "#/components/schemas/AgentAlertingWebhookNotifier"
-            },
-            "type": "array",
-            "title": "Notifiers",
-            "description": "Delivery channels for alert lifecycle notifications. Currently supports webhook notifiers."
-          }
-        },
-        "type": "object",
-        "title": "AgentAlertingSettings"
-      },
-      "AgentAlertingWebhookNotifier": {
-        "properties": {
-          "type": {
-            "type": "string",
-            "const": "webhook",
-            "title": "Type",
-            "default": "webhook"
-          },
-          "url": {
-            "type": "string",
-            "maxLength": 2048,
-            "title": "Url",
-            "description": "The URL to send alert lifecycle notifications to."
-          },
-          "request_headers": {
-            "anyOf": [
-              {
-                "additionalProperties": {
-                  "type": "string"
-                },
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Request Headers",
-            "description": "Optional static request headers sent with each alert webhook call, for example to authenticate with the receiving endpoint."
-          }
-        },
-        "type": "object",
-        "required": [
-          "url"
-        ],
-        "title": "AgentAlertingWebhookNotifier"
-      },
       "AgentBranchBasicInfo": {
         "properties": {
           "id": {
@@ -32420,6 +32325,96 @@
         },
         "type": "object",
         "title": "AgentWorkspaceOverrides"
+      },
+      "AlertingMonitorConfig": {
+        "properties": {
+          "threshold": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threshold",
+            "description": "Failure rate threshold at which this monitor can notify."
+          },
+          "auto_resolve_after_inactive_minutes": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Auto Resolve After Inactive Minutes",
+            "description": "How many minutes an alert can stay inactive before it is auto-resolved."
+          }
+        },
+        "type": "object",
+        "title": "AlertingMonitorConfig"
+      },
+      "AlertingSettings": {
+        "properties": {
+          "monitor_configs": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AlertingMonitorConfig"
+            },
+            "type": "object",
+            "title": "Monitor Configs",
+            "description": "Alerting configuration keyed by monitor name."
+          },
+          "auto_resolve_after_inactive_minutes": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Auto Resolve After Inactive Minutes",
+            "description": "How many minutes an alert can stay inactive before it is auto-resolved. Unset values fall through to the next layer."
+          },
+          "notifiers": {
+            "items": {
+              "$ref": "#/components/schemas/AlertingWebhookNotifier"
+            },
+            "type": "array",
+            "title": "Notifiers",
+            "description": "Delivery channels for alert lifecycle notifications. Stacked and deduped by URL with other layers."
+          }
+        },
+        "type": "object",
+        "title": "AlertingSettings",
+        "description": "Alerting configuration used at both per-agent and per-workspace level.\n\nAll fields are optional overrides; the cascade resolver fills in defaults\nwhen they are unset. Notifiers stack and dedupe (by URL) across the\nworkspace and agent layers rather than overriding each other.\n\nCascade order for per-monitor threshold and auto-resolve: agent → workspace →\nsystem default."
+      },
+      "AlertingWebhookNotifier": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "webhook",
+            "title": "Type",
+            "default": "webhook"
+          },
+          "url": {
+            "type": "string",
+            "maxLength": 2048,
+            "title": "Url",
+            "description": "The URL to send alert lifecycle notifications to."
+          }
+        },
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "title": "AlertingWebhookNotifier"
       },
       "AllowedOutputFormats": {
         "type": "string",
@@ -41035,12 +41030,28 @@
       "Body_edit_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys__api_key_id__patch": {
         "properties": {
           "is_enabled": {
-            "type": "boolean",
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string",
+                "const": "no_update"
+              }
+            ],
             "title": "Is Enabled",
-            "description": "Whether to enable or disable the API key."
+            "description": "Whether to enable or disable the API key.",
+            "default": "no_update"
           },
           "name": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Name",
             "description": "The name of the XI API key to use (used for identification purposes only).",
             "examples": [
@@ -41057,11 +41068,15 @@
               },
               {
                 "type": "string",
-                "const": "all"
+                "enum": [
+                  "all",
+                  "no_update"
+                ]
               }
             ],
             "title": "Permissions",
-            "description": "The permissions of the XI API."
+            "description": "The permissions of the XI API.",
+            "default": "no_update"
           },
           "character_limit": {
             "anyOf": [
@@ -41069,11 +41084,16 @@
                 "type": "integer"
               },
               {
+                "type": "string",
+                "const": "no_update"
+              },
+              {
                 "type": "null"
               }
             ],
             "title": "Character Limit",
-            "description": "The character limit of the XI API key. If provided this will limit the usage of this api key to n characters per month where n is the chosen value. Requests that incur charges will fail after reaching this monthly limit."
+            "description": "The character limit of the XI API key. If provided this will limit the usage of this api key to n characters per month where n is the chosen value. Requests that incur charges will fail after reaching this monthly limit.",
+            "default": "no_update"
           },
           "allowed_ips": {
             "anyOf": [
@@ -41099,11 +41119,6 @@
           }
         },
         "type": "object",
-        "required": [
-          "is_enabled",
-          "name",
-          "permissions"
-        ],
         "title": "Body_edit_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys__api_key_id__patch"
       },
       "Body_text_to_dialogue_full_with_timestamps": {
@@ -43132,20 +43147,27 @@
             "const": "tts_node",
             "title": "Type"
           },
-          "voice_id": {
+          "project_voice_ref_id": {
             "type": "string",
-            "title": "Voice Id"
+            "title": "Project Voice Ref Id"
           },
           "text": {
             "type": "string",
             "title": "Text"
+          },
+          "voice_id": {
+            "type": "string",
+            "title": "Voice Id",
+            "deprecated": true,
+            "readOnly": true
           }
         },
         "type": "object",
         "required": [
           "type",
-          "voice_id",
-          "text"
+          "project_voice_ref_id",
+          "text",
+          "voice_id"
         ],
         "title": "ChapterContentBlockTtsNodeResponseModel"
       },
@@ -43344,11 +43366,13 @@
               {
                 "characters_converted": 300,
                 "characters_unconverted": 600,
+                "project_voice_ref_id": "voice123",
                 "voice_id": "voice123"
               },
               {
                 "characters_converted": 200,
                 "characters_unconverted": 400,
+                "project_voice_ref_id": "voice456",
                 "voice_id": "voice456"
               }
             ]
@@ -43550,11 +43574,13 @@
             {
               "characters_converted": 300,
               "characters_unconverted": 600,
+              "project_voice_ref_id": "voice123",
               "voice_id": "voice123"
             },
             {
               "characters_converted": 200,
               "characters_unconverted": 400,
+              "project_voice_ref_id": "voice456",
               "voice_id": "voice456"
             }
           ]
@@ -57548,7 +57574,9 @@
               },
               "default_model_id": "eleven_multilingual_v2",
               "default_paragraph_voice_id": "JBFqnCBsd6RMkjVDRZzb",
+              "default_paragraph_voice_ref_id": "JBFqnCBsd6RMkjVDRZzb",
               "default_title_voice_id": "JBFqnCBsd6RMkjVDRZzb",
+              "default_title_voice_ref_id": "JBFqnCBsd6RMkjVDRZzb",
               "description": "This is a description of my project.",
               "fiction": "fiction",
               "genres": [
@@ -64229,15 +64257,6 @@
         "type": "object",
         "title": "ModerationGuardrail"
       },
-      "Monitor": {
-        "type": "string",
-        "enum": [
-          "elevated_conversation_failure_rate",
-          "elevated_tool_failure_rate",
-          "webhook_error_spike"
-        ],
-        "title": "Monitor"
-      },
       "MultichannelSpeechToTextResponseModel": {
         "properties": {
           "transcripts": {
@@ -67285,15 +67304,15 @@
             "title": "Created By User Id",
             "description": "The user ID who created the project."
           },
-          "default_title_voice_id": {
+          "default_title_voice_ref_id": {
             "type": "string",
-            "title": "Default Title Voice Id",
-            "description": "The default title voice ID."
+            "title": "Default Title Voice Ref Id",
+            "description": "The default title project voice reference ID."
           },
-          "default_paragraph_voice_id": {
+          "default_paragraph_voice_ref_id": {
             "type": "string",
-            "title": "Default Paragraph Voice Id",
-            "description": "The default paragraph voice ID."
+            "title": "Default Paragraph Voice Ref Id",
+            "description": "The default paragraph project voice reference ID."
           },
           "default_model_id": {
             "type": "string",
@@ -67733,6 +67752,20 @@
               }
             ],
             "description": "The ElevenReader data if the book was published."
+          },
+          "default_title_voice_id": {
+            "type": "string",
+            "title": "Default Title Voice Id",
+            "description": "The default title voice ID.",
+            "deprecated": true,
+            "readOnly": true
+          },
+          "default_paragraph_voice_id": {
+            "type": "string",
+            "title": "Default Paragraph Voice Id",
+            "description": "The default paragraph voice ID.",
+            "deprecated": true,
+            "readOnly": true
           }
         },
         "type": "object",
@@ -67741,8 +67774,8 @@
           "name",
           "create_date_unix",
           "created_by_user_id",
-          "default_title_voice_id",
-          "default_paragraph_voice_id",
+          "default_title_voice_ref_id",
+          "default_paragraph_voice_ref_id",
           "default_model_id",
           "can_be_downloaded",
           "volume_normalization",
@@ -67756,7 +67789,9 @@
           "pronunciation_dictionary_locators",
           "apply_text_normalization",
           "assets",
-          "voices"
+          "voices",
+          "default_title_voice_id",
+          "default_paragraph_voice_id"
         ],
         "title": "ProjectExtendedResponseModel",
         "example": {
@@ -67785,11 +67820,13 @@
                   {
                     "characters_converted": 300,
                     "characters_unconverted": 600,
+                    "project_voice_ref_id": "voice123",
                     "voice_id": "voice123"
                   },
                   {
                     "characters_converted": 200,
                     "characters_unconverted": 400,
+                    "project_voice_ref_id": "voice456",
                     "voice_id": "voice456"
                   }
                 ]
@@ -67807,7 +67844,9 @@
           },
           "default_model_id": "eleven_multilingual_v2",
           "default_paragraph_voice_id": "JBFqnCBsd6RMkjVDRZzb",
+          "default_paragraph_voice_ref_id": "JBFqnCBsd6RMkjVDRZzb",
           "default_title_voice_id": "JBFqnCBsd6RMkjVDRZzb",
+          "default_title_voice_ref_id": "JBFqnCBsd6RMkjVDRZzb",
           "description": "This is a description of my project.",
           "experimental": {},
           "fiction": "fiction",
@@ -68322,15 +68361,15 @@
             "title": "Created By User Id",
             "description": "The user ID who created the project."
           },
-          "default_title_voice_id": {
+          "default_title_voice_ref_id": {
             "type": "string",
-            "title": "Default Title Voice Id",
-            "description": "The default title voice ID."
+            "title": "Default Title Voice Ref Id",
+            "description": "The default title project voice reference ID."
           },
-          "default_paragraph_voice_id": {
+          "default_paragraph_voice_ref_id": {
             "type": "string",
-            "title": "Default Paragraph Voice Id",
-            "description": "The default paragraph voice ID."
+            "title": "Default Paragraph Voice Ref Id",
+            "description": "The default paragraph project voice reference ID."
           },
           "default_model_id": {
             "type": "string",
@@ -68673,6 +68712,20 @@
               }
             ],
             "description": "Agent-related settings for the project"
+          },
+          "default_title_voice_id": {
+            "type": "string",
+            "title": "Default Title Voice Id",
+            "description": "The default title voice ID.",
+            "deprecated": true,
+            "readOnly": true
+          },
+          "default_paragraph_voice_id": {
+            "type": "string",
+            "title": "Default Paragraph Voice Id",
+            "description": "The default paragraph voice ID.",
+            "deprecated": true,
+            "readOnly": true
           }
         },
         "type": "object",
@@ -68681,15 +68734,17 @@
           "name",
           "create_date_unix",
           "created_by_user_id",
-          "default_title_voice_id",
-          "default_paragraph_voice_id",
+          "default_title_voice_ref_id",
+          "default_paragraph_voice_ref_id",
           "default_model_id",
           "can_be_downloaded",
           "volume_normalization",
           "state",
           "access_level",
           "quality_check_on",
-          "quality_check_on_when_bulk_convert"
+          "quality_check_on_when_bulk_convert",
+          "default_title_voice_id",
+          "default_paragraph_voice_id"
         ],
         "title": "ProjectResponseModel",
         "example": {
@@ -68707,7 +68762,9 @@
           },
           "default_model_id": "eleven_multilingual_v2",
           "default_paragraph_voice_id": "JBFqnCBsd6RMkjVDRZzb",
+          "default_paragraph_voice_ref_id": "JBFqnCBsd6RMkjVDRZzb",
           "default_title_voice_id": "JBFqnCBsd6RMkjVDRZzb",
+          "default_title_voice_ref_id": "JBFqnCBsd6RMkjVDRZzb",
           "description": "This is a description of my project.",
           "fiction": "fiction",
           "genres": [
@@ -69265,6 +69322,10 @@
       },
       "ProjectVoiceResponseModel": {
         "properties": {
+          "project_voice_ref_id": {
+            "type": "string",
+            "title": "Project Voice Ref Id"
+          },
           "voice_id": {
             "type": "string",
             "title": "Voice Id"
@@ -69304,6 +69365,7 @@
         },
         "type": "object",
         "required": [
+          "project_voice_ref_id",
           "voice_id",
           "alias",
           "stability",
@@ -84302,10 +84364,10 @@
       },
       "VoiceStatisticsResponseModel": {
         "properties": {
-          "voice_id": {
+          "project_voice_ref_id": {
             "type": "string",
-            "title": "Voice Id",
-            "description": "The voice ID."
+            "title": "Project Voice Ref Id",
+            "description": "The project voice reference ID."
           },
           "characters_unconverted": {
             "type": "integer",
@@ -84328,13 +84390,21 @@
             ],
             "title": "Credits Needed To Convert",
             "description": "The number of credits needed to convert the remaining audio for this voice."
+          },
+          "voice_id": {
+            "type": "string",
+            "title": "Voice Id",
+            "description": "The voice ID.",
+            "deprecated": true,
+            "readOnly": true
           }
         },
         "type": "object",
         "required": [
-          "voice_id",
+          "project_voice_ref_id",
           "characters_unconverted",
-          "characters_converted"
+          "characters_converted",
+          "voice_id"
         ],
         "title": "VoiceStatisticsResponseModel"
       },

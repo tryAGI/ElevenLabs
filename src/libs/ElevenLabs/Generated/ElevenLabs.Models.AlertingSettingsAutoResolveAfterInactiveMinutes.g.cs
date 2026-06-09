@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The character limit of the XI API key. If provided this will limit the usage of this api key to n characters per month where n is the chosen value. Requests that incur charges will fail after reaching this monthly limit.
+    /// How many minutes an alert can stay inactive before it is auto-resolved. Unset values fall through to the next layer.
     /// </summary>
-    public sealed partial class BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchCharacterLimit
+    public sealed partial class AlertingSettingsAutoResolveAfterInactiveMinutes
     {
 
         /// <summary>

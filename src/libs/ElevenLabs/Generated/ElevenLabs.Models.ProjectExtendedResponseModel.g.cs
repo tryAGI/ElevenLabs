@@ -6,7 +6,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"access_level":"viewer","apply_text_normalization":"auto","assets":[],"author":"John Doe","base_voices":[],"can_be_downloaded":true,"chapters":[{"can_be_downloaded":true,"chapter_id":"aw1NgEzBg83R7vgmiJt6","conversion_progress":0.5,"last_conversion_date_unix":1714204800,"last_conversion_error":"Error message","name":"Chapter 1","state":"converting","statistics":{"characters_converted":500,"characters_unconverted":1000,"credits_needed_to_convert":1000,"paragraphs_converted":20,"paragraphs_unconverted":10,"voice_statistics":[{"characters_converted":300,"characters_unconverted":600,"voice_id":"voice123"},{"characters_converted":200,"characters_unconverted":400,"voice_id":"voice456"}]}}],"content_type":"Novel","cover_image_url":"https://example.com/cover.jpg","create_date_unix":1714204800,"created_by_user_id":"Vbtgl3bRdj6lk79rYAgx","creation_meta":{"creation_progress":0.5,"status":"pending","type":"blank"},"default_model_id":"eleven_multilingual_v2","default_paragraph_voice_id":"JBFqnCBsd6RMkjVDRZzb","default_title_voice_id":"JBFqnCBsd6RMkjVDRZzb","description":"This is a description of my project.","experimental":{},"fiction":"fiction","genres":["Novel","Short Story"],"isbn_number":"978-90-274-3964-2","language":"en","last_conversion_date_unix":1714204800,"mature_content":false,"name":"My Project","original_publication_date":"2025-01-01","project_id":"aw1NgEzBg83R7vgmiJt6","pronunciation_dictionary_locators":[],"pronunciation_dictionary_versions":[],"public_share_id":"abc123def456789","quality_check_on":false,"quality_check_on_when_bulk_convert":false,"quality_preset":"standard","state":"default","target_audience":"young adult","title":"My Project","voices":[],"volume_normalization":true}
+    /// Example: {"access_level":"viewer","apply_text_normalization":"auto","assets":[],"author":"John Doe","base_voices":[],"can_be_downloaded":true,"chapters":[{"can_be_downloaded":true,"chapter_id":"aw1NgEzBg83R7vgmiJt6","conversion_progress":0.5,"last_conversion_date_unix":1714204800,"last_conversion_error":"Error message","name":"Chapter 1","state":"converting","statistics":{"characters_converted":500,"characters_unconverted":1000,"credits_needed_to_convert":1000,"paragraphs_converted":20,"paragraphs_unconverted":10,"voice_statistics":[{"characters_converted":300,"characters_unconverted":600,"project_voice_ref_id":"voice123","voice_id":"voice123"},{"characters_converted":200,"characters_unconverted":400,"project_voice_ref_id":"voice456","voice_id":"voice456"}]}}],"content_type":"Novel","cover_image_url":"https://example.com/cover.jpg","create_date_unix":1714204800,"created_by_user_id":"Vbtgl3bRdj6lk79rYAgx","creation_meta":{"creation_progress":0.5,"status":"pending","type":"blank"},"default_model_id":"eleven_multilingual_v2","default_paragraph_voice_id":"JBFqnCBsd6RMkjVDRZzb","default_paragraph_voice_ref_id":"JBFqnCBsd6RMkjVDRZzb","default_title_voice_id":"JBFqnCBsd6RMkjVDRZzb","default_title_voice_ref_id":"JBFqnCBsd6RMkjVDRZzb","description":"This is a description of my project.","experimental":{},"fiction":"fiction","genres":["Novel","Short Story"],"isbn_number":"978-90-274-3964-2","language":"en","last_conversion_date_unix":1714204800,"mature_content":false,"name":"My Project","original_publication_date":"2025-01-01","project_id":"aw1NgEzBg83R7vgmiJt6","pronunciation_dictionary_locators":[],"pronunciation_dictionary_versions":[],"public_share_id":"abc123def456789","quality_check_on":false,"quality_check_on_when_bulk_convert":false,"quality_preset":"standard","state":"default","target_audience":"young adult","title":"My Project","voices":[],"volume_normalization":true}
     /// </summary>
     public sealed partial class ProjectExtendedResponseModel
     {
@@ -38,18 +38,18 @@ namespace ElevenLabs
         public string? CreatedByUserId { get; set; }
 
         /// <summary>
-        /// The default title voice ID.
+        /// The default title project voice reference ID.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("default_title_voice_id")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_title_voice_ref_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DefaultTitleVoiceId { get; set; }
+        public required string DefaultTitleVoiceRefId { get; set; }
 
         /// <summary>
-        /// The default paragraph voice ID.
+        /// The default paragraph project voice reference ID.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("default_paragraph_voice_id")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_paragraph_voice_ref_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DefaultParagraphVoiceId { get; set; }
+        public required string DefaultParagraphVoiceRefId { get; set; }
 
         /// <summary>
         /// The default model ID.
@@ -308,6 +308,24 @@ namespace ElevenLabs
         public global::ElevenLabs.DirectPublishingReadResponseModel? PublishingRead { get; set; }
 
         /// <summary>
+        /// The default title voice ID.<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_title_voice_id")]
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public string DefaultTitleVoiceId { get; set; } = default!;
+
+        /// <summary>
+        /// The default paragraph voice ID.<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_paragraph_voice_id")]
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public string DefaultParagraphVoiceId { get; set; } = default!;
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -325,11 +343,11 @@ namespace ElevenLabs
         /// <param name="createDateUnix">
         /// The creation date of the project.
         /// </param>
-        /// <param name="defaultTitleVoiceId">
-        /// The default title voice ID.
+        /// <param name="defaultTitleVoiceRefId">
+        /// The default title project voice reference ID.
         /// </param>
-        /// <param name="defaultParagraphVoiceId">
-        /// The default paragraph voice ID.
+        /// <param name="defaultParagraphVoiceRefId">
+        /// The default paragraph project voice reference ID.
         /// </param>
         /// <param name="defaultModelId">
         /// The default model ID.
@@ -461,8 +479,8 @@ namespace ElevenLabs
             string projectId,
             string name,
             int createDateUnix,
-            string defaultTitleVoiceId,
-            string defaultParagraphVoiceId,
+            string defaultTitleVoiceRefId,
+            string defaultParagraphVoiceRefId,
             string defaultModelId,
             bool canBeDownloaded,
             bool volumeNormalization,
@@ -508,8 +526,8 @@ namespace ElevenLabs
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.CreateDateUnix = createDateUnix;
             this.CreatedByUserId = createdByUserId;
-            this.DefaultTitleVoiceId = defaultTitleVoiceId ?? throw new global::System.ArgumentNullException(nameof(defaultTitleVoiceId));
-            this.DefaultParagraphVoiceId = defaultParagraphVoiceId ?? throw new global::System.ArgumentNullException(nameof(defaultParagraphVoiceId));
+            this.DefaultTitleVoiceRefId = defaultTitleVoiceRefId ?? throw new global::System.ArgumentNullException(nameof(defaultTitleVoiceRefId));
+            this.DefaultParagraphVoiceRefId = defaultParagraphVoiceRefId ?? throw new global::System.ArgumentNullException(nameof(defaultParagraphVoiceRefId));
             this.DefaultModelId = defaultModelId ?? throw new global::System.ArgumentNullException(nameof(defaultModelId));
             this.LastConversionDateUnix = lastConversionDateUnix;
             this.CanBeDownloaded = canBeDownloaded;

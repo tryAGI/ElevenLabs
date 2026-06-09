@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// How many minutes an alert can stay inactive before it is auto-resolved.
+    /// Failure rate threshold at which this monitor can notify.
     /// </summary>
-    public sealed partial class AgentAlertingMonitorConfigAutoResolveAfterInactiveMinutes
+    public sealed partial class AlertingMonitorConfigThreshold
     {
 
         /// <summary>

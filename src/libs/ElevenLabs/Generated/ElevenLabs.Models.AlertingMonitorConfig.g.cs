@@ -6,11 +6,10 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class AgentAlertingMonitorConfig
+    public sealed partial class AlertingMonitorConfig
     {
         /// <summary>
-        /// Failure rate threshold at which this monitor can notify.<br/>
-        /// Default Value: 0.5F
+        /// Failure rate threshold at which this monitor can notify.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("threshold")]
         public double? Threshold { get; set; }
@@ -28,11 +27,10 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AgentAlertingMonitorConfig" /> class.
+        /// Initializes a new instance of the <see cref="AlertingMonitorConfig" /> class.
         /// </summary>
         /// <param name="threshold">
-        /// Failure rate threshold at which this monitor can notify.<br/>
-        /// Default Value: 0.5F
+        /// Failure rate threshold at which this monitor can notify.
         /// </param>
         /// <param name="autoResolveAfterInactiveMinutes">
         /// How many minutes an alert can stay inactive before it is auto-resolved.
@@ -40,7 +38,7 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public AgentAlertingMonitorConfig(
+        public AlertingMonitorConfig(
             double? threshold,
             int? autoResolveAfterInactiveMinutes)
         {
@@ -49,9 +47,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AgentAlertingMonitorConfig" /> class.
+        /// Initializes a new instance of the <see cref="AlertingMonitorConfig" /> class.
         /// </summary>
-        public AgentAlertingMonitorConfig()
+        public AlertingMonitorConfig()
         {
         }
 

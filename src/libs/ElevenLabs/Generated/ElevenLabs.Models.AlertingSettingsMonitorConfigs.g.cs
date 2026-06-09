@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Optional static request headers sent with each alert webhook call, for example to authenticate with the receiving endpoint.
+    /// Alerting configuration keyed by monitor name.
     /// </summary>
-    public sealed partial class AgentAlertingWebhookNotifierRequestHeaders
+    public sealed partial class AlertingSettingsMonitorConfigs
     {
 
         /// <summary>

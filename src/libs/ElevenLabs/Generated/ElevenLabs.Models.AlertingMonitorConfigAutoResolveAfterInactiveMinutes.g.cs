@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Alerting configuration keyed by monitor.
+    /// How many minutes an alert can stay inactive before it is auto-resolved.
     /// </summary>
-    public sealed partial class AgentAlertingSettingsMonitorConfigs
+    public sealed partial class AlertingMonitorConfigAutoResolveAfterInactiveMinutes
     {
 
         /// <summary>

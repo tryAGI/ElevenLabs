@@ -11,6 +11,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("project_voice_ref_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string ProjectVoiceRefId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string VoiceId { get; set; }
@@ -80,6 +87,7 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectVoiceResponseModel" /> class.
         /// </summary>
+        /// <param name="projectVoiceRefId"></param>
         /// <param name="voiceId"></param>
         /// <param name="alias"></param>
         /// <param name="stability"></param>
@@ -93,6 +101,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ProjectVoiceResponseModel(
+            string projectVoiceRefId,
             string voiceId,
             string alias,
             double stability,
@@ -103,6 +112,7 @@ namespace ElevenLabs
             double volumeGain,
             double speed)
         {
+            this.ProjectVoiceRefId = projectVoiceRefId ?? throw new global::System.ArgumentNullException(nameof(projectVoiceRefId));
             this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
             this.Alias = alias ?? throw new global::System.ArgumentNullException(nameof(alias));
             this.Stability = stability;
