@@ -67,6 +67,16 @@ namespace ElevenLabs
         public required string Label { get; set; }
 
         /// <summary>
+        /// Dictates whether this node should immediately generate a response upon entry or wait for the user input. When set to "auto", the behavior will be decided based on the type of the preceding node: "wait_for_user" after the "say" and "start" nodes and "generate_immediately" otherwise.<br/>
+        /// Default Value: auto
+        /// </summary>
+        /// <default>global::ElevenLabs.EntryBehavior.Auto</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("entry_behavior")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EntryBehaviorJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.EntryBehavior EntryBehavior { get; set; } = global::ElevenLabs.EntryBehavior.Auto;
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -97,6 +107,10 @@ namespace ElevenLabs
         /// <param name="label">
         /// Human-readable label for the node used throughout the UI.
         /// </param>
+        /// <param name="entryBehavior">
+        /// Dictates whether this node should immediately generate a response upon entry or wait for the user input. When set to "auto", the behavior will be decided based on the type of the preceding node: "wait_for_user" after the "say" and "start" nodes and "generate_immediately" otherwise.<br/>
+        /// Default Value: auto
+        /// </param>
         /// <param name="type">
         /// Default Value: override_agent
         /// </param>
@@ -111,6 +125,7 @@ namespace ElevenLabs
             global::ElevenLabs.PositionOutput position,
             global::System.Collections.Generic.IList<string> edgeOrder,
             string label,
+            global::ElevenLabs.EntryBehavior entryBehavior,
             string type = "override_agent")
         {
             this.ConversationConfig = conversationConfig ?? throw new global::System.ArgumentNullException(nameof(conversationConfig));
@@ -121,6 +136,7 @@ namespace ElevenLabs
             this.Position = position ?? throw new global::System.ArgumentNullException(nameof(position));
             this.EdgeOrder = edgeOrder ?? throw new global::System.ArgumentNullException(nameof(edgeOrder));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
+            this.EntryBehavior = entryBehavior;
         }
 
         /// <summary>

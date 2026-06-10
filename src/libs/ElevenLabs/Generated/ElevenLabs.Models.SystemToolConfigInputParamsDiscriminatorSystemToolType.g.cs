@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        EndProcedure,
+        /// <summary>
+        /// 
+        /// </summary>
         KnowledgeBaseRag,
         /// <summary>
         /// 
@@ -59,6 +63,7 @@ namespace ElevenLabs
             return value switch
             {
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.EndCall => "end_call",
+                SystemToolConfigInputParamsDiscriminatorSystemToolType.EndProcedure => "end_procedure",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.KnowledgeBaseRag => "knowledge_base_rag",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.LanguageDetection => "language_detection",
                 SystemToolConfigInputParamsDiscriminatorSystemToolType.PlayKeypadTouchTone => "play_keypad_touch_tone",
@@ -78,6 +83,7 @@ namespace ElevenLabs
             return value switch
             {
                 "end_call" => SystemToolConfigInputParamsDiscriminatorSystemToolType.EndCall,
+                "end_procedure" => SystemToolConfigInputParamsDiscriminatorSystemToolType.EndProcedure,
                 "knowledge_base_rag" => SystemToolConfigInputParamsDiscriminatorSystemToolType.KnowledgeBaseRag,
                 "language_detection" => SystemToolConfigInputParamsDiscriminatorSystemToolType.LanguageDetection,
                 "play_keypad_touch_tone" => SystemToolConfigInputParamsDiscriminatorSystemToolType.PlayKeypadTouchTone,

@@ -30,6 +30,13 @@ namespace ElevenLabs
         public bool? ExtractCompositionPlan { get; set; }
 
         /// <summary>
+        /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("with_timestamps")]
+        public bool? WithTimestamps { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -48,17 +55,23 @@ namespace ElevenLabs
         /// Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withTimestamps">
+        /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyUploadMusicV1MusicUploadPost(
             byte[] file,
             string filename,
-            bool? extractCompositionPlan)
+            bool? extractCompositionPlan,
+            bool? withTimestamps)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.ExtractCompositionPlan = extractCompositionPlan;
+            this.WithTimestamps = withTimestamps;
         }
 
         /// <summary>

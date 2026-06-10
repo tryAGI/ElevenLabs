@@ -4,52 +4,52 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Default Value: auto
     /// </summary>
-    public enum StartProcedureToolErrorStatus
+    public enum EntryBehavior
     {
         /// <summary>
         /// 
         /// </summary>
-        AlreadyActive,
+        Auto,
         /// <summary>
         /// 
         /// </summary>
-        InvalidName,
+        GenerateImmediately,
         /// <summary>
         /// 
         /// </summary>
-        NotFound,
+        WaitForUser,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class StartProcedureToolErrorStatusExtensions
+    public static class EntryBehaviorExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this StartProcedureToolErrorStatus value)
+        public static string ToValueString(this EntryBehavior value)
         {
             return value switch
             {
-                StartProcedureToolErrorStatus.AlreadyActive => "already_active",
-                StartProcedureToolErrorStatus.InvalidName => "invalid_name",
-                StartProcedureToolErrorStatus.NotFound => "not_found",
+                EntryBehavior.Auto => "auto",
+                EntryBehavior.GenerateImmediately => "generate_immediately",
+                EntryBehavior.WaitForUser => "wait_for_user",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static StartProcedureToolErrorStatus? ToEnum(string value)
+        public static EntryBehavior? ToEnum(string value)
         {
             return value switch
             {
-                "already_active" => StartProcedureToolErrorStatus.AlreadyActive,
-                "invalid_name" => StartProcedureToolErrorStatus.InvalidName,
-                "not_found" => StartProcedureToolErrorStatus.NotFound,
+                "auto" => EntryBehavior.Auto,
+                "generate_immediately" => EntryBehavior.GenerateImmediately,
+                "wait_for_user" => EntryBehavior.WaitForUser,
                 _ => null,
             };
         }
