@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// Safety object that has the information of safety evaluations based on used voice.
     /// </summary>
-    public sealed partial class SafetyCommonModel
+    public sealed partial class SafetyCommonModelInput
     {
         /// <summary>
         /// Safety evaluation of the agent. Prompt and first message is taken into account.<br/>
@@ -29,7 +29,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SafetyCommonModel" /> class.
+        /// Initializes a new instance of the <see cref="SafetyCommonModelInput" /> class.
         /// </summary>
         /// <param name="ivc">
         /// Safety evaluation of the agent. Prompt and first message is taken into account.<br/>
@@ -42,7 +42,7 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public SafetyCommonModel(
+        public SafetyCommonModelInput(
             global::ElevenLabs.SafetyEvaluation? ivc,
             global::ElevenLabs.SafetyEvaluation? nonIvc)
         {
@@ -51,9 +51,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SafetyCommonModel" /> class.
+        /// Initializes a new instance of the <see cref="SafetyCommonModelInput" /> class.
         /// </summary>
-        public SafetyCommonModel()
+        public SafetyCommonModelInput()
         {
         }
 

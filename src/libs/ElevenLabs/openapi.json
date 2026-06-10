@@ -33561,6 +33561,16 @@
         ],
         "title": "AudioAnalysisResult"
       },
+      "AudioFormat": {
+        "type": "string",
+        "enum": [
+          "audio/pcm",
+          "audio/pcmu",
+          "audio/pcma"
+        ],
+        "title": "AudioFormat",
+        "default": "audio/pcm"
+      },
       "AudioIsolationHistoryItemResponseModel": {
         "properties": {
           "id": {
@@ -53684,6 +53694,15 @@
           }
         }
       },
+      "Eagerness": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "title": "Eagerness"
+      },
       "EditChapterResponseModel": {
         "properties": {
           "chapter": {
@@ -57356,6 +57375,14 @@
             "title": "Has Outbound Trunk",
             "description": "Whether a LiveKit SIP outbound trunk is configured",
             "default": false
+          },
+          "enabled_codecs": {
+            "items": {
+              "$ref": "#/components/schemas/MediaCodec"
+            },
+            "type": "array",
+            "title": "Enabled Codecs",
+            "description": "Media codecs that are offered in the SDP for outbound calls. If empty, all supported codecs are offered."
           }
         },
         "type": "object",
@@ -63790,6 +63817,15 @@
         ],
         "title": "MatchAnythingParameterEvaluationStrategy"
       },
+      "MediaCodec": {
+        "type": "string",
+        "enum": [
+          "G722/8000",
+          "PCMU/8000",
+          "PCMA/8000"
+        ],
+        "title": "MediaCodec"
+      },
       "MediaId": {
         "type": "string",
         "pattern": "^prodmedia_[a-z0-9]{26}$"
@@ -65000,6 +65036,351 @@
         "type": "object",
         "title": "OmitSchemaOverride"
       },
+      "OpenAIAudioConfig": {
+        "properties": {
+          "input": {
+            "$ref": "#/components/schemas/OpenAIAudioInputConfig"
+          },
+          "output": {
+            "$ref": "#/components/schemas/OpenAIAudioOutputConfig"
+          }
+        },
+        "type": "object",
+        "title": "OpenAIAudioConfig"
+      },
+      "OpenAIAudioInputConfig": {
+        "properties": {
+          "format": {
+            "$ref": "#/components/schemas/OpenAIAudioInputFormat"
+          },
+          "turn_detection": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OpenAITurnDetection"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "OpenAIAudioInputConfig"
+      },
+      "OpenAIAudioInputFormat": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AudioFormat",
+            "default": "audio/pcm"
+          },
+          "rate": {
+            "type": "integer",
+            "title": "Rate",
+            "default": 24000
+          }
+        },
+        "type": "object",
+        "title": "OpenAIAudioInputFormat"
+      },
+      "OpenAIAudioOutputConfig": {
+        "properties": {
+          "format": {
+            "$ref": "#/components/schemas/OpenAIAudioOutputFormat"
+          },
+          "voice": {
+            "type": "string",
+            "title": "Voice",
+            "default": "brian"
+          }
+        },
+        "type": "object",
+        "title": "OpenAIAudioOutputConfig"
+      },
+      "OpenAIAudioOutputFormat": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AudioFormat",
+            "default": "audio/pcm"
+          }
+        },
+        "type": "object",
+        "title": "OpenAIAudioOutputFormat"
+      },
+      "OpenAIFunctionTool": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "function",
+            "title": "Type",
+            "default": "function"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "default": ""
+          },
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Parameters"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "OpenAIFunctionTool"
+      },
+      "OpenAIMCPTool": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "mcp",
+            "title": "Type",
+            "default": "mcp"
+          },
+          "server_label": {
+            "type": "string",
+            "title": "Server Label"
+          },
+          "server_url": {
+            "type": "string",
+            "title": "Server Url"
+          },
+          "authorization": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Authorization"
+          },
+          "allowed_tools": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Allowed Tools"
+          },
+          "require_approval": {
+            "type": "string",
+            "enum": [
+              "never",
+              "always"
+            ],
+            "title": "Require Approval",
+            "default": "never"
+          }
+        },
+        "type": "object",
+        "required": [
+          "server_label",
+          "server_url"
+        ],
+        "title": "OpenAIMCPTool"
+      },
+      "OpenAISessionConfig": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "realtime",
+            "title": "Type",
+            "default": "realtime"
+          },
+          "model": {
+            "type": "string",
+            "title": "Model",
+            "default": "eleven_realtime_fast"
+          },
+          "instructions": {
+            "type": "string",
+            "title": "Instructions",
+            "default": ""
+          },
+          "modalities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Modalities"
+          },
+          "audio": {
+            "$ref": "#/components/schemas/OpenAIAudioConfig"
+          },
+          "tools": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/OpenAIFunctionTool"
+                },
+                {
+                  "$ref": "#/components/schemas/OpenAIMCPTool"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "function": "#/components/schemas/OpenAIFunctionTool",
+                  "mcp": "#/components/schemas/OpenAIMCPTool"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Tools"
+          },
+          "tool_choice": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/OpenAIToolChoiceFunction"
+              }
+            ],
+            "title": "Tool Choice",
+            "default": "auto"
+          },
+          "temperature": {
+            "type": "number",
+            "title": "Temperature",
+            "default": 0.7
+          },
+          "max_response_output_tokens": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string",
+                "const": "inf"
+              }
+            ],
+            "title": "Max Response Output Tokens",
+            "default": 4096
+          },
+          "output_modalities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Output Modalities",
+            "readOnly": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "output_modalities"
+        ],
+        "title": "OpenAISessionConfig"
+      },
+      "OpenAIToolChoiceFunction": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "function",
+            "title": "Type",
+            "default": "function"
+          },
+          "function": {
+            "$ref": "#/components/schemas/OpenAIToolChoiceFunctionInner"
+          }
+        },
+        "type": "object",
+        "required": [
+          "function"
+        ],
+        "title": "OpenAIToolChoiceFunction"
+      },
+      "OpenAIToolChoiceFunctionInner": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "OpenAIToolChoiceFunctionInner"
+      },
+      "OpenAITurnDetection": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/TurnDetectionType",
+            "default": "semantic_vad"
+          },
+          "eagerness": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Eagerness"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "create_response": {
+            "type": "boolean",
+            "title": "Create Response",
+            "default": true
+          },
+          "interrupt_response": {
+            "type": "boolean",
+            "title": "Interrupt Response",
+            "default": true
+          },
+          "threshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threshold"
+          },
+          "prefix_padding_ms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prefix Padding Ms"
+          },
+          "silence_duration_ms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Silence Duration Ms"
+          }
+        },
+        "type": "object",
+        "title": "OpenAITurnDetection"
+      },
       "OptInSmsReminderParams": {
         "properties": {
           "smb_tool_type": {
@@ -65655,6 +66036,14 @@
               }
             ],
             "description": "Optional digest authentication credentials (username/password). If not provided, ACL authentication is assumed."
+          },
+          "enabled_codecs": {
+            "items": {
+              "$ref": "#/components/schemas/MediaCodec"
+            },
+            "type": "array",
+            "title": "Enabled Codecs",
+            "description": "Media codecs that should be offered in the SDP for outbound calls. If empty, all supported codecs are offered."
           }
         },
         "type": "object",
@@ -71626,6 +72015,91 @@
           "resource_type": "read"
         }
       },
+      "RealtimeConfigSnapshot": {
+        "properties": {
+          "_id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "workspace_id": {
+            "type": "string",
+            "title": "Workspace Id"
+          },
+          "conversation_id": {
+            "type": "string",
+            "title": "Conversation Id"
+          },
+          "seq_no": {
+            "type": "integer",
+            "title": "Seq No"
+          },
+          "time_in_call_secs": {
+            "type": "integer",
+            "title": "Time In Call Secs"
+          },
+          "time_committed_secs": {
+            "type": "integer",
+            "title": "Time Committed Secs"
+          },
+          "source_event_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Event Id"
+          },
+          "parents": {
+            "$ref": "#/components/schemas/RealtimeConfigSnapshotParents"
+          },
+          "session_config": {
+            "$ref": "#/components/schemas/OpenAISessionConfig"
+          },
+          "safety": {
+            "$ref": "#/components/schemas/SafetyCommonModel-Output"
+          },
+          "changed_paths": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Changed Paths"
+          }
+        },
+        "type": "object",
+        "required": [
+          "_id",
+          "workspace_id",
+          "conversation_id",
+          "seq_no",
+          "time_in_call_secs",
+          "time_committed_secs",
+          "parents",
+          "session_config",
+          "safety"
+        ],
+        "title": "RealtimeConfigSnapshot"
+      },
+      "RealtimeConfigSnapshotParents": {
+        "properties": {
+          "previous_snapshot_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Previous Snapshot Id"
+          }
+        },
+        "type": "object",
+        "title": "RealtimeConfigSnapshotParents"
+      },
       "RecordingResponseModel": {
         "properties": {
           "recording_id": {
@@ -73159,7 +73633,20 @@
         ],
         "title": "SMSConversationInfo"
       },
-      "SafetyCommonModel": {
+      "SafetyCommonModel-Input": {
+        "properties": {
+          "ivc": {
+            "$ref": "#/components/schemas/SafetyEvaluation"
+          },
+          "non_ivc": {
+            "$ref": "#/components/schemas/SafetyEvaluation"
+          }
+        },
+        "type": "object",
+        "title": "SafetyCommonModel",
+        "description": "Safety object that has the information of safety evaluations based on used voice."
+      },
+      "SafetyCommonModel-Output": {
         "properties": {
           "ivc": {
             "$ref": "#/components/schemas/SafetyEvaluation"
@@ -79852,6 +80339,15 @@
           "turn_model": "turn_v3",
           "turn_timeout": 7.0
         }
+      },
+      "TurnDetectionType": {
+        "type": "string",
+        "enum": [
+          "semantic_vad",
+          "server_vad"
+        ],
+        "title": "TurnDetectionType",
+        "default": "semantic_vad"
       },
       "TurnEagerness": {
         "type": "string",
