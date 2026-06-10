@@ -44,6 +44,10 @@ namespace ElevenLabs
         /// Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withTimestamps">
+        /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -51,6 +55,7 @@ namespace ElevenLabs
             byte[] file,
             string filename,
             bool? extractCompositionPlan = default,
+            bool? withTimestamps = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -68,6 +73,10 @@ namespace ElevenLabs
         /// Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withTimestamps">
+        /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -75,6 +84,7 @@ namespace ElevenLabs
             global::System.IO.Stream file,
             string filename,
             bool? extractCompositionPlan = default,
+            bool? withTimestamps = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -91,6 +101,10 @@ namespace ElevenLabs
         /// Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withTimestamps">
+        /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -98,6 +112,7 @@ namespace ElevenLabs
             global::System.IO.Stream file,
             string filename,
             bool? extractCompositionPlan = default,
+            bool? withTimestamps = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

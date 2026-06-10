@@ -3286,6 +3286,7 @@
       },
       "delete": {
         "tags": [
+          "voices",
           "voices"
         ],
         "summary": "Delete Voice",
@@ -17659,6 +17660,60 @@
         "operationId": "list_phone_numbers_route",
         "parameters": [
           {
+            "name": "provider",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/TelephonyProvider"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by telephony provider",
+              "title": "Provider"
+            },
+            "description": "Filter by telephony provider"
+          },
+          {
+            "name": "agent_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by assigned agent ID",
+              "title": "Agent Id"
+            },
+            "description": "Filter by assigned agent ID"
+          },
+          {
+            "name": "branch_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by assigned branch ID",
+              "title": "Branch Id"
+            },
+            "description": "Filter by assigned branch ID"
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -25327,93 +25382,6 @@
       }
     },
     "/v1/convai/environment-variables": {
-      "post": {
-        "tags": [
-          "Agents Platform"
-        ],
-        "summary": "Create Environment Variable",
-        "description": "Create a new environment variable for the workspace",
-        "operationId": "create_environment_variable",
-        "parameters": [
-          {
-            "name": "xi-api-key",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
-              "title": "Xi-Api-Key"
-            },
-            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/CreateStringEnvironmentVariableRequest"
-                  },
-                  {
-                    "$ref": "#/components/schemas/CreateSecretEnvironmentVariableRequest"
-                  },
-                  {
-                    "$ref": "#/components/schemas/CreateAuthConnectionEnvironmentVariableRequest"
-                  }
-                ],
-                "discriminator": {
-                  "propertyName": "type",
-                  "mapping": {
-                    "string": "#/components/schemas/CreateStringEnvironmentVariableRequest",
-                    "secret": "#/components/schemas/CreateSecretEnvironmentVariableRequest",
-                    "auth_connection": "#/components/schemas/CreateAuthConnectionEnvironmentVariableRequest"
-                  }
-                },
-                "title": "Request"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EnvironmentVariableResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid parameters"
-          },
-          "409": {
-            "description": "Environment variable with this label already exists"
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "x-fern-sdk-group-name": "environment_variables",
-        "x-fern-sdk-method-name": "create"
-      },
       "get": {
         "tags": [
           "Agents Platform"
@@ -25559,6 +25527,93 @@
         },
         "x-fern-sdk-group-name": "environment_variables",
         "x-fern-sdk-method-name": "list"
+      },
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Create Environment Variable",
+        "description": "Create a new environment variable for the workspace",
+        "operationId": "create_environment_variable",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateStringEnvironmentVariableRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateSecretEnvironmentVariableRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateAuthConnectionEnvironmentVariableRequest"
+                  }
+                ],
+                "discriminator": {
+                  "propertyName": "type",
+                  "mapping": {
+                    "string": "#/components/schemas/CreateStringEnvironmentVariableRequest",
+                    "secret": "#/components/schemas/CreateSecretEnvironmentVariableRequest",
+                    "auth_connection": "#/components/schemas/CreateAuthConnectionEnvironmentVariableRequest"
+                  }
+                },
+                "title": "Request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvironmentVariableResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters"
+          },
+          "409": {
+            "description": "Environment variable with this label already exists"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "environment_variables",
+        "x-fern-sdk-method-name": "create"
       }
     },
     "/v1/convai/environment-variables/{env_var_id}": {
@@ -32166,6 +32221,7 @@
               "edge_order": [
                 "entry_to_tool_a"
               ],
+              "entry_behavior": "auto",
               "label": "Entry",
               "position": {
                 "x": 0.0,
@@ -32180,6 +32236,7 @@
               "auto_advance_after_first_response": false,
               "conversation_config": {},
               "edge_order": [],
+              "entry_behavior": "auto",
               "label": "Failure",
               "position": {
                 "x": 0.0,
@@ -32204,6 +32261,7 @@
               "auto_advance_after_first_response": false,
               "conversation_config": {},
               "edge_order": [],
+              "entry_behavior": "auto",
               "label": "Success A",
               "position": {
                 "x": 0.0,
@@ -40882,6 +40940,12 @@
             "type": "boolean",
             "title": "Extract Composition Plan",
             "description": "Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.",
+            "default": false
+          },
+          "with_timestamps": {
+            "type": "boolean",
+            "title": "With Timestamps",
+            "description": "Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.",
             "default": false
           }
         },
@@ -53845,6 +53909,51 @@
         "type": "object",
         "title": "EndCallTriggerAction"
       },
+      "EndProcedureToolConfig-Input": {
+        "properties": {
+          "system_tool_type": {
+            "type": "string",
+            "const": "end_procedure",
+            "title": "System Tool Type",
+            "default": "end_procedure"
+          },
+          "procedures": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ProcedureAtVersion-Input"
+            },
+            "type": "object",
+            "title": "Procedures"
+          }
+        },
+        "type": "object",
+        "title": "EndProcedureToolConfig"
+      },
+      "EndProcedureToolConfig-Output": {
+        "properties": {
+          "system_tool_type": {
+            "type": "string",
+            "const": "end_procedure",
+            "title": "System Tool Type",
+            "default": "end_procedure"
+          },
+          "procedures": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ProcedureAtVersion-Output"
+            },
+            "type": "object",
+            "title": "Procedures"
+          }
+        },
+        "type": "object",
+        "title": "EndProcedureToolConfig"
+      },
+      "EndProcedureToolErrorStatus": {
+        "type": "string",
+        "enum": [
+          "not_found",
+          "invalid_id"
+        ]
+      },
       "EntityManagementActivityId": {
         "type": "integer",
         "enum": [
@@ -53866,6 +53975,16 @@
         ],
         "title": "EntityManagementActivityId",
         "description": "OCSF Activity IDs for Entity Management [3004] events.\n\nSpec: https://schema.ocsf.io/1.6.0/classes/entity_management"
+      },
+      "EntryBehavior": {
+        "type": "string",
+        "enum": [
+          "generate_immediately",
+          "wait_for_user",
+          "auto"
+        ],
+        "title": "EntryBehavior",
+        "default": "auto"
       },
       "EnvironmentAuthConnectionLocator": {
         "properties": {
@@ -55498,6 +55617,7 @@
                 "edge_order": [
                   "entry_to_tool_a"
                 ],
+                "entry_behavior": "auto",
                 "label": "Entry",
                 "position": {
                   "x": 0.0,
@@ -55512,6 +55632,7 @@
                 "auto_advance_after_first_response": false,
                 "conversation_config": {},
                 "edge_order": [],
+                "entry_behavior": "auto",
                 "label": "Failure",
                 "position": {
                   "x": 0.0,
@@ -55536,6 +55657,7 @@
                 "auto_advance_after_first_response": false,
                 "conversation_config": {},
                 "edge_order": [],
+                "entry_behavior": "auto",
                 "label": "Success A",
                 "position": {
                   "x": 0.0,
@@ -64659,6 +64781,21 @@
               }
             ],
             "description": "The composition plan extracted from the uploaded song. Only present if `extract_composition_plan` was True in the request body"
+          },
+          "words_timestamps": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/WordTimestamp"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Words Timestamps",
+            "description": "Word-level timestamps transcribed from the uploaded song. Only present if `with_timestamps` was True in the request body"
           }
         },
         "type": "object",
@@ -76552,7 +76689,8 @@
         "type": "string",
         "enum": [
           "not_found",
-          "invalid_name"
+          "invalid_name",
+          "already_active"
         ]
       },
       "StartSpeakerSeparationResponseModel": {
@@ -77469,6 +77607,9 @@
               },
               {
                 "$ref": "#/components/schemas/StartProcedureToolConfig-Input"
+              },
+              {
+                "$ref": "#/components/schemas/EndProcedureToolConfig-Input"
               }
             ],
             "title": "Params",
@@ -77476,6 +77617,7 @@
               "propertyName": "system_tool_type",
               "mapping": {
                 "end_call": "#/components/schemas/EndCallToolConfig",
+                "end_procedure": "#/components/schemas/EndProcedureToolConfig-Input",
                 "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
@@ -77619,6 +77761,9 @@
               },
               {
                 "$ref": "#/components/schemas/StartProcedureToolConfig-Output"
+              },
+              {
+                "$ref": "#/components/schemas/EndProcedureToolConfig-Output"
               }
             ],
             "title": "Params",
@@ -77626,6 +77771,7 @@
               "propertyName": "system_tool_type",
               "mapping": {
                 "end_call": "#/components/schemas/EndCallToolConfig",
+                "end_procedure": "#/components/schemas/EndProcedureToolConfig-Output",
                 "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
@@ -88694,6 +88840,11 @@
             "type": "string",
             "title": "Label",
             "description": "Human-readable label for the node used throughout the UI."
+          },
+          "entry_behavior": {
+            "$ref": "#/components/schemas/EntryBehavior",
+            "description": "Dictates whether this node should immediately generate a response upon entry or wait for the user input. When set to \"auto\", the behavior will be decided based on the type of the preceding node: \"wait_for_user\" after the \"say\" and \"start\" nodes and \"generate_immediately\" otherwise.",
+            "default": "auto"
           }
         },
         "type": "object",
@@ -88751,6 +88902,11 @@
             "type": "string",
             "title": "Label",
             "description": "Human-readable label for the node used throughout the UI."
+          },
+          "entry_behavior": {
+            "$ref": "#/components/schemas/EntryBehavior",
+            "description": "Dictates whether this node should immediately generate a response upon entry or wait for the user input. When set to \"auto\", the behavior will be decided based on the type of the preceding node: \"wait_for_user\" after the \"say\" and \"start\" nodes and \"generate_immediately\" otherwise.",
+            "default": "auto"
           }
         },
         "type": "object",
@@ -88762,7 +88918,8 @@
           "type",
           "position",
           "edge_order",
-          "label"
+          "label",
+          "entry_behavior"
         ],
         "title": "WorkflowOverrideAgentNodeModel"
       },

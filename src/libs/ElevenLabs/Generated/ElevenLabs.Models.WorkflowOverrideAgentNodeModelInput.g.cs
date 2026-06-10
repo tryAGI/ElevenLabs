@@ -60,6 +60,14 @@ namespace ElevenLabs
         public required string Label { get; set; }
 
         /// <summary>
+        /// Dictates whether this node should immediately generate a response upon entry or wait for the user input. When set to "auto", the behavior will be decided based on the type of the preceding node: "wait_for_user" after the "say" and "start" nodes and "generate_immediately" otherwise.<br/>
+        /// Default Value: auto
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("entry_behavior")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EntryBehaviorJsonConverter))]
+        public global::ElevenLabs.EntryBehavior? EntryBehavior { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -93,6 +101,10 @@ namespace ElevenLabs
         /// <param name="edgeOrder">
         /// The ids of outgoing edges in the order they should be evaluated.
         /// </param>
+        /// <param name="entryBehavior">
+        /// Dictates whether this node should immediately generate a response upon entry or wait for the user input. When set to "auto", the behavior will be decided based on the type of the preceding node: "wait_for_user" after the "say" and "start" nodes and "generate_immediately" otherwise.<br/>
+        /// Default Value: auto
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -104,7 +116,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? additionalToolIds,
             string? type,
             global::ElevenLabs.PositionInput? position,
-            global::System.Collections.Generic.IList<string>? edgeOrder)
+            global::System.Collections.Generic.IList<string>? edgeOrder,
+            global::ElevenLabs.EntryBehavior? entryBehavior)
         {
             this.ConversationConfig = conversationConfig;
             this.AdditionalPrompt = additionalPrompt;
@@ -114,6 +127,7 @@ namespace ElevenLabs
             this.Position = position;
             this.EdgeOrder = edgeOrder;
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
+            this.EntryBehavior = entryBehavior;
         }
 
         /// <summary>

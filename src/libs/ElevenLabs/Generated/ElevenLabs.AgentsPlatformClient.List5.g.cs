@@ -26,10 +26,16 @@ namespace ElevenLabs
             {                s_List5SecurityRequirement0,
             };
         partial void PrepareList5Arguments(
-            global::System.Net.Http.HttpClient httpClient);
+            global::System.Net.Http.HttpClient httpClient,
+            global::ElevenLabs.TelephonyProvider? provider,
+            ref string? agentId,
+            ref string? branchId);
         partial void PrepareList5Request(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            global::ElevenLabs.TelephonyProvider? provider,
+            string? agentId,
+            string? branchId);
         partial void ProcessList5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -43,14 +49,29 @@ namespace ElevenLabs
         /// List Phone Numbers<br/>
         /// Retrieve all Phone Numbers
         /// </summary>
+        /// <param name="provider">
+        /// Filter by telephony provider
+        /// </param>
+        /// <param name="agentId">
+        /// Filter by assigned agent ID
+        /// </param>
+        /// <param name="branchId">
+        /// Filter by assigned branch ID
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>> List5Async(
+            global::ElevenLabs.TelephonyProvider? provider = default,
+            string? agentId = default,
+            string? branchId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List5AsResponseAsync(
+                provider: provider,
+                agentId: agentId,
+                branchId: branchId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -61,17 +82,32 @@ namespace ElevenLabs
         /// List Phone Numbers<br/>
         /// Retrieve all Phone Numbers
         /// </summary>
+        /// <param name="provider">
+        /// Filter by telephony provider
+        /// </param>
+        /// <param name="agentId">
+        /// Filter by assigned agent ID
+        /// </param>
+        /// <param name="branchId">
+        /// Filter by assigned branch ID
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>>> List5AsResponseAsync(
+            global::ElevenLabs.TelephonyProvider? provider = default,
+            string? agentId = default,
+            string? branchId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareList5Arguments(
-                httpClient: HttpClient);
+                httpClient: HttpClient,
+                provider: provider,
+                agentId: ref agentId,
+                branchId: ref branchId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -99,6 +135,11 @@ namespace ElevenLabs
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: "/v1/convai/phone-numbers",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("provider", provider?.ToString())
+                                .AddOptionalParameter("agent_id", agentId)
+                                .AddOptionalParameter("branch_id", branchId)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -138,7 +179,10 @@ namespace ElevenLabs
                     request: __httpRequest);
                 PrepareList5Request(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    provider: provider,
+                    agentId: agentId,
+                    branchId: branchId);
 
                 return __httpRequest;
             }

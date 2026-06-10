@@ -23,6 +23,12 @@ namespace ElevenLabs
         public global::ElevenLabs.MusicPrompt? CompositionPlan { get; set; }
 
         /// <summary>
+        /// Word-level timestamps transcribed from the uploaded song. Only present if `with_timestamps` was True in the request body
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("words_timestamps")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WordTimestamp>? WordsTimestamps { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -37,15 +43,20 @@ namespace ElevenLabs
         /// <param name="compositionPlan">
         /// The composition plan extracted from the uploaded song. Only present if `extract_composition_plan` was True in the request body
         /// </param>
+        /// <param name="wordsTimestamps">
+        /// Word-level timestamps transcribed from the uploaded song. Only present if `with_timestamps` was True in the request body
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public MusicUploadResponse(
             string songId,
-            global::ElevenLabs.MusicPrompt? compositionPlan)
+            global::ElevenLabs.MusicPrompt? compositionPlan,
+            global::System.Collections.Generic.IList<global::ElevenLabs.WordTimestamp>? wordsTimestamps)
         {
             this.SongId = songId ?? throw new global::System.ArgumentNullException(nameof(songId));
             this.CompositionPlan = compositionPlan;
+            this.WordsTimestamps = wordsTimestamps;
         }
 
         /// <summary>

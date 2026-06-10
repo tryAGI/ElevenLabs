@@ -189,6 +189,14 @@ namespace ElevenLabs
                                     name: "\"extract_composition_plan\"");
 
                             }
+                            if (request.WithTimestamps != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.WithTimestamps, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"with_timestamps\"");
+
+                            }
 
                             __httpRequest.Content = __httpRequestContent;
 
@@ -529,6 +537,10 @@ namespace ElevenLabs
         /// Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withTimestamps">
+        /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -536,6 +548,7 @@ namespace ElevenLabs
             byte[] file,
             string filename,
             bool? extractCompositionPlan = default,
+            bool? withTimestamps = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -544,6 +557,7 @@ namespace ElevenLabs
                 File = file,
                 Filename = filename,
                 ExtractCompositionPlan = extractCompositionPlan,
+                WithTimestamps = withTimestamps,
             };
 
             return await UploadAsync(
@@ -566,6 +580,10 @@ namespace ElevenLabs
         /// Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withTimestamps">
+        /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -573,6 +591,7 @@ namespace ElevenLabs
             global::System.IO.Stream file,
             string filename,
             bool? extractCompositionPlan = default,
+            bool? withTimestamps = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -583,6 +602,7 @@ namespace ElevenLabs
                 File = global::System.Array.Empty<byte>(),
                 Filename = filename,
                 ExtractCompositionPlan = extractCompositionPlan,
+                WithTimestamps = withTimestamps,
             };
             PrepareArguments(
                 client: HttpClient);
@@ -691,6 +711,14 @@ namespace ElevenLabs
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.ExtractCompositionPlan, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"extract_composition_plan\"");
+
+                            }
+                            if (request.WithTimestamps != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.WithTimestamps, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"with_timestamps\"");
 
                             }
 
@@ -1025,6 +1053,10 @@ namespace ElevenLabs
         /// Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withTimestamps">
+        /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -1032,6 +1064,7 @@ namespace ElevenLabs
             global::System.IO.Stream file,
             string filename,
             bool? extractCompositionPlan = default,
+            bool? withTimestamps = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -1042,6 +1075,7 @@ namespace ElevenLabs
                 File = global::System.Array.Empty<byte>(),
                 Filename = filename,
                 ExtractCompositionPlan = extractCompositionPlan,
+                WithTimestamps = withTimestamps,
             };
             PrepareArguments(
                 client: HttpClient);
@@ -1150,6 +1184,14 @@ namespace ElevenLabs
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.ExtractCompositionPlan, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"extract_composition_plan\"");
+
+                            }
+                            if (request.WithTimestamps != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.WithTimestamps, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"with_timestamps\"");
 
                             }
 
