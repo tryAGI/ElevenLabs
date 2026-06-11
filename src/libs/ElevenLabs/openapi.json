@@ -33205,7 +33205,7 @@
           "dynamic_variable": {
             "type": "string",
             "title": "Dynamic Variable",
-            "description": "When set, the entire array is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided array) and constant_value.",
+            "description": "When set, the entire array is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided array), constant_value, and is_omitted.",
             "default": ""
           },
           "constant_value": {
@@ -33234,7 +33234,13 @@
               }
             ],
             "title": "Constant Value",
-            "description": "When set, the entire array uses this constant value at runtime. Mutually exclusive with description (LLM-provided array) and dynamic_variable."
+            "description": "When set, the entire array uses this constant value at runtime. Mutually exclusive with description (LLM-provided array), dynamic_variable, and is_omitted."
+          },
+          "is_omitted": {
+            "type": "boolean",
+            "title": "Is Omitted",
+            "description": "If true, this array parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, and constant_value.",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -33280,7 +33286,7 @@
           "dynamic_variable": {
             "type": "string",
             "title": "Dynamic Variable",
-            "description": "When set, the entire array is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided array) and constant_value.",
+            "description": "When set, the entire array is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided array), constant_value, and is_omitted.",
             "default": ""
           },
           "constant_value": {
@@ -33309,7 +33315,13 @@
               }
             ],
             "title": "Constant Value",
-            "description": "When set, the entire array uses this constant value at runtime. Mutually exclusive with description (LLM-provided array) and dynamic_variable."
+            "description": "When set, the entire array uses this constant value at runtime. Mutually exclusive with description (LLM-provided array), dynamic_variable, and is_omitted."
+          },
+          "is_omitted": {
+            "type": "boolean",
+            "title": "Is Omitted",
+            "description": "If true, this array parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, and constant_value.",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -44471,6 +44483,25 @@
               },
               {
                 "type": "boolean"
+              },
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    }
+                  ]
+                },
+                "type": "array"
               }
             ],
             "title": "Constant Value",
