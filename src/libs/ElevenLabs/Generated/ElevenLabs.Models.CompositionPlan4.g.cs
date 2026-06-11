@@ -4,12 +4,13 @@
 namespace ElevenLabs
 {
     /// <summary>
+    /// Composition plan for the `music_v2` model. Using this field with any other model will result in an error.<br/>
     /// Example: {"chunks":[{"duration_ms":15000,"positive_styles":["pop","warm synths","steady groove","layered harmonies"],"text":"[Verse]\nCity lights are fading\nWe keep moving through the night"},{"duration_ms":15000,"positive_styles":["uplifting","bigger drums","wide vocals"],"text":"[Chorus]\nHold on to the feeling\n{very loud}Let it rise and come alive"},{"duration_ms":5000,"positive_styles":["gentle ending","soft pads"],"text":"[Instrumental Outro]"}]}
     /// </summary>
-    public sealed partial class CompositionPlanV2
+    public sealed partial class CompositionPlan4
     {
         /// <summary>
-        /// The chunks that make up the generation. Only usable with model 'music_v2'
+        /// The chunks that make up the generation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunks")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -22,24 +23,24 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompositionPlanV2" /> class.
+        /// Initializes a new instance of the <see cref="CompositionPlan4" /> class.
         /// </summary>
         /// <param name="chunks">
-        /// The chunks that make up the generation. Only usable with model 'music_v2'
+        /// The chunks that make up the generation.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public CompositionPlanV2(
+        public CompositionPlan4(
             global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.GenerationChunk, global::ElevenLabs.AudioRefChunk>> chunks)
         {
             this.Chunks = chunks ?? throw new global::System.ArgumentNullException(nameof(chunks));
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompositionPlanV2" /> class.
+        /// Initializes a new instance of the <see cref="CompositionPlan4" /> class.
         /// </summary>
-        public CompositionPlanV2()
+        public CompositionPlan4()
         {
         }
 

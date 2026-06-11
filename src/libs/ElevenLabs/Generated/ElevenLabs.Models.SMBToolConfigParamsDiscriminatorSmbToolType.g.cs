@@ -223,6 +223,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        SubmitBusinessInfo,
+        /// <summary>
+        /// 
+        /// </summary>
         UpdateAgentRule,
         /// <summary>
         /// 
@@ -343,6 +347,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.ScheduleGroupSession => "schedule_group_session",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients => "search_clients",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug => "set_booking_slug",
+                SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo => "submit_business_info",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentRule => "update_agent_rule",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAsset => "update_asset",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBookingPageAppearance => "update_booking_page_appearance",
@@ -420,6 +425,7 @@ namespace ElevenLabs
                 "schedule_group_session" => SMBToolConfigParamsDiscriminatorSmbToolType.ScheduleGroupSession,
                 "search_clients" => SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients,
                 "set_booking_slug" => SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug,
+                "submit_business_info" => SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo,
                 "update_agent_rule" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentRule,
                 "update_asset" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAsset,
                 "update_booking_page_appearance" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBookingPageAppearance,

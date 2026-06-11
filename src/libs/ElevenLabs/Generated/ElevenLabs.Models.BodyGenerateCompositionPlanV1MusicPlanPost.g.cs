@@ -25,8 +25,8 @@ namespace ElevenLabs
         /// An optional composition plan to use as a source for the new composition plan.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_composition_plan")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlanV2, object>))]
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlanV2, object>? SourceCompositionPlan { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan4, object>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan4, object>? SourceCompositionPlan { get; set; }
 
         /// <summary>
         /// The model to use for the generation.<br/>
@@ -64,7 +64,7 @@ namespace ElevenLabs
         public BodyGenerateCompositionPlanV1MusicPlanPost(
             string prompt,
             int? musicLengthMs,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlanV2, object>? sourceCompositionPlan,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan4, object>? sourceCompositionPlan,
             global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPostModelId? modelId)
         {
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));

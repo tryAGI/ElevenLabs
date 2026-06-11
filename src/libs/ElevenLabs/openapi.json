@@ -25808,7 +25808,7 @@
                       "$ref": "#/components/schemas/MusicPrompt"
                     },
                     {
-                      "$ref": "#/components/schemas/CompositionPlanV2"
+                      "$ref": "#/components/schemas/CompositionPlan"
                     }
                   ],
                   "title": "Response Generate Composition Plan V1 Music Plan Post"
@@ -35794,7 +35794,7 @@
                 "$ref": "#/components/schemas/MusicPrompt"
               },
               {
-                "$ref": "#/components/schemas/CompositionPlanV2"
+                "$ref": "#/components/schemas/CompositionPlan"
               },
               {
                 "type": "null"
@@ -35974,7 +35974,7 @@
                 "$ref": "#/components/schemas/MusicPrompt"
               },
               {
-                "$ref": "#/components/schemas/CompositionPlanV2"
+                "$ref": "#/components/schemas/CompositionPlan"
               },
               {
                 "type": "null"
@@ -38064,7 +38064,7 @@
                 "$ref": "#/components/schemas/MusicPrompt"
               },
               {
-                "$ref": "#/components/schemas/CompositionPlanV2"
+                "$ref": "#/components/schemas/CompositionPlan"
               },
               {
                 "type": "null"
@@ -39797,7 +39797,7 @@
                 "$ref": "#/components/schemas/MusicPrompt"
               },
               {
-                "$ref": "#/components/schemas/CompositionPlanV2"
+                "$ref": "#/components/schemas/CompositionPlan"
               },
               {
                 "type": "null"
@@ -44445,7 +44445,7 @@
         ],
         "title": "ColumnUnit"
       },
-      "CompositionPlanV2": {
+      "CompositionPlan": {
         "properties": {
           "chunks": {
             "items": {
@@ -44461,14 +44461,15 @@
             "type": "array",
             "maxItems": 30,
             "title": "Chunks",
-            "description": "The chunks that make up the generation. Only usable with model 'music_v2'"
+            "description": "The chunks that make up the generation."
           }
         },
         "type": "object",
         "required": [
           "chunks"
         ],
-        "title": "CompositionPlanV2",
+        "title": "CompositionPlan",
+        "description": "Composition plan for the `music_v2` model. Using this field with any other model will result in an error.",
         "example": {
           "chunks": [
             {
@@ -52053,7 +52054,7 @@
                 "$ref": "#/components/schemas/MusicPrompt"
               },
               {
-                "$ref": "#/components/schemas/CompositionPlanV2"
+                "$ref": "#/components/schemas/CompositionPlan"
               }
             ],
             "title": "Composition Plan",
@@ -64926,7 +64927,7 @@
             "type": "array",
             "maxItems": 50,
             "title": "Positive Global Styles",
-            "description": "The styles and musical directions that should be present in the entire song. Use English language for best result. Only usable with model 'music_v1'."
+            "description": "The styles and musical directions that should be present in the entire song. Use English language for best result."
           },
           "negative_global_styles": {
             "items": {
@@ -64935,7 +64936,7 @@
             "type": "array",
             "maxItems": 50,
             "title": "Negative Global Styles",
-            "description": "The styles and musical directions that should not be present in the entire song. Use English language for best result. Only usable with model 'music_v1'."
+            "description": "The styles and musical directions that should not be present in the entire song. Use English language for best result."
           },
           "sections": {
             "items": {
@@ -64944,7 +64945,7 @@
             "type": "array",
             "maxItems": 30,
             "title": "Sections",
-            "description": "The sections of the song. Only usable with model 'music_v1'."
+            "description": "The sections of the song."
           }
         },
         "type": "object",
@@ -64954,6 +64955,7 @@
           "sections"
         ],
         "title": "MusicPrompt",
+        "description": "Composition plan for the `music_v1` model. Using this field with any other model will result in an error.",
         "example": {
           "negative_global_styles": [
             "metal",
@@ -64999,7 +65001,7 @@
                 "$ref": "#/components/schemas/MusicPrompt"
               },
               {
-                "$ref": "#/components/schemas/CompositionPlanV2"
+                "$ref": "#/components/schemas/CompositionPlan"
               },
               {
                 "type": "null"
@@ -73800,6 +73802,9 @@
                 "$ref": "#/components/schemas/GetScheduleParams"
               },
               {
+                "$ref": "#/components/schemas/SubmitBusinessInfoParams"
+              },
+              {
                 "$ref": "#/components/schemas/UpdateBusinessInfoParams"
               },
               {
@@ -73914,6 +73919,7 @@
                 "schedule_group_session": "#/components/schemas/ScheduleGroupSessionParams",
                 "search_clients": "#/components/schemas/SearchClientsParams",
                 "set_booking_slug": "#/components/schemas/SetBookingSlugParams",
+                "submit_business_info": "#/components/schemas/SubmitBusinessInfoParams",
                 "update_agent_rule": "#/components/schemas/UpdateAgentRuleParams",
                 "update_asset": "#/components/schemas/UpdateAssetParams",
                 "update_booking_page_appearance": "#/components/schemas/UpdateBookingPageAppearanceParams",
@@ -77245,6 +77251,19 @@
           "offset_y"
         ],
         "title": "StudioTextStyleShadowModel"
+      },
+      "SubmitBusinessInfoParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "submit_business_info",
+            "title": "Smb Tool Type",
+            "default": "submit_business_info"
+          }
+        },
+        "type": "object",
+        "title": "SubmitBusinessInfoParams",
+        "description": "Finalize the onboarding interview: create a text knowledge source and mark done."
       },
       "SubmitOrderResponse": {
         "properties": {
