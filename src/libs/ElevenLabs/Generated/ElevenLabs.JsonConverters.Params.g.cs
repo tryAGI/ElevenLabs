@@ -357,6 +357,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetScheduleParams)}");
                 getSchedule = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.SubmitBusinessInfoParams? submitBusinessInfo = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SubmitBusinessInfoParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SubmitBusinessInfoParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.SubmitBusinessInfoParams)}");
+                submitBusinessInfo = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.UpdateBusinessInfoParams? updateBusinessInfo = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBusinessInfo)
             {
@@ -588,6 +595,8 @@ namespace ElevenLabs.JsonConverters
                 deleteHoliday,
 
                 getSchedule,
+
+                submitBusinessInfo,
 
                 updateBusinessInfo,
 
@@ -927,6 +936,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetScheduleParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetScheduleParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetScheduleParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.GetSchedule!, typeInfo);
+            }
+            else if (value.IsSubmitBusinessInfo)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SubmitBusinessInfoParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SubmitBusinessInfoParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SubmitBusinessInfoParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SubmitBusinessInfo!, typeInfo);
             }
             else if (value.IsUpdateBusinessInfo)
             {
