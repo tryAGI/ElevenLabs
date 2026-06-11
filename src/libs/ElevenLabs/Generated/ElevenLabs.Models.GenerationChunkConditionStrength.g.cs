@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// A detailed composition plan to guide music generation. Cannot be used in conjunction with `prompt`.
+    /// How strongly the model adheres to the conditioning reference. Low strength means the model will be more creative and deviate from the reference. High strength means the model will be more consistent with the reference.
     /// </summary>
-    public sealed partial class BodyStreamComposedMusicV1MusicStreamPostCompositionPlan
+    public sealed partial class GenerationChunkConditionStrength
     {
 
         /// <summary>

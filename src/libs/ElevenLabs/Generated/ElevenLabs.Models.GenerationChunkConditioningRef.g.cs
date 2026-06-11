@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// An optional composition plan to use as a source for the new composition plan.
+    /// The audio reference to condition the generation on. The first chunk is the most important as it will influence the generation of all subsequent chunks. Thus, if you want to apply conditioning to the entire song, start conditioning from the first chunk.
     /// </summary>
-    public sealed partial class BodyGenerateCompositionPlanV1MusicPlanPostSourceCompositionPlan
+    public sealed partial class GenerationChunkConditioningRef
     {
 
         /// <summary>
