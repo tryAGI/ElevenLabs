@@ -25803,7 +25803,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MusicPrompt"
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/MusicPrompt"
+                    },
+                    {
+                      "$ref": "#/components/schemas/CompositionPlanV2"
+                    }
+                  ],
+                  "title": "Response Generate Composition Plan V1 Music Plan Post"
                 }
               }
             }
@@ -33939,6 +33947,27 @@
           "title": "My Project"
         }
       },
+      "AudioRefChunk": {
+        "properties": {
+          "song_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Song Id",
+            "description": "The ID of the song to source the chunk from. You can find the song ID in the response headers when you generate a song."
+          },
+          "range": {
+            "$ref": "#/components/schemas/TimeRange",
+            "description": "The time range to extract from the song."
+          }
+        },
+        "type": "object",
+        "required": [
+          "song_id",
+          "range"
+        ],
+        "title": "AudioRefChunk"
+      },
       "AudioSegment": {
         "properties": {
           "start_ms": {
@@ -35765,9 +35794,13 @@
                 "$ref": "#/components/schemas/MusicPrompt"
               },
               {
+                "$ref": "#/components/schemas/CompositionPlanV2"
+              },
+              {
                 "type": "null"
               }
             ],
+            "title": "Composition Plan",
             "description": "A detailed composition plan to guide music generation. Cannot be used in conjunction with `prompt`."
           },
           "music_length_ms": {
@@ -35941,9 +35974,13 @@
                 "$ref": "#/components/schemas/MusicPrompt"
               },
               {
+                "$ref": "#/components/schemas/CompositionPlanV2"
+              },
+              {
                 "type": "null"
               }
             ],
+            "title": "Composition Plan",
             "description": "A detailed composition plan to guide music generation. Cannot be used in conjunction with `prompt`."
           },
           "music_length_ms": {
@@ -38027,9 +38064,13 @@
                 "$ref": "#/components/schemas/MusicPrompt"
               },
               {
+                "$ref": "#/components/schemas/CompositionPlanV2"
+              },
+              {
                 "type": "null"
               }
             ],
+            "title": "Source Composition Plan",
             "description": "An optional composition plan to use as a source for the new composition plan."
           },
           "model_id": {
@@ -39756,9 +39797,13 @@
                 "$ref": "#/components/schemas/MusicPrompt"
               },
               {
+                "$ref": "#/components/schemas/CompositionPlanV2"
+              },
+              {
                 "type": "null"
               }
             ],
+            "title": "Composition Plan",
             "description": "A detailed composition plan to guide music generation. Cannot be used in conjunction with `prompt`."
           },
           "music_length_ms": {
@@ -44399,6 +44444,62 @@
           "rating"
         ],
         "title": "ColumnUnit"
+      },
+      "CompositionPlanV2": {
+        "properties": {
+          "chunks": {
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/GenerationChunk"
+                },
+                {
+                  "$ref": "#/components/schemas/AudioRefChunk"
+                }
+              ]
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Chunks",
+            "description": "The chunks that make up the generation. Only usable with model 'music_v2'"
+          }
+        },
+        "type": "object",
+        "required": [
+          "chunks"
+        ],
+        "title": "CompositionPlanV2",
+        "example": {
+          "chunks": [
+            {
+              "duration_ms": 15000,
+              "positive_styles": [
+                "pop",
+                "warm synths",
+                "steady groove",
+                "layered harmonies"
+              ],
+              "text": "[Verse]\nCity lights are fading\nWe keep moving through the night"
+            },
+            {
+              "duration_ms": 15000,
+              "positive_styles": [
+                "uplifting",
+                "bigger drums",
+                "wide vocals"
+              ],
+              "text": "[Chorus]\nHold on to the feeling\n{very loud}Let it rise and come alive"
+            },
+            {
+              "duration_ms": 5000,
+              "positive_styles": [
+                "gentle ending",
+                "soft pads"
+              ],
+              "text": "[Instrumental Outro]"
+            }
+          ]
+        }
       },
       "ConfigEntityType": {
         "type": "string",
@@ -51947,7 +52048,15 @@
       "DetailedMusicResponse": {
         "properties": {
           "composition_plan": {
-            "$ref": "#/components/schemas/MusicPrompt",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MusicPrompt"
+              },
+              {
+                "$ref": "#/components/schemas/CompositionPlanV2"
+              }
+            ],
+            "title": "Composition Plan",
             "description": "The composition plan used to generate the song"
           },
           "song_metadata": {
@@ -55245,6 +55354,88 @@
           "start": 0.0,
           "text": "Hello"
         }
+      },
+      "GenerationChunk": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 6000,
+            "title": "Text",
+            "description": "The text config to be generated for this chunk. Can contain section name in square brackets, e.g. [Verse 1], lyrics lines, and inline directions in curly braces, e.g. {scratching}."
+          },
+          "duration_ms": {
+            "type": "integer",
+            "maximum": 120000.0,
+            "minimum": 3000.0,
+            "title": "Duration Ms",
+            "description": "The duration of the chunk in milliseconds. Must be between 3000ms and 120000ms."
+          },
+          "positive_styles": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "title": "Positive Styles",
+            "description": "The styles and musical directions that should be present in this chunk. Use English language for best results. The styles for the first chunk are the most important as they set the overall tone and genre. Styles for subsequent chunks can be used to add nuance, progression, emphasis, or change the direction of the song. Aim to have at least 6-7 styles in early chunks until the direction is established. Generic styles like 'great production quality' are good default styles to append to the list."
+          },
+          "negative_styles": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "title": "Negative Styles",
+            "description": "The styles and musical directions that should not be present in this chunk. Use English language for best results. Leaving empty is a good default, only use this field if you want to explicitly avoid a particular style or direction."
+          },
+          "context_adherence": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "title": "Context Adherence",
+            "description": "How much the model adheres to the context of its surrounding chunks. Low adherence means the model can deviate from the context and be more creative. High adherence means the model will be more consistent with the context.",
+            "default": "high"
+          },
+          "conditioning_ref": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioRefChunk"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The audio reference to condition the generation on. The first chunk is the most important as it will influence the generation of all subsequent chunks. Thus, if you want to apply conditioning to the entire song, start conditioning from the first chunk."
+          },
+          "condition_strength": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high",
+                  "xhigh"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Condition Strength",
+            "description": "How strongly the model adheres to the conditioning reference. Low strength means the model will be more creative and deviate from the reference. High strength means the model will be more consistent with the reference."
+          }
+        },
+        "type": "object",
+        "required": [
+          "text",
+          "duration_ms",
+          "positive_styles"
+        ],
+        "title": "GenerationChunk"
       },
       "GenerationSourceContext": {
         "properties": {
@@ -64735,7 +64926,7 @@
             "type": "array",
             "maxItems": 50,
             "title": "Positive Global Styles",
-            "description": "The styles and musical directions that should be present in the entire song. Use English language for best result."
+            "description": "The styles and musical directions that should be present in the entire song. Use English language for best result. Only usable with model 'music_v1'."
           },
           "negative_global_styles": {
             "items": {
@@ -64744,7 +64935,7 @@
             "type": "array",
             "maxItems": 50,
             "title": "Negative Global Styles",
-            "description": "The styles and musical directions that should not be present in the entire song. Use English language for best result."
+            "description": "The styles and musical directions that should not be present in the entire song. Use English language for best result. Only usable with model 'music_v1'."
           },
           "sections": {
             "items": {
@@ -64753,7 +64944,7 @@
             "type": "array",
             "maxItems": 30,
             "title": "Sections",
-            "description": "The sections of the song."
+            "description": "The sections of the song. Only usable with model 'music_v1'."
           }
         },
         "type": "object",
@@ -64808,9 +64999,13 @@
                 "$ref": "#/components/schemas/MusicPrompt"
               },
               {
+                "$ref": "#/components/schemas/CompositionPlanV2"
+              },
+              {
                 "type": "null"
               }
             ],
+            "title": "Composition Plan",
             "description": "The composition plan extracted from the uploaded song. Only present if `extract_composition_plan` was True in the request body"
           },
           "words_timestamps": {

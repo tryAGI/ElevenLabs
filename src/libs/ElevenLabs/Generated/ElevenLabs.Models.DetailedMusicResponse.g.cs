@@ -10,13 +10,12 @@ namespace ElevenLabs
     public sealed partial class DetailedMusicResponse
     {
         /// <summary>
-        /// The composition plan used to generate the song<br/>
-        /// Example: {"negative_global_styles":["metal","hip-hop","country"],"positive_global_styles":["pop","rock","jazz"],"sections":[{"duration_ms":10000,"lines":["Verse 1 lyrics"],"negative_local_styles":["metal","hip-hop","country"],"positive_local_styles":["pop","rock","jazz"],"section_name":"Verse 1"}]}
+        /// The composition plan used to generate the song
         /// </summary>
-        /// <example>{"negative_global_styles":["metal","hip-hop","country"],"positive_global_styles":["pop","rock","jazz"],"sections":[{"duration_ms":10000,"lines":["Verse 1 lyrics"],"negative_local_styles":["metal","hip-hop","country"],"positive_local_styles":["pop","rock","jazz"],"section_name":"Verse 1"}]}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("composition_plan")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlanV2>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.MusicPrompt CompositionPlan { get; set; }
+        public required global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlanV2> CompositionPlan { get; set; }
 
         /// <summary>
         /// The metadata of the generated song<br/>
@@ -43,8 +42,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="DetailedMusicResponse" /> class.
         /// </summary>
         /// <param name="compositionPlan">
-        /// The composition plan used to generate the song<br/>
-        /// Example: {"negative_global_styles":["metal","hip-hop","country"],"positive_global_styles":["pop","rock","jazz"],"sections":[{"duration_ms":10000,"lines":["Verse 1 lyrics"],"negative_local_styles":["metal","hip-hop","country"],"positive_local_styles":["pop","rock","jazz"],"section_name":"Verse 1"}]}
+        /// The composition plan used to generate the song
         /// </param>
         /// <param name="songMetadata">
         /// The metadata of the generated song<br/>
@@ -57,11 +55,11 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public DetailedMusicResponse(
-            global::ElevenLabs.MusicPrompt compositionPlan,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlanV2> compositionPlan,
             global::ElevenLabs.SongMetadata songMetadata,
             global::System.Collections.Generic.IList<global::ElevenLabs.WordTimestamp>? wordsTimestamps)
         {
-            this.CompositionPlan = compositionPlan ?? throw new global::System.ArgumentNullException(nameof(compositionPlan));
+            this.CompositionPlan = compositionPlan;
             this.SongMetadata = songMetadata ?? throw new global::System.ArgumentNullException(nameof(songMetadata));
             this.WordsTimestamps = wordsTimestamps;
         }

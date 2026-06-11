@@ -9,21 +9,21 @@ namespace ElevenLabs
     public sealed partial class MusicPrompt
     {
         /// <summary>
-        /// The styles and musical directions that should be present in the entire song. Use English language for best result.
+        /// The styles and musical directions that should be present in the entire song. Use English language for best result. Only usable with model 'music_v1'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("positive_global_styles")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> PositiveGlobalStyles { get; set; }
 
         /// <summary>
-        /// The styles and musical directions that should not be present in the entire song. Use English language for best result.
+        /// The styles and musical directions that should not be present in the entire song. Use English language for best result. Only usable with model 'music_v1'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("negative_global_styles")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> NegativeGlobalStyles { get; set; }
 
         /// <summary>
-        /// The sections of the song.
+        /// The sections of the song. Only usable with model 'music_v1'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sections")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -39,13 +39,13 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="MusicPrompt" /> class.
         /// </summary>
         /// <param name="positiveGlobalStyles">
-        /// The styles and musical directions that should be present in the entire song. Use English language for best result.
+        /// The styles and musical directions that should be present in the entire song. Use English language for best result. Only usable with model 'music_v1'.
         /// </param>
         /// <param name="negativeGlobalStyles">
-        /// The styles and musical directions that should not be present in the entire song. Use English language for best result.
+        /// The styles and musical directions that should not be present in the entire song. Use English language for best result. Only usable with model 'music_v1'.
         /// </param>
         /// <param name="sections">
-        /// The sections of the song.
+        /// The sections of the song. Only usable with model 'music_v1'.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
