@@ -185,7 +185,7 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.ExtractCompositionPlan, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    content: new global::System.Net.Http.StringContent(request.ExtractCompositionPlan.ToString() ?? string.Empty),
                                     name: "\"extract_composition_plan\"");
 
                             }
@@ -534,7 +534,7 @@ namespace ElevenLabs
         /// The audio file to upload.
         /// </param>
         /// <param name="extractCompositionPlan">
-        /// Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.<br/>
+        /// Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1` or `music_v2`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="withTimestamps">
@@ -547,7 +547,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MusicUploadResponse> UploadAsync(
             byte[] file,
             string filename,
-            bool? extractCompositionPlan = default,
+            global::ElevenLabs.AnyOf<bool?, string>? extractCompositionPlan = default,
             bool? withTimestamps = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -577,7 +577,7 @@ namespace ElevenLabs
         /// The audio file to upload.
         /// </param>
         /// <param name="extractCompositionPlan">
-        /// Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.<br/>
+        /// Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1` or `music_v2`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="withTimestamps">
@@ -590,7 +590,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MusicUploadResponse> UploadAsync(
             global::System.IO.Stream file,
             string filename,
-            bool? extractCompositionPlan = default,
+            global::ElevenLabs.AnyOf<bool?, string>? extractCompositionPlan = default,
             bool? withTimestamps = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -709,7 +709,7 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.ExtractCompositionPlan, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    content: new global::System.Net.Http.StringContent(request.ExtractCompositionPlan.ToString() ?? string.Empty),
                                     name: "\"extract_composition_plan\"");
 
                             }
@@ -1050,7 +1050,7 @@ namespace ElevenLabs
         /// The audio file to upload.
         /// </param>
         /// <param name="extractCompositionPlan">
-        /// Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.<br/>
+        /// Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1` or `music_v2`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="withTimestamps">
@@ -1063,7 +1063,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MusicUploadResponse>> UploadAsResponseAsync(
             global::System.IO.Stream file,
             string filename,
-            bool? extractCompositionPlan = default,
+            global::ElevenLabs.AnyOf<bool?, string>? extractCompositionPlan = default,
             bool? withTimestamps = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -1182,7 +1182,7 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.ExtractCompositionPlan, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    content: new global::System.Net.Http.StringContent(request.ExtractCompositionPlan.ToString() ?? string.Empty),
                                     name: "\"extract_composition_plan\"");
 
                             }
