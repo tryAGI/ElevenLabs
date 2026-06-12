@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Apply a crossfade at the loop boundary to avoid audible pops when the music loops.
+    /// Apply a crossfade at the loop boundary to avoid audible pops when the sound loops.
     /// </summary>
-    public sealed partial class BackgroundMusicConfigWorkflowOverrideCrossfadeLoop
+    public sealed partial class BackgroundSoundConfigWorkflowOverrideCrossfadeLoop
     {
 
         /// <summary>

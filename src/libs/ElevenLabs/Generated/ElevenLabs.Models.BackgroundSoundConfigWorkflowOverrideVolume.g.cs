@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Volume level for background music (0.01 to 1.0).
+    /// Volume level for background sound (0.01 to 1.0).
     /// </summary>
-    public sealed partial class BackgroundMusicConfigWorkflowOverrideVolume
+    public sealed partial class BackgroundSoundConfigWorkflowOverrideVolume
     {
 
         /// <summary>

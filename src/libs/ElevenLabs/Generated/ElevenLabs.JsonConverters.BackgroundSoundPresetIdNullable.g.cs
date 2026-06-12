@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class BackgroundMusicSourceTypeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.BackgroundMusicSourceType>
+    public sealed class BackgroundSoundPresetIdNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.BackgroundSoundPresetId?>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.BackgroundMusicSourceType Read(
+        public override global::ElevenLabs.BackgroundSoundPresetId? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.BackgroundMusicSourceTypeExtensions.ToEnum(stringValue) ?? default;
+                        return global::ElevenLabs.BackgroundSoundPresetIdExtensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.BackgroundMusicSourceType)numValue;
+                    return (global::ElevenLabs.BackgroundSoundPresetId)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::ElevenLabs.BackgroundMusicSourceType);
+                    return default(global::ElevenLabs.BackgroundSoundPresetId?);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,12 +42,19 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.BackgroundMusicSourceType value,
+            global::ElevenLabs.BackgroundSoundPresetId? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::ElevenLabs.BackgroundMusicSourceTypeExtensions.ToValueString(value));
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::ElevenLabs.BackgroundSoundPresetIdExtensions.ToValueString(value.Value));
+            }
         }
     }
 }

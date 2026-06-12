@@ -25406,6 +25406,85 @@
         "x-fern-sdk-method-name": "run"
       }
     },
+    "/v1/convai/conversations/{conversation_id}/analysis/evaluations/run": {
+      "post": {
+        "tags": [
+          "Agents Workspace Analytics"
+        ],
+        "summary": "Run Conversation Evaluation",
+        "description": "Rerun a specific evaluation for a conversation.",
+        "operationId": "run_conversation_evaluations",
+        "parameters": [
+          {
+            "name": "conversation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "ID of the conversation",
+              "title": "Conversation Id"
+            },
+            "description": "ID of the conversation"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RunConversationEvaluationsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConversationResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "conversations",
+          "analysis"
+        ],
+        "x-fern-sdk-method-name": "runEvaluation"
+      }
+    },
     "/v1/convai/environment-variables": {
       "get": {
         "tags": [
@@ -31609,7 +31688,7 @@
               "$ref": "#/components/schemas/AttachedTestModel"
             },
             "type": "array",
-            "maxItems": 1000,
+            "maxItems": 5000,
             "minItems": 0,
             "title": "Attached Tests",
             "description": "List of test IDs that should be run for this agent"
@@ -34450,71 +34529,71 @@
         "type": "object",
         "title": "AutoSyncInfo"
       },
-      "BackgroundMusicConfig": {
+      "BackgroundSoundConfig": {
         "properties": {
           "source_type": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/BackgroundMusicSourceType"
+                "$ref": "#/components/schemas/BackgroundSoundSourceType"
               },
               {
                 "type": "null"
               }
             ],
-            "description": "The type of background music source."
+            "description": "The type of background sound source."
           },
           "source_id": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/BackgroundMusicPresetId"
+                "$ref": "#/components/schemas/BackgroundSoundPresetId"
               },
               {
                 "type": "null"
               }
             ],
-            "description": "Identifier for the music source."
+            "description": "Identifier for the sound source."
           },
           "volume": {
             "type": "number",
             "maximum": 1.0,
             "minimum": 0.01,
             "title": "Volume",
-            "description": "Volume level for background music (0.01 to 1.0).",
+            "description": "Volume level for background sound (0.01 to 1.0).",
             "default": 0.6
           },
           "crossfade_loop": {
             "type": "boolean",
             "title": "Crossfade Loop",
-            "description": "Apply a crossfade at the loop boundary to avoid audible pops when the music loops.",
+            "description": "Apply a crossfade at the loop boundary to avoid audible pops when the sound loops.",
             "default": false
           }
         },
         "type": "object",
-        "title": "BackgroundMusicConfig"
+        "title": "BackgroundSoundConfig"
       },
-      "BackgroundMusicConfigWorkflowOverride": {
+      "BackgroundSoundConfigWorkflowOverride": {
         "properties": {
           "source_type": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/BackgroundMusicSourceType"
+                "$ref": "#/components/schemas/BackgroundSoundSourceType"
               },
               {
                 "type": "null"
               }
             ],
-            "description": "The type of background music source."
+            "description": "The type of background sound source."
           },
           "source_id": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/BackgroundMusicPresetId"
+                "$ref": "#/components/schemas/BackgroundSoundPresetId"
               },
               {
                 "type": "null"
               }
             ],
-            "description": "Identifier for the music source."
+            "description": "Identifier for the sound source."
           },
           "volume": {
             "anyOf": [
@@ -34526,7 +34605,7 @@
               }
             ],
             "title": "Volume",
-            "description": "Volume level for background music (0.01 to 1.0)."
+            "description": "Volume level for background sound (0.01 to 1.0)."
           },
           "crossfade_loop": {
             "anyOf": [
@@ -34538,13 +34617,13 @@
               }
             ],
             "title": "Crossfade Loop",
-            "description": "Apply a crossfade at the loop boundary to avoid audible pops when the music loops."
+            "description": "Apply a crossfade at the loop boundary to avoid audible pops when the sound loops."
           }
         },
         "type": "object",
-        "title": "BackgroundMusicConfigWorkflowOverride"
+        "title": "BackgroundSoundConfigWorkflowOverride"
       },
-      "BackgroundMusicPresetId": {
+      "BackgroundSoundPresetId": {
         "type": "string",
         "enum": [
           "office2",
@@ -34557,16 +34636,16 @@
           "elevator3",
           "elevator4"
         ],
-        "title": "BackgroundMusicPresetId",
-        "description": "Predefined background music preset identifiers."
+        "title": "BackgroundSoundPresetId",
+        "description": "Predefined background sound preset identifiers."
       },
-      "BackgroundMusicSourceType": {
+      "BackgroundSoundSourceType": {
         "type": "string",
         "enum": [
           "preset"
         ],
-        "title": "BackgroundMusicSourceType",
-        "description": "The type of background music source."
+        "title": "BackgroundSoundSourceType",
+        "description": "The type of background sound source."
       },
       "BackupLLMDefault": {
         "properties": {
@@ -35845,7 +35924,8 @@
           "model_id": {
             "type": "string",
             "enum": [
-              "music_v1"
+              "music_v1",
+              "music_v2"
             ],
             "title": "Model Id",
             "description": "The model to use for the generation.",
@@ -36025,7 +36105,8 @@
           "model_id": {
             "type": "string",
             "enum": [
-              "music_v1"
+              "music_v1",
+              "music_v2"
             ],
             "title": "Model Id",
             "description": "The model to use for the generation.",
@@ -38101,7 +38182,8 @@
           "model_id": {
             "type": "string",
             "enum": [
-              "music_v1"
+              "music_v1",
+              "music_v2"
             ],
             "title": "Model Id",
             "description": "The model to use for the generation.",
@@ -39854,7 +39936,8 @@
           "model_id": {
             "type": "string",
             "enum": [
-              "music_v1"
+              "music_v1",
+              "music_v2"
             ],
             "title": "Model Id",
             "description": "The model to use for the generation.",
@@ -41036,7 +41119,8 @@
             "enum": [
               true,
               false,
-              "music_v1"
+              "music_v1",
+              "music_v2"
             ],
             "title": "Extract Composition Plan",
             "description": "Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1` or `music_v2`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.",
@@ -41123,7 +41207,8 @@
           "model_id": {
             "type": "string",
             "enum": [
-              "music_v1"
+              "music_v1",
+              "music_v2"
             ],
             "title": "Model Id",
             "description": "The model to use for the generation.",
@@ -73213,7 +73298,7 @@
               "type": "string"
             },
             "type": "array",
-            "maxItems": 1000,
+            "maxItems": 5000,
             "minItems": 1,
             "title": "Test Run Ids",
             "description": "List of test run IDs to resubmit"
@@ -73383,7 +73468,7 @@
               "$ref": "#/components/schemas/SingleTestRunRequestModel"
             },
             "type": "array",
-            "maxItems": 1000,
+            "maxItems": 5000,
             "minItems": 1,
             "title": "Tests",
             "description": "List of tests to run on the agent"
@@ -73425,6 +73510,24 @@
           "tests"
         ],
         "title": "RunAgentTestsRequestModel"
+      },
+      "RunConversationEvaluationsRequest": {
+        "properties": {
+          "evaluation_id": {
+            "type": "string",
+            "title": "Evaluation Id",
+            "description": "ID of the single evaluation criterion to rerun."
+          },
+          "scope": {
+            "$ref": "#/components/schemas/AnalysisScope",
+            "default": "conversation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "evaluation_id"
+        ],
+        "title": "RunConversationEvaluationsRequest"
       },
       "SIPLogMessage": {
         "properties": {
@@ -75648,6 +75751,17 @@
           "song_id": {
             "type": "string",
             "title": "Song Id"
+          },
+          "chat_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Chat Id"
           },
           "title": {
             "anyOf": [
@@ -78187,6 +78301,12 @@
             "type": "array",
             "title": "Pronunciation Dictionary Locators",
             "description": "The pronunciation dictionary locators"
+          },
+          "enable_phoneme_tags": {
+            "type": "boolean",
+            "title": "Enable Phoneme Tags",
+            "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.",
+            "default": false
           }
         },
         "type": "object",
@@ -78290,6 +78410,12 @@
             "type": "array",
             "title": "Pronunciation Dictionary Locators",
             "description": "The pronunciation dictionary locators"
+          },
+          "enable_phoneme_tags": {
+            "type": "boolean",
+            "title": "Enable Phoneme Tags",
+            "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.",
+            "default": false
           }
         },
         "type": "object",
@@ -78555,6 +78681,18 @@
             ],
             "title": "Pronunciation Dictionary Locators",
             "description": "The pronunciation dictionary locators"
+          },
+          "enable_phoneme_tags": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enable Phoneme Tags",
+            "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model."
           }
         },
         "type": "object",
@@ -78725,6 +78863,18 @@
             ],
             "title": "Pronunciation Dictionary Locators",
             "description": "The pronunciation dictionary locators"
+          },
+          "enable_phoneme_tags": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enable Phoneme Tags",
+            "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model."
           }
         },
         "type": "object",

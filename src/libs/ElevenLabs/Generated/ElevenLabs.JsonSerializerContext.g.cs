@@ -117,13 +117,13 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodNullableJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicPresetIdJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundPresetIdJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicPresetIdNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundPresetIdNullableJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicSourceTypeJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundSourceTypeJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicSourceTypeNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundSourceTypeNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BatchCallRecipientStatusJsonConverter),
 
@@ -2257,10 +2257,10 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.AllowlistItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AuthorizationMethod), TypeInfoPropertyName = "AuthorizationMethod2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AutoSyncInfo))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackgroundMusicConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackgroundMusicSourceType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackgroundMusicPresetId))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackgroundMusicConfigWorkflowOverride))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackgroundSoundConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackgroundSoundSourceType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackgroundSoundPresetId))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackgroundSoundConfigWorkflowOverride))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackupLLMDefault))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackupLLMDisabled))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackupLLMOverride))]
@@ -2584,13 +2584,13 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodNullableJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicPresetIdJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundPresetIdJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicPresetIdNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundPresetIdNullableJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicSourceTypeJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundSourceTypeJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicSourceTypeNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundSourceTypeNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BatchCallRecipientStatusJsonConverter),
 
@@ -5051,13 +5051,13 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodNullableJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicPresetIdJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundPresetIdJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicPresetIdNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundPresetIdNullableJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicSourceTypeJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundSourceTypeJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicSourceTypeNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundSourceTypeNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BatchCallRecipientStatusJsonConverter),
 
@@ -7518,13 +7518,13 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodNullableJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicPresetIdJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundPresetIdJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicPresetIdNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundPresetIdNullableJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicSourceTypeJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundSourceTypeJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicSourceTypeNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundSourceTypeNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BatchCallRecipientStatusJsonConverter),
 
@@ -9525,6 +9525,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.RunAgentTestsRequestModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SingleTestRunRequestModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SingleTestRunRequestModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.RunConversationEvaluationsRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SIPLogMessageDirection), TypeInfoPropertyName = "SIPLogMessageDirection2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SIPTrunkOutboundCallResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Params), TypeInfoPropertyName = "Params2_3")]
@@ -9869,7 +9870,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GenerationNode))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest>), TypeInfoPropertyName = "AnyOfUpdateOAuth2ClientCredsRequestUpdateBasicAuthRequestUpdateOAuth2JWTRequest2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateResponseUnitTestRequest, global::ElevenLabs.CreateToolCallUnitTestRequest, global::ElevenLabs.CreateSimulationTestRequest>), TypeInfoPropertyName = "AnyOfCreateResponseUnitTestRequestCreateToolCallUnitTestRequestCreateSimulationTestRequest2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateResponseUnitTestRequest, global::ElevenLabs.UpdateToolCallUnitTestRequest, global::ElevenLabs.UpdateSimulationTestRequest>), TypeInfoPropertyName = "AnyOfUpdateResponseUnitTestRequestUpdateToolCallUnitTestRequestUpdateSimulationTestRequest2")]
     internal sealed partial class SourceGenerationContextChunk3 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -9985,13 +9985,13 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodNullableJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicPresetIdJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundPresetIdJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicPresetIdNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundPresetIdNullableJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicSourceTypeJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundSourceTypeJsonConverter),
 
-            typeof(global::ElevenLabs.JsonConverters.BackgroundMusicSourceTypeNullableJsonConverter),
+            typeof(global::ElevenLabs.JsonConverters.BackgroundSoundSourceTypeNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BatchCallRecipientStatusJsonConverter),
 
@@ -11850,6 +11850,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>?), TypeInfoPropertyName = "CreateMTLSAuthRequest_d3123ae541f7c02c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateResponseUnitTestRequest, global::ElevenLabs.UpdateToolCallUnitTestRequest, global::ElevenLabs.UpdateSimulationTestRequest>), TypeInfoPropertyName = "AnyOfUpdateResponseUnitTestRequestUpdateToolCallUnitTestRequestUpdateSimulationTestRequest2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateExotelPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2>), TypeInfoPropertyName = "AnyOfCreateTwilioPhoneNumberRequestCreateExotelPhoneNumberRequestCreateSIPTrunkPhoneNumberRequestV22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CreateEnvironmentVariableRequest), TypeInfoPropertyName = "CreateEnvironmentVariableRequest2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminator))]
@@ -12266,10 +12267,10 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AuthConnectionDependenciesMcpServerDiscriminatorTypeNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AuthorizationMethodJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AuthorizationMethodNullableJsonConverter());
-            options.Converters.Add(new global::ElevenLabs.JsonConverters.BackgroundMusicPresetIdJsonConverter());
-            options.Converters.Add(new global::ElevenLabs.JsonConverters.BackgroundMusicPresetIdNullableJsonConverter());
-            options.Converters.Add(new global::ElevenLabs.JsonConverters.BackgroundMusicSourceTypeJsonConverter());
-            options.Converters.Add(new global::ElevenLabs.JsonConverters.BackgroundMusicSourceTypeNullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.BackgroundSoundPresetIdJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.BackgroundSoundPresetIdNullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.BackgroundSoundSourceTypeJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.BackgroundSoundSourceTypeNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.BatchCallRecipientStatusJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.BatchCallRecipientStatusNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.BatchCallStatusJsonConverter());
