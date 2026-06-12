@@ -17,7 +17,7 @@ namespace ElevenLabs
         public required string SongId { get; set; }
 
         /// <summary>
-        /// The composition plan extracted from the uploaded song. Only present if `extract_composition_plan` was True in the request body
+        /// The composition plan extracted from the uploaded song. Only present if `extract_composition_plan` was provided in the request body.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("composition_plan")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan4, object>))]
@@ -42,7 +42,7 @@ namespace ElevenLabs
         /// Unique identifier for the uploaded song
         /// </param>
         /// <param name="compositionPlan">
-        /// The composition plan extracted from the uploaded song. Only present if `extract_composition_plan` was True in the request body
+        /// The composition plan extracted from the uploaded song. Only present if `extract_composition_plan` was provided in the request body.
         /// </param>
         /// <param name="wordsTimestamps">
         /// Word-level timestamps transcribed from the uploaded song. Only present if `with_timestamps` was True in the request body

@@ -4,10 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Sort criteria. Must be one of: created_date, usage_character_count_1y, trending, cloned_by_count.<br/>
-    /// Default Value: created_date
+    /// Filter by assigned agent ID
     /// </summary>
-    public sealed partial class GetLibraryVoicesSort
+    public sealed partial class ListWhatsappAccountsAgentId
     {
 
         /// <summary>

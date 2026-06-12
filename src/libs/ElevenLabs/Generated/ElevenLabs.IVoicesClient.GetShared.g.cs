@@ -60,7 +60,8 @@ namespace ElevenLabs
         /// Filter voices by public owner ID
         /// </param>
         /// <param name="sort">
-        /// Sort criteria
+        /// Sort criteria. Must be one of: created_date, usage_character_count_1y, trending, cloned_by_count.<br/>
+        /// Default Value: created_date
         /// </param>
         /// <param name="page">
         /// Default Value: 0
@@ -145,7 +146,8 @@ namespace ElevenLabs
         /// Filter voices by public owner ID
         /// </param>
         /// <param name="sort">
-        /// Sort criteria
+        /// Sort criteria. Must be one of: created_date, usage_character_count_1y, trending, cloned_by_count.<br/>
+        /// Default Value: created_date
         /// </param>
         /// <param name="page">
         /// Default Value: 0
@@ -230,7 +232,8 @@ namespace ElevenLabs
         /// Filter voices by public owner ID
         /// </param>
         /// <param name="sort">
-        /// Sort criteria
+        /// Sort criteria. Must be one of: created_date, usage_character_count_1y, trending, cloned_by_count.<br/>
+        /// Default Value: created_date
         /// </param> 
         /// <param name="page">Initial page number to start enumerating from. Defaults to 1.</param>
         /// <param name="cancellationToken"></param>

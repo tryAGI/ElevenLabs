@@ -8438,13 +8438,20 @@
                   "type": "null"
                 }
               ],
-              "description": "Sort criteria",
+              "description": "Sort criteria. Must be one of: created_date, usage_character_count_1y, trending, cloned_by_count.",
               "examples": [
                 "created_date"
               ],
+              "enum": [
+                "created_date",
+                "usage_character_count_1y",
+                "trending",
+                "cloned_by_count"
+              ],
+              "default": "created_date",
               "title": "Sort"
             },
-            "description": "Sort criteria"
+            "description": "Sort criteria. Must be one of: created_date, usage_character_count_1y, trending, cloned_by_count."
           },
           {
             "name": "page",
@@ -24047,6 +24054,24 @@
         "operationId": "list_whatsapp_accounts",
         "parameters": [
           {
+            "name": "agent_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by assigned agent ID",
+              "title": "Agent Id"
+            },
+            "description": "Filter by assigned agent ID"
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -39636,6 +39661,12 @@
             "description": "If true, the transcription will not have any filler words, false starts and non-speech sounds. Only supported with scribe_v2 model.",
             "default": false
           },
+          "use_speaker_library": {
+            "type": "boolean",
+            "title": "Use Speaker Library",
+            "description": "Whether to use the speaker library for identifying known speakers during diarization. When enabled and diarize is true, detected speakers will be matched against registered speakers in the workspace's speaker library.",
+            "default": false
+          },
           "detect_speaker_roles": {
             "type": "boolean",
             "title": "Detect Speaker Roles",
@@ -40994,9 +41025,21 @@
             "description": "The audio file to upload."
           },
           "extract_composition_plan": {
-            "type": "boolean",
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "enum": [
+              true,
+              false,
+              "music_v1"
+            ],
             "title": "Extract Composition Plan",
-            "description": "Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.",
+            "description": "Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1` or `music_v2`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.",
             "default": false
           },
           "with_timestamps": {
@@ -65008,7 +65051,7 @@
               }
             ],
             "title": "Composition Plan",
-            "description": "The composition plan extracted from the uploaded song. Only present if `extract_composition_plan` was True in the request body"
+            "description": "The composition plan extracted from the uploaded song. Only present if `extract_composition_plan` was provided in the request body."
           },
           "words_timestamps": {
             "anyOf": [
