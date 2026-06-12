@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The type of background music source.
+    /// 
     /// </summary>
-    public sealed partial class BackgroundMusicConfigSourceType
+    public sealed partial class SongSourceContextChatId
     {
 
         /// <summary>

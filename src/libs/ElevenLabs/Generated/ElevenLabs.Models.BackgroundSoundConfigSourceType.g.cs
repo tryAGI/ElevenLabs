@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Identifier for the music source.
+    /// The type of background sound source.
     /// </summary>
-    public sealed partial class BackgroundMusicConfigSourceId
+    public sealed partial class BackgroundSoundConfigSourceType
     {
 
         /// <summary>

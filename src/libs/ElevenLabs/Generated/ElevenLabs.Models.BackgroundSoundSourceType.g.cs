@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The type of background music source.
+    /// The type of background sound source.
     /// </summary>
-    public enum BackgroundMusicSourceType
+    public enum BackgroundSoundSourceType
     {
         /// <summary>
         /// 
@@ -17,27 +17,27 @@ namespace ElevenLabs
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class BackgroundMusicSourceTypeExtensions
+    public static class BackgroundSoundSourceTypeExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this BackgroundMusicSourceType value)
+        public static string ToValueString(this BackgroundSoundSourceType value)
         {
             return value switch
             {
-                BackgroundMusicSourceType.Preset => "preset",
+                BackgroundSoundSourceType.Preset => "preset",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static BackgroundMusicSourceType? ToEnum(string value)
+        public static BackgroundSoundSourceType? ToEnum(string value)
         {
             return value switch
             {
-                "preset" => BackgroundMusicSourceType.Preset,
+                "preset" => BackgroundSoundSourceType.Preset,
                 _ => null,
             };
         }

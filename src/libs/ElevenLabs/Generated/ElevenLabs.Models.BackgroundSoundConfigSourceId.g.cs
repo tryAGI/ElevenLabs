@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Identifier for the music source.
+    /// Identifier for the sound source.
     /// </summary>
-    public sealed partial class BackgroundMusicConfigWorkflowOverrideSourceId
+    public sealed partial class BackgroundSoundConfigSourceId
     {
 
         /// <summary>

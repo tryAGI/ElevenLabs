@@ -24,6 +24,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("chat_id")]
+        public string? ChatId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         public string? Title { get; set; }
 
@@ -76,6 +82,7 @@ namespace ElevenLabs
         /// <param name="sourceType">
         /// Default Value: song
         /// </param>
+        /// <param name="chatId"></param>
         /// <param name="title"></param>
         /// <param name="description"></param>
         /// <param name="genres"></param>
@@ -89,6 +96,7 @@ namespace ElevenLabs
         public SongSourceContext(
             string songId,
             string? sourceType,
+            string? chatId,
             string? title,
             string? description,
             global::System.Collections.Generic.IList<string>? genres,
@@ -99,6 +107,7 @@ namespace ElevenLabs
         {
             this.SourceType = sourceType;
             this.SongId = songId ?? throw new global::System.ArgumentNullException(nameof(songId));
+            this.ChatId = chatId;
             this.Title = title;
             this.Description = description;
             this.Genres = genres;
