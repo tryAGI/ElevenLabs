@@ -44,6 +44,13 @@ namespace ElevenLabs
         public global::ElevenLabs.CustomGuardrailConfigModel? Model { get; set; }
 
         /// <summary>
+        /// How many recent customer messages to include in the guardrail's history, plus the messages that follow them. Only customer messages count toward the limit. 0 (default) shows none; 1 shows the customer's latest message onward. When &gt; 0, the guardrail prompt can refer to this history as &lt;conversation_history&gt;; the reply under evaluation appears as &lt;agent_message&gt; and may repeat at the end of the history.<br/>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("history_message_count")]
+        public int? HistoryMessageCount { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("trigger_action")]
@@ -75,6 +82,10 @@ namespace ElevenLabs
         /// LLM model to use for custom guardrail evaluation<br/>
         /// Default Value: gemini-2.5-flash-lite
         /// </param>
+        /// <param name="historyMessageCount">
+        /// How many recent customer messages to include in the guardrail's history, plus the messages that follow them. Only customer messages count toward the limit. 0 (default) shows none; 1 shows the customer's latest message onward. When &gt; 0, the guardrail prompt can refer to this history as &lt;conversation_history&gt;; the reply under evaluation appears as &lt;agent_message&gt; and may repeat at the end of the history.<br/>
+        /// Default Value: 0
+        /// </param>
         /// <param name="triggerAction"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -85,6 +96,7 @@ namespace ElevenLabs
             bool? isEnabled,
             global::ElevenLabs.GuardrailExecutionMode? executionMode,
             global::ElevenLabs.CustomGuardrailConfigModel? model,
+            int? historyMessageCount,
             global::ElevenLabs.TriggerAction3? triggerAction)
         {
             this.IsEnabled = isEnabled;
@@ -92,6 +104,7 @@ namespace ElevenLabs
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.ExecutionMode = executionMode;
             this.Model = model;
+            this.HistoryMessageCount = historyMessageCount;
             this.TriggerAction = triggerAction;
         }
 
