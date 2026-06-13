@@ -62412,6 +62412,36 @@
         "title": "LivekitStackType",
         "default": "standard"
       },
+      "LoadMemoryEntryToolErrorStatus": {
+        "type": "string",
+        "enum": [
+          "not_found",
+          "invalid_id"
+        ]
+      },
+      "LoadableMemoryEntry": {
+        "properties": {
+          "entry_id": {
+            "type": "string",
+            "title": "Entry Id"
+          },
+          "summary": {
+            "type": "string",
+            "title": "Summary"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          }
+        },
+        "type": "object",
+        "required": [
+          "entry_id",
+          "summary",
+          "text"
+        ],
+        "title": "LoadableMemoryEntry"
+      },
       "MCPApprovalPolicy": {
         "type": "string",
         "enum": [
