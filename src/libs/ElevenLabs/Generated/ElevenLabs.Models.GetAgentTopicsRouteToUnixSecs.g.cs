@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Optional source to extract the section from. Used for inpainting.
+    /// End of the window to view topics for.
     /// </summary>
-    public sealed partial class SongSectionSourceFrom
+    public sealed partial class GetAgentTopicsRouteToUnixSecs
     {
 
         /// <summary>

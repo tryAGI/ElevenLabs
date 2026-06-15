@@ -90,7 +90,7 @@ namespace ElevenLabs
         public bool? UsePhoneticNames { get; set; }
 
         /// <summary>
-        /// Whether to store the generated song for inpainting. Only available to enterprise clients with access to the inpainting feature.<br/>
+        /// Whether to store the generated song for inpainting.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("store_for_inpainting")]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="storeForInpainting">
-        /// Whether to store the generated song for inpainting. Only available to enterprise clients with access to the inpainting feature.<br/>
+        /// Whether to store the generated song for inpainting.<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER
