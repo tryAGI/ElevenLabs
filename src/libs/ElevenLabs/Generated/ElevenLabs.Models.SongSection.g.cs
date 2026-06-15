@@ -44,7 +44,7 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<string> Lines { get; set; }
 
         /// <summary>
-        /// Optional source to extract the section from. Used for inpainting. Only available to enterprise clients with access to the inpainting feature.
+        /// Optional source to extract the section from. Used for inpainting.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_from")]
         public global::ElevenLabs.SectionSource? SourceFrom { get; set; }
@@ -74,7 +74,7 @@ namespace ElevenLabs
         /// The lyrics of the section. Max 200 characters per line.
         /// </param>
         /// <param name="sourceFrom">
-        /// Optional source to extract the section from. Used for inpainting. Only available to enterprise clients with access to the inpainting feature.
+        /// Optional source to extract the section from. Used for inpainting.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

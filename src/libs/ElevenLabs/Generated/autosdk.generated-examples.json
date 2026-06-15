@@ -268,7 +268,7 @@
       "Order": 25,
       "Title": "Upload Music",
       "Slug": "upload-song",
-      "Description": "Upload a music file to be later used for inpainting. Only available to enterprise clients with access to the inpainting feature. Price for uploading is the same as the one for song generation. All uploaded content gets inspected for copyright infringement. If copyrighted content is detected, half of the request cost is still charged.",
+      "Description": "Upload a music file to be later used for inpainting. Price for uploading is the same as the one for song generation. All uploaded content gets inspected for copyright infringement. If copyrighted content is detected, half of the request cost is still charged.",
       "Language": "http",
       "Code": "### Upload Music\n# @name upload_song\nPOST {{host}}/v1/music/upload\nxi-api-key: {{api_key}}\nContent-Type: multipart/form-data\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successfully uploaded music file with optional composition plan\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",

@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Optional source to extract the section from. Used for inpainting.
+    /// Start of the window to view topics for. When set with to_unix_secs, per-day topics in the range are aggregated together.
     /// </summary>
-    public sealed partial class SongSectionSourceFrom
+    public sealed partial class GetAgentTopicsRouteFromUnixSecs
     {
 
         /// <summary>
