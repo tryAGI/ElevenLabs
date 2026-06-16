@@ -32,7 +32,7 @@ public partial class Tests
         AssertReturnType(
             typeof(IMusicGenerationClient),
             nameof(IMusicGenerationClient.CreateAsync),
-            typeof(Task<MusicPrompt>),
+            typeof(Task<AnyOf<MusicPrompt, CompositionPlan4>>),
             typeof(BodyGenerateCompositionPlanV1MusicPlanPost),
             typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
@@ -42,7 +42,7 @@ public partial class Tests
             nameof(IMusicClient.ComposeAsync),
             typeof(Task<byte[]>),
             typeof(BodyComposeMusicV1MusicPost),
-            typeof(AllowedOutputFormats?),
+            typeof(GenerateOutputFormat?),
             typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
 
@@ -51,7 +51,7 @@ public partial class Tests
             nameof(IMusicClient.StreamAsync),
             typeof(Task<Stream>),
             typeof(BodyStreamComposedMusicV1MusicStreamPost),
-            typeof(AllowedOutputFormats?),
+            typeof(StreamComposeOutputFormat?),
             typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
 
@@ -60,7 +60,7 @@ public partial class Tests
             nameof(IMusicClient.ComposeDetailedAsync),
             typeof(Task<byte[]>),
             typeof(BodyComposeMusicWithADetailedResponseV1MusicDetailedPost),
-            typeof(AllowedOutputFormats?),
+            typeof(ComposeDetailedOutputFormat?),
             typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
 
@@ -153,18 +153,18 @@ public partial class Tests
 
         using var client = new ElevenLabsClient(TestApiKey, httpClient, disposeHttpClient: false);
 
-        var compositionPlan = await client.MusicGeneration.CreateAsync(
+        var compositionPlan = (await client.MusicGeneration.CreateAsync(
             prompt: MusicPromptText,
-            musicLengthMs: 3000);
+            musicLengthMs: 3000)).PickValue1();
         compositionPlan.Sections.Should().ContainSingle();
 
         byte[] composedAudio = await client.Music.ComposeAsync(
-            outputFormat: AllowedOutputFormats.Mp32205032,
+            outputFormat: GenerateOutputFormat.Mp32205032,
             compositionPlan: compositionPlan);
         composedAudio.Should().BeEquivalentTo([1, 2, 3], options => options.WithStrictOrdering());
 
         using var streamedAudio = await client.Music.StreamAsync(
-            outputFormat: AllowedOutputFormats.Mp32205032,
+            outputFormat: StreamComposeOutputFormat.Mp32205032,
             prompt: MusicPromptText,
             musicLengthMs: 3000,
             forceInstrumental: true);
@@ -173,7 +173,7 @@ public partial class Tests
         streamedBuffer.ToArray().Should().BeEquivalentTo([4, 5, 6], options => options.WithStrictOrdering());
 
         byte[] detailedAudio = await client.Music.ComposeDetailedAsync(
-            outputFormat: AllowedOutputFormats.Mp32205032,
+            outputFormat: ComposeDetailedOutputFormat.Mp32205032,
             prompt: MusicPromptText,
             musicLengthMs: 3000,
             forceInstrumental: true,

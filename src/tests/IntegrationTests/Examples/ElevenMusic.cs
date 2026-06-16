@@ -18,15 +18,15 @@ public partial class Tests
             "Create a short upbeat instrumental synthwave loop with bright arpeggios and a steady drum groove.";
 
         //// Create a structured composition plan from a natural-language prompt.
-        MusicPrompt compositionPlan = await client.MusicGeneration.CreateAsync(
+        MusicPrompt compositionPlan = (await client.MusicGeneration.CreateAsync(
             prompt: prompt,
-            musicLengthMs: 3000);
+            musicLengthMs: 3000)).PickValue1();
 
         Console.WriteLine($"Generated {compositionPlan.Sections.Count} music section(s).");
 
         //// Generate music from the composition plan.
         byte[] musicBytes = await client.Music.ComposeAsync(
-            outputFormat: AllowedOutputFormats.Mp32205032,
+            outputFormat: GenerateOutputFormat.Mp32205032,
             compositionPlan: compositionPlan);
 
         //// Persist the result to a local file.
