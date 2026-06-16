@@ -64,6 +64,14 @@ namespace ElevenLabs
         public required bool EnableTransferredAgentFirstMessage { get; set; }
 
         /// <summary>
+        /// Defines whether TTS client overrides should be carried over to the transferred agent.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("preserve_client_tts_overrides")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool PreserveClientTtsOverrides { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -86,6 +94,10 @@ namespace ElevenLabs
         /// Whether to enable the transferred agent to send its configured first message after the transfer.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="preserveClientTtsOverrides">
+        /// Defines whether TTS client overrides should be carried over to the transferred agent.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="agentId">
         /// The ID of the agent to transfer the conversation to. None means transfer within the current agent.
         /// </param>
@@ -106,6 +118,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string> edgeOrder,
             int delayMs,
             bool enableTransferredAgentFirstMessage,
+            bool preserveClientTtsOverrides,
             string? agentId,
             string? nodeId,
             string? transferMessage,
@@ -119,6 +132,7 @@ namespace ElevenLabs
             this.DelayMs = delayMs;
             this.TransferMessage = transferMessage;
             this.EnableTransferredAgentFirstMessage = enableTransferredAgentFirstMessage;
+            this.PreserveClientTtsOverrides = preserveClientTtsOverrides;
         }
 
         /// <summary>

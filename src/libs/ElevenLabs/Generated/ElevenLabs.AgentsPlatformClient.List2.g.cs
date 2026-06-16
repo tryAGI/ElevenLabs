@@ -54,7 +54,9 @@ namespace ElevenLabs
             ref string? branchId,
             global::System.Collections.Generic.IList<string>? topicIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses,
-            global::System.Collections.Generic.IList<string>? tagIds);
+            global::System.Collections.Generic.IList<string>? tagIds,
+            ref string? workflowNodeEnteredId,
+            global::System.Collections.Generic.IList<string>? terminationReasons);
         partial void PrepareList2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -83,7 +85,9 @@ namespace ElevenLabs
             string? branchId,
             global::System.Collections.Generic.IList<string>? topicIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses,
-            global::System.Collections.Generic.IList<string>? tagIds);
+            global::System.Collections.Generic.IList<string>? tagIds,
+            string? workflowNodeEnteredId,
+            global::System.Collections.Generic.IList<string>? terminationReasons);
         partial void ProcessList2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -173,6 +177,12 @@ namespace ElevenLabs
         /// <param name="tagIds">
         /// Filter conversations by conversation tag IDs assigned via the conversation-tags endpoints.
         /// </param>
+        /// <param name="workflowNodeEnteredId">
+        /// Filter conversations to only those that entered the given node.
+        /// </param>
+        /// <param name="terminationReasons">
+        /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -203,6 +213,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::System.Collections.Generic.IList<string>? tagIds = default,
+            string? workflowNodeEnteredId = default,
+            global::System.Collections.Generic.IList<string>? terminationReasons = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -233,6 +245,8 @@ namespace ElevenLabs
                 topicIds: topicIds,
                 excludeStatuses: excludeStatuses,
                 tagIds: tagIds,
+                workflowNodeEnteredId: workflowNodeEnteredId,
+                terminationReasons: terminationReasons,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -319,6 +333,12 @@ namespace ElevenLabs
         /// <param name="tagIds">
         /// Filter conversations by conversation tag IDs assigned via the conversation-tags endpoints.
         /// </param>
+        /// <param name="workflowNodeEnteredId">
+        /// Filter conversations to only those that entered the given node.
+        /// </param>
+        /// <param name="terminationReasons">
+        /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -349,6 +369,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::System.Collections.Generic.IList<string>? tagIds = default,
+            string? workflowNodeEnteredId = default,
+            global::System.Collections.Generic.IList<string>? terminationReasons = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -381,7 +403,9 @@ namespace ElevenLabs
                 branchId: ref branchId,
                 topicIds: topicIds,
                 excludeStatuses: excludeStatuses,
-                tagIds: tagIds);
+                tagIds: tagIds,
+                workflowNodeEnteredId: ref workflowNodeEnteredId,
+                terminationReasons: terminationReasons);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -436,6 +460,8 @@ namespace ElevenLabs
                                 .AddOptionalParameter("topic_ids", topicIds?.ToString())
                                 .AddOptionalParameter("exclude_statuses", excludeStatuses?.ToString())
                                 .AddOptionalParameter("tag_ids", tagIds?.ToString())
+                                .AddOptionalParameter("workflow_node_entered_id", workflowNodeEnteredId)
+                                .AddOptionalParameter("termination_reasons", terminationReasons?.ToString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -502,7 +528,9 @@ namespace ElevenLabs
                     branchId: branchId,
                     topicIds: topicIds,
                     excludeStatuses: excludeStatuses,
-                    tagIds: tagIds);
+                    tagIds: tagIds,
+                    workflowNodeEnteredId: workflowNodeEnteredId,
+                    terminationReasons: terminationReasons);
 
                 return __httpRequest;
             }
@@ -890,6 +918,12 @@ namespace ElevenLabs
         /// </param>
         /// <param name="tagIds">
         /// Filter conversations by conversation tag IDs assigned via the conversation-tags endpoints.
+        /// </param>
+        /// <param name="workflowNodeEnteredId">
+        /// Filter conversations to only those that entered the given node.
+        /// </param>
+        /// <param name="terminationReasons">
+        /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
         /// </param> 
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
@@ -919,6 +953,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::System.Collections.Generic.IList<string>? tagIds = default,
+            string? workflowNodeEnteredId = default,
+            global::System.Collections.Generic.IList<string>? terminationReasons = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -950,6 +986,8 @@ namespace ElevenLabs
                     topicIds: topicIds,
                     excludeStatuses: excludeStatuses,
                     tagIds: tagIds,
+                    workflowNodeEnteredId: workflowNodeEnteredId,
+                    terminationReasons: terminationReasons,
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null
                     ? null

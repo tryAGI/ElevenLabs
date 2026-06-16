@@ -55,13 +55,13 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>? Permissions { get; set; }
 
         /// <summary>
-        /// 
+        /// Maximum number of credits allowed in the current billing period.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_limit")]
         public int? CharacterLimit { get; set; }
 
         /// <summary>
-        /// 
+        /// Credits already used in the current billing period.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_count")]
         public int? CharacterCount { get; set; }
@@ -98,8 +98,12 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="permissions"></param>
-        /// <param name="characterLimit"></param>
-        /// <param name="characterCount"></param>
+        /// <param name="characterLimit">
+        /// Maximum number of credits allowed in the current billing period.
+        /// </param>
+        /// <param name="characterCount">
+        /// Credits already used in the current billing period.
+        /// </param>
         /// <param name="allowedIps"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

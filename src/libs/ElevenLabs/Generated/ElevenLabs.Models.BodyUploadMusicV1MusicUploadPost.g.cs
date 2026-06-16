@@ -23,11 +23,19 @@ namespace ElevenLabs
         public required string Filename { get; set; }
 
         /// <summary>
-        /// Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.<br/>
+        /// Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1` or `music_v2`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("extract_composition_plan")]
-        public bool? ExtractCompositionPlan { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<bool?, string>))]
+        public global::ElevenLabs.AnyOf<bool?, string>? ExtractCompositionPlan { get; set; }
+
+        /// <summary>
+        /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("with_timestamps")]
+        public bool? WithTimestamps { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -45,7 +53,11 @@ namespace ElevenLabs
         /// The audio file to upload.
         /// </param>
         /// <param name="extractCompositionPlan">
-        /// Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.<br/>
+        /// Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1` or `music_v2`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="withTimestamps">
+        /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER
@@ -54,11 +66,13 @@ namespace ElevenLabs
         public BodyUploadMusicV1MusicUploadPost(
             byte[] file,
             string filename,
-            bool? extractCompositionPlan)
+            global::ElevenLabs.AnyOf<bool?, string>? extractCompositionPlan,
+            bool? withTimestamps)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.ExtractCompositionPlan = extractCompositionPlan;
+            this.WithTimestamps = withTimestamps;
         }
 
         /// <summary>

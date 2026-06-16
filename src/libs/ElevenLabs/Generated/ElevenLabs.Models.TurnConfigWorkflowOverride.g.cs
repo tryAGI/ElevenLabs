@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0,"use_llm_generated_message":false},"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0}
+    /// Example: {"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0,"use_llm_generated_message":false},"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_model":"turn_v3","turn_timeout":7.0}
     /// </summary>
     public sealed partial class TurnConfigWorkflowOverride
     {
@@ -57,6 +57,12 @@ namespace ElevenLabs
         public bool? RetranscribeOnTurnTimeout { get; set; }
 
         /// <summary>
+        /// Version of the turn detection model to use.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("turn_model")]
+        public global::ElevenLabs.TurnModel? TurnModel { get; set; }
+
+        /// <summary>
         /// Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("soft_timeout_config")]
@@ -95,6 +101,9 @@ namespace ElevenLabs
         /// <param name="retranscribeOnTurnTimeout">
         /// When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.
         /// </param>
+        /// <param name="turnModel">
+        /// Version of the turn detection model to use.
+        /// </param>
         /// <param name="softTimeoutConfig">
         /// Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses.
         /// </param>
@@ -110,6 +119,7 @@ namespace ElevenLabs
             global::ElevenLabs.SpellingPatience? spellingPatience,
             bool? speculativeTurn,
             bool? retranscribeOnTurnTimeout,
+            global::ElevenLabs.TurnModel? turnModel,
             global::ElevenLabs.SoftTimeoutConfigWorkflowOverride? softTimeoutConfig)
         {
             this.TurnTimeout = turnTimeout;
@@ -120,6 +130,7 @@ namespace ElevenLabs
             this.SpellingPatience = spellingPatience;
             this.SpeculativeTurn = speculativeTurn;
             this.RetranscribeOnTurnTimeout = retranscribeOnTurnTimeout;
+            this.TurnModel = turnModel;
             this.SoftTimeoutConfig = softTimeoutConfig;
         }
 

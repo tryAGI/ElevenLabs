@@ -39,7 +39,8 @@ namespace ElevenLabs
         /// A detailed composition plan to guide music generation. Cannot be used in conjunction with `prompt`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("composition_plan")]
-        public global::ElevenLabs.MusicPrompt? CompositionPlan { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan4, object>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan4, object>? CompositionPlan { get; set; }
 
         /// <summary>
         /// The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 3000ms and 600000ms. Optional - if not provided, the model will choose a length based on the prompt.
@@ -89,7 +90,7 @@ namespace ElevenLabs
         public bool? UsePhoneticNames { get; set; }
 
         /// <summary>
-        /// Whether to store the generated song for inpainting. Only available to enterprise clients with access to the inpainting feature.<br/>
+        /// Whether to store the generated song for inpainting.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("store_for_inpainting")]
@@ -142,7 +143,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="storeForInpainting">
-        /// Whether to store the generated song for inpainting. Only available to enterprise clients with access to the inpainting feature.<br/>
+        /// Whether to store the generated song for inpainting.<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER
@@ -152,7 +153,7 @@ namespace ElevenLabs
             string? prompt,
             global::ElevenLabs.MusicGenerationMode? generationMode,
             string? lyricsText,
-            global::ElevenLabs.MusicPrompt? compositionPlan,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan4, object>? compositionPlan,
             int? musicLengthMs,
             global::ElevenLabs.BodyStreamComposedMusicV1MusicStreamPostModelId? modelId,
             int? seed,

@@ -67,6 +67,14 @@ namespace ElevenLabs
         public bool? RetranscribeOnTurnTimeout { get; set; }
 
         /// <summary>
+        /// Version of the turn detection model to use.<br/>
+        /// Default Value: turn_v3
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("turn_model")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TurnModelJsonConverter))]
+        public global::ElevenLabs.TurnModel? TurnModel { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -106,6 +114,10 @@ namespace ElevenLabs
         /// When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="turnModel">
+        /// Version of the turn detection model to use.<br/>
+        /// Default Value: turn_v3
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -117,7 +129,8 @@ namespace ElevenLabs
             global::ElevenLabs.TurnEagerness? turnEagerness,
             global::ElevenLabs.SpellingPatience? spellingPatience,
             bool? speculativeTurn,
-            bool? retranscribeOnTurnTimeout)
+            bool? retranscribeOnTurnTimeout,
+            global::ElevenLabs.TurnModel? turnModel)
         {
             this.TurnTimeout = turnTimeout;
             this.InitialWaitTime = initialWaitTime;
@@ -127,6 +140,7 @@ namespace ElevenLabs
             this.SpellingPatience = spellingPatience;
             this.SpeculativeTurn = speculativeTurn;
             this.RetranscribeOnTurnTimeout = retranscribeOnTurnTimeout;
+            this.TurnModel = turnModel;
         }
 
         /// <summary>

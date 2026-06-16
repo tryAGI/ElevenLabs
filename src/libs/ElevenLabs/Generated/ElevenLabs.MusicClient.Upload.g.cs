@@ -43,7 +43,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Upload Music<br/>
-        /// Upload a music file to be later used for inpainting. Only available to enterprise clients with access to the inpainting feature. Price for uploading is the same as the one for song generation. All uploaded content gets inspected for copyright infringement. If copyrighted content is detected, half of the request cost is still charged.
+        /// Upload a music file to be later used for inpainting. Price for uploading is the same as the one for song generation. All uploaded content gets inspected for copyright infringement. If copyrighted content is detected, half of the request cost is still charged.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -66,7 +66,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Upload Music<br/>
-        /// Upload a music file to be later used for inpainting. Only available to enterprise clients with access to the inpainting feature. Price for uploading is the same as the one for song generation. All uploaded content gets inspected for copyright infringement. If copyrighted content is detected, half of the request cost is still charged.
+        /// Upload a music file to be later used for inpainting. Price for uploading is the same as the one for song generation. All uploaded content gets inspected for copyright infringement. If copyrighted content is detected, half of the request cost is still charged.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -185,8 +185,16 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.ExtractCompositionPlan, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    content: new global::System.Net.Http.StringContent(request.ExtractCompositionPlan.ToString() ?? string.Empty),
                                     name: "\"extract_composition_plan\"");
+
+                            }
+                            if (request.WithTimestamps != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.WithTimestamps, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"with_timestamps\"");
 
                             }
 
@@ -517,7 +525,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Upload Music<br/>
-        /// Upload a music file to be later used for inpainting. Only available to enterprise clients with access to the inpainting feature. Price for uploading is the same as the one for song generation. All uploaded content gets inspected for copyright infringement. If copyrighted content is detected, half of the request cost is still charged.
+        /// Upload a music file to be later used for inpainting. Price for uploading is the same as the one for song generation. All uploaded content gets inspected for copyright infringement. If copyrighted content is detected, half of the request cost is still charged.
         /// </summary>
         /// <param name="file">
         /// The audio file to upload.
@@ -526,7 +534,11 @@ namespace ElevenLabs
         /// The audio file to upload.
         /// </param>
         /// <param name="extractCompositionPlan">
-        /// Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.<br/>
+        /// Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1` or `music_v2`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="withTimestamps">
+        /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -535,7 +547,8 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MusicUploadResponse> UploadAsync(
             byte[] file,
             string filename,
-            bool? extractCompositionPlan = default,
+            global::ElevenLabs.AnyOf<bool?, string>? extractCompositionPlan = default,
+            bool? withTimestamps = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -544,6 +557,7 @@ namespace ElevenLabs
                 File = file,
                 Filename = filename,
                 ExtractCompositionPlan = extractCompositionPlan,
+                WithTimestamps = withTimestamps,
             };
 
             return await UploadAsync(
@@ -554,7 +568,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Upload Music<br/>
-        /// Upload a music file to be later used for inpainting. Only available to enterprise clients with access to the inpainting feature. Price for uploading is the same as the one for song generation. All uploaded content gets inspected for copyright infringement. If copyrighted content is detected, half of the request cost is still charged.
+        /// Upload a music file to be later used for inpainting. Price for uploading is the same as the one for song generation. All uploaded content gets inspected for copyright infringement. If copyrighted content is detected, half of the request cost is still charged.
         /// </summary>
         /// <param name="file">
         /// The audio file to upload.
@@ -563,7 +577,11 @@ namespace ElevenLabs
         /// The audio file to upload.
         /// </param>
         /// <param name="extractCompositionPlan">
-        /// Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.<br/>
+        /// Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1` or `music_v2`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="withTimestamps">
+        /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -572,7 +590,8 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MusicUploadResponse> UploadAsync(
             global::System.IO.Stream file,
             string filename,
-            bool? extractCompositionPlan = default,
+            global::ElevenLabs.AnyOf<bool?, string>? extractCompositionPlan = default,
+            bool? withTimestamps = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -583,6 +602,7 @@ namespace ElevenLabs
                 File = global::System.Array.Empty<byte>(),
                 Filename = filename,
                 ExtractCompositionPlan = extractCompositionPlan,
+                WithTimestamps = withTimestamps,
             };
             PrepareArguments(
                 client: HttpClient);
@@ -689,8 +709,16 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.ExtractCompositionPlan, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    content: new global::System.Net.Http.StringContent(request.ExtractCompositionPlan.ToString() ?? string.Empty),
                                     name: "\"extract_composition_plan\"");
+
+                            }
+                            if (request.WithTimestamps != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.WithTimestamps, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"with_timestamps\"");
 
                             }
 
@@ -1013,7 +1041,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Upload Music<br/>
-        /// Upload a music file to be later used for inpainting. Only available to enterprise clients with access to the inpainting feature. Price for uploading is the same as the one for song generation. All uploaded content gets inspected for copyright infringement. If copyrighted content is detected, half of the request cost is still charged.
+        /// Upload a music file to be later used for inpainting. Price for uploading is the same as the one for song generation. All uploaded content gets inspected for copyright infringement. If copyrighted content is detected, half of the request cost is still charged.
         /// </summary>
         /// <param name="file">
         /// The audio file to upload.
@@ -1022,7 +1050,11 @@ namespace ElevenLabs
         /// The audio file to upload.
         /// </param>
         /// <param name="extractCompositionPlan">
-        /// Whether to generate and return the composition plan for the uploaded song. If True, the response will include the composition_plan but will increase the latency.<br/>
+        /// Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1` or `music_v2`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="withTimestamps">
+        /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -1031,7 +1063,8 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MusicUploadResponse>> UploadAsResponseAsync(
             global::System.IO.Stream file,
             string filename,
-            bool? extractCompositionPlan = default,
+            global::ElevenLabs.AnyOf<bool?, string>? extractCompositionPlan = default,
+            bool? withTimestamps = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -1042,6 +1075,7 @@ namespace ElevenLabs
                 File = global::System.Array.Empty<byte>(),
                 Filename = filename,
                 ExtractCompositionPlan = extractCompositionPlan,
+                WithTimestamps = withTimestamps,
             };
             PrepareArguments(
                 client: HttpClient);
@@ -1148,8 +1182,16 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.ExtractCompositionPlan, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    content: new global::System.Net.Http.StringContent(request.ExtractCompositionPlan.ToString() ?? string.Empty),
                                     name: "\"extract_composition_plan\"");
+
+                            }
+                            if (request.WithTimestamps != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.WithTimestamps, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"with_timestamps\"");
 
                             }
 

@@ -117,6 +117,10 @@ namespace ElevenLabs
         /// If true, the transcription will not have any filler words, false starts and non-speech sounds. Only supported with scribe_v2 model.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="useSpeakerLibrary">
+        /// Whether to use the speaker library for identifying known speakers during diarization. When enabled and diarize is true, detected speakers will be matched against registered speakers in the workspace's speaker library.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="detectSpeakerRoles">
         /// Whether to detect speaker roles (agent vs customer). Requires diarize=true. Cannot be used with use_multi_channel=true. When enabled, speaker_id values will be 'agent' and 'customer' instead of 'speaker_0', 'speaker_1', etc. Usage incurs an additional 10% surcharge on base transcription cost.<br/>
         /// Default Value: false
@@ -157,6 +161,7 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<string, object, object>? webhookMetadata = default,
             global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityDetection = default,
             bool? noVerbatim = default,
+            bool? useSpeakerLibrary = default,
             bool? detectSpeakerRoles = default,
             global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityRedaction = default,
             string? entityRedactionMode = default,

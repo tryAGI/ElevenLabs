@@ -6,6 +6,8 @@ namespace ElevenLabs
     /// <summary>
     /// transcript_index: index of the message in the conversation transcript<br/>
     /// chunk_text: text of the transcript; transcript messages if very long could have several chunks.<br/>
+    /// chunk_highlights: chunk_text split into matched/unmatched segments for highlighting.<br/>
+    ///     Only populated for keyword/text search, not semantic search.<br/>
     /// score: similarity score of the message to the search query
     /// </summary>
     public sealed partial class MessagesSearchResult
@@ -47,6 +49,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("chunk_highlights")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SearchHighlightSegment>? ChunkHighlights { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("score")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double Score { get; set; }
@@ -74,6 +82,7 @@ namespace ElevenLabs
         /// <param name="score"></param>
         /// <param name="conversationStartTimeUnixSecs"></param>
         /// <param name="agentName"></param>
+        /// <param name="chunkHighlights"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -84,13 +93,15 @@ namespace ElevenLabs
             string chunkText,
             double score,
             int conversationStartTimeUnixSecs,
-            string? agentName)
+            string? agentName,
+            global::System.Collections.Generic.IList<global::ElevenLabs.SearchHighlightSegment>? chunkHighlights)
         {
             this.ConversationId = conversationId ?? throw new global::System.ArgumentNullException(nameof(conversationId));
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.AgentName = agentName;
             this.TranscriptIndex = transcriptIndex;
             this.ChunkText = chunkText ?? throw new global::System.ArgumentNullException(nameof(chunkText));
+            this.ChunkHighlights = chunkHighlights;
             this.Score = score;
             this.ConversationStartTimeUnixSecs = conversationStartTimeUnixSecs;
         }

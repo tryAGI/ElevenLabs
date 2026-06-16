@@ -23,6 +23,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Flows,
+        /// <summary>
+        /// 
+        /// </summary>
         InVPC,
         /// <summary>
         /// 
@@ -65,6 +69,7 @@ namespace ElevenLabs
                 SpeechHistoryItemResponseModelSource2.An => "AN",
                 SpeechHistoryItemResponseModelSource2.ConvAI => "ConvAI",
                 SpeechHistoryItemResponseModelSource2.Dubbing => "Dubbing",
+                SpeechHistoryItemResponseModelSource2.Flows => "Flows",
                 SpeechHistoryItemResponseModelSource2.InVPC => "InVPC",
                 SpeechHistoryItemResponseModelSource2.Pd => "PD",
                 SpeechHistoryItemResponseModelSource2.PlayAPI => "PlayAPI",
@@ -85,6 +90,7 @@ namespace ElevenLabs
                 "AN" => SpeechHistoryItemResponseModelSource2.An,
                 "ConvAI" => SpeechHistoryItemResponseModelSource2.ConvAI,
                 "Dubbing" => SpeechHistoryItemResponseModelSource2.Dubbing,
+                "Flows" => SpeechHistoryItemResponseModelSource2.Flows,
                 "InVPC" => SpeechHistoryItemResponseModelSource2.InVPC,
                 "PD" => SpeechHistoryItemResponseModelSource2.Pd,
                 "PlayAPI" => SpeechHistoryItemResponseModelSource2.PlayAPI,

@@ -48,7 +48,7 @@ namespace ElevenLabs
         /// Update assigned agent of a phone number
         /// </summary>
         /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
+        /// The phone number ID. This is returned when a phone number is imported.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -76,7 +76,7 @@ namespace ElevenLabs
         /// Update assigned agent of a phone number
         /// </summary>
         /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
+        /// The phone number ID. This is returned when a phone number is imported.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -488,7 +488,7 @@ namespace ElevenLabs
         /// Update assigned agent of a phone number
         /// </summary>
         /// <param name="phoneNumberId">
-        /// The id of an agent. This is returned on agent creation.
+        /// The phone number ID. This is returned when a phone number is imported.
         /// </param>
         /// <param name="agentId"></param>
         /// <param name="label"></param>

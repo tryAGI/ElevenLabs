@@ -42,6 +42,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.LLMSchemaOverride)}");
                 llm = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.OmitSchemaOverride? omit = default;
+            if (discriminator?.Source == global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModelInputOverridesDiscriminatorSource.Omit)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OmitSchemaOverride), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OmitSchemaOverride> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OmitSchemaOverride)}");
+                omit = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var __value = new global::ElevenLabs.InputOverridesVariant16(
                 discriminator?.Source,
@@ -49,7 +56,9 @@ namespace ElevenLabs.JsonConverters
 
                 dynamicVariable,
 
-                llm
+                llm,
+
+                omit
                 );
 
             return __value;
@@ -81,6 +90,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.LLMSchemaOverride), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.LLMSchemaOverride?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.LLMSchemaOverride).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Llm!, typeInfo);
+            }
+            else if (value.IsOmit)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OmitSchemaOverride), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OmitSchemaOverride?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OmitSchemaOverride).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Omit!, typeInfo);
             }
         }
     }

@@ -13,6 +13,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         MusicV1,
+        /// <summary>
+        /// 
+        /// </summary>
+        MusicV2,
     }
 
     /// <summary>
@@ -28,6 +32,7 @@ namespace ElevenLabs
             return value switch
             {
                 BodyGenerateCompositionPlanV1MusicPlanPostModelId.MusicV1 => "music_v1",
+                BodyGenerateCompositionPlanV1MusicPlanPostModelId.MusicV2 => "music_v2",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -39,6 +44,7 @@ namespace ElevenLabs
             return value switch
             {
                 "music_v1" => BodyGenerateCompositionPlanV1MusicPlanPostModelId.MusicV1,
+                "music_v2" => BodyGenerateCompositionPlanV1MusicPlanPostModelId.MusicV2,
                 _ => null,
             };
         }

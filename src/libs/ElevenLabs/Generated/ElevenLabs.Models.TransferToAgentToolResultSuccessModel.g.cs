@@ -72,6 +72,12 @@ namespace ElevenLabs
         public global::ElevenLabs.BranchInfoVariant1? BranchInfo { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("preserve_client_tts_overrides")]
+        public bool? PreserveClientTtsOverrides { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -98,6 +104,9 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="branchInfo"></param>
+        /// <param name="preserveClientTtsOverrides">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -111,7 +120,8 @@ namespace ElevenLabs
             int? delayMs,
             string? transferMessage,
             bool? enableTransferredAgentFirstMessage,
-            global::ElevenLabs.BranchInfoVariant1? branchInfo)
+            global::ElevenLabs.BranchInfoVariant1? branchInfo,
+            bool? preserveClientTtsOverrides)
         {
             this.ResultType = resultType;
             this.Status = status;
@@ -123,6 +133,7 @@ namespace ElevenLabs
             this.TransferMessage = transferMessage;
             this.EnableTransferredAgentFirstMessage = enableTransferredAgentFirstMessage;
             this.BranchInfo = branchInfo;
+            this.PreserveClientTtsOverrides = preserveClientTtsOverrides;
         }
 
         /// <summary>

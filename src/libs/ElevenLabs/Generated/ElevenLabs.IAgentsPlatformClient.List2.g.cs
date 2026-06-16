@@ -86,6 +86,12 @@ namespace ElevenLabs
         /// <param name="tagIds">
         /// Filter conversations by conversation tag IDs assigned via the conversation-tags endpoints.
         /// </param>
+        /// <param name="workflowNodeEnteredId">
+        /// Filter conversations to only those that entered the given node.
+        /// </param>
+        /// <param name="terminationReasons">
+        /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -116,6 +122,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::System.Collections.Generic.IList<string>? tagIds = default,
+            string? workflowNodeEnteredId = default,
+            global::System.Collections.Generic.IList<string>? terminationReasons = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -198,6 +206,12 @@ namespace ElevenLabs
         /// <param name="tagIds">
         /// Filter conversations by conversation tag IDs assigned via the conversation-tags endpoints.
         /// </param>
+        /// <param name="workflowNodeEnteredId">
+        /// Filter conversations to only those that entered the given node.
+        /// </param>
+        /// <param name="terminationReasons">
+        /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -228,6 +242,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::System.Collections.Generic.IList<string>? tagIds = default,
+            string? workflowNodeEnteredId = default,
+            global::System.Collections.Generic.IList<string>? terminationReasons = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -306,6 +322,12 @@ namespace ElevenLabs
         /// </param>
         /// <param name="tagIds">
         /// Filter conversations by conversation tag IDs assigned via the conversation-tags endpoints.
+        /// </param>
+        /// <param name="workflowNodeEnteredId">
+        /// Filter conversations to only those that entered the given node.
+        /// </param>
+        /// <param name="terminationReasons">
+        /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
         /// </param> 
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
@@ -335,6 +357,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::System.Collections.Generic.IList<string>? tagIds = default,
+            string? workflowNodeEnteredId = default,
+            global::System.Collections.Generic.IList<string>? terminationReasons = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default);
 

@@ -85,7 +85,7 @@ namespace ElevenLabs
         public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? FileFormat { get; set; }
 
         /// <summary>
-        /// The HTTPS URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be accessible via HTTPS and the file size must be less than 2GB. Any valid HTTPS URL is accepted, including URLs from cloud storage providers (AWS S3, Google Cloud Storage, Cloudflare R2, etc.), CDNs, or any other HTTPS source. URLs can be pre-signed or include authentication tokens in query parameters.
+        /// [Deprecated] This parameter is deprecated and will be removed in the future. Use 'source_url' instead.The HTTPS URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be accessible via HTTPS and the file size must be less than 2GB. Any valid HTTPS URL is accepted, including URLs from cloud storage providers (AWS S3, Google Cloud Storage, Cloudflare R2, etc.), CDNs, or any other HTTPS source. URLs can be pre-signed or include authentication tokens in query parameters.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cloud_storage_url")]
         [global::System.Obsolete("This property marked as deprecated.")]
@@ -149,6 +149,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("no_verbatim")]
         public bool? NoVerbatim { get; set; }
+
+        /// <summary>
+        /// Whether to use the speaker library for identifying known speakers during diarization. When enabled and diarize is true, detected speakers will be matched against registered speakers in the workspace's speaker library.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("use_speaker_library")]
+        public bool? UseSpeakerLibrary { get; set; }
 
         /// <summary>
         /// Whether to detect speaker roles (agent vs customer). Requires diarize=true. Cannot be used with use_multi_channel=true. When enabled, speaker_id values will be 'agent' and 'customer' instead of 'speaker_0', 'speaker_1', etc. Usage incurs an additional 10% surcharge on base transcription cost.<br/>
@@ -254,6 +261,10 @@ namespace ElevenLabs
         /// If true, the transcription will not have any filler words, false starts and non-speech sounds. Only supported with scribe_v2 model.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="useSpeakerLibrary">
+        /// Whether to use the speaker library for identifying known speakers during diarization. When enabled and diarize is true, detected speakers will be matched against registered speakers in the workspace's speaker library.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="detectSpeakerRoles">
         /// Whether to detect speaker roles (agent vs customer). Requires diarize=true. Cannot be used with use_multi_channel=true. When enabled, speaker_id values will be 'agent' and 'customer' instead of 'speaker_0', 'speaker_1', etc. Usage incurs an additional 10% surcharge on base transcription cost.<br/>
         /// Default Value: false
@@ -293,6 +304,7 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<string, object, object>? webhookMetadata,
             global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityDetection,
             bool? noVerbatim,
+            bool? useSpeakerLibrary,
             bool? detectSpeakerRoles,
             global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityRedaction,
             string? entityRedactionMode,
@@ -318,6 +330,7 @@ namespace ElevenLabs
             this.WebhookMetadata = webhookMetadata;
             this.EntityDetection = entityDetection;
             this.NoVerbatim = noVerbatim;
+            this.UseSpeakerLibrary = useSpeakerLibrary;
             this.DetectSpeakerRoles = detectSpeakerRoles;
             this.EntityRedaction = entityRedaction;
             this.EntityRedactionMode = entityRedactionMode;

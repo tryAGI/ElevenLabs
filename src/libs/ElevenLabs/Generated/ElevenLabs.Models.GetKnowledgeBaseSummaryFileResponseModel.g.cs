@@ -73,6 +73,18 @@ namespace ElevenLabs
         public string Type { get; set; } = "file";
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("external_sync_info")]
+        public global::ElevenLabs.ExternalFileSyncInfo? ExternalSyncInfo { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_frozen")]
+        public bool? IsFrozen { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -97,6 +109,10 @@ namespace ElevenLabs
         /// <param name="folderPath">
         /// The folder path segments leading to this entity, from root to parent folder.
         /// </param>
+        /// <param name="externalSyncInfo"></param>
+        /// <param name="isFrozen">
+        /// Default Value: false
+        /// </param>
         /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -110,6 +126,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem> dependentAgents,
             string? folderParentId,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentSummaryResponseModel>? folderPath,
+            global::ElevenLabs.ExternalFileSyncInfo? externalSyncInfo,
+            bool? isFrozen,
             string type = "file")
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -121,6 +139,8 @@ namespace ElevenLabs
             this.FolderPath = folderPath;
             this.DependentAgents = dependentAgents ?? throw new global::System.ArgumentNullException(nameof(dependentAgents));
             this.Type = type;
+            this.ExternalSyncInfo = externalSyncInfo;
+            this.IsFrozen = isFrozen;
         }
 
         /// <summary>

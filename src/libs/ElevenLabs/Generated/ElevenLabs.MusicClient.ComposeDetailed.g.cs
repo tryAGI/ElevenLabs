@@ -29,12 +29,12 @@ namespace ElevenLabs
             };
         partial void PrepareComposeDetailedArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::ElevenLabs.AllowedOutputFormats? outputFormat,
+            ref global::ElevenLabs.ComposeDetailedOutputFormat? outputFormat,
             global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPost request);
         partial void PrepareComposeDetailedRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.AllowedOutputFormats? outputFormat,
+            global::ElevenLabs.ComposeDetailedOutputFormat? outputFormat,
             global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPost request);
         partial void ProcessComposeDetailedResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -50,8 +50,7 @@ namespace ElevenLabs
         /// Compose a song from a prompt or a composition plan.
         /// </summary>
         /// <param name="outputFormat">
-        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
-        /// Default Value: mp3_44100_128
+        /// Default Value: auto
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -60,7 +59,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<byte[]> ComposeDetailedAsync(
 
             global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPost request,
-            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.ComposeDetailedOutputFormat? outputFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -79,8 +78,7 @@ namespace ElevenLabs
         /// Compose a song from a prompt or a composition plan.
         /// </summary>
         /// <param name="outputFormat">
-        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
-        /// Default Value: mp3_44100_128
+        /// Default Value: auto
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -89,7 +87,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::System.IO.Stream> ComposeDetailedAsStreamAsync(
 
             global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPost request,
-            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.ComposeDetailedOutputFormat? outputFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -450,8 +448,7 @@ namespace ElevenLabs
         /// Compose a song from a prompt or a composition plan.
         /// </summary>
         /// <param name="outputFormat">
-        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
-        /// Default Value: mp3_44100_128
+        /// Default Value: auto
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -460,7 +457,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<byte[]>> ComposeDetailedAsResponseAsync(
 
             global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPost request,
-            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.ComposeDetailedOutputFormat? outputFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -858,8 +855,7 @@ namespace ElevenLabs
         /// Compose a song from a prompt or a composition plan.
         /// </summary>
         /// <param name="outputFormat">
-        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
-        /// Default Value: mp3_44100_128
+        /// Default Value: auto
         /// </param>
         /// <param name="prompt">
         /// A simple text prompt to generate a song from. Cannot be used in conjunction with `composition_plan`.
@@ -899,11 +895,11 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="respectSectionsDurations">
-        /// Controls how strictly section durations in the `composition_plan` are enforced. Only used with `composition_plan`. When set to true, the model will precisely respect each section's `duration_ms` from the plan. When set to false, the model may adjust individual section durations which will generally lead to better generation quality and improved latency, while always preserving the total song duration from the plan.<br/>
+        /// Controls how strictly section durations in the `composition_plan` are enforced. Only used with `composition_plan` and only applies to `music_v1`; for `music_v2` section durations are always enforced and this is ignored. When false for `music_v1`, the model may adjust individual section durations for better quality and latency, while preserving the total song duration from the plan.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="storeForInpainting">
-        /// Whether to store the generated song for inpainting. Only available to enterprise clients with access to the inpainting feature.<br/>
+        /// Whether to store the generated song for inpainting.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="withTimestamps">
@@ -921,11 +917,11 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> ComposeDetailedAsync(
-            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.ComposeDetailedOutputFormat? outputFormat = default,
             string? prompt = default,
             global::ElevenLabs.MusicGenerationMode? generationMode = default,
             string? lyricsText = default,
-            global::ElevenLabs.MusicPrompt? compositionPlan = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan4, object>? compositionPlan = default,
             int? musicLengthMs = default,
             global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelId? modelId = default,
             int? seed = default,

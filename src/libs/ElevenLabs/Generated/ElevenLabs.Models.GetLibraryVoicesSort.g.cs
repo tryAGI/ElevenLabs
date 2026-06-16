@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Sort criteria
+    /// Sort criteria. Must be one of: created_date, usage_character_count_1y, trending, cloned_by_count.<br/>
+    /// Default Value: created_date
     /// </summary>
     public sealed partial class GetLibraryVoicesSort
     {

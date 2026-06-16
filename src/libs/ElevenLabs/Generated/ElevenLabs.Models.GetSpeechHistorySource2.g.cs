@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Flows,
+        /// <summary>
+        /// 
+        /// </summary>
         Sts,
         /// <summary>
         /// 
@@ -30,6 +34,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                GetSpeechHistorySource2.Flows => "Flows",
                 GetSpeechHistorySource2.Sts => "STS",
                 GetSpeechHistorySource2.Tts => "TTS",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -42,6 +47,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "Flows" => GetSpeechHistorySource2.Flows,
                 "STS" => GetSpeechHistorySource2.Sts,
                 "TTS" => GetSpeechHistorySource2.Tts,
                 _ => null,

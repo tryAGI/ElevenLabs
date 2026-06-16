@@ -27,11 +27,15 @@ namespace ElevenLabs
             };
         partial void PrepareGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId);
+            ref string agentId,
+            int? fromUnixSecs,
+            int? toUnixSecs);
         partial void PrepareGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId);
+            string agentId,
+            int? fromUnixSecs,
+            int? toUnixSecs);
         partial void ProcessGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -48,16 +52,26 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// ID of the agent
         /// </param>
+        /// <param name="fromUnixSecs">
+        /// Start of the window to view topics for. When set with to_unix_secs, per-day topics in the range are aggregated together.
+        /// </param>
+        /// <param name="toUnixSecs">
+        /// End of the window to view topics for.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentTopicsResponseModel> GetAsync(
             string agentId,
+            int? fromUnixSecs = default,
+            int? toUnixSecs = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await GetAsResponseAsync(
                 agentId: agentId,
+                fromUnixSecs: fromUnixSecs,
+                toUnixSecs: toUnixSecs,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -71,11 +85,19 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// ID of the agent
         /// </param>
+        /// <param name="fromUnixSecs">
+        /// Start of the window to view topics for. When set with to_unix_secs, per-day topics in the range are aggregated together.
+        /// </param>
+        /// <param name="toUnixSecs">
+        /// End of the window to view topics for.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAgentTopicsResponseModel>> GetAsResponseAsync(
             string agentId,
+            int? fromUnixSecs = default,
+            int? toUnixSecs = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -83,7 +105,9 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGetArguments(
                 httpClient: HttpClient,
-                agentId: ref agentId);
+                agentId: ref agentId,
+                fromUnixSecs: fromUnixSecs,
+                toUnixSecs: toUnixSecs);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -111,6 +135,10 @@ namespace ElevenLabs
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: $"/v1/convai/agents/{agentId}/topics",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("from_unix_secs", fromUnixSecs?.ToString())
+                                .AddOptionalParameter("to_unix_secs", toUnixSecs?.ToString())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -151,7 +179,9 @@ namespace ElevenLabs
                 PrepareGetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId!);
+                    agentId: agentId!,
+                    fromUnixSecs: fromUnixSecs,
+                    toUnixSecs: toUnixSecs);
 
                 return __httpRequest;
             }

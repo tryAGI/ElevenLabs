@@ -4,6 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
+    /// Composition plan for the `music_v1` model. Using this field with any other model will result in an error.<br/>
     /// Example: {"negative_global_styles":["metal","hip-hop","country"],"positive_global_styles":["pop","rock","jazz"],"sections":[{"duration_ms":10000,"lines":["Verse 1 lyrics"],"negative_local_styles":["metal","hip-hop","country"],"positive_local_styles":["pop","rock","jazz"],"section_name":"Verse 1"}]}
     /// </summary>
     public sealed partial class MusicPrompt

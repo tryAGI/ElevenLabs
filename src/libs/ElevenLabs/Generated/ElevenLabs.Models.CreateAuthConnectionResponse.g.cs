@@ -420,6 +420,43 @@ namespace ElevenLabs
         public global::ElevenLabs.SlackBotAuthResponse PickSlackBotAuth() => IsSlackBotAuth
             ? SlackBotAuth!
             : throw new global::System.InvalidOperationException($"Expected union variant 'SlackBotAuth' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.UrlSecretAuthResponse? UrlSecret { get; init; }
+#else
+        public global::ElevenLabs.UrlSecretAuthResponse? UrlSecret { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UrlSecret))]
+#endif
+        public bool IsUrlSecret => UrlSecret != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickUrlSecret(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UrlSecretAuthResponse? value)
+        {
+            value = UrlSecret;
+            return IsUrlSecret;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.UrlSecretAuthResponse PickUrlSecret() => IsUrlSecret
+            ? UrlSecret!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UrlSecret' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -676,6 +713,29 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.UrlSecretAuthResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.UrlSecretAuthResponse?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.UrlSecretAuthResponse?(CreateAuthConnectionResponse @this) => @this.UrlSecret;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public CreateAuthConnectionResponse(global::ElevenLabs.UrlSecretAuthResponse? value)
+        {
+            UrlSecret = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static CreateAuthConnectionResponse FromUrlSecret(global::ElevenLabs.UrlSecretAuthResponse? value) => new CreateAuthConnectionResponse(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public CreateAuthConnectionResponse(
             global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType? authType,
             global::ElevenLabs.OAuth2ClientCredsResponse? oauth2ClientCredentials,
@@ -688,7 +748,8 @@ namespace ElevenLabs
             global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse? apiIntegrationOauth2AuthCode,
             global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse? apiIntegrationOauth2CustomApp,
             global::ElevenLabs.WhatsAppAuthResponse? whatsappAuth,
-            global::ElevenLabs.SlackBotAuthResponse? slackBotAuth
+            global::ElevenLabs.SlackBotAuthResponse? slackBotAuth,
+            global::ElevenLabs.UrlSecretAuthResponse? urlSecret
             )
         {
             AuthType = authType;
@@ -704,12 +765,14 @@ namespace ElevenLabs
             ApiIntegrationOauth2CustomApp = apiIntegrationOauth2CustomApp;
             WhatsappAuth = whatsappAuth;
             SlackBotAuth = slackBotAuth;
+            UrlSecret = urlSecret;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            UrlSecret as object ??
             SlackBotAuth as object ??
             WhatsappAuth as object ??
             ApiIntegrationOauth2CustomApp as object ??
@@ -737,7 +800,8 @@ namespace ElevenLabs
             ApiIntegrationOauth2AuthCode?.ToString() ??
             ApiIntegrationOauth2CustomApp?.ToString() ??
             WhatsappAuth?.ToString() ??
-            SlackBotAuth?.ToString() 
+            SlackBotAuth?.ToString() ??
+            UrlSecret?.ToString() 
             ;
 
         /// <summary>
@@ -745,7 +809,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth || !IsOauth2ClientCredentials && IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth || !IsOauth2ClientCredentials && !IsBasicAuth && IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && IsWhatsappAuth && !IsSlackBotAuth || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && IsSlackBotAuth;
+            return IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth && !IsUrlSecret || !IsOauth2ClientCredentials && IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth && !IsUrlSecret || !IsOauth2ClientCredentials && !IsBasicAuth && IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth && !IsUrlSecret || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth && !IsUrlSecret || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth && !IsUrlSecret || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth && !IsUrlSecret || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth && !IsUrlSecret || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth && !IsUrlSecret || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth && !IsUrlSecret || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && IsWhatsappAuth && !IsSlackBotAuth && !IsUrlSecret || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && IsSlackBotAuth && !IsUrlSecret || !IsOauth2ClientCredentials && !IsBasicAuth && !IsBearerAuth && !IsOauth2Jwt && !IsPrivateKeyJwt && !IsMtls && !IsCustomHeaderAuth && !IsApiIntegrationOauth2AuthCode && !IsApiIntegrationOauth2CustomApp && !IsWhatsappAuth && !IsSlackBotAuth && IsUrlSecret;
         }
 
         /// <summary>
@@ -763,6 +827,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse, TResult>? apiIntegrationOauth2CustomApp = null,
             global::System.Func<global::ElevenLabs.WhatsAppAuthResponse, TResult>? whatsappAuth = null,
             global::System.Func<global::ElevenLabs.SlackBotAuthResponse, TResult>? slackBotAuth = null,
+            global::System.Func<global::ElevenLabs.UrlSecretAuthResponse, TResult>? urlSecret = null,
             bool validate = true)
         {
             if (validate)
@@ -814,6 +879,10 @@ namespace ElevenLabs
             {
                 return slackBotAuth(SlackBotAuth!);
             }
+            else if (IsUrlSecret && urlSecret != null)
+            {
+                return urlSecret(UrlSecret!);
+            }
 
             return default(TResult);
         }
@@ -843,6 +912,8 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.WhatsAppAuthResponse>? whatsappAuth = null,
 
             global::System.Action<global::ElevenLabs.SlackBotAuthResponse>? slackBotAuth = null,
+
+            global::System.Action<global::ElevenLabs.UrlSecretAuthResponse>? urlSecret = null,
             bool validate = true)
         {
             if (validate)
@@ -893,6 +964,10 @@ namespace ElevenLabs
             else if (IsSlackBotAuth)
             {
                 slackBotAuth?.Invoke(SlackBotAuth!);
+            }
+            else if (IsUrlSecret)
+            {
+                urlSecret?.Invoke(UrlSecret!);
             }
         }
 
@@ -911,6 +986,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse>? apiIntegrationOauth2CustomApp = null,
             global::System.Action<global::ElevenLabs.WhatsAppAuthResponse>? whatsappAuth = null,
             global::System.Action<global::ElevenLabs.SlackBotAuthResponse>? slackBotAuth = null,
+            global::System.Action<global::ElevenLabs.UrlSecretAuthResponse>? urlSecret = null,
             bool validate = true)
         {
             if (validate)
@@ -961,6 +1037,10 @@ namespace ElevenLabs
             else if (IsSlackBotAuth)
             {
                 slackBotAuth?.Invoke(SlackBotAuth!);
+            }
+            else if (IsUrlSecret)
+            {
+                urlSecret?.Invoke(UrlSecret!);
             }
         }
 
@@ -993,6 +1073,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.WhatsAppAuthResponse),
                 SlackBotAuth,
                 typeof(global::ElevenLabs.SlackBotAuthResponse),
+                UrlSecret,
+                typeof(global::ElevenLabs.UrlSecretAuthResponse),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -1019,7 +1101,8 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse?>.Default.Equals(ApiIntegrationOauth2AuthCode, other.ApiIntegrationOauth2AuthCode) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse?>.Default.Equals(ApiIntegrationOauth2CustomApp, other.ApiIntegrationOauth2CustomApp) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WhatsAppAuthResponse?>.Default.Equals(WhatsappAuth, other.WhatsappAuth) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SlackBotAuthResponse?>.Default.Equals(SlackBotAuth, other.SlackBotAuth) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SlackBotAuthResponse?>.Default.Equals(SlackBotAuth, other.SlackBotAuth) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.UrlSecretAuthResponse?>.Default.Equals(UrlSecret, other.UrlSecret) 
                 ;
         }
 

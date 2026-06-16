@@ -191,11 +191,23 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        OptInSmsReminder,
+        /// <summary>
+        /// 
+        /// </summary>
+        OptOutSmsReminder,
+        /// <summary>
+        /// 
+        /// </summary>
         RegisterForGroupSession,
         /// <summary>
         /// 
         /// </summary>
         ReportKnowledgeGap,
+        /// <summary>
+        /// 
+        /// </summary>
+        RestoreCalendarEvent,
         /// <summary>
         /// 
         /// </summary>
@@ -211,11 +223,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        SubmitBusinessInfo,
+        /// <summary>
+        /// 
+        /// </summary>
         UpdateAgentRule,
         /// <summary>
         /// 
         /// </summary>
         UpdateAsset,
+        /// <summary>
+        /// 
+        /// </summary>
+        UpdateBookingPageAppearance,
         /// <summary>
         /// 
         /// </summary>
@@ -319,13 +339,18 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListProducts => "list_products",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListServices => "list_services",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListStaff => "list_staff",
+                SMBToolConfigParamsDiscriminatorSmbToolType.OptInSmsReminder => "opt_in_sms_reminder",
+                SMBToolConfigParamsDiscriminatorSmbToolType.OptOutSmsReminder => "opt_out_sms_reminder",
                 SMBToolConfigParamsDiscriminatorSmbToolType.RegisterForGroupSession => "register_for_group_session",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ReportKnowledgeGap => "report_knowledge_gap",
+                SMBToolConfigParamsDiscriminatorSmbToolType.RestoreCalendarEvent => "restore_calendar_event",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ScheduleGroupSession => "schedule_group_session",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients => "search_clients",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug => "set_booking_slug",
+                SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo => "submit_business_info",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentRule => "update_agent_rule",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAsset => "update_asset",
+                SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBookingPageAppearance => "update_booking_page_appearance",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBookingPageSettings => "update_booking_page_settings",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBusinessInfo => "update_business_info",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateCalendarEvent => "update_calendar_event",
@@ -392,13 +417,18 @@ namespace ElevenLabs
                 "list_products" => SMBToolConfigParamsDiscriminatorSmbToolType.ListProducts,
                 "list_services" => SMBToolConfigParamsDiscriminatorSmbToolType.ListServices,
                 "list_staff" => SMBToolConfigParamsDiscriminatorSmbToolType.ListStaff,
+                "opt_in_sms_reminder" => SMBToolConfigParamsDiscriminatorSmbToolType.OptInSmsReminder,
+                "opt_out_sms_reminder" => SMBToolConfigParamsDiscriminatorSmbToolType.OptOutSmsReminder,
                 "register_for_group_session" => SMBToolConfigParamsDiscriminatorSmbToolType.RegisterForGroupSession,
                 "report_knowledge_gap" => SMBToolConfigParamsDiscriminatorSmbToolType.ReportKnowledgeGap,
+                "restore_calendar_event" => SMBToolConfigParamsDiscriminatorSmbToolType.RestoreCalendarEvent,
                 "schedule_group_session" => SMBToolConfigParamsDiscriminatorSmbToolType.ScheduleGroupSession,
                 "search_clients" => SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients,
                 "set_booking_slug" => SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug,
+                "submit_business_info" => SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo,
                 "update_agent_rule" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentRule,
                 "update_asset" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAsset,
+                "update_booking_page_appearance" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBookingPageAppearance,
                 "update_booking_page_settings" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBookingPageSettings,
                 "update_business_info" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBusinessInfo,
                 "update_calendar_event" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateCalendarEvent,

@@ -50,6 +50,12 @@ namespace ElevenLabs
         public global::ElevenLabs.SIPTrunkCredentialsRequestModel? Credentials { get; set; }
 
         /// <summary>
+        /// Media codecs that should be offered in the SDP for outbound calls. If empty, all supported codecs are offered.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enabled_codecs")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.MediaCodec>? EnabledCodecs { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -78,6 +84,9 @@ namespace ElevenLabs
         /// <param name="credentials">
         /// Optional digest authentication credentials (username/password). If not provided, ACL authentication is assumed.
         /// </param>
+        /// <param name="enabledCodecs">
+        /// Media codecs that should be offered in the SDP for outbound calls. If empty, all supported codecs are offered.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -87,7 +96,8 @@ namespace ElevenLabs
             global::ElevenLabs.SIPMediaEncryptionEnum? mediaEncryption,
             global::System.Collections.Generic.Dictionary<string, string>? headers,
             global::System.Collections.Generic.Dictionary<string, string>? attributesToHeaders,
-            global::ElevenLabs.SIPTrunkCredentialsRequestModel? credentials)
+            global::ElevenLabs.SIPTrunkCredentialsRequestModel? credentials,
+            global::System.Collections.Generic.IList<global::ElevenLabs.MediaCodec>? enabledCodecs)
         {
             this.Address = address ?? throw new global::System.ArgumentNullException(nameof(address));
             this.Transport = transport;
@@ -95,6 +105,7 @@ namespace ElevenLabs
             this.Headers = headers;
             this.AttributesToHeaders = attributesToHeaders;
             this.Credentials = credentials;
+            this.EnabledCodecs = enabledCodecs;
         }
 
         /// <summary>
