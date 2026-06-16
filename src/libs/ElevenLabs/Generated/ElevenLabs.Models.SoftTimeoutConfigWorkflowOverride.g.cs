@@ -33,6 +33,12 @@ namespace ElevenLabs
         public bool? UseLlmGeneratedMessage { get; set; }
 
         /// <summary>
+        /// If enabled, shuffle the order of static soft timeout messages once at the start of each turn. Only applies when use_llm_generated_message is false.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("randomize_fillers")]
+        public bool? RandomizeFillers { get; set; }
+
+        /// <summary>
         /// Maximum filler messages while waiting for a single LLM response. Fires every timeout_seconds until the LLM streams content or this limit is reached.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_soft_timeouts_per_generation")]
@@ -65,6 +71,9 @@ namespace ElevenLabs
         /// <param name="useLlmGeneratedMessage">
         /// If enabled, the soft timeout message will be generated dynamically instead of using the static message.
         /// </param>
+        /// <param name="randomizeFillers">
+        /// If enabled, shuffle the order of static soft timeout messages once at the start of each turn. Only applies when use_llm_generated_message is false.
+        /// </param>
         /// <param name="maxSoftTimeoutsPerGeneration">
         /// Maximum filler messages while waiting for a single LLM response. Fires every timeout_seconds until the LLM streams content or this limit is reached.
         /// </param>
@@ -79,6 +88,7 @@ namespace ElevenLabs
             string? message,
             global::System.Collections.Generic.IList<string>? additionalSoftTimeoutMessages,
             bool? useLlmGeneratedMessage,
+            bool? randomizeFillers,
             int? maxSoftTimeoutsPerGeneration,
             string? llmGeneratedMessagePromptOverride)
         {
@@ -86,6 +96,7 @@ namespace ElevenLabs
             this.Message = message;
             this.AdditionalSoftTimeoutMessages = additionalSoftTimeoutMessages;
             this.UseLlmGeneratedMessage = useLlmGeneratedMessage;
+            this.RandomizeFillers = randomizeFillers;
             this.MaxSoftTimeoutsPerGeneration = maxSoftTimeoutsPerGeneration;
             this.LlmGeneratedMessagePromptOverride = llmGeneratedMessagePromptOverride;
         }

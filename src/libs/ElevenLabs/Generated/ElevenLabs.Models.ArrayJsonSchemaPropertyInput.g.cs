@@ -22,7 +22,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Schema for array elements.<br/>
-        /// Default Value: {"type":"string","description":"Array element","is_system_provided":false,"dynamic_variable":"","constant_value":"","is_omitted":false}
+        /// Default Value: {"type":"string","description":"Array element","is_system_provided":false,"dynamic_variable":"","allowed_values_dynamic_variable":"","constant_value":"","is_omitted":false}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("items")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.OneOfJsonConverter<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput>))]
@@ -62,7 +62,7 @@ namespace ElevenLabs
         /// <param name="description"></param>
         /// <param name="items">
         /// Schema for array elements.<br/>
-        /// Default Value: {"type":"string","description":"Array element","is_system_provided":false,"dynamic_variable":"","constant_value":"","is_omitted":false}
+        /// Default Value: {"type":"string","description":"Array element","is_system_provided":false,"dynamic_variable":"","allowed_values_dynamic_variable":"","constant_value":"","is_omitted":false}
         /// </param>
         /// <param name="dynamicVariable">
         /// When set, the entire array is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided array), constant_value, and is_omitted.
