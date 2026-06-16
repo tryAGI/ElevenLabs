@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+install_autosdk_cli() {
+  dotnet tool update --global autosdk.cli --prerelease >/dev/null 2>&1 || \
+    dotnet tool install --global autosdk.cli --prerelease
+}
+
+fetch_spec() {
+  curl "$@" \
+    --fail --silent --show-error --location \
+    --retry 5 --retry-delay 10 --retry-all-errors \
+    --connect-timeout 30 --max-time 300
+}
+
 # OpenAPI spec: https://api.elevenlabs.io/openapi.json (+ AsyncAPI)
 
 use_pinned_spec=false
@@ -19,14 +31,10 @@ if [[ "${TRYAGI_PINNED_SPEC:-0}" == "1" ]]; then
   use_pinned_spec=true
 fi
 
-if dotnet tool list --global | grep -q '^autosdk\.cli[[:space:]]'; then
-  dotnet tool update --global autosdk.cli --prerelease
-else
-  dotnet tool install --global autosdk.cli --prerelease
-fi
+install_autosdk_cli
 rm -rf Generated
 if [[ "$use_pinned_spec" == false ]]; then
-  curl --fail --silent --show-error -L https://api.elevenlabs.io/openapi.json | jq '
+  fetch_spec --fail --silent --show-error -L https://api.elevenlabs.io/openapi.json | jq '
     # The upstream GenerationNode response spec lists every model-specific parameter
     # schema in one large anyOf. That generates a huge AnyOf<...> type which trips
     # Roslyn/System.Text.Json source generation, while the corresponding request
