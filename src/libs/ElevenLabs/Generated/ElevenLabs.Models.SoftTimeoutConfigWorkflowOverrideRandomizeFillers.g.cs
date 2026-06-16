@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// If enabled, shuffle the order of static soft timeout messages once at the start of each turn. Only applies when use_llm_generated_message is false.
     /// </summary>
-    public sealed partial class NoCoachingSettingsMemoryBaseId
+    public sealed partial class SoftTimeoutConfigWorkflowOverrideRandomizeFillers
     {
 
         /// <summary>

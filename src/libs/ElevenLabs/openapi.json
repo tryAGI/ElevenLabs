@@ -15799,6 +15799,27 @@
             "description": "Filter conversations to only those that entered the given node."
           },
           {
+            "name": "termination_reasons",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.",
+              "title": "Termination Reasons"
+            },
+            "description": "Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -32719,6 +32740,12 @@
             "description": "The name of the dynamic variable to use for this property's value. Mutually exclusive with description, is_system_provided, constant_value, and is_omitted.",
             "default": ""
           },
+          "allowed_values_dynamic_variable": {
+            "type": "string",
+            "title": "Allowed Values Dynamic Variable",
+            "description": "When set, the LLM provides the value but the runtime rejects any value not present in the list held by this dynamic variable. Use to let the LLM pick from a server-verified set (e.g. the IDs the current user is allowed to access). Requires description; mutually exclusive with dynamic_variable, is_system_provided, constant_value, and is_omitted.",
+            "default": ""
+          },
           "constant_value": {
             "anyOf": [
               {
@@ -33358,6 +33385,7 @@
               "description": "Array element",
               "is_system_provided": false,
               "dynamic_variable": "",
+              "allowed_values_dynamic_variable": "",
               "constant_value": "",
               "is_omitted": false
             }
@@ -33439,6 +33467,7 @@
               "description": "Array element",
               "is_system_provided": false,
               "dynamic_variable": "",
+              "allowed_values_dynamic_variable": "",
               "constant_value": "",
               "is_omitted": false
             }
@@ -44451,60 +44480,6 @@
         },
         "type": "object",
         "title": "ClipAnimation"
-      },
-      "CoachedAgentSettings": {
-        "properties": {
-          "type": {
-            "type": "string",
-            "const": "coached",
-            "title": "Type",
-            "default": "coached"
-          },
-          "memory_base_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Memory Base Id"
-          }
-        },
-        "type": "object",
-        "title": "CoachedAgentSettings"
-      },
-      "CoachingAgentSettings": {
-        "properties": {
-          "type": {
-            "type": "string",
-            "const": "coaching",
-            "title": "Type",
-            "default": "coaching"
-          },
-          "coached_agent_id": {
-            "type": "string",
-            "title": "Coached Agent Id"
-          },
-          "memory_base_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Memory Base Id"
-          }
-        },
-        "type": "object",
-        "required": [
-          "coached_agent_id"
-        ],
-        "title": "CoachingAgentSettings",
-        "description": "Runtime-only settings for the virtual coach. Not stored in the database."
       },
       "CodeToolAllowedDomain": {
         "properties": {
@@ -62422,6 +62397,12 @@
             "description": "The name of the dynamic variable to use for this property's value. Mutually exclusive with description, is_system_provided, constant_value, and is_omitted.",
             "default": ""
           },
+          "allowed_values_dynamic_variable": {
+            "type": "string",
+            "title": "Allowed Values Dynamic Variable",
+            "description": "When set, the LLM provides the value but the runtime rejects any value not present in the list held by this dynamic variable. Use to let the LLM pick from a server-verified set (e.g. the IDs the current user is allowed to access). Requires description; mutually exclusive with dynamic_variable, is_system_provided, constant_value, and is_omitted.",
+            "default": ""
+          },
           "constant_value": {
             "anyOf": [
               {
@@ -65279,29 +65260,6 @@
         "example": {
           "song_id": "jR4Xz8kL2mNpQ9wVtY1b"
         }
-      },
-      "NoCoachingSettings": {
-        "properties": {
-          "type": {
-            "type": "string",
-            "const": "none",
-            "title": "Type",
-            "default": "none"
-          },
-          "memory_base_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Memory Base Id"
-          }
-        },
-        "type": "object",
-        "title": "NoCoachingSettings"
       },
       "NonStreamingOutputFormats": {
         "type": "string",
@@ -75550,6 +75508,12 @@
             "description": "If enabled, the soft timeout message will be generated dynamically instead of using the static message.",
             "default": false
           },
+          "randomize_fillers": {
+            "type": "boolean",
+            "title": "Randomize Fillers",
+            "description": "If enabled, shuffle the order of static soft timeout messages once at the start of each turn. Only applies when use_llm_generated_message is false.",
+            "default": false
+          },
           "max_soft_timeouts_per_generation": {
             "type": "integer",
             "maximum": 8.0,
@@ -75674,6 +75638,18 @@
             ],
             "title": "Use Llm Generated Message",
             "description": "If enabled, the soft timeout message will be generated dynamically instead of using the static message."
+          },
+          "randomize_fillers": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Randomize Fillers",
+            "description": "If enabled, shuffle the order of static soft timeout messages once at the start of each turn. Only applies when use_llm_generated_message is false."
           },
           "max_soft_timeouts_per_generation": {
             "anyOf": [

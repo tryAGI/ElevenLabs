@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
     /// </summary>
-    public sealed partial class CoachingAgentSettingsMemoryBaseId
+    public sealed partial class GetConversationHistoriesRouteTerminationReasons
     {
 
         /// <summary>
