@@ -75,6 +75,12 @@ namespace ElevenLabs
         public global::ElevenLabs.TurnModel? TurnModel { get; set; }
 
         /// <summary>
+        /// List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("interruption_ignore_terms")]
+        public global::System.Collections.Generic.IList<string>? InterruptionIgnoreTerms { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -118,6 +124,9 @@ namespace ElevenLabs
         /// Version of the turn detection model to use.<br/>
         /// Default Value: turn_v3
         /// </param>
+        /// <param name="interruptionIgnoreTerms">
+        /// List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -130,7 +139,8 @@ namespace ElevenLabs
             global::ElevenLabs.SpellingPatience? spellingPatience,
             bool? speculativeTurn,
             bool? retranscribeOnTurnTimeout,
-            global::ElevenLabs.TurnModel? turnModel)
+            global::ElevenLabs.TurnModel? turnModel,
+            global::System.Collections.Generic.IList<string>? interruptionIgnoreTerms)
         {
             this.TurnTimeout = turnTimeout;
             this.InitialWaitTime = initialWaitTime;
@@ -141,6 +151,7 @@ namespace ElevenLabs
             this.SpeculativeTurn = speculativeTurn;
             this.RetranscribeOnTurnTimeout = retranscribeOnTurnTimeout;
             this.TurnModel = turnModel;
+            this.InterruptionIgnoreTerms = interruptionIgnoreTerms;
         }
 
         /// <summary>

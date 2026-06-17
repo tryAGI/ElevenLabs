@@ -55,6 +55,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>? Permissions { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("disable_reason")]
+        public global::ElevenLabs.LockReason? DisableReason { get; set; }
+
+        /// <summary>
         /// Maximum number of credits allowed in the current billing period.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_limit")]
@@ -98,6 +104,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="permissions"></param>
+        /// <param name="disableReason"></param>
         /// <param name="characterLimit">
         /// Maximum number of credits allowed in the current billing period.
         /// </param>
@@ -117,6 +124,7 @@ namespace ElevenLabs
             int? createdAtUnix,
             bool? isDisabled,
             global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>? permissions,
+            global::ElevenLabs.LockReason? disableReason,
             int? characterLimit,
             int? characterCount,
             global::System.Collections.Generic.IList<string>? allowedIps)
@@ -128,6 +136,7 @@ namespace ElevenLabs
             this.CreatedAtUnix = createdAtUnix;
             this.IsDisabled = isDisabled;
             this.Permissions = permissions;
+            this.DisableReason = disableReason;
             this.CharacterLimit = characterLimit;
             this.CharacterCount = characterCount;
             this.HashedXiApiKey = hashedXiApiKey ?? throw new global::System.ArgumentNullException(nameof(hashedXiApiKey));

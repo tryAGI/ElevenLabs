@@ -39,6 +39,12 @@ namespace ElevenLabs
         public string? MergedFromVersionId { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rebased_from_version_id")]
+        public string? RebasedFromVersionId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -52,6 +58,7 @@ namespace ElevenLabs
         /// <param name="mergedIntoBranchId"></param>
         /// <param name="mergedFromBranchId"></param>
         /// <param name="mergedFromVersionId"></param>
+        /// <param name="rebasedFromVersionId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -60,13 +67,15 @@ namespace ElevenLabs
             string? outOfBranchParentId,
             string? mergedIntoBranchId,
             string? mergedFromBranchId,
-            string? mergedFromVersionId)
+            string? mergedFromVersionId,
+            string? rebasedFromVersionId)
         {
             this.InBranchParentId = inBranchParentId;
             this.OutOfBranchParentId = outOfBranchParentId;
             this.MergedIntoBranchId = mergedIntoBranchId;
             this.MergedFromBranchId = mergedFromBranchId;
             this.MergedFromVersionId = mergedFromVersionId;
+            this.RebasedFromVersionId = rebasedFromVersionId;
         }
 
         /// <summary>

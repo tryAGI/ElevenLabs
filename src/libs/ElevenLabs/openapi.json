@@ -3202,6 +3202,83 @@
         "x-fern-sdk-method-name": "update"
       }
     },
+    "/v1/voices": {
+      "get": {
+        "tags": [
+          "voices",
+          "voices"
+        ],
+        "summary": "List Voices",
+        "description": "Returns a list of all available voices for a user. Stops working once the user's workspace exceeds 500 voices.",
+        "operationId": "get_voices",
+        "parameters": [
+          {
+            "name": "show_legacy",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "If set to true, legacy premade voices will be included in responses from /v1/voices",
+              "examples": [
+                true
+              ],
+              "default": false,
+              "title": "Show Legacy"
+            },
+            "description": "If set to true, legacy premade voices will be included in responses from /v1/voices"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetVoicesResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "voices",
+        "x-fern-sdk-method-name": "get_all"
+      }
+    },
     "/v1/voices/{voice_id}": {
       "get": {
         "tags": [
@@ -3350,82 +3427,6 @@
         },
         "x-fern-sdk-group-name": "voices",
         "x-fern-sdk-method-name": "delete"
-      }
-    },
-    "/v1/voices": {
-      "get": {
-        "tags": [
-          "voices"
-        ],
-        "summary": "List Voices",
-        "description": "Returns a list of all available voices for a user. Stops working once the user's workspace exceeds 500 voices.",
-        "operationId": "get_voices",
-        "parameters": [
-          {
-            "name": "show_legacy",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "If set to true, legacy premade voices will be included in responses from /v1/voices",
-              "examples": [
-                true
-              ],
-              "default": false,
-              "title": "Show Legacy"
-            },
-            "description": "If set to true, legacy premade voices will be included in responses from /v1/voices"
-          },
-          {
-            "name": "xi-api-key",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
-              "title": "Xi-Api-Key"
-            },
-            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetVoicesResponseModel"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "x-fern-sdk-group-name": "voices",
-        "x-fern-sdk-method-name": "get_all"
       }
     },
     "/v2/voices": {
@@ -24734,6 +24735,92 @@
         "x-fern-sdk-method-name": "merge"
       }
     },
+    "/v1/convai/agents/{agent_id}/branches/{branch_id}/rebase": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Rebase A Branch Onto Main",
+        "description": "Rebase a branch onto the latest main branch, incorporating main's changes while preserving the branch's own changes.",
+        "operationId": "rebase_branch_onto_main",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "branch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Unique identifier for the source branch to merge from.",
+              "examples": [
+                "agtbrch_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "embed": true,
+              "title": "Branch Id"
+            },
+            "description": "Unique identifier for the source branch to merge from."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "branches"
+        ],
+        "x-fern-sdk-method-name": "rebase"
+      }
+    },
     "/v1/convai/agents/{agent_id}/deployments": {
       "post": {
         "tags": [
@@ -32030,6 +32117,17 @@
               }
             ],
             "title": "Merged From Version Id"
+          },
+          "rebased_from_version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rebased From Version Id"
           }
         },
         "type": "object",
@@ -34827,6 +34925,14 @@
           "turn_model": {
             "$ref": "#/components/schemas/TurnModel",
             "default": "turn_v3"
+          },
+          "interruption_ignore_terms": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Interruption Ignore Terms",
+            "description": "List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching."
           }
         },
         "type": "object",
@@ -35972,10 +36078,14 @@
           "composition_plan": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/MusicPrompt"
-              },
-              {
-                "$ref": "#/components/schemas/CompositionPlan"
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MusicPrompt"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CompositionPlan"
+                  }
+                ]
               },
               {
                 "type": "null"
@@ -36153,10 +36263,14 @@
           "composition_plan": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/MusicPrompt"
-              },
-              {
-                "$ref": "#/components/schemas/CompositionPlan"
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MusicPrompt"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CompositionPlan"
+                  }
+                ]
               },
               {
                 "type": "null"
@@ -39984,10 +40098,14 @@
           "composition_plan": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/MusicPrompt"
-              },
-              {
-                "$ref": "#/components/schemas/CompositionPlan"
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MusicPrompt"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CompositionPlan"
+                  }
+                ]
               },
               {
                 "type": "null"
@@ -43294,7 +43412,10 @@
             "enum": [
               "none",
               "fade",
-              "scale"
+              "scale",
+              "pop",
+              "slide_up",
+              "slide_down"
             ],
             "title": "Enter Type"
           },
@@ -43303,7 +43424,10 @@
             "enum": [
               "none",
               "fade",
-              "scale"
+              "scale",
+              "pop",
+              "slide_up",
+              "slide_down"
             ],
             "title": "Exit Type"
           }
@@ -43368,7 +43492,10 @@
             "enum": [
               "none",
               "fade",
-              "scale"
+              "scale",
+              "pop",
+              "slide_up",
+              "slide_down"
             ],
             "title": "Enter Type"
           },
@@ -43377,7 +43504,10 @@
             "enum": [
               "none",
               "fade",
-              "scale"
+              "scale",
+              "pop",
+              "slide_up",
+              "slide_down"
             ],
             "title": "Exit Type"
           }
@@ -44481,48 +44611,6 @@
         "type": "object",
         "title": "ClipAnimation"
       },
-      "CodeToolAllowedDomain": {
-        "properties": {
-          "domain": {
-            "type": "string",
-            "maxLength": 253,
-            "minLength": 1,
-            "title": "Domain",
-            "description": "Domain pattern that code tools can access. Must be a valid domain (e.g. api.github.com), optionally with a subdomain wildcard (*.example.com) or path glob (api.example.com/v1/*)."
-          },
-          "name": {
-            "type": "string",
-            "maxLength": 100,
-            "minLength": 1,
-            "title": "Name",
-            "description": "Human-readable label for this domain entry"
-          }
-        },
-        "type": "object",
-        "required": [
-          "domain",
-          "name"
-        ],
-        "title": "CodeToolAllowedDomain"
-      },
-      "CodeToolContextVariable": {
-        "properties": {
-          "name": {
-            "type": "string",
-            "title": "Name"
-          },
-          "env_var_label": {
-            "type": "string",
-            "title": "Env Var Label"
-          }
-        },
-        "type": "object",
-        "required": [
-          "name",
-          "env_var_label"
-        ],
-        "title": "CodeToolContextVariable"
-      },
       "ColumnFilter": {
         "properties": {
           "column": {
@@ -44600,9 +44688,9 @@
         "properties": {
           "chunks": {
             "items": {
-              "anyOf": [
+              "oneOf": [
                 {
-                  "$ref": "#/components/schemas/GenerationChunk"
+                  "$ref": "#/components/schemas/GenerationChunk-Input"
                 },
                 {
                   "$ref": "#/components/schemas/AudioRefChunk"
@@ -45368,6 +45456,10 @@
             "title": "Monitoring Events",
             "description": "The events that will be sent to monitoring connections."
           },
+          "background_sound": {
+            "$ref": "#/components/schemas/BackgroundSoundConfig",
+            "description": "Configuration for background sound during conversations."
+          },
           "source_attribution": {
             "type": "boolean",
             "title": "Source Attribution",
@@ -45426,6 +45518,10 @@
             "type": "array",
             "title": "Monitoring Events",
             "description": "The events that will be sent to monitoring connections."
+          },
+          "background_sound": {
+            "$ref": "#/components/schemas/BackgroundSoundConfig",
+            "description": "Configuration for background sound during conversations."
           },
           "source_attribution": {
             "type": "boolean",
@@ -45788,6 +45884,17 @@
             "title": "Monitoring Events",
             "description": "The events that will be sent to monitoring connections."
           },
+          "background_sound": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BackgroundSoundConfigWorkflowOverride"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Configuration for background sound during conversations."
+          },
           "source_attribution": {
             "anyOf": [
               {
@@ -45891,6 +45998,17 @@
             ],
             "title": "Monitoring Events",
             "description": "The events that will be sent to monitoring connections."
+          },
+          "background_sound": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BackgroundSoundConfigWorkflowOverride"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Configuration for background sound during conversations."
           },
           "source_attribution": {
             "anyOf": [
@@ -46961,6 +47079,17 @@
             },
             "type": "array",
             "title": "Used Static Kb Document Ids"
+          },
+          "user_identifier": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "User Identifier"
           }
         },
         "type": "object",
@@ -47136,6 +47265,17 @@
             },
             "type": "array",
             "title": "Used Static Kb Document Ids"
+          },
+          "user_identifier": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "User Identifier"
           }
         },
         "type": "object",
@@ -47416,6 +47556,17 @@
             },
             "type": "array",
             "title": "Used Static Kb Document Ids"
+          },
+          "user_identifier": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "User Identifier"
           },
           "file_input": {
             "anyOf": [
@@ -50687,10 +50838,26 @@
             "default": "simulation"
           },
           "success_condition": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Success Condition",
-            "description": "A prompt that evaluates whether the agent's response is successful. Should return True or False.",
-            "default": ""
+            "description": "Deprecated legacy single success criterion. Use success_conditions instead. At least one of success_condition or success_conditions is required.",
+            "deprecated": true
+          },
+          "success_conditions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Success Conditions",
+            "description": "List of prompts that evaluate whether the simulation was successful. If provided, all criteria are evaluated and merged into a final result. Capped at the maximum number of evaluation criteria."
           },
           "simulation_scenario": {
             "type": "string",
@@ -55515,7 +55682,89 @@
           "text": "Hello"
         }
       },
-      "GenerationChunk": {
+      "GenerationChunk-Input": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 6000,
+            "title": "Text",
+            "description": "The text config to be generated for this chunk. Can contain section name in square brackets, e.g. [Verse 1], lyrics lines, and inline directions in curly braces, e.g. {scratching}."
+          },
+          "duration_ms": {
+            "type": "integer",
+            "maximum": 120000.0,
+            "minimum": 3000.0,
+            "title": "Duration Ms",
+            "description": "The duration of the chunk in milliseconds. Must be between 3000ms and 120000ms."
+          },
+          "positive_styles": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "title": "Positive Styles",
+            "description": "The styles and musical directions that should be present in this chunk. Use English language for best results. The styles for the first chunk are the most important as they set the overall tone and genre. Styles for subsequent chunks can be used to add nuance, progression, emphasis, or change the direction of the song. Aim to have at least 6-7 styles in early chunks until the direction is established. Generic styles like 'great production quality' are good default styles to append to the list."
+          },
+          "negative_styles": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "title": "Negative Styles",
+            "description": "The styles and musical directions that should not be present in this chunk. Use English language for best results. Leaving empty is a good default, only use this field if you want to explicitly avoid a particular style or direction."
+          },
+          "context_adherence": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "title": "Context Adherence",
+            "description": "How much the model adheres to the context of its surrounding chunks. Low adherence means the model can deviate from the context and be more creative. High adherence means the model will be more consistent with the context.",
+            "default": "high"
+          },
+          "conditioning_ref": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioRefChunk"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The audio reference to condition the generation on. The first chunk is the most important as it will influence the generation of all subsequent chunks. Thus, if you want to apply conditioning to the entire song, start conditioning from the first chunk."
+          },
+          "condition_strength": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high",
+                  "xhigh"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Condition Strength",
+            "description": "How strongly the model adheres to the conditioning reference. Low strength means the model will be more creative and deviate from the reference. High strength means the model will be more consistent with the reference."
+          }
+        },
+        "type": "object",
+        "required": [
+          "text",
+          "duration_ms",
+          "positive_styles"
+        ],
+        "title": "GenerationChunk"
+      },
+      "GenerationChunk-Output": {
         "properties": {
           "text": {
             "type": "string",
@@ -58660,10 +58909,26 @@
             "default": "simulation"
           },
           "success_condition": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Success Condition",
-            "description": "A prompt that evaluates whether the agent's response is successful. Should return True or False.",
-            "default": ""
+            "description": "Deprecated legacy single success criterion. Use success_conditions instead. At least one of success_condition or success_conditions is required.",
+            "deprecated": true
+          },
+          "success_conditions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Success Conditions",
+            "description": "List of prompts that evaluate whether the simulation was successful. If provided, all criteria are evaluated and merged into a final result. Capped at the maximum number of evaluation criteria."
           },
           "simulation_scenario": {
             "type": "string",
@@ -62478,6 +62743,16 @@
           "text"
         ],
         "title": "LoadableMemoryEntry"
+      },
+      "LockReason": {
+        "type": "string",
+        "enum": [
+          "trial_ended",
+          "subscription_downgrade",
+          "exposed_publicly",
+          "self_disabled"
+        ],
+        "title": "LockReason"
       },
       "MCPApprovalPolicy": {
         "type": "string",
@@ -73572,7 +73847,7 @@
           },
           "repeat_count": {
             "type": "integer",
-            "maximum": 20.0,
+            "maximum": 50.0,
             "minimum": 1.0,
             "title": "Repeat Count",
             "description": "Number of times to run each test. When greater than 1, results are grouped and summarized.",
@@ -75190,10 +75465,26 @@
             "default": "simulation"
           },
           "success_condition": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Success Condition",
-            "description": "A prompt that evaluates whether the agent's response is successful. Should return True or False.",
-            "default": ""
+            "description": "Deprecated legacy single success criterion. Use success_conditions instead. At least one of success_condition or success_conditions is required.",
+            "deprecated": true
+          },
+          "success_conditions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Success Conditions",
+            "description": "List of prompts that evaluate whether the simulation was successful. If provided, all criteria are evaluated and merged into a final result. Capped at the maximum number of evaluation criteria."
           },
           "simulation_scenario": {
             "type": "string",
@@ -80823,6 +81114,14 @@
             "$ref": "#/components/schemas/TurnModel",
             "default": "turn_v3"
           },
+          "interruption_ignore_terms": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Interruption Ignore Terms",
+            "description": "List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching."
+          },
           "soft_timeout_config": {
             "$ref": "#/components/schemas/SoftTimeoutConfig",
             "description": "Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses."
@@ -80984,6 +81283,21 @@
               }
             ],
             "description": "Version of the turn detection model to use."
+          },
+          "interruption_ignore_terms": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interruption Ignore Terms",
+            "description": "List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching."
           },
           "soft_timeout_config": {
             "anyOf": [
@@ -82371,10 +82685,26 @@
             "default": "simulation"
           },
           "success_condition": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Success Condition",
-            "description": "A prompt that evaluates whether the agent's response is successful. Should return True or False.",
-            "default": ""
+            "description": "Deprecated legacy single success criterion. Use success_conditions instead. At least one of success_condition or success_conditions is required.",
+            "deprecated": true
+          },
+          "success_conditions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Success Conditions",
+            "description": "List of prompts that evaluate whether the simulation was successful. If provided, all criteria are evaluated and merged into a final result. Capped at the maximum number of evaluation criteria."
           },
           "simulation_scenario": {
             "type": "string",
@@ -90470,6 +90800,16 @@
             ],
             "title": "Permissions"
           },
+          "disable_reason": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LockReason"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "character_limit": {
             "anyOf": [
               {
@@ -90945,6 +91285,11 @@
           "is_scim_synced": {
             "type": "boolean",
             "title": "Is Scim Synced",
+            "default": false
+          },
+          "scim_frozen": {
+            "type": "boolean",
+            "title": "Scim Frozen",
             "default": false
           }
         },

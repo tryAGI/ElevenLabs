@@ -19,7 +19,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Pop,
+        /// <summary>
+        /// 
+        /// </summary>
         Scale,
+        /// <summary>
+        /// 
+        /// </summary>
+        SlideDown,
+        /// <summary>
+        /// 
+        /// </summary>
+        SlideUp,
     }
 
     /// <summary>
@@ -36,7 +48,10 @@ namespace ElevenLabs
             {
                 CaptionStyleSectionAnimationModelEnterType.Fade => "fade",
                 CaptionStyleSectionAnimationModelEnterType.None => "none",
+                CaptionStyleSectionAnimationModelEnterType.Pop => "pop",
                 CaptionStyleSectionAnimationModelEnterType.Scale => "scale",
+                CaptionStyleSectionAnimationModelEnterType.SlideDown => "slide_down",
+                CaptionStyleSectionAnimationModelEnterType.SlideUp => "slide_up",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -49,7 +64,10 @@ namespace ElevenLabs
             {
                 "fade" => CaptionStyleSectionAnimationModelEnterType.Fade,
                 "none" => CaptionStyleSectionAnimationModelEnterType.None,
+                "pop" => CaptionStyleSectionAnimationModelEnterType.Pop,
                 "scale" => CaptionStyleSectionAnimationModelEnterType.Scale,
+                "slide_down" => CaptionStyleSectionAnimationModelEnterType.SlideDown,
+                "slide_up" => CaptionStyleSectionAnimationModelEnterType.SlideUp,
                 _ => null,
             };
         }

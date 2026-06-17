@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -39,10 +41,17 @@ namespace ElevenLabs
         public string? Type { get; set; }
 
         /// <summary>
-        /// A prompt that evaluates whether the agent's response is successful. Should return True or False.
+        /// Deprecated legacy single success criterion. Use success_conditions instead. At least one of success_condition or success_conditions is required.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("success_condition")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public string? SuccessCondition { get; set; }
+
+        /// <summary>
+        /// List of prompts that evaluate whether the simulation was successful. If provided, all criteria are evaluated and merged into a final result. Capped at the maximum number of evaluation criteria.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("success_conditions")]
+        public global::System.Collections.Generic.IList<string>? SuccessConditions { get; set; }
 
         /// <summary>
         /// Description of the simulation scenario and user persona for simulation tests.
@@ -119,8 +128,8 @@ namespace ElevenLabs
         /// <param name="type">
         /// Default Value: simulation
         /// </param>
-        /// <param name="successCondition">
-        /// A prompt that evaluates whether the agent's response is successful. Should return True or False.
+        /// <param name="successConditions">
+        /// List of prompts that evaluate whether the simulation was successful. If provided, all criteria are evaluated and merged into a final result. Capped at the maximum number of evaluation criteria.
         /// </param>
         /// <param name="simulationScenario">
         /// Description of the simulation scenario and user persona for simulation tests.
@@ -152,7 +161,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput>? chatHistory,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             string? type,
-            string? successCondition,
+            global::System.Collections.Generic.IList<string>? successConditions,
             string? simulationScenario,
             int? simulationMaxTurns,
             string? simulationEnvironment,
@@ -165,7 +174,7 @@ namespace ElevenLabs
             this.ChatHistory = chatHistory;
             this.ConversationInitiationSource = conversationInitiationSource;
             this.Type = type;
-            this.SuccessCondition = successCondition;
+            this.SuccessConditions = successConditions;
             this.SimulationScenario = simulationScenario;
             this.SimulationMaxTurns = simulationMaxTurns;
             this.SimulationEnvironment = simulationEnvironment;
