@@ -20,8 +20,8 @@ namespace ElevenLabs
         /// The composition plan extracted from the uploaded song. Only present if `extract_composition_plan` was provided in the request body.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("composition_plan")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan4, object>))]
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan4, object>? CompositionPlan { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan, object>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan, object>? CompositionPlan { get; set; }
 
         /// <summary>
         /// Word-level timestamps transcribed from the uploaded song. Only present if `with_timestamps` was True in the request body
@@ -52,7 +52,7 @@ namespace ElevenLabs
 #endif
         public MusicUploadResponse(
             string songId,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan4, object>? compositionPlan,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan, object>? compositionPlan,
             global::System.Collections.Generic.IList<global::ElevenLabs.WordTimestamp>? wordsTimestamps)
         {
             this.SongId = songId ?? throw new global::System.ArgumentNullException(nameof(songId));

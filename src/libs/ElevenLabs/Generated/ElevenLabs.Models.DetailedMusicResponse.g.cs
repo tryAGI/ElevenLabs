@@ -13,9 +13,9 @@ namespace ElevenLabs
         /// The composition plan used to generate the song
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("composition_plan")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan4>))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan4> CompositionPlan { get; set; }
+        public required global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan> CompositionPlan { get; set; }
 
         /// <summary>
         /// The metadata of the generated song<br/>
@@ -55,7 +55,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public DetailedMusicResponse(
-            global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan4> compositionPlan,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan> compositionPlan,
             global::ElevenLabs.SongMetadata songMetadata,
             global::System.Collections.Generic.IList<global::ElevenLabs.WordTimestamp>? wordsTimestamps)
         {

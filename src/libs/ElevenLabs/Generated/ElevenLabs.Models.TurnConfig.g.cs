@@ -75,6 +75,12 @@ namespace ElevenLabs
         public global::ElevenLabs.TurnModel? TurnModel { get; set; }
 
         /// <summary>
+        /// List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("interruption_ignore_terms")]
+        public global::System.Collections.Generic.IList<string>? InterruptionIgnoreTerms { get; set; }
+
+        /// <summary>
         /// Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses.<br/>
         /// Example: {"message":"Hhmmmm...yeah.","timeout_seconds":2.0,"use_llm_generated_message":false}
         /// </summary>
@@ -126,6 +132,9 @@ namespace ElevenLabs
         /// Version of the turn detection model to use.<br/>
         /// Default Value: turn_v3
         /// </param>
+        /// <param name="interruptionIgnoreTerms">
+        /// List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching.
+        /// </param>
         /// <param name="softTimeoutConfig">
         /// Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses.<br/>
         /// Example: {"message":"Hhmmmm...yeah.","timeout_seconds":2.0,"use_llm_generated_message":false}
@@ -143,6 +152,7 @@ namespace ElevenLabs
             bool? speculativeTurn,
             bool? retranscribeOnTurnTimeout,
             global::ElevenLabs.TurnModel? turnModel,
+            global::System.Collections.Generic.IList<string>? interruptionIgnoreTerms,
             global::ElevenLabs.SoftTimeoutConfig? softTimeoutConfig)
         {
             this.TurnTimeout = turnTimeout;
@@ -154,6 +164,7 @@ namespace ElevenLabs
             this.SpeculativeTurn = speculativeTurn;
             this.RetranscribeOnTurnTimeout = retranscribeOnTurnTimeout;
             this.TurnModel = turnModel;
+            this.InterruptionIgnoreTerms = interruptionIgnoreTerms;
             this.SoftTimeoutConfig = softTimeoutConfig;
         }
 
