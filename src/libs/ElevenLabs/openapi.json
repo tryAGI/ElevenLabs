@@ -32475,6 +32475,7 @@
                       "type": "llm",
                       "value_schema": {
                         "description": "Phone condition",
+                        "nullable": false,
                         "type": "boolean"
                       }
                     },
@@ -33489,6 +33490,7 @@
             "default": {
               "type": "string",
               "description": "Array element",
+              "nullable": false,
               "is_system_provided": false,
               "dynamic_variable": "",
               "allowed_values_dynamic_variable": "",
@@ -33571,6 +33573,7 @@
             "default": {
               "type": "string",
               "description": "Array element",
+              "nullable": false,
               "is_system_provided": false,
               "dynamic_variable": "",
               "allowed_values_dynamic_variable": "",
@@ -56223,6 +56226,7 @@
                         "type": "llm",
                         "value_schema": {
                           "description": "Phone condition",
+                          "nullable": false,
                           "type": "boolean"
                         }
                       },
