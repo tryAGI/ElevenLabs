@@ -31566,6 +31566,10 @@
             "$ref": "#/components/schemas/LLM",
             "description": "Default LLM model for post-call analysis (evaluation and data collection)",
             "default": "gemini-2.5-flash"
+          },
+          "topic_discovery": {
+            "$ref": "#/components/schemas/TopicDiscoverySettings",
+            "description": "Per-agent topic discovery configuration"
           }
         },
         "type": "object",
@@ -31659,6 +31663,10 @@
             "$ref": "#/components/schemas/LLM",
             "description": "Default LLM model for post-call analysis (evaluation and data collection)",
             "default": "gemini-2.5-flash"
+          },
+          "topic_discovery": {
+            "$ref": "#/components/schemas/TopicDiscoverySettings",
+            "description": "Per-agent topic discovery configuration"
           },
           "safety": {
             "$ref": "#/components/schemas/SafetyResponseModel"
@@ -80577,6 +80585,12 @@
           "has_more"
         ],
         "title": "ToolsResponseModel"
+      },
+      "TopicDiscoverySettings": {
+        "properties": {},
+        "type": "object",
+        "title": "TopicDiscoverySettings",
+        "description": "Per-agent topic-discovery configuration. Cadence and analysis window are\nmanaged internally; this only exposes the customer-facing on/off toggle."
       },
       "TransferBranchInfoDefaultingToMain": {
         "properties": {
