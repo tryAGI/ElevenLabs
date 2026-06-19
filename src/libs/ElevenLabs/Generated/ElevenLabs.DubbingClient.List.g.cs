@@ -30,8 +30,12 @@ namespace ElevenLabs
             ref string? cursor,
             ref int? pageSize,
             ref global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingStatusesVariant1Item>? dubbingStatuses,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingModelsVariant1Item>? dubbingModels,
+            global::System.Collections.Generic.IList<string>? targetLanguageCodes,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsCreationSourcesVariant1Item>? creationSources,
             ref global::ElevenLabs.ListDubsFilterByCreator? filterByCreator,
-            ref string? orderBy,
+            ref global::ElevenLabs.ListDubsOrderBy? orderBy,
             ref global::ElevenLabs.ListDubsOrderDirection? orderDirection);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -39,8 +43,12 @@ namespace ElevenLabs
             string? cursor,
             int? pageSize,
             global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingStatusesVariant1Item>? dubbingStatuses,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingModelsVariant1Item>? dubbingModels,
+            global::System.Collections.Generic.IList<string>? targetLanguageCodes,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsCreationSourcesVariant1Item>? creationSources,
             global::ElevenLabs.ListDubsFilterByCreator? filterByCreator,
-            string? orderBy,
+            global::ElevenLabs.ListDubsOrderBy? orderBy,
             global::ElevenLabs.ListDubsOrderDirection? orderDirection);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -65,6 +73,18 @@ namespace ElevenLabs
         /// <param name="dubbingStatus">
         /// What state the dub is currently in.
         /// </param>
+        /// <param name="dubbingStatuses">
+        /// Filter by dubbing status.
+        /// </param>
+        /// <param name="dubbingModels">
+        /// Filter by dubbing model generation.
+        /// </param>
+        /// <param name="targetLanguageCodes">
+        /// Filter by target language code.
+        /// </param>
+        /// <param name="creationSources">
+        /// Filter by dubbing creation source.
+        /// </param>
         /// <param name="filterByCreator">
         /// Filters who created the resources being listed, whether it was the user running the request or someone else that shared the resource with them.<br/>
         /// Default Value: all
@@ -84,8 +104,12 @@ namespace ElevenLabs
             string? cursor = default,
             int? pageSize = default,
             global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingStatusesVariant1Item>? dubbingStatuses = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingModelsVariant1Item>? dubbingModels = default,
+            global::System.Collections.Generic.IList<string>? targetLanguageCodes = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsCreationSourcesVariant1Item>? creationSources = default,
             global::ElevenLabs.ListDubsFilterByCreator? filterByCreator = default,
-            string? orderBy = default,
+            global::ElevenLabs.ListDubsOrderBy? orderBy = default,
             global::ElevenLabs.ListDubsOrderDirection? orderDirection = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -94,6 +118,10 @@ namespace ElevenLabs
                 cursor: cursor,
                 pageSize: pageSize,
                 dubbingStatus: dubbingStatus,
+                dubbingStatuses: dubbingStatuses,
+                dubbingModels: dubbingModels,
+                targetLanguageCodes: targetLanguageCodes,
+                creationSources: creationSources,
                 filterByCreator: filterByCreator,
                 orderBy: orderBy,
                 orderDirection: orderDirection,
@@ -117,6 +145,18 @@ namespace ElevenLabs
         /// <param name="dubbingStatus">
         /// What state the dub is currently in.
         /// </param>
+        /// <param name="dubbingStatuses">
+        /// Filter by dubbing status.
+        /// </param>
+        /// <param name="dubbingModels">
+        /// Filter by dubbing model generation.
+        /// </param>
+        /// <param name="targetLanguageCodes">
+        /// Filter by target language code.
+        /// </param>
+        /// <param name="creationSources">
+        /// Filter by dubbing creation source.
+        /// </param>
         /// <param name="filterByCreator">
         /// Filters who created the resources being listed, whether it was the user running the request or someone else that shared the resource with them.<br/>
         /// Default Value: all
@@ -136,8 +176,12 @@ namespace ElevenLabs
             string? cursor = default,
             int? pageSize = default,
             global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingStatusesVariant1Item>? dubbingStatuses = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingModelsVariant1Item>? dubbingModels = default,
+            global::System.Collections.Generic.IList<string>? targetLanguageCodes = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsCreationSourcesVariant1Item>? creationSources = default,
             global::ElevenLabs.ListDubsFilterByCreator? filterByCreator = default,
-            string? orderBy = default,
+            global::ElevenLabs.ListDubsOrderBy? orderBy = default,
             global::ElevenLabs.ListDubsOrderDirection? orderDirection = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -149,6 +193,10 @@ namespace ElevenLabs
                 cursor: ref cursor,
                 pageSize: ref pageSize,
                 dubbingStatus: ref dubbingStatus,
+                dubbingStatuses: dubbingStatuses,
+                dubbingModels: dubbingModels,
+                targetLanguageCodes: targetLanguageCodes,
+                creationSources: creationSources,
                 filterByCreator: ref filterByCreator,
                 orderBy: ref orderBy,
                 orderDirection: ref orderDirection);
@@ -183,8 +231,12 @@ namespace ElevenLabs
                                 .AddOptionalParameter("cursor", cursor)
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("dubbing_status", dubbingStatus?.ToValueString())
+                                .AddOptionalParameter("dubbing_statuses", dubbingStatuses?.ToString())
+                                .AddOptionalParameter("dubbing_models", dubbingModels?.ToString())
+                                .AddOptionalParameter("target_language_codes", targetLanguageCodes?.ToString())
+                                .AddOptionalParameter("creation_sources", creationSources?.ToString())
                                 .AddOptionalParameter("filter_by_creator", filterByCreator?.ToValueString())
-                                .AddOptionalParameter("order_by", orderBy)
+                                .AddOptionalParameter("order_by", orderBy?.ToValueString())
                                 .AddOptionalParameter("order_direction", orderDirection?.ToValueString())
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -230,6 +282,10 @@ namespace ElevenLabs
                     cursor: cursor,
                     pageSize: pageSize,
                     dubbingStatus: dubbingStatus,
+                    dubbingStatuses: dubbingStatuses,
+                    dubbingModels: dubbingModels,
+                    targetLanguageCodes: targetLanguageCodes,
+                    creationSources: creationSources,
                     filterByCreator: filterByCreator,
                     orderBy: orderBy,
                     orderDirection: orderDirection);
@@ -555,6 +611,18 @@ namespace ElevenLabs
         /// <param name="dubbingStatus">
         /// What state the dub is currently in.
         /// </param>
+        /// <param name="dubbingStatuses">
+        /// Filter by dubbing status.
+        /// </param>
+        /// <param name="dubbingModels">
+        /// Filter by dubbing model generation.
+        /// </param>
+        /// <param name="targetLanguageCodes">
+        /// Filter by target language code.
+        /// </param>
+        /// <param name="creationSources">
+        /// Filter by dubbing creation source.
+        /// </param>
         /// <param name="filterByCreator">
         /// Filters who created the resources being listed, whether it was the user running the request or someone else that shared the resource with them.<br/>
         /// Default Value: all
@@ -572,8 +640,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.DubbingMetadataResponse> ListAutoPagingAsync(
               int? pageSize = default,
             global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingStatusesVariant1Item>? dubbingStatuses = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingModelsVariant1Item>? dubbingModels = default,
+            global::System.Collections.Generic.IList<string>? targetLanguageCodes = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsCreationSourcesVariant1Item>? creationSources = default,
             global::ElevenLabs.ListDubsFilterByCreator? filterByCreator = default,
-            string? orderBy = default,
+            global::ElevenLabs.ListDubsOrderBy? orderBy = default,
             global::ElevenLabs.ListDubsOrderDirection? orderDirection = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -583,6 +655,10 @@ namespace ElevenLabs
                     cursor: __cursor,
                     pageSize: pageSize,
                     dubbingStatus: dubbingStatus,
+                    dubbingStatuses: dubbingStatuses,
+                    dubbingModels: dubbingModels,
+                    targetLanguageCodes: targetLanguageCodes,
+                    creationSources: creationSources,
                     filterByCreator: filterByCreator,
                     orderBy: orderBy,
                     orderDirection: orderDirection,

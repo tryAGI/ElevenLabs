@@ -48,6 +48,7 @@ namespace ElevenLabs
             ref global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             bool? textOnly,
+            global::ElevenLabs.ConversationProduct? conversationProductType,
             ref string? branchId,
             global::System.Collections.Generic.IList<string>? topicIds,
             ref global::ElevenLabs.MessageSearchSortBy? sortBy,
@@ -76,6 +77,7 @@ namespace ElevenLabs
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             bool? textOnly,
+            global::ElevenLabs.ConversationProduct? conversationProductType,
             string? branchId,
             global::System.Collections.Generic.IList<string>? topicIds,
             global::ElevenLabs.MessageSearchSortBy? sortBy,
@@ -154,6 +156,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="conversationInitiationSource"></param>
         /// <param name="textOnly"></param>
+        /// <param name="conversationProductType">
+        /// Restrict results to a single conversation product surface.
+        /// </param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -192,6 +197,7 @@ namespace ElevenLabs
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
+            global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
@@ -221,6 +227,7 @@ namespace ElevenLabs
                 summaryMode: summaryMode,
                 conversationInitiationSource: conversationInitiationSource,
                 textOnly: textOnly,
+                conversationProductType: conversationProductType,
                 branchId: branchId,
                 topicIds: topicIds,
                 sortBy: sortBy,
@@ -296,6 +303,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="conversationInitiationSource"></param>
         /// <param name="textOnly"></param>
+        /// <param name="conversationProductType">
+        /// Restrict results to a single conversation product surface.
+        /// </param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -334,6 +344,7 @@ namespace ElevenLabs
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
+            global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
@@ -366,6 +377,7 @@ namespace ElevenLabs
                 summaryMode: ref summaryMode,
                 conversationInitiationSource: conversationInitiationSource,
                 textOnly: textOnly,
+                conversationProductType: conversationProductType,
                 branchId: ref branchId,
                 topicIds: topicIds,
                 sortBy: ref sortBy,
@@ -419,6 +431,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("summary_mode", summaryMode?.ToValueString())
                                 .AddOptionalParameter("conversation_initiation_source", conversationInitiationSource?.ToString())
                                 .AddOptionalParameter("text_only", textOnly?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("conversation_product_type", conversationProductType?.ToString())
                                 .AddOptionalParameter("branch_id", branchId)
                                 .AddOptionalParameter("topic_ids", topicIds?.ToString())
                                 .AddOptionalParameter("sort_by", sortBy?.ToValueString())
@@ -485,6 +498,7 @@ namespace ElevenLabs
                     summaryMode: summaryMode,
                     conversationInitiationSource: conversationInitiationSource,
                     textOnly: textOnly,
+                    conversationProductType: conversationProductType,
                     branchId: branchId,
                     topicIds: topicIds,
                     sortBy: sortBy,
@@ -865,6 +879,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="conversationInitiationSource"></param>
         /// <param name="textOnly"></param>
+        /// <param name="conversationProductType">
+        /// Restrict results to a single conversation product surface.
+        /// </param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -898,6 +915,7 @@ namespace ElevenLabs
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
+            global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
@@ -927,6 +945,7 @@ namespace ElevenLabs
                     summaryMode: summaryMode,
                     conversationInitiationSource: conversationInitiationSource,
                     textOnly: textOnly,
+                    conversationProductType: conversationProductType,
                     branchId: branchId,
                     topicIds: topicIds,
                     sortBy: sortBy,
