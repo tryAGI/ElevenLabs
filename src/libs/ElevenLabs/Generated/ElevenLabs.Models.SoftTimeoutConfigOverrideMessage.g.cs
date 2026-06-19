@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Message to show when the first soft timeout is reached while waiting for LLM response
+    /// Message to show when the first soft timeout is reached while waiting for LLM response. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).
     /// </summary>
     public sealed partial class SoftTimeoutConfigOverrideMessage
     {

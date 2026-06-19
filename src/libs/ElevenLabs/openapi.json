@@ -7092,6 +7092,106 @@
             "description": "What state the dub is currently in."
           },
           {
+            "name": "dubbing_statuses",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "queued",
+                      "preparing",
+                      "dubbing",
+                      "dubbed",
+                      "failed"
+                    ],
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by dubbing status.",
+              "title": "Dubbing Statuses"
+            },
+            "description": "Filter by dubbing status."
+          },
+          {
+            "name": "dubbing_models",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "dubbing_v1",
+                      "dubbing_v2"
+                    ],
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by dubbing model generation.",
+              "title": "Dubbing Models"
+            },
+            "description": "Filter by dubbing model generation."
+          },
+          {
+            "name": "target_language_codes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by target language code.",
+              "title": "Target Language Codes"
+            },
+            "description": "Filter by target language code."
+          },
+          {
+            "name": "creation_sources",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "flow_node",
+                      "dubbing_ui",
+                      "dubbing_api"
+                    ],
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by dubbing creation source.",
+              "title": "Creation Sources"
+            },
+            "description": "Filter by dubbing creation source."
+          },
+          {
             "name": "filter_by_creator",
             "in": "query",
             "required": false,
@@ -7116,7 +7216,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "const": "created_at",
+              "enum": [
+                "created_at",
+                "name"
+              ],
               "type": "string",
               "description": "The field to use for ordering results from this query.",
               "default": "created_at",
@@ -15694,6 +15797,24 @@
             }
           },
           {
+            "name": "conversation_product_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/ConversationProduct"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Restrict results to a single conversation product surface.",
+              "title": "Conversation Product Type"
+            },
+            "description": "Restrict results to a single conversation product surface."
+          },
+          {
             "name": "branch_id",
             "in": "query",
             "required": false,
@@ -16857,6 +16978,24 @@
               ],
               "title": "Text Only"
             }
+          },
+          {
+            "name": "conversation_product_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/ConversationProduct"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Restrict results to a single conversation product surface.",
+              "title": "Conversation Product Type"
+            },
+            "description": "Restrict results to a single conversation product surface."
           },
           {
             "name": "branch_id",
@@ -48804,6 +48943,15 @@
         "title": "ConversationInitiationSourceInfo",
         "description": "Information about the source of conversation initiation"
       },
+      "ConversationProduct": {
+        "type": "string",
+        "enum": [
+          "agents",
+          "speech_engine"
+        ],
+        "title": "ConversationProduct",
+        "description": "Which product surface owns this agent document."
+      },
       "ConversationSentimentAnalysis": {
         "properties": {
           "overall_label": {
@@ -75787,7 +75935,7 @@
             "maxLength": 200,
             "minLength": 1,
             "title": "Message",
-            "description": "Message to show when the first soft timeout is reached while waiting for LLM response",
+            "description": "Message to show when the first soft timeout is reached while waiting for LLM response. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).",
             "default": "Hhmmmm...yeah.",
             "x-convai-client-override": true,
             "x-convai-language-override": true
@@ -75833,7 +75981,7 @@
               }
             ],
             "title": "Llm Generated Message Prompt Override",
-            "description": "Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used.",
+            "description": "Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).",
             "examples": [
               "Output a SHORT neutral filler phrase (1-4 words MAX) acknowledging you heard the user."
             ]
@@ -75860,7 +76008,7 @@
               }
             ],
             "title": "Message",
-            "description": "Message to show when the first soft timeout is reached while waiting for LLM response",
+            "description": "Message to show when the first soft timeout is reached while waiting for LLM response. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).",
             "x-convai-client-override": true,
             "x-convai-language-override": true
           }
@@ -75907,7 +76055,7 @@
               }
             ],
             "title": "Message",
-            "description": "Message to show when the first soft timeout is reached while waiting for LLM response",
+            "description": "Message to show when the first soft timeout is reached while waiting for LLM response. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).",
             "x-convai-client-override": true,
             "x-convai-language-override": true
           },
@@ -75972,7 +76120,7 @@
               }
             ],
             "title": "Llm Generated Message Prompt Override",
-            "description": "Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used.",
+            "description": "Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).",
             "examples": [
               "Output a SHORT neutral filler phrase (1-4 words MAX) acknowledging you heard the user."
             ]
