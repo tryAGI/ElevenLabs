@@ -37,7 +37,7 @@ namespace ElevenLabs
         public required int DurationMs { get; set; }
 
         /// <summary>
-        /// The lyrics of the section. Max 200 characters per line.
+        /// The lyrics of the section. Max 30 lines per section and max 200 characters per line.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lines")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -71,7 +71,7 @@ namespace ElevenLabs
         /// The duration of the section in milliseconds. Must be between 3000ms and 120000ms.
         /// </param>
         /// <param name="lines">
-        /// The lyrics of the section. Max 200 characters per line.
+        /// The lyrics of the section. Max 30 lines per section and max 200 characters per line.
         /// </param>
         /// <param name="sourceFrom">
         /// Optional source to extract the section from. Used for inpainting.
