@@ -13310,10 +13310,10 @@
                   "type": "null"
                 }
               ],
-              "description": "An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get-signed-url endpoint",
+              "description": "An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get_signed_url endpoint",
               "title": "Conversation Signature"
             },
-            "description": "An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get-signed-url endpoint"
+            "description": "An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get_signed_url endpoint"
           },
           {
             "name": "xi-api-key",
