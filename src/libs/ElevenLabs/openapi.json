@@ -76255,7 +76255,7 @@
             "type": "array",
             "maxItems": 30,
             "title": "Lines",
-            "description": "The lyrics of the section. Max 200 characters per line."
+            "description": "The lyrics of the section. Max 30 lines per section and max 200 characters per line."
           },
           "source_from": {
             "anyOf": [
