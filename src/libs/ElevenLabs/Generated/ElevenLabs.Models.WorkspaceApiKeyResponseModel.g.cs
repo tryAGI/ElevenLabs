@@ -86,6 +86,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? AllowedIps { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("third_party_disable_allowed")]
+        public bool? ThirdPartyDisableAllowed { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -112,6 +118,7 @@ namespace ElevenLabs
         /// Credits already used in the current billing period.
         /// </param>
         /// <param name="allowedIps"></param>
+        /// <param name="thirdPartyDisableAllowed"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -127,7 +134,8 @@ namespace ElevenLabs
             global::ElevenLabs.LockReason? disableReason,
             int? characterLimit,
             int? characterCount,
-            global::System.Collections.Generic.IList<string>? allowedIps)
+            global::System.Collections.Generic.IList<string>? allowedIps,
+            bool? thirdPartyDisableAllowed)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Hint = hint ?? throw new global::System.ArgumentNullException(nameof(hint));
@@ -141,6 +149,7 @@ namespace ElevenLabs
             this.CharacterCount = characterCount;
             this.HashedXiApiKey = hashedXiApiKey ?? throw new global::System.ArgumentNullException(nameof(hashedXiApiKey));
             this.AllowedIps = allowedIps;
+            this.ThirdPartyDisableAllowed = thirdPartyDisableAllowed;
         }
 
         /// <summary>
