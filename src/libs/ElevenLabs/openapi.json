@@ -11630,7 +11630,7 @@
           "speech-to-text"
         ],
         "summary": "Speech To Text",
-        "description": "Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.",
+        "description": "Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.",
         "operationId": "speech_to_text",
         "parameters": [
           {
@@ -40034,8 +40034,18 @@
           "use_multi_channel": {
             "type": "boolean",
             "title": "Use Multi Channel",
-            "description": "Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel will be transcribed independently and the results will be combined. Each word in the response will include a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported. Each channel is billed independently at the full audio duration, so cost scales linearly with the number of channels.",
+            "description": "Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel is transcribed independently. By default a separate transcript is returned per channel; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Each word in the response includes a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported. Each channel is billed independently at the full audio duration, so cost scales linearly with the number of channels.",
             "default": false
+          },
+          "multichannel_output_style": {
+            "type": "string",
+            "enum": [
+              "separate",
+              "combined"
+            ],
+            "title": "Multichannel Output Style",
+            "description": "Controls the response shape when use_multi_channel is enabled. 'separate' (default) returns one transcript per channel under 'transcripts'. 'combined' merges all channels into a single transcript whose words are sorted by start time, each carrying a 'channel_index' - matching the single-channel response shape. 'combined' requires timestamps (timestamps_granularity must not be 'none') and does not support entity detection or redaction.",
+            "default": "separate"
           },
           "webhook_metadata": {
             "anyOf": [
@@ -41619,6 +41629,18 @@
             ],
             "title": "Allowed Ips",
             "description": "List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the whitelist unchanged, or pass \"clear\" to remove it."
+          },
+          "third_party_disable_allowed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Third Party Disable Allowed",
+            "description": "Whether the holder of this key may disable it via the self-disable endpoint. On create, omit or pass null to use the workspace's default (enabled for non-Enterprise plans, disabled for Enterprise plans). On update, omit to leave it unchanged, or pass \"clear\" to reset it to the workspace default. Only honored for workspaces with self-disable access enabled."
           }
         },
         "type": "object",
@@ -41716,6 +41738,23 @@
             ],
             "title": "Allowed Ips",
             "description": "List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the whitelist unchanged, or pass \"clear\" to remove it.",
+            "default": "no_update"
+          },
+          "third_party_disable_allowed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "no_update"
+                ]
+              }
+            ],
+            "title": "Third Party Disable Allowed",
+            "description": "Whether the holder of this key may disable it via the self-disable endpoint. On create, omit or pass null to use the workspace's default (enabled for non-Enterprise plans, disabled for Enterprise plans). On update, omit to leave it unchanged, or pass \"clear\" to reset it to the workspace default. Only honored for workspaces with self-disable access enabled.",
             "default": "no_update"
           }
         },
@@ -77430,6 +77469,18 @@
             ],
             "title": "Characters",
             "description": "The characters that make up the word and their timing information."
+          },
+          "channel_index": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Channel Index",
+            "description": "The channel this word was spoken on (for multichannel audio). Null for single-channel transcriptions."
           }
         },
         "type": "object",
@@ -91015,6 +91066,17 @@
               }
             ],
             "title": "Allowed Ips"
+          },
+          "third_party_disable_allowed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Third Party Disable Allowed"
           }
         },
         "type": "object",
