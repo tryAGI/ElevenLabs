@@ -51612,8 +51612,15 @@
             "maximum": 100.0,
             "minimum": 0.0,
             "title": "History Message Count",
-            "description": "How many recent customer messages to include in the guardrail's history, plus the messages that follow them. Only customer messages count toward the limit. 0 (default) shows none; 1 shows the customer's latest message onward. When > 0, the guardrail prompt can refer to this history as <conversation_history>; the reply under evaluation appears as <agent_message> and may repeat at the end of the history.",
+            "description": "How many recent customer messages to include in the guardrail's history, plus the agent replies that follow them (and tool calls and results when history_include_tool_calls is enabled). Only customer messages count toward the limit. 0 (default) shows none; 1 shows the customer's latest message onward. When > 0, the guardrail prompt can refer to this history as <conversation_history>; the reply under evaluation appears as <agent_message> and may repeat at the end of the history.",
             "default": 0
+          },
+          "history_include_tool_calls": {
+            "type": "boolean",
+            "title": "History Include Tool Calls",
+            "description": "When history is on (history_message_count > 0), also render interleaved tool calls and results in the window. Off by default: history shows only customer and agent text. Tool payloads can be large, so enabling this increases evaluation token cost.",
+            "default": false,
+            "x-fern-ignore": true
           },
           "trigger_action": {
             "oneOf": [
@@ -67653,6 +67660,7 @@
           "workspace_members_remove",
           "terms_of_service_accept",
           "audit_log_read",
+          "conversation_privacy_manage",
           "copy_resources_cross_workspace"
         ],
         "title": "PermissionType"
@@ -75129,6 +75137,63 @@
         "type": "object",
         "title": "ScheduleGroupSessionParams",
         "description": "Schedule a single instance of a group service.\n\nThe session's duration is derived from the parent service so the assistant\nonly has to pin start time, the (optional) instructor / room, and the\nlocation. Participants register separately via\n``register_for_group_session``."
+      },
+      "ScimGroupResponseModel": {
+        "properties": {
+          "scim_external_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scim External Id"
+          },
+          "display_name": {
+            "type": "string",
+            "title": "Display Name"
+          },
+          "created_at_unix": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created At Unix"
+          },
+          "updated_at_unix": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At Unix"
+          },
+          "seat_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SeatType"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "scim_external_id",
+          "display_name"
+        ],
+        "title": "ScimGroupResponseModel"
       },
       "ScopedAnalysisResult": {
         "properties": {
@@ -91496,6 +91561,7 @@
           "workspace_members_remove",
           "terms_of_service_accept",
           "audit_log_read",
+          "conversation_privacy_manage",
           "copy_resources_cross_workspace",
           "voice_design"
         ],
@@ -91588,6 +91654,16 @@
             "type": "boolean",
             "title": "Is Scim Synced",
             "default": false
+          },
+          "scim_group": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ScimGroupResponseModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "scim_frozen": {
             "type": "boolean",
