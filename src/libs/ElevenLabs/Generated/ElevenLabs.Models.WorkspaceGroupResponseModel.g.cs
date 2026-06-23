@@ -68,6 +68,12 @@ namespace ElevenLabs
         public bool? IsScimSynced { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("scim_group")]
+        public global::ElevenLabs.ScimGroupResponseModel? ScimGroup { get; set; }
+
+        /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("scim_frozen")]
@@ -93,6 +99,7 @@ namespace ElevenLabs
         /// <param name="isScimSynced">
         /// Default Value: false
         /// </param>
+        /// <param name="scimGroup"></param>
         /// <param name="scimFrozen">
         /// Default Value: false
         /// </param>
@@ -109,6 +116,7 @@ namespace ElevenLabs
             int? characterCount,
             string? scimExternalId,
             bool? isScimSynced,
+            global::ElevenLabs.ScimGroupResponseModel? scimGroup,
             bool? scimFrozen)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -120,6 +128,7 @@ namespace ElevenLabs
             this.CharacterCount = characterCount;
             this.ScimExternalId = scimExternalId;
             this.IsScimSynced = isScimSynced;
+            this.ScimGroup = scimGroup;
             this.ScimFrozen = scimFrozen;
         }
 

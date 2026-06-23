@@ -27,6 +27,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ConversationPrivacyManage,
+        /// <summary>
+        /// 
+        /// </summary>
         ConversationalAi,
         /// <summary>
         /// 
@@ -158,6 +162,7 @@ namespace ElevenLabs
                 WorkspaceGroupPermission.AiSpeechClassifier => "ai_speech_classifier",
                 WorkspaceGroupPermission.AudioNative => "audio_native",
                 WorkspaceGroupPermission.AuditLogRead => "audit_log_read",
+                WorkspaceGroupPermission.ConversationPrivacyManage => "conversation_privacy_manage",
                 WorkspaceGroupPermission.ConversationalAi => "conversational_ai",
                 WorkspaceGroupPermission.ConversationalAiRead => "conversational_ai_read",
                 WorkspaceGroupPermission.CopyResourcesCrossWorkspace => "copy_resources_cross_workspace",
@@ -201,6 +206,7 @@ namespace ElevenLabs
                 "ai_speech_classifier" => WorkspaceGroupPermission.AiSpeechClassifier,
                 "audio_native" => WorkspaceGroupPermission.AudioNative,
                 "audit_log_read" => WorkspaceGroupPermission.AuditLogRead,
+                "conversation_privacy_manage" => WorkspaceGroupPermission.ConversationPrivacyManage,
                 "conversational_ai" => WorkspaceGroupPermission.ConversationalAi,
                 "conversational_ai_read" => WorkspaceGroupPermission.ConversationalAiRead,
                 "copy_resources_cross_workspace" => WorkspaceGroupPermission.CopyResourcesCrossWorkspace,
