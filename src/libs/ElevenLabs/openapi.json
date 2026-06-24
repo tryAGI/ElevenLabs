@@ -10408,6 +10408,9 @@
                     "$ref": "#/components/schemas/UpdateBasicAuthRequest"
                   },
                   {
+                    "$ref": "#/components/schemas/UpdateBearerAuthRequest"
+                  },
+                  {
                     "$ref": "#/components/schemas/UpdateOAuth2JWTRequest"
                   }
                 ],
@@ -83174,6 +83177,40 @@
         },
         "type": "object",
         "title": "UpdateBasicAuthRequest"
+      },
+      "UpdateBearerAuthRequest": {
+        "properties": {
+          "auth_type": {
+            "type": "string",
+            "const": "bearer_auth",
+            "title": "Auth Type",
+            "default": "bearer_auth"
+          },
+          "provider": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Provider"
+          },
+          "token": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Token"
+          }
+        },
+        "type": "object",
+        "title": "UpdateBearerAuthRequest"
       },
       "UpdateBookingPageAppearanceParams": {
         "properties": {
