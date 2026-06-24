@@ -56,6 +56,19 @@ namespace ElevenLabs
         public string? LastContactAgentName { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sentiment")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.SentimentAggregate Sentiment { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("most_frustrated_conversations")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.FrustratedConversationRef>? MostFrustratedConversations { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -69,8 +82,10 @@ namespace ElevenLabs
         /// <param name="firstContactUnixSecs"></param>
         /// <param name="conversationCount"></param>
         /// <param name="lastContactConversationId"></param>
+        /// <param name="sentiment"></param>
         /// <param name="lastContactAgentId"></param>
         /// <param name="lastContactAgentName"></param>
+        /// <param name="mostFrustratedConversations"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -80,8 +95,10 @@ namespace ElevenLabs
             int firstContactUnixSecs,
             int conversationCount,
             string lastContactConversationId,
+            global::ElevenLabs.SentimentAggregate sentiment,
             string? lastContactAgentId,
-            string? lastContactAgentName)
+            string? lastContactAgentName,
+            global::System.Collections.Generic.IList<global::ElevenLabs.FrustratedConversationRef>? mostFrustratedConversations)
         {
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.LastContactUnixSecs = lastContactUnixSecs;
@@ -90,6 +107,8 @@ namespace ElevenLabs
             this.LastContactAgentId = lastContactAgentId;
             this.LastContactConversationId = lastContactConversationId ?? throw new global::System.ArgumentNullException(nameof(lastContactConversationId));
             this.LastContactAgentName = lastContactAgentName;
+            this.Sentiment = sentiment ?? throw new global::System.ArgumentNullException(nameof(sentiment));
+            this.MostFrustratedConversations = mostFrustratedConversations;
         }
 
         /// <summary>

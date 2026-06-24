@@ -103,6 +103,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        SynthidDetector,
+        /// <summary>
+        /// 
+        /// </summary>
         TermsOfServiceAccept,
         /// <summary>
         /// 
@@ -181,6 +185,7 @@ namespace ElevenLabs
                 WorkspaceGroupPermission.SoundEffects => "sound_effects",
                 WorkspaceGroupPermission.SpeechToSpeech => "speech_to_speech",
                 WorkspaceGroupPermission.SpeechToText => "speech_to_text",
+                WorkspaceGroupPermission.SynthidDetector => "synthid_detector",
                 WorkspaceGroupPermission.TermsOfServiceAccept => "terms_of_service_accept",
                 WorkspaceGroupPermission.TextToSpeech => "text_to_speech",
                 WorkspaceGroupPermission.ViewFiatBalance => "view_fiat_balance",
@@ -225,6 +230,7 @@ namespace ElevenLabs
                 "sound_effects" => WorkspaceGroupPermission.SoundEffects,
                 "speech_to_speech" => WorkspaceGroupPermission.SpeechToSpeech,
                 "speech_to_text" => WorkspaceGroupPermission.SpeechToText,
+                "synthid_detector" => WorkspaceGroupPermission.SynthidDetector,
                 "terms_of_service_accept" => WorkspaceGroupPermission.TermsOfServiceAccept,
                 "text_to_speech" => WorkspaceGroupPermission.TextToSpeech,
                 "view_fiat_balance" => WorkspaceGroupPermission.ViewFiatBalance,

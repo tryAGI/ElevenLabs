@@ -139,6 +139,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        SynthidDetector,
+        /// <summary>
+        /// 
+        /// </summary>
         TermsOfServiceAccept,
         /// <summary>
         /// 
@@ -238,6 +242,7 @@ namespace ElevenLabs
                 PermissionType.SpeechHistoryWrite => "speech_history_write",
                 PermissionType.SpeechToSpeech => "speech_to_speech",
                 PermissionType.SpeechToText => "speech_to_text",
+                PermissionType.SynthidDetector => "synthid_detector",
                 PermissionType.TermsOfServiceAccept => "terms_of_service_accept",
                 PermissionType.TextToSpeech => "text_to_speech",
                 PermissionType.UserRead => "user_read",
@@ -294,6 +299,7 @@ namespace ElevenLabs
                 "speech_history_write" => PermissionType.SpeechHistoryWrite,
                 "speech_to_speech" => PermissionType.SpeechToSpeech,
                 "speech_to_text" => PermissionType.SpeechToText,
+                "synthid_detector" => PermissionType.SynthidDetector,
                 "terms_of_service_accept" => PermissionType.TermsOfServiceAccept,
                 "text_to_speech" => PermissionType.TextToSpeech,
                 "user_read" => PermissionType.UserRead,
