@@ -24824,6 +24824,122 @@
         "x-fern-sdk-method-name": "get"
       }
     },
+    "/v1/convai/agents/{agent_id}/branches/{source_branch_id}/merge-preview": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Preview Merged Configuration",
+        "description": "Returns the result of merging the source branch into the target branch without performing the merge. Useful for showing an accurate diff before confirming.",
+        "operationId": "merge_preview_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "source_branch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Unique identifier for the source branch to merge from.",
+              "examples": [
+                "agtbrch_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "embed": true,
+              "title": "Source Branch Id"
+            },
+            "description": "Unique identifier for the source branch to merge from."
+          },
+          {
+            "name": "target_branch_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the target branch to merge into.",
+              "examples": [
+                "agtbrch_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "embed": true,
+              "title": "Target Branch Id"
+            },
+            "description": "The ID of the target branch to merge into."
+          },
+          {
+            "name": "force",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "When true, source branch changes always win conflicts regardless of timestamps",
+              "default": false,
+              "title": "Force"
+            },
+            "description": "When true, source branch changes always win conflicts regardless of timestamps"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MergePreviewResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "branches",
+          "merge"
+        ],
+        "x-fern-sdk-method-name": "preview"
+      }
+    },
     "/v1/convai/agents/{agent_id}/branches/{source_branch_id}/merge": {
       "post": {
         "tags": [
@@ -24932,6 +25048,95 @@
           "branches"
         ],
         "x-fern-sdk-method-name": "merge"
+      }
+    },
+    "/v1/convai/agents/{agent_id}/branches/{branch_id}/rebase-preview": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Preview Rebased Configuration",
+        "description": "Returns the result of rebasing the branch onto main without performing the rebase. Useful for showing an accurate diff before confirming.",
+        "operationId": "rebase_preview_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "branch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Unique identifier for the source branch to merge from.",
+              "examples": [
+                "agtbrch_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "embed": true,
+              "title": "Branch Id"
+            },
+            "description": "Unique identifier for the source branch to merge from."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MergePreviewResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "branches",
+          "rebase"
+        ],
+        "x-fern-sdk-method-name": "preview"
       }
     },
     "/v1/convai/agents/{agent_id}/branches/{branch_id}/rebase": {
@@ -30843,6 +31048,12 @@
             "title": "Draft Exists",
             "description": "Whether a draft exists for the branch",
             "default": false
+          },
+          "calls_7d": {
+            "type": "integer",
+            "title": "Calls 7D",
+            "description": "Number of calls in the last 7 days",
+            "default": 0
           }
         },
         "type": "object",
@@ -44466,6 +44677,14 @@
           }
         }
       },
+      "CharacterAge": {
+        "type": "string",
+        "enum": [
+          "young",
+          "middle-aged",
+          "old"
+        ]
+      },
       "CharacterAlignmentModel": {
         "properties": {
           "characters": {
@@ -44530,6 +44749,73 @@
         ],
         "title": "CharacterAlignmentResponseModel"
       },
+      "CharacterGender": {
+        "type": "string",
+        "enum": [
+          "male",
+          "female",
+          "neutral"
+        ]
+      },
+      "CharacterMetadataResponseModel": {
+        "properties": {
+          "gender": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CharacterGender"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "age": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CharacterAge"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "accent": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Accent"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "sample_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sample Message"
+          }
+        },
+        "type": "object",
+        "title": "CharacterMetadataResponseModel"
+      },
       "CharacterRefreshPeriod": {
         "type": "string",
         "enum": [
@@ -44539,6 +44825,35 @@
           "annual_period"
         ],
         "title": "CharacterRefreshPeriod"
+      },
+      "CharacterResponseModel": {
+        "properties": {
+          "character_id": {
+            "type": "string",
+            "title": "Character Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "metadata": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CharacterMetadataResponseModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "character_id",
+          "name",
+          "metadata"
+        ],
+        "title": "CharacterResponseModel"
       },
       "ChatSourceMedium": {
         "type": "string",
@@ -65041,6 +65356,375 @@
           "version"
         ],
         "title": "MemoryEntrySearchResult"
+      },
+      "MergePreviewResponseModel": {
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id",
+            "description": "The ID of the agent"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The name of the agent"
+          },
+          "conversation_config": {
+            "$ref": "#/components/schemas/ConversationalConfigAPIModel-Output",
+            "description": "The conversation configuration of the agent"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/AgentMetadataResponseModel",
+            "description": "The metadata of the agent"
+          },
+          "platform_settings": {
+            "$ref": "#/components/schemas/AgentPlatformSettingsResponseModel",
+            "description": "The platform settings of the agent"
+          },
+          "phone_numbers": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/GetPhoneNumberTwilioResponseModel"
+                },
+                {
+                  "$ref": "#/components/schemas/GetPhoneNumberExotelResponseModel"
+                },
+                {
+                  "$ref": "#/components/schemas/GetPhoneNumberSIPTrunkResponseModel"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "provider",
+                "mapping": {
+                  "exotel": "#/components/schemas/GetPhoneNumberExotelResponseModel",
+                  "sip_trunk": "#/components/schemas/GetPhoneNumberSIPTrunkResponseModel",
+                  "twilio": "#/components/schemas/GetPhoneNumberTwilioResponseModel"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Phone Numbers",
+            "description": "The phone numbers of the agent"
+          },
+          "whatsapp_accounts": {
+            "items": {
+              "$ref": "#/components/schemas/GetWhatsAppAccountResponse"
+            },
+            "type": "array",
+            "title": "Whatsapp Accounts",
+            "description": "WhatsApp accounts assigned to the agent"
+          },
+          "workflow": {
+            "$ref": "#/components/schemas/AgentWorkflowResponseModel",
+            "description": "The workflow of the agent"
+          },
+          "access_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResourceAccessInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The access information of the agent for the user"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Tags",
+            "description": "Agent tags used to categorize the agent"
+          },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Id",
+            "description": "The ID of the version the agent is on"
+          },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id",
+            "description": "The ID of the branch the agent is on"
+          },
+          "main_branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Main Branch Id",
+            "description": "The ID of the main branch for this agent"
+          },
+          "overridden_fields": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Overridden Fields",
+            "description": "Dot-paths of config fields where both branches modified the same field relative to their common ancestor (conflicts). Present regardless of which side wins the conflict."
+          },
+          "source_identical_to_target": {
+            "type": "boolean",
+            "title": "Source Identical To Target",
+            "description": "True when the merge/rebase would be a no-op, i.e. the merged result is identical to the source branch tip. The rebase endpoint rejects in this case.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "agent_id",
+          "name",
+          "conversation_config",
+          "metadata"
+        ],
+        "title": "MergePreviewResponseModel",
+        "example": {
+          "agent_id": "agent_7101k5zvyjhmfg983brhmhkd98n6",
+          "name": "My Agent",
+          "workflow": {
+            "edges": {
+              "entry_to_tool_a": {
+                "forward_condition": {
+                  "condition": "Tool A condition",
+                  "type": "llm"
+                },
+                "source": "entry_node",
+                "target": "tool_node_a"
+              },
+              "start_to_entry": {
+                "forward_condition": {
+                  "type": "unconditional"
+                },
+                "source": "start_node",
+                "target": "entry_node"
+              },
+              "tool_a_to_failure": {
+                "forward_condition": {
+                  "successful": false,
+                  "type": "result"
+                },
+                "source": "tool_node_a",
+                "target": "failure_node"
+              },
+              "tool_a_to_tool_b": {
+                "forward_condition": {
+                  "successful": true,
+                  "type": "result"
+                },
+                "source": "tool_node_a",
+                "target": "tool_node_b"
+              },
+              "tool_b_to_agent_transfer": {
+                "forward_condition": {
+                  "type": "unconditional"
+                },
+                "source": "tool_node_b",
+                "target": "success_transfer"
+              },
+              "tool_b_to_conversation": {
+                "forward_condition": {
+                  "condition": "Conversation condition",
+                  "type": "llm"
+                },
+                "source": "tool_node_b",
+                "target": "success_conversation"
+              },
+              "tool_b_to_end": {
+                "forward_condition": {
+                  "condition": "End condition",
+                  "type": "llm"
+                },
+                "source": "tool_node_b",
+                "target": "success_end"
+              },
+              "tool_b_to_phone": {
+                "forward_condition": {
+                  "expression": {
+                    "children": [
+                      {
+                        "name": "force_phone_transfer",
+                        "type": "dynamic_variable"
+                      },
+                      {
+                        "prompt": "Phone condition",
+                        "type": "llm",
+                        "value_schema": {
+                          "description": "Phone condition",
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "left": {
+                          "name": "mode",
+                          "type": "dynamic_variable"
+                        },
+                        "right": {
+                          "type": "string_literal",
+                          "value": "dev"
+                        },
+                        "type": "eq_operator"
+                      }
+                    ],
+                    "type": "or_operator"
+                  },
+                  "type": "expression"
+                },
+                "source": "tool_node_b",
+                "target": "success_phone"
+              }
+            },
+            "nodes": {
+              "entry_node": {
+                "additional_knowledge_base": [],
+                "additional_prompt": "",
+                "additional_tool_ids": [],
+                "auto_advance_after_first_response": false,
+                "conversation_config": {},
+                "edge_order": [
+                  "entry_to_tool_a"
+                ],
+                "entry_behavior": "auto",
+                "label": "Entry",
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "type": "override_agent"
+              },
+              "failure_node": {
+                "additional_knowledge_base": [],
+                "additional_prompt": "",
+                "additional_tool_ids": [],
+                "auto_advance_after_first_response": false,
+                "conversation_config": {},
+                "edge_order": [],
+                "entry_behavior": "auto",
+                "label": "Failure",
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "type": "override_agent"
+              },
+              "start_node": {
+                "edge_order": [
+                  "start_to_entry"
+                ],
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "type": "start"
+              },
+              "success_conversation": {
+                "additional_knowledge_base": [],
+                "additional_prompt": "",
+                "additional_tool_ids": [],
+                "auto_advance_after_first_response": false,
+                "conversation_config": {},
+                "edge_order": [],
+                "entry_behavior": "auto",
+                "label": "Success A",
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "type": "override_agent"
+              },
+              "success_end": {
+                "edge_order": [],
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "type": "end"
+              },
+              "success_phone": {
+                "custom_sip_headers": [],
+                "edge_order": [],
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "transfer_destination": {
+                  "phone_number": "+1234567890",
+                  "type": "phone"
+                },
+                "transfer_type": "conference",
+                "type": "phone_number"
+              },
+              "success_transfer": {
+                "agent_id": "success_transfer_agent",
+                "delay_ms": 0,
+                "edge_order": [],
+                "enable_transferred_agent_first_message": false,
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "preserve_client_tts_overrides": false,
+                "type": "standalone_agent"
+              },
+              "tool_node_a": {
+                "edge_order": [
+                  "tool_a_to_failure",
+                  "tool_a_to_tool_b"
+                ],
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "tools": [
+                  {
+                    "tool_id": "tool_a"
+                  },
+                  {
+                    "tool_id": "tool_b"
+                  }
+                ],
+                "type": "tool"
+              },
+              "tool_node_b": {
+                "edge_order": [
+                  "tool_b_to_conversation",
+                  "tool_b_to_end",
+                  "tool_b_to_phone",
+                  "tool_b_to_agent_transfer"
+                ],
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "tools": [
+                  {
+                    "tool_id": "tool_a"
+                  }
+                ],
+                "type": "tool"
+              }
+            },
+            "prevent_subagent_loops": false
+          }
+        }
       },
       "MessageSearchSortBy": {
         "type": "string",
