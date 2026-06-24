@@ -35140,6 +35140,12 @@
             "type": "array",
             "title": "Interruption Ignore Terms",
             "description": "List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching."
+          },
+          "transcribe_on_disabled_interruptions": {
+            "type": "boolean",
+            "title": "Transcribe On Disabled Interruptions",
+            "description": "When interruptions are disabled, still transcribe what the user says so it can carry into the next turn. When off, user speech during a non-interruptible turn is ignored and won't trigger a turn.",
+            "default": false
           }
         },
         "type": "object",
@@ -35151,6 +35157,7 @@
           "silence_end_call_timeout": -1.0,
           "speculative_turn": false,
           "spelling_patience": "auto",
+          "transcribe_on_disabled_interruptions": false,
           "turn_eagerness": "normal",
           "turn_timeout": 7.0
         }
@@ -49591,6 +49598,16 @@
               }
             ],
             "title": "Last Contact Agent Name"
+          },
+          "sentiment": {
+            "$ref": "#/components/schemas/SentimentAggregate"
+          },
+          "most_frustrated_conversations": {
+            "items": {
+              "$ref": "#/components/schemas/FrustratedConversationRef"
+            },
+            "type": "array",
+            "title": "Most Frustrated Conversations"
           }
         },
         "type": "object",
@@ -49599,7 +49616,8 @@
           "last_contact_unix_secs",
           "first_contact_unix_secs",
           "conversation_count",
-          "last_contact_conversation_id"
+          "last_contact_conversation_id",
+          "sentiment"
         ],
         "title": "ConversationUserResponseModel"
       },
@@ -49859,6 +49877,7 @@
             },
             "speculative_turn": false,
             "spelling_patience": "auto",
+            "transcribe_on_disabled_interruptions": false,
             "turn_eagerness": "normal",
             "turn_model": "turn_v3",
             "turn_timeout": 7.0
@@ -50012,6 +50031,7 @@
             },
             "speculative_turn": false,
             "spelling_patience": "auto",
+            "transcribe_on_disabled_interruptions": false,
             "turn_eagerness": "normal",
             "turn_model": "turn_v3",
             "turn_timeout": 7.0
@@ -55961,6 +55981,49 @@
           "start": 0.0,
           "text": "Hello"
         }
+      },
+      "FrustratedConversationRef": {
+        "properties": {
+          "conversation_id": {
+            "type": "string",
+            "title": "Conversation Id"
+          },
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
+          },
+          "start_time_unix_secs": {
+            "type": "integer",
+            "title": "Start Time Unix Secs"
+          },
+          "overall_label": {
+            "type": "string",
+            "enum": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "title": "Overall Label"
+          },
+          "overall_sentiment_score": {
+            "type": "number",
+            "title": "Overall Sentiment Score"
+          },
+          "overall_frustration_score": {
+            "type": "number",
+            "title": "Overall Frustration Score"
+          }
+        },
+        "type": "object",
+        "required": [
+          "conversation_id",
+          "agent_id",
+          "start_time_unix_secs",
+          "overall_label",
+          "overall_sentiment_score",
+          "overall_frustration_score"
+        ],
+        "title": "FrustratedConversationRef"
       },
       "GenerationChunk-Input": {
         "properties": {
@@ -67661,7 +67724,8 @@
           "terms_of_service_accept",
           "audit_log_read",
           "conversation_privacy_manage",
-          "copy_resources_cross_workspace"
+          "copy_resources_cross_workspace",
+          "synthid_detector"
         ],
         "title": "PermissionType"
       },
@@ -75591,6 +75655,58 @@
         ],
         "title": "SegmentedJsonExportOptions"
       },
+      "SentimentAggregate": {
+        "properties": {
+          "scored_conversation_count": {
+            "type": "integer",
+            "title": "Scored Conversation Count"
+          },
+          "positive_count": {
+            "type": "integer",
+            "title": "Positive Count"
+          },
+          "neutral_count": {
+            "type": "integer",
+            "title": "Neutral Count"
+          },
+          "negative_count": {
+            "type": "integer",
+            "title": "Negative Count"
+          },
+          "average_sentiment_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Average Sentiment Score"
+          },
+          "average_frustration_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Average Frustration Score"
+          }
+        },
+        "type": "object",
+        "required": [
+          "scored_conversation_count",
+          "positive_count",
+          "neutral_count",
+          "negative_count",
+          "average_sentiment_score",
+          "average_frustration_score"
+        ],
+        "title": "SentimentAggregate"
+      },
       "SetBookingSlugParams": {
         "properties": {
           "smb_tool_type": {
@@ -81478,6 +81594,12 @@
             "title": "Interruption Ignore Terms",
             "description": "List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching."
           },
+          "transcribe_on_disabled_interruptions": {
+            "type": "boolean",
+            "title": "Transcribe On Disabled Interruptions",
+            "description": "When interruptions are disabled, still transcribe what the user says so it can carry into the next turn. When off, user speech during a non-interruptible turn is ignored and won't trigger a turn.",
+            "default": false
+          },
           "soft_timeout_config": {
             "$ref": "#/components/schemas/SoftTimeoutConfig",
             "description": "Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses."
@@ -81496,6 +81618,7 @@
           },
           "speculative_turn": false,
           "spelling_patience": "auto",
+          "transcribe_on_disabled_interruptions": false,
           "turn_eagerness": "normal",
           "turn_model": "turn_v3",
           "turn_timeout": 7.0
@@ -81655,6 +81778,18 @@
             "title": "Interruption Ignore Terms",
             "description": "List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching."
           },
+          "transcribe_on_disabled_interruptions": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Transcribe On Disabled Interruptions",
+            "description": "When interruptions are disabled, still transcribe what the user says so it can carry into the next turn. When off, user speech during a non-interruptible turn is ignored and won't trigger a turn."
+          },
           "soft_timeout_config": {
             "anyOf": [
               {
@@ -81681,6 +81816,7 @@
           },
           "speculative_turn": false,
           "spelling_patience": "auto",
+          "transcribe_on_disabled_interruptions": false,
           "turn_eagerness": "normal",
           "turn_model": "turn_v3",
           "turn_timeout": 7.0
@@ -91543,6 +91679,7 @@
           "conversational_ai_read",
           "voice_isolator",
           "ai_speech_classifier",
+          "synthid_detector",
           "add_voice_from_voice_library",
           "create_instant_voice_clone",
           "create_professional_voice_clone",
