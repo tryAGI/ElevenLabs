@@ -33375,28 +33375,6 @@
             "type": "string",
             "title": "Credential Id"
           },
-          "status": {
-            "$ref": "#/components/schemas/OAuthConnectionStatus",
-            "description": "Current health status of the OAuth connection",
-            "default": "active"
-          },
-          "status_detail": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Status Detail",
-            "description": "Human-readable detail about the current status, e.g. the error message on refresh failure"
-          },
-          "status_updated_at": {
-            "type": "string",
-            "title": "Status Updated At",
-            "description": "ISO 8601 timestamp of the last status change"
-          },
           "id": {
             "type": "string",
             "title": "Id"
@@ -33410,6 +33388,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -33475,28 +33479,6 @@
             "type": "string",
             "title": "Credential Id"
           },
-          "status": {
-            "$ref": "#/components/schemas/OAuthConnectionStatus",
-            "description": "Current health status of the OAuth connection",
-            "default": "active"
-          },
-          "status_detail": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Status Detail",
-            "description": "Human-readable detail about the current status, e.g. the error message on refresh failure"
-          },
-          "status_updated_at": {
-            "type": "string",
-            "title": "Status Updated At",
-            "description": "ISO 8601 timestamp of the last status change"
-          },
           "client_id": {
             "type": "string",
             "title": "Client Id",
@@ -33515,6 +33497,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -35015,6 +35023,18 @@
         "title": "AuthConnectionLocator",
         "description": "Used to reference an auth connection from the workspace's auth connection store."
       },
+      "AuthConnectionStatus": {
+        "type": "string",
+        "enum": [
+          "active",
+          "refresh_failed",
+          "revoked",
+          "credential_invalid"
+        ],
+        "title": "AuthConnectionStatus",
+        "description": "Single status field shared by every auth type's stored credential.\n\nOAuth values (``REFRESH_FAILED``, ``REVOKED``) are written by the OAuth\ntoken-manager refresh path. ``CREDENTIAL_INVALID`` is written by the\ntool execution path when an upstream response matches a credential's\n``failure_signatures`` entry (Bearer, Basic auth, etc.).",
+        "default": "active"
+      },
       "AuthSettings": {
         "properties": {
           "enable_auth": {
@@ -35419,6 +35439,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -35895,6 +35941,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -52081,6 +52153,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -65243,6 +65341,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -66730,6 +66854,32 @@
               }
             ]
           },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
+          },
           "custom_headers": {
             "additionalProperties": {
               "type": "string"
@@ -66859,6 +67009,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -66873,16 +67049,6 @@
         ],
         "title": "OAuth2JWTResponse",
         "description": "Response model for OAuth2 JWT auth connections"
-      },
-      "OAuthConnectionStatus": {
-        "type": "string",
-        "enum": [
-          "active",
-          "refresh_failed",
-          "revoked"
-        ],
-        "title": "OAuthConnectionStatus",
-        "default": "active"
       },
       "ObjectJsonSchemaProperty-Input": {
         "properties": {
@@ -69417,6 +69583,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -77020,6 +77212,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -84701,6 +84919,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -88068,6 +88312,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",

@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class OAuthConnectionStatusNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.OAuthConnectionStatus?>
+    public sealed class AuthConnectionStatusJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.AuthConnectionStatus>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.OAuthConnectionStatus? Read(
+        public override global::ElevenLabs.AuthConnectionStatus Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.OAuthConnectionStatusExtensions.ToEnum(stringValue);
+                        return global::ElevenLabs.AuthConnectionStatusExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.OAuthConnectionStatus)numValue;
+                    return (global::ElevenLabs.AuthConnectionStatus)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::ElevenLabs.OAuthConnectionStatus?);
+                    return default(global::ElevenLabs.AuthConnectionStatus);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,19 +42,12 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.OAuthConnectionStatus? value,
+            global::ElevenLabs.AuthConnectionStatus value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            if (value == null)
-            {
-                writer.WriteNullValue();
-            }
-            else
-            {
-                writer.WriteStringValue(global::ElevenLabs.OAuthConnectionStatusExtensions.ToValueString(value.Value));
-            }
+            writer.WriteStringValue(global::ElevenLabs.AuthConnectionStatusExtensions.ToValueString(value));
         }
     }
 }

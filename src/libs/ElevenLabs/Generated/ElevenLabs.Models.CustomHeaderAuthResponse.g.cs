@@ -49,6 +49,30 @@ namespace ElevenLabs
         public global::ElevenLabs.AuthConnectionDependencies? UsedBy { get; set; }
 
         /// <summary>
+        /// Single status field shared by every auth type's stored credential.<br/>
+        /// OAuth values (``REFRESH_FAILED``, ``REVOKED``) are written by the OAuth<br/>
+        /// token-manager refresh path. ``CREDENTIAL_INVALID`` is written by the<br/>
+        /// tool execution path when an upstream response matches a credential's<br/>
+        /// ``failure_signatures`` entry (Bearer, Basic auth, etc.).<br/>
+        /// Default Value: active
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AuthConnectionStatusJsonConverter))]
+        public global::ElevenLabs.AuthConnectionStatus? Status { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status_detail")]
+        public string? StatusDetail { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status_updated_at")]
+        public string? StatusUpdatedAt { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -67,6 +91,16 @@ namespace ElevenLabs
         /// Default Value: custom_header_auth
         /// </param>
         /// <param name="usedBy"></param>
+        /// <param name="status">
+        /// Single status field shared by every auth type's stored credential.<br/>
+        /// OAuth values (``REFRESH_FAILED``, ``REVOKED``) are written by the OAuth<br/>
+        /// token-manager refresh path. ``CREDENTIAL_INVALID`` is written by the<br/>
+        /// tool execution path when an upstream response matches a credential's<br/>
+        /// ``failure_signatures`` entry (Bearer, Basic auth, etc.).<br/>
+        /// Default Value: active
+        /// </param>
+        /// <param name="statusDetail"></param>
+        /// <param name="statusUpdatedAt"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -76,7 +110,10 @@ namespace ElevenLabs
             string headerName,
             string id,
             string? authType,
-            global::ElevenLabs.AuthConnectionDependencies? usedBy)
+            global::ElevenLabs.AuthConnectionDependencies? usedBy,
+            global::ElevenLabs.AuthConnectionStatus? status,
+            string? statusDetail,
+            string? statusUpdatedAt)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.AuthType = authType;
@@ -84,6 +121,9 @@ namespace ElevenLabs
             this.HeaderName = headerName ?? throw new global::System.ArgumentNullException(nameof(headerName));
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.UsedBy = usedBy;
+            this.Status = status;
+            this.StatusDetail = statusDetail;
+            this.StatusUpdatedAt = statusUpdatedAt;
         }
 
         /// <summary>
