@@ -820,11 +820,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.OAuthConnectionStatus? Type198 { get; set; }
+        public global::ElevenLabs.AuthConnectionDependencies? Type198 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.AuthConnectionDependencies? Type199 { get; set; }
+        public global::ElevenLabs.AuthConnectionStatus? Type199 { get; set; }
         /// <summary>
         /// 
         /// </summary>

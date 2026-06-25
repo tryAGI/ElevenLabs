@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class ApiIntegrationOAuth2CustomAppResponseStatusDetail
+    public sealed partial class SlackBotAuthResponseStatusUpdatedAt
     {
 
         /// <summary>

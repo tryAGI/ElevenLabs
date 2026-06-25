@@ -117,6 +117,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.AuthConnectionDependenciesMcpServerDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.AuthConnectionStatusJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.AuthConnectionStatusNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodNullableJsonConverter),
@@ -864,10 +868,6 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.OAuth2JWTResponseTokenResponseFieldJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.OAuth2JWTResponseTokenResponseFieldNullableJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.OAuthConnectionStatusJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.OAuthConnectionStatusNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.OpenAIMCPToolRequireApprovalJsonConverter),
 
@@ -2279,8 +2279,8 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, int?, double?, bool?>), TypeInfoPropertyName = "AnyOfStringInt32DoubleBoolean2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponseScopeSeparator), TypeInfoPropertyName = "ApiIntegrationOAuth2AuthCodeResponseScopeSeparator2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OAuthConnectionStatus), TypeInfoPropertyName = "OAuthConnectionStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AuthConnectionDependencies))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AuthConnectionStatus), TypeInfoPropertyName = "AuthConnectionStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponseScopeSeparator), TypeInfoPropertyName = "ApiIntegrationOAuth2CustomAppResponseScopeSeparator2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationWebhookOverrides))]
@@ -2679,6 +2679,10 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.AuthConnectionDependenciesMcpServerDiscriminatorTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.AuthConnectionDependenciesMcpServerDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.AuthConnectionStatusJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.AuthConnectionStatusNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodJsonConverter),
 
@@ -3427,10 +3431,6 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.OAuth2JWTResponseTokenResponseFieldJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.OAuth2JWTResponseTokenResponseFieldNullableJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.OAuthConnectionStatusJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.OAuthConnectionStatusNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.OpenAIMCPToolRequireApprovalJsonConverter),
 
@@ -5243,6 +5243,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.AuthConnectionDependenciesMcpServerDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.AuthConnectionStatusJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.AuthConnectionStatusNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodNullableJsonConverter),
@@ -5990,10 +5994,6 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.OAuth2JWTResponseTokenResponseFieldJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.OAuth2JWTResponseTokenResponseFieldNullableJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.OAuthConnectionStatusJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.OAuthConnectionStatusNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.OpenAIMCPToolRequireApprovalJsonConverter),
 
@@ -7806,6 +7806,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.AuthConnectionDependenciesMcpServerDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.AuthConnectionStatusJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.AuthConnectionStatusNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodNullableJsonConverter),
@@ -8553,10 +8557,6 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.OAuth2JWTResponseTokenResponseFieldJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.OAuth2JWTResponseTokenResponseFieldNullableJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.OAuthConnectionStatusJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.OAuthConnectionStatusNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.OpenAIMCPToolRequireApprovalJsonConverter),
 
@@ -10369,6 +10369,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.AuthConnectionDependenciesMcpServerDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.AuthConnectionStatusJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.AuthConnectionStatusNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.AuthorizationMethodNullableJsonConverter),
@@ -11116,10 +11120,6 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.OAuth2JWTResponseTokenResponseFieldJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.OAuth2JWTResponseTokenResponseFieldNullableJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.OAuthConnectionStatusJsonConverter),
-
-            typeof(global::ElevenLabs.JsonConverters.OAuthConnectionStatusNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.OpenAIMCPToolRequireApprovalJsonConverter),
 
@@ -12809,6 +12809,8 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AuthConnectionDependenciesToolDiscriminatorTypeNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AuthConnectionDependenciesMcpServerDiscriminatorTypeJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AuthConnectionDependenciesMcpServerDiscriminatorTypeNullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.AuthConnectionStatusJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.AuthConnectionStatusNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AuthorizationMethodJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AuthorizationMethodNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.BackgroundSoundPresetIdJsonConverter());
@@ -13183,8 +13185,6 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.OAuth2JWTResponseAlgorithmNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.OAuth2JWTResponseTokenResponseFieldJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.OAuth2JWTResponseTokenResponseFieldNullableJsonConverter());
-            options.Converters.Add(new global::ElevenLabs.JsonConverters.OAuthConnectionStatusJsonConverter());
-            options.Converters.Add(new global::ElevenLabs.JsonConverters.OAuthConnectionStatusNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.OpenAIMCPToolRequireApprovalJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.OpenAIMCPToolRequireApprovalNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.OpenAISessionConfigToolDiscriminatorTypeJsonConverter());
