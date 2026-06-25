@@ -61984,12 +61984,24 @@
       "LLMLiteralJsonSchemaProperty": {
         "properties": {
           "type": {
-            "type": "string",
-            "enum": [
-              "boolean",
-              "string",
-              "integer",
-              "number"
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "boolean",
+                  "string",
+                  "integer",
+                  "number"
+                ]
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "maxItems": 2,
+                "minItems": 2
+              }
             ],
             "title": "Type"
           },
@@ -63349,12 +63361,24 @@
       "LiteralJsonSchemaProperty": {
         "properties": {
           "type": {
-            "type": "string",
-            "enum": [
-              "boolean",
-              "string",
-              "integer",
-              "number"
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "boolean",
+                  "string",
+                  "integer",
+                  "number"
+                ]
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "maxItems": 2,
+                "minItems": 2
+              }
             ],
             "title": "Type"
           },
