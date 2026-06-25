@@ -30,6 +30,12 @@ namespace ElevenLabs
         public global::ElevenLabs.TransferTypeEnum? TransferType { get; set; }
 
         /// <summary>
+        /// User-to-User Information (RFC 7433) to attach to SIP REFER transfers. Carries call context such as CRM identifiers or escalation reason across the transfer boundary.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("uui")]
+        public global::ElevenLabs.UUITransferConfig? Uui { get; set; }
+
+        /// <summary>
         /// DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause. Only supported for Twilio transfers.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("post_dial_digits")]
@@ -69,6 +75,9 @@ namespace ElevenLabs
         /// <param name="transferType">
         /// Default Value: conference
         /// </param>
+        /// <param name="uui">
+        /// User-to-User Information (RFC 7433) to attach to SIP REFER transfers. Carries call context such as CRM identifiers or escalation reason across the transfer boundary.
+        /// </param>
         /// <param name="postDialDigits">
         /// DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause. Only supported for Twilio transfers.
         /// </param>
@@ -88,6 +97,7 @@ namespace ElevenLabs
             global::ElevenLabs.TransferDestination2 transferDestination,
             global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem2>? customSipHeaders,
             global::ElevenLabs.TransferTypeEnum? transferType,
+            global::ElevenLabs.UUITransferConfig? uui,
             global::ElevenLabs.PostDialDigitsVariant12? postDialDigits,
             string? type,
             global::ElevenLabs.PositionInput? position,
@@ -96,6 +106,7 @@ namespace ElevenLabs
             this.CustomSipHeaders = customSipHeaders;
             this.TransferDestination = transferDestination;
             this.TransferType = transferType;
+            this.Uui = uui;
             this.PostDialDigits = postDialDigits;
             this.Type = type;
             this.Position = position;

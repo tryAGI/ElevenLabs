@@ -34339,6 +34339,16 @@
         ],
         "title": "AudioAnalysisResult"
       },
+      "AudioFilterId": {
+        "type": "string",
+        "enum": [
+          "phone",
+          "low_quality_phone",
+          "bright_phone"
+        ],
+        "title": "AudioFilterId",
+        "description": "Identifiers for audio voice filters."
+      },
       "AudioFormat": {
         "type": "string",
         "enum": [
@@ -49664,6 +49674,16 @@
               }
             ],
             "title": "Rating"
+          },
+          "sentiment_analysis": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationSentimentAnalysis"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -50412,6 +50432,18 @@
           "created_version_id"
         ],
         "title": "CreateAgentBranchResponseModel"
+      },
+      "CreateAgentProcedureParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "create_agent_procedure",
+            "title": "Smb Tool Type",
+            "default": "create_agent_procedure"
+          }
+        },
+        "type": "object",
+        "title": "CreateAgentProcedureParams"
       },
       "CreateAgentResponseModel": {
         "properties": {
@@ -52370,6 +52402,18 @@
           "permission_level"
         ],
         "title": "DefaultSharingGroupResponseModel"
+      },
+      "DeleteAgentProcedureParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "delete_agent_procedure",
+            "title": "Smb Tool Type",
+            "default": "delete_agent_procedure"
+          }
+        },
+        "type": "object",
+        "title": "DeleteAgentProcedureParams"
       },
       "DeleteAgentRuleParams": {
         "properties": {
@@ -62783,6 +62827,30 @@
           "voice_id": "sB1b5zUrxQVAFl2PhZFp"
         }
       },
+      "ListAgentProceduresParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "list_agent_procedures",
+            "title": "Smb Tool Type",
+            "default": "list_agent_procedures"
+          }
+        },
+        "type": "object",
+        "title": "ListAgentProceduresParams"
+      },
+      "ListAgentReferencesParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "list_agent_references",
+            "title": "Smb Tool Type",
+            "default": "list_agent_references"
+          }
+        },
+        "type": "object",
+        "title": "ListAgentReferencesParams"
+      },
       "ListAgentRulesParams": {
         "properties": {
           "smb_tool_type": {
@@ -68537,6 +68605,17 @@
           "transfer_type": {
             "$ref": "#/components/schemas/TransferTypeEnum",
             "default": "conference"
+          },
+          "uui": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/UUITransferConfig"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "User-to-User Information (RFC 7433) to attach to SIP REFER transfers. Carries call context such as CRM identifiers or escalation reason across the transfer boundary."
           },
           "post_dial_digits": {
             "anyOf": [
@@ -75314,6 +75393,21 @@
                 "$ref": "#/components/schemas/DeleteAgentRuleParams"
               },
               {
+                "$ref": "#/components/schemas/ListAgentProceduresParams"
+              },
+              {
+                "$ref": "#/components/schemas/ListAgentReferencesParams"
+              },
+              {
+                "$ref": "#/components/schemas/CreateAgentProcedureParams"
+              },
+              {
+                "$ref": "#/components/schemas/UpdateAgentProcedureParams"
+              },
+              {
+                "$ref": "#/components/schemas/DeleteAgentProcedureParams"
+              },
+              {
                 "$ref": "#/components/schemas/ListHolidaysParams"
               },
               {
@@ -75397,6 +75491,7 @@
                 "cancel_group_session_for_all": "#/components/schemas/CancelGroupSessionForAllParams",
                 "cancel_group_session_registration": "#/components/schemas/CancelGroupSessionRegistrationParams",
                 "check_service_availability": "#/components/schemas/CheckServiceAvailabilityParams",
+                "create_agent_procedure": "#/components/schemas/CreateAgentProcedureParams",
                 "create_agent_rule": "#/components/schemas/CreateAgentRuleParams",
                 "create_asset": "#/components/schemas/CreateAssetParams",
                 "create_client": "#/components/schemas/CreateClientParams",
@@ -75407,6 +75502,7 @@
                 "create_product": "#/components/schemas/CreateProductParams",
                 "create_service": "#/components/schemas/CreateServiceParams",
                 "create_staff": "#/components/schemas/CreateStaffParams",
+                "delete_agent_procedure": "#/components/schemas/DeleteAgentProcedureParams",
                 "delete_agent_rule": "#/components/schemas/DeleteAgentRuleParams",
                 "delete_asset": "#/components/schemas/DeleteAssetParams",
                 "delete_calendar_event": "#/components/schemas/DeleteCalendarEventParams",
@@ -75426,6 +75522,8 @@
                 "get_client_by_phone": "#/components/schemas/GetClientByPhoneParams",
                 "get_schedule": "#/components/schemas/GetScheduleParams",
                 "leave_message": "#/components/schemas/LeaveMessageParams",
+                "list_agent_procedures": "#/components/schemas/ListAgentProceduresParams",
+                "list_agent_references": "#/components/schemas/ListAgentReferencesParams",
                 "list_agent_rules": "#/components/schemas/ListAgentRulesParams",
                 "list_assets": "#/components/schemas/ListAssetsParams",
                 "list_calendar_events": "#/components/schemas/ListCalendarEventsParams",
@@ -75447,6 +75545,7 @@
                 "search_clients": "#/components/schemas/SearchClientsParams",
                 "set_booking_slug": "#/components/schemas/SetBookingSlugParams",
                 "submit_business_info": "#/components/schemas/SubmitBusinessInfoParams",
+                "update_agent_procedure": "#/components/schemas/UpdateAgentProcedureParams",
                 "update_agent_rule": "#/components/schemas/UpdateAgentRuleParams",
                 "update_asset": "#/components/schemas/UpdateAssetParams",
                 "update_booking_page_appearance": "#/components/schemas/UpdateBookingPageAppearanceParams",
@@ -79843,6 +79942,18 @@
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.",
             "default": false
+          },
+          "audio_filter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioFilterId"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An optional filter applied to the audio output.",
+            "x-fern-ignore": true
           }
         },
         "type": "object",
@@ -79952,6 +80063,18 @@
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.",
             "default": false
+          },
+          "audio_filter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioFilterId"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An optional filter applied to the audio output.",
+            "x-fern-ignore": true
           }
         },
         "type": "object",
@@ -80229,6 +80352,18 @@
             ],
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model."
+          },
+          "audio_filter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioFilterId"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An optional filter applied to the audio output.",
+            "x-fern-ignore": true
           }
         },
         "type": "object",
@@ -80411,6 +80546,18 @@
             ],
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model."
+          },
+          "audio_filter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioFilterId"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An optional filter applied to the audio output.",
+            "x-fern-ignore": true
           }
         },
         "type": "object",
@@ -82704,6 +82851,45 @@
         "type": "object",
         "title": "URLAvatar"
       },
+      "UUITransferConfig": {
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 256,
+            "title": "Data",
+            "description": "UUI payload to send on SIP REFER transfers. Supports inline dynamic variables and is hex-encoded at transfer time."
+          },
+          "protocol_discriminator": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[0-9A-Fa-f]{2}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Protocol Discriminator",
+            "description": "Optional one-octet protocol discriminator (two hex digits, e.g. '00'). Required by platforms such as Genesys Cloud, which otherwise strip the first octet of the payload. Leave unset for platforms like Talkdesk that expect a bare hex payload."
+          },
+          "protocol_discriminator_mode": {
+            "type": "string",
+            "enum": [
+              "prefix",
+              "pd_parameter"
+            ],
+            "title": "Protocol Discriminator Mode",
+            "description": "How to attach protocol_discriminator. 'prefix' prepends the octet to the hex payload (User-to-User=XX<hex>;encoding=hex). 'pd_parameter' sends it as a separate parameter (User-to-User=<hex>;pd=XX;encoding=hex). Ignored when protocol_discriminator is unset.",
+            "default": "prefix"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "UUITransferConfig",
+        "description": "User-to-User Information envelope for SIP REFER transfers (RFC 7433).\n\nOutbound payloads are hex-encoded (the only encoding RFC 7433 defines). The\nprotocol discriminator axis lets per-platform formats (Talkdesk, Genesys, ...)\nbe expressed by configuration rather than scattered transfer flags. Further\naxes (ASCII encoding, header name, purpose/content parameters) can be added\nhere without touching the transfer model."
+      },
       "UnitTestRunResponseModel": {
         "properties": {
           "test_run_id": {
@@ -83108,6 +83294,18 @@
           "target_node_id"
         ],
         "title": "UnitTestWorkflowNodeTransitionEvaluationNodeId"
+      },
+      "UpdateAgentProcedureParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "update_agent_procedure",
+            "title": "Smb Tool Type",
+            "default": "update_agent_procedure"
+          }
+        },
+        "type": "object",
+        "title": "UpdateAgentProcedureParams"
       },
       "UpdateAgentRuleParams": {
         "properties": {
@@ -91051,6 +91249,17 @@
             "$ref": "#/components/schemas/TransferTypeEnum",
             "default": "conference"
           },
+          "uui": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/UUITransferConfig"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "User-to-User Information (RFC 7433) to attach to SIP REFER transfers. Carries call context such as CRM identifiers or escalation reason across the transfer boundary."
+          },
           "post_dial_digits": {
             "anyOf": [
               {
@@ -91157,6 +91366,17 @@
             "$ref": "#/components/schemas/TransferTypeEnum",
             "default": "conference"
           },
+          "uui": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/UUITransferConfig"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "User-to-User Information (RFC 7433) to attach to SIP REFER transfers. Carries call context such as CRM identifiers or escalation reason across the transfer boundary."
+          },
           "post_dial_digits": {
             "anyOf": [
               {
@@ -91207,6 +91427,7 @@
           "custom_sip_headers",
           "transfer_destination",
           "transfer_type",
+          "uui",
           "post_dial_digits",
           "type",
           "position",
