@@ -33,6 +33,12 @@ namespace ElevenLabs
         public required global::ElevenLabs.TransferTypeEnum TransferType { get; set; } = global::ElevenLabs.TransferTypeEnum.Conference;
 
         /// <summary>
+        /// User-to-User Information (RFC 7433) to attach to SIP REFER transfers. Carries call context such as CRM identifiers or escalation reason across the transfer boundary.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("uui")]
+        public global::ElevenLabs.UUITransferConfig? Uui { get; set; }
+
+        /// <summary>
         /// DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause. Only supported for Twilio transfers.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("post_dial_digits")]
@@ -81,6 +87,9 @@ namespace ElevenLabs
         /// <param name="edgeOrder">
         /// The ids of outgoing edges in the order they should be evaluated.
         /// </param>
+        /// <param name="uui">
+        /// User-to-User Information (RFC 7433) to attach to SIP REFER transfers. Carries call context such as CRM identifiers or escalation reason across the transfer boundary.
+        /// </param>
         /// <param name="postDialDigits">
         /// DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause. Only supported for Twilio transfers.
         /// </param>
@@ -96,12 +105,14 @@ namespace ElevenLabs
             global::ElevenLabs.TransferTypeEnum transferType,
             global::ElevenLabs.PositionOutput position,
             global::System.Collections.Generic.IList<string> edgeOrder,
+            global::ElevenLabs.UUITransferConfig? uui,
             global::ElevenLabs.PostDialDigitsVariant13? postDialDigits,
             string type = "phone_number")
         {
             this.CustomSipHeaders = customSipHeaders ?? throw new global::System.ArgumentNullException(nameof(customSipHeaders));
             this.TransferDestination = transferDestination;
             this.TransferType = transferType;
+            this.Uui = uui;
             this.PostDialDigits = postDialDigits;
             this.Type = type;
             this.Position = position ?? throw new global::System.ArgumentNullException(nameof(position));
