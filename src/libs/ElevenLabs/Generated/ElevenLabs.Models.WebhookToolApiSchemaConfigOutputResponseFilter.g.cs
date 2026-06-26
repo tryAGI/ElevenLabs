@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models.
+    /// Optional allow-list filter applied to the response before the LLM sees it, so large responses don't pollute the context. Defaults to the full response.
     /// </summary>
-    public sealed partial class BodyTextToSpeechStreamWithTimestampsLanguageCode
+    public sealed partial class WebhookToolApiSchemaConfigOutputResponseFilter
     {
 
         /// <summary>

@@ -47,6 +47,12 @@ namespace ElevenLabs
         public string? Provider { get; set; }
 
         /// <summary>
+        /// Agent ID to assign the phone number to
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
+        public string? AgentId { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("inbound_trunk_config")]
@@ -76,6 +82,9 @@ namespace ElevenLabs
         /// <param name="provider">
         /// Default Value: sip_trunk
         /// </param>
+        /// <param name="agentId">
+        /// Agent ID to assign the phone number to
+        /// </param>
         /// <param name="inboundTrunkConfig"></param>
         /// <param name="outboundTrunkConfig"></param>
 #if NET7_0_OR_GREATER
@@ -85,12 +94,14 @@ namespace ElevenLabs
             string phoneNumber,
             string label,
             string? provider,
+            string? agentId,
             global::ElevenLabs.InboundSIPTrunkConfigRequestModel? inboundTrunkConfig,
             global::ElevenLabs.OutboundSIPTrunkConfigRequestModel? outboundTrunkConfig)
         {
             this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.Provider = provider;
+            this.AgentId = agentId;
             this.InboundTrunkConfig = inboundTrunkConfig;
             this.OutboundTrunkConfig = outboundTrunkConfig;
         }
