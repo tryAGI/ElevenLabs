@@ -47,6 +47,12 @@ namespace ElevenLabs
         public string? Provider { get; set; }
 
         /// <summary>
+        /// Agent ID to assign the phone number to
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
+        public string? AgentId { get; set; }
+
+        /// <summary>
         /// Exotel Account SID
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("account_sid")]
@@ -121,6 +127,9 @@ namespace ElevenLabs
         /// <param name="provider">
         /// Default Value: exotel
         /// </param>
+        /// <param name="agentId">
+        /// Agent ID to assign the phone number to
+        /// </param>
         /// <param name="appletUrl">
         /// Optional full applet URL override. Defaults to Exotel start_voice URL derived from account SID and app ID.
         /// </param>
@@ -136,11 +145,13 @@ namespace ElevenLabs
             global::ElevenLabs.ExotelApiSubdomain apiSubdomain,
             string appId,
             string? provider,
+            string? agentId,
             string? appletUrl)
         {
             this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.Provider = provider;
+            this.AgentId = agentId;
             this.AccountSid = accountSid ?? throw new global::System.ArgumentNullException(nameof(accountSid));
             this.ApiKey = apiKey ?? throw new global::System.ArgumentNullException(nameof(apiKey));
             this.ApiToken = apiToken ?? throw new global::System.ArgumentNullException(nameof(apiToken));

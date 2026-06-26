@@ -54,6 +54,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ObjectJsonSchemaPropertyOutput? ResponseBodySchema { get; set; }
 
         /// <summary>
+        /// Optional allow-list filter applied to the response before the LLM sees it, so large responses don't pollute the context. Defaults to the full response.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("response_filter")]
+        public global::ElevenLabs.ResponseFilter? ResponseFilter { get; set; }
+
+        /// <summary>
         /// Content type for the request body. Only applies to POST/PUT/PATCH requests.<br/>
         /// Default Value: application/json
         /// </summary>
@@ -105,6 +111,9 @@ namespace ElevenLabs
         /// <param name="responseBodySchema">
         /// Schema describing the expected response body structure. For documentation only; not surfaced to the LLM.
         /// </param>
+        /// <param name="responseFilter">
+        /// Optional allow-list filter applied to the response before the LLM sees it, so large responses don't pollute the context. Defaults to the full response.
+        /// </param>
         /// <param name="contentType">
         /// Content type for the request body. Only applies to POST/PUT/PATCH requests.<br/>
         /// Default Value: application/json
@@ -126,6 +135,7 @@ namespace ElevenLabs
             global::ElevenLabs.QueryParamsJsonSchema? queryParamsSchema,
             global::ElevenLabs.ObjectJsonSchemaPropertyOutput? requestBodySchema,
             global::ElevenLabs.ObjectJsonSchemaPropertyOutput? responseBodySchema,
+            global::ElevenLabs.ResponseFilter? responseFilter,
             global::ElevenLabs.WebhookToolApiSchemaConfigOutputContentType? contentType,
             global::System.Collections.Generic.IList<string>? authResolvedParams,
             global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection)
@@ -137,6 +147,7 @@ namespace ElevenLabs
             this.QueryParamsSchema = queryParamsSchema;
             this.RequestBodySchema = requestBodySchema;
             this.ResponseBodySchema = responseBodySchema;
+            this.ResponseFilter = responseFilter;
             this.ContentType = contentType;
             this.AuthResolvedParams = authResolvedParams;
             this.AuthConnection = authConnection;

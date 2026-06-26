@@ -40885,7 +40885,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "settings": {
             "anyOf": [
@@ -41001,7 +41001,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "settings": {
             "anyOf": [
@@ -42180,7 +42180,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "settings": {
             "anyOf": [
@@ -42296,7 +42296,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "settings": {
             "anyOf": [
@@ -42400,7 +42400,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "voice_settings": {
             "anyOf": [
@@ -42591,7 +42591,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "voice_settings": {
             "anyOf": [
@@ -42761,7 +42761,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "voice_settings": {
             "anyOf": [
@@ -42952,7 +42952,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "voice_settings": {
             "anyOf": [
@@ -50816,6 +50816,18 @@
             "title": "Provider",
             "default": "exotel"
           },
+          "agent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agent Id",
+            "description": "Agent ID to assign the phone number to"
+          },
           "account_sid": {
             "type": "string",
             "title": "Account Sid",
@@ -51436,6 +51448,18 @@
             "title": "Provider",
             "default": "sip_trunk"
           },
+          "agent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agent Id",
+            "description": "Agent ID to assign the phone number to"
+          },
           "inbound_trunk_config": {
             "anyOf": [
               {
@@ -51876,6 +51900,18 @@
             "const": "twilio",
             "title": "Provider",
             "default": "twilio"
+          },
+          "agent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agent Id",
+            "description": "Agent ID to assign the phone number to"
           },
           "sid": {
             "type": "string",
@@ -67392,7 +67428,9 @@
           "max_response_output_tokens": {
             "anyOf": [
               {
-                "type": "integer"
+                "type": "integer",
+                "maximum": 4096.0,
+                "minimum": 1.0
               },
               {
                 "type": "string",
@@ -67411,6 +67449,7 @@
             "readOnly": true
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "required": [
           "output_modalities"
@@ -69636,15 +69675,15 @@
             "title": "Name",
             "description": "Procedure name"
           },
+          "type": {
+            "$ref": "#/components/schemas/ProcedureType",
+            "default": "free_form"
+          },
           "content": {
             "type": "string",
             "maxLength": 50000,
             "title": "Content",
             "description": "Procedure content"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ProcedureType",
-            "default": "free_form"
           },
           "guardrails": {
             "items": {
@@ -69693,15 +69732,15 @@
             "title": "Name",
             "description": "Procedure name"
           },
+          "type": {
+            "$ref": "#/components/schemas/ProcedureType",
+            "default": "free_form"
+          },
           "content": {
             "type": "string",
             "maxLength": 50000,
             "title": "Content",
             "description": "Procedure content"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ProcedureType",
-            "default": "free_form"
           },
           "guardrails": {
             "items": {
@@ -87842,6 +87881,17 @@
             ],
             "description": "Schema describing the expected response body structure. For documentation only; not surfaced to the LLM."
           },
+          "response_filter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResponseFilter"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional allow-list filter applied to the response before the LLM sees it, so large responses don't pollute the context. Defaults to the full response."
+          },
           "content_type": {
             "type": "string",
             "enum": [
@@ -87986,6 +88036,17 @@
               }
             ],
             "description": "Schema describing the expected response body structure. For documentation only; not surfaced to the LLM."
+          },
+          "response_filter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResponseFilter"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional allow-list filter applied to the response before the LLM sees it, so large responses don't pollute the context. Defaults to the full response."
           },
           "content_type": {
             "type": "string",
@@ -91358,6 +91419,24 @@
       },
       "WorkflowOverrideAgentNodeModel-Input": {
         "properties": {
+          "type": {
+            "type": "string",
+            "const": "override_agent",
+            "title": "Type",
+            "default": "override_agent"
+          },
+          "position": {
+            "$ref": "#/components/schemas/Position-Input",
+            "description": "Position of the node in the workflow."
+          },
+          "edge_order": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Edge Order",
+            "description": "The ids of outgoing edges in the order they should be evaluated."
+          },
           "conversation_config": {
             "$ref": "#/components/schemas/ConversationalConfigAPIModelWorkflowOverride-Input",
             "description": "Configuration overrides applied while the subagent is conducting the conversation."
@@ -91383,24 +91462,6 @@
             "title": "Additional Tool Ids",
             "description": "IDs of additional tools that the subagent has access to. These will be used in addition to the main agent's tools."
           },
-          "type": {
-            "type": "string",
-            "const": "override_agent",
-            "title": "Type",
-            "default": "override_agent"
-          },
-          "position": {
-            "$ref": "#/components/schemas/Position-Input",
-            "description": "Position of the node in the workflow."
-          },
-          "edge_order": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Edge Order",
-            "description": "The ids of outgoing edges in the order they should be evaluated."
-          },
           "label": {
             "type": "string",
             "title": "Label",
@@ -91420,6 +91481,24 @@
       },
       "WorkflowOverrideAgentNodeModel-Output": {
         "properties": {
+          "type": {
+            "type": "string",
+            "const": "override_agent",
+            "title": "Type",
+            "default": "override_agent"
+          },
+          "position": {
+            "$ref": "#/components/schemas/Position-Output",
+            "description": "Position of the node in the workflow."
+          },
+          "edge_order": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Edge Order",
+            "description": "The ids of outgoing edges in the order they should be evaluated."
+          },
           "conversation_config": {
             "$ref": "#/components/schemas/ConversationalConfigAPIModelWorkflowOverride-Output",
             "description": "Configuration overrides applied while the subagent is conducting the conversation."
@@ -91445,24 +91524,6 @@
             "title": "Additional Tool Ids",
             "description": "IDs of additional tools that the subagent has access to. These will be used in addition to the main agent's tools."
           },
-          "type": {
-            "type": "string",
-            "const": "override_agent",
-            "title": "Type",
-            "default": "override_agent"
-          },
-          "position": {
-            "$ref": "#/components/schemas/Position-Output",
-            "description": "Position of the node in the workflow."
-          },
-          "edge_order": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Edge Order",
-            "description": "The ids of outgoing edges in the order they should be evaluated."
-          },
           "label": {
             "type": "string",
             "title": "Label",
@@ -91476,13 +91537,13 @@
         },
         "type": "object",
         "required": [
+          "type",
+          "position",
+          "edge_order",
           "conversation_config",
           "additional_prompt",
           "additional_knowledge_base",
           "additional_tool_ids",
-          "type",
-          "position",
-          "edge_order",
           "label",
           "entry_behavior"
         ],

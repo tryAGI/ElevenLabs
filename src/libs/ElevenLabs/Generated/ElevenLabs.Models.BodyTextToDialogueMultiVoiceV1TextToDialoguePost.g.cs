@@ -23,7 +23,7 @@ namespace ElevenLabs
         public string? ModelId { get; set; }
 
         /// <summary>
-        /// Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned.
+        /// Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_code")]
         public string? LanguageCode { get; set; }
@@ -71,7 +71,7 @@ namespace ElevenLabs
         /// Default Value: eleven_v3
         /// </param>
         /// <param name="languageCode">
-        /// Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned.
+        /// Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models.
         /// </param>
         /// <param name="settings">
         /// Settings controlling the dialogue generation.
