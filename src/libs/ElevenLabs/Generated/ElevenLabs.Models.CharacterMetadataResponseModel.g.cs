@@ -11,6 +11,18 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string? Description { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sample_message")]
+        public string? SampleMessage { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gender")]
         public global::ElevenLabs.CharacterGender? Gender { get; set; }
 
@@ -27,18 +39,6 @@ namespace ElevenLabs
         public string? Accent { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
-        public string? Description { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("sample_message")]
-        public string? SampleMessage { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -47,26 +47,26 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CharacterMetadataResponseModel" /> class.
         /// </summary>
+        /// <param name="description"></param>
+        /// <param name="sampleMessage"></param>
         /// <param name="gender"></param>
         /// <param name="age"></param>
         /// <param name="accent"></param>
-        /// <param name="description"></param>
-        /// <param name="sampleMessage"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CharacterMetadataResponseModel(
+            string? description,
+            string? sampleMessage,
             global::ElevenLabs.CharacterGender? gender,
             global::ElevenLabs.CharacterAge? age,
-            string? accent,
-            string? description,
-            string? sampleMessage)
+            string? accent)
         {
+            this.Description = description;
+            this.SampleMessage = sampleMessage;
             this.Gender = gender;
             this.Age = age;
             this.Accent = accent;
-            this.Description = description;
-            this.SampleMessage = sampleMessage;
         }
 
         /// <summary>
