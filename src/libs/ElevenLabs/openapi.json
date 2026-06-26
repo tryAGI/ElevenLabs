@@ -32984,6 +32984,7 @@
                 "x": 0.0,
                 "y": 0.0
               },
+              "require_acceptance": false,
               "transfer_destination": {
                 "phone_number": "+1234567890",
                 "type": "phone"
@@ -44844,6 +44845,28 @@
       },
       "CharacterMetadataResponseModel": {
         "properties": {
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "sample_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sample Message"
+          },
           "gender": {
             "anyOf": [
               {
@@ -44874,28 +44897,6 @@
               }
             ],
             "title": "Accent"
-          },
-          "description": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Description"
-          },
-          "sample_message": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Sample Message"
           }
         },
         "type": "object",
@@ -57150,6 +57151,7 @@
                   "x": 0.0,
                   "y": 0.0
                 },
+                "require_acceptance": false,
                 "transfer_destination": {
                   "phone_number": "+1234567890",
                   "type": "phone"
@@ -65920,6 +65922,7 @@
                   "x": 0.0,
                   "y": 0.0
                 },
+                "require_acceptance": false,
                 "transfer_destination": {
                   "phone_number": "+1234567890",
                   "type": "phone"
