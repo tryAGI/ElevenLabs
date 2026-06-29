@@ -32,7 +32,7 @@ public partial class Tests
         AssertReturnType(
             typeof(IMusicGenerationClient),
             nameof(IMusicGenerationClient.CreateAsync),
-            typeof(Task<AnyOf<MusicPrompt, CompositionPlan4>>),
+            typeof(Task<AnyOf<MusicPrompt, CompositionPlan>>),
             typeof(BodyGenerateCompositionPlanV1MusicPlanPost),
             typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
