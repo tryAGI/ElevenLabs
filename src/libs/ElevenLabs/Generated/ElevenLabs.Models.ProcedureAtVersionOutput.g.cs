@@ -23,18 +23,18 @@ namespace ElevenLabs
         public required string Name { get; set; }
 
         /// <summary>
-        /// Procedure content
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("content")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Content { get; set; }
-
-        /// <summary>
         /// Default Value: free_form
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProcedureTypeJsonConverter))]
         public global::ElevenLabs.ProcedureType? Type { get; set; }
+
+        /// <summary>
+        /// Procedure content
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("content")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Content { get; set; }
 
         /// <summary>
         /// 
@@ -97,8 +97,8 @@ namespace ElevenLabs
         {
             this.ProcedureId = procedureId ?? throw new global::System.ArgumentNullException(nameof(procedureId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
             this.Type = type;
+            this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
             this.Guardrails = guardrails;
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.VersionId = versionId;

@@ -91,6 +91,13 @@ namespace ElevenLabs
         public bool? DraftExists { get; set; }
 
         /// <summary>
+        /// Number of calls in the last 7 days<br/>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("calls_7d")]
+        public int? Calls7d { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -123,6 +130,10 @@ namespace ElevenLabs
         /// Whether a draft exists for the branch<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="calls7d">
+        /// Number of calls in the last 7 days<br/>
+        /// Default Value: 0
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -138,7 +149,8 @@ namespace ElevenLabs
             global::ElevenLabs.ResourceAccessInfo? accessInfo,
             double? currentLivePercentage,
             string? parentBranchId,
-            bool? draftExists)
+            bool? draftExists,
+            int? calls7d)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -152,6 +164,7 @@ namespace ElevenLabs
             this.CurrentLivePercentage = currentLivePercentage;
             this.ParentBranchId = parentBranchId;
             this.DraftExists = draftExists;
+            this.Calls7d = calls7d;
         }
 
         /// <summary>

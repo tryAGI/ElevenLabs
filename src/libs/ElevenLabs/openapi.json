@@ -3202,6 +3202,83 @@
         "x-fern-sdk-method-name": "update"
       }
     },
+    "/v1/voices": {
+      "get": {
+        "tags": [
+          "voices",
+          "voices"
+        ],
+        "summary": "List Voices",
+        "description": "Returns a list of all available voices for a user. Stops working once the user's workspace exceeds 500 voices.",
+        "operationId": "get_voices",
+        "parameters": [
+          {
+            "name": "show_legacy",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "If set to true, legacy premade voices will be included in responses from /v1/voices",
+              "examples": [
+                true
+              ],
+              "default": false,
+              "title": "Show Legacy"
+            },
+            "description": "If set to true, legacy premade voices will be included in responses from /v1/voices"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetVoicesResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "voices",
+        "x-fern-sdk-method-name": "get_all"
+      }
+    },
     "/v1/voices/{voice_id}": {
       "get": {
         "tags": [
@@ -3350,82 +3427,6 @@
         },
         "x-fern-sdk-group-name": "voices",
         "x-fern-sdk-method-name": "delete"
-      }
-    },
-    "/v1/voices": {
-      "get": {
-        "tags": [
-          "voices"
-        ],
-        "summary": "List Voices",
-        "description": "Returns a list of all available voices for a user. Stops working once the user's workspace exceeds 500 voices.",
-        "operationId": "get_voices",
-        "parameters": [
-          {
-            "name": "show_legacy",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "If set to true, legacy premade voices will be included in responses from /v1/voices",
-              "examples": [
-                true
-              ],
-              "default": false,
-              "title": "Show Legacy"
-            },
-            "description": "If set to true, legacy premade voices will be included in responses from /v1/voices"
-          },
-          {
-            "name": "xi-api-key",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
-              "title": "Xi-Api-Key"
-            },
-            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetVoicesResponseModel"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "x-fern-sdk-group-name": "voices",
-        "x-fern-sdk-method-name": "get_all"
       }
     },
     "/v2/voices": {
@@ -7091,6 +7092,106 @@
             "description": "What state the dub is currently in."
           },
           {
+            "name": "dubbing_statuses",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "queued",
+                      "preparing",
+                      "dubbing",
+                      "dubbed",
+                      "failed"
+                    ],
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by dubbing status.",
+              "title": "Dubbing Statuses"
+            },
+            "description": "Filter by dubbing status."
+          },
+          {
+            "name": "dubbing_models",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "dubbing_v1",
+                      "dubbing_v2"
+                    ],
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by dubbing model generation.",
+              "title": "Dubbing Models"
+            },
+            "description": "Filter by dubbing model generation."
+          },
+          {
+            "name": "target_language_codes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by target language code.",
+              "title": "Target Language Codes"
+            },
+            "description": "Filter by target language code."
+          },
+          {
+            "name": "creation_sources",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "flow_node",
+                      "dubbing_ui",
+                      "dubbing_api"
+                    ],
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by dubbing creation source.",
+              "title": "Creation Sources"
+            },
+            "description": "Filter by dubbing creation source."
+          },
+          {
             "name": "filter_by_creator",
             "in": "query",
             "required": false,
@@ -7115,7 +7216,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "const": "created_at",
+              "enum": [
+                "created_at",
+                "name"
+              ],
               "type": "string",
               "description": "The field to use for ordering results from this query.",
               "default": "created_at",
@@ -9520,6 +9624,66 @@
         "x-fern-sdk-method-name": "disable"
       }
     },
+    "/v1/workspaces/api-keys/third-party-disabling": {
+      "post": {
+        "tags": [
+          "workspace",
+          "api-key"
+        ],
+        "summary": "Set Workspace Third-Party Disabling Policy",
+        "description": "Set the workspace-wide Third-Party Disabling policy. When set, it forces, for every API key in the workspace, whether the holder of a key (potentially a third party who found it) may disable it via the self-disable endpoint or when it leaks publicly — overriding each key's own setting. Pass `true` to allow it for all keys, `false` to forbid it for all keys, or `null` to clear the override so per-key values and the plan default apply again. Workspace admins only; requires self-disable access.",
+        "operationId": "set_third_party_disabling_policy",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Set_workspace_Third_Party_Disabling_policy_v1_workspaces_api_keys_third_party_disabling_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/service-accounts/{service_account_user_id}/api-keys": {
       "get": {
         "tags": [
@@ -10242,6 +10406,9 @@
                   },
                   {
                     "$ref": "#/components/schemas/UpdateBasicAuthRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateBearerAuthRequest"
                   },
                   {
                     "$ref": "#/components/schemas/UpdateOAuth2JWTRequest"
@@ -11526,7 +11693,7 @@
           "speech-to-text"
         ],
         "summary": "Speech To Text",
-        "description": "Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.",
+        "description": "Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.",
         "operationId": "speech_to_text",
         "parameters": [
           {
@@ -13206,10 +13373,10 @@
                   "type": "null"
                 }
               ],
-              "description": "An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get-signed-url endpoint",
+              "description": "An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get_signed_url endpoint",
               "title": "Conversation Signature"
             },
-            "description": "An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get-signed-url endpoint"
+            "description": "An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get_signed_url endpoint"
           },
           {
             "name": "xi-api-key",
@@ -15693,6 +15860,24 @@
             }
           },
           {
+            "name": "conversation_product_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/ConversationProduct"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Restrict results to a single conversation product surface.",
+              "title": "Conversation Product Type"
+            },
+            "description": "Restrict results to a single conversation product surface."
+          },
+          {
             "name": "branch_id",
             "in": "query",
             "required": false,
@@ -16856,6 +17041,24 @@
               ],
               "title": "Text Only"
             }
+          },
+          {
+            "name": "conversation_product_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/ConversationProduct"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Restrict results to a single conversation product surface.",
+              "title": "Conversation Product Type"
+            },
+            "description": "Restrict results to a single conversation product surface."
           },
           {
             "name": "branch_id",
@@ -24624,6 +24827,122 @@
         "x-fern-sdk-method-name": "get"
       }
     },
+    "/v1/convai/agents/{agent_id}/branches/{source_branch_id}/merge-preview": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Preview Merged Configuration",
+        "description": "Returns the result of merging the source branch into the target branch without performing the merge. Useful for showing an accurate diff before confirming.",
+        "operationId": "merge_preview_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "source_branch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Unique identifier for the source branch to merge from.",
+              "examples": [
+                "agtbrch_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "embed": true,
+              "title": "Source Branch Id"
+            },
+            "description": "Unique identifier for the source branch to merge from."
+          },
+          {
+            "name": "target_branch_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the target branch to merge into.",
+              "examples": [
+                "agtbrch_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "embed": true,
+              "title": "Target Branch Id"
+            },
+            "description": "The ID of the target branch to merge into."
+          },
+          {
+            "name": "force",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "When true, source branch changes always win conflicts regardless of timestamps",
+              "default": false,
+              "title": "Force"
+            },
+            "description": "When true, source branch changes always win conflicts regardless of timestamps"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MergePreviewResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "branches",
+          "merge"
+        ],
+        "x-fern-sdk-method-name": "preview"
+      }
+    },
     "/v1/convai/agents/{agent_id}/branches/{source_branch_id}/merge": {
       "post": {
         "tags": [
@@ -24732,6 +25051,181 @@
           "branches"
         ],
         "x-fern-sdk-method-name": "merge"
+      }
+    },
+    "/v1/convai/agents/{agent_id}/branches/{branch_id}/rebase-preview": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Preview Rebased Configuration",
+        "description": "Returns the result of rebasing the branch onto main without performing the rebase. Useful for showing an accurate diff before confirming.",
+        "operationId": "rebase_preview_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "branch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Unique identifier for the source branch to merge from.",
+              "examples": [
+                "agtbrch_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "embed": true,
+              "title": "Branch Id"
+            },
+            "description": "Unique identifier for the source branch to merge from."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MergePreviewResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "branches",
+          "rebase"
+        ],
+        "x-fern-sdk-method-name": "preview"
+      }
+    },
+    "/v1/convai/agents/{agent_id}/branches/{branch_id}/rebase": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Rebase A Branch Onto Main",
+        "description": "Rebase a branch onto the latest main branch, incorporating main's changes while preserving the branch's own changes.",
+        "operationId": "rebase_branch_onto_main",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "branch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Unique identifier for the source branch to merge from.",
+              "examples": [
+                "agtbrch_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "embed": true,
+              "title": "Branch Id"
+            },
+            "description": "Unique identifier for the source branch to merge from."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "branches"
+        ],
+        "x-fern-sdk-method-name": "rebase"
       }
     },
     "/v1/convai/agents/{agent_id}/deployments": {
@@ -30557,6 +31051,12 @@
             "title": "Draft Exists",
             "description": "Whether a draft exists for the branch",
             "default": false
+          },
+          "calls_7d": {
+            "type": "integer",
+            "title": "Calls 7D",
+            "description": "Number of calls in the last 7 days",
+            "default": 0
           }
         },
         "type": "object",
@@ -31479,6 +31979,10 @@
             "$ref": "#/components/schemas/LLM",
             "description": "Default LLM model for post-call analysis (evaluation and data collection)",
             "default": "gemini-2.5-flash"
+          },
+          "topic_discovery": {
+            "$ref": "#/components/schemas/TopicDiscoverySettings",
+            "description": "Per-agent topic discovery configuration"
           }
         },
         "type": "object",
@@ -31572,6 +32076,10 @@
             "$ref": "#/components/schemas/LLM",
             "description": "Default LLM model for post-call analysis (evaluation and data collection)",
             "default": "gemini-2.5-flash"
+          },
+          "topic_discovery": {
+            "$ref": "#/components/schemas/TopicDiscoverySettings",
+            "description": "Per-agent topic discovery configuration"
           },
           "safety": {
             "$ref": "#/components/schemas/SafetyResponseModel"
@@ -32030,6 +32538,17 @@
               }
             ],
             "title": "Merged From Version Id"
+          },
+          "rebased_from_version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rebased From Version Id"
           }
         },
         "type": "object",
@@ -32465,6 +32984,7 @@
                 "x": 0.0,
                 "y": 0.0
               },
+              "require_acceptance": false,
               "transfer_destination": {
                 "phone_number": "+1234567890",
                 "type": "phone"
@@ -32856,28 +33376,6 @@
             "type": "string",
             "title": "Credential Id"
           },
-          "status": {
-            "$ref": "#/components/schemas/OAuthConnectionStatus",
-            "description": "Current health status of the OAuth connection",
-            "default": "active"
-          },
-          "status_detail": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Status Detail",
-            "description": "Human-readable detail about the current status, e.g. the error message on refresh failure"
-          },
-          "status_updated_at": {
-            "type": "string",
-            "title": "Status Updated At",
-            "description": "ISO 8601 timestamp of the last status change"
-          },
           "id": {
             "type": "string",
             "title": "Id"
@@ -32891,6 +33389,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -32956,28 +33480,6 @@
             "type": "string",
             "title": "Credential Id"
           },
-          "status": {
-            "$ref": "#/components/schemas/OAuthConnectionStatus",
-            "description": "Current health status of the OAuth connection",
-            "default": "active"
-          },
-          "status_detail": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Status Detail",
-            "description": "Human-readable detail about the current status, e.g. the error message on refresh failure"
-          },
-          "status_updated_at": {
-            "type": "string",
-            "title": "Status Updated At",
-            "description": "ISO 8601 timestamp of the last status change"
-          },
           "client_id": {
             "type": "string",
             "title": "Client Id",
@@ -32996,6 +33498,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -33820,6 +34348,16 @@
         ],
         "title": "AudioAnalysisResult"
       },
+      "AudioFilterId": {
+        "type": "string",
+        "enum": [
+          "phone",
+          "low_quality_phone",
+          "bright_phone"
+        ],
+        "title": "AudioFilterId",
+        "description": "Identifiers for audio voice filters."
+      },
       "AudioFormat": {
         "type": "string",
         "enum": [
@@ -34486,6 +35024,18 @@
         "title": "AuthConnectionLocator",
         "description": "Used to reference an auth connection from the workspace's auth connection store."
       },
+      "AuthConnectionStatus": {
+        "type": "string",
+        "enum": [
+          "active",
+          "refresh_failed",
+          "revoked",
+          "credential_invalid"
+        ],
+        "title": "AuthConnectionStatus",
+        "description": "Single status field shared by every auth type's stored credential.\n\nOAuth values (``REFRESH_FAILED``, ``REVOKED``) are written by the OAuth\ntoken-manager refresh path. ``CREDENTIAL_INVALID`` is written by the\ntool execution path when an upstream response matches a credential's\n``failure_signatures`` entry (Bearer, Basic auth, etc.).",
+        "default": "active"
+      },
       "AuthSettings": {
         "properties": {
           "enable_auth": {
@@ -34827,6 +35377,20 @@
           "turn_model": {
             "$ref": "#/components/schemas/TurnModel",
             "default": "turn_v3"
+          },
+          "interruption_ignore_terms": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Interruption Ignore Terms",
+            "description": "List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching."
+          },
+          "transcribe_on_disabled_interruptions": {
+            "type": "boolean",
+            "title": "Transcribe On Disabled Interruptions",
+            "description": "When interruptions are disabled, still transcribe what the user says so it can carry into the next turn. When off, user speech during a non-interruptible turn is ignored and won't trigger a turn.",
+            "default": false
           }
         },
         "type": "object",
@@ -34838,6 +35402,7 @@
           "silence_end_call_timeout": -1.0,
           "speculative_turn": false,
           "spelling_patience": "auto",
+          "transcribe_on_disabled_interruptions": false,
           "turn_eagerness": "normal",
           "turn_timeout": 7.0
         }
@@ -34875,6 +35440,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -35351,6 +35942,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -35972,10 +36589,14 @@
           "composition_plan": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/MusicPrompt"
-              },
-              {
-                "$ref": "#/components/schemas/CompositionPlan"
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MusicPrompt"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CompositionPlan"
+                  }
+                ]
               },
               {
                 "type": "null"
@@ -36153,10 +36774,14 @@
           "composition_plan": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/MusicPrompt"
-              },
-              {
-                "$ref": "#/components/schemas/CompositionPlan"
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MusicPrompt"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CompositionPlan"
+                  }
+                ]
               },
               {
                 "type": "null"
@@ -39224,6 +39849,24 @@
         ],
         "title": "Body_Set_rules_on_the_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__set_rules_post"
       },
+      "Body_Set_workspace_Third_Party_Disabling_policy_v1_workspaces_api_keys_third_party_disabling_post": {
+        "properties": {
+          "third_party_disable_allowed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Third Party Disable Allowed",
+            "description": "`true` forces every key in the workspace to be disable-able by its holder; `false` forbids it for every key; `null` clears the override (per-key values and the plan default apply)."
+          }
+        },
+        "type": "object",
+        "title": "Body_Set_workspace_Third_Party_Disabling_policy_v1_workspaces_api_keys_third_party_disabling_post"
+      },
       "Body_Share_workspace_resource_v1_workspace_resources__resource_id__share_post": {
         "properties": {
           "role": {
@@ -39773,8 +40416,18 @@
           "use_multi_channel": {
             "type": "boolean",
             "title": "Use Multi Channel",
-            "description": "Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel will be transcribed independently and the results will be combined. Each word in the response will include a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported. Each channel is billed independently at the full audio duration, so cost scales linearly with the number of channels.",
+            "description": "Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel is transcribed independently. By default a separate transcript is returned per channel; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Each word in the response includes a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported. Each channel is billed independently at the full audio duration, so cost scales linearly with the number of channels.",
             "default": false
+          },
+          "multichannel_output_style": {
+            "type": "string",
+            "enum": [
+              "separate",
+              "combined"
+            ],
+            "title": "Multichannel Output Style",
+            "description": "Controls the response shape when use_multi_channel is enabled. 'separate' (default) returns one transcript per channel under 'transcripts'. 'combined' merges all channels into a single transcript whose words are sorted by start time, each carrying a 'channel_index' - matching the single-channel response shape. 'combined' requires timestamps (timestamps_granularity must not be 'none') and does not support entity detection or redaction.",
+            "default": "separate"
           },
           "webhook_metadata": {
             "anyOf": [
@@ -39984,10 +40637,14 @@
           "composition_plan": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/MusicPrompt"
-              },
-              {
-                "$ref": "#/components/schemas/CompositionPlan"
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MusicPrompt"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CompositionPlan"
+                  }
+                ]
               },
               {
                 "type": "null"
@@ -40229,7 +40886,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "settings": {
             "anyOf": [
@@ -40345,7 +41002,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "settings": {
             "anyOf": [
@@ -41354,6 +42011,18 @@
             ],
             "title": "Allowed Ips",
             "description": "List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the whitelist unchanged, or pass \"clear\" to remove it."
+          },
+          "third_party_disable_allowed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Third Party Disable Allowed",
+            "description": "Whether the holder of this key may disable it via the self-disable endpoint. On create, omit or pass null to use the workspace's default (enabled for non-Enterprise plans, disabled for Enterprise plans). On update, omit to leave it unchanged, or pass \"clear\" to reset it to the workspace default. Only honored for workspaces with self-disable access enabled."
           }
         },
         "type": "object",
@@ -41452,6 +42121,23 @@
             "title": "Allowed Ips",
             "description": "List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the whitelist unchanged, or pass \"clear\" to remove it.",
             "default": "no_update"
+          },
+          "third_party_disable_allowed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "no_update"
+                ]
+              }
+            ],
+            "title": "Third Party Disable Allowed",
+            "description": "Whether the holder of this key may disable it via the self-disable endpoint. On create, omit or pass null to use the workspace's default (enabled for non-Enterprise plans, disabled for Enterprise plans). On update, omit to leave it unchanged, or pass \"clear\" to reset it to the workspace default. Only honored for workspaces with self-disable access enabled.",
+            "default": "no_update"
           }
         },
         "type": "object",
@@ -41495,7 +42181,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "settings": {
             "anyOf": [
@@ -41611,7 +42297,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "settings": {
             "anyOf": [
@@ -41715,7 +42401,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "voice_settings": {
             "anyOf": [
@@ -41906,7 +42592,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "voice_settings": {
             "anyOf": [
@@ -42076,7 +42762,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "voice_settings": {
             "anyOf": [
@@ -42267,7 +42953,7 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
           },
           "voice_settings": {
             "anyOf": [
@@ -43294,7 +43980,10 @@
             "enum": [
               "none",
               "fade",
-              "scale"
+              "scale",
+              "pop",
+              "slide_up",
+              "slide_down"
             ],
             "title": "Enter Type"
           },
@@ -43303,7 +43992,10 @@
             "enum": [
               "none",
               "fade",
-              "scale"
+              "scale",
+              "pop",
+              "slide_up",
+              "slide_down"
             ],
             "title": "Exit Type"
           }
@@ -43368,7 +44060,10 @@
             "enum": [
               "none",
               "fade",
-              "scale"
+              "scale",
+              "pop",
+              "slide_up",
+              "slide_down"
             ],
             "title": "Enter Type"
           },
@@ -43377,7 +44072,10 @@
             "enum": [
               "none",
               "fade",
-              "scale"
+              "scale",
+              "pop",
+              "slide_up",
+              "slide_down"
             ],
             "title": "Exit Type"
           }
@@ -44065,6 +44763,14 @@
           }
         }
       },
+      "CharacterAge": {
+        "type": "string",
+        "enum": [
+          "young",
+          "middle-aged",
+          "old"
+        ]
+      },
       "CharacterAlignmentModel": {
         "properties": {
           "characters": {
@@ -44129,6 +44835,73 @@
         ],
         "title": "CharacterAlignmentResponseModel"
       },
+      "CharacterGender": {
+        "type": "string",
+        "enum": [
+          "male",
+          "female",
+          "neutral"
+        ]
+      },
+      "CharacterMetadataResponseModel": {
+        "properties": {
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "sample_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sample Message"
+          },
+          "gender": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CharacterGender"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "age": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CharacterAge"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "accent": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Accent"
+          }
+        },
+        "type": "object",
+        "title": "CharacterMetadataResponseModel"
+      },
       "CharacterRefreshPeriod": {
         "type": "string",
         "enum": [
@@ -44138,6 +44911,35 @@
           "annual_period"
         ],
         "title": "CharacterRefreshPeriod"
+      },
+      "CharacterResponseModel": {
+        "properties": {
+          "character_id": {
+            "type": "string",
+            "title": "Character Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "metadata": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CharacterMetadataResponseModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "character_id",
+          "name",
+          "metadata"
+        ],
+        "title": "CharacterResponseModel"
       },
       "ChatSourceMedium": {
         "type": "string",
@@ -44481,48 +45283,6 @@
         "type": "object",
         "title": "ClipAnimation"
       },
-      "CodeToolAllowedDomain": {
-        "properties": {
-          "domain": {
-            "type": "string",
-            "maxLength": 253,
-            "minLength": 1,
-            "title": "Domain",
-            "description": "Domain pattern that code tools can access. Must be a valid domain (e.g. api.github.com), optionally with a subdomain wildcard (*.example.com) or path glob (api.example.com/v1/*)."
-          },
-          "name": {
-            "type": "string",
-            "maxLength": 100,
-            "minLength": 1,
-            "title": "Name",
-            "description": "Human-readable label for this domain entry"
-          }
-        },
-        "type": "object",
-        "required": [
-          "domain",
-          "name"
-        ],
-        "title": "CodeToolAllowedDomain"
-      },
-      "CodeToolContextVariable": {
-        "properties": {
-          "name": {
-            "type": "string",
-            "title": "Name"
-          },
-          "env_var_label": {
-            "type": "string",
-            "title": "Env Var Label"
-          }
-        },
-        "type": "object",
-        "required": [
-          "name",
-          "env_var_label"
-        ],
-        "title": "CodeToolContextVariable"
-      },
       "ColumnFilter": {
         "properties": {
           "column": {
@@ -44600,9 +45360,9 @@
         "properties": {
           "chunks": {
             "items": {
-              "anyOf": [
+              "oneOf": [
                 {
-                  "$ref": "#/components/schemas/GenerationChunk"
+                  "$ref": "#/components/schemas/GenerationChunk-Input"
                 },
                 {
                   "$ref": "#/components/schemas/AudioRefChunk"
@@ -45368,6 +46128,10 @@
             "title": "Monitoring Events",
             "description": "The events that will be sent to monitoring connections."
           },
+          "background_sound": {
+            "$ref": "#/components/schemas/BackgroundSoundConfig",
+            "description": "Configuration for background sound during conversations."
+          },
           "source_attribution": {
             "type": "boolean",
             "title": "Source Attribution",
@@ -45426,6 +46190,10 @@
             "type": "array",
             "title": "Monitoring Events",
             "description": "The events that will be sent to monitoring connections."
+          },
+          "background_sound": {
+            "$ref": "#/components/schemas/BackgroundSoundConfig",
+            "description": "Configuration for background sound during conversations."
           },
           "source_attribution": {
             "type": "boolean",
@@ -45788,6 +46556,17 @@
             "title": "Monitoring Events",
             "description": "The events that will be sent to monitoring connections."
           },
+          "background_sound": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BackgroundSoundConfigWorkflowOverride"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Configuration for background sound during conversations."
+          },
           "source_attribution": {
             "anyOf": [
               {
@@ -45891,6 +46670,17 @@
             ],
             "title": "Monitoring Events",
             "description": "The events that will be sent to monitoring connections."
+          },
+          "background_sound": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BackgroundSoundConfigWorkflowOverride"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Configuration for background sound during conversations."
           },
           "source_attribution": {
             "anyOf": [
@@ -46961,6 +47751,17 @@
             },
             "type": "array",
             "title": "Used Static Kb Document Ids"
+          },
+          "user_identifier": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "User Identifier"
           }
         },
         "type": "object",
@@ -47136,6 +47937,17 @@
             },
             "type": "array",
             "title": "Used Static Kb Document Ids"
+          },
+          "user_identifier": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "User Identifier"
           }
         },
         "type": "object",
@@ -47416,6 +48228,17 @@
             },
             "type": "array",
             "title": "Used Static Kb Document Ids"
+          },
+          "user_identifier": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "User Identifier"
           },
           "file_input": {
             "anyOf": [
@@ -48645,6 +49468,15 @@
         "title": "ConversationInitiationSourceInfo",
         "description": "Information about the source of conversation initiation"
       },
+      "ConversationProduct": {
+        "type": "string",
+        "enum": [
+          "agents",
+          "speech_engine"
+        ],
+        "title": "ConversationProduct",
+        "description": "Which product surface owns this agent document."
+      },
       "ConversationSentimentAnalysis": {
         "properties": {
           "overall_label": {
@@ -48915,6 +49747,16 @@
               }
             ],
             "title": "Rating"
+          },
+          "sentiment_analysis": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationSentimentAnalysis"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -49167,6 +50009,16 @@
               }
             ],
             "title": "Last Contact Agent Name"
+          },
+          "sentiment": {
+            "$ref": "#/components/schemas/SentimentAggregate"
+          },
+          "most_frustrated_conversations": {
+            "items": {
+              "$ref": "#/components/schemas/FrustratedConversationRef"
+            },
+            "type": "array",
+            "title": "Most Frustrated Conversations"
           }
         },
         "type": "object",
@@ -49175,7 +50027,8 @@
           "last_contact_unix_secs",
           "first_contact_unix_secs",
           "conversation_count",
-          "last_contact_conversation_id"
+          "last_contact_conversation_id",
+          "sentiment"
         ],
         "title": "ConversationUserResponseModel"
       },
@@ -49435,6 +50288,7 @@
             },
             "speculative_turn": false,
             "spelling_patience": "auto",
+            "transcribe_on_disabled_interruptions": false,
             "turn_eagerness": "normal",
             "turn_model": "turn_v3",
             "turn_timeout": 7.0
@@ -49588,6 +50442,7 @@
             },
             "speculative_turn": false,
             "spelling_patience": "auto",
+            "transcribe_on_disabled_interruptions": false,
             "turn_eagerness": "normal",
             "turn_model": "turn_v3",
             "turn_timeout": 7.0
@@ -49650,6 +50505,18 @@
           "created_version_id"
         ],
         "title": "CreateAgentBranchResponseModel"
+      },
+      "CreateAgentProcedureParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "create_agent_procedure",
+            "title": "Smb Tool Type",
+            "default": "create_agent_procedure"
+          }
+        },
+        "type": "object",
+        "title": "CreateAgentProcedureParams"
       },
       "CreateAgentResponseModel": {
         "properties": {
@@ -49949,6 +50816,18 @@
             "const": "exotel",
             "title": "Provider",
             "default": "exotel"
+          },
+          "agent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agent Id",
+            "description": "Agent ID to assign the phone number to"
           },
           "account_sid": {
             "type": "string",
@@ -50570,6 +51449,18 @@
             "title": "Provider",
             "default": "sip_trunk"
           },
+          "agent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agent Id",
+            "description": "Agent ID to assign the phone number to"
+          },
           "inbound_trunk_config": {
             "anyOf": [
               {
@@ -50687,10 +51578,26 @@
             "default": "simulation"
           },
           "success_condition": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Success Condition",
-            "description": "A prompt that evaluates whether the agent's response is successful. Should return True or False.",
-            "default": ""
+            "description": "Deprecated legacy single success criterion. Use success_conditions instead. At least one of success_condition or success_conditions is required.",
+            "deprecated": true
+          },
+          "success_conditions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Success Conditions",
+            "description": "List of prompts that evaluate whether the simulation was successful. If provided, all criteria are evaluated and merged into a final result. Capped at the maximum number of evaluation criteria."
           },
           "simulation_scenario": {
             "type": "string",
@@ -50995,6 +51902,18 @@
             "title": "Provider",
             "default": "twilio"
           },
+          "agent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agent Id",
+            "description": "Agent ID to assign the phone number to"
+          },
           "sid": {
             "type": "string",
             "title": "Sid",
@@ -51172,8 +52091,15 @@
             "maximum": 100.0,
             "minimum": 0.0,
             "title": "History Message Count",
-            "description": "How many recent customer messages to include in the guardrail's history, plus the messages that follow them. Only customer messages count toward the limit. 0 (default) shows none; 1 shows the customer's latest message onward. When > 0, the guardrail prompt can refer to this history as <conversation_history>; the reply under evaluation appears as <agent_message> and may repeat at the end of the history.",
+            "description": "How many recent customer messages to include in the guardrail's history, plus the agent replies that follow them (and tool calls and results when history_include_tool_calls is enabled). Only customer messages count toward the limit. 0 (default) shows none; 1 shows the customer's latest message onward. When > 0, the guardrail prompt can refer to this history as <conversation_history>; the reply under evaluation appears as <agent_message> and may repeat at the end of the history.",
             "default": 0
+          },
+          "history_include_tool_calls": {
+            "type": "boolean",
+            "title": "History Include Tool Calls",
+            "description": "When history is on (history_message_count > 0), also render interleaved tool calls and results in the window. Off by default: history shows only customer and agent text. Tool payloads can be large, so enabling this increases evaluation token cost.",
+            "default": false,
+            "x-fern-ignore": true
           },
           "trigger_action": {
             "oneOf": [
@@ -51264,6 +52190,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -51585,6 +52537,18 @@
           "permission_level"
         ],
         "title": "DefaultSharingGroupResponseModel"
+      },
+      "DeleteAgentProcedureParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "delete_agent_procedure",
+            "title": "Smb Tool Type",
+            "default": "delete_agent_procedure"
+          }
+        },
+        "type": "object",
+        "title": "DeleteAgentProcedureParams"
       },
       "DeleteAgentRuleParams": {
         "properties": {
@@ -55515,7 +56479,132 @@
           "text": "Hello"
         }
       },
-      "GenerationChunk": {
+      "FrustratedConversationRef": {
+        "properties": {
+          "conversation_id": {
+            "type": "string",
+            "title": "Conversation Id"
+          },
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
+          },
+          "start_time_unix_secs": {
+            "type": "integer",
+            "title": "Start Time Unix Secs"
+          },
+          "overall_label": {
+            "type": "string",
+            "enum": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "title": "Overall Label"
+          },
+          "overall_sentiment_score": {
+            "type": "number",
+            "title": "Overall Sentiment Score"
+          },
+          "overall_frustration_score": {
+            "type": "number",
+            "title": "Overall Frustration Score"
+          }
+        },
+        "type": "object",
+        "required": [
+          "conversation_id",
+          "agent_id",
+          "start_time_unix_secs",
+          "overall_label",
+          "overall_sentiment_score",
+          "overall_frustration_score"
+        ],
+        "title": "FrustratedConversationRef"
+      },
+      "GenerationChunk-Input": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 6000,
+            "title": "Text",
+            "description": "The text config to be generated for this chunk. Can contain section name in square brackets, e.g. [Verse 1], lyrics lines, and inline directions in curly braces, e.g. {scratching}."
+          },
+          "duration_ms": {
+            "type": "integer",
+            "maximum": 120000.0,
+            "minimum": 3000.0,
+            "title": "Duration Ms",
+            "description": "The duration of the chunk in milliseconds. Must be between 3000ms and 120000ms."
+          },
+          "positive_styles": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "title": "Positive Styles",
+            "description": "The styles and musical directions that should be present in this chunk. Use English language for best results. The styles for the first chunk are the most important as they set the overall tone and genre. Styles for subsequent chunks can be used to add nuance, progression, emphasis, or change the direction of the song. Aim to have at least 6-7 styles in early chunks until the direction is established. Generic styles like 'great production quality' are good default styles to append to the list."
+          },
+          "negative_styles": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "title": "Negative Styles",
+            "description": "The styles and musical directions that should not be present in this chunk. Use English language for best results. Leaving empty is a good default, only use this field if you want to explicitly avoid a particular style or direction."
+          },
+          "context_adherence": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "title": "Context Adherence",
+            "description": "How much the model adheres to the context of its surrounding chunks. Low adherence means the model can deviate from the context and be more creative. High adherence means the model will be more consistent with the context.",
+            "default": "high"
+          },
+          "conditioning_ref": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioRefChunk"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The audio reference to condition the generation on. The first chunk is the most important as it will influence the generation of all subsequent chunks. Thus, if you want to apply conditioning to the entire song, start conditioning from the first chunk."
+          },
+          "condition_strength": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high",
+                  "xhigh"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Condition Strength",
+            "description": "How strongly the model adheres to the conditioning reference. Low strength means the model will be more creative and deviate from the reference. High strength means the model will be more consistent with the reference."
+          }
+        },
+        "type": "object",
+        "required": [
+          "text",
+          "duration_ms",
+          "positive_styles"
+        ],
+        "title": "GenerationChunk"
+      },
+      "GenerationChunk-Output": {
         "properties": {
           "text": {
             "type": "string",
@@ -56062,6 +57151,7 @@
                   "x": 0.0,
                   "y": 0.0
                 },
+                "require_acceptance": false,
                 "transfer_destination": {
                   "phone_number": "+1234567890",
                   "type": "phone"
@@ -58660,10 +59750,26 @@
             "default": "simulation"
           },
           "success_condition": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Success Condition",
-            "description": "A prompt that evaluates whether the agent's response is successful. Should return True or False.",
-            "default": ""
+            "description": "Deprecated legacy single success criterion. Use success_conditions instead. At least one of success_condition or success_conditions is required.",
+            "deprecated": true
+          },
+          "success_conditions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Success Conditions",
+            "description": "List of prompts that evaluate whether the simulation was successful. If provided, all criteria are evaluated and merged into a final result. Capped at the maximum number of evaluation criteria."
           },
           "simulation_scenario": {
             "type": "string",
@@ -61014,12 +62120,24 @@
       "LLMLiteralJsonSchemaProperty": {
         "properties": {
           "type": {
-            "type": "string",
-            "enum": [
-              "boolean",
-              "string",
-              "integer",
-              "number"
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "boolean",
+                  "string",
+                  "integer",
+                  "number"
+                ]
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "maxItems": 2,
+                "minItems": 2
+              }
             ],
             "title": "Type"
           },
@@ -61857,6 +62975,30 @@
           "voice_id": "sB1b5zUrxQVAFl2PhZFp"
         }
       },
+      "ListAgentProceduresParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "list_agent_procedures",
+            "title": "Smb Tool Type",
+            "default": "list_agent_procedures"
+          }
+        },
+        "type": "object",
+        "title": "ListAgentProceduresParams"
+      },
+      "ListAgentReferencesParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "list_agent_references",
+            "title": "Smb Tool Type",
+            "default": "list_agent_references"
+          }
+        },
+        "type": "object",
+        "title": "ListAgentReferencesParams"
+      },
       "ListAgentRulesParams": {
         "properties": {
           "smb_tool_type": {
@@ -62355,12 +63497,24 @@
       "LiteralJsonSchemaProperty": {
         "properties": {
           "type": {
-            "type": "string",
-            "enum": [
-              "boolean",
-              "string",
-              "integer",
-              "number"
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "boolean",
+                  "string",
+                  "integer",
+                  "number"
+                ]
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "maxItems": 2,
+                "minItems": 2
+              }
             ],
             "title": "Type"
           },
@@ -62478,6 +63632,16 @@
           "text"
         ],
         "title": "LoadableMemoryEntry"
+      },
+      "LockReason": {
+        "type": "string",
+        "enum": [
+          "trial_ended",
+          "subscription_downgrade",
+          "exposed_publicly",
+          "self_disabled"
+        ],
+        "title": "LockReason"
       },
       "MCPApprovalPolicy": {
         "type": "string",
@@ -64215,6 +65379,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -64423,6 +65613,376 @@
           "version"
         ],
         "title": "MemoryEntrySearchResult"
+      },
+      "MergePreviewResponseModel": {
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id",
+            "description": "The ID of the agent"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The name of the agent"
+          },
+          "conversation_config": {
+            "$ref": "#/components/schemas/ConversationalConfigAPIModel-Output",
+            "description": "The conversation configuration of the agent"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/AgentMetadataResponseModel",
+            "description": "The metadata of the agent"
+          },
+          "platform_settings": {
+            "$ref": "#/components/schemas/AgentPlatformSettingsResponseModel",
+            "description": "The platform settings of the agent"
+          },
+          "phone_numbers": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/GetPhoneNumberTwilioResponseModel"
+                },
+                {
+                  "$ref": "#/components/schemas/GetPhoneNumberExotelResponseModel"
+                },
+                {
+                  "$ref": "#/components/schemas/GetPhoneNumberSIPTrunkResponseModel"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "provider",
+                "mapping": {
+                  "exotel": "#/components/schemas/GetPhoneNumberExotelResponseModel",
+                  "sip_trunk": "#/components/schemas/GetPhoneNumberSIPTrunkResponseModel",
+                  "twilio": "#/components/schemas/GetPhoneNumberTwilioResponseModel"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Phone Numbers",
+            "description": "The phone numbers of the agent"
+          },
+          "whatsapp_accounts": {
+            "items": {
+              "$ref": "#/components/schemas/GetWhatsAppAccountResponse"
+            },
+            "type": "array",
+            "title": "Whatsapp Accounts",
+            "description": "WhatsApp accounts assigned to the agent"
+          },
+          "workflow": {
+            "$ref": "#/components/schemas/AgentWorkflowResponseModel",
+            "description": "The workflow of the agent"
+          },
+          "access_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResourceAccessInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The access information of the agent for the user"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Tags",
+            "description": "Agent tags used to categorize the agent"
+          },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Id",
+            "description": "The ID of the version the agent is on"
+          },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id",
+            "description": "The ID of the branch the agent is on"
+          },
+          "main_branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Main Branch Id",
+            "description": "The ID of the main branch for this agent"
+          },
+          "overridden_fields": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Overridden Fields",
+            "description": "Dot-paths of config fields where both branches modified the same field relative to their common ancestor (conflicts). Present regardless of which side wins the conflict."
+          },
+          "source_identical_to_target": {
+            "type": "boolean",
+            "title": "Source Identical To Target",
+            "description": "True when the merge/rebase would be a no-op, i.e. the merged result is identical to the source branch tip. The rebase endpoint rejects in this case.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "agent_id",
+          "name",
+          "conversation_config",
+          "metadata"
+        ],
+        "title": "MergePreviewResponseModel",
+        "example": {
+          "agent_id": "agent_7101k5zvyjhmfg983brhmhkd98n6",
+          "name": "My Agent",
+          "workflow": {
+            "edges": {
+              "entry_to_tool_a": {
+                "forward_condition": {
+                  "condition": "Tool A condition",
+                  "type": "llm"
+                },
+                "source": "entry_node",
+                "target": "tool_node_a"
+              },
+              "start_to_entry": {
+                "forward_condition": {
+                  "type": "unconditional"
+                },
+                "source": "start_node",
+                "target": "entry_node"
+              },
+              "tool_a_to_failure": {
+                "forward_condition": {
+                  "successful": false,
+                  "type": "result"
+                },
+                "source": "tool_node_a",
+                "target": "failure_node"
+              },
+              "tool_a_to_tool_b": {
+                "forward_condition": {
+                  "successful": true,
+                  "type": "result"
+                },
+                "source": "tool_node_a",
+                "target": "tool_node_b"
+              },
+              "tool_b_to_agent_transfer": {
+                "forward_condition": {
+                  "type": "unconditional"
+                },
+                "source": "tool_node_b",
+                "target": "success_transfer"
+              },
+              "tool_b_to_conversation": {
+                "forward_condition": {
+                  "condition": "Conversation condition",
+                  "type": "llm"
+                },
+                "source": "tool_node_b",
+                "target": "success_conversation"
+              },
+              "tool_b_to_end": {
+                "forward_condition": {
+                  "condition": "End condition",
+                  "type": "llm"
+                },
+                "source": "tool_node_b",
+                "target": "success_end"
+              },
+              "tool_b_to_phone": {
+                "forward_condition": {
+                  "expression": {
+                    "children": [
+                      {
+                        "name": "force_phone_transfer",
+                        "type": "dynamic_variable"
+                      },
+                      {
+                        "prompt": "Phone condition",
+                        "type": "llm",
+                        "value_schema": {
+                          "description": "Phone condition",
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "left": {
+                          "name": "mode",
+                          "type": "dynamic_variable"
+                        },
+                        "right": {
+                          "type": "string_literal",
+                          "value": "dev"
+                        },
+                        "type": "eq_operator"
+                      }
+                    ],
+                    "type": "or_operator"
+                  },
+                  "type": "expression"
+                },
+                "source": "tool_node_b",
+                "target": "success_phone"
+              }
+            },
+            "nodes": {
+              "entry_node": {
+                "additional_knowledge_base": [],
+                "additional_prompt": "",
+                "additional_tool_ids": [],
+                "auto_advance_after_first_response": false,
+                "conversation_config": {},
+                "edge_order": [
+                  "entry_to_tool_a"
+                ],
+                "entry_behavior": "auto",
+                "label": "Entry",
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "type": "override_agent"
+              },
+              "failure_node": {
+                "additional_knowledge_base": [],
+                "additional_prompt": "",
+                "additional_tool_ids": [],
+                "auto_advance_after_first_response": false,
+                "conversation_config": {},
+                "edge_order": [],
+                "entry_behavior": "auto",
+                "label": "Failure",
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "type": "override_agent"
+              },
+              "start_node": {
+                "edge_order": [
+                  "start_to_entry"
+                ],
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "type": "start"
+              },
+              "success_conversation": {
+                "additional_knowledge_base": [],
+                "additional_prompt": "",
+                "additional_tool_ids": [],
+                "auto_advance_after_first_response": false,
+                "conversation_config": {},
+                "edge_order": [],
+                "entry_behavior": "auto",
+                "label": "Success A",
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "type": "override_agent"
+              },
+              "success_end": {
+                "edge_order": [],
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "type": "end"
+              },
+              "success_phone": {
+                "custom_sip_headers": [],
+                "edge_order": [],
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "require_acceptance": false,
+                "transfer_destination": {
+                  "phone_number": "+1234567890",
+                  "type": "phone"
+                },
+                "transfer_type": "conference",
+                "type": "phone_number"
+              },
+              "success_transfer": {
+                "agent_id": "success_transfer_agent",
+                "delay_ms": 0,
+                "edge_order": [],
+                "enable_transferred_agent_first_message": false,
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "preserve_client_tts_overrides": false,
+                "type": "standalone_agent"
+              },
+              "tool_node_a": {
+                "edge_order": [
+                  "tool_a_to_failure",
+                  "tool_a_to_tool_b"
+                ],
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "tools": [
+                  {
+                    "tool_id": "tool_a"
+                  },
+                  {
+                    "tool_id": "tool_b"
+                  }
+                ],
+                "type": "tool"
+              },
+              "tool_node_b": {
+                "edge_order": [
+                  "tool_b_to_conversation",
+                  "tool_b_to_end",
+                  "tool_b_to_phone",
+                  "tool_b_to_agent_transfer"
+                ],
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "tools": [
+                  {
+                    "tool_id": "tool_a"
+                  }
+                ],
+                "type": "tool"
+              }
+            },
+            "prevent_subagent_loops": false
+          }
+        }
       },
       "MessageSearchSortBy": {
         "type": "string",
@@ -65333,6 +66893,32 @@
               }
             ]
           },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
+          },
           "custom_headers": {
             "additionalProperties": {
               "type": "string"
@@ -65462,6 +67048,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -65476,16 +67088,6 @@
         ],
         "title": "OAuth2JWTResponse",
         "description": "Response model for OAuth2 JWT auth connections"
-      },
-      "OAuthConnectionStatus": {
-        "type": "string",
-        "enum": [
-          "active",
-          "refresh_failed",
-          "revoked"
-        ],
-        "title": "OAuthConnectionStatus",
-        "default": "active"
       },
       "ObjectJsonSchemaProperty-Input": {
         "properties": {
@@ -65829,7 +67431,9 @@
           "max_response_output_tokens": {
             "anyOf": [
               {
-                "type": "integer"
+                "type": "integer",
+                "maximum": 4096.0,
+                "minimum": 1.0
               },
               {
                 "type": "string",
@@ -65848,6 +67452,7 @@
             "readOnly": true
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "required": [
           "output_modalities"
@@ -67105,7 +68710,9 @@
           "workspace_members_remove",
           "terms_of_service_accept",
           "audit_log_read",
-          "copy_resources_cross_workspace"
+          "conversation_privacy_manage",
+          "copy_resources_cross_workspace",
+          "synthid_detector"
         ],
         "title": "PermissionType"
       },
@@ -67230,6 +68837,17 @@
           "transfer_type": {
             "$ref": "#/components/schemas/TransferTypeEnum",
             "default": "conference"
+          },
+          "uui": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/UUITransferConfig"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "User-to-User Information (RFC 7433) to attach to SIP REFER transfers. Carries call context such as CRM identifiers or escalation reason across the transfer boundary."
           },
           "post_dial_digits": {
             "anyOf": [
@@ -68007,6 +69625,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -68034,15 +69678,15 @@
             "title": "Name",
             "description": "Procedure name"
           },
+          "type": {
+            "$ref": "#/components/schemas/ProcedureType",
+            "default": "free_form"
+          },
           "content": {
             "type": "string",
             "maxLength": 50000,
             "title": "Content",
             "description": "Procedure content"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ProcedureType",
-            "default": "free_form"
           },
           "guardrails": {
             "items": {
@@ -68091,15 +69735,15 @@
             "title": "Name",
             "description": "Procedure name"
           },
+          "type": {
+            "$ref": "#/components/schemas/ProcedureType",
+            "default": "free_form"
+          },
           "content": {
             "type": "string",
             "maxLength": 50000,
             "title": "Content",
             "description": "Procedure content"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ProcedureType",
-            "default": "free_form"
           },
           "guardrails": {
             "items": {
@@ -73572,7 +75216,7 @@
           },
           "repeat_count": {
             "type": "integer",
-            "maximum": 20.0,
+            "maximum": 50.0,
             "minimum": 1.0,
             "title": "Repeat Count",
             "description": "Number of times to run each test. When greater than 1, results are grouped and summarized.",
@@ -74007,6 +75651,21 @@
                 "$ref": "#/components/schemas/DeleteAgentRuleParams"
               },
               {
+                "$ref": "#/components/schemas/ListAgentProceduresParams"
+              },
+              {
+                "$ref": "#/components/schemas/ListAgentReferencesParams"
+              },
+              {
+                "$ref": "#/components/schemas/CreateAgentProcedureParams"
+              },
+              {
+                "$ref": "#/components/schemas/UpdateAgentProcedureParams"
+              },
+              {
+                "$ref": "#/components/schemas/DeleteAgentProcedureParams"
+              },
+              {
                 "$ref": "#/components/schemas/ListHolidaysParams"
               },
               {
@@ -74090,6 +75749,7 @@
                 "cancel_group_session_for_all": "#/components/schemas/CancelGroupSessionForAllParams",
                 "cancel_group_session_registration": "#/components/schemas/CancelGroupSessionRegistrationParams",
                 "check_service_availability": "#/components/schemas/CheckServiceAvailabilityParams",
+                "create_agent_procedure": "#/components/schemas/CreateAgentProcedureParams",
                 "create_agent_rule": "#/components/schemas/CreateAgentRuleParams",
                 "create_asset": "#/components/schemas/CreateAssetParams",
                 "create_client": "#/components/schemas/CreateClientParams",
@@ -74100,6 +75760,7 @@
                 "create_product": "#/components/schemas/CreateProductParams",
                 "create_service": "#/components/schemas/CreateServiceParams",
                 "create_staff": "#/components/schemas/CreateStaffParams",
+                "delete_agent_procedure": "#/components/schemas/DeleteAgentProcedureParams",
                 "delete_agent_rule": "#/components/schemas/DeleteAgentRuleParams",
                 "delete_asset": "#/components/schemas/DeleteAssetParams",
                 "delete_calendar_event": "#/components/schemas/DeleteCalendarEventParams",
@@ -74119,6 +75780,8 @@
                 "get_client_by_phone": "#/components/schemas/GetClientByPhoneParams",
                 "get_schedule": "#/components/schemas/GetScheduleParams",
                 "leave_message": "#/components/schemas/LeaveMessageParams",
+                "list_agent_procedures": "#/components/schemas/ListAgentProceduresParams",
+                "list_agent_references": "#/components/schemas/ListAgentReferencesParams",
                 "list_agent_rules": "#/components/schemas/ListAgentRulesParams",
                 "list_assets": "#/components/schemas/ListAssetsParams",
                 "list_calendar_events": "#/components/schemas/ListCalendarEventsParams",
@@ -74140,6 +75803,7 @@
                 "search_clients": "#/components/schemas/SearchClientsParams",
                 "set_booking_slug": "#/components/schemas/SetBookingSlugParams",
                 "submit_business_info": "#/components/schemas/SubmitBusinessInfoParams",
+                "update_agent_procedure": "#/components/schemas/UpdateAgentProcedureParams",
                 "update_agent_rule": "#/components/schemas/UpdateAgentRuleParams",
                 "update_asset": "#/components/schemas/UpdateAssetParams",
                 "update_booking_page_appearance": "#/components/schemas/UpdateBookingPageAppearanceParams",
@@ -74582,6 +76246,63 @@
         "title": "ScheduleGroupSessionParams",
         "description": "Schedule a single instance of a group service.\n\nThe session's duration is derived from the parent service so the assistant\nonly has to pin start time, the (optional) instructor / room, and the\nlocation. Participants register separately via\n``register_for_group_session``."
       },
+      "ScimGroupResponseModel": {
+        "properties": {
+          "scim_external_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scim External Id"
+          },
+          "display_name": {
+            "type": "string",
+            "title": "Display Name"
+          },
+          "created_at_unix": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created At Unix"
+          },
+          "updated_at_unix": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At Unix"
+          },
+          "seat_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SeatType"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "scim_external_id",
+          "display_name"
+        ],
+        "title": "ScimGroupResponseModel"
+      },
       "ScopedAnalysisResult": {
         "properties": {
           "scope": {
@@ -74978,6 +76699,58 @@
         ],
         "title": "SegmentedJsonExportOptions"
       },
+      "SentimentAggregate": {
+        "properties": {
+          "scored_conversation_count": {
+            "type": "integer",
+            "title": "Scored Conversation Count"
+          },
+          "positive_count": {
+            "type": "integer",
+            "title": "Positive Count"
+          },
+          "neutral_count": {
+            "type": "integer",
+            "title": "Neutral Count"
+          },
+          "negative_count": {
+            "type": "integer",
+            "title": "Negative Count"
+          },
+          "average_sentiment_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Average Sentiment Score"
+          },
+          "average_frustration_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Average Frustration Score"
+          }
+        },
+        "type": "object",
+        "required": [
+          "scored_conversation_count",
+          "positive_count",
+          "neutral_count",
+          "negative_count",
+          "average_sentiment_score",
+          "average_frustration_score"
+        ],
+        "title": "SentimentAggregate"
+      },
       "SetBookingSlugParams": {
         "properties": {
           "smb_tool_type": {
@@ -75190,10 +76963,26 @@
             "default": "simulation"
           },
           "success_condition": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Success Condition",
-            "description": "A prompt that evaluates whether the agent's response is successful. Should return True or False.",
-            "default": ""
+            "description": "Deprecated legacy single success criterion. Use success_conditions instead. At least one of success_condition or success_conditions is required.",
+            "deprecated": true
+          },
+          "success_conditions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Success Conditions",
+            "description": "List of prompts that evaluate whether the simulation was successful. If provided, all criteria are evaluated and merged into a final result. Capped at the maximum number of evaluation criteria."
           },
           "simulation_scenario": {
             "type": "string",
@@ -75465,6 +77254,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -75488,7 +77303,7 @@
             "maxLength": 200,
             "minLength": 1,
             "title": "Message",
-            "description": "Message to show when the first soft timeout is reached while waiting for LLM response",
+            "description": "Message to show when the first soft timeout is reached while waiting for LLM response. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).",
             "default": "Hhmmmm...yeah.",
             "x-convai-client-override": true,
             "x-convai-language-override": true
@@ -75534,7 +77349,7 @@
               }
             ],
             "title": "Llm Generated Message Prompt Override",
-            "description": "Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used.",
+            "description": "Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).",
             "examples": [
               "Output a SHORT neutral filler phrase (1-4 words MAX) acknowledging you heard the user."
             ]
@@ -75561,7 +77376,7 @@
               }
             ],
             "title": "Message",
-            "description": "Message to show when the first soft timeout is reached while waiting for LLM response",
+            "description": "Message to show when the first soft timeout is reached while waiting for LLM response. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).",
             "x-convai-client-override": true,
             "x-convai-language-override": true
           }
@@ -75608,7 +77423,7 @@
               }
             ],
             "title": "Message",
-            "description": "Message to show when the first soft timeout is reached while waiting for LLM response",
+            "description": "Message to show when the first soft timeout is reached while waiting for LLM response. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).",
             "x-convai-client-override": true,
             "x-convai-language-override": true
           },
@@ -75673,7 +77488,7 @@
               }
             ],
             "title": "Llm Generated Message Prompt Override",
-            "description": "Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used.",
+            "description": "Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).",
             "examples": [
               "Output a SHORT neutral filler phrase (1-4 words MAX) acknowledging you heard the user."
             ]
@@ -75808,7 +77623,7 @@
             "type": "array",
             "maxItems": 30,
             "title": "Lines",
-            "description": "The lyrics of the section. Max 200 characters per line."
+            "description": "The lyrics of the section. Max 30 lines per section and max 200 characters per line."
           },
           "source_from": {
             "anyOf": [
@@ -76983,6 +78798,18 @@
             ],
             "title": "Characters",
             "description": "The characters that make up the word and their timing information."
+          },
+          "channel_index": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Channel Index",
+            "description": "The channel this word was spoken on (for multichannel audio). Null for single-channel transcriptions."
           }
         },
         "type": "object",
@@ -78399,6 +80226,18 @@
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.",
             "default": false
+          },
+          "audio_filter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioFilterId"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An optional filter applied to the audio output.",
+            "x-fern-ignore": true
           }
         },
         "type": "object",
@@ -78508,6 +80347,18 @@
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.",
             "default": false
+          },
+          "audio_filter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioFilterId"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An optional filter applied to the audio output.",
+            "x-fern-ignore": true
           }
         },
         "type": "object",
@@ -78785,6 +80636,18 @@
             ],
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model."
+          },
+          "audio_filter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioFilterId"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An optional filter applied to the audio output.",
+            "x-fern-ignore": true
           }
         },
         "type": "object",
@@ -78967,6 +80830,18 @@
             ],
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model."
+          },
+          "audio_filter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioFilterId"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An optional filter applied to the audio output.",
+            "x-fern-ignore": true
           }
         },
         "type": "object",
@@ -80287,6 +82162,12 @@
         ],
         "title": "ToolsResponseModel"
       },
+      "TopicDiscoverySettings": {
+        "properties": {},
+        "type": "object",
+        "title": "TopicDiscoverySettings",
+        "description": "Per-agent topic-discovery configuration. Cadence and analysis window are\nmanaged internally; this only exposes the customer-facing on/off toggle."
+      },
       "TransferBranchInfoDefaultingToMain": {
         "properties": {
           "branch_reason": {
@@ -80823,6 +82704,20 @@
             "$ref": "#/components/schemas/TurnModel",
             "default": "turn_v3"
           },
+          "interruption_ignore_terms": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Interruption Ignore Terms",
+            "description": "List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching."
+          },
+          "transcribe_on_disabled_interruptions": {
+            "type": "boolean",
+            "title": "Transcribe On Disabled Interruptions",
+            "description": "When interruptions are disabled, still transcribe what the user says so it can carry into the next turn. When off, user speech during a non-interruptible turn is ignored and won't trigger a turn.",
+            "default": false
+          },
           "soft_timeout_config": {
             "$ref": "#/components/schemas/SoftTimeoutConfig",
             "description": "Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses."
@@ -80841,6 +82736,7 @@
           },
           "speculative_turn": false,
           "spelling_patience": "auto",
+          "transcribe_on_disabled_interruptions": false,
           "turn_eagerness": "normal",
           "turn_model": "turn_v3",
           "turn_timeout": 7.0
@@ -80985,6 +82881,33 @@
             ],
             "description": "Version of the turn detection model to use."
           },
+          "interruption_ignore_terms": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interruption Ignore Terms",
+            "description": "List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching."
+          },
+          "transcribe_on_disabled_interruptions": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Transcribe On Disabled Interruptions",
+            "description": "When interruptions are disabled, still transcribe what the user says so it can carry into the next turn. When off, user speech during a non-interruptible turn is ignored and won't trigger a turn."
+          },
           "soft_timeout_config": {
             "anyOf": [
               {
@@ -81011,6 +82934,7 @@
           },
           "speculative_turn": false,
           "spelling_patience": "auto",
+          "transcribe_on_disabled_interruptions": false,
           "turn_eagerness": "normal",
           "turn_model": "turn_v3",
           "turn_timeout": 7.0
@@ -81210,6 +83134,45 @@
         },
         "type": "object",
         "title": "URLAvatar"
+      },
+      "UUITransferConfig": {
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 256,
+            "title": "Data",
+            "description": "UUI payload to send on SIP REFER transfers. Supports inline dynamic variables and is hex-encoded at transfer time."
+          },
+          "protocol_discriminator": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[0-9A-Fa-f]{2}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Protocol Discriminator",
+            "description": "Optional one-octet protocol discriminator (two hex digits, e.g. '00'). Required by platforms such as Genesys Cloud, which otherwise strip the first octet of the payload. Leave unset for platforms like Talkdesk that expect a bare hex payload."
+          },
+          "protocol_discriminator_mode": {
+            "type": "string",
+            "enum": [
+              "prefix",
+              "pd_parameter"
+            ],
+            "title": "Protocol Discriminator Mode",
+            "description": "How to attach protocol_discriminator. 'prefix' prepends the octet to the hex payload (User-to-User=XX<hex>;encoding=hex). 'pd_parameter' sends it as a separate parameter (User-to-User=<hex>;pd=XX;encoding=hex). Ignored when protocol_discriminator is unset.",
+            "default": "prefix"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "UUITransferConfig",
+        "description": "User-to-User Information envelope for SIP REFER transfers (RFC 7433).\n\nOutbound payloads are hex-encoded (the only encoding RFC 7433 defines). The\nprotocol discriminator axis lets per-platform formats (Talkdesk, Genesys, ...)\nbe expressed by configuration rather than scattered transfer flags. Further\naxes (ASCII encoding, header name, purpose/content parameters) can be added\nhere without touching the transfer model."
       },
       "UnitTestRunResponseModel": {
         "properties": {
@@ -81616,6 +83579,18 @@
         ],
         "title": "UnitTestWorkflowNodeTransitionEvaluationNodeId"
       },
+      "UpdateAgentProcedureParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "update_agent_procedure",
+            "title": "Smb Tool Type",
+            "default": "update_agent_procedure"
+          }
+        },
+        "type": "object",
+        "title": "UpdateAgentProcedureParams"
+      },
       "UpdateAgentRuleParams": {
         "properties": {
           "smb_tool_type": {
@@ -81684,6 +83659,40 @@
         },
         "type": "object",
         "title": "UpdateBasicAuthRequest"
+      },
+      "UpdateBearerAuthRequest": {
+        "properties": {
+          "auth_type": {
+            "type": "string",
+            "const": "bearer_auth",
+            "title": "Auth Type",
+            "default": "bearer_auth"
+          },
+          "provider": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Provider"
+          },
+          "token": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Token"
+          }
+        },
+        "type": "object",
+        "title": "UpdateBearerAuthRequest"
       },
       "UpdateBookingPageAppearanceParams": {
         "properties": {
@@ -82371,10 +84380,26 @@
             "default": "simulation"
           },
           "success_condition": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Success Condition",
-            "description": "A prompt that evaluates whether the agent's response is successful. Should return True or False.",
-            "default": ""
+            "description": "Deprecated legacy single success criterion. Use success_conditions instead. At least one of success_condition or success_conditions is required.",
+            "deprecated": true
+          },
+          "success_conditions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Success Conditions",
+            "description": "List of prompts that evaluate whether the simulation was successful. If provided, all criteria are evaluated and merged into a final result. Capped at the maximum number of evaluation criteria."
           },
           "simulation_scenario": {
             "type": "string",
@@ -82936,6 +84961,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -85833,6 +87884,17 @@
             ],
             "description": "Schema describing the expected response body structure. For documentation only; not surfaced to the LLM."
           },
+          "response_filter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResponseFilter"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional allow-list filter applied to the response before the LLM sees it, so large responses don't pollute the context. Defaults to the full response."
+          },
           "content_type": {
             "type": "string",
             "enum": [
@@ -85977,6 +88039,17 @@
               }
             ],
             "description": "Schema describing the expected response body structure. For documentation only; not surfaced to the LLM."
+          },
+          "response_filter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResponseFilter"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional allow-list filter applied to the response before the LLM sees it, so large responses don't pollute the context. Defaults to the full response."
           },
           "content_type": {
             "type": "string",
@@ -86303,6 +88376,32 @@
                 "type": "null"
               }
             ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
           }
         },
         "type": "object",
@@ -89323,6 +91422,24 @@
       },
       "WorkflowOverrideAgentNodeModel-Input": {
         "properties": {
+          "type": {
+            "type": "string",
+            "const": "override_agent",
+            "title": "Type",
+            "default": "override_agent"
+          },
+          "position": {
+            "$ref": "#/components/schemas/Position-Input",
+            "description": "Position of the node in the workflow."
+          },
+          "edge_order": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Edge Order",
+            "description": "The ids of outgoing edges in the order they should be evaluated."
+          },
           "conversation_config": {
             "$ref": "#/components/schemas/ConversationalConfigAPIModelWorkflowOverride-Input",
             "description": "Configuration overrides applied while the subagent is conducting the conversation."
@@ -89348,24 +91465,6 @@
             "title": "Additional Tool Ids",
             "description": "IDs of additional tools that the subagent has access to. These will be used in addition to the main agent's tools."
           },
-          "type": {
-            "type": "string",
-            "const": "override_agent",
-            "title": "Type",
-            "default": "override_agent"
-          },
-          "position": {
-            "$ref": "#/components/schemas/Position-Input",
-            "description": "Position of the node in the workflow."
-          },
-          "edge_order": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Edge Order",
-            "description": "The ids of outgoing edges in the order they should be evaluated."
-          },
           "label": {
             "type": "string",
             "title": "Label",
@@ -89385,6 +91484,24 @@
       },
       "WorkflowOverrideAgentNodeModel-Output": {
         "properties": {
+          "type": {
+            "type": "string",
+            "const": "override_agent",
+            "title": "Type",
+            "default": "override_agent"
+          },
+          "position": {
+            "$ref": "#/components/schemas/Position-Output",
+            "description": "Position of the node in the workflow."
+          },
+          "edge_order": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Edge Order",
+            "description": "The ids of outgoing edges in the order they should be evaluated."
+          },
           "conversation_config": {
             "$ref": "#/components/schemas/ConversationalConfigAPIModelWorkflowOverride-Output",
             "description": "Configuration overrides applied while the subagent is conducting the conversation."
@@ -89410,24 +91527,6 @@
             "title": "Additional Tool Ids",
             "description": "IDs of additional tools that the subagent has access to. These will be used in addition to the main agent's tools."
           },
-          "type": {
-            "type": "string",
-            "const": "override_agent",
-            "title": "Type",
-            "default": "override_agent"
-          },
-          "position": {
-            "$ref": "#/components/schemas/Position-Output",
-            "description": "Position of the node in the workflow."
-          },
-          "edge_order": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Edge Order",
-            "description": "The ids of outgoing edges in the order they should be evaluated."
-          },
           "label": {
             "type": "string",
             "title": "Label",
@@ -89441,13 +91540,13 @@
         },
         "type": "object",
         "required": [
+          "type",
+          "position",
+          "edge_order",
           "conversation_config",
           "additional_prompt",
           "additional_knowledge_base",
           "additional_tool_ids",
-          "type",
-          "position",
-          "edge_order",
           "label",
           "entry_behavior"
         ],
@@ -89507,6 +91606,17 @@
           "transfer_type": {
             "$ref": "#/components/schemas/TransferTypeEnum",
             "default": "conference"
+          },
+          "uui": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/UUITransferConfig"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "User-to-User Information (RFC 7433) to attach to SIP REFER transfers. Carries call context such as CRM identifiers or escalation reason across the transfer boundary."
           },
           "post_dial_digits": {
             "anyOf": [
@@ -89614,6 +91724,17 @@
             "$ref": "#/components/schemas/TransferTypeEnum",
             "default": "conference"
           },
+          "uui": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/UUITransferConfig"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "User-to-User Information (RFC 7433) to attach to SIP REFER transfers. Carries call context such as CRM identifiers or escalation reason across the transfer boundary."
+          },
           "post_dial_digits": {
             "anyOf": [
               {
@@ -89664,6 +91785,7 @@
           "custom_sip_headers",
           "transfer_destination",
           "transfer_type",
+          "uui",
           "post_dial_digits",
           "type",
           "position",
@@ -90470,6 +92592,16 @@
             ],
             "title": "Permissions"
           },
+          "disable_reason": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LockReason"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "character_limit": {
             "anyOf": [
               {
@@ -90513,6 +92645,17 @@
               }
             ],
             "title": "Allowed Ips"
+          },
+          "third_party_disable_allowed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Third Party Disable Allowed"
           }
         },
         "type": "object",
@@ -90836,6 +92979,7 @@
           "conversational_ai_read",
           "voice_isolator",
           "ai_speech_classifier",
+          "synthid_detector",
           "add_voice_from_voice_library",
           "create_instant_voice_clone",
           "create_professional_voice_clone",
@@ -90854,6 +92998,7 @@
           "workspace_members_remove",
           "terms_of_service_accept",
           "audit_log_read",
+          "conversation_privacy_manage",
           "copy_resources_cross_workspace",
           "voice_design"
         ],
@@ -90945,6 +93090,21 @@
           "is_scim_synced": {
             "type": "boolean",
             "title": "Is Scim Synced",
+            "default": false
+          },
+          "scim_group": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ScimGroupResponseModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "scim_frozen": {
+            "type": "boolean",
+            "title": "Scim Frozen",
             "default": false
           }
         },

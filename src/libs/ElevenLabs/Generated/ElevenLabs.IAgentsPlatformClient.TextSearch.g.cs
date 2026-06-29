@@ -69,6 +69,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="conversationInitiationSource"></param>
         /// <param name="textOnly"></param>
+        /// <param name="conversationProductType">
+        /// Restrict results to a single conversation product surface.
+        /// </param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -107,6 +110,7 @@ namespace ElevenLabs
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
+            global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
@@ -178,6 +182,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="conversationInitiationSource"></param>
         /// <param name="textOnly"></param>
+        /// <param name="conversationProductType">
+        /// Restrict results to a single conversation product surface.
+        /// </param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -216,6 +223,7 @@ namespace ElevenLabs
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
+            global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
@@ -287,6 +295,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="conversationInitiationSource"></param>
         /// <param name="textOnly"></param>
+        /// <param name="conversationProductType">
+        /// Restrict results to a single conversation product surface.
+        /// </param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -320,6 +331,7 @@ namespace ElevenLabs
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
+            global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,

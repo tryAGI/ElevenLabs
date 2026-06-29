@@ -75,6 +75,30 @@ namespace ElevenLabs
         public global::ElevenLabs.AuthConnectionDependencies? UsedBy { get; set; }
 
         /// <summary>
+        /// Single status field shared by every auth type's stored credential.<br/>
+        /// OAuth values (``REFRESH_FAILED``, ``REVOKED``) are written by the OAuth<br/>
+        /// token-manager refresh path. ``CREDENTIAL_INVALID`` is written by the<br/>
+        /// tool execution path when an upstream response matches a credential's<br/>
+        /// ``failure_signatures`` entry (Bearer, Basic auth, etc.).<br/>
+        /// Default Value: active
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AuthConnectionStatusJsonConverter))]
+        public global::ElevenLabs.AuthConnectionStatus? Status { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status_detail")]
+        public string? StatusDetail { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status_updated_at")]
+        public string? StatusUpdatedAt { get; set; }
+
+        /// <summary>
         /// Custom headers configured for OAuth2 token requests
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_headers")]
@@ -108,6 +132,16 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="usedBy"></param>
+        /// <param name="status">
+        /// Single status field shared by every auth type's stored credential.<br/>
+        /// OAuth values (``REFRESH_FAILED``, ``REVOKED``) are written by the OAuth<br/>
+        /// token-manager refresh path. ``CREDENTIAL_INVALID`` is written by the<br/>
+        /// tool execution path when an upstream response matches a credential's<br/>
+        /// ``failure_signatures`` entry (Bearer, Basic auth, etc.).<br/>
+        /// Default Value: active
+        /// </param>
+        /// <param name="statusDetail"></param>
+        /// <param name="statusUpdatedAt"></param>
         /// <param name="customHeaders">
         /// Custom headers configured for OAuth2 token requests
         /// </param>
@@ -125,6 +159,9 @@ namespace ElevenLabs
             global::System.Collections.Generic.Dictionary<string, string>? extraParams,
             bool? basicAuthInHeader,
             global::ElevenLabs.AuthConnectionDependencies? usedBy,
+            global::ElevenLabs.AuthConnectionStatus? status,
+            string? statusDetail,
+            string? statusUpdatedAt,
             global::System.Collections.Generic.Dictionary<string, string>? customHeaders)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -137,6 +174,9 @@ namespace ElevenLabs
             this.BasicAuthInHeader = basicAuthInHeader;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.UsedBy = usedBy;
+            this.Status = status;
+            this.StatusDetail = statusDetail;
+            this.StatusUpdatedAt = statusUpdatedAt;
             this.CustomHeaders = customHeaders;
         }
 

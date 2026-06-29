@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class SoftTimeoutConfigOverride
     {
         /// <summary>
-        /// Message to show when the first soft timeout is reached while waiting for LLM response
+        /// Message to show when the first soft timeout is reached while waiting for LLM response. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         public string? Message { get; set; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="SoftTimeoutConfigOverride" /> class.
         /// </summary>
         /// <param name="message">
-        /// Message to show when the first soft timeout is reached while waiting for LLM response
+        /// Message to show when the first soft timeout is reached while waiting for LLM response. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

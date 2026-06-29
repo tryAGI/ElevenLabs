@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Human-readable detail about the current status, e.g. the error message on refresh failure
+    /// 
     /// </summary>
     public sealed partial class ApiIntegrationOAuth2AuthCodeResponseStatusDetail
     {

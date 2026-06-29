@@ -27,6 +27,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ConversationPrivacyManage,
+        /// <summary>
+        /// 
+        /// </summary>
         ConversationalAi,
         /// <summary>
         /// 
@@ -99,6 +103,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        SynthidDetector,
+        /// <summary>
+        /// 
+        /// </summary>
         TermsOfServiceAccept,
         /// <summary>
         /// 
@@ -158,6 +166,7 @@ namespace ElevenLabs
                 WorkspaceGroupPermission.AiSpeechClassifier => "ai_speech_classifier",
                 WorkspaceGroupPermission.AudioNative => "audio_native",
                 WorkspaceGroupPermission.AuditLogRead => "audit_log_read",
+                WorkspaceGroupPermission.ConversationPrivacyManage => "conversation_privacy_manage",
                 WorkspaceGroupPermission.ConversationalAi => "conversational_ai",
                 WorkspaceGroupPermission.ConversationalAiRead => "conversational_ai_read",
                 WorkspaceGroupPermission.CopyResourcesCrossWorkspace => "copy_resources_cross_workspace",
@@ -176,6 +185,7 @@ namespace ElevenLabs
                 WorkspaceGroupPermission.SoundEffects => "sound_effects",
                 WorkspaceGroupPermission.SpeechToSpeech => "speech_to_speech",
                 WorkspaceGroupPermission.SpeechToText => "speech_to_text",
+                WorkspaceGroupPermission.SynthidDetector => "synthid_detector",
                 WorkspaceGroupPermission.TermsOfServiceAccept => "terms_of_service_accept",
                 WorkspaceGroupPermission.TextToSpeech => "text_to_speech",
                 WorkspaceGroupPermission.ViewFiatBalance => "view_fiat_balance",
@@ -201,6 +211,7 @@ namespace ElevenLabs
                 "ai_speech_classifier" => WorkspaceGroupPermission.AiSpeechClassifier,
                 "audio_native" => WorkspaceGroupPermission.AudioNative,
                 "audit_log_read" => WorkspaceGroupPermission.AuditLogRead,
+                "conversation_privacy_manage" => WorkspaceGroupPermission.ConversationPrivacyManage,
                 "conversational_ai" => WorkspaceGroupPermission.ConversationalAi,
                 "conversational_ai_read" => WorkspaceGroupPermission.ConversationalAiRead,
                 "copy_resources_cross_workspace" => WorkspaceGroupPermission.CopyResourcesCrossWorkspace,
@@ -219,6 +230,7 @@ namespace ElevenLabs
                 "sound_effects" => WorkspaceGroupPermission.SoundEffects,
                 "speech_to_speech" => WorkspaceGroupPermission.SpeechToSpeech,
                 "speech_to_text" => WorkspaceGroupPermission.SpeechToText,
+                "synthid_detector" => WorkspaceGroupPermission.SynthidDetector,
                 "terms_of_service_accept" => WorkspaceGroupPermission.TermsOfServiceAccept,
                 "text_to_speech" => WorkspaceGroupPermission.TextToSpeech,
                 "view_fiat_balance" => WorkspaceGroupPermission.ViewFiatBalance,

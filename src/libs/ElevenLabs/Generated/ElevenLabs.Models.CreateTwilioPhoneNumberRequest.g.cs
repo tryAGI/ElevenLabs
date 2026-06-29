@@ -47,6 +47,12 @@ namespace ElevenLabs
         public string? Provider { get; set; }
 
         /// <summary>
+        /// Agent ID to assign the phone number to
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
+        public string? AgentId { get; set; }
+
+        /// <summary>
         /// Twilio Account SID
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sid")]
@@ -90,6 +96,9 @@ namespace ElevenLabs
         /// <param name="provider">
         /// Default Value: twilio
         /// </param>
+        /// <param name="agentId">
+        /// Agent ID to assign the phone number to
+        /// </param>
         /// <param name="regionConfig">
         /// Twilio Additional Region Configuration
         /// </param>
@@ -102,11 +111,13 @@ namespace ElevenLabs
             string sid,
             string token,
             string? provider,
+            string? agentId,
             global::ElevenLabs.RegionConfigRequest? regionConfig)
         {
             this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.Provider = provider;
+            this.AgentId = agentId;
             this.Sid = sid ?? throw new global::System.ArgumentNullException(nameof(sid));
             this.Token = token ?? throw new global::System.ArgumentNullException(nameof(token));
             this.RegionConfig = regionConfig;

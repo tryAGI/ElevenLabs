@@ -17,7 +17,7 @@ namespace ElevenLabs
         public double? TimeoutSeconds { get; set; }
 
         /// <summary>
-        /// Message to show when the first soft timeout is reached while waiting for LLM response<br/>
+        /// Message to show when the first soft timeout is reached while waiting for LLM response. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).<br/>
         /// Default Value: Hhmmmm...yeah.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
@@ -51,7 +51,7 @@ namespace ElevenLabs
         public int? MaxSoftTimeoutsPerGeneration { get; set; }
 
         /// <summary>
-        /// Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used.
+        /// Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm_generated_message_prompt_override")]
         public string? LlmGeneratedMessagePromptOverride { get; set; }
@@ -70,7 +70,7 @@ namespace ElevenLabs
         /// Default Value: -1F
         /// </param>
         /// <param name="message">
-        /// Message to show when the first soft timeout is reached while waiting for LLM response<br/>
+        /// Message to show when the first soft timeout is reached while waiting for LLM response. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).<br/>
         /// Default Value: Hhmmmm...yeah.
         /// </param>
         /// <param name="additionalSoftTimeoutMessages">
@@ -89,7 +89,7 @@ namespace ElevenLabs
         /// Default Value: 1
         /// </param>
         /// <param name="llmGeneratedMessagePromptOverride">
-        /// Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used.
+        /// Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

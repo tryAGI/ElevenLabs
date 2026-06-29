@@ -126,6 +126,12 @@ namespace ElevenLabs
         public double? Rating { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sentiment_analysis")]
+        public global::ElevenLabs.ConversationSentimentAnalysis? SentimentAnalysis { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -152,6 +158,7 @@ namespace ElevenLabs
         /// <param name="toolNames"></param>
         /// <param name="direction"></param>
         /// <param name="rating"></param>
+        /// <param name="sentimentAnalysis"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -173,7 +180,8 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             global::System.Collections.Generic.IList<string>? toolNames,
             global::ElevenLabs.TelephonyDirection? direction,
-            double? rating)
+            double? rating,
+            global::ElevenLabs.ConversationSentimentAnalysis? sentimentAnalysis)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.BranchId = branchId;
@@ -193,6 +201,7 @@ namespace ElevenLabs
             this.ToolNames = toolNames;
             this.Direction = direction;
             this.Rating = rating;
+            this.SentimentAnalysis = sentimentAnalysis;
         }
 
         /// <summary>

@@ -12,9 +12,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LLMLiteralJsonSchemaPropertyTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.LLMLiteralJsonSchemaPropertyType?, global::System.Collections.Generic.IList<string>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.LLMLiteralJsonSchemaPropertyType Type { get; set; }
+        public required global::ElevenLabs.AnyOf<global::ElevenLabs.LLMLiteralJsonSchemaPropertyType?, global::System.Collections.Generic.IList<string>> Type { get; set; }
 
         /// <summary>
         /// 
@@ -47,7 +47,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LLMLiteralJsonSchemaProperty(
-            global::ElevenLabs.LLMLiteralJsonSchemaPropertyType type,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.LLMLiteralJsonSchemaPropertyType?, global::System.Collections.Generic.IList<string>> type,
             string description,
             global::System.Collections.Generic.IList<string>? @enum)
         {

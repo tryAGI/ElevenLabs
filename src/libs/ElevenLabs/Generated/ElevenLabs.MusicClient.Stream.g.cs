@@ -498,7 +498,7 @@ namespace ElevenLabs
             string? prompt = default,
             global::ElevenLabs.MusicGenerationMode? generationMode = default,
             string? lyricsText = default,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan4, object>? compositionPlan = default,
+            global::ElevenLabs.OneOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>? compositionPlan = default,
             int? musicLengthMs = default,
             global::ElevenLabs.BodyStreamComposedMusicV1MusicStreamPostModelId? modelId = default,
             int? seed = default,

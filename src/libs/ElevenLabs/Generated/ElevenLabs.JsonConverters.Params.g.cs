@@ -322,6 +322,41 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DeleteAgentRuleParams)}");
                 deleteAgentRule = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.ListAgentProceduresParams? listAgentProcedures = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListAgentProcedures)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListAgentProceduresParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListAgentProceduresParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ListAgentProceduresParams)}");
+                listAgentProcedures = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.ListAgentReferencesParams? listAgentReferences = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListAgentReferences)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListAgentReferencesParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListAgentReferencesParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ListAgentReferencesParams)}");
+                listAgentReferences = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.CreateAgentProcedureParams? createAgentProcedure = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CreateAgentProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateAgentProcedureParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateAgentProcedureParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreateAgentProcedureParams)}");
+                createAgentProcedure = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.UpdateAgentProcedureParams? updateAgentProcedure = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateAgentProcedureParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateAgentProcedureParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UpdateAgentProcedureParams)}");
+                updateAgentProcedure = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.DeleteAgentProcedureParams? deleteAgentProcedure = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.DeleteAgentProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DeleteAgentProcedureParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DeleteAgentProcedureParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DeleteAgentProcedureParams)}");
+                deleteAgentProcedure = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.ListHolidaysParams? listHolidays = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListHolidays)
             {
@@ -585,6 +620,16 @@ namespace ElevenLabs.JsonConverters
                 updateAgentRule,
 
                 deleteAgentRule,
+
+                listAgentProcedures,
+
+                listAgentReferences,
+
+                createAgentProcedure,
+
+                updateAgentProcedure,
+
+                deleteAgentProcedure,
 
                 listHolidays,
 
@@ -906,6 +951,36 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DeleteAgentRuleParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DeleteAgentRuleParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DeleteAgentRuleParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeleteAgentRule!, typeInfo);
+            }
+            else if (value.IsListAgentProcedures)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListAgentProceduresParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListAgentProceduresParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ListAgentProceduresParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ListAgentProcedures!, typeInfo);
+            }
+            else if (value.IsListAgentReferences)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListAgentReferencesParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListAgentReferencesParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ListAgentReferencesParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ListAgentReferences!, typeInfo);
+            }
+            else if (value.IsCreateAgentProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateAgentProcedureParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateAgentProcedureParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateAgentProcedureParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateAgentProcedure!, typeInfo);
+            }
+            else if (value.IsUpdateAgentProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateAgentProcedureParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateAgentProcedureParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UpdateAgentProcedureParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateAgentProcedure!, typeInfo);
+            }
+            else if (value.IsDeleteAgentProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DeleteAgentProcedureParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DeleteAgentProcedureParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DeleteAgentProcedureParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeleteAgentProcedure!, typeInfo);
             }
             else if (value.IsListHolidays)
             {

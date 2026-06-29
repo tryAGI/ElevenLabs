@@ -1,0 +1,386 @@
+#pragma warning disable CS0618 // Type or member is obsolete
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public readonly partial struct PhoneNumbersItem2 : global::System.IEquatable<PhoneNumbersItem2>
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.MergePreviewResponseModelPhoneNumberDiscriminatorProvider? Provider { get; }
+
+        /// <summary>
+        /// Example: {"label":"Customer Support","phone_number":"\u002B1234567890","phone_number_id":"phone_123","provider":"twilio"}
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.GetPhoneNumberTwilioResponseModel? Twilio { get; init; }
+#else
+        public global::ElevenLabs.GetPhoneNumberTwilioResponseModel? Twilio { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Twilio))]
+#endif
+        public bool IsTwilio => Twilio != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickTwilio(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetPhoneNumberTwilioResponseModel? value)
+        {
+            value = Twilio;
+            return IsTwilio;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.GetPhoneNumberTwilioResponseModel PickTwilio() => IsTwilio
+            ? Twilio!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Twilio' but the value was {ToString()}.");
+
+        /// <summary>
+        /// Example: {"label":"Exotel Outbound","phone_number":"\u002B919999999999","phone_number_id":"phnum_X3Pbu5gP6NNKBscdCdwB","provider":"exotel"}
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.GetPhoneNumberExotelResponseModel? Exotel { get; init; }
+#else
+        public global::ElevenLabs.GetPhoneNumberExotelResponseModel? Exotel { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Exotel))]
+#endif
+        public bool IsExotel => Exotel != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickExotel(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetPhoneNumberExotelResponseModel? value)
+        {
+            value = Exotel;
+            return IsExotel;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.GetPhoneNumberExotelResponseModel PickExotel() => IsExotel
+            ? Exotel!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Exotel' but the value was {ToString()}.");
+
+        /// <summary>
+        /// Example: {"label":"Sales Team","livekit_stack":"standard","phone_number":"\u002B1987654321","phone_number_id":"phone_456","provider":"sip_trunk"}
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? SipTrunk { get; init; }
+#else
+        public global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? SipTrunk { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SipTrunk))]
+#endif
+        public bool IsSipTrunk => SipTrunk != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSipTrunk(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? value)
+        {
+            value = SipTrunk;
+            return IsSipTrunk;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel PickSipTrunk() => IsSipTrunk
+            ? SipTrunk!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SipTrunk' but the value was {ToString()}.");
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator PhoneNumbersItem2(global::ElevenLabs.GetPhoneNumberTwilioResponseModel value) => new PhoneNumbersItem2((global::ElevenLabs.GetPhoneNumberTwilioResponseModel?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.GetPhoneNumberTwilioResponseModel?(PhoneNumbersItem2 @this) => @this.Twilio;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PhoneNumbersItem2(global::ElevenLabs.GetPhoneNumberTwilioResponseModel? value)
+        {
+            Twilio = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static PhoneNumbersItem2 FromTwilio(global::ElevenLabs.GetPhoneNumberTwilioResponseModel? value) => new PhoneNumbersItem2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator PhoneNumbersItem2(global::ElevenLabs.GetPhoneNumberExotelResponseModel value) => new PhoneNumbersItem2((global::ElevenLabs.GetPhoneNumberExotelResponseModel?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.GetPhoneNumberExotelResponseModel?(PhoneNumbersItem2 @this) => @this.Exotel;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PhoneNumbersItem2(global::ElevenLabs.GetPhoneNumberExotelResponseModel? value)
+        {
+            Exotel = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static PhoneNumbersItem2 FromExotel(global::ElevenLabs.GetPhoneNumberExotelResponseModel? value) => new PhoneNumbersItem2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator PhoneNumbersItem2(global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel value) => new PhoneNumbersItem2((global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel?(PhoneNumbersItem2 @this) => @this.SipTrunk;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PhoneNumbersItem2(global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? value)
+        {
+            SipTrunk = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static PhoneNumbersItem2 FromSipTrunk(global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? value) => new PhoneNumbersItem2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PhoneNumbersItem2(
+            global::ElevenLabs.MergePreviewResponseModelPhoneNumberDiscriminatorProvider? provider,
+            global::ElevenLabs.GetPhoneNumberTwilioResponseModel? twilio,
+            global::ElevenLabs.GetPhoneNumberExotelResponseModel? exotel,
+            global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? sipTrunk
+            )
+        {
+            Provider = provider;
+
+            Twilio = twilio;
+            Exotel = exotel;
+            SipTrunk = sipTrunk;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public object? Object =>
+            SipTrunk as object ??
+            Exotel as object ??
+            Twilio as object 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override string? ToString() =>
+            Twilio?.ToString() ??
+            Exotel?.ToString() ??
+            SipTrunk?.ToString() 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool Validate()
+        {
+            return IsTwilio && !IsExotel && !IsSipTrunk || !IsTwilio && IsExotel && !IsSipTrunk || !IsTwilio && !IsExotel && IsSipTrunk;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TResult? Match<TResult>(
+            global::System.Func<global::ElevenLabs.GetPhoneNumberTwilioResponseModel, TResult>? twilio = null,
+            global::System.Func<global::ElevenLabs.GetPhoneNumberExotelResponseModel, TResult>? exotel = null,
+            global::System.Func<global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel, TResult>? sipTrunk = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsTwilio && twilio != null)
+            {
+                return twilio(Twilio!);
+            }
+            else if (IsExotel && exotel != null)
+            {
+                return exotel(Exotel!);
+            }
+            else if (IsSipTrunk && sipTrunk != null)
+            {
+                return sipTrunk(SipTrunk!);
+            }
+
+            return default(TResult);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Match(
+            global::System.Action<global::ElevenLabs.GetPhoneNumberTwilioResponseModel>? twilio = null,
+
+            global::System.Action<global::ElevenLabs.GetPhoneNumberExotelResponseModel>? exotel = null,
+
+            global::System.Action<global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel>? sipTrunk = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsTwilio)
+            {
+                twilio?.Invoke(Twilio!);
+            }
+            else if (IsExotel)
+            {
+                exotel?.Invoke(Exotel!);
+            }
+            else if (IsSipTrunk)
+            {
+                sipTrunk?.Invoke(SipTrunk!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.GetPhoneNumberTwilioResponseModel>? twilio = null,
+            global::System.Action<global::ElevenLabs.GetPhoneNumberExotelResponseModel>? exotel = null,
+            global::System.Action<global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel>? sipTrunk = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsTwilio)
+            {
+                twilio?.Invoke(Twilio!);
+            }
+            else if (IsExotel)
+            {
+                exotel?.Invoke(Exotel!);
+            }
+            else if (IsSipTrunk)
+            {
+                sipTrunk?.Invoke(SipTrunk!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override int GetHashCode()
+        {
+            var fields = new object?[]
+            {
+                Twilio,
+                typeof(global::ElevenLabs.GetPhoneNumberTwilioResponseModel),
+                Exotel,
+                typeof(global::ElevenLabs.GetPhoneNumberExotelResponseModel),
+                SipTrunk,
+                typeof(global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel),
+            };
+            const int offset = unchecked((int)2166136261);
+            const int prime = 16777619;
+            static int HashCodeAggregator(int hashCode, object? value) => value == null
+                ? (hashCode ^ 0) * prime
+                : (hashCode ^ value.GetHashCode()) * prime;
+
+            return global::System.Linq.Enumerable.Aggregate(fields, offset, HashCodeAggregator);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool Equals(PhoneNumbersItem2 other)
+        {
+            return
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetPhoneNumberTwilioResponseModel?>.Default.Equals(Twilio, other.Twilio) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetPhoneNumberExotelResponseModel?>.Default.Equals(Exotel, other.Exotel) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel?>.Default.Equals(SipTrunk, other.SipTrunk) 
+                ;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool operator ==(PhoneNumbersItem2 obj1, PhoneNumbersItem2 obj2)
+        {
+            return global::System.Collections.Generic.EqualityComparer<PhoneNumbersItem2>.Default.Equals(obj1, obj2);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool operator !=(PhoneNumbersItem2 obj1, PhoneNumbersItem2 obj2)
+        {
+            return !(obj1 == obj2);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override bool Equals(object? obj)
+        {
+            return obj is PhoneNumbersItem2 o && Equals(o);
+        }
+    }
+}

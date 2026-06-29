@@ -39,6 +39,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ConversationPrivacyManage,
+        /// <summary>
+        /// 
+        /// </summary>
         CopyResourcesCrossWorkspace,
         /// <summary>
         /// 
@@ -135,6 +139,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        SynthidDetector,
+        /// <summary>
+        /// 
+        /// </summary>
         TermsOfServiceAccept,
         /// <summary>
         /// 
@@ -209,6 +217,7 @@ namespace ElevenLabs
                 PermissionType.AuditLogRead => "audit_log_read",
                 PermissionType.ConvaiRead => "convai_read",
                 PermissionType.ConvaiWrite => "convai_write",
+                PermissionType.ConversationPrivacyManage => "conversation_privacy_manage",
                 PermissionType.CopyResourcesCrossWorkspace => "copy_resources_cross_workspace",
                 PermissionType.CreateInstantVoiceClone => "create_instant_voice_clone",
                 PermissionType.CreateProfessionalVoiceClone => "create_professional_voice_clone",
@@ -233,6 +242,7 @@ namespace ElevenLabs
                 PermissionType.SpeechHistoryWrite => "speech_history_write",
                 PermissionType.SpeechToSpeech => "speech_to_speech",
                 PermissionType.SpeechToText => "speech_to_text",
+                PermissionType.SynthidDetector => "synthid_detector",
                 PermissionType.TermsOfServiceAccept => "terms_of_service_accept",
                 PermissionType.TextToSpeech => "text_to_speech",
                 PermissionType.UserRead => "user_read",
@@ -264,6 +274,7 @@ namespace ElevenLabs
                 "audit_log_read" => PermissionType.AuditLogRead,
                 "convai_read" => PermissionType.ConvaiRead,
                 "convai_write" => PermissionType.ConvaiWrite,
+                "conversation_privacy_manage" => PermissionType.ConversationPrivacyManage,
                 "copy_resources_cross_workspace" => PermissionType.CopyResourcesCrossWorkspace,
                 "create_instant_voice_clone" => PermissionType.CreateInstantVoiceClone,
                 "create_professional_voice_clone" => PermissionType.CreateProfessionalVoiceClone,
@@ -288,6 +299,7 @@ namespace ElevenLabs
                 "speech_history_write" => PermissionType.SpeechHistoryWrite,
                 "speech_to_speech" => PermissionType.SpeechToSpeech,
                 "speech_to_text" => PermissionType.SpeechToText,
+                "synthid_detector" => PermissionType.SynthidDetector,
                 "terms_of_service_accept" => PermissionType.TermsOfServiceAccept,
                 "text_to_speech" => PermissionType.TextToSpeech,
                 "user_read" => PermissionType.UserRead,

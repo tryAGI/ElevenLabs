@@ -36,6 +36,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? AllowedIps { get; set; }
 
         /// <summary>
+        /// Whether the holder of this key may disable it via the self-disable endpoint. On create, omit or pass null to use the workspace's default (enabled for non-Enterprise plans, disabled for Enterprise plans). On update, omit to leave it unchanged, or pass "clear" to reset it to the workspace default. Only honored for workspaces with self-disable access enabled.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("third_party_disable_allowed")]
+        public bool? ThirdPartyDisableAllowed { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -54,6 +60,9 @@ namespace ElevenLabs
         /// <param name="allowedIps">
         /// List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the whitelist unchanged, or pass "clear" to remove it.
         /// </param>
+        /// <param name="thirdPartyDisableAllowed">
+        /// Whether the holder of this key may disable it via the self-disable endpoint. On create, omit or pass null to use the workspace's default (enabled for non-Enterprise plans, disabled for Enterprise plans). On update, omit to leave it unchanged, or pass "clear" to reset it to the workspace default. Only honored for workspaces with self-disable access enabled.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -61,12 +70,14 @@ namespace ElevenLabs
             string name,
             global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>, string> permissions,
             int? characterLimit,
-            global::System.Collections.Generic.IList<string>? allowedIps)
+            global::System.Collections.Generic.IList<string>? allowedIps,
+            bool? thirdPartyDisableAllowed)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Permissions = permissions;
             this.CharacterLimit = characterLimit;
             this.AllowedIps = allowedIps;
+            this.ThirdPartyDisableAllowed = thirdPartyDisableAllowed;
         }
 
         /// <summary>

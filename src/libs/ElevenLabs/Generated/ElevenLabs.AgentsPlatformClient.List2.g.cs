@@ -51,6 +51,7 @@ namespace ElevenLabs
             ref string? search,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             bool? textOnly,
+            global::ElevenLabs.ConversationProduct? conversationProductType,
             ref string? branchId,
             global::System.Collections.Generic.IList<string>? topicIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses,
@@ -82,6 +83,7 @@ namespace ElevenLabs
             string? search,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             bool? textOnly,
+            global::ElevenLabs.ConversationProduct? conversationProductType,
             string? branchId,
             global::System.Collections.Generic.IList<string>? topicIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses,
@@ -165,6 +167,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="conversationInitiationSource"></param>
         /// <param name="textOnly"></param>
+        /// <param name="conversationProductType">
+        /// Restrict results to a single conversation product surface.
+        /// </param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -209,6 +214,7 @@ namespace ElevenLabs
             string? search = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
+            global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
@@ -241,6 +247,7 @@ namespace ElevenLabs
                 search: search,
                 conversationInitiationSource: conversationInitiationSource,
                 textOnly: textOnly,
+                conversationProductType: conversationProductType,
                 branchId: branchId,
                 topicIds: topicIds,
                 excludeStatuses: excludeStatuses,
@@ -321,6 +328,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="conversationInitiationSource"></param>
         /// <param name="textOnly"></param>
+        /// <param name="conversationProductType">
+        /// Restrict results to a single conversation product surface.
+        /// </param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -365,6 +375,7 @@ namespace ElevenLabs
             string? search = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
+            global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
@@ -400,6 +411,7 @@ namespace ElevenLabs
                 search: ref search,
                 conversationInitiationSource: conversationInitiationSource,
                 textOnly: textOnly,
+                conversationProductType: conversationProductType,
                 branchId: ref branchId,
                 topicIds: topicIds,
                 excludeStatuses: excludeStatuses,
@@ -456,6 +468,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("conversation_initiation_source", conversationInitiationSource?.ToString())
                                 .AddOptionalParameter("text_only", textOnly?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("conversation_product_type", conversationProductType?.ToString())
                                 .AddOptionalParameter("branch_id", branchId)
                                 .AddOptionalParameter("topic_ids", topicIds?.ToString())
                                 .AddOptionalParameter("exclude_statuses", excludeStatuses?.ToString())
@@ -525,6 +538,7 @@ namespace ElevenLabs
                     search: search,
                     conversationInitiationSource: conversationInitiationSource,
                     textOnly: textOnly,
+                    conversationProductType: conversationProductType,
                     branchId: branchId,
                     topicIds: topicIds,
                     excludeStatuses: excludeStatuses,
@@ -907,6 +921,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="conversationInitiationSource"></param>
         /// <param name="textOnly"></param>
+        /// <param name="conversationProductType">
+        /// Restrict results to a single conversation product surface.
+        /// </param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
@@ -949,6 +966,7 @@ namespace ElevenLabs
             string? search = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
+            global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
@@ -982,6 +1000,7 @@ namespace ElevenLabs
                     search: search,
                     conversationInitiationSource: conversationInitiationSource,
                     textOnly: textOnly,
+                    conversationProductType: conversationProductType,
                     branchId: branchId,
                     topicIds: topicIds,
                     excludeStatuses: excludeStatuses,
