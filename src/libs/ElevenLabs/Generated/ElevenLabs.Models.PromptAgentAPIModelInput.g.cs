@@ -37,6 +37,13 @@ namespace ElevenLabs
         public int? ThinkingBudget { get; set; }
 
         /// <summary>
+        /// Enable model reasoning summaries. When disabled, we do not request summaries from provider if possible for faster TTFB. Not ZRM compatible.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_reasoning_summary")]
+        public bool? EnableReasoningSummary { get; set; }
+
+        /// <summary>
         /// The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field).<br/>
         /// Default Value: 0F
         /// </summary>
@@ -148,6 +155,10 @@ namespace ElevenLabs
         /// <param name="thinkingBudget">
         /// Max number of tokens used for thinking. Use 0 to turn off if supported by the model.
         /// </param>
+        /// <param name="enableReasoningSummary">
+        /// Enable model reasoning summaries. When disabled, we do not request summaries from provider if possible for faster TTFB. Not ZRM compatible.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="temperature">
         /// The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field).<br/>
         /// Default Value: 0F
@@ -199,6 +210,7 @@ namespace ElevenLabs
             global::ElevenLabs.Llm? llm,
             global::ElevenLabs.LLMReasoningEffort? reasoningEffort,
             int? thinkingBudget,
+            bool? enableReasoningSummary,
             double? temperature,
             int? maxTokens,
             global::System.Collections.Generic.IList<string>? toolIds,
@@ -217,6 +229,7 @@ namespace ElevenLabs
             this.Llm = llm;
             this.ReasoningEffort = reasoningEffort;
             this.ThinkingBudget = thinkingBudget;
+            this.EnableReasoningSummary = enableReasoningSummary;
             this.Temperature = temperature;
             this.MaxTokens = maxTokens;
             this.ToolIds = toolIds;

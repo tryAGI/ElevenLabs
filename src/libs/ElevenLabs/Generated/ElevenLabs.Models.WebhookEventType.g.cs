@@ -20,6 +20,14 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Transcript,
+        /// <summary>
+        /// 
+        /// </summary>
+        UnredactedAudio,
+        /// <summary>
+        /// 
+        /// </summary>
+        UnredactedTranscript,
     }
 
     /// <summary>
@@ -37,6 +45,8 @@ namespace ElevenLabs
                 WebhookEventType.Audio => "audio",
                 WebhookEventType.CallInitiationFailure => "call_initiation_failure",
                 WebhookEventType.Transcript => "transcript",
+                WebhookEventType.UnredactedAudio => "unredacted_audio",
+                WebhookEventType.UnredactedTranscript => "unredacted_transcript",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -50,6 +60,8 @@ namespace ElevenLabs
                 "audio" => WebhookEventType.Audio,
                 "call_initiation_failure" => WebhookEventType.CallInitiationFailure,
                 "transcript" => WebhookEventType.Transcript,
+                "unredacted_audio" => WebhookEventType.UnredactedAudio,
+                "unredacted_transcript" => WebhookEventType.UnredactedTranscript,
                 _ => null,
             };
         }

@@ -4,8 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// An evaluation using the transcript and a prompt for a yes/no achieved answer<br/>
-    /// Example: {"conversation_goal_prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","id":"1234567890","name":"Customer satisfaction check","scope":"conversation","use_knowledge_base":false}
+    /// An evaluation using the transcript and a prompt for a yes/no achieved answer
     /// </summary>
     public sealed partial class PromptEvaluationCriteria
     {
@@ -59,6 +58,27 @@ namespace ElevenLabs
         public global::ElevenLabs.Llm? Llm { get; set; }
 
         /// <summary>
+        /// How this criterion is scored. 'binary' resolves to success/failure/unknown. 'numeric_uniform' returns a number on the [0, max_score] scale which is normalized into the aggregate conversation success percentage.<br/>
+        /// Default Value: binary
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("scoring_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.CriteriaScoringModeJsonConverter))]
+        public global::ElevenLabs.CriteriaScoringMode? ScoringMode { get; set; }
+
+        /// <summary>
+        /// Maximum value of the numeric score scale (minimum is always 0). Only used when scoring_mode is 'numeric_uniform'.<br/>
+        /// Default Value: 100
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_score")]
+        public int? MaxScore { get; set; }
+
+        /// <summary>
+        /// Optional free-text instructions describing how to assign values on the numeric scale. Only used when scoring_mode is 'numeric_uniform'.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("score_instructions")]
+        public string? ScoreInstructions { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -89,6 +109,17 @@ namespace ElevenLabs
         /// <param name="llm">
         /// LLM model to use for this evaluation criteria. If not set, uses agent's analysis_llm default.
         /// </param>
+        /// <param name="scoringMode">
+        /// How this criterion is scored. 'binary' resolves to success/failure/unknown. 'numeric_uniform' returns a number on the [0, max_score] scale which is normalized into the aggregate conversation success percentage.<br/>
+        /// Default Value: binary
+        /// </param>
+        /// <param name="maxScore">
+        /// Maximum value of the numeric score scale (minimum is always 0). Only used when scoring_mode is 'numeric_uniform'.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="scoreInstructions">
+        /// Optional free-text instructions describing how to assign values on the numeric scale. Only used when scoring_mode is 'numeric_uniform'.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -99,7 +130,10 @@ namespace ElevenLabs
             string? type,
             bool? useKnowledgeBase,
             global::ElevenLabs.AnalysisScope? scope,
-            global::ElevenLabs.Llm? llm)
+            global::ElevenLabs.Llm? llm,
+            global::ElevenLabs.CriteriaScoringMode? scoringMode,
+            int? maxScore,
+            string? scoreInstructions)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -108,6 +142,9 @@ namespace ElevenLabs
             this.UseKnowledgeBase = useKnowledgeBase;
             this.Scope = scope;
             this.Llm = llm;
+            this.ScoringMode = scoringMode;
+            this.MaxScore = maxScore;
+            this.ScoreInstructions = scoreInstructions;
         }
 
         /// <summary>

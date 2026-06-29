@@ -43831,6 +43831,28 @@
             ],
             "title": "Background Opacity"
           },
+          "background_blur": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Background Blur"
+          },
+          "background_border_radius": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Background Border Radius"
+          },
           "word_highlights_enabled": {
             "anyOf": [
               {
@@ -43874,6 +43896,28 @@
               }
             ],
             "title": "Word Highlights Opacity"
+          },
+          "word_highlights_border_radius": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Word Highlights Border Radius"
+          },
+          "word_highlights_blur": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Word Highlights Blur"
           },
           "section_animation": {
             "anyOf": [
@@ -43983,7 +44027,10 @@
               "scale",
               "pop",
               "slide_up",
-              "slide_down"
+              "slide_down",
+              "slam",
+              "scale_down",
+              "slide_in"
             ],
             "title": "Enter Type"
           },
@@ -43995,7 +44042,10 @@
               "scale",
               "pop",
               "slide_up",
-              "slide_down"
+              "slide_down",
+              "slam",
+              "scale_down",
+              "slide_in"
             ],
             "title": "Exit Type"
           }
@@ -44063,7 +44113,10 @@
               "scale",
               "pop",
               "slide_up",
-              "slide_down"
+              "slide_down",
+              "slam",
+              "scale_down",
+              "slide_in"
             ],
             "title": "Enter Type"
           },
@@ -44075,7 +44128,10 @@
               "scale",
               "pop",
               "slide_up",
-              "slide_down"
+              "slide_down",
+              "slam",
+              "scale_down",
+              "slide_in"
             ],
             "title": "Exit Type"
           }
@@ -45913,7 +45969,7 @@
             },
             "type": "array",
             "title": "Events",
-            "description": "List of event types to send via webhook. Options: transcript, audio, call_initiation_failure."
+            "description": "List of event types to send via webhook. Options: transcript, audio, call_initiation_failure, unredacted_transcript, unredacted_audio."
           },
           "transcript_format": {
             "$ref": "#/components/schemas/WebhookTranscriptFormat",
@@ -46831,6 +46887,17 @@
           "call_successful": {
             "$ref": "#/components/schemas/EvaluationSuccessResult"
           },
+          "call_success_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Call Success Score"
+          },
           "transcript_summary": {
             "type": "string",
             "title": "Transcript Summary"
@@ -46926,6 +46993,38 @@
           "rationale": {
             "type": "string",
             "title": "Rationale"
+          },
+          "scoring_mode": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CriteriaScoringMode"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "score": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score"
+          },
+          "max_score": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Score"
           }
         },
         "type": "object",
@@ -47724,6 +47823,13 @@
             ],
             "title": "Original Message"
           },
+          "reasoning": {
+            "items": {
+              "$ref": "#/components/schemas/ConversationReasoningModel"
+            },
+            "type": "array",
+            "title": "Reasoning"
+          },
           "source_medium": {
             "anyOf": [
               {
@@ -47909,6 +48015,13 @@
               }
             ],
             "title": "Original Message"
+          },
+          "reasoning": {
+            "items": {
+              "$ref": "#/components/schemas/ConversationReasoningModel"
+            },
+            "type": "array",
+            "title": "Reasoning"
           },
           "source_medium": {
             "anyOf": [
@@ -48201,6 +48314,13 @@
             ],
             "title": "Original Message"
           },
+          "reasoning": {
+            "items": {
+              "$ref": "#/components/schemas/ConversationReasoningModel"
+            },
+            "type": "array",
+            "title": "Reasoning"
+          },
           "source_medium": {
             "anyOf": [
               {
@@ -48259,6 +48379,11 @@
                 "type": "null"
               }
             ]
+          },
+          "reasoned": {
+            "type": "boolean",
+            "title": "Reasoned",
+            "default": false
           }
         },
         "type": "object",
@@ -49477,6 +49602,28 @@
         "title": "ConversationProduct",
         "description": "Which product surface owns this agent document."
       },
+      "ConversationReasoningModel": {
+        "properties": {
+          "summary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Summary"
+          },
+          "provider_redact": {
+            "type": "boolean",
+            "title": "Provider Redact",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "ConversationReasoningModel"
+      },
       "ConversationSentimentAnalysis": {
         "properties": {
           "overall_label": {
@@ -49669,6 +49816,17 @@
           },
           "call_successful": {
             "$ref": "#/components/schemas/EvaluationSuccessResult"
+          },
+          "call_success_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Call Success Score"
           },
           "transcript_summary": {
             "anyOf": [
@@ -51944,6 +52102,15 @@
           "token"
         ],
         "title": "CreateTwilioPhoneNumberRequest"
+      },
+      "CriteriaScoringMode": {
+        "type": "string",
+        "enum": [
+          "binary",
+          "numeric_uniform"
+        ],
+        "title": "CriteriaScoringMode",
+        "default": "binary"
       },
       "CueOptionsRequest": {
         "properties": {
@@ -72016,6 +72183,12 @@
             "title": "Thinking Budget",
             "description": "Max number of tokens used for thinking. Use 0 to turn off if supported by the model."
           },
+          "enable_reasoning_summary": {
+            "type": "boolean",
+            "title": "Enable Reasoning Summary",
+            "description": "Enable model reasoning summaries. When disabled, we do not request summaries from provider if possible for faster TTFB. Not ZRM compatible.",
+            "default": false
+          },
           "temperature": {
             "anyOf": [
               {
@@ -72237,6 +72410,12 @@
             ],
             "title": "Thinking Budget",
             "description": "Max number of tokens used for thinking. Use 0 to turn off if supported by the model."
+          },
+          "enable_reasoning_summary": {
+            "type": "boolean",
+            "title": "Enable Reasoning Summary",
+            "description": "Enable model reasoning summaries. When disabled, we do not request summaries from provider if possible for faster TTFB. Not ZRM compatible.",
+            "default": false
           },
           "temperature": {
             "anyOf": [
@@ -72678,6 +72857,18 @@
             "title": "Thinking Budget",
             "description": "Max number of tokens used for thinking. Use 0 to turn off if supported by the model."
           },
+          "enable_reasoning_summary": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enable Reasoning Summary",
+            "description": "Enable model reasoning summaries. When disabled, we do not request summaries from provider if possible for faster TTFB. Not ZRM compatible."
+          },
           "temperature": {
             "anyOf": [
               {
@@ -72961,6 +73152,18 @@
             "title": "Thinking Budget",
             "description": "Max number of tokens used for thinking. Use 0 to turn off if supported by the model."
           },
+          "enable_reasoning_summary": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enable Reasoning Summary",
+            "description": "Enable model reasoning summaries. When disabled, we do not request summaries from provider if possible for faster TTFB. Not ZRM compatible."
+          },
           "temperature": {
             "anyOf": [
               {
@@ -73239,6 +73442,30 @@
               }
             ],
             "description": "LLM model to use for this evaluation criteria. If not set, uses agent's analysis_llm default."
+          },
+          "scoring_mode": {
+            "$ref": "#/components/schemas/CriteriaScoringMode",
+            "description": "How this criterion is scored. 'binary' resolves to success/failure/unknown. 'numeric_uniform' returns a number on the [0, max_score] scale which is normalized into the aggregate conversation success percentage.",
+            "default": "binary"
+          },
+          "max_score": {
+            "type": "integer",
+            "title": "Max Score",
+            "description": "Maximum value of the numeric score scale (minimum is always 0). Only used when scoring_mode is 'numeric_uniform'.",
+            "default": 100
+          },
+          "score_instructions": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score Instructions",
+            "description": "Optional free-text instructions describing how to assign values on the numeric scale. Only used when scoring_mode is 'numeric_uniform'."
           }
         },
         "type": "object",
@@ -73249,13 +73476,27 @@
         ],
         "title": "PromptEvaluationCriteria",
         "description": "An evaluation using the transcript and a prompt for a yes/no achieved answer",
-        "example": {
-          "conversation_goal_prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
-          "id": "1234567890",
-          "name": "Customer satisfaction check",
-          "scope": "conversation",
-          "use_knowledge_base": false
-        }
+        "examples": [
+          {
+            "conversation_goal_prompt": "Determine whether the agent fully resolved the user's issue.",
+            "id": "criterion_binary_001",
+            "max_score": 100,
+            "name": "Issue resolved",
+            "scope": "conversation",
+            "scoring_mode": "binary",
+            "use_knowledge_base": false
+          },
+          {
+            "conversation_goal_prompt": "Rate how completely and correctly the issue was resolved.",
+            "id": "criterion_numeric_001",
+            "max_score": 100,
+            "name": "Resolution quality",
+            "scope": "conversation",
+            "score_instructions": "0 means unresolved, 50 means partially resolved, 100 means fully resolved with correct details.",
+            "scoring_mode": "numeric_uniform",
+            "use_knowledge_base": false
+          }
+        ]
       },
       "PromptInjectionGuardrail": {
         "properties": {
@@ -76341,6 +76582,17 @@
           },
           "successful": {
             "$ref": "#/components/schemas/EvaluationSuccessResult"
+          },
+          "success_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Success Score"
           }
         },
         "type": "object",
@@ -87755,7 +88007,9 @@
         "enum": [
           "transcript",
           "audio",
-          "call_initiation_failure"
+          "call_initiation_failure",
+          "unredacted_transcript",
+          "unredacted_audio"
         ],
         "title": "WebhookEventType"
       },
