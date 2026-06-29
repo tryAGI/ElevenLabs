@@ -3,13 +3,64 @@
 !!! tip "Cross-SDK comparison"
     See the [centralized MEAI documentation](https://tryagi.github.io/docs/meai/) for feature matrices and comparisons across all tryAGI SDKs.
 
-The ElevenLabs SDK implements `ISpeechToTextClient` from [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai).
+The ElevenLabs SDK implements `ITextToSpeechClient` and `ISpeechToTextClient` from [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai).
 
 ## Supported Interfaces
 
 | Interface | Support Level |
 |-----------|--------------|
+| `ITextToSpeechClient` | Full (Flash/Turbo TTS, binary output, streamed audio chunks) |
 | `ISpeechToTextClient` | Full (file-based and streaming transcription) |
+
+## ITextToSpeechClient
+
+Generate speech through the standard MEAI interface:
+
+```csharp
+using ElevenLabs;
+using Microsoft.Extensions.AI;
+
+using var client = new ElevenLabsClient(apiKey);
+ITextToSpeechClient ttsClient = client;
+
+var response = await ttsClient.GetAudioAsync(
+    "ElevenLabs Flash is available through Microsoft.Extensions.AI.",
+    new TextToSpeechOptions
+    {
+        ModelId = "eleven_flash_v2_5",
+        VoiceId = "your-voice-id",
+        AudioFormat = "mp3",
+        Speed = 1.05f,
+    });
+
+var audio = response.Contents.OfType<DataContent>().Single();
+File.WriteAllBytes("elevenlabs.mp3", audio.Data.ToArray());
+```
+
+Stream audio chunks with the same abstraction:
+
+```csharp
+await foreach (var update in ttsClient.GetStreamingAudioAsync(
+    "Streaming text-to-speech starts returning audio before the full response is buffered.",
+    new TextToSpeechOptions
+    {
+        ModelId = "eleven_flash_v2_5",
+        VoiceId = "your-voice-id",
+        AudioFormat = "mp3",
+        AdditionalProperties = new()
+        {
+            [ElevenLabsTextToSpeechPropertyNames.OptimizeStreamingLatency] = 3,
+        },
+    }))
+{
+    foreach (var chunk in update.Contents.OfType<DataContent>())
+    {
+        Console.WriteLine($"{update.Kind}: {chunk.Data.Length} bytes");
+    }
+}
+```
+
+Use `ElevenLabsTextToSpeechPropertyNames` for provider-specific settings such as exact output formats, latency optimization, text normalization, stability, similarity boost, style, and speaker boost.
 
 ## ISpeechToTextClient
 
