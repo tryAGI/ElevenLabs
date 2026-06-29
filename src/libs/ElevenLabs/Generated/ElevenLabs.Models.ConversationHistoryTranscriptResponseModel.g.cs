@@ -98,6 +98,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reasoning")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationReasoningModel>? Reasoning { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_medium")]
         public global::ElevenLabs.ChatSourceMedium? SourceMedium { get; set; }
 
@@ -132,6 +138,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ContextualUpdateInfo? ContextualUpdateInfo { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reasoned")]
+        public bool? Reasoned { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -156,12 +168,16 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="originalMessage"></param>
+        /// <param name="reasoning"></param>
         /// <param name="sourceMedium"></param>
         /// <param name="sourceEventId"></param>
         /// <param name="usedStaticKbDocumentIds"></param>
         /// <param name="userIdentifier"></param>
         /// <param name="fileInput"></param>
         /// <param name="contextualUpdateInfo"></param>
+        /// <param name="reasoned">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -180,12 +196,14 @@ namespace ElevenLabs
             global::ElevenLabs.LLMUsageOutput? llmUsage,
             bool? interrupted,
             string? originalMessage,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationReasoningModel>? reasoning,
             global::ElevenLabs.ChatSourceMedium? sourceMedium,
             int? sourceEventId,
             global::System.Collections.Generic.IList<string>? usedStaticKbDocumentIds,
             string? userIdentifier,
             global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? fileInput,
-            global::ElevenLabs.ContextualUpdateInfo? contextualUpdateInfo)
+            global::ElevenLabs.ContextualUpdateInfo? contextualUpdateInfo,
+            bool? reasoned)
         {
             this.Role = role;
             this.AgentMetadata = agentMetadata;
@@ -201,12 +219,14 @@ namespace ElevenLabs
             this.LlmUsage = llmUsage;
             this.Interrupted = interrupted;
             this.OriginalMessage = originalMessage;
+            this.Reasoning = reasoning;
             this.SourceMedium = sourceMedium;
             this.SourceEventId = sourceEventId;
             this.UsedStaticKbDocumentIds = usedStaticKbDocumentIds;
             this.UserIdentifier = userIdentifier;
             this.FileInput = fileInput;
             this.ContextualUpdateInfo = contextualUpdateInfo;
+            this.Reasoned = reasoned;
         }
 
         /// <summary>

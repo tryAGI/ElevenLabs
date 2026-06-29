@@ -43,6 +43,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("call_success_score")]
+        public double? CallSuccessScore { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript_summary")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string TranscriptSummary { get; set; }
@@ -74,6 +80,7 @@ namespace ElevenLabs
         /// <param name="dataCollectionResults"></param>
         /// <param name="evaluationCriteriaResultsList"></param>
         /// <param name="dataCollectionResultsList"></param>
+        /// <param name="callSuccessScore"></param>
         /// <param name="callSummaryTitle"></param>
         /// <param name="scoped"></param>
 #if NET7_0_OR_GREATER
@@ -86,6 +93,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DataCollectionResultCommonModel>? dataCollectionResults,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? evaluationCriteriaResultsList,
             global::System.Collections.Generic.IList<global::ElevenLabs.DataCollectionResultCommonModel>? dataCollectionResultsList,
+            double? callSuccessScore,
             string? callSummaryTitle,
             global::System.Collections.Generic.IList<global::ElevenLabs.ScopedAnalysisResult>? scoped)
         {
@@ -94,6 +102,7 @@ namespace ElevenLabs
             this.EvaluationCriteriaResultsList = evaluationCriteriaResultsList;
             this.DataCollectionResultsList = dataCollectionResultsList;
             this.CallSuccessful = callSuccessful;
+            this.CallSuccessScore = callSuccessScore;
             this.TranscriptSummary = transcriptSummary ?? throw new global::System.ArgumentNullException(nameof(transcriptSummary));
             this.CallSummaryTitle = callSummaryTitle;
             this.Scoped = scoped;

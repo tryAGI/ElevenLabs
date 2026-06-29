@@ -98,6 +98,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reasoning")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationReasoningModel>? Reasoning { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_medium")]
         public global::ElevenLabs.ChatSourceMedium? SourceMedium { get; set; }
 
@@ -144,6 +150,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="originalMessage"></param>
+        /// <param name="reasoning"></param>
         /// <param name="sourceMedium"></param>
         /// <param name="sourceEventId"></param>
         /// <param name="usedStaticKbDocumentIds"></param>
@@ -166,6 +173,7 @@ namespace ElevenLabs
             global::ElevenLabs.LLMUsageOutput? llmUsage,
             bool? interrupted,
             string? originalMessage,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationReasoningModel>? reasoning,
             global::ElevenLabs.ChatSourceMedium? sourceMedium,
             int? sourceEventId,
             global::System.Collections.Generic.IList<string>? usedStaticKbDocumentIds,
@@ -185,6 +193,7 @@ namespace ElevenLabs
             this.LlmUsage = llmUsage;
             this.Interrupted = interrupted;
             this.OriginalMessage = originalMessage;
+            this.Reasoning = reasoning;
             this.SourceMedium = sourceMedium;
             this.SourceEventId = sourceEventId;
             this.UsedStaticKbDocumentIds = usedStaticKbDocumentIds;
