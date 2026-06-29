@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_SimulateConversationStreamSecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_PreviewMergeSecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,81 +21,113 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_SimulateConversationStreamSecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_PreviewMergeSecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_SimulateConversationStreamSecurityRequirement0,
+            {                s_PreviewMergeSecurityRequirement0,
             };
-        partial void PrepareSimulateConversationStreamArguments(
+        partial void PreparePreviewMergeArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost request);
-        partial void PrepareSimulateConversationStreamRequest(
+            ref string sourceBranchId,
+            ref string targetBranchId,
+            ref bool? force);
+        partial void PreparePreviewMergeRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost request);
-        partial void ProcessSimulateConversationStreamResponse(
+            string sourceBranchId,
+            string targetBranchId,
+            bool? force);
+        partial void ProcessPreviewMergeResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessPreviewMergeResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
         /// <summary>
-        /// Simulates A Conversation (Stream)<br/>
-        /// Run a conversation between the agent and a simulated user and stream back the response. Response is streamed back as partial lists of messages that should be concatenated and once the conversation has complete a single final message with the conversation analysis will be sent.
+        /// Preview Merged Configuration<br/>
+        /// Returns the result of merging the source branch into the target branch without performing the merge. Useful for showing an accurate diff before confirming.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="request"></param>
+        /// <param name="sourceBranchId">
+        /// Unique identifier for the source branch to merge from.
+        /// </param>
+        /// <param name="targetBranchId">
+        /// The ID of the target branch to merge into.
+        /// </param>
+        /// <param name="force">
+        /// When true, source branch changes always win conflicts regardless of timestamps<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task SimulateConversationStreamAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MergePreviewResponseModel> PreviewMergeAsync(
             string agentId,
-
-            global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost request,
+            string sourceBranchId,
+            string targetBranchId,
+            bool? force = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await SimulateConversationStreamAsResponseAsync(
+            var __response = await PreviewMergeAsResponseAsync(
                 agentId: agentId,
-
-                request: request,
+                sourceBranchId: sourceBranchId,
+                targetBranchId: targetBranchId,
+                force: force,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
+
+            return __response.Body;
         }
         /// <summary>
-        /// Simulates A Conversation (Stream)<br/>
-        /// Run a conversation between the agent and a simulated user and stream back the response. Response is streamed back as partial lists of messages that should be concatenated and once the conversation has complete a single final message with the conversation analysis will be sent.
+        /// Preview Merged Configuration<br/>
+        /// Returns the result of merging the source branch into the target branch without performing the merge. Useful for showing an accurate diff before confirming.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="request"></param>
+        /// <param name="sourceBranchId">
+        /// Unique identifier for the source branch to merge from.
+        /// </param>
+        /// <param name="targetBranchId">
+        /// The ID of the target branch to merge into.
+        /// </param>
+        /// <param name="force">
+        /// When true, source branch changes always win conflicts regardless of timestamps<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse> SimulateConversationStreamAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MergePreviewResponseModel>> PreviewMergeAsResponseAsync(
             string agentId,
-
-            global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost request,
+            string sourceBranchId,
+            string targetBranchId,
+            bool? force = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareSimulateConversationStreamArguments(
+            PreparePreviewMergeArguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                request: request);
+                sourceBranchId: ref sourceBranchId,
+                targetBranchId: ref targetBranchId,
+                force: ref force);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_SimulateConversationStreamSecurityRequirements,
-                operationName: "SimulateConversationStreamAsync");
+                securityRequirements: s_PreviewMergeSecurityRequirements,
+                operationName: "PreviewMergeAsync");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -115,15 +147,19 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/simulate-conversation/stream",
+                                path: $"/v1/convai/agents/{agentId}/branches/{sourceBranchId}/merge-preview",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddRequiredParameter("target_branch_id", targetBranchId)
+                                .AddOptionalParameter("force", force?.ToString().ToLowerInvariant())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: global::System.Net.Http.HttpMethod.Get,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -146,12 +182,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
-                            __httpRequest.Content = __httpRequestContent;
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -160,11 +190,13 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareSimulateConversationStreamRequest(
+                PreparePreviewMergeRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentId: agentId!,
-                    request: request);
+                    sourceBranchId: sourceBranchId!,
+                    targetBranchId: targetBranchId!,
+                    force: force);
 
                 return __httpRequest;
             }
@@ -181,10 +213,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "SimulateConversationStream",
-                                methodName: "SimulateConversationStreamAsync",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/simulate-conversation/stream\"",
-                                httpMethod: "POST",
+                                operationId: "PreviewMerge",
+                                methodName: "PreviewMergeAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{sourceBranchId}/merge-preview\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -215,10 +247,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "SimulateConversationStream",
-                                methodName: "SimulateConversationStreamAsync",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/simulate-conversation/stream\"",
-                                httpMethod: "POST",
+                                operationId: "PreviewMerge",
+                                methodName: "PreviewMergeAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{sourceBranchId}/merge-preview\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -256,10 +288,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "SimulateConversationStream",
-                                methodName: "SimulateConversationStreamAsync",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/simulate-conversation/stream\"",
-                                httpMethod: "POST",
+                                operationId: "PreviewMerge",
+                                methodName: "PreviewMergeAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{sourceBranchId}/merge-preview\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -296,7 +328,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessSimulateConversationStreamResponse(
+                ProcessPreviewMergeResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -304,10 +336,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "SimulateConversationStream",
-                                methodName: "SimulateConversationStreamAsync",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/simulate-conversation/stream\"",
-                                httpMethod: "POST",
+                                operationId: "PreviewMerge",
+                                methodName: "PreviewMergeAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{sourceBranchId}/merge-preview\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -326,10 +358,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "SimulateConversationStream",
-                                methodName: "SimulateConversationStreamAsync",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/simulate-conversation/stream\"",
-                                httpMethod: "POST",
+                                operationId: "PreviewMerge",
+                                methodName: "PreviewMergeAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{sourceBranchId}/merge-preview\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -393,15 +425,22 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
+                                ProcessPreviewMergeResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                return new global::ElevenLabs.AutoSDKHttpResponse(
+                                    var __value = global::ElevenLabs.MergePreviewResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MergePreviewResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -421,10 +460,19 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    return new global::ElevenLabs.AutoSDKHttpResponse(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    var __value = await global::ElevenLabs.MergePreviewResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MergePreviewResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -459,47 +507,6 @@ namespace ElevenLabs
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// Simulates A Conversation (Stream)<br/>
-        /// Run a conversation between the agent and a simulated user and stream back the response. Response is streamed back as partial lists of messages that should be concatenated and once the conversation has complete a single final message with the conversation analysis will be sent.
-        /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="simulationSpecification">
-        /// A specification detailing how the conversation should be simulated
-        /// </param>
-        /// <param name="extraEvaluationCriteria">
-        /// A list of evaluation criteria to test
-        /// </param>
-        /// <param name="newTurnsLimit">
-        /// Maximum number of new turns to generate in the conversation simulation<br/>
-        /// Default Value: 10000
-        /// </param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task SimulateConversationStreamAsync(
-            string agentId,
-            global::ElevenLabs.ConversationSimulationSpecification simulationSpecification,
-            global::System.Collections.Generic.IList<global::ElevenLabs.PromptEvaluationCriteria>? extraEvaluationCriteria = default,
-            int? newTurnsLimit = default,
-            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost
-            {
-                SimulationSpecification = simulationSpecification,
-                ExtraEvaluationCriteria = extraEvaluationCriteria,
-                NewTurnsLimit = newTurnsLimit,
-            };
-
-            await SimulateConversationStreamAsync(
-                agentId: agentId,
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

@@ -14005,8 +14005,9 @@
           "Agents Platform"
         ],
         "summary": "Simulates A Conversation",
-        "description": "Run a conversation between the agent and a simulated user.",
+        "description": "Deprecated. Use the `/v1/convai/agent-testing/create` and `/v1/convai/agents/:agent_id/run-tests` endpoints to create and run simulations. Run a conversation between the agent and a simulated user.",
         "operationId": "run_conversation_simulation_route",
+        "deprecated": true,
         "parameters": [
           {
             "name": "agent_id",
@@ -14087,8 +14088,9 @@
           "Agents Platform"
         ],
         "summary": "Simulates A Conversation (Stream)",
-        "description": "Run a conversation between the agent and a simulated user and stream back the response. Response is streamed back as partial lists of messages that should be concatenated and once the conversation has complete a single final message with the conversation analysis will be sent.",
+        "description": "Deprecated. Use the `/v1/convai/agent-testing/create` and `/v1/convai/agents/:agent_id/run-tests` endpoints to create and run simulations. Run a conversation between the agent and a simulated user and stream back the response. Response is streamed back as partial lists of messages that should be concatenated and once the conversation has complete a single final message with the conversation analysis will be sent.",
         "operationId": "run_conversation_simulation_route_stream",
+        "deprecated": true,
         "parameters": [
           {
             "name": "agent_id",
@@ -24937,10 +24939,9 @@
         "x-fern-sdk-group-name": [
           "conversational_ai",
           "agents",
-          "branches",
-          "merge"
+          "branches"
         ],
-        "x-fern-sdk-method-name": "preview"
+        "x-fern-sdk-method-name": "preview_merge"
       }
     },
     "/v1/convai/agents/{agent_id}/branches/{source_branch_id}/merge": {
@@ -25136,10 +25137,9 @@
         "x-fern-sdk-group-name": [
           "conversational_ai",
           "agents",
-          "branches",
-          "rebase"
+          "branches"
         ],
-        "x-fern-sdk-method-name": "preview"
+        "x-fern-sdk-method-name": "preview_rebase"
       }
     },
     "/v1/convai/agents/{agent_id}/branches/{branch_id}/rebase": {
