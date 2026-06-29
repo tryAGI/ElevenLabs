@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_PreviewSecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_PreviewRebaseSecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,65 +21,50 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_PreviewSecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_PreviewRebaseSecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_PreviewSecurityRequirement0,
+            {                s_PreviewRebaseSecurityRequirement0,
             };
-        partial void PreparePreviewArguments(
+        partial void PreparePreviewRebaseArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref string sourceBranchId,
-            ref string targetBranchId,
-            ref bool? force);
-        partial void PreparePreviewRequest(
+            ref string branchId);
+        partial void PreparePreviewRebaseRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            string sourceBranchId,
-            string targetBranchId,
-            bool? force);
-        partial void ProcessPreviewResponse(
+            string branchId);
+        partial void ProcessPreviewRebaseResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessPreviewResponseContent(
+        partial void ProcessPreviewRebaseResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Preview Merged Configuration<br/>
-        /// Returns the result of merging the source branch into the target branch without performing the merge. Useful for showing an accurate diff before confirming.
+        /// Preview Rebased Configuration<br/>
+        /// Returns the result of rebasing the branch onto main without performing the rebase. Useful for showing an accurate diff before confirming.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="sourceBranchId">
+        /// <param name="branchId">
         /// Unique identifier for the source branch to merge from.
-        /// </param>
-        /// <param name="targetBranchId">
-        /// The ID of the target branch to merge into.
-        /// </param>
-        /// <param name="force">
-        /// When true, source branch changes always win conflicts regardless of timestamps<br/>
-        /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MergePreviewResponseModel> PreviewAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MergePreviewResponseModel> PreviewRebaseAsync(
             string agentId,
-            string sourceBranchId,
-            string targetBranchId,
-            bool? force = default,
+            string branchId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await PreviewAsResponseAsync(
+            var __response = await PreviewRebaseAsResponseAsync(
                 agentId: agentId,
-                sourceBranchId: sourceBranchId,
-                targetBranchId: targetBranchId,
-                force: force,
+                branchId: branchId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -87,47 +72,36 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Preview Merged Configuration<br/>
-        /// Returns the result of merging the source branch into the target branch without performing the merge. Useful for showing an accurate diff before confirming.
+        /// Preview Rebased Configuration<br/>
+        /// Returns the result of rebasing the branch onto main without performing the rebase. Useful for showing an accurate diff before confirming.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="sourceBranchId">
+        /// <param name="branchId">
         /// Unique identifier for the source branch to merge from.
-        /// </param>
-        /// <param name="targetBranchId">
-        /// The ID of the target branch to merge into.
-        /// </param>
-        /// <param name="force">
-        /// When true, source branch changes always win conflicts regardless of timestamps<br/>
-        /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MergePreviewResponseModel>> PreviewAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MergePreviewResponseModel>> PreviewRebaseAsResponseAsync(
             string agentId,
-            string sourceBranchId,
-            string targetBranchId,
-            bool? force = default,
+            string branchId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PreparePreviewArguments(
+            PreparePreviewRebaseArguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                sourceBranchId: ref sourceBranchId,
-                targetBranchId: ref targetBranchId,
-                force: ref force);
+                branchId: ref branchId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_PreviewSecurityRequirements,
-                operationName: "PreviewAsync");
+                securityRequirements: s_PreviewRebaseSecurityRequirements,
+                operationName: "PreviewRebaseAsync");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -147,12 +121,8 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/branches/{sourceBranchId}/merge-preview",
+                                path: $"/v1/convai/agents/{agentId}/branches/{branchId}/rebase-preview",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddRequiredParameter("target_branch_id", targetBranchId)
-                                .AddOptionalParameter("force", force?.ToString().ToLowerInvariant())
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -190,13 +160,11 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PreparePreviewRequest(
+                PreparePreviewRebaseRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentId: agentId!,
-                    sourceBranchId: sourceBranchId!,
-                    targetBranchId: targetBranchId!,
-                    force: force);
+                    branchId: branchId!);
 
                 return __httpRequest;
             }
@@ -213,9 +181,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Preview",
-                                methodName: "PreviewAsync",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{sourceBranchId}/merge-preview\"",
+                                operationId: "PreviewRebase",
+                                methodName: "PreviewRebaseAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/rebase-preview\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -247,9 +215,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Preview",
-                                methodName: "PreviewAsync",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{sourceBranchId}/merge-preview\"",
+                                operationId: "PreviewRebase",
+                                methodName: "PreviewRebaseAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/rebase-preview\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -288,9 +256,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Preview",
-                                methodName: "PreviewAsync",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{sourceBranchId}/merge-preview\"",
+                                operationId: "PreviewRebase",
+                                methodName: "PreviewRebaseAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/rebase-preview\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -328,7 +296,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessPreviewResponse(
+                ProcessPreviewRebaseResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -336,9 +304,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Preview",
-                                methodName: "PreviewAsync",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{sourceBranchId}/merge-preview\"",
+                                operationId: "PreviewRebase",
+                                methodName: "PreviewRebaseAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/rebase-preview\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -358,9 +326,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Preview",
-                                methodName: "PreviewAsync",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{sourceBranchId}/merge-preview\"",
+                                operationId: "PreviewRebase",
+                                methodName: "PreviewRebaseAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/rebase-preview\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -425,7 +393,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessPreviewResponseContent(
+                                ProcessPreviewRebaseResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
