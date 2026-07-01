@@ -46,22 +46,22 @@ namespace ElevenLabs
 
 
         /// <summary>
-        /// 
+        /// Endpoints accessible to all authenticated callers regardless of scope.
         /// </summary>
         public AccessAllClient AccessAll { get; }
 
         /// <summary>
-        /// 
+        /// Query analytics and insights about agent conversations and performance.
         /// </summary>
         public AgentsInsightsClient AgentsInsights { get; }
 
         /// <summary>
-        /// 
+        /// Build, configure and manage Conversational AI agents, knowledge bases, tools, and conversations.
         /// </summary>
         public AgentsPlatformClient AgentsPlatform { get; }
 
         /// <summary>
-        /// 
+        /// Workspace-level analytics for Conversational AI usage.
         /// </summary>
         public AgentsWorkspaceAnalyticsClient AgentsWorkspaceAnalytics { get; }
 
@@ -76,7 +76,7 @@ namespace ElevenLabs
         public AudioNativeClient AudioNative { get; }
 
         /// <summary>
-        /// 
+        /// Build and manage conversational AI agents (legacy tag — see also Agents Platform).
         /// </summary>
         public ConversationalAiClient ConversationalAi { get; }
 
@@ -86,7 +86,7 @@ namespace ElevenLabs
         public ConversationalAi2Client ConversationalAi2 { get; }
 
         /// <summary>
-        /// 
+        /// Dub audio and video content into other languages while preserving the original speaker's voice.
         /// </summary>
         public DubbingClient Dubbing { get; }
 
@@ -116,7 +116,7 @@ namespace ElevenLabs
         public MusicClient Music { get; }
 
         /// <summary>
-        /// 
+        /// Generate music from a text prompt.
         /// </summary>
         public MusicGenerationClient MusicGeneration { get; }
 
@@ -131,12 +131,12 @@ namespace ElevenLabs
         public PronunciationDictionariesClient PronunciationDictionaries { get; }
 
         /// <summary>
-        /// 
+        /// Manage pronunciation dictionaries that override how specific words are pronounced.
         /// </summary>
         public PronunciationDictionaryClient PronunciationDictionary { get; }
 
         /// <summary>
-        /// 
+        /// Create and manage Professional Voice Clones (PVCs).
         /// </summary>
         public PvcVoicesClient PvcVoices { get; }
 
@@ -146,7 +146,7 @@ namespace ElevenLabs
         public SamplesClient Samples { get; }
 
         /// <summary>
-        /// 
+        /// Mint short-lived, single-use tokens for client-side use of Conversational AI agents.
         /// </summary>
         public SingleUseTokenClient SingleUseToken { get; }
 
@@ -171,7 +171,7 @@ namespace ElevenLabs
         public SpeechToText2Client SpeechToText2 { get; }
 
         /// <summary>
-        /// 
+        /// Access, create and convert Studio Projects programmatically. Only specifically whitelisted accounts can access the Studio API. If you need access please contact our sales team.
         /// </summary>
         public StudioClient Studio { get; }
 
@@ -191,7 +191,7 @@ namespace ElevenLabs
         public TextToSpeechClient TextToSpeech { get; }
 
         /// <summary>
-        /// 
+        /// Design and generate custom voices from a text prompt.
         /// </summary>
         public TextToVoiceClient TextToVoice { get; }
 

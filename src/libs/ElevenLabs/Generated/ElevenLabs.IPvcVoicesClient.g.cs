@@ -4,6 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
+    /// Create and manage Professional Voice Clones (PVCs).<br/>
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>

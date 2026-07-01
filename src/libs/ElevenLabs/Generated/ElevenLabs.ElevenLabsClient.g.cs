@@ -41,7 +41,7 @@ namespace ElevenLabs
 
 
         /// <summary>
-        /// 
+        /// Endpoints accessible to all authenticated callers regardless of scope.
         /// </summary>
         public AccessAllClient AccessAll => new AccessAllClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -50,7 +50,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        /// Query analytics and insights about agent conversations and performance.
         /// </summary>
         public AgentsInsightsClient AgentsInsights => new AgentsInsightsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -59,7 +59,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        /// Build, configure and manage Conversational AI agents, knowledge bases, tools, and conversations.
         /// </summary>
         public AgentsPlatformClient AgentsPlatform => new AgentsPlatformClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -68,7 +68,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        /// Workspace-level analytics for Conversational AI usage.
         /// </summary>
         public AgentsWorkspaceAnalyticsClient AgentsWorkspaceAnalytics => new AgentsWorkspaceAnalyticsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -95,7 +95,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        /// Build and manage conversational AI agents (legacy tag — see also Agents Platform).
         /// </summary>
         public ConversationalAiClient ConversationalAi => new ConversationalAiClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -113,7 +113,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        /// Dub audio and video content into other languages while preserving the original speaker's voice.
         /// </summary>
         public DubbingClient Dubbing => new DubbingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -167,7 +167,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        /// Generate music from a text prompt.
         /// </summary>
         public MusicGenerationClient MusicGeneration => new MusicGenerationClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -194,7 +194,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        /// Manage pronunciation dictionaries that override how specific words are pronounced.
         /// </summary>
         public PronunciationDictionaryClient PronunciationDictionary => new PronunciationDictionaryClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -203,7 +203,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        /// Create and manage Professional Voice Clones (PVCs).
         /// </summary>
         public PvcVoicesClient PvcVoices => new PvcVoicesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -221,7 +221,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        /// Mint short-lived, single-use tokens for client-side use of Conversational AI agents.
         /// </summary>
         public SingleUseTokenClient SingleUseToken => new SingleUseTokenClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -266,7 +266,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        /// Access, create and convert Studio Projects programmatically. Only specifically whitelisted accounts can access the Studio API. If you need access please contact our sales team.
         /// </summary>
         public StudioClient Studio => new StudioClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -302,7 +302,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        /// Design and generate custom voices from a text prompt.
         /// </summary>
         public TextToVoiceClient TextToVoice => new TextToVoiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
