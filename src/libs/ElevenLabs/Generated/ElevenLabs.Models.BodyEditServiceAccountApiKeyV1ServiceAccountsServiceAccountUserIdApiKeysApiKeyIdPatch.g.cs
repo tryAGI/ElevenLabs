@@ -39,7 +39,7 @@ namespace ElevenLabs
         public global::ElevenLabs.AnyOf<int?, string, object>? CharacterLimit { get; set; }
 
         /// <summary>
-        /// List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the whitelist unchanged, or pass "clear" to remove it.<br/>
+        /// List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the allowlist unchanged, or pass "clear" to remove it.<br/>
         /// Default Value: no_update
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("allowed_ips")]
@@ -79,7 +79,7 @@ namespace ElevenLabs
         /// Default Value: no_update
         /// </param>
         /// <param name="allowedIps">
-        /// List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the whitelist unchanged, or pass "clear" to remove it.<br/>
+        /// List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the allowlist unchanged, or pass "clear" to remove it.<br/>
         /// Default Value: no_update
         /// </param>
         /// <param name="thirdPartyDisableAllowed">

@@ -1,0 +1,99 @@
+#nullable enable
+
+#pragma warning disable CS0618 // Type or member is obsolete
+
+namespace ElevenLabs
+{
+    public partial interface IMusicClient
+    {
+        /// <summary>
+        /// Stream Composed Music With A Detailed Response<br/>
+        /// Stream a song and its detailed metadata using Server-Sent Events (SSE).
+        /// </summary>
+        /// <param name="outputFormat">
+        /// Default Value: auto
+        /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Collections.Generic.IAsyncEnumerable<global::System.IO.Stream> ComposeDetailedStreamAsync(
+
+            global::ElevenLabs.BodyStreamComposedMusicWithADetailedResponseV1MusicDetailedStreamPost request,
+            global::ElevenLabs.ComposeDetailedStreamOutputFormat? outputFormat = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Stream Composed Music With A Detailed Response<br/>
+        /// Stream a song and its detailed metadata using Server-Sent Events (SSE).
+        /// </summary>
+        /// <param name="outputFormat">
+        /// Default Value: auto
+        /// </param>
+        /// <param name="prompt">
+        /// A simple text prompt to generate a song from. Cannot be used in conjunction with `composition_plan`.
+        /// </param>
+        /// <param name="generationMode">
+        /// Optional generation mode hint for prompt-based music generation. Can only be used with `prompt`.
+        /// </param>
+        /// <param name="lyricsText">
+        /// The lyrics text to use for the generation.
+        /// </param>
+        /// <param name="compositionPlan">
+        /// A detailed composition plan to guide music generation. Cannot be used in conjunction with `prompt`.
+        /// </param>
+        /// <param name="musicLengthMs">
+        /// The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 3000ms and 600000ms. Optional - if not provided, the model will choose a length based on the prompt.
+        /// </param>
+        /// <param name="modelId">
+        /// The model to use for the generation.<br/>
+        /// Default Value: music_v1
+        /// </param>
+        /// <param name="seed">
+        /// Random seed to initialize the music generation process. Providing the same seed with the same parameters can help achieve more consistent results, but exact reproducibility is not guaranteed and outputs may change across system updates. Cannot be used in conjunction with prompt.
+        /// </param>
+        /// <param name="forceInstrumental">
+        /// If true, guarantees that the generated song will be instrumental. If false, the song may or may not be instrumental depending on the `prompt`. Can only be used with `prompt`.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="finetuneId">
+        /// The ID of the finetune to use for the generation
+        /// </param>
+        /// <param name="finetuneStrength">
+        /// How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.<br/>
+        /// Default Value: 1F
+        /// </param>
+        /// <param name="usePhoneticNames">
+        /// If true, proper names in the prompt will be phonetically spelled in the lyrics for better pronunciation by the music model. The original names will be restored in word timestamps.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="storeForInpainting">
+        /// Whether to store the generated song for inpainting.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="withTimestamps">
+        /// Whether to return the timestamps of the words in the generated song.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        global::System.Collections.Generic.IAsyncEnumerable<global::System.IO.Stream> ComposeDetailedStreamAsync(
+            global::ElevenLabs.ComposeDetailedStreamOutputFormat? outputFormat = default,
+            string? prompt = default,
+            global::ElevenLabs.MusicGenerationMode? generationMode = default,
+            string? lyricsText = default,
+            global::ElevenLabs.OneOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>? compositionPlan = default,
+            int? musicLengthMs = default,
+            global::ElevenLabs.BodyStreamComposedMusicWithADetailedResponseV1MusicDetailedStreamPostModelId? modelId = default,
+            int? seed = default,
+            bool? forceInstrumental = default,
+            string? finetuneId = default,
+            double? finetuneStrength = default,
+            bool? usePhoneticNames = default,
+            bool? storeForInpainting = default,
+            bool? withTimestamps = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}

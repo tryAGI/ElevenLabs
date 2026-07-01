@@ -9564,7 +9564,7 @@
           "api-key"
         ],
         "summary": "Disable Api Key",
-        "description": "Disable the API key used to authenticate this request. Requires the query parameter `api_key_name=self` as an explicit confirmation. This endpoint requires additional permissions and is not enabled by default. Reach out to your ElevenLabs contact to request access.",
+        "description": "Disable the API key used to authenticate this request. Requires the query parameter `api_key_name=self` as an explicit confirmation.",
         "operationId": "disable",
         "parameters": [
           {
@@ -9631,7 +9631,7 @@
           "api-key"
         ],
         "summary": "Set Workspace Third-Party Disabling Policy",
-        "description": "Set the workspace-wide Third-Party Disabling policy. When set, it forces, for every API key in the workspace, whether the holder of a key (potentially a third party who found it) may disable it via the self-disable endpoint or when it leaks publicly — overriding each key's own setting. Pass `true` to allow it for all keys, `false` to forbid it for all keys, or `null` to clear the override so per-key values and the plan default apply again. Workspace admins only; requires self-disable access.",
+        "description": "Set the workspace-wide Third-Party Disabling policy. When set, it forces, for every API key in the workspace, whether the holder of a key (potentially a third party who found it) may disable it via the self-disable endpoint or when it leaks publicly — overriding each key's own setting. Pass `true` to allow it for all keys, `false` to forbid it for all keys, or `null` to clear the override so per-key values and the plan default apply again. Workspace admins only.",
         "operationId": "set_third_party_disabling_policy",
         "parameters": [
           {
@@ -26712,6 +26712,118 @@
         "x-fern-sdk-method-name": "compose_detailed"
       }
     },
+    "/v1/music/detailed/stream": {
+      "post": {
+        "tags": [
+          "music-generation"
+        ],
+        "summary": "Stream Composed Music With A Detailed Response",
+        "description": "Stream a song and its detailed metadata using Server-Sent Events (SSE).",
+        "operationId": "compose_detailed_stream",
+        "parameters": [
+          {
+            "name": "output_format",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "auto",
+                "mp3_48000_128",
+                "mp3_48000_192",
+                "mp3_48000_240",
+                "mp3_48000_320",
+                "mp3_22050_32",
+                "mp3_24000_48",
+                "mp3_44100_32",
+                "mp3_44100_64",
+                "mp3_44100_96",
+                "mp3_44100_128",
+                "mp3_44100_192",
+                "pcm_8000",
+                "pcm_16000",
+                "pcm_22050",
+                "pcm_24000",
+                "pcm_32000",
+                "pcm_44100",
+                "pcm_48000",
+                "ulaw_8000",
+                "alaw_8000",
+                "opus_48000_32",
+                "opus_48000_64",
+                "opus_48000_96",
+                "opus_48000_128",
+                "opus_48000_192"
+              ],
+              "default": "auto",
+              "title": "Output format of the generated audio."
+            },
+            "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. Use \"auto\" (the default) to let the API pick the best format for the selected model: mp3_44100_128 for v1 models and mp3_48000_192 for v2 models. "
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Stream_composed_music_with_a_detailed_response_v1_music_detailed_stream_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Server-Sent Events for composition plan, song metadata, audio chunks with optional word timestamps, and completion.",
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "type": "string",
+                  "description": "SSE stream. Audio chunks are emitted as base64-encoded payloads with optional word timestamps in audio_chunk events."
+                }
+              }
+            },
+            "headers": {
+              "song-id": {
+                "description": "Unique identifier for the generated song",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "music",
+        "x-fern-sdk-method-name": "compose_detailed_stream",
+        "x-fern-streaming": true
+      }
+    },
     "/v1/music/stream": {
       "post": {
         "tags": [
@@ -31124,7 +31236,7 @@
             "default": false
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig-Input",
+            "$ref": "#/components/schemas/DynamicVariablesConfig",
             "description": "Configuration for dynamic variables"
           },
           "disable_first_message_interruptions": {
@@ -31196,7 +31308,7 @@
             "default": false
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig-Output",
+            "$ref": "#/components/schemas/DynamicVariablesConfig",
             "description": "Configuration for dynamic variables"
           },
           "disable_first_message_interruptions": {
@@ -31288,7 +31400,7 @@
           "dynamic_variables": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/DynamicVariablesConfigWorkflowOverride-Input"
+                "$ref": "#/components/schemas/DynamicVariablesConfigWorkflowOverride"
               },
               {
                 "type": "null"
@@ -31418,7 +31530,7 @@
           "dynamic_variables": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/DynamicVariablesConfigWorkflowOverride-Output"
+                "$ref": "#/components/schemas/DynamicVariablesConfigWorkflowOverride"
               },
               {
                 "type": "null"
@@ -33705,7 +33817,7 @@
             "default": "auto"
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig-Input",
+            "$ref": "#/components/schemas/DynamicVariablesConfig",
             "description": "Configuration for dynamic variables"
           },
           "execution_mode": {
@@ -33825,7 +33937,7 @@
             "default": "auto"
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig-Output",
+            "$ref": "#/components/schemas/DynamicVariablesConfig",
             "description": "Configuration for dynamic variables"
           },
           "execution_mode": {
@@ -40737,6 +40849,169 @@
         "type": "object",
         "title": "Body_Stream_composed_music_v1_music_stream_post"
       },
+      "Body_Stream_composed_music_with_a_detailed_response_v1_music_detailed_stream_post": {
+        "properties": {
+          "prompt": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 4100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt",
+            "description": "A simple text prompt to generate a song from. Cannot be used in conjunction with `composition_plan`."
+          },
+          "generation_mode": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MusicGenerationMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional generation mode hint for prompt-based music generation. Can only be used with `prompt`.",
+            "x-fern-ignore": true
+          },
+          "music_prompt": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MusicPrompt"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A music prompt. Deprecated. Use `composition_plan` instead.",
+            "deprecated": true,
+            "x-fern-ignore": true
+          },
+          "lyrics_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 4000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lyrics Text",
+            "description": "The lyrics text to use for the generation.",
+            "x-fern-ignore": true
+          },
+          "composition_plan": {
+            "anyOf": [
+              {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MusicPrompt"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CompositionPlan"
+                  }
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Composition Plan",
+            "description": "A detailed composition plan to guide music generation. Cannot be used in conjunction with `prompt`."
+          },
+          "music_length_ms": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 600000.0,
+                "minimum": 3000.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Music Length Ms",
+            "description": "The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 3000ms and 600000ms. Optional - if not provided, the model will choose a length based on the prompt."
+          },
+          "model_id": {
+            "type": "string",
+            "enum": [
+              "music_v1",
+              "music_v2"
+            ],
+            "title": "Model Id",
+            "description": "The model to use for the generation.",
+            "default": "music_v1"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 2147483647.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed",
+            "description": "Random seed to initialize the music generation process. Providing the same seed with the same parameters can help achieve more consistent results, but exact reproducibility is not guaranteed and outputs may change across system updates. Cannot be used in conjunction with prompt."
+          },
+          "force_instrumental": {
+            "type": "boolean",
+            "title": "Force Instrumental",
+            "description": "If true, guarantees that the generated song will be instrumental. If false, the song may or may not be instrumental depending on the `prompt`. Can only be used with `prompt`.",
+            "default": false
+          },
+          "finetune_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finetune Id",
+            "description": "The ID of the finetune to use for the generation",
+            "x-fern-ignore": true
+          },
+          "finetune_strength": {
+            "type": "number",
+            "maximum": 2.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Finetune Strength",
+            "description": "How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.",
+            "default": 1.0,
+            "x-fern-ignore": true
+          },
+          "use_phonetic_names": {
+            "type": "boolean",
+            "title": "Use Phonetic Names",
+            "description": "If true, proper names in the prompt will be phonetically spelled in the lyrics for better pronunciation by the music model. The original names will be restored in word timestamps.",
+            "default": false,
+            "x-fern-ignore": true
+          },
+          "store_for_inpainting": {
+            "type": "boolean",
+            "title": "Store For Inpainting",
+            "description": "Whether to store the generated song for inpainting.",
+            "default": false
+          },
+          "with_timestamps": {
+            "type": "boolean",
+            "title": "With Timestamps",
+            "description": "Whether to return the timestamps of the words in the generated song.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "Body_Stream_composed_music_with_a_detailed_response_v1_music_detailed_stream_post"
+      },
       "Body_Submit_a_batch_call_request__v1_convai_batch_calling_submit_post": {
         "properties": {
           "call_name": {
@@ -42010,7 +42285,7 @@
               }
             ],
             "title": "Allowed Ips",
-            "description": "List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the whitelist unchanged, or pass \"clear\" to remove it."
+            "description": "List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the allowlist unchanged, or pass \"clear\" to remove it."
           },
           "third_party_disable_allowed": {
             "anyOf": [
@@ -42119,7 +42394,7 @@
               }
             ],
             "title": "Allowed Ips",
-            "description": "List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the whitelist unchanged, or pass \"clear\" to remove it.",
+            "description": "List of IP addresses or CIDR ranges allowed to use this API key. Each entry may be a CIDR range (e.g. '10.0.0.0/24') or a bare IP address (normalized to /32 or /128). On create, omit or pass null to allow all IPs. On update, omit to leave the allowlist unchanged, or pass \"clear\" to remove it.",
             "default": "no_update"
           },
           "third_party_disable_allowed": {
@@ -45144,7 +45419,7 @@
             "default": false
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig-Input",
+            "$ref": "#/components/schemas/DynamicVariablesConfig",
             "description": "Configuration for dynamic variables"
           },
           "execution_mode": {
@@ -45260,7 +45535,7 @@
             "default": false
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig-Output",
+            "$ref": "#/components/schemas/DynamicVariablesConfig",
             "description": "Configuration for dynamic variables"
           },
           "execution_mode": {
@@ -46107,6 +46382,31 @@
               }
             ],
             "title": "Call Charge"
+          },
+          "platform_charge": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Platform Charge"
+          },
+          "platform_usage": {
+            "$ref": "#/components/schemas/PlatformUsage"
+          },
+          "platform_price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Platform Price"
           },
           "free_minutes_consumed": {
             "type": "number",
@@ -49337,9 +49637,7 @@
             "description": "If set, start the workflow at this node id instead of the default entry"
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables"
           },
@@ -49413,9 +49711,7 @@
             "description": "If set, start the workflow at this node id instead of the default entry"
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables"
           }
@@ -49485,9 +49781,7 @@
             "description": "If set, start the workflow at this node id instead of the default entry"
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables"
           }
@@ -49710,9 +50004,7 @@
             "description": "A partial conversation history to start the simulation from. If empty, simulation starts fresh."
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables"
           }
@@ -51496,9 +51788,7 @@
             "description": "Metadata of a conversation this test was created from (if applicable)."
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables",
             "description": "Dynamic variables to replace in the agent config during testing"
@@ -51703,9 +51993,7 @@
             "description": "Metadata of a conversation this test was created from (if applicable)."
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables",
             "description": "Dynamic variables to replace in the agent config during testing"
@@ -51950,9 +52238,7 @@
             "description": "Metadata of a conversation this test was created from (if applicable)."
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables",
             "description": "Dynamic variables to replace in the agent config during testing"
@@ -54932,56 +55218,6 @@
           "value_path": "user.name"
         }
       },
-      "DynamicVariableNestedValueType-Input": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "integer"
-          },
-          {
-            "type": "number"
-          },
-          {
-            "type": "boolean"
-          },
-          {
-            "items": {
-              "$ref": "#/components/schemas/DynamicVariableNestedValueType-Input"
-            },
-            "type": "array"
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "DynamicVariableNestedValueType-Output": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "integer"
-          },
-          {
-            "type": "number"
-          },
-          {
-            "type": "boolean"
-          },
-          {
-            "items": {
-              "$ref": "#/components/schemas/DynamicVariableNestedValueType-Output"
-            },
-            "type": "array"
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
       "DynamicVariableSchemaOverride": {
         "properties": {
           "source": {
@@ -55049,62 +55285,10 @@
         "title": "DynamicVariableUpdateCommonModel",
         "description": "Tracks a dynamic variable update that occurred during tool execution."
       },
-      "DynamicVariableValueType-Input": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "number"
-          },
-          {
-            "type": "integer"
-          },
-          {
-            "type": "boolean"
-          },
-          {
-            "items": {
-              "$ref": "#/components/schemas/DynamicVariableNestedValueType-Input"
-            },
-            "type": "array"
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "DynamicVariableValueType-Output": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "number"
-          },
-          {
-            "type": "integer"
-          },
-          {
-            "type": "boolean"
-          },
-          {
-            "items": {
-              "$ref": "#/components/schemas/DynamicVariableNestedValueType-Output"
-            },
-            "type": "array"
-          },
-          {
-            "type": "null"
-          }
-        ]
-      },
-      "DynamicVariablesConfig-Input": {
+      "DynamicVariablesConfig": {
         "properties": {
           "dynamic_variable_placeholders": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variable Placeholders",
             "description": "A dictionary of dynamic variable placeholders and their values"
@@ -55118,59 +55302,12 @@
           }
         }
       },
-      "DynamicVariablesConfig-Output": {
-        "properties": {
-          "dynamic_variable_placeholders": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
-            },
-            "type": "object",
-            "title": "Dynamic Variable Placeholders",
-            "description": "A dictionary of dynamic variable placeholders and their values"
-          }
-        },
-        "type": "object",
-        "title": "DynamicVariablesConfig",
-        "example": {
-          "dynamic_variable_placeholders": {
-            "user_name": "John Doe"
-          }
-        }
-      },
-      "DynamicVariablesConfigWorkflowOverride-Input": {
+      "DynamicVariablesConfigWorkflowOverride": {
         "properties": {
           "dynamic_variable_placeholders": {
             "anyOf": [
               {
-                "additionalProperties": {
-                  "$ref": "#/components/schemas/DynamicVariableValueType-Input"
-                },
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Dynamic Variable Placeholders",
-            "description": "A dictionary of dynamic variable placeholders and their values"
-          }
-        },
-        "type": "object",
-        "title": "DynamicVariablesConfigWorkflowOverride",
-        "example": {
-          "dynamic_variable_placeholders": {
-            "user_name": "John Doe"
-          }
-        }
-      },
-      "DynamicVariablesConfigWorkflowOverride-Output": {
-        "properties": {
-          "dynamic_variable_placeholders": {
-            "anyOf": [
-              {
-                "additionalProperties": {
-                  "$ref": "#/components/schemas/DynamicVariableValueType-Output"
-                },
+                "additionalProperties": true,
                 "type": "object"
               },
               {
@@ -59677,9 +59814,7 @@
             "description": "Metadata of a conversation this test was created from (if applicable)."
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables",
             "description": "Dynamic variables to replace in the agent config during testing"
@@ -59884,9 +60019,7 @@
             "description": "Metadata of a conversation this test was created from (if applicable)."
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables",
             "description": "Dynamic variables to replace in the agent config during testing"
@@ -60263,9 +60396,7 @@
             "description": "Metadata of a conversation this test was created from (if applicable)."
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables",
             "description": "Dynamic variables to replace in the agent config during testing"
@@ -69085,6 +69216,59 @@
         ],
         "title": "PhoneNumberTransferDestination"
       },
+      "PlatformCategory": {
+        "type": "string",
+        "enum": [
+          "voice",
+          "silence",
+          "burst",
+          "asr",
+          "text_message",
+          "reception",
+          "other"
+        ],
+        "title": "PlatformCategory",
+        "description": "Buckets that make up the non-LLM ``platform_charge`` of a conversation."
+      },
+      "PlatformCategoryUsage": {
+        "properties": {
+          "credits": {
+            "type": "integer",
+            "title": "Credits",
+            "default": 0
+          },
+          "price": {
+            "type": "number",
+            "title": "Price",
+            "default": 0.0
+          },
+          "quantity": {
+            "type": "number",
+            "title": "Quantity",
+            "default": 0.0
+          }
+        },
+        "type": "object",
+        "title": "PlatformCategoryUsage",
+        "description": "Accumulated charge for a single :class:`PlatformCategory`."
+      },
+      "PlatformUsage": {
+        "properties": {
+          "category_usage": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PlatformCategoryUsage"
+            },
+            "propertyNames": {
+              "$ref": "#/components/schemas/PlatformCategory"
+            },
+            "type": "object",
+            "title": "Category Usage"
+          }
+        },
+        "type": "object",
+        "title": "PlatformUsage",
+        "description": "Per-category breakdown of ``platform_charge`` (the analogue of ``llm_usage``)."
+      },
       "PlayDTMFResultErrorModel": {
         "properties": {
           "result_type": {
@@ -75178,9 +75362,7 @@
             "description": "Metadata of a conversation this test was created from (if applicable)."
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables",
             "description": "Dynamic variables to replace in the agent config during testing"
@@ -77182,9 +77364,7 @@
             "description": "Metadata of a conversation this test was created from (if applicable)."
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables",
             "description": "Dynamic variables to replace in the agent config during testing"
@@ -81904,9 +82084,7 @@
             "description": "Metadata of a conversation this test was created from (if applicable)."
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Output"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables",
             "description": "Dynamic variables to replace in the agent config during testing"
@@ -84493,9 +84671,7 @@
             "description": "Metadata of a conversation this test was created from (if applicable)."
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables",
             "description": "Dynamic variables to replace in the agent config during testing"
@@ -84599,9 +84775,7 @@
             "description": "Metadata of a conversation this test was created from (if applicable)."
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables",
             "description": "Dynamic variables to replace in the agent config during testing"
@@ -84877,9 +85051,7 @@
             "description": "Metadata of a conversation this test was created from (if applicable)."
           },
           "dynamic_variables": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/DynamicVariableValueType-Input"
-            },
+            "additionalProperties": true,
             "type": "object",
             "title": "Dynamic Variables",
             "description": "Dynamic variables to replace in the agent config during testing"
@@ -88445,7 +88617,7 @@
             "default": "auto"
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig-Input",
+            "$ref": "#/components/schemas/DynamicVariablesConfig",
             "description": "Configuration for dynamic variables"
           },
           "execution_mode": {
@@ -88549,7 +88721,7 @@
             "default": "auto"
           },
           "dynamic_variables": {
-            "$ref": "#/components/schemas/DynamicVariablesConfig-Output",
+            "$ref": "#/components/schemas/DynamicVariablesConfig",
             "description": "Configuration for dynamic variables"
           },
           "execution_mode": {
