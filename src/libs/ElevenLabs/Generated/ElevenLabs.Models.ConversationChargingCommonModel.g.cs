@@ -51,6 +51,24 @@ namespace ElevenLabs
         public int? CallCharge { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("platform_charge")]
+        public int? PlatformCharge { get; set; }
+
+        /// <summary>
+        /// Per-category breakdown of ``platform_charge`` (the analogue of ``llm_usage``).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("platform_usage")]
+        public global::ElevenLabs.PlatformUsage? PlatformUsage { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("platform_price")]
+        public double? PlatformPrice { get; set; }
+
+        /// <summary>
         /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("free_minutes_consumed")]
@@ -94,6 +112,11 @@ namespace ElevenLabs
         /// <param name="llmPrice"></param>
         /// <param name="llmCharge"></param>
         /// <param name="callCharge"></param>
+        /// <param name="platformCharge"></param>
+        /// <param name="platformUsage">
+        /// Per-category breakdown of ``platform_charge`` (the analogue of ``llm_usage``).
+        /// </param>
+        /// <param name="platformPrice"></param>
         /// <param name="freeMinutesConsumed">
         /// Default Value: 0F
         /// </param>
@@ -113,6 +136,9 @@ namespace ElevenLabs
             double? llmPrice,
             int? llmCharge,
             int? callCharge,
+            int? platformCharge,
+            global::ElevenLabs.PlatformUsage? platformUsage,
+            double? platformPrice,
             double? freeMinutesConsumed,
             double? freeLlmDollarsConsumed,
             global::ElevenLabs.ConversationTTSUsageModel? ttsUsage,
@@ -125,6 +151,9 @@ namespace ElevenLabs
             this.LlmPrice = llmPrice;
             this.LlmCharge = llmCharge;
             this.CallCharge = callCharge;
+            this.PlatformCharge = platformCharge;
+            this.PlatformUsage = platformUsage;
+            this.PlatformPrice = platformPrice;
             this.FreeMinutesConsumed = freeMinutesConsumed;
             this.FreeLlmDollarsConsumed = freeLlmDollarsConsumed;
             this.TtsUsage = ttsUsage;
