@@ -6780,6 +6780,7 @@
           "enterprise"
         ],
         "summary": "Create A New Speaker",
+        "description": "Creates a new speaker in a dubbing resource. The speaker is added to every available language and can optionally be associated with an ElevenLabs voice and voice settings.",
         "operationId": "create_speaker",
         "deprecated": true,
         "parameters": [
@@ -93851,6 +93852,94 @@
     {
       "name": "workspace",
       "description": "Access to workspace related endpoints."
+    },
+    {
+      "name": "text-to-voice",
+      "description": "Design and generate custom voices from a text prompt."
+    },
+    {
+      "name": "text-to-dialogue",
+      "description": "Generate multi-speaker dialogue from a script using different voices."
+    },
+    {
+      "name": "sound-generation",
+      "description": "Generate sound effects and non-speech audio from a text prompt."
+    },
+    {
+      "name": "audio-isolation",
+      "description": "Isolate speech from background noise in an audio file."
+    },
+    {
+      "name": "audio-native",
+      "description": "Embed AI-narrated audio players into your website using Audio Native."
+    },
+    {
+      "name": "music-generation",
+      "description": "Generate music from a text prompt."
+    },
+    {
+      "name": "video-to-music",
+      "description": "Generate music that matches the content and mood of a video."
+    },
+    {
+      "name": "Speech Engine",
+      "description": "Low-latency, real-time speech generation endpoints."
+    },
+    {
+      "name": "pvc-voices",
+      "description": "Create and manage Professional Voice Clones (PVCs)."
+    },
+    {
+      "name": "dubbing",
+      "description": "Dub audio and video content into other languages while preserving the original speaker's voice."
+    },
+    {
+      "name": "resource",
+      "description": "Manage dubbing resources, including segments, speakers, and language tracks."
+    },
+    {
+      "name": "segment",
+      "description": "Manage individual segments within a dubbing resource."
+    },
+    {
+      "name": "studio",
+      "description": "Access, create and convert Studio Projects programmatically. Only specifically whitelisted accounts can access the Studio API. If you need access please contact our sales team."
+    },
+    {
+      "name": "Pronunciation Dictionary",
+      "description": "Manage pronunciation dictionaries that override how specific words are pronounced."
+    },
+    {
+      "name": "Conversational AI",
+      "description": "Build and manage conversational AI agents (legacy tag — see also Agents Platform)."
+    },
+    {
+      "name": "Agents Platform",
+      "description": "Build, configure and manage Conversational AI agents, knowledge bases, tools, and conversations."
+    },
+    {
+      "name": "Agents Insights",
+      "description": "Query analytics and insights about agent conversations and performance."
+    },
+    {
+      "name": "Agents Workspace Analytics",
+      "description": "Workspace-level analytics for Conversational AI usage."
+    },
+    {
+      "name": "Single Use Token",
+      "description": "Mint short-lived, single-use tokens for client-side use of Conversational AI agents."
+    },
+    {
+      "name": "api-key",
+      "description": "Manage API keys for your workspace."
+    },
+    {
+      "name": "enterprise",
+      "description": "Endpoints available only to enterprise workspaces."
+    },
+    {
+      "name": "access:all",
+      "description": "Endpoints accessible to all authenticated callers regardless of scope."
     }
   ]
 }
