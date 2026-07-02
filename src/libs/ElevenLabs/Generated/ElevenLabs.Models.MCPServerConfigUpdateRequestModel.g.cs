@@ -30,10 +30,17 @@ namespace ElevenLabs
         public global::ElevenLabs.PreToolSpeechMode? PreToolSpeech { get; set; }
 
         /// <summary>
-        /// If set, overrides the server's disable_interruptions setting for this tool
+        /// DEPRECATED: use `interruption_mode` instead. If set, overrides the server's disable_interruptions setting for this tool.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("disable_interruptions")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? DisableInterruptions { get; set; }
+
+        /// <summary>
+        /// If set, overrides the server's interruption_mode setting for this tool.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("interruption_mode")]
+        public global::ElevenLabs.ToolInterruptionMode? InterruptionMode { get; set; }
 
         /// <summary>
         /// Predefined tool call sound type to play during tool execution for all tools from this MCP server
@@ -99,8 +106,8 @@ namespace ElevenLabs
         /// <param name="preToolSpeech">
         /// If set, overrides the server's pre_tool_speech setting for this tool.
         /// </param>
-        /// <param name="disableInterruptions">
-        /// If set, overrides the server's disable_interruptions setting for this tool
+        /// <param name="interruptionMode">
+        /// If set, overrides the server's interruption_mode setting for this tool.
         /// </param>
         /// <param name="toolCallSound">
         /// Predefined tool call sound type to play during tool execution for all tools from this MCP server
@@ -132,7 +139,7 @@ namespace ElevenLabs
         public MCPServerConfigUpdateRequestModel(
             global::ElevenLabs.MCPApprovalPolicy? approvalPolicy,
             global::ElevenLabs.PreToolSpeechMode? preToolSpeech,
-            bool? disableInterruptions,
+            global::ElevenLabs.ToolInterruptionMode? interruptionMode,
             global::ElevenLabs.ToolCallSoundType? toolCallSound,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
             global::ElevenLabs.ToolExecutionMode? executionMode,
@@ -144,7 +151,7 @@ namespace ElevenLabs
         {
             this.ApprovalPolicy = approvalPolicy;
             this.PreToolSpeech = preToolSpeech;
-            this.DisableInterruptions = disableInterruptions;
+            this.InterruptionMode = interruptionMode;
             this.ToolCallSound = toolCallSound;
             this.ToolCallSoundBehavior = toolCallSoundBehavior;
             this.ExecutionMode = executionMode;

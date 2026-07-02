@@ -4,8 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// If set, overrides the server's disable_interruptions setting for this tool
+    /// DEPRECATED: use `interruption_mode` instead. If set, overrides the server's disable_interruptions setting for this tool.
     /// </summary>
+    [global::System.Obsolete("This model marked as deprecated.")]
     public sealed partial class MCPToolConfigOverrideCreateRequestModelDisableInterruptions
     {
 

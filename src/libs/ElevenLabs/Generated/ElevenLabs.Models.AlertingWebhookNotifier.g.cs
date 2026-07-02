@@ -22,6 +22,20 @@ namespace ElevenLabs
         public required string Url { get; set; }
 
         /// <summary>
+        /// HTTP method used when calling the webhook URL.<br/>
+        /// Default Value: POST
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("method")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AlertingWebhookMethodJsonConverter))]
+        public global::ElevenLabs.AlertingWebhookMethod? Method { get; set; }
+
+        /// <summary>
+        /// Custom request headers sent with every notification. Secret header values are encrypted at rest and never returned by the API.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("headers")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AlertingWebhookHeader>? Headers { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -36,15 +50,26 @@ namespace ElevenLabs
         /// <param name="type">
         /// Default Value: webhook
         /// </param>
+        /// <param name="method">
+        /// HTTP method used when calling the webhook URL.<br/>
+        /// Default Value: POST
+        /// </param>
+        /// <param name="headers">
+        /// Custom request headers sent with every notification. Secret header values are encrypted at rest and never returned by the API.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AlertingWebhookNotifier(
             string url,
-            string? type)
+            string? type,
+            global::ElevenLabs.AlertingWebhookMethod? method,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AlertingWebhookHeader>? headers)
         {
             this.Type = type;
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
+            this.Method = method;
+            this.Headers = headers;
         }
 
         /// <summary>
