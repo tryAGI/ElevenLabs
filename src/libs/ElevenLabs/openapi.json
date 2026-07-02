@@ -33029,7 +33029,6 @@
               "additional_knowledge_base": [],
               "additional_prompt": "",
               "additional_tool_ids": [],
-              "auto_advance_after_first_response": false,
               "conversation_config": {},
               "edge_order": [
                 "entry_to_tool_a"
@@ -33046,7 +33045,6 @@
               "additional_knowledge_base": [],
               "additional_prompt": "",
               "additional_tool_ids": [],
-              "auto_advance_after_first_response": false,
               "conversation_config": {},
               "edge_order": [],
               "entry_behavior": "auto",
@@ -33071,7 +33069,6 @@
               "additional_knowledge_base": [],
               "additional_prompt": "",
               "additional_tool_ids": [],
-              "auto_advance_after_first_response": false,
               "conversation_config": {},
               "edge_order": [],
               "entry_behavior": "auto",
@@ -57388,7 +57385,6 @@
                 "additional_knowledge_base": [],
                 "additional_prompt": "",
                 "additional_tool_ids": [],
-                "auto_advance_after_first_response": false,
                 "conversation_config": {},
                 "edge_order": [
                   "entry_to_tool_a"
@@ -57405,7 +57401,6 @@
                 "additional_knowledge_base": [],
                 "additional_prompt": "",
                 "additional_tool_ids": [],
-                "auto_advance_after_first_response": false,
                 "conversation_config": {},
                 "edge_order": [],
                 "entry_behavior": "auto",
@@ -57430,7 +57425,6 @@
                 "additional_knowledge_base": [],
                 "additional_prompt": "",
                 "additional_tool_ids": [],
-                "auto_advance_after_first_response": false,
                 "conversation_config": {},
                 "edge_order": [],
                 "entry_behavior": "auto",
@@ -66153,7 +66147,6 @@
                 "additional_knowledge_base": [],
                 "additional_prompt": "",
                 "additional_tool_ids": [],
-                "auto_advance_after_first_response": false,
                 "conversation_config": {},
                 "edge_order": [
                   "entry_to_tool_a"
@@ -66170,7 +66163,6 @@
                 "additional_knowledge_base": [],
                 "additional_prompt": "",
                 "additional_tool_ids": [],
-                "auto_advance_after_first_response": false,
                 "conversation_config": {},
                 "edge_order": [],
                 "entry_behavior": "auto",
@@ -66195,7 +66187,6 @@
                 "additional_knowledge_base": [],
                 "additional_prompt": "",
                 "additional_tool_ids": [],
-                "auto_advance_after_first_response": false,
                 "conversation_config": {},
                 "edge_order": [],
                 "entry_behavior": "auto",
