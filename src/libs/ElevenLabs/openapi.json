@@ -33264,6 +33264,107 @@
         "title": "AlertingSettings",
         "description": "Alerting configuration used at both per-agent and per-workspace level.\n\nAll fields are optional overrides; the cascade resolver fills in defaults\nwhen they are unset. Notifiers stack and dedupe (by URL) across the\nworkspace and agent layers rather than overriding each other.\n\nCascade order for per-monitor threshold and auto-resolve: agent → workspace →\nsystem default."
       },
+      "AlertingSettingsResponse": {
+        "properties": {
+          "monitor_configs": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AlertingMonitorConfig"
+            },
+            "type": "object",
+            "title": "Monitor Configs"
+          },
+          "auto_resolve_after_inactive_minutes": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Auto Resolve After Inactive Minutes"
+          },
+          "notifiers": {
+            "items": {
+              "$ref": "#/components/schemas/AlertingWebhookNotifierResponse"
+            },
+            "type": "array",
+            "title": "Notifiers"
+          }
+        },
+        "type": "object",
+        "title": "AlertingSettingsResponse"
+      },
+      "AlertingWebhookHeader": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 256,
+            "title": "Name"
+          },
+          "is_secret": {
+            "type": "boolean",
+            "title": "Is Secret",
+            "default": false
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value",
+            "description": "Header value. May be null only for a secret header on update."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "AlertingWebhookHeader"
+      },
+      "AlertingWebhookHeaderResponse": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "is_secret": {
+            "type": "boolean",
+            "title": "Is Secret"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value",
+            "description": "The header value. Always null for secret headers."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "is_secret"
+        ],
+        "title": "AlertingWebhookHeaderResponse"
+      },
+      "AlertingWebhookMethod": {
+        "type": "string",
+        "enum": [
+          "POST",
+          "PUT"
+        ],
+        "title": "AlertingWebhookMethod",
+        "default": "POST"
+      },
       "AlertingWebhookNotifier": {
         "properties": {
           "type": {
@@ -33277,6 +33378,20 @@
             "maxLength": 2048,
             "title": "Url",
             "description": "The URL to send alert lifecycle notifications to."
+          },
+          "method": {
+            "$ref": "#/components/schemas/AlertingWebhookMethod",
+            "description": "HTTP method used when calling the webhook URL.",
+            "default": "POST"
+          },
+          "headers": {
+            "items": {
+              "$ref": "#/components/schemas/AlertingWebhookHeader"
+            },
+            "type": "array",
+            "maxItems": 25,
+            "title": "Headers",
+            "description": "Custom request headers sent with every notification. Secret header values are encrypted at rest and never returned by the API."
           }
         },
         "type": "object",
@@ -33284,6 +33399,36 @@
           "url"
         ],
         "title": "AlertingWebhookNotifier"
+      },
+      "AlertingWebhookNotifierResponse": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "webhook",
+            "title": "Type",
+            "default": "webhook"
+          },
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "method": {
+            "$ref": "#/components/schemas/AlertingWebhookMethod",
+            "default": "POST"
+          },
+          "headers": {
+            "items": {
+              "$ref": "#/components/schemas/AlertingWebhookHeaderResponse"
+            },
+            "type": "array",
+            "title": "Headers"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "title": "AlertingWebhookNotifierResponse"
       },
       "AllowedOutputFormats": {
         "type": "string",
@@ -33769,8 +33914,14 @@
           "disable_interruptions": {
             "type": "boolean",
             "title": "Disable Interruptions",
-            "description": "If true, the user will not be able to interrupt the agent while this tool is running.",
-            "default": false
+            "description": "DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while this tool is running.",
+            "default": false,
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "$ref": "#/components/schemas/ToolInterruptionMode",
+            "description": "Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it.",
+            "default": "allow"
           },
           "force_pre_tool_speech": {
             "type": "boolean",
@@ -33889,8 +34040,14 @@
           "disable_interruptions": {
             "type": "boolean",
             "title": "Disable Interruptions",
-            "description": "If true, the user will not be able to interrupt the agent while this tool is running.",
-            "default": false
+            "description": "DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while this tool is running.",
+            "default": false,
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "$ref": "#/components/schemas/ToolInterruptionMode",
+            "description": "Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it.",
+            "default": "allow"
           },
           "force_pre_tool_speech": {
             "type": "boolean",
@@ -33976,6 +34133,7 @@
           "description",
           "response_timeout_secs",
           "disable_interruptions",
+          "interruption_mode",
           "force_pre_tool_speech",
           "pre_tool_speech",
           "assignments",
@@ -45354,8 +45512,14 @@
           "disable_interruptions": {
             "type": "boolean",
             "title": "Disable Interruptions",
-            "description": "If true, the user will not be able to interrupt the agent while this tool is running.",
-            "default": false
+            "description": "DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while this tool is running.",
+            "default": false,
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "$ref": "#/components/schemas/ToolInterruptionMode",
+            "description": "Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it.",
+            "default": "allow"
           },
           "force_pre_tool_speech": {
             "type": "boolean",
@@ -45470,8 +45634,14 @@
           "disable_interruptions": {
             "type": "boolean",
             "title": "Disable Interruptions",
-            "description": "If true, the user will not be able to interrupt the agent while this tool is running.",
-            "default": false
+            "description": "DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while this tool is running.",
+            "default": false,
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "$ref": "#/components/schemas/ToolInterruptionMode",
+            "description": "Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it.",
+            "default": "allow"
           },
           "force_pre_tool_speech": {
             "type": "boolean",
@@ -64074,8 +64244,14 @@
           "disable_interruptions": {
             "type": "boolean",
             "title": "Disable Interruptions",
-            "description": "If true, the user will not be able to interrupt the agent while any tool from this MCP server is running.",
-            "default": false
+            "description": "DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while any tool from this MCP server is running.",
+            "default": false,
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "$ref": "#/components/schemas/ToolInterruptionMode",
+            "description": "Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it. Applies to every tool from this MCP server unless overridden per tool.",
+            "default": "allow"
           },
           "tool_call_sound": {
             "anyOf": [
@@ -64234,8 +64410,14 @@
           "disable_interruptions": {
             "type": "boolean",
             "title": "Disable Interruptions",
-            "description": "If true, the user will not be able to interrupt the agent while any tool from this MCP server is running.",
-            "default": false
+            "description": "DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while any tool from this MCP server is running.",
+            "default": false,
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "$ref": "#/components/schemas/ToolInterruptionMode",
+            "description": "Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it. Applies to every tool from this MCP server unless overridden per tool.",
+            "default": "allow"
           },
           "tool_call_sound": {
             "anyOf": [
@@ -64335,7 +64517,19 @@
               }
             ],
             "title": "Disable Interruptions",
-            "description": "If set, overrides the server's disable_interruptions setting for this tool"
+            "description": "DEPRECATED: use `interruption_mode` instead. If set, overrides the server's disable_interruptions setting for this tool.",
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ToolInterruptionMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "If set, overrides the server's interruption_mode setting for this tool."
           },
           "tool_call_sound": {
             "anyOf": [
@@ -64675,8 +64869,14 @@
           "disable_interruptions": {
             "type": "boolean",
             "title": "Disable Interruptions",
-            "description": "If true, the user will not be able to interrupt the agent while this tool is running.",
-            "default": false
+            "description": "DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while this tool is running.",
+            "default": false,
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "$ref": "#/components/schemas/ToolInterruptionMode",
+            "description": "Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it.",
+            "default": "allow"
           },
           "force_pre_tool_speech": {
             "type": "boolean",
@@ -64861,8 +65061,14 @@
           "disable_interruptions": {
             "type": "boolean",
             "title": "Disable Interruptions",
-            "description": "If true, the user will not be able to interrupt the agent while this tool is running.",
-            "default": false
+            "description": "DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while this tool is running.",
+            "default": false,
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "$ref": "#/components/schemas/ToolInterruptionMode",
+            "description": "Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it.",
+            "default": "allow"
           },
           "force_pre_tool_speech": {
             "type": "boolean",
@@ -65057,7 +65263,19 @@
               }
             ],
             "title": "Disable Interruptions",
-            "description": "If set, overrides the server's disable_interruptions setting for this tool"
+            "description": "DEPRECATED: use `interruption_mode` instead. If set, overrides the server's disable_interruptions setting for this tool.",
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ToolInterruptionMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "If set, overrides the server's interruption_mode setting for this tool."
           },
           "tool_call_sound": {
             "anyOf": [
@@ -65214,7 +65432,19 @@
               }
             ],
             "title": "Disable Interruptions",
-            "description": "If set, overrides the server's disable_interruptions setting for this tool"
+            "description": "DEPRECATED: use `interruption_mode` instead. If set, overrides the server's disable_interruptions setting for this tool.",
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ToolInterruptionMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "If set, overrides the server's interruption_mode setting for this tool."
           },
           "tool_call_sound": {
             "anyOf": [
@@ -65366,7 +65596,19 @@
               }
             ],
             "title": "Disable Interruptions",
-            "description": "If set, overrides the server's disable_interruptions setting for this tool"
+            "description": "DEPRECATED: use `interruption_mode` instead. If set, overrides the server's disable_interruptions setting for this tool.",
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ToolInterruptionMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "If set, overrides the server's interruption_mode setting for this tool."
           },
           "tool_call_sound": {
             "anyOf": [
@@ -65530,7 +65772,19 @@
               }
             ],
             "title": "Disable Interruptions",
-            "description": "If set, overrides the server's disable_interruptions setting for this tool"
+            "description": "DEPRECATED: use `interruption_mode` instead. If set, overrides the server's disable_interruptions setting for this tool.",
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ToolInterruptionMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "If set, overrides the server's interruption_mode setting for this tool."
           },
           "tool_call_sound": {
             "anyOf": [
@@ -75890,8 +76144,14 @@
           "disable_interruptions": {
             "type": "boolean",
             "title": "Disable Interruptions",
-            "description": "If true, the user will not be able to interrupt the agent while this tool is running.",
-            "default": false
+            "description": "DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while this tool is running.",
+            "default": false,
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "$ref": "#/components/schemas/ToolInterruptionMode",
+            "description": "Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it.",
+            "default": "allow"
           },
           "force_pre_tool_speech": {
             "type": "boolean",
@@ -80293,8 +80553,14 @@
           "disable_interruptions": {
             "type": "boolean",
             "title": "Disable Interruptions",
-            "description": "If true, the user will not be able to interrupt the agent while this tool is running.",
-            "default": false
+            "description": "DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while this tool is running.",
+            "default": false,
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "$ref": "#/components/schemas/ToolInterruptionMode",
+            "description": "Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it.",
+            "default": "allow"
           },
           "force_pre_tool_speech": {
             "type": "boolean",
@@ -80447,8 +80713,14 @@
           "disable_interruptions": {
             "type": "boolean",
             "title": "Disable Interruptions",
-            "description": "If true, the user will not be able to interrupt the agent while this tool is running.",
-            "default": false
+            "description": "DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while this tool is running.",
+            "default": false,
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "$ref": "#/components/schemas/ToolInterruptionMode",
+            "description": "Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it.",
+            "default": "allow"
           },
           "force_pre_tool_speech": {
             "type": "boolean",
@@ -82340,6 +82612,16 @@
           "id"
         ],
         "title": "ToolExecutionResponseModel"
+      },
+      "ToolInterruptionMode": {
+        "type": "string",
+        "enum": [
+          "allow",
+          "disable_during_tool",
+          "disable_during_tool_and_turn"
+        ],
+        "title": "ToolInterruptionMode",
+        "default": "allow"
       },
       "ToolMockConfig": {
         "properties": {
@@ -88578,8 +88860,14 @@
           "disable_interruptions": {
             "type": "boolean",
             "title": "Disable Interruptions",
-            "description": "If true, the user will not be able to interrupt the agent while this tool is running.",
-            "default": false
+            "description": "DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while this tool is running.",
+            "default": false,
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "$ref": "#/components/schemas/ToolInterruptionMode",
+            "description": "Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it.",
+            "default": "allow"
           },
           "force_pre_tool_speech": {
             "type": "boolean",
@@ -88682,8 +88970,14 @@
           "disable_interruptions": {
             "type": "boolean",
             "title": "Disable Interruptions",
-            "description": "If true, the user will not be able to interrupt the agent while this tool is running.",
-            "default": false
+            "description": "DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while this tool is running.",
+            "default": false,
+            "deprecated": true
+          },
+          "interruption_mode": {
+            "$ref": "#/components/schemas/ToolInterruptionMode",
+            "description": "Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it.",
+            "default": "allow"
           },
           "force_pre_tool_speech": {
             "type": "boolean",

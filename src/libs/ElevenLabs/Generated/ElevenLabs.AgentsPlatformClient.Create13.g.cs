@@ -527,8 +527,8 @@ namespace ElevenLabs
         /// <param name="preToolSpeech">
         /// If set, overrides the server's pre_tool_speech setting for this tool.
         /// </param>
-        /// <param name="disableInterruptions">
-        /// If set, overrides the server's disable_interruptions setting for this tool
+        /// <param name="interruptionMode">
+        /// If set, overrides the server's interruption_mode setting for this tool.
         /// </param>
         /// <param name="toolCallSound">
         /// If set, overrides the server's tool_call_sound setting for this tool
@@ -561,7 +561,7 @@ namespace ElevenLabs
             string mcpServerId,
             string toolName,
             global::ElevenLabs.PreToolSpeechMode? preToolSpeech = default,
-            bool? disableInterruptions = default,
+            global::ElevenLabs.ToolInterruptionMode? interruptionMode = default,
             global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
             global::ElevenLabs.ToolExecutionMode? executionMode = default,
@@ -575,7 +575,7 @@ namespace ElevenLabs
             var __request = new global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel
             {
                 PreToolSpeech = preToolSpeech,
-                DisableInterruptions = disableInterruptions,
+                InterruptionMode = interruptionMode,
                 ToolCallSound = toolCallSound,
                 ToolCallSoundBehavior = toolCallSoundBehavior,
                 ExecutionMode = executionMode,
