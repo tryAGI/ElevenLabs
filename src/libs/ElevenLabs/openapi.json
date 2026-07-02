@@ -83561,7 +83561,7 @@
         "properties": {
           "data": {
             "type": "string",
-            "maxLength": 256,
+            "maxLength": 8192,
             "title": "Data",
             "description": "UUI payload to send on SIP REFER transfers. Supports inline dynamic variables and is hex-encoded at transfer time."
           },
