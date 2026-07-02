@@ -184,6 +184,13 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationVoiceRewardModel>? VoiceRewards { get; set; }
 
         /// <summary>
+        /// Total fiat cost of the conversation in USD, i.e. the sum of the LLM price and the non-LLM platform price (the fiat analogue of ``cost``). ``None`` when neither is set (e.g. conversations that predate fiat cost tracking).<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cost_fiat")]
+        public double? CostFiat { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -231,6 +238,10 @@ namespace ElevenLabs
         /// Default Value: unknown
         /// </param>
         /// <param name="voiceRewards"></param>
+        /// <param name="costFiat">
+        /// Total fiat cost of the conversation in USD, i.e. the sum of the LLM price and the non-LLM platform price (the fiat analogue of ``cost``). ``None`` when neither is set (e.g. conversations that predate fiat cost tracking).<br/>
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -262,7 +273,8 @@ namespace ElevenLabs
             global::ElevenLabs.SMSConversationInfo? sms,
             global::ElevenLabs.AgentDefinitionSource? agentCreatedFrom,
             global::ElevenLabs.AgentDefinitionSource? agentLastUpdatedFrom,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationVoiceRewardModel>? voiceRewards)
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationVoiceRewardModel>? voiceRewards,
+            double? costFiat)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.AcceptedTimeUnixSecs = acceptedTimeUnixSecs;
@@ -292,6 +304,7 @@ namespace ElevenLabs
             this.AgentCreatedFrom = agentCreatedFrom;
             this.AgentLastUpdatedFrom = agentLastUpdatedFrom;
             this.VoiceRewards = voiceRewards;
+            this.CostFiat = costFiat;
         }
 
         /// <summary>
