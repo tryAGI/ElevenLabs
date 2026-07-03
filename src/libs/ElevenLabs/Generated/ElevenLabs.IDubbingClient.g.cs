@@ -4,7 +4,6 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Dub audio and video content into other languages while preserving the original speaker's voice.<br/>
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>

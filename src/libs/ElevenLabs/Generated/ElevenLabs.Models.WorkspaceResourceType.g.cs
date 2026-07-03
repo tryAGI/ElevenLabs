@@ -79,6 +79,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ConvaiKbExternalSyncJobs,
+        /// <summary>
+        /// 
+        /// </summary>
         ConvaiKnowledgeBaseDocuments,
         /// <summary>
         /// 
@@ -199,6 +203,7 @@ namespace ElevenLabs
                 WorkspaceResourceType.ConvaiCoachingProposals => "convai_coaching_proposals",
                 WorkspaceResourceType.ConvaiCrawlJobs => "convai_crawl_jobs",
                 WorkspaceResourceType.ConvaiCrawlTasks => "convai_crawl_tasks",
+                WorkspaceResourceType.ConvaiKbExternalSyncJobs => "convai_kb_external_sync_jobs",
                 WorkspaceResourceType.ConvaiKnowledgeBaseDocuments => "convai_knowledge_base_documents",
                 WorkspaceResourceType.ConvaiMcpServers => "convai_mcp_servers",
                 WorkspaceResourceType.ConvaiMemoryEntries => "convai_memory_entries",
@@ -249,6 +254,7 @@ namespace ElevenLabs
                 "convai_coaching_proposals" => WorkspaceResourceType.ConvaiCoachingProposals,
                 "convai_crawl_jobs" => WorkspaceResourceType.ConvaiCrawlJobs,
                 "convai_crawl_tasks" => WorkspaceResourceType.ConvaiCrawlTasks,
+                "convai_kb_external_sync_jobs" => WorkspaceResourceType.ConvaiKbExternalSyncJobs,
                 "convai_knowledge_base_documents" => WorkspaceResourceType.ConvaiKnowledgeBaseDocuments,
                 "convai_mcp_servers" => WorkspaceResourceType.ConvaiMcpServers,
                 "convai_memory_entries" => WorkspaceResourceType.ConvaiMemoryEntries,

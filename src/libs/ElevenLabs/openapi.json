@@ -5898,6 +5898,1571 @@
         "x-fern-sdk-method-name": "get_muted_tracks"
       }
     },
+    "/v1/dubbing/project": {
+      "post": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "Create Dubbing Project",
+        "description": "Create a dubbing project from an uploaded file or a source URL.",
+        "operationId": "dubbing_project_create",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Create_Dubbing_Project_v1_dubbing_project_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project"
+        ],
+        "x-fern-sdk-method-name": "create",
+        "x-fern-examples": [
+          {
+            "request": {
+              "source_url": "https://example.com/promo.mp4",
+              "source_language": "en",
+              "reference": "Q3 marketing video"
+            },
+            "response": {
+              "body": {
+                "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3",
+                "status": "queued",
+                "reference": "Q3 marketing video",
+                "source_language": "en",
+                "model_id": "dubbing_v2",
+                "language_ids": [],
+                "revision": 0,
+                "created_at": "2026-07-03T10:15:30Z",
+                "updated_at": "2026-07-03T10:15:30Z"
+              }
+            }
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "List Dubbing Projects",
+        "description": "List the workspace's dubbing projects (cursor-paginated).",
+        "operationId": "dubbing_project_list",
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Pagination cursor from a previous response's next_cursor.",
+              "title": "Cursor"
+            },
+            "description": "Pagination cursor from a previous response's next_cursor."
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Number of projects per page (max 100).",
+              "default": 20,
+              "title": "Page Size"
+            },
+            "description": "Number of projects per page (max 100)."
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter to projects in this status (preparing, ready, failed).",
+              "title": "Status"
+            },
+            "description": "Filter to projects in this status (preparing, ready, failed)."
+          },
+          {
+            "name": "sort_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "ASCENDING",
+                "DESCENDING"
+              ],
+              "type": "string",
+              "description": "Sort by creation time (default 'DESCENDING').",
+              "default": "DESCENDING",
+              "title": "Sort Direction"
+            },
+            "description": "Sort by creation time (default 'DESCENDING')."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project"
+        ],
+        "x-fern-sdk-method-name": "list",
+        "x-fern-examples": [
+          {
+            "query-parameters": {
+              "page_size": 20
+            },
+            "response": {
+              "body": {
+                "projects": [
+                  {
+                    "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3",
+                    "status": "ready",
+                    "reference": "Q3 marketing video",
+                    "source_language": "en",
+                    "model_id": "dubbing_v2",
+                    "media": {
+                      "filename": "promo.mp4",
+                      "duration_s": 42.5,
+                      "has_video": true,
+                      "mime_type": "video/mp4"
+                    },
+                    "language_ids": [
+                      "lang_1001kwkyxp0je6ktn4knsfrasx5s"
+                    ],
+                    "revision": 3,
+                    "created_at": "2026-07-03T10:15:30Z",
+                    "updated_at": "2026-07-03T10:17:12Z"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/v1/dubbing/project/{project_id}": {
+      "get": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "Get Dubbing Project",
+        "description": "Full project detail, including its language target ids.",
+        "operationId": "dubbing_project_get",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the dubbing project to fetch.",
+              "title": "Project Id"
+            },
+            "description": "Identifier of the dubbing project to fetch."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project"
+        ],
+        "x-fern-sdk-method-name": "get",
+        "x-fern-examples": [
+          {
+            "path-parameters": {
+              "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3"
+            },
+            "response": {
+              "body": {
+                "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3",
+                "status": "ready",
+                "reference": "Q3 marketing video",
+                "source_language": "en",
+                "model_id": "dubbing_v2",
+                "media": {
+                  "filename": "promo.mp4",
+                  "duration_s": 42.5,
+                  "has_video": true,
+                  "mime_type": "video/mp4"
+                },
+                "language_ids": [
+                  "lang_1001kwkyxp0je6ktn4knsfrasx5s"
+                ],
+                "revision": 3,
+                "created_at": "2026-07-03T10:15:30Z",
+                "updated_at": "2026-07-03T10:17:12Z"
+              }
+            }
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "Delete Dubbing Project",
+        "description": "Delete a project and its language targets.",
+        "operationId": "dubbing_project_delete",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the dubbing project to delete.",
+              "title": "Project Id"
+            },
+            "description": "Identifier of the dubbing project to delete."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project"
+        ],
+        "x-fern-sdk-method-name": "delete",
+        "x-fern-examples": [
+          {
+            "path-parameters": {
+              "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3"
+            }
+          }
+        ]
+      }
+    },
+    "/v1/dubbing/project/{project_id}/language": {
+      "post": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "Create Dubbing Language Target",
+        "description": "Queue a language target for a project (starts once the project is ready).",
+        "operationId": "dubbing_language_create",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the parent dubbing project.",
+              "title": "Project Id"
+            },
+            "description": "Identifier of the parent dubbing project."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Create_Dubbing_Language_Target_v1_dubbing_project__project_id__language_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LanguageResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project",
+          "language"
+        ],
+        "x-fern-sdk-method-name": "create",
+        "x-fern-examples": [
+          {
+            "path-parameters": {
+              "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3"
+            },
+            "request": {
+              "target_language": "es",
+              "model_id": "dubbing_v2"
+            },
+            "response": {
+              "body": {
+                "language_id": "lang_1001kwkyxp0je6ktn4knsfrasx5s",
+                "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3",
+                "target_language": "es",
+                "status": "queued",
+                "model_id": "dubbing_v2",
+                "revision": 0,
+                "created_at": "2026-07-03T10:16:00Z",
+                "updated_at": "2026-07-03T10:16:00Z"
+              }
+            }
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "List Dubbing Language Targets",
+        "description": "List a project's language targets (cursor-paginated).",
+        "operationId": "dubbing_language_list",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the parent dubbing project.",
+              "title": "Project Id"
+            },
+            "description": "Identifier of the parent dubbing project."
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Pagination cursor from a previous response's next_cursor.",
+              "title": "Cursor"
+            },
+            "description": "Pagination cursor from a previous response's next_cursor."
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Number of language targets per page (max 100).",
+              "default": 20,
+              "title": "Page Size"
+            },
+            "description": "Number of language targets per page (max 100)."
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter to targets in this status (queued, processing, completed, stale, failed).",
+              "title": "Status"
+            },
+            "description": "Filter to targets in this status (queued, processing, completed, stale, failed)."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LanguageListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project",
+          "language"
+        ],
+        "x-fern-sdk-method-name": "list",
+        "x-fern-examples": [
+          {
+            "path-parameters": {
+              "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3"
+            },
+            "query-parameters": {
+              "page_size": 20
+            },
+            "response": {
+              "body": {
+                "languages": [
+                  {
+                    "language_id": "lang_1001kwkyxp0je6ktn4knsfrasx5s",
+                    "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3",
+                    "target_language": "es",
+                    "status": "completed",
+                    "model_id": "dubbing_v2",
+                    "outputs": {
+                      "lossless_audio": "https://storage.googleapis.com/eleven-dubbing/proj_1601kwkyxp0hfzvtmyxwqxx6mcy3/lang_1001kwkyxp0je6ktn4knsfrasx5s/output.wav?X-Goog-Signature=..."
+                    },
+                    "revision": 3,
+                    "output_revision": 3,
+                    "created_at": "2026-07-03T10:16:00Z",
+                    "updated_at": "2026-07-03T10:20:45Z"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/v1/dubbing/project/{project_id}/language/{language_id}": {
+      "get": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "Get Dubbing Language Target",
+        "description": "Full language-target detail.",
+        "operationId": "dubbing_language_get",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the parent dubbing project.",
+              "title": "Project Id"
+            },
+            "description": "Identifier of the parent dubbing project."
+          },
+          {
+            "name": "language_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the language target to fetch.",
+              "title": "Language Id"
+            },
+            "description": "Identifier of the language target to fetch."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LanguageResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project",
+          "language"
+        ],
+        "x-fern-sdk-method-name": "get",
+        "x-fern-examples": [
+          {
+            "path-parameters": {
+              "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3",
+              "language_id": "lang_1001kwkyxp0je6ktn4knsfrasx5s"
+            },
+            "response": {
+              "body": {
+                "language_id": "lang_1001kwkyxp0je6ktn4knsfrasx5s",
+                "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3",
+                "target_language": "es",
+                "status": "completed",
+                "model_id": "dubbing_v2",
+                "outputs": {
+                  "lossless_audio": "https://storage.googleapis.com/eleven-dubbing/proj_1601kwkyxp0hfzvtmyxwqxx6mcy3/lang_1001kwkyxp0je6ktn4knsfrasx5s/output.wav?X-Goog-Signature=..."
+                },
+                "revision": 3,
+                "output_revision": 3,
+                "created_at": "2026-07-03T10:16:00Z",
+                "updated_at": "2026-07-03T10:20:45Z"
+              }
+            }
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "Delete Dubbing Language Target",
+        "description": "Delete a language target.",
+        "operationId": "dubbing_language_delete",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the parent dubbing project.",
+              "title": "Project Id"
+            },
+            "description": "Identifier of the parent dubbing project."
+          },
+          {
+            "name": "language_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the language target to delete.",
+              "title": "Language Id"
+            },
+            "description": "Identifier of the language target to delete."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project",
+          "language"
+        ],
+        "x-fern-sdk-method-name": "delete",
+        "x-fern-examples": [
+          {
+            "path-parameters": {
+              "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3",
+              "language_id": "lang_1001kwkyxp0je6ktn4knsfrasx5s"
+            }
+          }
+        ]
+      }
+    },
+    "/v1/dubbing/project/{project_id}/transcript": {
+      "get": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "Get Dubbing Transcript",
+        "description": "The project's source transcript, as editable segments.",
+        "operationId": "dubbing_transcript_get",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the dubbing project.",
+              "title": "Project Id"
+            },
+            "description": "Identifier of the dubbing project."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceTranscriptResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project",
+          "transcript"
+        ],
+        "x-fern-sdk-method-name": "get",
+        "x-fern-examples": [
+          {
+            "path-parameters": {
+              "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3"
+            },
+            "response": {
+              "body": {
+                "language": "en",
+                "segments": [
+                  {
+                    "id": "0199a3f0-1c2d-7abc-8def-0123456789ab",
+                    "text": "Welcome to our product demo.",
+                    "speaker_id": "default_speaker",
+                    "start_s": 0.0,
+                    "end_s": 2.5
+                  }
+                ],
+                "revision": 3
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/v1/dubbing/project/{project_id}/transcript/segment/{segment_id}": {
+      "patch": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "Update Dubbing Transcript Segment",
+        "description": "Edit a source segment's text, speaker, or timing.",
+        "operationId": "dubbing_transcript_segment_update",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the dubbing project.",
+              "title": "Project Id"
+            },
+            "description": "Identifier of the dubbing project."
+          },
+          {
+            "name": "segment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the segment to edit.",
+              "title": "Segment Id"
+            },
+            "description": "Identifier of the segment to edit."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SegmentUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceSegmentUpdateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project",
+          "transcript"
+        ],
+        "x-fern-sdk-method-name": "update_segment",
+        "x-fern-examples": [
+          {
+            "path-parameters": {
+              "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3",
+              "segment_id": "0199a3f0-1c2d-7abc-8def-0123456789ab"
+            },
+            "request": {
+              "text": "Welcome to our latest product demo."
+            },
+            "response": {
+              "body": {
+                "segment": {
+                  "id": "0199a3f0-1c2d-7abc-8def-0123456789ab",
+                  "text": "Welcome to our latest product demo.",
+                  "speaker_id": "default_speaker",
+                  "start_s": 0.0,
+                  "end_s": 2.5
+                },
+                "revision": 4
+              }
+            }
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "Delete Dubbing Transcript Segment",
+        "description": "Remove a source segment from the transcript.",
+        "operationId": "dubbing_transcript_segment_delete",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the dubbing project.",
+              "title": "Project Id"
+            },
+            "description": "Identifier of the dubbing project."
+          },
+          {
+            "name": "segment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the segment to remove.",
+              "title": "Segment Id"
+            },
+            "description": "Identifier of the segment to remove."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TranscriptRevisionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project",
+          "transcript"
+        ],
+        "x-fern-sdk-method-name": "delete_segment",
+        "x-fern-examples": [
+          {
+            "path-parameters": {
+              "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3",
+              "segment_id": "0199a3f0-1c2d-7abc-8def-0123456789ab"
+            },
+            "response": {
+              "body": {
+                "revision": 6
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/v1/dubbing/project/{project_id}/transcript/segment": {
+      "post": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "Add Dubbing Transcript Segment",
+        "description": "Add a new source segment to the transcript.",
+        "operationId": "dubbing_transcript_segment_add",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the dubbing project.",
+              "title": "Project Id"
+            },
+            "description": "Identifier of the dubbing project."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SegmentCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceSegmentUpdateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project",
+          "transcript"
+        ],
+        "x-fern-sdk-method-name": "create_segment",
+        "x-fern-examples": [
+          {
+            "path-parameters": {
+              "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3"
+            },
+            "request": {
+              "text": "Thanks for watching.",
+              "speaker_id": "default_speaker",
+              "start_s": 42.0,
+              "end_s": 44.0
+            },
+            "response": {
+              "body": {
+                "segment": {
+                  "id": "0199a3f0-1c2d-7abc-8def-0123456789ab",
+                  "text": "Thanks for watching.",
+                  "speaker_id": "default_speaker",
+                  "start_s": 42.0,
+                  "end_s": 44.0
+                },
+                "revision": 5
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/v1/dubbing/project/{project_id}/language/{language_id}/transcript": {
+      "get": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "Get Dubbing Target Transcript",
+        "description": "A language target's transcript: source segments with their translations.",
+        "operationId": "dubbing_target_transcript_get",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the dubbing project.",
+              "title": "Project Id"
+            },
+            "description": "Identifier of the dubbing project."
+          },
+          {
+            "name": "language_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the language target.",
+              "title": "Language Id"
+            },
+            "description": "Identifier of the language target."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetTranscriptResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project",
+          "language",
+          "transcript"
+        ],
+        "x-fern-sdk-method-name": "get",
+        "x-fern-examples": [
+          {
+            "path-parameters": {
+              "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3",
+              "language_id": "lang_1001kwkyxp0je6ktn4knsfrasx5s"
+            },
+            "response": {
+              "body": {
+                "source_language": "en",
+                "target_language": "es",
+                "segments": [
+                  {
+                    "id": "0199a3f0-1c2d-7abc-8def-0123456789ab",
+                    "speaker_id": "default_speaker",
+                    "start_s": 0.0,
+                    "end_s": 2.5,
+                    "source_text": "Welcome to our product demo.",
+                    "translation": "Bienvenido a la demostración de nuestro producto."
+                  }
+                ],
+                "revision": 3
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/v1/dubbing/project/{project_id}/language/{language_id}/transcript/segment/{segment_id}": {
+      "patch": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "Update Dubbing Target Transcript Segment",
+        "description": "Edit a segment's translation for a language target.",
+        "operationId": "dubbing_target_transcript_segment_update",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the dubbing project.",
+              "title": "Project Id"
+            },
+            "description": "Identifier of the dubbing project."
+          },
+          {
+            "name": "language_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the language target.",
+              "title": "Language Id"
+            },
+            "description": "Identifier of the language target."
+          },
+          {
+            "name": "segment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the segment to edit.",
+              "title": "Segment Id"
+            },
+            "description": "Identifier of the segment to edit."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetSegmentUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetSegmentUpdateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project",
+          "language",
+          "transcript"
+        ],
+        "x-fern-sdk-method-name": "update_segment",
+        "x-fern-examples": [
+          {
+            "path-parameters": {
+              "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3",
+              "language_id": "lang_1001kwkyxp0je6ktn4knsfrasx5s",
+              "segment_id": "0199a3f0-1c2d-7abc-8def-0123456789ab"
+            },
+            "request": {
+              "translation": "Bienvenido a nuestra última demostración de producto."
+            },
+            "response": {
+              "body": {
+                "segment": {
+                  "id": "0199a3f0-1c2d-7abc-8def-0123456789ab",
+                  "speaker_id": "default_speaker",
+                  "start_s": 0.0,
+                  "end_s": 2.5,
+                  "source_text": "Welcome to our product demo.",
+                  "translation": "Bienvenido a nuestra última demostración de producto."
+                },
+                "revision": 4
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/v1/dubbing/project/{project_id}/language/{language_id}/transcript/regenerate": {
+      "post": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "Regenerate Dubbing Target",
+        "description": "Re-dub a target from its edited transcript (charged like a generation).",
+        "operationId": "dubbing_target_transcript_regenerate",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the dubbing project.",
+              "title": "Project Id"
+            },
+            "description": "Identifier of the dubbing project."
+          },
+          {
+            "name": "language_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the language target.",
+              "title": "Language Id"
+            },
+            "description": "Identifier of the language target."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LanguageResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project",
+          "language",
+          "transcript"
+        ],
+        "x-fern-sdk-method-name": "regenerate",
+        "x-fern-examples": [
+          {
+            "path-parameters": {
+              "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3",
+              "language_id": "lang_1001kwkyxp0je6ktn4knsfrasx5s"
+            },
+            "response": {
+              "body": {
+                "language_id": "lang_1001kwkyxp0je6ktn4knsfrasx5s",
+                "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3",
+                "target_language": "es",
+                "status": "queued",
+                "model_id": "dubbing_v2",
+                "revision": 4,
+                "output_revision": 3,
+                "created_at": "2026-07-03T10:16:00Z",
+                "updated_at": "2026-07-03T10:25:10Z"
+              }
+            }
+          }
+        ]
+      }
+    },
     "/v1/dubbing/resource/{dubbing_id}": {
       "get": {
         "tags": [
@@ -37306,6 +38871,128 @@
         ],
         "title": "Body_Create_Agent_v1_convai_agents_create_post"
       },
+      "Body_Create_Dubbing_Language_Target_v1_dubbing_project__project_id__language_post": {
+        "properties": {
+          "target_language": {
+            "type": "string",
+            "title": "Target Language",
+            "description": "BCP-47 language tag to dub the project into (e.g. 'fr', 'es-419')."
+          },
+          "model_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "const": "dubbing_v2"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Id",
+            "description": "Dubbing model id for this target; omit to use the project default."
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_language"
+        ],
+        "title": "Body_Create_Dubbing_Language_Target_v1_dubbing_project__project_id__language_post"
+      },
+      "Body_Create_Dubbing_Project_v1_dubbing_project_post": {
+        "properties": {
+          "file": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File",
+            "description": "The source media file to dub. Provide this or source_url."
+          },
+          "source_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Url",
+            "description": "Public URL to fetch the source media from. Provide this or file."
+          },
+          "reference": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference",
+            "description": "Optional free-form string (max 500 characters) to identify the project on your end."
+          },
+          "source_language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Language",
+            "description": "BCP-47 language tag of the source media. Omit to auto-detect."
+          },
+          "model_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "const": "dubbing_v2"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Id",
+            "description": "Default dubbing model id for the project's language targets; a target may override it. Omit to use the system default."
+          },
+          "keyterms": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Keyterms",
+            "description": "Key terms to bias transcription/translation toward (e.g. product or brand names)."
+          },
+          "target_language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target Language",
+            "description": "Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready."
+          }
+        },
+        "type": "object",
+        "title": "Body_Create_Dubbing_Project_v1_dubbing_project_post"
+      },
       "Body_Create_PVC_voice_v1_voices_pvc_post": {
         "properties": {
           "name": {
@@ -51204,6 +52891,19 @@
           "status": "ok"
         }
       },
+      "CrawlStatus": {
+        "type": "string",
+        "enum": [
+          "queued",
+          "processing",
+          "succeeded",
+          "failed",
+          "skipped",
+          "cancelled"
+        ],
+        "title": "CrawlStatus",
+        "default": "queued"
+      },
       "CreateAgentBranchResponseModel": {
         "properties": {
           "created_branch_id": {
@@ -56471,7 +58171,7 @@
       "ExternalFileSyncInfo": {
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/ExternalSyncType",
+            "$ref": "#/components/schemas/ExternalSyncProvider",
             "description": "Provider identifier"
           },
           "source_entity_id": {
@@ -56528,7 +58228,7 @@
       "ExternalFolderSyncInfo": {
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/ExternalSyncType",
+            "$ref": "#/components/schemas/ExternalSyncProvider",
             "description": "Provider identifier"
           },
           "source_entity_id": {
@@ -56587,12 +58287,29 @@
         "title": "ExternalFolderSyncInfo",
         "description": "Metadata for a KB folder that mirrors an external source folder."
       },
-      "ExternalSyncType": {
+      "ExternalSyncJobTrigger": {
+        "type": "string",
+        "enum": [
+          "on_demand",
+          "on_connect",
+          "auto"
+        ],
+        "title": "ExternalSyncJobTrigger"
+      },
+      "ExternalSyncJobType": {
+        "type": "string",
+        "enum": [
+          "full",
+          "incremental"
+        ],
+        "title": "ExternalSyncJobType"
+      },
+      "ExternalSyncProvider": {
         "type": "string",
         "enum": [
           "google_drive"
         ],
-        "title": "ExternalSyncType"
+        "title": "ExternalSyncProvider"
       },
       "FeatureStatusCommonModel": {
         "properties": {
@@ -58642,6 +60359,17 @@
             "type": "boolean",
             "title": "Is Frozen",
             "default": false
+          },
+          "active_sync_job": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KbExternalSyncJob"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Most recent (in-flight or terminal) external sync job for this folder, if any. Used by clients to render sync progress."
           }
         },
         "type": "object",
@@ -61856,6 +63584,104 @@
         "type": "string",
         "pattern": "^proditem_[a-z0-9]{26}$"
       },
+      "KbExternalSyncJob": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ExternalSyncProvider"
+          },
+          "folder_id": {
+            "type": "string",
+            "title": "Folder Id"
+          },
+          "integration_connection_id": {
+            "type": "string",
+            "title": "Integration Connection Id"
+          },
+          "triggered_by": {
+            "$ref": "#/components/schemas/ExternalSyncJobTrigger"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CrawlStatus",
+            "default": "queued"
+          },
+          "sync_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExternalSyncJobType"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "items_identified": {
+            "type": "integer",
+            "title": "Items Identified",
+            "default": 0
+          },
+          "items_processed": {
+            "type": "integer",
+            "title": "Items Processed",
+            "default": 0
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message"
+          },
+          "started_at": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Started At"
+          },
+          "completed_at": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          },
+          "updated_at": {
+            "type": "integer",
+            "title": "Updated At"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "created_at": {
+            "type": "integer",
+            "title": "Created At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "folder_id",
+          "integration_connection_id",
+          "triggered_by",
+          "updated_at",
+          "id",
+          "created_at"
+        ],
+        "title": "KbExternalSyncJob"
+      },
       "KnowledgeBaseContentSearchResponseModel": {
         "properties": {
           "results": {
@@ -63091,6 +64917,54 @@
           "label": "Spanish (Spain)"
         }
       },
+      "LanguageListResponse": {
+        "properties": {
+          "languages": {
+            "items": {
+              "$ref": "#/components/schemas/LanguageResponse"
+            },
+            "type": "array",
+            "title": "Languages",
+            "description": "The page of language targets for the project."
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor",
+            "description": "Cursor for the next page, or null when there are no more results."
+          }
+        },
+        "type": "object",
+        "required": [
+          "languages"
+        ],
+        "title": "LanguageListResponse"
+      },
+      "LanguageOutputs": {
+        "properties": {
+          "lossless_audio": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lossless Audio",
+            "description": "Signed URL of the dubbed lossless audio track."
+          }
+        },
+        "type": "object",
+        "title": "LanguageOutputs",
+        "description": "Signed, time-limited download URLs for a language target's outputs."
+      },
       "LanguagePairInfo": {
         "properties": {
           "source_language": {
@@ -63216,6 +65090,100 @@
           "text"
         ],
         "title": "LanguagePresetTranslation"
+      },
+      "LanguageResponse": {
+        "properties": {
+          "language_id": {
+            "type": "string",
+            "title": "Language Id",
+            "description": "Unique identifier of the language target."
+          },
+          "project_id": {
+            "type": "string",
+            "title": "Project Id",
+            "description": "Identifier of the parent dubbing project."
+          },
+          "target_language": {
+            "type": "string",
+            "title": "Target Language",
+            "description": "BCP-47 language tag this target is dubbed into."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "processing",
+              "completed",
+              "stale",
+              "failed"
+            ],
+            "title": "Status",
+            "description": "Lifecycle status: 'queued' (waiting on the project), 'processing', 'completed', 'stale' (source/transcript changed), or 'failed'."
+          },
+          "model_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Id",
+            "description": "Effective dubbing model id (target override or project default)."
+          },
+          "outputs": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LanguageOutputs"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Signed output URLs; null until the target has produced an output (present once 'completed', and kept while 'stale' -- compare `output_revision` against `revision` to tell whether the output is up to date)."
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "Monotonic counter incremented whenever this target's transcript changes (a source edit affecting it, or an edit to its translation)."
+          },
+          "output_revision": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Output Revision",
+            "description": "The `revision` the current dubbed output was generated from; equal to `revision` when up to date, less than it when 'stale'. Null until a generation has completed."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "When the language target was created."
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At",
+            "description": "When the language target was last updated."
+          }
+        },
+        "type": "object",
+        "required": [
+          "language_id",
+          "project_id",
+          "target_language",
+          "status",
+          "revision",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "LanguageResponse"
       },
       "LanguageResponseModel": {
         "properties": {
@@ -66271,6 +68239,61 @@
       "MediaId": {
         "type": "string",
         "pattern": "^prodmedia_[a-z0-9]{26}$"
+      },
+      "MediaInfo": {
+        "properties": {
+          "filename": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filename",
+            "description": "Original filename of the uploaded source media (null for URL sources)."
+          },
+          "duration_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duration S",
+            "description": "Duration of the source media in seconds."
+          },
+          "has_video": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Has Video",
+            "description": "Whether the source media contains a video stream."
+          },
+          "mime_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mime Type",
+            "description": "MIME type of the uploaded source media."
+          }
+        },
+        "type": "object",
+        "title": "MediaInfo",
+        "description": "Metadata about the project's source media."
       },
       "MemoryEntrySearchResult": {
         "properties": {
@@ -71672,6 +73695,35 @@
         ],
         "title": "ProjectImageResponseModel"
       },
+      "ProjectListResponse": {
+        "properties": {
+          "projects": {
+            "items": {
+              "$ref": "#/components/schemas/ProjectResponse"
+            },
+            "type": "array",
+            "title": "Projects",
+            "description": "The page of dubbing projects the caller can access."
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor",
+            "description": "Cursor for the next page, or null when there are no more results."
+          }
+        },
+        "type": "object",
+        "required": [
+          "projects"
+        ],
+        "title": "ProjectListResponse"
+      },
       "ProjectMutedTracksResponseModel": {
         "properties": {
           "chapter_ids": {
@@ -71693,6 +73745,109 @@
             "aw1NgEzBg83R7vgmiJt6"
           ]
         }
+      },
+      "ProjectResponse": {
+        "properties": {
+          "project_id": {
+            "type": "string",
+            "title": "Project Id",
+            "description": "Unique identifier of the dubbing project."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "preparing",
+              "processing",
+              "ready",
+              "failed"
+            ],
+            "title": "Status",
+            "description": "Lifecycle status of the project: 'preparing'/'processing' while it transcribes, 'ready' once transcription is done, or 'failed'."
+          },
+          "reference": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference",
+            "description": "Optional free-form string the customer can provide to identify the project on their end."
+          },
+          "source_language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Language",
+            "description": "BCP-47 language tag of the source media (null if auto-detected)."
+          },
+          "model_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Id",
+            "description": "Default dubbing model id applied to this project's language targets."
+          },
+          "media": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MediaInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Source media metadata; null until the project is ready."
+          },
+          "language_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Language Ids",
+            "description": "Identifiers of the language targets created under this project.",
+            "default": []
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "Monotonic counter incremented whenever the source transcript is edited (segment add/edit/delete)."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "When the project was created."
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At",
+            "description": "When the project was last updated."
+          }
+        },
+        "type": "object",
+        "required": [
+          "project_id",
+          "status",
+          "revision",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "ProjectResponse"
       },
       "ProjectResponseModel": {
         "properties": {
@@ -77431,6 +79586,39 @@
         ],
         "title": "SegmentCreatePayload"
       },
+      "SegmentCreateRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "description": "The text of the new segment."
+          },
+          "speaker_id": {
+            "type": "string",
+            "title": "Speaker Id",
+            "description": "Identifier of the segment's speaker."
+          },
+          "start_s": {
+            "type": "number",
+            "title": "Start S",
+            "description": "Start time of the segment, in seconds."
+          },
+          "end_s": {
+            "type": "number",
+            "title": "End S",
+            "description": "End time of the segment, in seconds."
+          }
+        },
+        "type": "object",
+        "required": [
+          "text",
+          "speaker_id",
+          "start_s",
+          "end_s"
+        ],
+        "title": "SegmentCreateRequest",
+        "description": "A new source segment; its id and word-level alignment are assigned by the server."
+      },
       "SegmentCreateResponse": {
         "properties": {
           "version": {
@@ -77578,6 +79766,61 @@
         },
         "type": "object",
         "title": "SegmentUpdatePayload"
+      },
+      "SegmentUpdateRequest": {
+        "properties": {
+          "text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Text",
+            "description": "New text for the segment."
+          },
+          "speaker_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Speaker Id",
+            "description": "New speaker id for the segment."
+          },
+          "start_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start S",
+            "description": "New start time, in seconds."
+          },
+          "end_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End S",
+            "description": "New end time, in seconds."
+          }
+        },
+        "type": "object",
+        "title": "SegmentUpdateRequest",
+        "description": "A partial update to a source segment; omitted fields are left unchanged."
       },
       "SegmentUpdateResponse": {
         "properties": {
@@ -78702,6 +80945,61 @@
           "desc"
         ],
         "title": "SortDirection"
+      },
+      "SourceSegmentUpdateResponse": {
+        "properties": {
+          "segment": {
+            "$ref": "#/components/schemas/TranscriptSegment",
+            "description": "The segment in its updated state."
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "The project's source-transcript revision after this edit."
+          }
+        },
+        "type": "object",
+        "required": [
+          "segment",
+          "revision"
+        ],
+        "title": "SourceSegmentUpdateResponse",
+        "description": "The result of a source-segment add or edit: the segment and the new revision."
+      },
+      "SourceTranscriptResponse": {
+        "properties": {
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language",
+            "description": "BCP-47 language tag of the source transcript (null if unknown)."
+          },
+          "segments": {
+            "items": {
+              "$ref": "#/components/schemas/TranscriptSegment"
+            },
+            "type": "array",
+            "title": "Segments",
+            "description": "The source segments, in playback order."
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "The project's source-transcript revision at read time."
+          }
+        },
+        "type": "object",
+        "required": [
+          "segments",
+          "revision"
+        ],
+        "title": "SourceTranscriptResponse"
       },
       "SpeakerAudioResponseModel": {
         "properties": {
@@ -81974,6 +84272,140 @@
         "title": "TTSOutputFormat",
         "default": "pcm_16000"
       },
+      "TargetSegmentUpdateRequest": {
+        "properties": {
+          "translation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Translation",
+            "description": "New translated text, or null to mark the segment for re-translation."
+          }
+        },
+        "type": "object",
+        "required": [
+          "translation"
+        ],
+        "title": "TargetSegmentUpdateRequest",
+        "description": "An edit to a target segment's translation."
+      },
+      "TargetSegmentUpdateResponse": {
+        "properties": {
+          "segment": {
+            "$ref": "#/components/schemas/TargetTranscriptSegment",
+            "description": "The target segment in its updated state."
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "The target's revision after this edit."
+          }
+        },
+        "type": "object",
+        "required": [
+          "segment",
+          "revision"
+        ],
+        "title": "TargetSegmentUpdateResponse",
+        "description": "The result of a target-translation edit: the updated segment and the new revision."
+      },
+      "TargetTranscriptResponse": {
+        "properties": {
+          "source_language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Language",
+            "description": "BCP-47 language tag of the source transcript."
+          },
+          "target_language": {
+            "type": "string",
+            "title": "Target Language",
+            "description": "BCP-47 language tag this target is translated into."
+          },
+          "segments": {
+            "items": {
+              "$ref": "#/components/schemas/TargetTranscriptSegment"
+            },
+            "type": "array",
+            "title": "Segments",
+            "description": "The target segments, in playback order."
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "The target's revision at read time."
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_language",
+          "segments",
+          "revision"
+        ],
+        "title": "TargetTranscriptResponse"
+      },
+      "TargetTranscriptSegment": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Stable identifier of the segment (from the source)."
+          },
+          "speaker_id": {
+            "type": "string",
+            "title": "Speaker Id",
+            "description": "Identifier of the segment's speaker."
+          },
+          "start_s": {
+            "type": "number",
+            "title": "Start S",
+            "description": "Start time of the segment, in seconds."
+          },
+          "end_s": {
+            "type": "number",
+            "title": "End S",
+            "description": "End time of the segment, in seconds."
+          },
+          "source_text": {
+            "type": "string",
+            "title": "Source Text",
+            "description": "The source-language text of the segment."
+          },
+          "translation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Translation",
+            "description": "The translated text, or null if not translated yet (needs translation)."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "speaker_id",
+          "start_s",
+          "end_s",
+          "source_text"
+        ],
+        "title": "TargetTranscriptSegment",
+        "description": "One segment of a target transcript: a source segment plus its translation."
+      },
       "TelephonyCallConfig": {
         "properties": {
           "ringing_timeout_secs": {
@@ -83228,6 +85660,60 @@
         "type": "object",
         "title": "TopicDiscoverySettings",
         "description": "Per-agent topic-discovery configuration. Cadence and analysis window are\nmanaged internally; this only exposes the customer-facing on/off toggle."
+      },
+      "TranscriptRevisionResponse": {
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "The project's source-transcript revision after this edit."
+          }
+        },
+        "type": "object",
+        "required": [
+          "revision"
+        ],
+        "title": "TranscriptRevisionResponse",
+        "description": "The new revision after a source edit that returns no segment (e.g. a delete)."
+      },
+      "TranscriptSegment": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Stable identifier of the segment."
+          },
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "description": "The transcribed text of the segment."
+          },
+          "speaker_id": {
+            "type": "string",
+            "title": "Speaker Id",
+            "description": "Identifier of the segment's speaker."
+          },
+          "start_s": {
+            "type": "number",
+            "title": "Start S",
+            "description": "Start time of the segment, in seconds."
+          },
+          "end_s": {
+            "type": "number",
+            "title": "End S",
+            "description": "End time of the segment, in seconds."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "text",
+          "speaker_id",
+          "start_s",
+          "end_s"
+        ],
+        "title": "TranscriptSegment",
+        "description": "One segment of a source transcript."
       },
       "TransferBranchInfoDefaultingToMain": {
         "properties": {
@@ -94235,6 +96721,7 @@
           "convai_test_suite_invocations",
           "convai_crawl_jobs",
           "convai_crawl_tasks",
+          "convai_kb_external_sync_jobs",
           "convai_whatsapp_accounts",
           "convai_agent_versions",
           "convai_agent_branches",

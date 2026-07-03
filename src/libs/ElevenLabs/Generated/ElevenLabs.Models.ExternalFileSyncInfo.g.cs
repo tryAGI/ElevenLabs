@@ -12,8 +12,8 @@ namespace ElevenLabs
         /// Provider identifier
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ExternalSyncTypeJsonConverter))]
-        public global::ElevenLabs.ExternalSyncType Type { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ExternalSyncProviderJsonConverter))]
+        public global::ElevenLabs.ExternalSyncProvider Type { get; set; }
 
         /// <summary>
         /// Entity ID in the external system
@@ -95,7 +95,7 @@ namespace ElevenLabs
             string sourceParentEntityId,
             string sourceMimeType,
             global::System.DateTime sourceModifiedTime,
-            global::ElevenLabs.ExternalSyncType type,
+            global::ElevenLabs.ExternalSyncProvider type,
             string? rootFolderId)
         {
             this.Type = type;

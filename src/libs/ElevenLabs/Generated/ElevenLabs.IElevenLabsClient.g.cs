@@ -86,9 +86,14 @@ namespace ElevenLabs
         public ConversationalAi2Client ConversationalAi2 { get; }
 
         /// <summary>
-        /// Dub audio and video content into other languages while preserving the original speaker's voice.
+        /// 
         /// </summary>
         public DubbingClient Dubbing { get; }
+
+        /// <summary>
+        /// Dub audio and video content into other languages while preserving the original speaker's voice.
+        /// </summary>
+        public Dubbing2Client Dubbing2 { get; }
 
         /// <summary>
         /// 
