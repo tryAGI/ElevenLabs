@@ -60,11 +60,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        SalesforceIntegration,
+        /// <summary>
+        /// 
+        /// </summary>
         SipTrunk,
         /// <summary>
         /// 
         /// </summary>
         SlackIntegration,
+        /// <summary>
+        /// 
+        /// </summary>
+        SubagentTool,
         /// <summary>
         /// 
         /// </summary>
@@ -127,8 +135,10 @@ namespace ElevenLabs
                 ConversationInitiationSource.PythonSdk => "python_sdk",
                 ConversationInitiationSource.ReactNativeSdk => "react_native_sdk",
                 ConversationInitiationSource.ReactSdk => "react_sdk",
+                ConversationInitiationSource.SalesforceIntegration => "salesforce_integration",
                 ConversationInitiationSource.SipTrunk => "sip_trunk",
                 ConversationInitiationSource.SlackIntegration => "slack_integration",
+                ConversationInitiationSource.SubagentTool => "subagent_tool",
                 ConversationInitiationSource.SwiftSdk => "swift_sdk",
                 ConversationInitiationSource.TelegramIntegration => "telegram_integration",
                 ConversationInitiationSource.TemplatePreview => "template_preview",
@@ -160,8 +170,10 @@ namespace ElevenLabs
                 "python_sdk" => ConversationInitiationSource.PythonSdk,
                 "react_native_sdk" => ConversationInitiationSource.ReactNativeSdk,
                 "react_sdk" => ConversationInitiationSource.ReactSdk,
+                "salesforce_integration" => ConversationInitiationSource.SalesforceIntegration,
                 "sip_trunk" => ConversationInitiationSource.SipTrunk,
                 "slack_integration" => ConversationInitiationSource.SlackIntegration,
+                "subagent_tool" => ConversationInitiationSource.SubagentTool,
                 "swift_sdk" => ConversationInitiationSource.SwiftSdk,
                 "telegram_integration" => ConversationInitiationSource.TelegramIntegration,
                 "template_preview" => ConversationInitiationSource.TemplatePreview,

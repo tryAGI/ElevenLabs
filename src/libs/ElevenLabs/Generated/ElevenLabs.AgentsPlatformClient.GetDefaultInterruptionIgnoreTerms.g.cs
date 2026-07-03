@@ -3,11 +3,11 @@
 
 namespace ElevenLabs
 {
-    public partial class SpeechEngineClient
+    public partial class AgentsPlatformClient
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_CreateSecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_GetDefaultInterruptionIgnoreTermsSecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,43 +21,36 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_CreateSecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_GetDefaultInterruptionIgnoreTermsSecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_CreateSecurityRequirement0,
+            {                s_GetDefaultInterruptionIgnoreTermsSecurityRequirement0,
             };
-        partial void PrepareCreateArguments(
+        partial void PrepareGetDefaultInterruptionIgnoreTermsArguments(
+            global::System.Net.Http.HttpClient httpClient);
+        partial void PrepareGetDefaultInterruptionIgnoreTermsRequest(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.CreateSpeechEngineRequest request);
-        partial void PrepareCreateRequest(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.CreateSpeechEngineRequest request);
-        partial void ProcessCreateResponse(
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+        partial void ProcessGetDefaultInterruptionIgnoreTermsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateResponseContent(
+        partial void ProcessGetDefaultInterruptionIgnoreTermsResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create Speech Engine<br/>
-        /// Create a new Speech Engine resource
+        /// Get Default Interruption Ignore Terms<br/>
+        /// Get the curated per-language default interruption ignore terms used to seed an agent's turn configuration.
         /// </summary>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechEngineResponse> CreateAsync(
-
-            global::ElevenLabs.CreateSpeechEngineRequest request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DefaultInterruptionIgnoreTermsResponseModel> GetDefaultInterruptionIgnoreTermsAsync(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await CreateAsResponseAsync(
-
-                request: request,
+            var __response = await GetDefaultInterruptionIgnoreTermsAsResponseAsync(
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -65,32 +58,26 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Create Speech Engine<br/>
-        /// Create a new Speech Engine resource
+        /// Get Default Interruption Ignore Terms<br/>
+        /// Get the curated per-language default interruption ignore terms used to seed an agent's turn configuration.
         /// </summary>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SpeechEngineResponse>> CreateAsResponseAsync(
-
-            global::ElevenLabs.CreateSpeechEngineRequest request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DefaultInterruptionIgnoreTermsResponseModel>> GetDefaultInterruptionIgnoreTermsAsResponseAsync(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateArguments(
-                httpClient: HttpClient,
-                request: request);
+            PrepareGetDefaultInterruptionIgnoreTermsArguments(
+                httpClient: HttpClient);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_CreateSecurityRequirements,
-                operationName: "CreateAsync");
+                securityRequirements: s_GetDefaultInterruptionIgnoreTermsSecurityRequirements,
+                operationName: "GetDefaultInterruptionIgnoreTermsAsync");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -110,7 +97,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/speech-engine",
+                                path: "/v1/convai/agents/defaults/interruption-ignore-terms",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -118,7 +105,7 @@ namespace ElevenLabs
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: global::System.Net.Http.HttpMethod.Get,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -141,12 +128,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
-                            __httpRequest.Content = __httpRequestContent;
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -155,10 +136,9 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreateRequest(
+                PrepareGetDefaultInterruptionIgnoreTermsRequest(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest,
-                    request: request);
+                    httpRequestMessage: __httpRequest);
 
                 return __httpRequest;
             }
@@ -175,10 +155,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/v1/speech-engine\"",
-                                httpMethod: "POST",
+                                operationId: "GetDefaultInterruptionIgnoreTerms",
+                                methodName: "GetDefaultInterruptionIgnoreTermsAsync",
+                                pathTemplate: "\"/v1/convai/agents/defaults/interruption-ignore-terms\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -209,10 +189,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/v1/speech-engine\"",
-                                httpMethod: "POST",
+                                operationId: "GetDefaultInterruptionIgnoreTerms",
+                                methodName: "GetDefaultInterruptionIgnoreTermsAsync",
+                                pathTemplate: "\"/v1/convai/agents/defaults/interruption-ignore-terms\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -250,10 +230,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/v1/speech-engine\"",
-                                httpMethod: "POST",
+                                operationId: "GetDefaultInterruptionIgnoreTerms",
+                                methodName: "GetDefaultInterruptionIgnoreTermsAsync",
+                                pathTemplate: "\"/v1/convai/agents/defaults/interruption-ignore-terms\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -290,7 +270,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreateResponse(
+                ProcessGetDefaultInterruptionIgnoreTermsResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -298,10 +278,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/v1/speech-engine\"",
-                                httpMethod: "POST",
+                                operationId: "GetDefaultInterruptionIgnoreTerms",
+                                methodName: "GetDefaultInterruptionIgnoreTermsAsync",
+                                pathTemplate: "\"/v1/convai/agents/defaults/interruption-ignore-terms\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -320,10 +300,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/v1/speech-engine\"",
-                                httpMethod: "POST",
+                                operationId: "GetDefaultInterruptionIgnoreTerms",
+                                methodName: "GetDefaultInterruptionIgnoreTermsAsync",
+                                pathTemplate: "\"/v1/convai/agents/defaults/interruption-ignore-terms\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -387,7 +367,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessCreateResponseContent(
+                                ProcessGetDefaultInterruptionIgnoreTermsResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -396,9 +376,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.SpeechEngineResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.DefaultInterruptionIgnoreTermsResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SpeechEngineResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DefaultInterruptionIgnoreTermsResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -428,9 +408,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.SpeechEngineResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.DefaultInterruptionIgnoreTermsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SpeechEngineResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DefaultInterruptionIgnoreTermsResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -469,89 +449,6 @@ namespace ElevenLabs
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// Create Speech Engine<br/>
-        /// Create a new Speech Engine resource
-        /// </summary>
-        /// <param name="name">
-        /// Name of the speech engine<br/>
-        /// Default Value: Speech Engine
-        /// </param>
-        /// <param name="speechEngine">
-        /// Speech engine WebSocket configuration
-        /// </param>
-        /// <param name="asr">
-        /// ASR configuration<br/>
-        /// Example: {"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"}
-        /// </param>
-        /// <param name="tts">
-        /// TTS configuration<br/>
-        /// Example: {"agent_output_audio_format":"pcm_16000","model_id":"eleven_turbo_v2","optimize_streaming_latency":3,"pronunciation_dictionary_locators":[],"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"}
-        /// </param>
-        /// <param name="turn">
-        /// Turn detection configuration<br/>
-        /// Example: {"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}
-        /// </param>
-        /// <param name="conversation">
-        /// Conversation configuration (client events, etc.)<br/>
-        /// Example: {"client_events":["audio","interruption"],"max_duration_seconds":600}
-        /// </param>
-        /// <param name="privacy">
-        /// Privacy settings (recording, retention, zero retention mode)<br/>
-        /// Example: {"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false}
-        /// </param>
-        /// <param name="callLimits">
-        /// Concurrency and daily conversation limits for this speech engine<br/>
-        /// Example: {"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000}
-        /// </param>
-        /// <param name="language">
-        /// Language for the speech engine<br/>
-        /// Default Value: en
-        /// </param>
-        /// <param name="tags">
-        /// Tags for categorization
-        /// </param>
-        /// <param name="overrides">
-        /// Override settings the client may set during conversation initiation
-        /// </param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechEngineResponse> CreateAsync(
-            global::ElevenLabs.SpeechEngineConfig speechEngine,
-            string? name = default,
-            global::ElevenLabs.ASRConversationalConfig? asr = default,
-            global::ElevenLabs.TTSConversationalConfigInput? tts = default,
-            global::ElevenLabs.BaseTurnConfig? turn = default,
-            global::ElevenLabs.ConversationConfigInput? conversation = default,
-            global::ElevenLabs.PrivacyConfigInput? privacy = default,
-            global::ElevenLabs.AgentCallLimits? callLimits = default,
-            string? language = default,
-            global::System.Collections.Generic.IList<string>? tags = default,
-            global::ElevenLabs.SpeechEngineConversationInitiationClientDataConfig? overrides = default,
-            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::ElevenLabs.CreateSpeechEngineRequest
-            {
-                Name = name,
-                SpeechEngine = speechEngine,
-                Asr = asr,
-                Tts = tts,
-                Turn = turn,
-                Conversation = conversation,
-                Privacy = privacy,
-                CallLimits = callLimits,
-                Language = language,
-                Tags = tags,
-                Overrides = overrides,
-            };
-
-            return await CreateAsync(
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

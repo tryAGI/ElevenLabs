@@ -40,9 +40,9 @@ namespace ElevenLabs
 
         /// <summary>
         /// Turn detection configuration<br/>
-        /// Example: {"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}
+        /// Example: {"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}
         /// </summary>
-        /// <example>{"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}</example>
+        /// <example>{"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("turn")]
         public global::ElevenLabs.BaseTurnConfig? Turn { get; set; }
 
@@ -115,7 +115,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="turn">
         /// Turn detection configuration<br/>
-        /// Example: {"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}
+        /// Example: {"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}
         /// </param>
         /// <param name="conversation">
         /// Conversation configuration (client events, etc.)<br/>

@@ -1,0 +1,67 @@
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed partial class RunSubagentToolResultErrorModel
+    {
+        /// <summary>
+        /// Default Value: run_subagent_error
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("result_type")]
+        public string? ResultType { get; set; }
+
+        /// <summary>
+        /// Default Value: error
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status")]
+        public string? Status { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("error")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Error { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RunSubagentToolResultErrorModel" /> class.
+        /// </summary>
+        /// <param name="error"></param>
+        /// <param name="resultType">
+        /// Default Value: run_subagent_error
+        /// </param>
+        /// <param name="status">
+        /// Default Value: error
+        /// </param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public RunSubagentToolResultErrorModel(
+            string error,
+            string? resultType,
+            string? status)
+        {
+            this.ResultType = resultType;
+            this.Status = status;
+            this.Error = error ?? throw new global::System.ArgumentNullException(nameof(error));
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RunSubagentToolResultErrorModel" /> class.
+        /// </summary>
+        public RunSubagentToolResultErrorModel()
+        {
+        }
+
+    }
+}

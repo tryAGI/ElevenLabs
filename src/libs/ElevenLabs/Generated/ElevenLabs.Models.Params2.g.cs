@@ -395,6 +395,43 @@ namespace ElevenLabs
         public global::ElevenLabs.EndProcedureToolConfigInput PickEndProcedure() => IsEndProcedure
             ? EndProcedure!
             : throw new global::System.InvalidOperationException($"Expected union variant 'EndProcedure' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.RunSubagentToolConfigInput? RunSubagent { get; init; }
+#else
+        public global::ElevenLabs.RunSubagentToolConfigInput? RunSubagent { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(RunSubagent))]
+#endif
+        public bool IsRunSubagent => RunSubagent != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickRunSubagent(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.RunSubagentToolConfigInput? value)
+        {
+            value = RunSubagent;
+            return IsRunSubagent;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.RunSubagentToolConfigInput PickRunSubagent() => IsRunSubagent
+            ? RunSubagent!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'RunSubagent' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -628,6 +665,29 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator Params2(global::ElevenLabs.RunSubagentToolConfigInput value) => new Params2((global::ElevenLabs.RunSubagentToolConfigInput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.RunSubagentToolConfigInput?(Params2 @this) => @this.RunSubagent;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params2(global::ElevenLabs.RunSubagentToolConfigInput? value)
+        {
+            RunSubagent = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params2 FromRunSubagent(global::ElevenLabs.RunSubagentToolConfigInput? value) => new Params2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public Params2(
             global::ElevenLabs.SystemToolConfigInputParamsDiscriminatorSystemToolType? systemToolType,
             global::ElevenLabs.EndCallToolConfig? endCall,
@@ -639,7 +699,8 @@ namespace ElevenLabs
             global::ElevenLabs.VoicemailDetectionToolConfig? voicemailDetection,
             global::ElevenLabs.KnowledgeBaseRagToolConfig? knowledgeBaseRag,
             global::ElevenLabs.StartProcedureToolConfigInput? startProcedure,
-            global::ElevenLabs.EndProcedureToolConfigInput? endProcedure
+            global::ElevenLabs.EndProcedureToolConfigInput? endProcedure,
+            global::ElevenLabs.RunSubagentToolConfigInput? runSubagent
             )
         {
             SystemToolType = systemToolType;
@@ -654,12 +715,14 @@ namespace ElevenLabs
             KnowledgeBaseRag = knowledgeBaseRag;
             StartProcedure = startProcedure;
             EndProcedure = endProcedure;
+            RunSubagent = runSubagent;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            RunSubagent as object ??
             EndProcedure as object ??
             StartProcedure as object ??
             KnowledgeBaseRag as object ??
@@ -685,7 +748,8 @@ namespace ElevenLabs
             VoicemailDetection?.ToString() ??
             KnowledgeBaseRag?.ToString() ??
             StartProcedure?.ToString() ??
-            EndProcedure?.ToString() 
+            EndProcedure?.ToString() ??
+            RunSubagent?.ToString() 
             ;
 
         /// <summary>
@@ -693,7 +757,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure || !IsEndCall && IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure || !IsEndCall && !IsLanguageDetection && IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && IsStartProcedure && !IsEndProcedure || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && IsEndProcedure;
+            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && IsRunSubagent;
         }
 
         /// <summary>
@@ -710,6 +774,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.KnowledgeBaseRagToolConfig, TResult>? knowledgeBaseRag = null,
             global::System.Func<global::ElevenLabs.StartProcedureToolConfigInput, TResult>? startProcedure = null,
             global::System.Func<global::ElevenLabs.EndProcedureToolConfigInput, TResult>? endProcedure = null,
+            global::System.Func<global::ElevenLabs.RunSubagentToolConfigInput, TResult>? runSubagent = null,
             bool validate = true)
         {
             if (validate)
@@ -757,6 +822,10 @@ namespace ElevenLabs
             {
                 return endProcedure(EndProcedure!);
             }
+            else if (IsRunSubagent && runSubagent != null)
+            {
+                return runSubagent(RunSubagent!);
+            }
 
             return default(TResult);
         }
@@ -784,6 +853,8 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.StartProcedureToolConfigInput>? startProcedure = null,
 
             global::System.Action<global::ElevenLabs.EndProcedureToolConfigInput>? endProcedure = null,
+
+            global::System.Action<global::ElevenLabs.RunSubagentToolConfigInput>? runSubagent = null,
             bool validate = true)
         {
             if (validate)
@@ -830,6 +901,10 @@ namespace ElevenLabs
             else if (IsEndProcedure)
             {
                 endProcedure?.Invoke(EndProcedure!);
+            }
+            else if (IsRunSubagent)
+            {
+                runSubagent?.Invoke(RunSubagent!);
             }
         }
 
@@ -847,6 +922,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolConfig>? knowledgeBaseRag = null,
             global::System.Action<global::ElevenLabs.StartProcedureToolConfigInput>? startProcedure = null,
             global::System.Action<global::ElevenLabs.EndProcedureToolConfigInput>? endProcedure = null,
+            global::System.Action<global::ElevenLabs.RunSubagentToolConfigInput>? runSubagent = null,
             bool validate = true)
         {
             if (validate)
@@ -893,6 +969,10 @@ namespace ElevenLabs
             else if (IsEndProcedure)
             {
                 endProcedure?.Invoke(EndProcedure!);
+            }
+            else if (IsRunSubagent)
+            {
+                runSubagent?.Invoke(RunSubagent!);
             }
         }
 
@@ -923,6 +1003,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.StartProcedureToolConfigInput),
                 EndProcedure,
                 typeof(global::ElevenLabs.EndProcedureToolConfigInput),
+                RunSubagent,
+                typeof(global::ElevenLabs.RunSubagentToolConfigInput),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -948,7 +1030,8 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.VoicemailDetectionToolConfig?>.Default.Equals(VoicemailDetection, other.VoicemailDetection) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.KnowledgeBaseRagToolConfig?>.Default.Equals(KnowledgeBaseRag, other.KnowledgeBaseRag) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.StartProcedureToolConfigInput?>.Default.Equals(StartProcedure, other.StartProcedure) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.EndProcedureToolConfigInput?>.Default.Equals(EndProcedure, other.EndProcedure) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.EndProcedureToolConfigInput?>.Default.Equals(EndProcedure, other.EndProcedure) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.RunSubagentToolConfigInput?>.Default.Equals(RunSubagent, other.RunSubagent) 
                 ;
         }
 
