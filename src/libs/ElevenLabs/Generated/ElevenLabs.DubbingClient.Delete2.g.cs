@@ -27,55 +27,59 @@ namespace ElevenLabs
             };
         partial void PrepareDelete2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string dubbingId);
+            ref string projectId,
+            ref string languageId);
         partial void PrepareDelete2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string dubbingId);
+            string projectId,
+            string languageId);
         partial void ProcessDelete2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessDelete2ResponseContent(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
-
         /// <summary>
-        /// Delete Dubbing<br/>
-        /// Deletes a dubbing project.
+        /// Delete Dubbing Language Target<br/>
+        /// Delete a language target.
         /// </summary>
-        /// <param name="dubbingId">
-        /// ID of the dubbing project.
+        /// <param name="projectId">
+        /// Identifier of the parent dubbing project.
+        /// </param>
+        /// <param name="languageId">
+        /// Identifier of the language target to delete.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DeleteDubbingResponseModel> Delete2Async(
-            string dubbingId,
+        public async global::System.Threading.Tasks.Task Delete2Async(
+            string projectId,
+            string languageId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Delete2AsResponseAsync(
-                dubbingId: dubbingId,
+            await Delete2AsResponseAsync(
+                projectId: projectId,
+                languageId: languageId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
-
-            return __response.Body;
         }
         /// <summary>
-        /// Delete Dubbing<br/>
-        /// Deletes a dubbing project.
+        /// Delete Dubbing Language Target<br/>
+        /// Delete a language target.
         /// </summary>
-        /// <param name="dubbingId">
-        /// ID of the dubbing project.
+        /// <param name="projectId">
+        /// Identifier of the parent dubbing project.
+        /// </param>
+        /// <param name="languageId">
+        /// Identifier of the language target to delete.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DeleteDubbingResponseModel>> Delete2AsResponseAsync(
-            string dubbingId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse> Delete2AsResponseAsync(
+            string projectId,
+            string languageId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -83,7 +87,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete2Arguments(
                 httpClient: HttpClient,
-                dubbingId: ref dubbingId);
+                projectId: ref projectId,
+                languageId: ref languageId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -109,7 +114,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/dubbing/{dubbingId}",
+                                path: $"/v1/dubbing/project/{projectId}/language/{languageId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -151,7 +156,8 @@ namespace ElevenLabs
                 PrepareDelete2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    dubbingId: dubbingId!);
+                    projectId: projectId!,
+                    languageId: languageId!);
 
                 return __httpRequest;
             }
@@ -170,7 +176,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete2",
                                 methodName: "Delete2Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}\"",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/language/{languageId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -204,7 +210,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete2",
                                 methodName: "Delete2Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}\"",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/language/{languageId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -245,7 +251,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete2",
                                 methodName: "Delete2Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}\"",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/language/{languageId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -293,7 +299,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete2",
                                 methodName: "Delete2Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}\"",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/language/{languageId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -315,7 +321,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete2",
                                 methodName: "Delete2Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}\"",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/language/{languageId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -380,22 +386,15 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessDelete2ResponseContent(
-                                    httpClient: HttpClient,
-                                    httpResponseMessage: __response,
-                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.DeleteDubbingResponseModel.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DeleteDubbingResponseModel>(
+                return new global::ElevenLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -415,19 +414,10 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
-                #if NET5_0_OR_GREATER
-                                        __effectiveCancellationToken
-                #endif
-                                    ).ConfigureAwait(false);
-
-                                    var __value = await global::ElevenLabs.DeleteDubbingResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DeleteDubbingResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

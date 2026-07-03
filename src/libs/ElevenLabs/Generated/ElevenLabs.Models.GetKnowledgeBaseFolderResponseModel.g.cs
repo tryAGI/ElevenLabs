@@ -89,6 +89,12 @@ namespace ElevenLabs
         public bool? IsFrozen { get; set; }
 
         /// <summary>
+        /// Most recent (in-flight or terminal) external sync job for this folder, if any. Used by clients to render sync progress.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("active_sync_job")]
+        public global::ElevenLabs.KbExternalSyncJob? ActiveSyncJob { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -116,6 +122,9 @@ namespace ElevenLabs
         /// <param name="isFrozen">
         /// Default Value: false
         /// </param>
+        /// <param name="activeSyncJob">
+        /// Most recent (in-flight or terminal) external sync job for this folder, if any. Used by clients to render sync progress.
+        /// </param>
         /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -132,6 +141,7 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSyncInfo? autoSyncInfo,
             global::ElevenLabs.ExternalFolderSyncInfo? externalSyncInfo,
             bool? isFrozen,
+            global::ElevenLabs.KbExternalSyncJob? activeSyncJob,
             string type = "folder")
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -146,6 +156,7 @@ namespace ElevenLabs
             this.AutoSyncInfo = autoSyncInfo;
             this.ExternalSyncInfo = externalSyncInfo;
             this.IsFrozen = isFrozen;
+            this.ActiveSyncJob = activeSyncJob;
         }
 
         /// <summary>

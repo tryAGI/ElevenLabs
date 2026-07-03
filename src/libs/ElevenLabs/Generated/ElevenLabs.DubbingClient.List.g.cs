@@ -29,27 +29,15 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
             ref int? pageSize,
-            ref global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingStatusesVariant1Item>? dubbingStatuses,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingModelsVariant1Item>? dubbingModels,
-            global::System.Collections.Generic.IList<string>? targetLanguageCodes,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsCreationSourcesVariant1Item>? creationSources,
-            ref global::ElevenLabs.ListDubsFilterByCreator? filterByCreator,
-            ref global::ElevenLabs.ListDubsOrderBy? orderBy,
-            ref global::ElevenLabs.ListDubsOrderDirection? orderDirection);
+            ref string? status,
+            ref global::ElevenLabs.DubbingProjectListSortDirection? sortDirection);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
             int? pageSize,
-            global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingStatusesVariant1Item>? dubbingStatuses,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingModelsVariant1Item>? dubbingModels,
-            global::System.Collections.Generic.IList<string>? targetLanguageCodes,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsCreationSourcesVariant1Item>? creationSources,
-            global::ElevenLabs.ListDubsFilterByCreator? filterByCreator,
-            global::ElevenLabs.ListDubsOrderBy? orderBy,
-            global::ElevenLabs.ListDubsOrderDirection? orderDirection);
+            string? status,
+            global::ElevenLabs.DubbingProjectListSortDirection? sortDirection);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -60,71 +48,39 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// List Dubs<br/>
-        /// List the dubs you have access to.
+        /// List Dubbing Projects<br/>
+        /// List the workspace's dubbing projects (cursor-paginated).
         /// </summary>
         /// <param name="cursor">
-        /// Used for fetching next page. Cursor is returned in the response.
+        /// Pagination cursor from a previous response's next_cursor.
         /// </param>
         /// <param name="pageSize">
-        /// How many dubs to return at maximum. Can not exceed 200, defaults to 100.<br/>
-        /// Default Value: 100
+        /// Number of projects per page (max 100).<br/>
+        /// Default Value: 20
         /// </param>
-        /// <param name="dubbingStatus">
-        /// What state the dub is currently in.
+        /// <param name="status">
+        /// Filter to projects in this status (preparing, ready, failed).
         /// </param>
-        /// <param name="dubbingStatuses">
-        /// Filter by dubbing status.
-        /// </param>
-        /// <param name="dubbingModels">
-        /// Filter by dubbing model generation.
-        /// </param>
-        /// <param name="targetLanguageCodes">
-        /// Filter by target language code.
-        /// </param>
-        /// <param name="creationSources">
-        /// Filter by dubbing creation source.
-        /// </param>
-        /// <param name="filterByCreator">
-        /// Filters who created the resources being listed, whether it was the user running the request or someone else that shared the resource with them.<br/>
-        /// Default Value: all
-        /// </param>
-        /// <param name="orderBy">
-        /// The field to use for ordering results from this query.<br/>
-        /// Default Value: created_at
-        /// </param>
-        /// <param name="orderDirection">
-        /// The order direction to use for results from this query.<br/>
+        /// <param name="sortDirection">
+        /// Sort by creation time (default 'DESCENDING').<br/>
         /// Default Value: DESCENDING
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingMetadataPageResponseModel> ListAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ProjectListResponse> ListAsync(
             string? cursor = default,
             int? pageSize = default,
-            global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingStatusesVariant1Item>? dubbingStatuses = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingModelsVariant1Item>? dubbingModels = default,
-            global::System.Collections.Generic.IList<string>? targetLanguageCodes = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsCreationSourcesVariant1Item>? creationSources = default,
-            global::ElevenLabs.ListDubsFilterByCreator? filterByCreator = default,
-            global::ElevenLabs.ListDubsOrderBy? orderBy = default,
-            global::ElevenLabs.ListDubsOrderDirection? orderDirection = default,
+            string? status = default,
+            global::ElevenLabs.DubbingProjectListSortDirection? sortDirection = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ListAsResponseAsync(
                 cursor: cursor,
                 pageSize: pageSize,
-                dubbingStatus: dubbingStatus,
-                dubbingStatuses: dubbingStatuses,
-                dubbingModels: dubbingModels,
-                targetLanguageCodes: targetLanguageCodes,
-                creationSources: creationSources,
-                filterByCreator: filterByCreator,
-                orderBy: orderBy,
-                orderDirection: orderDirection,
+                status: status,
+                sortDirection: sortDirection,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -132,57 +88,31 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// List Dubs<br/>
-        /// List the dubs you have access to.
+        /// List Dubbing Projects<br/>
+        /// List the workspace's dubbing projects (cursor-paginated).
         /// </summary>
         /// <param name="cursor">
-        /// Used for fetching next page. Cursor is returned in the response.
+        /// Pagination cursor from a previous response's next_cursor.
         /// </param>
         /// <param name="pageSize">
-        /// How many dubs to return at maximum. Can not exceed 200, defaults to 100.<br/>
-        /// Default Value: 100
+        /// Number of projects per page (max 100).<br/>
+        /// Default Value: 20
         /// </param>
-        /// <param name="dubbingStatus">
-        /// What state the dub is currently in.
+        /// <param name="status">
+        /// Filter to projects in this status (preparing, ready, failed).
         /// </param>
-        /// <param name="dubbingStatuses">
-        /// Filter by dubbing status.
-        /// </param>
-        /// <param name="dubbingModels">
-        /// Filter by dubbing model generation.
-        /// </param>
-        /// <param name="targetLanguageCodes">
-        /// Filter by target language code.
-        /// </param>
-        /// <param name="creationSources">
-        /// Filter by dubbing creation source.
-        /// </param>
-        /// <param name="filterByCreator">
-        /// Filters who created the resources being listed, whether it was the user running the request or someone else that shared the resource with them.<br/>
-        /// Default Value: all
-        /// </param>
-        /// <param name="orderBy">
-        /// The field to use for ordering results from this query.<br/>
-        /// Default Value: created_at
-        /// </param>
-        /// <param name="orderDirection">
-        /// The order direction to use for results from this query.<br/>
+        /// <param name="sortDirection">
+        /// Sort by creation time (default 'DESCENDING').<br/>
         /// Default Value: DESCENDING
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingMetadataPageResponseModel>> ListAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProjectListResponse>> ListAsResponseAsync(
             string? cursor = default,
             int? pageSize = default,
-            global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingStatusesVariant1Item>? dubbingStatuses = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingModelsVariant1Item>? dubbingModels = default,
-            global::System.Collections.Generic.IList<string>? targetLanguageCodes = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsCreationSourcesVariant1Item>? creationSources = default,
-            global::ElevenLabs.ListDubsFilterByCreator? filterByCreator = default,
-            global::ElevenLabs.ListDubsOrderBy? orderBy = default,
-            global::ElevenLabs.ListDubsOrderDirection? orderDirection = default,
+            string? status = default,
+            global::ElevenLabs.DubbingProjectListSortDirection? sortDirection = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -192,14 +122,8 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 cursor: ref cursor,
                 pageSize: ref pageSize,
-                dubbingStatus: ref dubbingStatus,
-                dubbingStatuses: dubbingStatuses,
-                dubbingModels: dubbingModels,
-                targetLanguageCodes: targetLanguageCodes,
-                creationSources: creationSources,
-                filterByCreator: ref filterByCreator,
-                orderBy: ref orderBy,
-                orderDirection: ref orderDirection);
+                status: ref status,
+                sortDirection: ref sortDirection);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -225,19 +149,13 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/dubbing",
+                                path: "/v1/dubbing/project",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("cursor", cursor)
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
-                                .AddOptionalParameter("dubbing_status", dubbingStatus?.ToValueString())
-                                .AddOptionalParameter("dubbing_statuses", dubbingStatuses?.ToString())
-                                .AddOptionalParameter("dubbing_models", dubbingModels?.ToString())
-                                .AddOptionalParameter("target_language_codes", targetLanguageCodes?.ToString())
-                                .AddOptionalParameter("creation_sources", creationSources?.ToString())
-                                .AddOptionalParameter("filter_by_creator", filterByCreator?.ToValueString())
-                                .AddOptionalParameter("order_by", orderBy?.ToValueString())
-                                .AddOptionalParameter("order_direction", orderDirection?.ToValueString())
+                                .AddOptionalParameter("status", status)
+                                .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -281,14 +199,8 @@ namespace ElevenLabs
                     httpRequestMessage: __httpRequest,
                     cursor: cursor,
                     pageSize: pageSize,
-                    dubbingStatus: dubbingStatus,
-                    dubbingStatuses: dubbingStatuses,
-                    dubbingModels: dubbingModels,
-                    targetLanguageCodes: targetLanguageCodes,
-                    creationSources: creationSources,
-                    filterByCreator: filterByCreator,
-                    orderBy: orderBy,
-                    orderDirection: orderDirection);
+                    status: status,
+                    sortDirection: sortDirection);
 
                 return __httpRequest;
             }
@@ -307,7 +219,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List",
                                 methodName: "ListAsync",
-                                pathTemplate: "\"/v1/dubbing\"",
+                                pathTemplate: "\"/v1/dubbing/project\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -341,7 +253,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List",
                                 methodName: "ListAsync",
-                                pathTemplate: "\"/v1/dubbing\"",
+                                pathTemplate: "\"/v1/dubbing/project\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -382,7 +294,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List",
                                 methodName: "ListAsync",
-                                pathTemplate: "\"/v1/dubbing\"",
+                                pathTemplate: "\"/v1/dubbing/project\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -430,7 +342,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List",
                                 methodName: "ListAsync",
-                                pathTemplate: "\"/v1/dubbing\"",
+                                pathTemplate: "\"/v1/dubbing/project\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -452,7 +364,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List",
                                 methodName: "ListAsync",
-                                pathTemplate: "\"/v1/dubbing\"",
+                                pathTemplate: "\"/v1/dubbing/project\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -526,9 +438,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.DubbingMetadataPageResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ProjectListResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingMetadataPageResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProjectListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -558,9 +470,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.DubbingMetadataPageResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ProjectListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingMetadataPageResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProjectListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -602,70 +514,38 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Wraps ListAsync as an IAsyncEnumerable&lt;global::ElevenLabs.DubbingMetadataResponse&gt; that auto-pages over the response.
+        /// Wraps ListAsync as an IAsyncEnumerable&lt;global::ElevenLabs.ProjectResponse&gt; that auto-pages over the response.
         /// </summary>
         /// <param name="pageSize">
-        /// How many dubs to return at maximum. Can not exceed 200, defaults to 100.<br/>
-        /// Default Value: 100
+        /// Number of projects per page (max 100).<br/>
+        /// Default Value: 20
         /// </param>
-        /// <param name="dubbingStatus">
-        /// What state the dub is currently in.
+        /// <param name="status">
+        /// Filter to projects in this status (preparing, ready, failed).
         /// </param>
-        /// <param name="dubbingStatuses">
-        /// Filter by dubbing status.
-        /// </param>
-        /// <param name="dubbingModels">
-        /// Filter by dubbing model generation.
-        /// </param>
-        /// <param name="targetLanguageCodes">
-        /// Filter by target language code.
-        /// </param>
-        /// <param name="creationSources">
-        /// Filter by dubbing creation source.
-        /// </param>
-        /// <param name="filterByCreator">
-        /// Filters who created the resources being listed, whether it was the user running the request or someone else that shared the resource with them.<br/>
-        /// Default Value: all
-        /// </param>
-        /// <param name="orderBy">
-        /// The field to use for ordering results from this query.<br/>
-        /// Default Value: created_at
-        /// </param>
-        /// <param name="orderDirection">
-        /// The order direction to use for results from this query.<br/>
+        /// <param name="sortDirection">
+        /// Sort by creation time (default 'DESCENDING').<br/>
         /// Default Value: DESCENDING
         /// </param> 
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
-        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.DubbingMetadataResponse> ListAutoPagingAsync(
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ProjectResponse> ListAutoPagingAsync(
               int? pageSize = default,
-            global::ElevenLabs.ListDubsDubbingStatus? dubbingStatus = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingStatusesVariant1Item>? dubbingStatuses = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingModelsVariant1Item>? dubbingModels = default,
-            global::System.Collections.Generic.IList<string>? targetLanguageCodes = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsCreationSourcesVariant1Item>? creationSources = default,
-            global::ElevenLabs.ListDubsFilterByCreator? filterByCreator = default,
-            global::ElevenLabs.ListDubsOrderBy? orderBy = default,
-            global::ElevenLabs.ListDubsOrderDirection? orderDirection = default,
+            string? status = default,
+            global::ElevenLabs.DubbingProjectListSortDirection? sortDirection = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.DubbingMetadataPageResponseModel, global::ElevenLabs.DubbingMetadataResponse>(
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.ProjectListResponse, global::ElevenLabs.ProjectResponse>(
                 fetchPage: (__cursor, __ct) => ListAsync(
                     cursor: __cursor,
                     pageSize: pageSize,
-                    dubbingStatus: dubbingStatus,
-                    dubbingStatuses: dubbingStatuses,
-                    dubbingModels: dubbingModels,
-                    targetLanguageCodes: targetLanguageCodes,
-                    creationSources: creationSources,
-                    filterByCreator: filterByCreator,
-                    orderBy: orderBy,
-                    orderDirection: orderDirection,
+                    status: status,
+                    sortDirection: sortDirection,
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null
                     ? null
-                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.DubbingMetadataResponse>?)__response.Dubs,
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.ProjectResponse>?)__response.Projects,
                 extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
                 initialCursor: cursor,
                 cancellationToken: cancellationToken);

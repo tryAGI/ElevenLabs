@@ -27,11 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareGet2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string dubbingId);
+            ref string projectId,
+            ref string languageId);
         partial void PrepareGet2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string dubbingId);
+            string projectId,
+            string languageId);
         partial void ProcessGet2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,22 +44,27 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Dubbing<br/>
-        /// Returns metadata about a dubbing project, including whether it's still in progress or not
+        /// Get Dubbing Language Target<br/>
+        /// Full language-target detail.
         /// </summary>
-        /// <param name="dubbingId">
-        /// ID of the dubbing project.
+        /// <param name="projectId">
+        /// Identifier of the parent dubbing project.
+        /// </param>
+        /// <param name="languageId">
+        /// Identifier of the language target to fetch.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingMetadataResponse> Get2Async(
-            string dubbingId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.LanguageResponse> Get2Async(
+            string projectId,
+            string languageId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get2AsResponseAsync(
-                dubbingId: dubbingId,
+                projectId: projectId,
+                languageId: languageId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -65,17 +72,21 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Dubbing<br/>
-        /// Returns metadata about a dubbing project, including whether it's still in progress or not
+        /// Get Dubbing Language Target<br/>
+        /// Full language-target detail.
         /// </summary>
-        /// <param name="dubbingId">
-        /// ID of the dubbing project.
+        /// <param name="projectId">
+        /// Identifier of the parent dubbing project.
+        /// </param>
+        /// <param name="languageId">
+        /// Identifier of the language target to fetch.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingMetadataResponse>> Get2AsResponseAsync(
-            string dubbingId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LanguageResponse>> Get2AsResponseAsync(
+            string projectId,
+            string languageId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -83,7 +94,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet2Arguments(
                 httpClient: HttpClient,
-                dubbingId: ref dubbingId);
+                projectId: ref projectId,
+                languageId: ref languageId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -109,7 +121,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/dubbing/{dubbingId}",
+                                path: $"/v1/dubbing/project/{projectId}/language/{languageId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -151,7 +163,8 @@ namespace ElevenLabs
                 PrepareGet2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    dubbingId: dubbingId!);
+                    projectId: projectId!,
+                    languageId: languageId!);
 
                 return __httpRequest;
             }
@@ -170,7 +183,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get2",
                                 methodName: "Get2Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}\"",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/language/{languageId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -204,7 +217,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get2",
                                 methodName: "Get2Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}\"",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/language/{languageId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -245,7 +258,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get2",
                                 methodName: "Get2Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}\"",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/language/{languageId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -293,7 +306,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get2",
                                 methodName: "Get2Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}\"",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/language/{languageId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -315,7 +328,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get2",
                                 methodName: "Get2Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}\"",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/language/{languageId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -389,9 +402,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.DubbingMetadataResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.LanguageResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingMetadataResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LanguageResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -421,9 +434,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.DubbingMetadataResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.LanguageResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingMetadataResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LanguageResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
