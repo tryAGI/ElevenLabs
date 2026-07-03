@@ -531,6 +531,80 @@ namespace ElevenLabs
         public global::ElevenLabs.KnowledgeBaseRagToolResultModel PickKnowledgeBaseRagSuccess() => IsKnowledgeBaseRagSuccess
             ? KnowledgeBaseRagSuccess!
             : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeBaseRagSuccess' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.RunSubagentToolResultSuccessModel? RunSubagentSuccess { get; init; }
+#else
+        public global::ElevenLabs.RunSubagentToolResultSuccessModel? RunSubagentSuccess { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(RunSubagentSuccess))]
+#endif
+        public bool IsRunSubagentSuccess => RunSubagentSuccess != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickRunSubagentSuccess(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.RunSubagentToolResultSuccessModel? value)
+        {
+            value = RunSubagentSuccess;
+            return IsRunSubagentSuccess;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.RunSubagentToolResultSuccessModel PickRunSubagentSuccess() => IsRunSubagentSuccess
+            ? RunSubagentSuccess!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'RunSubagentSuccess' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.RunSubagentToolResultErrorModel? RunSubagentError { get; init; }
+#else
+        public global::ElevenLabs.RunSubagentToolResultErrorModel? RunSubagentError { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(RunSubagentError))]
+#endif
+        public bool IsRunSubagentError => RunSubagentError != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickRunSubagentError(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.RunSubagentToolResultErrorModel? value)
+        {
+            value = RunSubagentError;
+            return IsRunSubagentError;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.RunSubagentToolResultErrorModel PickRunSubagentError() => IsRunSubagentError
+            ? RunSubagentError!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'RunSubagentError' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -856,6 +930,52 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator ResultVariant1(global::ElevenLabs.RunSubagentToolResultSuccessModel value) => new ResultVariant1((global::ElevenLabs.RunSubagentToolResultSuccessModel?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.RunSubagentToolResultSuccessModel?(ResultVariant1 @this) => @this.RunSubagentSuccess;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ResultVariant1(global::ElevenLabs.RunSubagentToolResultSuccessModel? value)
+        {
+            RunSubagentSuccess = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ResultVariant1 FromRunSubagentSuccess(global::ElevenLabs.RunSubagentToolResultSuccessModel? value) => new ResultVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator ResultVariant1(global::ElevenLabs.RunSubagentToolResultErrorModel value) => new ResultVariant1((global::ElevenLabs.RunSubagentToolResultErrorModel?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.RunSubagentToolResultErrorModel?(ResultVariant1 @this) => @this.RunSubagentError;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ResultVariant1(global::ElevenLabs.RunSubagentToolResultErrorModel? value)
+        {
+            RunSubagentError = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ResultVariant1 FromRunSubagentError(global::ElevenLabs.RunSubagentToolResultErrorModel? value) => new ResultVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ResultVariant1(
             global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType? resultType,
             global::ElevenLabs.EndCallToolResultModel? endCallSuccess,
@@ -871,7 +991,9 @@ namespace ElevenLabs
             global::ElevenLabs.PlayDTMFResultErrorModel? playDtmfError,
             global::ElevenLabs.VoiceMailDetectionResultSuccessModel? voicemailDetectionSuccess,
             global::ElevenLabs.TestToolResultModel? testingToolResult,
-            global::ElevenLabs.KnowledgeBaseRagToolResultModel? knowledgeBaseRagSuccess
+            global::ElevenLabs.KnowledgeBaseRagToolResultModel? knowledgeBaseRagSuccess,
+            global::ElevenLabs.RunSubagentToolResultSuccessModel? runSubagentSuccess,
+            global::ElevenLabs.RunSubagentToolResultErrorModel? runSubagentError
             )
         {
             ResultType = resultType;
@@ -890,12 +1012,16 @@ namespace ElevenLabs
             VoicemailDetectionSuccess = voicemailDetectionSuccess;
             TestingToolResult = testingToolResult;
             KnowledgeBaseRagSuccess = knowledgeBaseRagSuccess;
+            RunSubagentSuccess = runSubagentSuccess;
+            RunSubagentError = runSubagentError;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            RunSubagentError as object ??
+            RunSubagentSuccess as object ??
             KnowledgeBaseRagSuccess as object ??
             TestingToolResult as object ??
             VoicemailDetectionSuccess as object ??
@@ -929,7 +1055,9 @@ namespace ElevenLabs
             PlayDtmfError?.ToString() ??
             VoicemailDetectionSuccess?.ToString() ??
             TestingToolResult?.ToString() ??
-            KnowledgeBaseRagSuccess?.ToString() 
+            KnowledgeBaseRagSuccess?.ToString() ??
+            RunSubagentSuccess?.ToString() ??
+            RunSubagentError?.ToString() 
             ;
 
         /// <summary>
@@ -937,7 +1065,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess || !IsEndCallSuccess && IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && IsTestingToolResult && !IsKnowledgeBaseRagSuccess || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && IsKnowledgeBaseRagSuccess;
+            return IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsRunSubagentSuccess && !IsRunSubagentError || !IsEndCallSuccess && IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsRunSubagentSuccess && !IsRunSubagentError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsRunSubagentSuccess && !IsRunSubagentError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsRunSubagentSuccess && !IsRunSubagentError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsRunSubagentSuccess && !IsRunSubagentError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsRunSubagentSuccess && !IsRunSubagentError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsRunSubagentSuccess && !IsRunSubagentError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsRunSubagentSuccess && !IsRunSubagentError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsRunSubagentSuccess && !IsRunSubagentError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsRunSubagentSuccess && !IsRunSubagentError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsRunSubagentSuccess && !IsRunSubagentError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsRunSubagentSuccess && !IsRunSubagentError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsRunSubagentSuccess && !IsRunSubagentError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && IsKnowledgeBaseRagSuccess && !IsRunSubagentSuccess && !IsRunSubagentError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && IsRunSubagentSuccess && !IsRunSubagentError || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsRunSubagentSuccess && IsRunSubagentError;
         }
 
         /// <summary>
@@ -958,6 +1086,8 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.VoiceMailDetectionResultSuccessModel, TResult>? voicemailDetectionSuccess = null,
             global::System.Func<global::ElevenLabs.TestToolResultModel, TResult>? testingToolResult = null,
             global::System.Func<global::ElevenLabs.KnowledgeBaseRagToolResultModel, TResult>? knowledgeBaseRagSuccess = null,
+            global::System.Func<global::ElevenLabs.RunSubagentToolResultSuccessModel, TResult>? runSubagentSuccess = null,
+            global::System.Func<global::ElevenLabs.RunSubagentToolResultErrorModel, TResult>? runSubagentError = null,
             bool validate = true)
         {
             if (validate)
@@ -1021,6 +1151,14 @@ namespace ElevenLabs
             {
                 return knowledgeBaseRagSuccess(KnowledgeBaseRagSuccess!);
             }
+            else if (IsRunSubagentSuccess && runSubagentSuccess != null)
+            {
+                return runSubagentSuccess(RunSubagentSuccess!);
+            }
+            else if (IsRunSubagentError && runSubagentError != null)
+            {
+                return runSubagentError(RunSubagentError!);
+            }
 
             return default(TResult);
         }
@@ -1056,6 +1194,10 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.TestToolResultModel>? testingToolResult = null,
 
             global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolResultModel>? knowledgeBaseRagSuccess = null,
+
+            global::System.Action<global::ElevenLabs.RunSubagentToolResultSuccessModel>? runSubagentSuccess = null,
+
+            global::System.Action<global::ElevenLabs.RunSubagentToolResultErrorModel>? runSubagentError = null,
             bool validate = true)
         {
             if (validate)
@@ -1118,6 +1260,14 @@ namespace ElevenLabs
             else if (IsKnowledgeBaseRagSuccess)
             {
                 knowledgeBaseRagSuccess?.Invoke(KnowledgeBaseRagSuccess!);
+            }
+            else if (IsRunSubagentSuccess)
+            {
+                runSubagentSuccess?.Invoke(RunSubagentSuccess!);
+            }
+            else if (IsRunSubagentError)
+            {
+                runSubagentError?.Invoke(RunSubagentError!);
             }
         }
 
@@ -1139,6 +1289,8 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.VoiceMailDetectionResultSuccessModel>? voicemailDetectionSuccess = null,
             global::System.Action<global::ElevenLabs.TestToolResultModel>? testingToolResult = null,
             global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolResultModel>? knowledgeBaseRagSuccess = null,
+            global::System.Action<global::ElevenLabs.RunSubagentToolResultSuccessModel>? runSubagentSuccess = null,
+            global::System.Action<global::ElevenLabs.RunSubagentToolResultErrorModel>? runSubagentError = null,
             bool validate = true)
         {
             if (validate)
@@ -1201,6 +1353,14 @@ namespace ElevenLabs
             else if (IsKnowledgeBaseRagSuccess)
             {
                 knowledgeBaseRagSuccess?.Invoke(KnowledgeBaseRagSuccess!);
+            }
+            else if (IsRunSubagentSuccess)
+            {
+                runSubagentSuccess?.Invoke(RunSubagentSuccess!);
+            }
+            else if (IsRunSubagentError)
+            {
+                runSubagentError?.Invoke(RunSubagentError!);
             }
         }
 
@@ -1239,6 +1399,10 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.TestToolResultModel),
                 KnowledgeBaseRagSuccess,
                 typeof(global::ElevenLabs.KnowledgeBaseRagToolResultModel),
+                RunSubagentSuccess,
+                typeof(global::ElevenLabs.RunSubagentToolResultSuccessModel),
+                RunSubagentError,
+                typeof(global::ElevenLabs.RunSubagentToolResultErrorModel),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -1268,7 +1432,9 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PlayDTMFResultErrorModel?>.Default.Equals(PlayDtmfError, other.PlayDtmfError) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.VoiceMailDetectionResultSuccessModel?>.Default.Equals(VoicemailDetectionSuccess, other.VoicemailDetectionSuccess) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TestToolResultModel?>.Default.Equals(TestingToolResult, other.TestingToolResult) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.KnowledgeBaseRagToolResultModel?>.Default.Equals(KnowledgeBaseRagSuccess, other.KnowledgeBaseRagSuccess) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.KnowledgeBaseRagToolResultModel?>.Default.Equals(KnowledgeBaseRagSuccess, other.KnowledgeBaseRagSuccess) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.RunSubagentToolResultSuccessModel?>.Default.Equals(RunSubagentSuccess, other.RunSubagentSuccess) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.RunSubagentToolResultErrorModel?>.Default.Equals(RunSubagentError, other.RunSubagentError) 
                 ;
         }
 

@@ -14000,6 +14000,63 @@
         "x-fern-sdk-method-name": "duplicate"
       }
     },
+    "/v1/convai/agents/defaults/interruption-ignore-terms": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Get Default Interruption Ignore Terms",
+        "description": "Get the curated per-language default interruption ignore terms used to seed an agent's turn configuration.",
+        "operationId": "get_default_interruption_ignore_terms",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DefaultInterruptionIgnoreTermsResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents"
+        ],
+        "x-fern-sdk-method-name": "get_default_interruption_ignore_terms"
+      }
+    },
     "/v1/convai/agents/{agent_id}/simulate-conversation": {
       "post": {
         "tags": [
@@ -35654,6 +35711,14 @@
             "title": "Interruption Ignore Terms",
             "description": "List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching."
           },
+          "interruption_ignore_term_languages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Interruption Ignore Term Languages",
+            "description": "Language codes for which preset ignore-term categories have been activated. Stored explicitly so display is not inferred from term overlap."
+          },
           "transcribe_on_disabled_interruptions": {
             "type": "boolean",
             "title": "Transcribe On Disabled Interruptions",
@@ -35664,6 +35729,7 @@
         "type": "object",
         "title": "BaseTurnConfig",
         "example": {
+          "interruption_ignore_term_languages": [],
           "interruption_ignore_terms": [],
           "mode": "turn",
           "retranscribe_on_turn_timeout": false,
@@ -48974,6 +49040,12 @@
                   },
                   {
                     "$ref": "#/components/schemas/KnowledgeBaseRagToolResultModel"
+                  },
+                  {
+                    "$ref": "#/components/schemas/RunSubagentToolResultSuccessModel"
+                  },
+                  {
+                    "$ref": "#/components/schemas/RunSubagentToolResultErrorModel"
                   }
                 ],
                 "discriminator": {
@@ -48984,6 +49056,8 @@
                     "language_detection_success": "#/components/schemas/LanguageDetectionToolResultModel",
                     "play_dtmf_error": "#/components/schemas/PlayDTMFResultErrorModel",
                     "play_dtmf_success": "#/components/schemas/PlayDTMFResultSuccessModel",
+                    "run_subagent_error": "#/components/schemas/RunSubagentToolResultErrorModel",
+                    "run_subagent_success": "#/components/schemas/RunSubagentToolResultSuccessModel",
                     "skip_turn_success": "#/components/schemas/SkipTurnToolResponseModel",
                     "testing_tool_result": "#/components/schemas/TestToolResultModel",
                     "transfer_to_agent_error": "#/components/schemas/TransferToAgentToolResultErrorModel",
@@ -49113,6 +49187,12 @@
                   },
                   {
                     "$ref": "#/components/schemas/KnowledgeBaseRagToolResultModel"
+                  },
+                  {
+                    "$ref": "#/components/schemas/RunSubagentToolResultSuccessModel"
+                  },
+                  {
+                    "$ref": "#/components/schemas/RunSubagentToolResultErrorModel"
                   }
                 ],
                 "discriminator": {
@@ -49123,6 +49203,8 @@
                     "language_detection_success": "#/components/schemas/LanguageDetectionToolResultModel",
                     "play_dtmf_error": "#/components/schemas/PlayDTMFResultErrorModel",
                     "play_dtmf_success": "#/components/schemas/PlayDTMFResultSuccessModel",
+                    "run_subagent_error": "#/components/schemas/RunSubagentToolResultErrorModel",
+                    "run_subagent_success": "#/components/schemas/RunSubagentToolResultSuccessModel",
                     "skip_turn_success": "#/components/schemas/SkipTurnToolResponseModel",
                     "testing_tool_result": "#/components/schemas/TestToolResultModel",
                     "transfer_to_agent_error": "#/components/schemas/TransferToAgentToolResultErrorModel",
@@ -50031,8 +50113,10 @@
           "telegram_integration",
           "intercom_integration",
           "freshdesk_integration",
+          "salesforce_integration",
           "template_preview",
-          "genesys_bot_connector"
+          "genesys_bot_connector",
+          "subagent_tool"
         ],
         "title": "ConversationInitiationSource",
         "description": "Enum representing the possible sources for conversation initiation.",
@@ -50909,6 +50993,7 @@
             "voice_id": "cjVigY5qzO86Huf0OWal"
           },
           "turn": {
+            "interruption_ignore_term_languages": [],
             "interruption_ignore_terms": [],
             "mode": "turn",
             "retranscribe_on_turn_timeout": false,
@@ -51063,6 +51148,7 @@
             "voice_id": "cjVigY5qzO86Huf0OWal"
           },
           "turn": {
+            "interruption_ignore_term_languages": [],
             "interruption_ignore_terms": [],
             "mode": "turn",
             "retranscribe_on_turn_timeout": false,
@@ -53148,6 +53234,29 @@
           "rationale"
         ],
         "title": "DataCollectionResultCommonModel"
+      },
+      "DefaultInterruptionIgnoreTermsResponseModel": {
+        "properties": {
+          "terms_by_language": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/InterruptionIgnoreTermSetModel"
+            },
+            "type": "object",
+            "title": "Terms By Language",
+            "description": "Curated default interruption ignore terms keyed by language code, split into acknowledgements / openers / confirmations categories."
+          },
+          "max_terms": {
+            "type": "integer",
+            "title": "Max Terms",
+            "description": "Maximum number of interruption ignore terms allowed on an agent."
+          }
+        },
+        "type": "object",
+        "required": [
+          "terms_by_language",
+          "max_terms"
+        ],
+        "title": "DefaultInterruptionIgnoreTermsResponseModel"
       },
       "DefaultSharingGroupResponseModel": {
         "properties": {
@@ -61574,6 +61683,41 @@
           "1_hour"
         ],
         "title": "InteractionBudget"
+      },
+      "InterruptionIgnoreTermSetModel": {
+        "properties": {
+          "acknowledgements": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Acknowledgements",
+            "description": "Acknowledgements: safe backchannels seeded when interruption ignore terms are turned on."
+          },
+          "openers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Openers",
+            "description": "Openers: greetings and presence probes. Opt-in (off by default)."
+          },
+          "confirmations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Confirmations",
+            "description": "Confirmations: affirmation/negation answer words. Opt-in (off by default)."
+          }
+        },
+        "type": "object",
+        "required": [
+          "acknowledgements",
+          "openers",
+          "confirmations"
+        ],
+        "title": "InterruptionIgnoreTermSetModel"
       },
       "InvoiceResponseModel": {
         "properties": {
@@ -75937,6 +76081,105 @@
         ],
         "title": "RunConversationEvaluationsRequest"
       },
+      "RunSubagentToolConfig-Input": {
+        "properties": {
+          "system_tool_type": {
+            "type": "string",
+            "const": "run_subagent",
+            "title": "System Tool Type",
+            "default": "run_subagent"
+          },
+          "agents": {
+            "items": {
+              "$ref": "#/components/schemas/SubAgent-Input"
+            },
+            "type": "array",
+            "title": "Agents"
+          }
+        },
+        "type": "object",
+        "required": [
+          "agents"
+        ],
+        "title": "RunSubagentToolConfig"
+      },
+      "RunSubagentToolConfig-Output": {
+        "properties": {
+          "system_tool_type": {
+            "type": "string",
+            "const": "run_subagent",
+            "title": "System Tool Type",
+            "default": "run_subagent"
+          },
+          "agents": {
+            "items": {
+              "$ref": "#/components/schemas/SubAgent-Output"
+            },
+            "type": "array",
+            "title": "Agents"
+          }
+        },
+        "type": "object",
+        "required": [
+          "agents"
+        ],
+        "title": "RunSubagentToolConfig"
+      },
+      "RunSubagentToolResultErrorModel": {
+        "properties": {
+          "result_type": {
+            "type": "string",
+            "const": "run_subagent_error",
+            "title": "Result Type",
+            "default": "run_subagent_error"
+          },
+          "status": {
+            "type": "string",
+            "const": "error",
+            "title": "Status",
+            "default": "error"
+          },
+          "error": {
+            "type": "string",
+            "title": "Error"
+          }
+        },
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "title": "RunSubagentToolResultErrorModel"
+      },
+      "RunSubagentToolResultSuccessModel": {
+        "properties": {
+          "result_type": {
+            "type": "string",
+            "const": "run_subagent_success",
+            "title": "Result Type",
+            "default": "run_subagent_success"
+          },
+          "status": {
+            "type": "string",
+            "const": "success",
+            "title": "Status",
+            "default": "success"
+          },
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "agent_response": {
+            "type": "string",
+            "title": "Agent Response"
+          }
+        },
+        "type": "object",
+        "required": [
+          "query",
+          "agent_response"
+        ],
+        "title": "RunSubagentToolResultSuccessModel"
+      },
       "SIPLogMessage": {
         "properties": {
           "call_id": {
@@ -80033,6 +80276,84 @@
         ],
         "title": "StudioTextStyleShadowModel"
       },
+      "SubAgent-Input": {
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
+          },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "parameters": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ObjectJsonSchemaProperty-Input"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "agent_id",
+          "description"
+        ],
+        "title": "SubAgent"
+      },
+      "SubAgent-Output": {
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
+          },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "parameters": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ObjectJsonSchemaProperty-Output"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "agent_id",
+          "description"
+        ],
+        "title": "SubAgent"
+      },
       "SubmitBusinessInfoParams": {
         "properties": {
           "smb_tool_type": {
@@ -80649,6 +80970,9 @@
               },
               {
                 "$ref": "#/components/schemas/EndProcedureToolConfig-Input"
+              },
+              {
+                "$ref": "#/components/schemas/RunSubagentToolConfig-Input"
               }
             ],
             "title": "Params",
@@ -80660,6 +80984,7 @@
                 "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
+                "run_subagent": "#/components/schemas/RunSubagentToolConfig-Input",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
                 "start_procedure": "#/components/schemas/StartProcedureToolConfig-Input",
                 "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig",
@@ -80809,6 +81134,9 @@
               },
               {
                 "$ref": "#/components/schemas/EndProcedureToolConfig-Output"
+              },
+              {
+                "$ref": "#/components/schemas/RunSubagentToolConfig-Output"
               }
             ],
             "title": "Params",
@@ -80820,6 +81148,7 @@
                 "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
+                "run_subagent": "#/components/schemas/RunSubagentToolConfig-Output",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
                 "start_procedure": "#/components/schemas/StartProcedureToolConfig-Output",
                 "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig",
@@ -83444,6 +83773,14 @@
             "title": "Interruption Ignore Terms",
             "description": "List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching."
           },
+          "interruption_ignore_term_languages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Interruption Ignore Term Languages",
+            "description": "Language codes for which preset ignore-term categories have been activated. Stored explicitly so display is not inferred from term overlap."
+          },
           "transcribe_on_disabled_interruptions": {
             "type": "boolean",
             "title": "Transcribe On Disabled Interruptions",
@@ -83458,6 +83795,7 @@
         "type": "object",
         "title": "TurnConfig",
         "example": {
+          "interruption_ignore_term_languages": [],
           "interruption_ignore_terms": [],
           "mode": "turn",
           "retranscribe_on_turn_timeout": false,
@@ -83628,6 +83966,21 @@
             "title": "Interruption Ignore Terms",
             "description": "List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching."
           },
+          "interruption_ignore_term_languages": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interruption Ignore Term Languages",
+            "description": "Language codes for which preset ignore-term categories have been activated. Stored explicitly so display is not inferred from term overlap."
+          },
           "transcribe_on_disabled_interruptions": {
             "anyOf": [
               {
@@ -83655,6 +84008,7 @@
         "type": "object",
         "title": "TurnConfigWorkflowOverride",
         "example": {
+          "interruption_ignore_term_languages": [],
           "interruption_ignore_terms": [],
           "mode": "turn",
           "retranscribe_on_turn_timeout": false,
