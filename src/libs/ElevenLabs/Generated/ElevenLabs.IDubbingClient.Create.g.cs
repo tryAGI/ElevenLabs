@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ProjectResponse> CreateAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingProjectResponse> CreateAsync(
 
             global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProjectResponse>> CreateAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingProjectResponse>> CreateAsResponseAsync(
 
             global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -61,7 +61,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ProjectResponse> CreateAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingProjectResponse> CreateAsync(
             byte[]? file = default,
             string? filename = default,
             string? sourceUrl = default,

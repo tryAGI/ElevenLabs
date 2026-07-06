@@ -21,12 +21,12 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.TargetSegmentUpdateResponse> UpdateSegment2Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingTargetSegmentUpdateResponse> UpdateSegment2Async(
             string projectId,
             string languageId,
             string segmentId,
 
-            global::ElevenLabs.TargetSegmentUpdateRequest request,
+            global::ElevenLabs.DubbingTargetSegmentUpdateRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -46,12 +46,12 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.TargetSegmentUpdateResponse>> UpdateSegment2AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingTargetSegmentUpdateResponse>> UpdateSegment2AsResponseAsync(
             string projectId,
             string languageId,
             string segmentId,
 
-            global::ElevenLabs.TargetSegmentUpdateRequest request,
+            global::ElevenLabs.DubbingTargetSegmentUpdateRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -73,7 +73,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.TargetSegmentUpdateResponse> UpdateSegment2Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingTargetSegmentUpdateResponse> UpdateSegment2Async(
             string projectId,
             string languageId,
             string segmentId,
