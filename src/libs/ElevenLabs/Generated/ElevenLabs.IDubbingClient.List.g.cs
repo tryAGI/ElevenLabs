@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ProjectListResponse> ListAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingProjectListResponse> ListAsync(
             string? cursor = default,
             int? pageSize = default,
             string? status = default,
@@ -53,7 +53,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProjectListResponse>> ListAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingProjectListResponse>> ListAsResponseAsync(
             string? cursor = default,
             int? pageSize = default,
             string? status = default,
@@ -62,7 +62,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Wraps ListAsync as an IAsyncEnumerable&lt;global::ElevenLabs.ProjectResponse&gt; that auto-pages over the response.
+        /// Wraps ListAsync as an IAsyncEnumerable&lt;global::ElevenLabs.DubbingProjectResponse&gt; that auto-pages over the response.
         /// </summary>
         /// <param name="pageSize">
         /// Number of projects per page (max 100).<br/>
@@ -77,7 +77,7 @@ namespace ElevenLabs
         /// </param> 
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
-        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ProjectResponse> ListAutoPagingAsync(
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.DubbingProjectResponse> ListAutoPagingAsync(
               int? pageSize = default,
             string? status = default,
             global::ElevenLabs.DubbingProjectListSortDirection? sortDirection = default,

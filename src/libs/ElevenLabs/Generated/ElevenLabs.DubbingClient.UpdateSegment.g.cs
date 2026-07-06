@@ -29,13 +29,13 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string projectId,
             ref string segmentId,
-            global::ElevenLabs.SegmentUpdateRequest request);
+            global::ElevenLabs.DubbingSegmentUpdateRequest request);
         partial void PrepareUpdateSegmentRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string projectId,
             string segmentId,
-            global::ElevenLabs.SegmentUpdateRequest request);
+            global::ElevenLabs.DubbingSegmentUpdateRequest request);
         partial void ProcessUpdateSegmentResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -59,11 +59,11 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SourceSegmentUpdateResponse> UpdateSegmentAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingSourceSegmentUpdateResponse> UpdateSegmentAsync(
             string projectId,
             string segmentId,
 
-            global::ElevenLabs.SegmentUpdateRequest request,
+            global::ElevenLabs.DubbingSegmentUpdateRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -92,11 +92,11 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SourceSegmentUpdateResponse>> UpdateSegmentAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingSourceSegmentUpdateResponse>> UpdateSegmentAsResponseAsync(
             string projectId,
             string segmentId,
 
-            global::ElevenLabs.SegmentUpdateRequest request,
+            global::ElevenLabs.DubbingSegmentUpdateRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -422,9 +422,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.SourceSegmentUpdateResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.DubbingSourceSegmentUpdateResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SourceSegmentUpdateResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingSourceSegmentUpdateResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -454,9 +454,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.SourceSegmentUpdateResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.DubbingSourceSegmentUpdateResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SourceSegmentUpdateResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingSourceSegmentUpdateResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -521,7 +521,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SourceSegmentUpdateResponse> UpdateSegmentAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingSourceSegmentUpdateResponse> UpdateSegmentAsync(
             string projectId,
             string segmentId,
             string? text = default,
@@ -531,7 +531,7 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.SegmentUpdateRequest
+            var __request = new global::ElevenLabs.DubbingSegmentUpdateRequest
             {
                 Text = text,
                 SpeakerId = speakerId,

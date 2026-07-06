@@ -5941,7 +5941,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProjectResponse"
+                  "$ref": "#/components/schemas/DubbingProjectResponse"
                 }
               }
             }
@@ -6082,7 +6082,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProjectListResponse"
+                  "$ref": "#/components/schemas/DubbingProjectListResponse"
                 }
               }
             }
@@ -6182,7 +6182,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProjectResponse"
+                  "$ref": "#/components/schemas/DubbingProjectResponse"
                 }
               }
             }
@@ -6354,7 +6354,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LanguageResponse"
+                  "$ref": "#/components/schemas/DubbingLanguageResponse"
                 }
               }
             }
@@ -6492,7 +6492,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LanguageListResponse"
+                  "$ref": "#/components/schemas/DubbingLanguageListResponse"
                 }
               }
             }
@@ -6602,7 +6602,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LanguageResponse"
+                  "$ref": "#/components/schemas/DubbingLanguageResponse"
                 }
               }
             }
@@ -6774,7 +6774,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SourceTranscriptResponse"
+                  "$ref": "#/components/schemas/DubbingSourceTranscriptResponse"
                 }
               }
             }
@@ -6875,7 +6875,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SegmentUpdateRequest"
+                "$ref": "#/components/schemas/DubbingSegmentUpdateRequest"
               }
             }
           }
@@ -6886,7 +6886,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SourceSegmentUpdateResponse"
+                  "$ref": "#/components/schemas/DubbingSourceSegmentUpdateResponse"
                 }
               }
             }
@@ -6987,7 +6987,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TranscriptRevisionResponse"
+                  "$ref": "#/components/schemas/DubbingTranscriptRevisionResponse"
                 }
               }
             }
@@ -7068,7 +7068,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SegmentCreateRequest"
+                "$ref": "#/components/schemas/DubbingSegmentCreateRequest"
               }
             }
           }
@@ -7079,7 +7079,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SourceSegmentUpdateResponse"
+                  "$ref": "#/components/schemas/DubbingSourceSegmentUpdateResponse"
                 }
               }
             }
@@ -7184,7 +7184,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TargetTranscriptResponse"
+                  "$ref": "#/components/schemas/DubbingTargetTranscriptResponse"
                 }
               }
             }
@@ -7300,7 +7300,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/TargetSegmentUpdateRequest"
+                "$ref": "#/components/schemas/DubbingTargetSegmentUpdateRequest"
               }
             }
           }
@@ -7311,7 +7311,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TargetSegmentUpdateResponse"
+                  "$ref": "#/components/schemas/DubbingTargetSegmentUpdateResponse"
                 }
               }
             }
@@ -7417,7 +7417,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LanguageResponse"
+                  "$ref": "#/components/schemas/DubbingLanguageResponse"
                 }
               }
             }
@@ -56683,6 +56683,159 @@
         ],
         "title": "DubbedSegment"
       },
+      "DubbingLanguageListResponse": {
+        "properties": {
+          "languages": {
+            "items": {
+              "$ref": "#/components/schemas/DubbingLanguageResponse"
+            },
+            "type": "array",
+            "title": "Languages",
+            "description": "The page of language targets for the project."
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor",
+            "description": "Cursor for the next page, or null when there are no more results."
+          }
+        },
+        "type": "object",
+        "required": [
+          "languages"
+        ],
+        "title": "DubbingLanguageListResponse"
+      },
+      "DubbingLanguageOutputs": {
+        "properties": {
+          "lossless_audio": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lossless Audio",
+            "description": "Signed URL of the dubbed lossless audio track."
+          }
+        },
+        "type": "object",
+        "title": "DubbingLanguageOutputs",
+        "description": "Signed, time-limited download URLs for a language target's outputs."
+      },
+      "DubbingLanguageResponse": {
+        "properties": {
+          "language_id": {
+            "type": "string",
+            "title": "Language Id",
+            "description": "Unique identifier of the language target."
+          },
+          "project_id": {
+            "type": "string",
+            "title": "Project Id",
+            "description": "Identifier of the parent dubbing project."
+          },
+          "target_language": {
+            "type": "string",
+            "title": "Target Language",
+            "description": "BCP-47 language tag this target is dubbed into."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "processing",
+              "completed",
+              "stale",
+              "failed"
+            ],
+            "title": "Status",
+            "description": "Lifecycle status: 'queued' (waiting on the project), 'processing', 'completed', 'stale' (source/transcript changed), or 'failed'."
+          },
+          "model_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Id",
+            "description": "Effective dubbing model id (target override or project default)."
+          },
+          "voice_settings": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/VoiceSettings"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Voice settings applied to the whole language, or null if unset."
+          },
+          "outputs": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DubbingLanguageOutputs"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Signed output URLs; null until the target has produced an output (present once 'completed', and kept while 'stale' -- compare `output_revision` against `revision` to tell whether the output is up to date)."
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "Monotonic counter incremented whenever this target's transcript changes (a source edit affecting it, or an edit to its translation)."
+          },
+          "output_revision": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Output Revision",
+            "description": "The `revision` the current dubbed output was generated from; equal to `revision` when up to date, less than it when 'stale'. Null until a generation has completed."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "When the language target was created."
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At",
+            "description": "When the language target was last updated."
+          }
+        },
+        "type": "object",
+        "required": [
+          "language_id",
+          "project_id",
+          "target_language",
+          "status",
+          "revision",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "DubbingLanguageResponse"
+      },
       "DubbingMediaMetadata": {
         "properties": {
           "content_type": {
@@ -56888,6 +57041,138 @@
           ]
         }
       },
+      "DubbingProjectListResponse": {
+        "properties": {
+          "projects": {
+            "items": {
+              "$ref": "#/components/schemas/DubbingProjectResponse"
+            },
+            "type": "array",
+            "title": "Projects",
+            "description": "The page of dubbing projects the caller can access."
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor",
+            "description": "Cursor for the next page, or null when there are no more results."
+          }
+        },
+        "type": "object",
+        "required": [
+          "projects"
+        ],
+        "title": "DubbingProjectListResponse"
+      },
+      "DubbingProjectResponse": {
+        "properties": {
+          "project_id": {
+            "type": "string",
+            "title": "Project Id",
+            "description": "Unique identifier of the dubbing project."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "preparing",
+              "processing",
+              "ready",
+              "failed"
+            ],
+            "title": "Status",
+            "description": "Lifecycle status of the project: 'preparing'/'processing' while it transcribes, 'ready' once transcription is done, or 'failed'."
+          },
+          "reference": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference",
+            "description": "Optional free-form string the customer can provide to identify the project on their end."
+          },
+          "source_language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Language",
+            "description": "BCP-47 language tag of the source media (null if auto-detected)."
+          },
+          "model_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Id",
+            "description": "Default dubbing model id applied to this project's language targets."
+          },
+          "media": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DubbingSourceMediaInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Source media metadata; null until the project is ready."
+          },
+          "language_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Language Ids",
+            "description": "Identifiers of the language targets created under this project.",
+            "default": []
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "Monotonic counter incremented whenever the source transcript is edited (segment add/edit/delete)."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "When the project was created."
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At",
+            "description": "When the project was last updated."
+          }
+        },
+        "type": "object",
+        "required": [
+          "project_id",
+          "status",
+          "revision",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "DubbingProjectResponse"
+      },
       "DubbingRenderResponseModel": {
         "properties": {
           "version": {
@@ -56987,6 +57272,338 @@
         ],
         "title": "DubbingResource"
       },
+      "DubbingSegmentCreateRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "description": "The text of the new segment."
+          },
+          "speaker_id": {
+            "type": "string",
+            "title": "Speaker Id",
+            "description": "Identifier of the segment's speaker."
+          },
+          "start_s": {
+            "type": "number",
+            "title": "Start S",
+            "description": "Start time of the segment, in seconds."
+          },
+          "end_s": {
+            "type": "number",
+            "title": "End S",
+            "description": "End time of the segment, in seconds."
+          }
+        },
+        "type": "object",
+        "required": [
+          "text",
+          "speaker_id",
+          "start_s",
+          "end_s"
+        ],
+        "title": "DubbingSegmentCreateRequest",
+        "description": "A new source segment; its id and word-level alignment are assigned by the server."
+      },
+      "DubbingSegmentUpdateRequest": {
+        "properties": {
+          "text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Text",
+            "description": "New text for the segment."
+          },
+          "speaker_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Speaker Id",
+            "description": "New speaker id for the segment."
+          },
+          "start_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start S",
+            "description": "New start time, in seconds."
+          },
+          "end_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End S",
+            "description": "New end time, in seconds."
+          }
+        },
+        "type": "object",
+        "title": "DubbingSegmentUpdateRequest",
+        "description": "A partial update to a source segment; omitted fields are left unchanged."
+      },
+      "DubbingSourceMediaInfo": {
+        "properties": {
+          "filename": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filename",
+            "description": "Original filename of the uploaded source media (null for URL sources)."
+          },
+          "duration_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duration S",
+            "description": "Duration of the source media in seconds."
+          },
+          "has_video": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Has Video",
+            "description": "Whether the source media contains a video stream."
+          },
+          "mime_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mime Type",
+            "description": "MIME type of the uploaded source media."
+          }
+        },
+        "type": "object",
+        "title": "DubbingSourceMediaInfo",
+        "description": "Metadata about the project's source media."
+      },
+      "DubbingSourceSegmentUpdateResponse": {
+        "properties": {
+          "segment": {
+            "$ref": "#/components/schemas/DubbingTranscriptSegment",
+            "description": "The segment in its updated state."
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "The project's source-transcript revision after this edit."
+          }
+        },
+        "type": "object",
+        "required": [
+          "segment",
+          "revision"
+        ],
+        "title": "DubbingSourceSegmentUpdateResponse",
+        "description": "The result of a source-segment add or edit: the segment and the new revision."
+      },
+      "DubbingSourceTranscriptResponse": {
+        "properties": {
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language",
+            "description": "BCP-47 language tag of the source transcript (null if unknown)."
+          },
+          "segments": {
+            "items": {
+              "$ref": "#/components/schemas/DubbingTranscriptSegment"
+            },
+            "type": "array",
+            "title": "Segments",
+            "description": "The source segments, in playback order."
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "The project's source-transcript revision at read time."
+          }
+        },
+        "type": "object",
+        "required": [
+          "segments",
+          "revision"
+        ],
+        "title": "DubbingSourceTranscriptResponse"
+      },
+      "DubbingTargetSegmentUpdateRequest": {
+        "properties": {
+          "translation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Translation",
+            "description": "New translated text, or null to mark the segment for re-translation."
+          }
+        },
+        "type": "object",
+        "required": [
+          "translation"
+        ],
+        "title": "DubbingTargetSegmentUpdateRequest",
+        "description": "An edit to a target segment's translation."
+      },
+      "DubbingTargetSegmentUpdateResponse": {
+        "properties": {
+          "segment": {
+            "$ref": "#/components/schemas/DubbingTargetTranscriptSegment",
+            "description": "The target segment in its updated state."
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "The target's revision after this edit."
+          }
+        },
+        "type": "object",
+        "required": [
+          "segment",
+          "revision"
+        ],
+        "title": "DubbingTargetSegmentUpdateResponse",
+        "description": "The result of a target-translation edit: the updated segment and the new revision."
+      },
+      "DubbingTargetTranscriptResponse": {
+        "properties": {
+          "source_language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Language",
+            "description": "BCP-47 language tag of the source transcript."
+          },
+          "target_language": {
+            "type": "string",
+            "title": "Target Language",
+            "description": "BCP-47 language tag this target is translated into."
+          },
+          "segments": {
+            "items": {
+              "$ref": "#/components/schemas/DubbingTargetTranscriptSegment"
+            },
+            "type": "array",
+            "title": "Segments",
+            "description": "The target segments, in playback order."
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "The target's revision at read time."
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_language",
+          "segments",
+          "revision"
+        ],
+        "title": "DubbingTargetTranscriptResponse"
+      },
+      "DubbingTargetTranscriptSegment": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Stable identifier of the segment (from the source)."
+          },
+          "speaker_id": {
+            "type": "string",
+            "title": "Speaker Id",
+            "description": "Identifier of the segment's speaker."
+          },
+          "start_s": {
+            "type": "number",
+            "title": "Start S",
+            "description": "Start time of the segment, in seconds."
+          },
+          "end_s": {
+            "type": "number",
+            "title": "End S",
+            "description": "End time of the segment, in seconds."
+          },
+          "source_text": {
+            "type": "string",
+            "title": "Source Text",
+            "description": "The source-language text of the segment."
+          },
+          "translation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Translation",
+            "description": "The translated text, or null if not translated yet (needs translation)."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "speaker_id",
+          "start_s",
+          "end_s",
+          "source_text"
+        ],
+        "title": "DubbingTargetTranscriptSegment",
+        "description": "One segment of a target transcript: a source segment plus its translation."
+      },
       "DubbingTranscript": {
         "properties": {
           "language": {
@@ -57049,6 +57666,60 @@
           "utterances"
         ],
         "title": "DubbingTranscriptResponseModel"
+      },
+      "DubbingTranscriptRevisionResponse": {
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "The project's source-transcript revision after this edit."
+          }
+        },
+        "type": "object",
+        "required": [
+          "revision"
+        ],
+        "title": "DubbingTranscriptRevisionResponse",
+        "description": "The new revision after a source edit that returns no segment (e.g. a delete)."
+      },
+      "DubbingTranscriptSegment": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Stable identifier of the segment."
+          },
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "description": "The transcribed text of the segment."
+          },
+          "speaker_id": {
+            "type": "string",
+            "title": "Speaker Id",
+            "description": "Identifier of the segment's speaker."
+          },
+          "start_s": {
+            "type": "number",
+            "title": "Start S",
+            "description": "Start time of the segment, in seconds."
+          },
+          "end_s": {
+            "type": "number",
+            "title": "End S",
+            "description": "End time of the segment, in seconds."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "text",
+          "speaker_id",
+          "start_s",
+          "end_s"
+        ],
+        "title": "DubbingTranscriptSegment",
+        "description": "One segment of a source transcript."
       },
       "DubbingTranscriptUtterance": {
         "properties": {
@@ -64921,54 +65592,6 @@
           "label": "Spanish (Spain)"
         }
       },
-      "LanguageListResponse": {
-        "properties": {
-          "languages": {
-            "items": {
-              "$ref": "#/components/schemas/LanguageResponse"
-            },
-            "type": "array",
-            "title": "Languages",
-            "description": "The page of language targets for the project."
-          },
-          "next_cursor": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Next Cursor",
-            "description": "Cursor for the next page, or null when there are no more results."
-          }
-        },
-        "type": "object",
-        "required": [
-          "languages"
-        ],
-        "title": "LanguageListResponse"
-      },
-      "LanguageOutputs": {
-        "properties": {
-          "lossless_audio": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Lossless Audio",
-            "description": "Signed URL of the dubbed lossless audio track."
-          }
-        },
-        "type": "object",
-        "title": "LanguageOutputs",
-        "description": "Signed, time-limited download URLs for a language target's outputs."
-      },
       "LanguagePairInfo": {
         "properties": {
           "source_language": {
@@ -65094,111 +65717,6 @@
           "text"
         ],
         "title": "LanguagePresetTranslation"
-      },
-      "LanguageResponse": {
-        "properties": {
-          "language_id": {
-            "type": "string",
-            "title": "Language Id",
-            "description": "Unique identifier of the language target."
-          },
-          "project_id": {
-            "type": "string",
-            "title": "Project Id",
-            "description": "Identifier of the parent dubbing project."
-          },
-          "target_language": {
-            "type": "string",
-            "title": "Target Language",
-            "description": "BCP-47 language tag this target is dubbed into."
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "queued",
-              "processing",
-              "completed",
-              "stale",
-              "failed"
-            ],
-            "title": "Status",
-            "description": "Lifecycle status: 'queued' (waiting on the project), 'processing', 'completed', 'stale' (source/transcript changed), or 'failed'."
-          },
-          "model_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Model Id",
-            "description": "Effective dubbing model id (target override or project default)."
-          },
-          "voice_settings": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/VoiceSettings"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Voice settings applied to the whole language, or null if unset."
-          },
-          "outputs": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/LanguageOutputs"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Signed output URLs; null until the target has produced an output (present once 'completed', and kept while 'stale' -- compare `output_revision` against `revision` to tell whether the output is up to date)."
-          },
-          "revision": {
-            "type": "integer",
-            "title": "Revision",
-            "description": "Monotonic counter incremented whenever this target's transcript changes (a source edit affecting it, or an edit to its translation)."
-          },
-          "output_revision": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Output Revision",
-            "description": "The `revision` the current dubbed output was generated from; equal to `revision` when up to date, less than it when 'stale'. Null until a generation has completed."
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Created At",
-            "description": "When the language target was created."
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Updated At",
-            "description": "When the language target was last updated."
-          }
-        },
-        "type": "object",
-        "required": [
-          "language_id",
-          "project_id",
-          "target_language",
-          "status",
-          "revision",
-          "created_at",
-          "updated_at"
-        ],
-        "title": "LanguageResponse"
       },
       "LanguageResponseModel": {
         "properties": {
@@ -68254,61 +68772,6 @@
       "MediaId": {
         "type": "string",
         "pattern": "^prodmedia_[a-z0-9]{26}$"
-      },
-      "MediaInfo": {
-        "properties": {
-          "filename": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Filename",
-            "description": "Original filename of the uploaded source media (null for URL sources)."
-          },
-          "duration_s": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Duration S",
-            "description": "Duration of the source media in seconds."
-          },
-          "has_video": {
-            "anyOf": [
-              {
-                "type": "boolean"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Has Video",
-            "description": "Whether the source media contains a video stream."
-          },
-          "mime_type": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Mime Type",
-            "description": "MIME type of the uploaded source media."
-          }
-        },
-        "type": "object",
-        "title": "MediaInfo",
-        "description": "Metadata about the project's source media."
       },
       "MemoryEntrySearchResult": {
         "properties": {
@@ -73710,35 +74173,6 @@
         ],
         "title": "ProjectImageResponseModel"
       },
-      "ProjectListResponse": {
-        "properties": {
-          "projects": {
-            "items": {
-              "$ref": "#/components/schemas/ProjectResponse"
-            },
-            "type": "array",
-            "title": "Projects",
-            "description": "The page of dubbing projects the caller can access."
-          },
-          "next_cursor": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Next Cursor",
-            "description": "Cursor for the next page, or null when there are no more results."
-          }
-        },
-        "type": "object",
-        "required": [
-          "projects"
-        ],
-        "title": "ProjectListResponse"
-      },
       "ProjectMutedTracksResponseModel": {
         "properties": {
           "chapter_ids": {
@@ -73760,109 +74194,6 @@
             "aw1NgEzBg83R7vgmiJt6"
           ]
         }
-      },
-      "ProjectResponse": {
-        "properties": {
-          "project_id": {
-            "type": "string",
-            "title": "Project Id",
-            "description": "Unique identifier of the dubbing project."
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "queued",
-              "preparing",
-              "processing",
-              "ready",
-              "failed"
-            ],
-            "title": "Status",
-            "description": "Lifecycle status of the project: 'preparing'/'processing' while it transcribes, 'ready' once transcription is done, or 'failed'."
-          },
-          "reference": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Reference",
-            "description": "Optional free-form string the customer can provide to identify the project on their end."
-          },
-          "source_language": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Source Language",
-            "description": "BCP-47 language tag of the source media (null if auto-detected)."
-          },
-          "model_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Model Id",
-            "description": "Default dubbing model id applied to this project's language targets."
-          },
-          "media": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/MediaInfo"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Source media metadata; null until the project is ready."
-          },
-          "language_ids": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Language Ids",
-            "description": "Identifiers of the language targets created under this project.",
-            "default": []
-          },
-          "revision": {
-            "type": "integer",
-            "title": "Revision",
-            "description": "Monotonic counter incremented whenever the source transcript is edited (segment add/edit/delete)."
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Created At",
-            "description": "When the project was created."
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Updated At",
-            "description": "When the project was last updated."
-          }
-        },
-        "type": "object",
-        "required": [
-          "project_id",
-          "status",
-          "revision",
-          "created_at",
-          "updated_at"
-        ],
-        "title": "ProjectResponse"
       },
       "ProjectResponseModel": {
         "properties": {
@@ -79601,39 +79932,6 @@
         ],
         "title": "SegmentCreatePayload"
       },
-      "SegmentCreateRequest": {
-        "properties": {
-          "text": {
-            "type": "string",
-            "title": "Text",
-            "description": "The text of the new segment."
-          },
-          "speaker_id": {
-            "type": "string",
-            "title": "Speaker Id",
-            "description": "Identifier of the segment's speaker."
-          },
-          "start_s": {
-            "type": "number",
-            "title": "Start S",
-            "description": "Start time of the segment, in seconds."
-          },
-          "end_s": {
-            "type": "number",
-            "title": "End S",
-            "description": "End time of the segment, in seconds."
-          }
-        },
-        "type": "object",
-        "required": [
-          "text",
-          "speaker_id",
-          "start_s",
-          "end_s"
-        ],
-        "title": "SegmentCreateRequest",
-        "description": "A new source segment; its id and word-level alignment are assigned by the server."
-      },
       "SegmentCreateResponse": {
         "properties": {
           "version": {
@@ -79781,61 +80079,6 @@
         },
         "type": "object",
         "title": "SegmentUpdatePayload"
-      },
-      "SegmentUpdateRequest": {
-        "properties": {
-          "text": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Text",
-            "description": "New text for the segment."
-          },
-          "speaker_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Speaker Id",
-            "description": "New speaker id for the segment."
-          },
-          "start_s": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Start S",
-            "description": "New start time, in seconds."
-          },
-          "end_s": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "End S",
-            "description": "New end time, in seconds."
-          }
-        },
-        "type": "object",
-        "title": "SegmentUpdateRequest",
-        "description": "A partial update to a source segment; omitted fields are left unchanged."
       },
       "SegmentUpdateResponse": {
         "properties": {
@@ -80960,61 +81203,6 @@
           "desc"
         ],
         "title": "SortDirection"
-      },
-      "SourceSegmentUpdateResponse": {
-        "properties": {
-          "segment": {
-            "$ref": "#/components/schemas/TranscriptSegment",
-            "description": "The segment in its updated state."
-          },
-          "revision": {
-            "type": "integer",
-            "title": "Revision",
-            "description": "The project's source-transcript revision after this edit."
-          }
-        },
-        "type": "object",
-        "required": [
-          "segment",
-          "revision"
-        ],
-        "title": "SourceSegmentUpdateResponse",
-        "description": "The result of a source-segment add or edit: the segment and the new revision."
-      },
-      "SourceTranscriptResponse": {
-        "properties": {
-          "language": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Language",
-            "description": "BCP-47 language tag of the source transcript (null if unknown)."
-          },
-          "segments": {
-            "items": {
-              "$ref": "#/components/schemas/TranscriptSegment"
-            },
-            "type": "array",
-            "title": "Segments",
-            "description": "The source segments, in playback order."
-          },
-          "revision": {
-            "type": "integer",
-            "title": "Revision",
-            "description": "The project's source-transcript revision at read time."
-          }
-        },
-        "type": "object",
-        "required": [
-          "segments",
-          "revision"
-        ],
-        "title": "SourceTranscriptResponse"
       },
       "SpeakerAudioResponseModel": {
         "properties": {
@@ -84287,140 +84475,6 @@
         "title": "TTSOutputFormat",
         "default": "pcm_16000"
       },
-      "TargetSegmentUpdateRequest": {
-        "properties": {
-          "translation": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Translation",
-            "description": "New translated text, or null to mark the segment for re-translation."
-          }
-        },
-        "type": "object",
-        "required": [
-          "translation"
-        ],
-        "title": "TargetSegmentUpdateRequest",
-        "description": "An edit to a target segment's translation."
-      },
-      "TargetSegmentUpdateResponse": {
-        "properties": {
-          "segment": {
-            "$ref": "#/components/schemas/TargetTranscriptSegment",
-            "description": "The target segment in its updated state."
-          },
-          "revision": {
-            "type": "integer",
-            "title": "Revision",
-            "description": "The target's revision after this edit."
-          }
-        },
-        "type": "object",
-        "required": [
-          "segment",
-          "revision"
-        ],
-        "title": "TargetSegmentUpdateResponse",
-        "description": "The result of a target-translation edit: the updated segment and the new revision."
-      },
-      "TargetTranscriptResponse": {
-        "properties": {
-          "source_language": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Source Language",
-            "description": "BCP-47 language tag of the source transcript."
-          },
-          "target_language": {
-            "type": "string",
-            "title": "Target Language",
-            "description": "BCP-47 language tag this target is translated into."
-          },
-          "segments": {
-            "items": {
-              "$ref": "#/components/schemas/TargetTranscriptSegment"
-            },
-            "type": "array",
-            "title": "Segments",
-            "description": "The target segments, in playback order."
-          },
-          "revision": {
-            "type": "integer",
-            "title": "Revision",
-            "description": "The target's revision at read time."
-          }
-        },
-        "type": "object",
-        "required": [
-          "target_language",
-          "segments",
-          "revision"
-        ],
-        "title": "TargetTranscriptResponse"
-      },
-      "TargetTranscriptSegment": {
-        "properties": {
-          "id": {
-            "type": "string",
-            "title": "Id",
-            "description": "Stable identifier of the segment (from the source)."
-          },
-          "speaker_id": {
-            "type": "string",
-            "title": "Speaker Id",
-            "description": "Identifier of the segment's speaker."
-          },
-          "start_s": {
-            "type": "number",
-            "title": "Start S",
-            "description": "Start time of the segment, in seconds."
-          },
-          "end_s": {
-            "type": "number",
-            "title": "End S",
-            "description": "End time of the segment, in seconds."
-          },
-          "source_text": {
-            "type": "string",
-            "title": "Source Text",
-            "description": "The source-language text of the segment."
-          },
-          "translation": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Translation",
-            "description": "The translated text, or null if not translated yet (needs translation)."
-          }
-        },
-        "type": "object",
-        "required": [
-          "id",
-          "speaker_id",
-          "start_s",
-          "end_s",
-          "source_text"
-        ],
-        "title": "TargetTranscriptSegment",
-        "description": "One segment of a target transcript: a source segment plus its translation."
-      },
       "TelephonyCallConfig": {
         "properties": {
           "ringing_timeout_secs": {
@@ -85675,60 +85729,6 @@
         "type": "object",
         "title": "TopicDiscoverySettings",
         "description": "Per-agent topic-discovery configuration. Cadence and analysis window are\nmanaged internally; this only exposes the customer-facing on/off toggle."
-      },
-      "TranscriptRevisionResponse": {
-        "properties": {
-          "revision": {
-            "type": "integer",
-            "title": "Revision",
-            "description": "The project's source-transcript revision after this edit."
-          }
-        },
-        "type": "object",
-        "required": [
-          "revision"
-        ],
-        "title": "TranscriptRevisionResponse",
-        "description": "The new revision after a source edit that returns no segment (e.g. a delete)."
-      },
-      "TranscriptSegment": {
-        "properties": {
-          "id": {
-            "type": "string",
-            "title": "Id",
-            "description": "Stable identifier of the segment."
-          },
-          "text": {
-            "type": "string",
-            "title": "Text",
-            "description": "The transcribed text of the segment."
-          },
-          "speaker_id": {
-            "type": "string",
-            "title": "Speaker Id",
-            "description": "Identifier of the segment's speaker."
-          },
-          "start_s": {
-            "type": "number",
-            "title": "Start S",
-            "description": "Start time of the segment, in seconds."
-          },
-          "end_s": {
-            "type": "number",
-            "title": "End S",
-            "description": "End time of the segment, in seconds."
-          }
-        },
-        "type": "object",
-        "required": [
-          "id",
-          "text",
-          "speaker_id",
-          "start_s",
-          "end_s"
-        ],
-        "title": "TranscriptSegment",
-        "description": "One segment of a source transcript."
       },
       "TransferBranchInfoDefaultingToMain": {
         "properties": {

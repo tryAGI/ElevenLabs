@@ -68,7 +68,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ProjectListResponse> ListAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingProjectListResponse> ListAsync(
             string? cursor = default,
             int? pageSize = default,
             string? status = default,
@@ -108,7 +108,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProjectListResponse>> ListAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingProjectListResponse>> ListAsResponseAsync(
             string? cursor = default,
             int? pageSize = default,
             string? status = default,
@@ -438,9 +438,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ProjectListResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.DubbingProjectListResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProjectListResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingProjectListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -470,9 +470,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ProjectListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.DubbingProjectListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProjectListResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingProjectListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -514,7 +514,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Wraps ListAsync as an IAsyncEnumerable&lt;global::ElevenLabs.ProjectResponse&gt; that auto-pages over the response.
+        /// Wraps ListAsync as an IAsyncEnumerable&lt;global::ElevenLabs.DubbingProjectResponse&gt; that auto-pages over the response.
         /// </summary>
         /// <param name="pageSize">
         /// Number of projects per page (max 100).<br/>
@@ -529,14 +529,14 @@ namespace ElevenLabs
         /// </param> 
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
-        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ProjectResponse> ListAutoPagingAsync(
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.DubbingProjectResponse> ListAutoPagingAsync(
               int? pageSize = default,
             string? status = default,
             global::ElevenLabs.DubbingProjectListSortDirection? sortDirection = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.ProjectListResponse, global::ElevenLabs.ProjectResponse>(
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.DubbingProjectListResponse, global::ElevenLabs.DubbingProjectResponse>(
                 fetchPage: (__cursor, __ct) => ListAsync(
                     cursor: __cursor,
                     pageSize: pageSize,
@@ -545,7 +545,7 @@ namespace ElevenLabs
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null
                     ? null
-                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.ProjectResponse>?)__response.Projects,
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.DubbingProjectResponse>?)__response.Projects,
                 extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
                 initialCursor: cursor,
                 cancellationToken: cancellationToken);

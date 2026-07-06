@@ -67,7 +67,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.LanguageListResponse> List2Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingLanguageListResponse> List2Async(
             string projectId,
             string? cursor = default,
             int? pageSize = default,
@@ -106,7 +106,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LanguageListResponse>> List2AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingLanguageListResponse>> List2AsResponseAsync(
             string projectId,
             string? cursor = default,
             int? pageSize = default,
@@ -435,9 +435,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.LanguageListResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.DubbingLanguageListResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LanguageListResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingLanguageListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -467,9 +467,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.LanguageListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.DubbingLanguageListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LanguageListResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingLanguageListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -511,7 +511,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Wraps List2Async as an IAsyncEnumerable&lt;global::ElevenLabs.LanguageResponse&gt; that auto-pages over the response.
+        /// Wraps List2Async as an IAsyncEnumerable&lt;global::ElevenLabs.DubbingLanguageResponse&gt; that auto-pages over the response.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the parent dubbing project.
@@ -525,13 +525,13 @@ namespace ElevenLabs
         /// </param> 
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
-        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.LanguageResponse> List2AutoPagingAsync(
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.DubbingLanguageResponse> List2AutoPagingAsync(
             string projectId,             int? pageSize = default,
             string? status = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.LanguageListResponse, global::ElevenLabs.LanguageResponse>(
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.DubbingLanguageListResponse, global::ElevenLabs.DubbingLanguageResponse>(
                 fetchPage: (__cursor, __ct) => List2Async(
                     projectId: projectId,
                     cursor: __cursor,
@@ -540,7 +540,7 @@ namespace ElevenLabs
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null
                     ? null
-                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.LanguageResponse>?)__response.Languages,
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.DubbingLanguageResponse>?)__response.Languages,
                 extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
                 initialCursor: cursor,
                 cancellationToken: cancellationToken);
