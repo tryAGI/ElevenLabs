@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public sealed partial class BodyCreateDubbingProjectV1DubbingProjectPostKeyterms
+    public sealed partial class BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostVoiceSettings
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -47,20 +47,20 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostKeyterms? FromJson(
+        public static global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostVoiceSettings? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostKeyterms),
-                jsonSerializerContext) as global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostKeyterms;
+                typeof(global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostVoiceSettings),
+                jsonSerializerContext) as global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostVoiceSettings;
         }
 
         /// <summary>
         /// Deserializes a JSON string using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostKeyterms? FromJson(
+        public static global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostVoiceSettings? FromJson(
             string json)
         {
             return FromJson(
@@ -75,7 +75,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostKeyterms? FromJson(
+        public static global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostVoiceSettings? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -86,7 +86,7 @@ namespace ElevenLabs
                     global::ElevenLabs.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostKeyterms>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostVoiceSettings>(
                 json,
                 jsonSerializerOptions);
         }
@@ -94,20 +94,20 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostKeyterms?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostVoiceSettings?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostKeyterms),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostKeyterms;
+                typeof(global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostVoiceSettings),
+                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostVoiceSettings;
         }
 
         /// <summary>
         /// Deserializes a JSON stream using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostKeyterms?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostVoiceSettings?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream)
         {
             return FromJsonStreamAsync(
@@ -122,7 +122,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostKeyterms?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostVoiceSettings?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -133,7 +133,7 @@ namespace ElevenLabs
                     global::ElevenLabs.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostKeyterms?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostVoiceSettings?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

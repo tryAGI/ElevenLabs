@@ -44,6 +44,12 @@ namespace ElevenLabs
         public string? ModelId { get; set; }
 
         /// <summary>
+        /// Voice settings applied to the whole language, or null if unset.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voice_settings")]
+        public global::ElevenLabs.VoiceSettings? VoiceSettings { get; set; }
+
+        /// <summary>
         /// Signed output URLs; null until the target has produced an output (present once 'completed', and kept while 'stale' -- compare `output_revision` against `revision` to tell whether the output is up to date).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("outputs")]
@@ -109,6 +115,9 @@ namespace ElevenLabs
         /// <param name="modelId">
         /// Effective dubbing model id (target override or project default).
         /// </param>
+        /// <param name="voiceSettings">
+        /// Voice settings applied to the whole language, or null if unset.
+        /// </param>
         /// <param name="outputs">
         /// Signed output URLs; null until the target has produced an output (present once 'completed', and kept while 'stale' -- compare `output_revision` against `revision` to tell whether the output is up to date).
         /// </param>
@@ -127,6 +136,7 @@ namespace ElevenLabs
             global::System.DateTime createdAt,
             global::System.DateTime updatedAt,
             string? modelId,
+            global::ElevenLabs.VoiceSettings? voiceSettings,
             global::ElevenLabs.LanguageOutputs? outputs,
             int? outputRevision)
         {
@@ -135,6 +145,7 @@ namespace ElevenLabs
             this.TargetLanguage = targetLanguage ?? throw new global::System.ArgumentNullException(nameof(targetLanguage));
             this.Status = status;
             this.ModelId = modelId;
+            this.VoiceSettings = voiceSettings;
             this.Outputs = outputs;
             this.Revision = revision;
             this.OutputRevision = outputRevision;

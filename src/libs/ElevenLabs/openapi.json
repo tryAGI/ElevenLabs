@@ -38890,6 +38890,17 @@
             ],
             "title": "Model Id",
             "description": "Dubbing model id for this target; omit to use the project default."
+          },
+          "voice_settings": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/VoiceSettings"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Voice settings applied to the whole language (e.g. cloning strength)."
           }
         },
         "type": "object",
@@ -38963,19 +38974,12 @@
             "description": "Default dubbing model id for the project's language targets; a target may override it. Omit to use the system default."
           },
           "keyterms": {
-            "anyOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
             "title": "Keyterms",
-            "description": "Key terms to bias transcription/translation toward (e.g. product or brand names)."
+            "description": "Key terms to bias transcription/translation toward (e.g. product or brand names). At most 1000 terms; each term at most 50 characters and 5 words; the characters `<>{}[]\\` are not allowed."
           },
           "target_language": {
             "anyOf": [
@@ -65132,6 +65136,17 @@
             "title": "Model Id",
             "description": "Effective dubbing model id (target override or project default)."
           },
+          "voice_settings": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/VoiceSettings"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Voice settings applied to the whole language, or null if unset."
+          },
           "outputs": {
             "anyOf": [
               {
@@ -90536,6 +90551,20 @@
           "dialogue_input_index"
         ],
         "title": "VoiceSegment"
+      },
+      "VoiceSettings": {
+        "properties": {
+          "cloning_strength": {
+            "type": "integer",
+            "maximum": 10.0,
+            "minimum": 0.0,
+            "title": "Cloning Strength",
+            "description": "How strongly the dubbed speakers clone the source voices, 0 to 10.",
+            "default": 7
+          }
+        },
+        "type": "object",
+        "title": "VoiceSettings"
       },
       "VoiceSettingsResponseModel": {
         "properties": {
