@@ -22,6 +22,12 @@ namespace ElevenLabs
         public string? ModelId { get; set; }
 
         /// <summary>
+        /// Voice settings applied to the whole language (e.g. cloning strength).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voice_settings")]
+        public global::ElevenLabs.VoiceSettings? VoiceSettings { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -36,15 +42,20 @@ namespace ElevenLabs
         /// <param name="modelId">
         /// Dubbing model id for this target; omit to use the project default.
         /// </param>
+        /// <param name="voiceSettings">
+        /// Voice settings applied to the whole language (e.g. cloning strength).
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePost(
             string targetLanguage,
-            string? modelId)
+            string? modelId,
+            global::ElevenLabs.VoiceSettings? voiceSettings)
         {
             this.TargetLanguage = targetLanguage ?? throw new global::System.ArgumentNullException(nameof(targetLanguage));
             this.ModelId = modelId;
+            this.VoiceSettings = voiceSettings;
         }
 
         /// <summary>

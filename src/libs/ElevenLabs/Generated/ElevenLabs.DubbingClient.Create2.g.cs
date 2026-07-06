@@ -496,6 +496,9 @@ namespace ElevenLabs
         /// <param name="modelId">
         /// Dubbing model id for this target; omit to use the project default.
         /// </param>
+        /// <param name="voiceSettings">
+        /// Voice settings applied to the whole language (e.g. cloning strength).
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -503,6 +506,7 @@ namespace ElevenLabs
             string projectId,
             string targetLanguage,
             string? modelId = default,
+            global::ElevenLabs.VoiceSettings? voiceSettings = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -510,6 +514,7 @@ namespace ElevenLabs
             {
                 TargetLanguage = targetLanguage,
                 ModelId = modelId,
+                VoiceSettings = voiceSettings,
             };
 
             return await Create2Async(

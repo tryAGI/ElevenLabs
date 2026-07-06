@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Key terms to bias transcription/translation toward (e.g. product or brand names).
+    /// Voice settings applied to the whole language (e.g. cloning strength).
     /// </summary>
-    public sealed partial class BodyCreateDubbingProjectV1DubbingProjectPostKeyterms
+    public sealed partial class BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostVoiceSettings
     {
 
         /// <summary>

@@ -45,7 +45,7 @@ namespace ElevenLabs
         public string? ModelId { get; set; }
 
         /// <summary>
-        /// Key terms to bias transcription/translation toward (e.g. product or brand names).
+        /// Key terms to bias transcription/translation toward (e.g. product or brand names). At most 1000 terms; each term at most 50 characters and 5 words; the characters `&lt;&gt;{}[]\` are not allowed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("keyterms")]
         public global::System.Collections.Generic.IList<string>? Keyterms { get; set; }
@@ -84,7 +84,7 @@ namespace ElevenLabs
         /// Default dubbing model id for the project's language targets; a target may override it. Omit to use the system default.
         /// </param>
         /// <param name="keyterms">
-        /// Key terms to bias transcription/translation toward (e.g. product or brand names).
+        /// Key terms to bias transcription/translation toward (e.g. product or brand names). At most 1000 terms; each term at most 50 characters and 5 words; the characters `&lt;&gt;{}[]\` are not allowed.
         /// </param>
         /// <param name="targetLanguage">
         /// Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready.
