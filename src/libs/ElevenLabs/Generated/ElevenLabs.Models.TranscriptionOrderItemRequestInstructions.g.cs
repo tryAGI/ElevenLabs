@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// If set, overrides the server's tool_call_sound setting for this tool
+    /// Optional free-text instructions for the transcription team.
     /// </summary>
-    public sealed partial class MCPToolConfigOverrideCreateRequestModelToolCallSound
+    public sealed partial class TranscriptionOrderItemRequestInstructions
     {
 
         /// <summary>

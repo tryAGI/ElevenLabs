@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// If set, overrides the server's tool_call_sound setting for this tool
+    /// 
     /// </summary>
-    public sealed partial class MCPToolConfigOverrideInputToolCallSound
+    public sealed partial class NumericDistributionAggregateMax
     {
 
         /// <summary>

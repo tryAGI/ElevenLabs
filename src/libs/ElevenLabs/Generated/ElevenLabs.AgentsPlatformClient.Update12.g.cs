@@ -31,12 +31,14 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string mcpServerId,
             ref string toolName,
+            ref string? environment,
             global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request);
         partial void PrepareUpdate12Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string mcpServerId,
             string toolName,
+            string? environment,
             global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request);
         partial void ProcessUpdate12Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -57,6 +59,10 @@ namespace ElevenLabs
         /// <param name="toolName">
         /// Name of the MCP tool to update config overrides for.
         /// </param>
+        /// <param name="environment">
+        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
+        /// Default Value: production
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -66,6 +72,7 @@ namespace ElevenLabs
             string toolName,
 
             global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request,
+            string? environment = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -74,6 +81,7 @@ namespace ElevenLabs
                 toolName: toolName,
 
                 request: request,
+                environment: environment,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -90,6 +98,10 @@ namespace ElevenLabs
         /// <param name="toolName">
         /// Name of the MCP tool to update config overrides for.
         /// </param>
+        /// <param name="environment">
+        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
+        /// Default Value: production
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -99,6 +111,7 @@ namespace ElevenLabs
             string toolName,
 
             global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel request,
+            string? environment = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -110,6 +123,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 mcpServerId: ref mcpServerId,
                 toolName: ref toolName,
+                environment: ref environment,
                 request: request);
 
 
@@ -138,6 +152,9 @@ namespace ElevenLabs
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("environment", environment)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -186,6 +203,7 @@ namespace ElevenLabs
                     httpRequestMessage: __httpRequest,
                     mcpServerId: mcpServerId!,
                     toolName: toolName!,
+                    environment: environment,
                     request: request);
 
                 return __httpRequest;
@@ -540,6 +558,10 @@ namespace ElevenLabs
         /// <param name="toolName">
         /// Name of the MCP tool to update config overrides for.
         /// </param>
+        /// <param name="environment">
+        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
+        /// Default Value: production
+        /// </param>
         /// <param name="preToolSpeech">
         /// If set, overrides the server's pre_tool_speech setting for this tool.
         /// </param>
@@ -547,7 +569,7 @@ namespace ElevenLabs
         /// If set, overrides the server's interruption_mode setting for this tool.
         /// </param>
         /// <param name="toolCallSound">
-        /// If set, overrides the server's tool_call_sound setting for this tool
+        /// Overrides the server's tool_call_sound setting for this tool. A sound name plays that sound; 'off' overrides to no sound (silence); null means do not override (inherit the server default).
         /// </param>
         /// <param name="toolCallSoundBehavior">
         /// If set, overrides the server's tool_call_sound_behavior setting for this tool
@@ -573,9 +595,10 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update12Async(
             string mcpServerId,
             string toolName,
+            string? environment = default,
             global::ElevenLabs.PreToolSpeechMode? preToolSpeech = default,
             global::ElevenLabs.ToolInterruptionMode? interruptionMode = default,
-            global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.ToolCallSoundType?, string, object>? toolCallSound = default,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
             global::ElevenLabs.ToolExecutionMode? executionMode = default,
             int? responseTimeoutSecs = default,
@@ -601,6 +624,7 @@ namespace ElevenLabs
             return await Update12Async(
                 mcpServerId: mcpServerId,
                 toolName: toolName,
+                environment: environment,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

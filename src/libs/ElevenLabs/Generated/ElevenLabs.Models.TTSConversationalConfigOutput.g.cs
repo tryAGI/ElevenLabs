@@ -51,7 +51,7 @@ namespace ElevenLabs
         public global::ElevenLabs.TTSOutputFormat? AgentOutputAudioFormat { get; set; }
 
         /// <summary>
-        /// The optimization for streaming latency<br/>
+        /// Deprecated: this field is a no-op and is ignored.<br/>
         /// Default Value: 3
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("optimize_streaming_latency")]
@@ -136,10 +136,6 @@ namespace ElevenLabs
         /// The audio format to use for TTS<br/>
         /// Default Value: pcm_16000
         /// </param>
-        /// <param name="optimizeStreamingLatency">
-        /// The optimization for streaming latency<br/>
-        /// Default Value: 3
-        /// </param>
         /// <param name="stability">
         /// The stability of generated speech<br/>
         /// Default Value: 0.5F
@@ -176,7 +172,6 @@ namespace ElevenLabs
             bool? expressiveMode,
             global::System.Collections.Generic.IList<global::ElevenLabs.SuggestedAudioTag>? suggestedAudioTags,
             global::ElevenLabs.TTSOutputFormat? agentOutputAudioFormat,
-            int? optimizeStreamingLatency,
             double? stability,
             double? speed,
             double? similarityBoost,
@@ -191,7 +186,6 @@ namespace ElevenLabs
             this.ExpressiveMode = expressiveMode;
             this.SuggestedAudioTags = suggestedAudioTags;
             this.AgentOutputAudioFormat = agentOutputAudioFormat;
-            this.OptimizeStreamingLatency = optimizeStreamingLatency;
             this.Stability = stability;
             this.Speed = speed;
             this.SimilarityBoost = similarityBoost;

@@ -27,11 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareList13Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string mcpServerId);
+            ref string mcpServerId,
+            ref string? environment);
         partial void PrepareList13Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string mcpServerId);
+            string mcpServerId,
+            string? environment);
         partial void ProcessList13Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -48,16 +50,22 @@ namespace ElevenLabs
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
+        /// <param name="environment">
+        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
+        /// Default Value: production
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListMCPToolsResponseModel> List13Async(
             string mcpServerId,
+            string? environment = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List13AsResponseAsync(
                 mcpServerId: mcpServerId,
+                environment: environment,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -71,11 +79,16 @@ namespace ElevenLabs
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
+        /// <param name="environment">
+        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
+        /// Default Value: production
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListMCPToolsResponseModel>> List13AsResponseAsync(
             string mcpServerId,
+            string? environment = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -83,7 +96,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareList13Arguments(
                 httpClient: HttpClient,
-                mcpServerId: ref mcpServerId);
+                mcpServerId: ref mcpServerId,
+                environment: ref environment);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -111,6 +125,9 @@ namespace ElevenLabs
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: $"/v1/convai/mcp-servers/{mcpServerId}/tools",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("environment", environment)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -151,7 +168,8 @@ namespace ElevenLabs
                 PrepareList13Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    mcpServerId: mcpServerId!);
+                    mcpServerId: mcpServerId!,
+                    environment: environment);
 
                 return __httpRequest;
             }

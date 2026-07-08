@@ -122,6 +122,12 @@ namespace ElevenLabs
         public global::ElevenLabs.TopicDiscoverySettings? TopicDiscovery { get; set; }
 
         /// <summary>
+        /// Per-agent post-call sentiment analysis configuration
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sentiment_analysis")]
+        public global::ElevenLabs.SentimentAnalysisSettings? SentimentAnalysis { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -187,6 +193,9 @@ namespace ElevenLabs
         /// <param name="topicDiscovery">
         /// Per-agent topic discovery configuration
         /// </param>
+        /// <param name="sentimentAnalysis">
+        /// Per-agent post-call sentiment analysis configuration
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -206,7 +215,8 @@ namespace ElevenLabs
             global::ElevenLabs.PrivacyConfigInput? privacy,
             global::ElevenLabs.AgentTrustContext? trustContext,
             global::ElevenLabs.Llm? analysisLlm,
-            global::ElevenLabs.TopicDiscoverySettings? topicDiscovery)
+            global::ElevenLabs.TopicDiscoverySettings? topicDiscovery,
+            global::ElevenLabs.SentimentAnalysisSettings? sentimentAnalysis)
         {
             this.Evaluation = evaluation;
             this.Widget = widget;
@@ -224,6 +234,7 @@ namespace ElevenLabs
             this.TrustContext = trustContext;
             this.AnalysisLlm = analysisLlm;
             this.TopicDiscovery = topicDiscovery;
+            this.SentimentAnalysis = sentimentAnalysis;
         }
 
         /// <summary>

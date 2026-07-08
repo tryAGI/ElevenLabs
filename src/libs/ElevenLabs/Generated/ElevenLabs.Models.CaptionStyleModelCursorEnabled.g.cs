@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Deprecated: this field is a no-op and is ignored.
+    /// 
     /// </summary>
-    public sealed partial class TTSConversationalConfigWorkflowOverrideInputOptimizeStreamingLatency
+    public sealed partial class CaptionStyleModelCursorEnabled
     {
 
         /// <summary>

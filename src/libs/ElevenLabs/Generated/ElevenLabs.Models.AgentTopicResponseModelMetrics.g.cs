@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Curated default interruption ignore terms keyed by language code, split into acknowledgements / openers / confirmations categories.
+    /// 
     /// </summary>
-    public sealed partial class DefaultInterruptionIgnoreTermsResponseModelTermsByLanguage
+    public sealed partial class AgentTopicResponseModelMetrics
     {
 
         /// <summary>

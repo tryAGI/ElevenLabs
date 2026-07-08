@@ -45,7 +45,7 @@ namespace ElevenLabs
         public global::ElevenLabs.TTSOutputFormat? AgentOutputAudioFormat { get; set; }
 
         /// <summary>
-        /// The optimization for streaming latency
+        /// Deprecated: this field is a no-op and is ignored.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("optimize_streaming_latency")]
         public int? OptimizeStreamingLatency { get; set; }
@@ -120,7 +120,7 @@ namespace ElevenLabs
         /// The audio format to use for TTS
         /// </param>
         /// <param name="optimizeStreamingLatency">
-        /// The optimization for streaming latency
+        /// Deprecated: this field is a no-op and is ignored.
         /// </param>
         /// <param name="stability">
         /// The stability of generated speech
