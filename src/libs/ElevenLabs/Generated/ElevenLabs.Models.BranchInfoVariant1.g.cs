@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.TransferToAgentToolResultSuccessModelBranchInfoVariant1DiscriminatorBranchReason? BranchReason { get; }
+        public global::ElevenLabs.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReason? BranchReason { get; }
 
         /// <summary>
         /// 
@@ -137,7 +137,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public BranchInfoVariant1(
-            global::ElevenLabs.TransferToAgentToolResultSuccessModelBranchInfoVariant1DiscriminatorBranchReason? branchReason,
+            global::ElevenLabs.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReason? branchReason,
             global::ElevenLabs.TransferBranchInfoTrafficSplit? trafficSplit,
             global::ElevenLabs.TransferBranchInfoDefaultingToMain? defaultingToMain
             )

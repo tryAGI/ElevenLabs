@@ -34096,7 +34096,7 @@
         ],
         "title": "AgentTopicResponseModel"
       },
-      "AgentTransfer": {
+      "AgentTransfer-Input": {
         "properties": {
           "agent_id": {
             "anyOf": [
@@ -34162,6 +34162,141 @@
           "condition"
         ],
         "title": "AgentTransfer"
+      },
+      "AgentTransfer-Output": {
+        "properties": {
+          "agent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agent Id"
+          },
+          "node_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Node Id"
+          },
+          "condition": {
+            "type": "string",
+            "title": "Condition"
+          },
+          "delay_ms": {
+            "type": "integer",
+            "title": "Delay Ms",
+            "default": 0
+          },
+          "transfer_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Transfer Message"
+          },
+          "enable_transferred_agent_first_message": {
+            "type": "boolean",
+            "title": "Enable Transferred Agent First Message",
+            "default": false
+          },
+          "is_workflow_node_transfer": {
+            "type": "boolean",
+            "title": "Is Workflow Node Transfer",
+            "default": false
+          },
+          "preserve_client_tts_overrides": {
+            "type": "boolean",
+            "title": "Preserve Client Tts Overrides",
+            "description": "Defines whether TTS client overrides should be carried over to the transferred agent.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "condition"
+        ],
+        "title": "AgentTransfer"
+      },
+      "AgentTransferOp": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/AgentTransferOpReplace"
+          },
+          {
+            "$ref": "#/components/schemas/AgentTransferOpPush"
+          },
+          {
+            "$ref": "#/components/schemas/AgentTransferOpPop"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "pop": "#/components/schemas/AgentTransferOpPop",
+            "push": "#/components/schemas/AgentTransferOpPush",
+            "replace": "#/components/schemas/AgentTransferOpReplace"
+          }
+        }
+      },
+      "AgentTransferOpPop": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "pop",
+            "title": "Type",
+            "default": "pop"
+          }
+        },
+        "type": "object",
+        "title": "AgentTransferOpPop"
+      },
+      "AgentTransferOpPush": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "push",
+            "title": "Type",
+            "default": "push"
+          },
+          "return_node_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Return Node Id"
+          }
+        },
+        "type": "object",
+        "title": "AgentTransferOpPush"
+      },
+      "AgentTransferOpReplace": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "replace",
+            "title": "Type",
+            "default": "replace"
+          }
+        },
+        "type": "object",
+        "title": "AgentTransferOpReplace"
       },
       "AgentTrustContext": {
         "type": "string",
@@ -34716,6 +34851,7 @@
                 "x": 0.0,
                 "y": 0.0
               },
+              "return_when_nested": true,
               "type": "end"
             },
             "success_phone": {
@@ -34737,6 +34873,7 @@
               "agent_id": "success_transfer_agent",
               "delay_ms": 0,
               "edge_order": [],
+              "enable_nesting": false,
               "enable_transferred_agent_first_message": false,
               "position": {
                 "x": 0.0,
@@ -50733,7 +50870,7 @@
                     "$ref": "#/components/schemas/LanguageDetectionToolResultModel"
                   },
                   {
-                    "$ref": "#/components/schemas/TransferToAgentToolResultSuccessModel"
+                    "$ref": "#/components/schemas/TransferToAgentToolResultSuccessModel-Input"
                   },
                   {
                     "$ref": "#/components/schemas/TransferToAgentToolResultErrorModel"
@@ -50788,7 +50925,7 @@
                     "skip_turn_success": "#/components/schemas/SkipTurnToolResponseModel",
                     "testing_tool_result": "#/components/schemas/TestToolResultModel",
                     "transfer_to_agent_error": "#/components/schemas/TransferToAgentToolResultErrorModel",
-                    "transfer_to_agent_success": "#/components/schemas/TransferToAgentToolResultSuccessModel",
+                    "transfer_to_agent_success": "#/components/schemas/TransferToAgentToolResultSuccessModel-Input",
                     "transfer_to_number_error": "#/components/schemas/TransferToNumberResultErrorModel",
                     "transfer_to_number_exotel_success": "#/components/schemas/TransferToNumberResultExotelSuccessModel",
                     "transfer_to_number_sip_success": "#/components/schemas/TransferToNumberResultSipSuccessModel",
@@ -50880,7 +51017,7 @@
                     "$ref": "#/components/schemas/LanguageDetectionToolResultModel"
                   },
                   {
-                    "$ref": "#/components/schemas/TransferToAgentToolResultSuccessModel"
+                    "$ref": "#/components/schemas/TransferToAgentToolResultSuccessModel-Output"
                   },
                   {
                     "$ref": "#/components/schemas/TransferToAgentToolResultErrorModel"
@@ -50935,7 +51072,7 @@
                     "skip_turn_success": "#/components/schemas/SkipTurnToolResponseModel",
                     "testing_tool_result": "#/components/schemas/TestToolResultModel",
                     "transfer_to_agent_error": "#/components/schemas/TransferToAgentToolResultErrorModel",
-                    "transfer_to_agent_success": "#/components/schemas/TransferToAgentToolResultSuccessModel",
+                    "transfer_to_agent_success": "#/components/schemas/TransferToAgentToolResultSuccessModel-Output",
                     "transfer_to_number_error": "#/components/schemas/TransferToNumberResultErrorModel",
                     "transfer_to_number_exotel_success": "#/components/schemas/TransferToNumberResultExotelSuccessModel",
                     "transfer_to_number_sip_success": "#/components/schemas/TransferToNumberResultSipSuccessModel",
@@ -60152,6 +60289,7 @@
                   "x": 0.0,
                   "y": 0.0
                 },
+                "return_when_nested": true,
                 "type": "end"
               },
               "success_phone": {
@@ -60173,6 +60311,7 @@
                 "agent_id": "success_transfer_agent",
                 "delay_ms": 0,
                 "edge_order": [],
+                "enable_nesting": false,
                 "enable_transferred_agent_first_message": false,
                 "position": {
                   "x": 0.0,
@@ -69127,6 +69266,7 @@
                   "x": 0.0,
                   "y": 0.0
                 },
+                "return_when_nested": true,
                 "type": "end"
               },
               "success_phone": {
@@ -69148,6 +69288,7 @@
                 "agent_id": "success_transfer_agent",
                 "delay_ms": 0,
                 "edge_order": [],
+                "enable_nesting": false,
                 "enable_transferred_agent_first_message": false,
                 "position": {
                   "x": 0.0,
@@ -83520,7 +83661,7 @@
                 "$ref": "#/components/schemas/LanguageDetectionToolConfig"
               },
               {
-                "$ref": "#/components/schemas/TransferToAgentToolConfig"
+                "$ref": "#/components/schemas/TransferToAgentToolConfig-Input"
               },
               {
                 "$ref": "#/components/schemas/TransferToNumberToolConfig-Input"
@@ -83559,7 +83700,7 @@
                 "run_subagent": "#/components/schemas/RunSubagentToolConfig-Input",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
                 "start_procedure": "#/components/schemas/StartProcedureToolConfig-Input",
-                "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig",
+                "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig-Input",
                 "transfer_to_number": "#/components/schemas/TransferToNumberToolConfig-Input",
                 "voicemail_detection": "#/components/schemas/VoicemailDetectionToolConfig"
               }
@@ -83684,7 +83825,7 @@
                 "$ref": "#/components/schemas/LanguageDetectionToolConfig"
               },
               {
-                "$ref": "#/components/schemas/TransferToAgentToolConfig"
+                "$ref": "#/components/schemas/TransferToAgentToolConfig-Output"
               },
               {
                 "$ref": "#/components/schemas/TransferToNumberToolConfig-Output"
@@ -83723,7 +83864,7 @@
                 "run_subagent": "#/components/schemas/RunSubagentToolConfig-Output",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
                 "start_procedure": "#/components/schemas/StartProcedureToolConfig-Output",
-                "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig",
+                "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig-Output",
                 "transfer_to_number": "#/components/schemas/TransferToNumberToolConfig-Output",
                 "voicemail_detection": "#/components/schemas/VoicemailDetectionToolConfig"
               }
@@ -85987,7 +86128,7 @@
         ],
         "title": "TransferBranchInfoTrafficSplit"
       },
-      "TransferToAgentToolConfig": {
+      "TransferToAgentToolConfig-Input": {
         "properties": {
           "system_tool_type": {
             "type": "string",
@@ -85997,7 +86138,29 @@
           },
           "transfers": {
             "items": {
-              "$ref": "#/components/schemas/AgentTransfer"
+              "$ref": "#/components/schemas/AgentTransfer-Input"
+            },
+            "type": "array",
+            "title": "Transfers"
+          }
+        },
+        "type": "object",
+        "required": [
+          "transfers"
+        ],
+        "title": "TransferToAgentToolConfig"
+      },
+      "TransferToAgentToolConfig-Output": {
+        "properties": {
+          "system_tool_type": {
+            "type": "string",
+            "const": "transfer_to_agent",
+            "title": "System Tool Type",
+            "default": "transfer_to_agent"
+          },
+          "transfers": {
+            "items": {
+              "$ref": "#/components/schemas/AgentTransfer-Output"
             },
             "type": "array",
             "title": "Transfers"
@@ -86039,7 +86202,104 @@
         ],
         "title": "TransferToAgentToolResultErrorModel"
       },
-      "TransferToAgentToolResultSuccessModel": {
+      "TransferToAgentToolResultSuccessModel-Input": {
+        "properties": {
+          "result_type": {
+            "type": "string",
+            "const": "transfer_to_agent_success",
+            "title": "Result Type",
+            "default": "transfer_to_agent_success"
+          },
+          "status": {
+            "type": "string",
+            "const": "success",
+            "title": "Status",
+            "default": "success"
+          },
+          "from_agent": {
+            "type": "string",
+            "title": "From Agent"
+          },
+          "to_agent": {
+            "type": "string",
+            "title": "To Agent"
+          },
+          "to_node": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To Node"
+          },
+          "condition": {
+            "type": "string",
+            "title": "Condition"
+          },
+          "delay_ms": {
+            "type": "integer",
+            "title": "Delay Ms",
+            "default": 0
+          },
+          "transfer_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Transfer Message"
+          },
+          "enable_transferred_agent_first_message": {
+            "type": "boolean",
+            "title": "Enable Transferred Agent First Message",
+            "default": false
+          },
+          "branch_info": {
+            "anyOf": [
+              {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TransferBranchInfoTrafficSplit"
+                  },
+                  {
+                    "$ref": "#/components/schemas/TransferBranchInfoDefaultingToMain"
+                  }
+                ],
+                "discriminator": {
+                  "propertyName": "branch_reason",
+                  "mapping": {
+                    "defaulting_to_main": "#/components/schemas/TransferBranchInfoDefaultingToMain",
+                    "traffic_split": "#/components/schemas/TransferBranchInfoTrafficSplit"
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Info"
+          },
+          "preserve_client_tts_overrides": {
+            "type": "boolean",
+            "title": "Preserve Client Tts Overrides",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "from_agent",
+          "to_agent",
+          "condition"
+        ],
+        "title": "TransferToAgentToolResultSuccessModel"
+      },
+      "TransferToAgentToolResultSuccessModel-Output": {
         "properties": {
           "result_type": {
             "type": "string",
@@ -96292,7 +96552,8 @@
                 "Int",
                 "Bool",
                 "JSON",
-                "Map"
+                "Map",
+                "Array"
               ]
             },
             "type": "array",
