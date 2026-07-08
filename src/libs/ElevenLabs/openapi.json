@@ -17749,6 +17749,17 @@
             "description": "The field to sort the results by. Defaults to last_contact_unix_secs."
           },
           {
+            "name": "sort_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/SortDirection",
+              "description": "The direction to sort the results",
+              "default": "desc"
+            },
+            "description": "The direction to sort the results"
+          },
+          {
             "name": "cursor",
             "in": "query",
             "required": false,
@@ -80396,6 +80407,44 @@
               }
             ],
             "title": "Average Frustration Score"
+          },
+          "recent_scored_conversation_count": {
+            "type": "integer",
+            "title": "Recent Scored Conversation Count"
+          },
+          "recent_positive_count": {
+            "type": "integer",
+            "title": "Recent Positive Count"
+          },
+          "recent_neutral_count": {
+            "type": "integer",
+            "title": "Recent Neutral Count"
+          },
+          "recent_negative_count": {
+            "type": "integer",
+            "title": "Recent Negative Count"
+          },
+          "recent_average_sentiment_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Recent Average Sentiment Score"
+          },
+          "recent_average_frustration_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Recent Average Frustration Score"
           }
         },
         "type": "object",
@@ -80405,7 +80454,13 @@
           "neutral_count",
           "negative_count",
           "average_sentiment_score",
-          "average_frustration_score"
+          "average_frustration_score",
+          "recent_scored_conversation_count",
+          "recent_positive_count",
+          "recent_neutral_count",
+          "recent_negative_count",
+          "recent_average_sentiment_score",
+          "recent_average_frustration_score"
         ],
         "title": "SentimentAggregate"
       },
@@ -89412,7 +89467,8 @@
         "type": "string",
         "enum": [
           "last_contact_unix_secs",
-          "conversation_count"
+          "conversation_count",
+          "average_sentiment_score"
         ],
         "title": "UsersSortBy"
       },

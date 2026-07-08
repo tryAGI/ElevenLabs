@@ -31,6 +31,10 @@ namespace ElevenLabs
         /// The field to sort the results by. Defaults to last_contact_unix_secs.<br/>
         /// Default Value: last_contact_unix_secs
         /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: desc
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -45,6 +49,7 @@ namespace ElevenLabs
             string? search = default,
             int? pageSize = default,
             global::ElevenLabs.UsersSortBy? sortBy = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -75,6 +80,10 @@ namespace ElevenLabs
         /// The field to sort the results by. Defaults to last_contact_unix_secs.<br/>
         /// Default Value: last_contact_unix_secs
         /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: desc
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -89,6 +98,7 @@ namespace ElevenLabs
             string? search = default,
             int? pageSize = default,
             global::ElevenLabs.UsersSortBy? sortBy = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -118,6 +128,10 @@ namespace ElevenLabs
         /// <param name="sortBy">
         /// The field to sort the results by. Defaults to last_contact_unix_secs.<br/>
         /// Default Value: last_contact_unix_secs
+        /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: desc
         /// </param> 
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
@@ -129,6 +143,7 @@ namespace ElevenLabs
             string? search = default,
             int? pageSize = default,
             global::ElevenLabs.UsersSortBy? sortBy = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default);
 
