@@ -92,9 +92,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.TransferToAgentToolResultSuccessModel? TransferToAgentSuccess { get; init; }
+        public global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput? TransferToAgentSuccess { get; init; }
 #else
-        public global::ElevenLabs.TransferToAgentToolResultSuccessModel? TransferToAgentSuccess { get; }
+        public global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput? TransferToAgentSuccess { get; }
 #endif
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace ElevenLabs
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::ElevenLabs.TransferToAgentToolResultSuccessModel? value)
+            out global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput? value)
         {
             value = TransferToAgentSuccess;
             return IsTransferToAgentSuccess;
@@ -121,7 +121,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.TransferToAgentToolResultSuccessModel PickTransferToAgentSuccess() => IsTransferToAgentSuccess
+        public global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput PickTransferToAgentSuccess() => IsTransferToAgentSuccess
             ? TransferToAgentSuccess!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToAgentSuccess' but the value was {ToString()}.");
 
@@ -654,17 +654,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ResultVariant12(global::ElevenLabs.TransferToAgentToolResultSuccessModel value) => new ResultVariant12((global::ElevenLabs.TransferToAgentToolResultSuccessModel?)value);
+        public static implicit operator ResultVariant12(global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput value) => new ResultVariant12((global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.TransferToAgentToolResultSuccessModel?(ResultVariant12 @this) => @this.TransferToAgentSuccess;
+        public static implicit operator global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput?(ResultVariant12 @this) => @this.TransferToAgentSuccess;
 
         /// <summary>
         /// 
         /// </summary>
-        public ResultVariant12(global::ElevenLabs.TransferToAgentToolResultSuccessModel? value)
+        public ResultVariant12(global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput? value)
         {
             TransferToAgentSuccess = value;
         }
@@ -672,7 +672,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static ResultVariant12 FromTransferToAgentSuccess(global::ElevenLabs.TransferToAgentToolResultSuccessModel? value) => new ResultVariant12(value);
+        public static ResultVariant12 FromTransferToAgentSuccess(global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput? value) => new ResultVariant12(value);
 
         /// <summary>
         /// 
@@ -980,7 +980,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType? resultType,
             global::ElevenLabs.EndCallToolResultModel? endCallSuccess,
             global::ElevenLabs.LanguageDetectionToolResultModel? languageDetectionSuccess,
-            global::ElevenLabs.TransferToAgentToolResultSuccessModel? transferToAgentSuccess,
+            global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput? transferToAgentSuccess,
             global::ElevenLabs.TransferToAgentToolResultErrorModel? transferToAgentError,
             global::ElevenLabs.TransferToNumberResultTwilioSuccessModel? transferToNumberTwilioSuccess,
             global::ElevenLabs.TransferToNumberResultSipSuccessModel? transferToNumberSipSuccess,
@@ -1074,7 +1074,7 @@ namespace ElevenLabs
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.EndCallToolResultModel, TResult>? endCallSuccess = null,
             global::System.Func<global::ElevenLabs.LanguageDetectionToolResultModel, TResult>? languageDetectionSuccess = null,
-            global::System.Func<global::ElevenLabs.TransferToAgentToolResultSuccessModel, TResult>? transferToAgentSuccess = null,
+            global::System.Func<global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput, TResult>? transferToAgentSuccess = null,
             global::System.Func<global::ElevenLabs.TransferToAgentToolResultErrorModel, TResult>? transferToAgentError = null,
             global::System.Func<global::ElevenLabs.TransferToNumberResultTwilioSuccessModel, TResult>? transferToNumberTwilioSuccess = null,
             global::System.Func<global::ElevenLabs.TransferToNumberResultSipSuccessModel, TResult>? transferToNumberSipSuccess = null,
@@ -1171,7 +1171,7 @@ namespace ElevenLabs
 
             global::System.Action<global::ElevenLabs.LanguageDetectionToolResultModel>? languageDetectionSuccess = null,
 
-            global::System.Action<global::ElevenLabs.TransferToAgentToolResultSuccessModel>? transferToAgentSuccess = null,
+            global::System.Action<global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput>? transferToAgentSuccess = null,
 
             global::System.Action<global::ElevenLabs.TransferToAgentToolResultErrorModel>? transferToAgentError = null,
 
@@ -1277,7 +1277,7 @@ namespace ElevenLabs
         public void Switch(
             global::System.Action<global::ElevenLabs.EndCallToolResultModel>? endCallSuccess = null,
             global::System.Action<global::ElevenLabs.LanguageDetectionToolResultModel>? languageDetectionSuccess = null,
-            global::System.Action<global::ElevenLabs.TransferToAgentToolResultSuccessModel>? transferToAgentSuccess = null,
+            global::System.Action<global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput>? transferToAgentSuccess = null,
             global::System.Action<global::ElevenLabs.TransferToAgentToolResultErrorModel>? transferToAgentError = null,
             global::System.Action<global::ElevenLabs.TransferToNumberResultTwilioSuccessModel>? transferToNumberTwilioSuccess = null,
             global::System.Action<global::ElevenLabs.TransferToNumberResultSipSuccessModel>? transferToNumberSipSuccess = null,
@@ -1376,7 +1376,7 @@ namespace ElevenLabs
                 LanguageDetectionSuccess,
                 typeof(global::ElevenLabs.LanguageDetectionToolResultModel),
                 TransferToAgentSuccess,
-                typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModel),
+                typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput),
                 TransferToAgentError,
                 typeof(global::ElevenLabs.TransferToAgentToolResultErrorModel),
                 TransferToNumberTwilioSuccess,
@@ -1421,7 +1421,7 @@ namespace ElevenLabs
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.EndCallToolResultModel?>.Default.Equals(EndCallSuccess, other.EndCallSuccess) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.LanguageDetectionToolResultModel?>.Default.Equals(LanguageDetectionSuccess, other.LanguageDetectionSuccess) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToAgentToolResultSuccessModel?>.Default.Equals(TransferToAgentSuccess, other.TransferToAgentSuccess) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput?>.Default.Equals(TransferToAgentSuccess, other.TransferToAgentSuccess) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToAgentToolResultErrorModel?>.Default.Equals(TransferToAgentError, other.TransferToAgentError) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberResultTwilioSuccessModel?>.Default.Equals(TransferToNumberTwilioSuccess, other.TransferToNumberTwilioSuccess) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberResultSipSuccessModel?>.Default.Equals(TransferToNumberSipSuccess, other.TransferToNumberSipSuccess) &&

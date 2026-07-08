@@ -92,9 +92,9 @@ namespace ElevenLabs
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.TransferToAgentToolConfig? TransferToAgent { get; init; }
+        public global::ElevenLabs.TransferToAgentToolConfigOutput? TransferToAgent { get; init; }
 #else
-        public global::ElevenLabs.TransferToAgentToolConfig? TransferToAgent { get; }
+        public global::ElevenLabs.TransferToAgentToolConfigOutput? TransferToAgent { get; }
 #endif
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace ElevenLabs
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::ElevenLabs.TransferToAgentToolConfig? value)
+            out global::ElevenLabs.TransferToAgentToolConfigOutput? value)
         {
             value = TransferToAgent;
             return IsTransferToAgent;
@@ -121,7 +121,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.TransferToAgentToolConfig PickTransferToAgent() => IsTransferToAgent
+        public global::ElevenLabs.TransferToAgentToolConfigOutput PickTransferToAgent() => IsTransferToAgent
             ? TransferToAgent!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToAgent' but the value was {ToString()}.");
 
@@ -481,17 +481,17 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator Params3(global::ElevenLabs.TransferToAgentToolConfig value) => new Params3((global::ElevenLabs.TransferToAgentToolConfig?)value);
+        public static implicit operator Params3(global::ElevenLabs.TransferToAgentToolConfigOutput value) => new Params3((global::ElevenLabs.TransferToAgentToolConfigOutput?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::ElevenLabs.TransferToAgentToolConfig?(Params3 @this) => @this.TransferToAgent;
+        public static implicit operator global::ElevenLabs.TransferToAgentToolConfigOutput?(Params3 @this) => @this.TransferToAgent;
 
         /// <summary>
         /// 
         /// </summary>
-        public Params3(global::ElevenLabs.TransferToAgentToolConfig? value)
+        public Params3(global::ElevenLabs.TransferToAgentToolConfigOutput? value)
         {
             TransferToAgent = value;
         }
@@ -499,7 +499,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public static Params3 FromTransferToAgent(global::ElevenLabs.TransferToAgentToolConfig? value) => new Params3(value);
+        public static Params3 FromTransferToAgent(global::ElevenLabs.TransferToAgentToolConfigOutput? value) => new Params3(value);
 
         /// <summary>
         /// 
@@ -692,7 +692,7 @@ namespace ElevenLabs
             global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType? systemToolType,
             global::ElevenLabs.EndCallToolConfig? endCall,
             global::ElevenLabs.LanguageDetectionToolConfig? languageDetection,
-            global::ElevenLabs.TransferToAgentToolConfig? transferToAgent,
+            global::ElevenLabs.TransferToAgentToolConfigOutput? transferToAgent,
             global::ElevenLabs.TransferToNumberToolConfigOutput? transferToNumber,
             global::ElevenLabs.SkipTurnToolConfig? skipTurn,
             global::ElevenLabs.PlayDTMFToolConfig? playKeypadTouchTone,
@@ -766,7 +766,7 @@ namespace ElevenLabs
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.EndCallToolConfig, TResult>? endCall = null,
             global::System.Func<global::ElevenLabs.LanguageDetectionToolConfig, TResult>? languageDetection = null,
-            global::System.Func<global::ElevenLabs.TransferToAgentToolConfig, TResult>? transferToAgent = null,
+            global::System.Func<global::ElevenLabs.TransferToAgentToolConfigOutput, TResult>? transferToAgent = null,
             global::System.Func<global::ElevenLabs.TransferToNumberToolConfigOutput, TResult>? transferToNumber = null,
             global::System.Func<global::ElevenLabs.SkipTurnToolConfig, TResult>? skipTurn = null,
             global::System.Func<global::ElevenLabs.PlayDTMFToolConfig, TResult>? playKeypadTouchTone = null,
@@ -838,7 +838,7 @@ namespace ElevenLabs
 
             global::System.Action<global::ElevenLabs.LanguageDetectionToolConfig>? languageDetection = null,
 
-            global::System.Action<global::ElevenLabs.TransferToAgentToolConfig>? transferToAgent = null,
+            global::System.Action<global::ElevenLabs.TransferToAgentToolConfigOutput>? transferToAgent = null,
 
             global::System.Action<global::ElevenLabs.TransferToNumberToolConfigOutput>? transferToNumber = null,
 
@@ -914,7 +914,7 @@ namespace ElevenLabs
         public void Switch(
             global::System.Action<global::ElevenLabs.EndCallToolConfig>? endCall = null,
             global::System.Action<global::ElevenLabs.LanguageDetectionToolConfig>? languageDetection = null,
-            global::System.Action<global::ElevenLabs.TransferToAgentToolConfig>? transferToAgent = null,
+            global::System.Action<global::ElevenLabs.TransferToAgentToolConfigOutput>? transferToAgent = null,
             global::System.Action<global::ElevenLabs.TransferToNumberToolConfigOutput>? transferToNumber = null,
             global::System.Action<global::ElevenLabs.SkipTurnToolConfig>? skipTurn = null,
             global::System.Action<global::ElevenLabs.PlayDTMFToolConfig>? playKeypadTouchTone = null,
@@ -988,7 +988,7 @@ namespace ElevenLabs
                 LanguageDetection,
                 typeof(global::ElevenLabs.LanguageDetectionToolConfig),
                 TransferToAgent,
-                typeof(global::ElevenLabs.TransferToAgentToolConfig),
+                typeof(global::ElevenLabs.TransferToAgentToolConfigOutput),
                 TransferToNumber,
                 typeof(global::ElevenLabs.TransferToNumberToolConfigOutput),
                 SkipTurn,
@@ -1023,7 +1023,7 @@ namespace ElevenLabs
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.EndCallToolConfig?>.Default.Equals(EndCall, other.EndCall) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.LanguageDetectionToolConfig?>.Default.Equals(LanguageDetection, other.LanguageDetection) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToAgentToolConfig?>.Default.Equals(TransferToAgent, other.TransferToAgent) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToAgentToolConfigOutput?>.Default.Equals(TransferToAgent, other.TransferToAgent) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberToolConfigOutput?>.Default.Equals(TransferToNumber, other.TransferToNumber) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SkipTurnToolConfig?>.Default.Equals(SkipTurn, other.SkipTurn) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PlayDTMFToolConfig?>.Default.Equals(PlayKeypadTouchTone, other.PlayKeypadTouchTone) &&

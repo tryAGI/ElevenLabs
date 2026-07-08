@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Array,
+        /// <summary>
+        /// 
+        /// </summary>
         Bool,
         /// <summary>
         /// 
@@ -50,6 +54,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                WorkspaceAnalyticsQueryResponseModelColumnType.Array => "Array",
                 WorkspaceAnalyticsQueryResponseModelColumnType.Bool => "Bool",
                 WorkspaceAnalyticsQueryResponseModelColumnType.DateTime => "DateTime",
                 WorkspaceAnalyticsQueryResponseModelColumnType.Float => "Float",
@@ -67,6 +72,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "Array" => WorkspaceAnalyticsQueryResponseModelColumnType.Array,
                 "Bool" => WorkspaceAnalyticsQueryResponseModelColumnType.Bool,
                 "DateTime" => WorkspaceAnalyticsQueryResponseModelColumnType.DateTime,
                 "Float" => WorkspaceAnalyticsQueryResponseModelColumnType.Float,

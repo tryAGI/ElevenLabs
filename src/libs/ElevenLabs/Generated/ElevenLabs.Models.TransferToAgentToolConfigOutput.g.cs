@@ -1,0 +1,56 @@
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed partial class TransferToAgentToolConfigOutput
+    {
+        /// <summary>
+        /// Default Value: transfer_to_agent
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("system_tool_type")]
+        public string? SystemToolType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transfers")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.AgentTransferOutput> Transfers { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransferToAgentToolConfigOutput" /> class.
+        /// </summary>
+        /// <param name="transfers"></param>
+        /// <param name="systemToolType">
+        /// Default Value: transfer_to_agent
+        /// </param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public TransferToAgentToolConfigOutput(
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentTransferOutput> transfers,
+            string? systemToolType)
+        {
+            this.SystemToolType = systemToolType;
+            this.Transfers = transfers ?? throw new global::System.ArgumentNullException(nameof(transfers));
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransferToAgentToolConfigOutput" /> class.
+        /// </summary>
+        public TransferToAgentToolConfigOutput()
+        {
+        }
+
+    }
+}
