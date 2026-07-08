@@ -161,6 +161,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cursor_enabled")]
+        public bool? CursorEnabled { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("width_pct")]
         public double? WidthPct { get; set; }
 
@@ -228,6 +234,7 @@ namespace ElevenLabs
         /// <param name="sectionAnimation"></param>
         /// <param name="wordAnimation"></param>
         /// <param name="characterAnimation"></param>
+        /// <param name="cursorEnabled"></param>
         /// <param name="widthPct"></param>
         /// <param name="horizontalPlacement"></param>
         /// <param name="verticalPlacement"></param>
@@ -263,6 +270,7 @@ namespace ElevenLabs
             global::ElevenLabs.CaptionStyleSectionAnimationModel? sectionAnimation,
             global::ElevenLabs.CaptionStyleWordAnimationModel? wordAnimation,
             global::ElevenLabs.CaptionStyleCharacterAnimationModel? characterAnimation,
+            bool? cursorEnabled,
             double? widthPct,
             global::ElevenLabs.CaptionStyleHorizontalPlacementModel? horizontalPlacement,
             global::ElevenLabs.CaptionStyleVerticalPlacementModel? verticalPlacement,
@@ -295,6 +303,7 @@ namespace ElevenLabs
             this.SectionAnimation = sectionAnimation;
             this.WordAnimation = wordAnimation;
             this.CharacterAnimation = characterAnimation;
+            this.CursorEnabled = cursorEnabled;
             this.WidthPct = widthPct;
             this.HorizontalPlacement = horizontalPlacement;
             this.VerticalPlacement = verticalPlacement;

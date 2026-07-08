@@ -15565,63 +15565,6 @@
         "x-fern-sdk-method-name": "duplicate"
       }
     },
-    "/v1/convai/agents/defaults/interruption-ignore-terms": {
-      "get": {
-        "tags": [
-          "Agents Platform"
-        ],
-        "summary": "Get Default Interruption Ignore Terms",
-        "description": "Get the curated per-language default interruption ignore terms used to seed an agent's turn configuration.",
-        "operationId": "get_default_interruption_ignore_terms",
-        "parameters": [
-          {
-            "name": "xi-api-key",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
-              "title": "Xi-Api-Key"
-            },
-            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DefaultInterruptionIgnoreTermsResponseModel"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "x-fern-sdk-group-name": [
-          "conversational_ai",
-          "agents"
-        ],
-        "x-fern-sdk-method-name": "get_default_interruption_ignore_terms"
-      }
-    },
     "/v1/convai/agents/{agent_id}/simulate-conversation": {
       "post": {
         "tags": [
@@ -23019,6 +22962,18 @@
             "description": "ID of the requested tool."
           },
           {
+            "name": "environment",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.",
+              "default": "production",
+              "title": "Environment"
+            },
+            "description": "Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -25104,6 +25059,18 @@
             "description": "ID of the MCP Server."
           },
           {
+            "name": "environment",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.",
+              "default": "production",
+              "title": "Environment"
+            },
+            "description": "Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -25414,6 +25381,18 @@
             "description": "ID of the MCP Server."
           },
           {
+            "name": "environment",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.",
+              "default": "production",
+              "title": "Environment"
+            },
+            "description": "Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -25587,6 +25566,18 @@
               "title": "Tool Name"
             },
             "description": "Name of the MCP tool to update config overrides for."
+          },
+          {
+            "name": "environment",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.",
+              "default": "production",
+              "title": "Environment"
+            },
+            "description": "Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production."
           },
           {
             "name": "xi-api-key",
@@ -33718,6 +33709,10 @@
           "topic_discovery": {
             "$ref": "#/components/schemas/TopicDiscoverySettings",
             "description": "Per-agent topic discovery configuration"
+          },
+          "sentiment_analysis": {
+            "$ref": "#/components/schemas/SentimentAnalysisSettings",
+            "description": "Per-agent post-call sentiment analysis configuration"
           }
         },
         "type": "object",
@@ -33815,6 +33810,10 @@
           "topic_discovery": {
             "$ref": "#/components/schemas/TopicDiscoverySettings",
             "description": "Per-agent topic discovery configuration"
+          },
+          "sentiment_analysis": {
+            "$ref": "#/components/schemas/SentimentAnalysisSettings",
+            "description": "Per-agent post-call sentiment analysis configuration"
           },
           "safety": {
             "$ref": "#/components/schemas/SafetyResponseModel"
@@ -34076,6 +34075,16 @@
               }
             ],
             "title": "Y 2D"
+          },
+          "metrics": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TopicMetricsAggregate"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -45800,7 +45809,8 @@
             "type": "string",
             "enum": [
               "none",
-              "fade"
+              "fade",
+              "typewriter"
             ],
             "title": "Enter Type"
           },
@@ -46136,6 +46146,17 @@
                 "type": "null"
               }
             ]
+          },
+          "cursor_enabled": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cursor Enabled"
           },
           "width_pct": {
             "anyOf": [
@@ -50051,6 +50072,11 @@
             "title": "Interrupted",
             "default": false
           },
+          "ignored_as_backchannel": {
+            "type": "boolean",
+            "title": "Ignored As Backchannel",
+            "default": false
+          },
           "original_message": {
             "anyOf": [
               {
@@ -50242,6 +50268,11 @@
           "interrupted": {
             "type": "boolean",
             "title": "Interrupted",
+            "default": false
+          },
+          "ignored_as_backchannel": {
+            "type": "boolean",
+            "title": "Ignored As Backchannel",
             "default": false
           },
           "original_message": {
@@ -50540,6 +50571,11 @@
           "interrupted": {
             "type": "boolean",
             "title": "Interrupted",
+            "default": false
+          },
+          "ignored_as_backchannel": {
+            "type": "boolean",
+            "title": "Ignored As Backchannel",
             "default": false
           },
           "original_message": {
@@ -54350,6 +54386,12 @@
               }
             ],
             "description": "Twilio Additional Region Configuration"
+          },
+          "enable_sms": {
+            "type": "boolean",
+            "title": "Enable Sms",
+            "description": "Route inbound SMS to ElevenLabs. On by default; set to false to skip SMS configuration for numbers that don't support it.",
+            "default": true
           }
         },
         "type": "object",
@@ -54938,29 +54980,6 @@
           "rationale"
         ],
         "title": "DataCollectionResultCommonModel"
-      },
-      "DefaultInterruptionIgnoreTermsResponseModel": {
-        "properties": {
-          "terms_by_language": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/InterruptionIgnoreTermSetModel"
-            },
-            "type": "object",
-            "title": "Terms By Language",
-            "description": "Curated default interruption ignore terms keyed by language code, split into acknowledgements / openers / confirmations categories."
-          },
-          "max_terms": {
-            "type": "integer",
-            "title": "Max Terms",
-            "description": "Maximum number of interruption ignore terms allowed on an agent."
-          }
-        },
-        "type": "object",
-        "required": [
-          "terms_by_language",
-          "max_terms"
-        ],
-        "title": "DefaultInterruptionIgnoreTermsResponseModel"
       },
       "DefaultSharingGroupResponseModel": {
         "properties": {
@@ -64087,41 +64106,6 @@
         ],
         "title": "InteractionBudget"
       },
-      "InterruptionIgnoreTermSetModel": {
-        "properties": {
-          "acknowledgements": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Acknowledgements",
-            "description": "Acknowledgements: safe backchannels seeded when interruption ignore terms are turned on."
-          },
-          "openers": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Openers",
-            "description": "Openers: greetings and presence probes. Opt-in (off by default)."
-          },
-          "confirmations": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Confirmations",
-            "description": "Confirmations: affirmation/negation answer words. Opt-in (off by default)."
-          }
-        },
-        "type": "object",
-        "required": [
-          "acknowledgements",
-          "openers",
-          "confirmations"
-        ],
-        "title": "InterruptionIgnoreTermSetModel"
-      },
       "InvoiceResponseModel": {
         "properties": {
           "amount_due_cents": {
@@ -67942,10 +67926,15 @@
                 "$ref": "#/components/schemas/ToolCallSoundType"
               },
               {
+                "type": "string",
+                "const": "off"
+              },
+              {
                 "type": "null"
               }
             ],
-            "description": "If set, overrides the server's tool_call_sound setting for this tool"
+            "title": "Tool Call Sound",
+            "description": "Overrides the server's tool_call_sound setting for this tool. A sound name plays that sound; 'off' overrides to no sound (silence); null means do not override (inherit the server default)."
           },
           "tool_call_sound_behavior": {
             "anyOf": [
@@ -68111,10 +68100,15 @@
                 "$ref": "#/components/schemas/ToolCallSoundType"
               },
               {
+                "type": "string",
+                "const": "off"
+              },
+              {
                 "type": "null"
               }
             ],
-            "description": "If set, overrides the server's tool_call_sound setting for this tool"
+            "title": "Tool Call Sound",
+            "description": "Overrides the server's tool_call_sound setting for this tool. A sound name plays that sound; 'off' overrides to no sound (silence); null means do not override (inherit the server default)."
           },
           "tool_call_sound_behavior": {
             "anyOf": [
@@ -68275,10 +68269,15 @@
                 "$ref": "#/components/schemas/ToolCallSoundType"
               },
               {
+                "type": "string",
+                "const": "off"
+              },
+              {
                 "type": "null"
               }
             ],
-            "description": "If set, overrides the server's tool_call_sound setting for this tool"
+            "title": "Tool Call Sound",
+            "description": "Overrides the server's tool_call_sound setting for this tool. A sound name plays that sound; 'off' overrides to no sound (silence); null means do not override (inherit the server default)."
           },
           "tool_call_sound_behavior": {
             "anyOf": [
@@ -68451,10 +68450,15 @@
                 "$ref": "#/components/schemas/ToolCallSoundType"
               },
               {
+                "type": "string",
+                "const": "off"
+              },
+              {
                 "type": "null"
               }
             ],
-            "description": "If set, overrides the server's tool_call_sound setting for this tool"
+            "title": "Tool Call Sound",
+            "description": "Overrides the server's tool_call_sound setting for this tool. A sound name plays that sound; 'off' overrides to no sound (silence); null means do not override (inherit the server default)."
           },
           "tool_call_sound_behavior": {
             "anyOf": [
@@ -70043,6 +70047,44 @@
           "wav_48000"
         ]
       },
+      "NumericDistributionAggregate": {
+        "properties": {
+          "count": {
+            "type": "integer",
+            "title": "Count",
+            "default": 0
+          },
+          "sum": {
+            "type": "number",
+            "title": "Sum",
+            "default": 0.0
+          },
+          "min": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Min"
+          },
+          "max": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max"
+          }
+        },
+        "type": "object",
+        "title": "NumericDistributionAggregate"
+      },
       "OAuth2ClientCredsResponse": {
         "properties": {
           "name": {
@@ -70763,6 +70805,19 @@
         "type": "object",
         "title": "OpenAITurnDetection"
       },
+      "OpenerConfig": {
+        "properties": {
+          "llm": {
+            "$ref": "#/components/schemas/LLM",
+            "description": "Model used to speak a fast opener while the main model generates its full reply. Must be a hosted model (not a bring-your-own LLM type)."
+          }
+        },
+        "type": "object",
+        "required": [
+          "llm"
+        ],
+        "title": "OpenerConfig"
+      },
       "OptInSmsReminderParams": {
         "properties": {
           "smb_tool_type": {
@@ -70926,7 +70981,8 @@
         "type": "string",
         "enum": [
           "dub",
-          "subtitles"
+          "subtitles",
+          "transcription"
         ],
         "title": "OrderItemKind"
       },
@@ -70937,13 +70993,17 @@
           },
           {
             "$ref": "#/components/schemas/SubtitleOrderItemRequest"
+          },
+          {
+            "$ref": "#/components/schemas/TranscriptionOrderItemRequest"
           }
         ],
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
             "dub": "#/components/schemas/DubOrderItemRequest",
-            "subtitles": "#/components/schemas/SubtitleOrderItemRequest"
+            "subtitles": "#/components/schemas/SubtitleOrderItemRequest",
+            "transcription": "#/components/schemas/TranscriptionOrderItemRequest"
           }
         }
       },
@@ -70954,13 +71014,17 @@
           },
           {
             "$ref": "#/components/schemas/SubtitleOrderItemRequest"
+          },
+          {
+            "$ref": "#/components/schemas/TranscriptionOrderItemRequest"
           }
         ],
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
             "dub": "#/components/schemas/DubOrderItemRequest",
-            "subtitles": "#/components/schemas/SubtitleOrderItemRequest"
+            "subtitles": "#/components/schemas/SubtitleOrderItemRequest",
+            "transcription": "#/components/schemas/TranscriptionOrderItemRequest"
           }
         }
       },
@@ -71905,6 +71969,8 @@
           "convai_write",
           "music_generation",
           "image_video_generation",
+          "flows",
+          "templates",
           "add_voice_from_voice_library",
           "create_instant_voice_clone",
           "create_professional_voice_clone",
@@ -80202,6 +80268,11 @@
         ],
         "title": "SentimentAggregate"
       },
+      "SentimentAnalysisSettings": {
+        "properties": {},
+        "type": "object",
+        "title": "SentimentAnalysisSettings"
+      },
       "SetBookingSlugParams": {
         "properties": {
           "smb_tool_type": {
@@ -83732,8 +83803,9 @@
           },
           "optimize_streaming_latency": {
             "$ref": "#/components/schemas/TTSOptimizeStreamingLatency",
-            "description": "The optimization for streaming latency",
-            "default": 3
+            "description": "Deprecated: this field is a no-op and is ignored.",
+            "default": 3,
+            "deprecated": true
           },
           "stability": {
             "type": "number",
@@ -83853,8 +83925,9 @@
           },
           "optimize_streaming_latency": {
             "$ref": "#/components/schemas/TTSOptimizeStreamingLatency",
-            "description": "The optimization for streaming latency",
-            "default": 3
+            "description": "Deprecated: this field is a no-op and is ignored.",
+            "default": 3,
+            "deprecated": true
           },
           "stability": {
             "type": "number",
@@ -84112,7 +84185,7 @@
                 "type": "null"
               }
             ],
-            "description": "The optimization for streaming latency"
+            "description": "Deprecated: this field is a no-op and is ignored."
           },
           "stability": {
             "anyOf": [
@@ -84306,7 +84379,7 @@
                 "type": "null"
               }
             ],
-            "description": "The optimization for streaming latency"
+            "description": "Deprecated: this field is a no-op and is ignored."
           },
           "stability": {
             "anyOf": [
@@ -85190,7 +85263,7 @@
           "elevator4"
         ],
         "title": "ToolCallSoundType",
-        "description": "Predefined tool call sound types."
+        "description": "Predefined tool call sounds; ``None`` means no sound."
       },
       "ToolCallUnitTestModel": {
         "properties": {
@@ -85729,6 +85802,147 @@
         "type": "object",
         "title": "TopicDiscoverySettings",
         "description": "Per-agent topic-discovery configuration. Cadence and analysis window are\nmanaged internally; this only exposes the customer-facing on/off toggle."
+      },
+      "TopicEvaluationCriteriaAggregate": {
+        "properties": {
+          "criteria_id": {
+            "type": "string",
+            "title": "Criteria Id"
+          },
+          "success_count": {
+            "type": "integer",
+            "title": "Success Count",
+            "default": 0
+          },
+          "failure_count": {
+            "type": "integer",
+            "title": "Failure Count",
+            "default": 0
+          },
+          "unknown_count": {
+            "type": "integer",
+            "title": "Unknown Count",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "required": [
+          "criteria_id"
+        ],
+        "title": "TopicEvaluationCriteriaAggregate"
+      },
+      "TopicMetricsAggregate": {
+        "properties": {
+          "conversation_count": {
+            "type": "integer",
+            "title": "Conversation Count",
+            "default": 0
+          },
+          "sentiment": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TopicSentimentAggregate"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "evaluation_criteria": {
+            "items": {
+              "$ref": "#/components/schemas/TopicEvaluationCriteriaAggregate"
+            },
+            "type": "array",
+            "title": "Evaluation Criteria"
+          }
+        },
+        "type": "object",
+        "title": "TopicMetricsAggregate"
+      },
+      "TopicSentimentAggregate": {
+        "properties": {
+          "sentiment": {
+            "$ref": "#/components/schemas/NumericDistributionAggregate"
+          },
+          "frustration": {
+            "$ref": "#/components/schemas/NumericDistributionAggregate"
+          },
+          "positive_count": {
+            "type": "integer",
+            "title": "Positive Count",
+            "default": 0
+          },
+          "neutral_count": {
+            "type": "integer",
+            "title": "Neutral Count",
+            "default": 0
+          },
+          "negative_count": {
+            "type": "integer",
+            "title": "Negative Count",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "title": "TopicSentimentAggregate"
+      },
+      "TranscriptionOrderItemRequest": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "transcription",
+            "title": "Kind",
+            "description": "The type of order item.",
+            "default": "transcription"
+          },
+          "media_ids": {
+            "items": {
+              "$ref": "#/components/schemas/MediaId"
+            },
+            "type": "array",
+            "title": "Media Ids",
+            "description": "The IDs of the uploaded media files to transcribe."
+          },
+          "source_language": {
+            "type": "string",
+            "title": "Source Language",
+            "description": "The language code of the source media (e.g. 'en', 'es')."
+          },
+          "verbatim": {
+            "type": "boolean",
+            "title": "Verbatim",
+            "description": "Whether to transcribe every word exactly, including filler words.",
+            "default": false
+          },
+          "instructions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Instructions",
+            "description": "Optional free-text instructions for the transcription team."
+          }
+        },
+        "type": "object",
+        "required": [
+          "media_ids",
+          "source_language"
+        ],
+        "title": "TranscriptionOrderItemRequest",
+        "example": {
+          "instructions": "Use speaker labels where possible.",
+          "kind": "transcription",
+          "media_ids": [
+            "prodmedia_01jgatk6h0fwxrtbjade61yqhx",
+            "prodmedia_01jgb2zd68f8f9tfvbb968wb8z"
+          ],
+          "source_language": "en",
+          "verbatim": false
+        }
       },
       "TransferBranchInfoDefaultingToMain": {
         "properties": {
@@ -96597,6 +96811,8 @@
           "publish_studio_project",
           "music",
           "image_video_generation",
+          "flows",
+          "templates",
           "share_voice_externally",
           "publish_voice_to_voice_library",
           "view_fiat_balance",

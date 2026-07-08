@@ -37,10 +37,11 @@ namespace ElevenLabs
         public global::ElevenLabs.ToolInterruptionMode? InterruptionMode { get; set; }
 
         /// <summary>
-        /// If set, overrides the server's tool_call_sound setting for this tool
+        /// Overrides the server's tool_call_sound setting for this tool. A sound name plays that sound; 'off' overrides to no sound (silence); null means do not override (inherit the server default).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_call_sound")]
-        public global::ElevenLabs.ToolCallSoundType? ToolCallSound { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.ToolCallSoundType?, string, object>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.ToolCallSoundType?, string, object>? ToolCallSound { get; set; }
 
         /// <summary>
         /// If set, overrides the server's tool_call_sound_behavior setting for this tool
@@ -94,7 +95,7 @@ namespace ElevenLabs
         /// If set, overrides the server's interruption_mode setting for this tool.
         /// </param>
         /// <param name="toolCallSound">
-        /// If set, overrides the server's tool_call_sound setting for this tool
+        /// Overrides the server's tool_call_sound setting for this tool. A sound name plays that sound; 'off' overrides to no sound (silence); null means do not override (inherit the server default).
         /// </param>
         /// <param name="toolCallSoundBehavior">
         /// If set, overrides the server's tool_call_sound_behavior setting for this tool
@@ -120,7 +121,7 @@ namespace ElevenLabs
         public MCPToolConfigOverrideUpdateRequestModel(
             global::ElevenLabs.PreToolSpeechMode? preToolSpeech,
             global::ElevenLabs.ToolInterruptionMode? interruptionMode,
-            global::ElevenLabs.ToolCallSoundType? toolCallSound,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.ToolCallSoundType?, string, object>? toolCallSound,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
             global::ElevenLabs.ToolExecutionMode? executionMode,
             int? responseTimeoutSecs,
