@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AverageSentimentScore,
+        /// <summary>
+        /// 
+        /// </summary>
         ConversationCount,
         /// <summary>
         /// 
@@ -30,6 +34,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                UsersSortBy.AverageSentimentScore => "average_sentiment_score",
                 UsersSortBy.ConversationCount => "conversation_count",
                 UsersSortBy.LastContactUnixSecs => "last_contact_unix_secs",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -42,6 +47,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "average_sentiment_score" => UsersSortBy.AverageSentimentScore,
                 "conversation_count" => UsersSortBy.ConversationCount,
                 "last_contact_unix_secs" => UsersSortBy.LastContactUnixSecs,
                 _ => null,
