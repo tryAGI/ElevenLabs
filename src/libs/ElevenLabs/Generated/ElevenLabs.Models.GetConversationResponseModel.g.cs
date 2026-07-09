@@ -115,6 +115,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_auxiliary_audio")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool HasAuxiliaryAudio { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptResponseModel> Transcript { get; set; }
@@ -147,6 +154,7 @@ namespace ElevenLabs
         /// <param name="hasAudio"></param>
         /// <param name="hasUserAudio"></param>
         /// <param name="hasResponseAudio"></param>
+        /// <param name="hasAuxiliaryAudio"></param>
         /// <param name="transcript"></param>
         /// <param name="agentName"></param>
         /// <param name="conversationProduct">
@@ -180,6 +188,7 @@ namespace ElevenLabs
             bool hasAudio,
             bool hasUserAudio,
             bool hasResponseAudio,
+            bool hasAuxiliaryAudio,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptResponseModel> transcript,
             string? agentName,
             string? conversationProduct,
@@ -209,6 +218,7 @@ namespace ElevenLabs
             this.HasAudio = hasAudio;
             this.HasUserAudio = hasUserAudio;
             this.HasResponseAudio = hasResponseAudio;
+            this.HasAuxiliaryAudio = hasAuxiliaryAudio;
             this.Transcript = transcript ?? throw new global::System.ArgumentNullException(nameof(transcript));
             this.TagIds = tagIds;
             this.OtlpTraces = otlpTraces;
