@@ -28,6 +28,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? GroupIds { get; set; }
 
         /// <summary>
+        /// Monthly credit usage limit for the invitee. Omit or set to null for no custom cap.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("usage_limit")]
+        public int? UsageLimit { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -45,17 +51,22 @@ namespace ElevenLabs
         /// <param name="groupIds">
         /// The group ids of the user
         /// </param>
+        /// <param name="usageLimit">
+        /// Monthly credit usage limit for the invitee. Omit or set to null for no custom cap.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyInviteMultipleUsersV1WorkspaceInvitesAddBulkPost(
             global::System.Collections.Generic.IList<string> emails,
             global::ElevenLabs.SeatType? seatType,
-            global::System.Collections.Generic.IList<string>? groupIds)
+            global::System.Collections.Generic.IList<string>? groupIds,
+            int? usageLimit)
         {
             this.Emails = emails ?? throw new global::System.ArgumentNullException(nameof(emails));
             this.SeatType = seatType;
             this.GroupIds = groupIds;
+            this.UsageLimit = usageLimit;
         }
 
         /// <summary>
