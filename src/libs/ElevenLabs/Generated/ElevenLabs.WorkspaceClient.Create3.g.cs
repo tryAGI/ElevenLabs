@@ -485,6 +485,9 @@ namespace ElevenLabs
         /// <param name="groupIds">
         /// The group ids of the user
         /// </param>
+        /// <param name="usageLimit">
+        /// Monthly credit usage limit for the invitee. Omit or set to null for no custom cap.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -492,6 +495,7 @@ namespace ElevenLabs
             string email,
             global::ElevenLabs.SeatType? seatType = default,
             global::System.Collections.Generic.IList<string>? groupIds = default,
+            int? usageLimit = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -500,6 +504,7 @@ namespace ElevenLabs
                 Email = email,
                 SeatType = seatType,
                 GroupIds = groupIds,
+                UsageLimit = usageLimit,
             };
 
             return await Create3Async(

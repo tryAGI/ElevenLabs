@@ -1106,7 +1106,7 @@
       "Slug": "invite-user",
       "Description": "Sends an email invitation to join your workspace to the provided email. If the user doesn\u0027t have an account they will be prompted to create one. If the user accepts this invite they will be added as a user to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission. If the user is already in the workspace a 400 error will be returned.",
       "Language": "http",
-      "Code": "### Invite User\n# @name invite_user\nPOST {{host}}/v1/workspace/invites/add\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022email\u0022: \u0022string\u0022,\n  \u0022workspace_permission\u0022: \u0022string\u0022,\n  \u0022seat_type\u0022: \u0022workspace_admin\u0022,\n  \u0022group_ids\u0022: [\n    \u0022string\u0022\n  ]\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Invite User\n# @name invite_user\nPOST {{host}}/v1/workspace/invites/add\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022email\u0022: \u0022string\u0022,\n  \u0022workspace_permission\u0022: \u0022string\u0022,\n  \u0022seat_type\u0022: \u0022workspace_admin\u0022,\n  \u0022group_ids\u0022: [\n    \u0022string\u0022\n  ],\n  \u0022usage_limit\u0022: 0\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "invite_user",
       "Setup": null
@@ -1117,7 +1117,7 @@
       "Slug": "invite-users-bulk",
       "Description": "Sends email invitations to join your workspace to the provided emails. Requires all email addresses to be part of a verified domain. If the users don\u0027t have an account they will be prompted to create one. If the users accept these invites they will be added as users to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission.",
       "Language": "http",
-      "Code": "### Invite Multiple Users\n# @name invite_users_bulk\nPOST {{host}}/v1/workspace/invites/add-bulk\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022emails\u0022: [\n    \u0022string\u0022\n  ],\n  \u0022seat_type\u0022: \u0022workspace_admin\u0022,\n  \u0022group_ids\u0022: [\n    \u0022string\u0022\n  ]\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Invite Multiple Users\n# @name invite_users_bulk\nPOST {{host}}/v1/workspace/invites/add-bulk\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022emails\u0022: [\n    \u0022string\u0022\n  ],\n  \u0022seat_type\u0022: \u0022workspace_admin\u0022,\n  \u0022group_ids\u0022: [\n    \u0022string\u0022\n  ],\n  \u0022usage_limit\u0022: 0\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "invite_users_bulk",
       "Setup": null

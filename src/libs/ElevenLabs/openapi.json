@@ -41460,6 +41460,22 @@
                 "group_id_2"
               ]
             ]
+          },
+          "usage_limit": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Usage Limit",
+            "description": "Monthly credit usage limit for the invitee. Omit or set to null for no custom cap.",
+            "examples": [
+              5000
+            ]
           }
         },
         "type": "object",
@@ -41529,6 +41545,22 @@
                 "group_id_1",
                 "group_id_2"
               ]
+            ]
+          },
+          "usage_limit": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Usage Limit",
+            "description": "Monthly credit usage limit for the invitee. Omit or set to null for no custom cap.",
+            "examples": [
+              5000
             ]
           }
         },
