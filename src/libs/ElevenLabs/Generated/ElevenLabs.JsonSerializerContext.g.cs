@@ -4775,6 +4775,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalization), TypeInfoPropertyName = "BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalization2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyTranscribesSegmentsV1DubbingResourceDubbingIdTranscribePost))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyTransferWorkspaceResourceOwnershipV1WorkspaceResourcesResourceIdTransferPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyTranslatesAllOrSomeSegmentsAndLanguagesV1DubbingResourceDubbingIdTranslatePost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyUnshareWorkspaceResourceV1WorkspaceResourcesResourceIdUnsharePost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost))]
@@ -5251,7 +5252,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SampleConfigDBModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ReviewResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DiscountResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DoDubbingResponseModel))]
     internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -7392,6 +7392,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>?), TypeInfoPropertyName = "CreateMTLSAuthRequest_d3123ae541f7c02c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DoDubbingResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DocumentUsageModeEnum), TypeInfoPropertyName = "DocumentUsageModeEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DocxExportOptions))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DubOrderItemRequest))]
@@ -7876,7 +7877,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ModelRatesResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ModelResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.LanguageResponseModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ModerationConfig))]
     internal sealed partial class SourceGenerationContextChunk2 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -10017,6 +10017,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>?), TypeInfoPropertyName = "CreateMTLSAuthRequest_d3123ae541f7c02c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ModerationConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ThresholdGuardrail))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MultichannelSpeechToTextResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextChunkResponseModel>))]
@@ -10501,7 +10502,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WhatsAppOutboundCallResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WhatsAppOutboundMessageResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.WhatsAppTemplateTextParam>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WhatsAppTemplateTextParam))]
     internal sealed partial class SourceGenerationContextChunk3 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -12642,6 +12642,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>?), TypeInfoPropertyName = "CreateMTLSAuthRequest_d3123ae541f7c02c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WhatsAppTemplateTextParam))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WhatsAppTemplateDocumentParam))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WhatsAppTemplateDocumentParamDetails))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ParametersItem>))]
