@@ -23,6 +23,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voice_creation_prompt_suggestion")]
+        public string? VoiceCreationPromptSuggestion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gender")]
         public global::ElevenLabs.CharacterGender? Gender { get; set; }
 
@@ -49,6 +55,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="description"></param>
         /// <param name="sampleMessage"></param>
+        /// <param name="voiceCreationPromptSuggestion"></param>
         /// <param name="gender"></param>
         /// <param name="age"></param>
         /// <param name="accent"></param>
@@ -58,12 +65,14 @@ namespace ElevenLabs
         public CharacterMetadataResponseModel(
             string? description,
             string? sampleMessage,
+            string? voiceCreationPromptSuggestion,
             global::ElevenLabs.CharacterGender? gender,
             global::ElevenLabs.CharacterAge? age,
             string? accent)
         {
             this.Description = description;
             this.SampleMessage = sampleMessage;
+            this.VoiceCreationPromptSuggestion = voiceCreationPromptSuggestion;
             this.Gender = gender;
             this.Age = age;
             this.Accent = accent;

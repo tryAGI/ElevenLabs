@@ -12978,6 +12978,64 @@
         "x-fern-sdk-method-name": "unshare"
       }
     },
+    "/v1/workspace/resources/{resource_id}/transfer": {
+      "post": {
+        "tags": [
+          "workspace"
+        ],
+        "summary": "Transfer Workspace Resource Ownership",
+        "description": "Transfers ownership of a workspace resource from the current owner to another user in the same workspace. You must be the resource's current owner to transfer it. The previous owner keeps admin access to the resource.",
+        "operationId": "transfer_resource_endpoint",
+        "parameters": [
+          {
+            "name": "resource_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the target resource.",
+              "title": "Resource Id"
+            },
+            "description": "The ID of the target resource."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Transfer_workspace_resource_ownership_v1_workspace_resources__resource_id__transfer_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "workspace",
+          "resources"
+        ],
+        "x-fern-sdk-method-name": "transfer"
+      }
+    },
     "/v1/workspace/webhooks": {
       "get": {
         "tags": [
@@ -43466,6 +43524,25 @@
         ],
         "title": "Body_Transcribes_segments_v1_dubbing_resource__dubbing_id__transcribe_post"
       },
+      "Body_Transfer_workspace_resource_ownership_v1_workspace_resources__resource_id__transfer_post": {
+        "properties": {
+          "resource_type": {
+            "$ref": "#/components/schemas/WorkspaceResourceType",
+            "description": "Resource type of the target resource."
+          },
+          "target_user_id": {
+            "type": "string",
+            "title": "Target User Id",
+            "description": "The ID of the user the resource should be transferred to."
+          }
+        },
+        "type": "object",
+        "required": [
+          "resource_type",
+          "target_user_id"
+        ],
+        "title": "Body_Transfer_workspace_resource_ownership_v1_workspace_resources__resource_id__transfer_post"
+      },
       "Body_Translates_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__translate_post": {
         "properties": {
           "segments": {
@@ -47303,6 +47380,17 @@
               }
             ],
             "title": "Sample Message"
+          },
+          "voice_creation_prompt_suggestion": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Voice Creation Prompt Suggestion"
           },
           "gender": {
             "anyOf": [
