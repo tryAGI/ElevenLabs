@@ -1,13 +1,15 @@
 
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial class WorkspaceClient
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Create3SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Create4SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,41 +23,41 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Create3SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Create4SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_Create3SecurityRequirement0,
+            {                s_Create4SecurityRequirement0,
             };
-        partial void PrepareCreate3Arguments(
+        partial void PrepareCreate4Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.BodyCreateServiceAccountV1ServiceAccountsPost request);
-        partial void PrepareCreate3Request(
+            global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPost request);
+        partial void PrepareCreate4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.BodyCreateServiceAccountV1ServiceAccountsPost request);
-        partial void ProcessCreate3Response(
+            global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPost request);
+        partial void ProcessCreate4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreate3ResponseContent(
+        partial void ProcessCreate4ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create Service Account<br/>
-        /// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit, up to 100.
+        /// Invite User<br/>
+        /// Sends an email invitation to join your workspace to the provided email. If the user doesn't have an account they will be prompted to create one. If the user accepts this invite they will be added as a user to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission. If the user is already in the workspace a 400 error will be returned.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceCreateServiceAccountResponseModel> Create3Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddWorkspaceInviteResponseModel> Create4Async(
 
-            global::ElevenLabs.BodyCreateServiceAccountV1ServiceAccountsPost request,
+            global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Create3AsResponseAsync(
+            var __response = await Create4AsResponseAsync(
 
                 request: request,
                 requestOptions: requestOptions,
@@ -65,16 +67,16 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Create Service Account<br/>
-        /// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit, up to 100.
+        /// Invite User<br/>
+        /// Sends an email invitation to join your workspace to the provided email. If the user doesn't have an account they will be prompted to create one. If the user accepts this invite they will be added as a user to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission. If the user is already in the workspace a 400 error will be returned.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceCreateServiceAccountResponseModel>> Create3AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AddWorkspaceInviteResponseModel>> Create4AsResponseAsync(
 
-            global::ElevenLabs.BodyCreateServiceAccountV1ServiceAccountsPost request,
+            global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -82,15 +84,15 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreate3Arguments(
+            PrepareCreate4Arguments(
                 httpClient: HttpClient,
                 request: request);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Create3SecurityRequirements,
-                operationName: "Create3Async");
+                securityRequirements: s_Create4SecurityRequirements,
+                operationName: "Create4Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -110,7 +112,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/service-accounts",
+                                path: "/v1/workspace/invites/add",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -155,7 +157,7 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreate3Request(
+                PrepareCreate4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     request: request);
@@ -175,9 +177,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create3",
-                                methodName: "Create3Async",
-                                pathTemplate: "\"/v1/service-accounts\"",
+                                operationId: "Create4",
+                                methodName: "Create4Async",
+                                pathTemplate: "\"/v1/workspace/invites/add\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -209,9 +211,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create3",
-                                methodName: "Create3Async",
-                                pathTemplate: "\"/v1/service-accounts\"",
+                                operationId: "Create4",
+                                methodName: "Create4Async",
+                                pathTemplate: "\"/v1/workspace/invites/add\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -250,9 +252,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create3",
-                                methodName: "Create3Async",
-                                pathTemplate: "\"/v1/service-accounts\"",
+                                operationId: "Create4",
+                                methodName: "Create4Async",
+                                pathTemplate: "\"/v1/workspace/invites/add\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -290,7 +292,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreate3Response(
+                ProcessCreate4Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -298,9 +300,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create3",
-                                methodName: "Create3Async",
-                                pathTemplate: "\"/v1/service-accounts\"",
+                                operationId: "Create4",
+                                methodName: "Create4Async",
+                                pathTemplate: "\"/v1/workspace/invites/add\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -320,9 +322,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create3",
-                                methodName: "Create3Async",
-                                pathTemplate: "\"/v1/service-accounts\"",
+                                operationId: "Create4",
+                                methodName: "Create4Async",
+                                pathTemplate: "\"/v1/workspace/invites/add\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -387,7 +389,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessCreate3ResponseContent(
+                                ProcessCreate4ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -396,9 +398,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.WorkspaceCreateServiceAccountResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.AddWorkspaceInviteResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceCreateServiceAccountResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AddWorkspaceInviteResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -428,9 +430,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.WorkspaceCreateServiceAccountResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.AddWorkspaceInviteResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceCreateServiceAccountResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AddWorkspaceInviteResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -471,29 +473,41 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Create Service Account<br/>
-        /// Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit, up to 100.
+        /// Invite User<br/>
+        /// Sends an email invitation to join your workspace to the provided email. If the user doesn't have an account they will be prompted to create one. If the user accepts this invite they will be added as a user to your workspace and your subscription using one of your seats. This endpoint may only be called by workspace members with the WORKSPACE_MEMBERS_INVITE permission. If the user is already in the workspace a 400 error will be returned.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="defaultSharingGroups">
-        /// List of groups with their permission levels to share with by default. Each entry should specify a group_id and a permission_level (admin, editor, or viewer).
+        /// <param name="email">
+        /// The email of the customer
+        /// </param>
+        /// <param name="seatType">
+        /// The seat type of the user
+        /// </param>
+        /// <param name="groupIds">
+        /// The group ids of the user
+        /// </param>
+        /// <param name="usageLimit">
+        /// Monthly credit usage limit for the invitee. Omit or set to null for no custom cap.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceCreateServiceAccountResponseModel> Create3Async(
-            string name,
-            global::System.Collections.Generic.IList<global::ElevenLabs.DefaultSharingGroupConfig>? defaultSharingGroups = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AddWorkspaceInviteResponseModel> Create4Async(
+            string email,
+            global::ElevenLabs.SeatType? seatType = default,
+            global::System.Collections.Generic.IList<string>? groupIds = default,
+            int? usageLimit = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyCreateServiceAccountV1ServiceAccountsPost
+            var __request = new global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPost
             {
-                Name = name,
-                DefaultSharingGroups = defaultSharingGroups,
+                Email = email,
+                SeatType = seatType,
+                GroupIds = groupIds,
+                UsageLimit = usageLimit,
             };
 
-            return await Create3Async(
+            return await Create4Async(
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

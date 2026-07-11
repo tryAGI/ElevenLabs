@@ -12187,6 +12187,70 @@
           "service_accounts"
         ],
         "x-fern-sdk-method-name": "list"
+      },
+      "post": {
+        "tags": [
+          "workspace"
+        ],
+        "summary": "Create Service Account",
+        "description": "Create a new service account in the workspace. By default, a workspace can have up to 20 service accounts. Enterprise customers may request an increase to this limit, up to 100.",
+        "operationId": "create_service_account",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_service_account_v1_service_accounts_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceCreateServiceAccountResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "service_accounts"
+        ],
+        "x-fern-sdk-method-name": "create"
       }
     },
     "/v1/workspace/groups": {
@@ -12682,6 +12746,65 @@
       }
     },
     "/v1/workspace/members": {
+      "get": {
+        "tags": [
+          "workspace"
+        ],
+        "summary": "Get Workspace Members",
+        "description": "Gets a list of all members of the workspace, including locked members. Service accounts are excluded. Requires the workspace_members_read permission.",
+        "operationId": "get_workspace_members",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WorkspaceMemberResponseModel"
+                  },
+                  "title": "Response Get Workspace Members V1 Workspace Members Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "workspace",
+          "members"
+        ],
+        "x-fern-sdk-method-name": "list"
+      },
       "post": {
         "tags": [
           "workspace"
@@ -12976,64 +13099,6 @@
           "resources"
         ],
         "x-fern-sdk-method-name": "unshare"
-      }
-    },
-    "/v1/workspace/resources/{resource_id}/transfer": {
-      "post": {
-        "tags": [
-          "workspace"
-        ],
-        "summary": "Transfer Workspace Resource Ownership",
-        "description": "Transfers ownership of a workspace resource from the current owner to another user in the same workspace. You must be the resource's current owner to transfer it. The previous owner keeps admin access to the resource.",
-        "operationId": "transfer_resource_endpoint",
-        "parameters": [
-          {
-            "name": "resource_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The ID of the target resource.",
-              "title": "Resource Id"
-            },
-            "description": "The ID of the target resource."
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Body_Transfer_workspace_resource_ownership_v1_workspace_resources__resource_id__transfer_post"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "x-fern-sdk-group-name": [
-          "workspace",
-          "resources"
-        ],
-        "x-fern-sdk-method-name": "transfer"
       }
     },
     "/v1/workspace/webhooks": {
@@ -43556,25 +43621,6 @@
         ],
         "title": "Body_Transcribes_segments_v1_dubbing_resource__dubbing_id__transcribe_post"
       },
-      "Body_Transfer_workspace_resource_ownership_v1_workspace_resources__resource_id__transfer_post": {
-        "properties": {
-          "resource_type": {
-            "$ref": "#/components/schemas/WorkspaceResourceType",
-            "description": "Resource type of the target resource."
-          },
-          "target_user_id": {
-            "type": "string",
-            "title": "Target User Id",
-            "description": "The ID of the user the resource should be transferred to."
-          }
-        },
-        "type": "object",
-        "required": [
-          "resource_type",
-          "target_user_id"
-        ],
-        "title": "Body_Transfer_workspace_resource_ownership_v1_workspace_resources__resource_id__transfer_post"
-      },
       "Body_Translates_all_or_some_segments_and_languages_v1_dubbing_resource__dubbing_id__translate_post": {
         "properties": {
           "segments": {
@@ -44509,6 +44555,34 @@
           "permissions"
         ],
         "title": "Body_create_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys_post"
+      },
+      "Body_create_service_account_v1_service_accounts_post": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "default_sharing_groups": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/DefaultSharingGroupConfig"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Default Sharing Groups",
+            "description": "List of groups with their permission levels to share with by default. Each entry should specify a group_id and a permission_level (admin, editor, or viewer)."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "Body_create_service_account_v1_service_accounts_post"
       },
       "Body_edit_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys__api_key_id__patch": {
         "properties": {
@@ -55272,6 +55346,31 @@
           "rationale"
         ],
         "title": "DataCollectionResultCommonModel"
+      },
+      "DefaultSharingGroupConfig": {
+        "properties": {
+          "group_id": {
+            "type": "string",
+            "title": "Group Id",
+            "description": "The ID of the group to share with"
+          },
+          "permission_level": {
+            "type": "string",
+            "enum": [
+              "admin",
+              "editor",
+              "viewer"
+            ],
+            "title": "Permission Level",
+            "description": "The permission level to grant to the group"
+          }
+        },
+        "type": "object",
+        "required": [
+          "group_id",
+          "permission_level"
+        ],
+        "title": "DefaultSharingGroupConfig"
       },
       "DefaultSharingGroupResponseModel": {
         "properties": {
@@ -97192,6 +97291,19 @@
         ],
         "title": "WorkspaceCreateApiKeyResponseModel"
       },
+      "WorkspaceCreateServiceAccountResponseModel": {
+        "properties": {
+          "service-account-user-id": {
+            "type": "string",
+            "title": "Service-Account-User-Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "service-account-user-id"
+        ],
+        "title": "WorkspaceCreateServiceAccountResponseModel"
+      },
       "WorkspaceCreateWebhookResponseModel": {
         "properties": {
           "webhook_id": {
@@ -97408,6 +97520,64 @@
           "permissions"
         ],
         "title": "WorkspaceGroupResponseModel"
+      },
+      "WorkspaceMemberResponseModel": {
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "title": "User Id",
+            "description": "The user ID of the workspace member."
+          },
+          "email": {
+            "type": "string",
+            "title": "Email",
+            "description": "The email address of the workspace member."
+          },
+          "first_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Name",
+            "description": "The first name of the workspace member, if available."
+          },
+          "seat_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SeatType"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The seat type (role) of the workspace member."
+          },
+          "is_owner": {
+            "type": "boolean",
+            "title": "Is Owner",
+            "description": "Whether the member is the workspace owner."
+          },
+          "is_locked": {
+            "type": "boolean",
+            "title": "Is Locked",
+            "description": "Whether the member's account is locked in this workspace."
+          }
+        },
+        "type": "object",
+        "required": [
+          "user_id",
+          "email",
+          "first_name",
+          "seat_type",
+          "is_owner",
+          "is_locked"
+        ],
+        "title": "WorkspaceMemberResponseModel",
+        "description": "Public workspace member fields exposed via GET /v1/workspace/members."
       },
       "WorkspaceResourceType": {
         "type": "string",

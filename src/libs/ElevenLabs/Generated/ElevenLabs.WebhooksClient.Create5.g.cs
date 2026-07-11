@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Create4SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Create5SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,22 +21,22 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Create4SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Create5SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_Create4SecurityRequirement0,
+            {                s_Create5SecurityRequirement0,
             };
-        partial void PrepareCreate4Arguments(
+        partial void PrepareCreate5Arguments(
             global::System.Net.Http.HttpClient httpClient,
             global::ElevenLabs.BodyCreateWorkspaceWebhookV1WorkspaceWebhooksPost request);
-        partial void PrepareCreate4Request(
+        partial void PrepareCreate5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             global::ElevenLabs.BodyCreateWorkspaceWebhookV1WorkspaceWebhooksPost request);
-        partial void ProcessCreate4Response(
+        partial void ProcessCreate5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreate4ResponseContent(
+        partial void ProcessCreate5ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -49,13 +49,13 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceCreateWebhookResponseModel> Create4Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceCreateWebhookResponseModel> Create5Async(
 
             global::ElevenLabs.BodyCreateWorkspaceWebhookV1WorkspaceWebhooksPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Create4AsResponseAsync(
+            var __response = await Create5AsResponseAsync(
 
                 request: request,
                 requestOptions: requestOptions,
@@ -72,7 +72,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceCreateWebhookResponseModel>> Create4AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceCreateWebhookResponseModel>> Create5AsResponseAsync(
 
             global::ElevenLabs.BodyCreateWorkspaceWebhookV1WorkspaceWebhooksPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -82,15 +82,15 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreate4Arguments(
+            PrepareCreate5Arguments(
                 httpClient: HttpClient,
                 request: request);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Create4SecurityRequirements,
-                operationName: "Create4Async");
+                securityRequirements: s_Create5SecurityRequirements,
+                operationName: "Create5Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -155,7 +155,7 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreate4Request(
+                PrepareCreate5Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     request: request);
@@ -175,8 +175,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create4",
-                                methodName: "Create4Async",
+                                operationId: "Create5",
+                                methodName: "Create5Async",
                                 pathTemplate: "\"/v1/workspace/webhooks\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -209,8 +209,8 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create4",
-                                methodName: "Create4Async",
+                                operationId: "Create5",
+                                methodName: "Create5Async",
                                 pathTemplate: "\"/v1/workspace/webhooks\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -250,8 +250,8 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create4",
-                                methodName: "Create4Async",
+                                operationId: "Create5",
+                                methodName: "Create5Async",
                                 pathTemplate: "\"/v1/workspace/webhooks\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -290,7 +290,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreate4Response(
+                ProcessCreate5Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -298,8 +298,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create4",
-                                methodName: "Create4Async",
+                                operationId: "Create5",
+                                methodName: "Create5Async",
                                 pathTemplate: "\"/v1/workspace/webhooks\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -320,8 +320,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create4",
-                                methodName: "Create4Async",
+                                operationId: "Create5",
+                                methodName: "Create5Async",
                                 pathTemplate: "\"/v1/workspace/webhooks\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -387,7 +387,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessCreate4ResponseContent(
+                                ProcessCreate5ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -480,7 +480,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceCreateWebhookResponseModel> Create4Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceCreateWebhookResponseModel> Create5Async(
             global::ElevenLabs.WebhookHMACSettings settings,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -490,7 +490,7 @@ namespace ElevenLabs
                 Settings = settings,
             };
 
-            return await Create4Async(
+            return await Create5Async(
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

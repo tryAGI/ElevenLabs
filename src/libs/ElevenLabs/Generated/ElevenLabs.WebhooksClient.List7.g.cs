@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_List6SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_List7SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,22 +21,22 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_List6SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_List7SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_List6SecurityRequirement0,
+            {                s_List7SecurityRequirement0,
             };
-        partial void PrepareList6Arguments(
+        partial void PrepareList7Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref bool? includeUsages);
-        partial void PrepareList6Request(
+        partial void PrepareList7Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             bool? includeUsages);
-        partial void ProcessList6Response(
+        partial void ProcessList7Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessList6ResponseContent(
+        partial void ProcessList7ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -52,12 +52,12 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceWebhookListResponseModel> List6Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceWebhookListResponseModel> List7Async(
             bool? includeUsages = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await List6AsResponseAsync(
+            var __response = await List7AsResponseAsync(
                 includeUsages: includeUsages,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -76,22 +76,22 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceWebhookListResponseModel>> List6AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceWebhookListResponseModel>> List7AsResponseAsync(
             bool? includeUsages = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareList6Arguments(
+            PrepareList7Arguments(
                 httpClient: HttpClient,
                 includeUsages: ref includeUsages);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_List6SecurityRequirements,
-                operationName: "List6Async");
+                securityRequirements: s_List7SecurityRequirements,
+                operationName: "List7Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -153,7 +153,7 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareList6Request(
+                PrepareList7Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     includeUsages: includeUsages);
@@ -173,8 +173,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List6",
-                                methodName: "List6Async",
+                                operationId: "List7",
+                                methodName: "List7Async",
                                 pathTemplate: "\"/v1/workspace/webhooks\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -207,8 +207,8 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List6",
-                                methodName: "List6Async",
+                                operationId: "List7",
+                                methodName: "List7Async",
                                 pathTemplate: "\"/v1/workspace/webhooks\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -248,8 +248,8 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List6",
-                                methodName: "List6Async",
+                                operationId: "List7",
+                                methodName: "List7Async",
                                 pathTemplate: "\"/v1/workspace/webhooks\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -288,7 +288,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessList6Response(
+                ProcessList7Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -296,8 +296,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List6",
-                                methodName: "List6Async",
+                                operationId: "List7",
+                                methodName: "List7Async",
                                 pathTemplate: "\"/v1/workspace/webhooks\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -318,8 +318,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List6",
-                                methodName: "List6Async",
+                                operationId: "List7",
+                                methodName: "List7Async",
                                 pathTemplate: "\"/v1/workspace/webhooks\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -385,7 +385,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessList6ResponseContent(
+                                ProcessList7ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);

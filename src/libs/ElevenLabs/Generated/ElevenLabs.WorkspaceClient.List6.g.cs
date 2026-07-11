@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_TransferSecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_List6SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,50 +21,36 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_TransferSecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_List6SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_TransferSecurityRequirement0,
+            {                s_List6SecurityRequirement0,
             };
-        partial void PrepareTransferArguments(
+        partial void PrepareList6Arguments(
+            global::System.Net.Http.HttpClient httpClient);
+        partial void PrepareList6Request(
             global::System.Net.Http.HttpClient httpClient,
-            ref string resourceId,
-            global::ElevenLabs.BodyTransferWorkspaceResourceOwnershipV1WorkspaceResourcesResourceIdTransferPost request);
-        partial void PrepareTransferRequest(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string resourceId,
-            global::ElevenLabs.BodyTransferWorkspaceResourceOwnershipV1WorkspaceResourcesResourceIdTransferPost request);
-        partial void ProcessTransferResponse(
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+        partial void ProcessList6Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessTransferResponseContent(
+        partial void ProcessList6ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Transfer Workspace Resource Ownership<br/>
-        /// Transfers ownership of a workspace resource from the current owner to another user in the same workspace. You must be the resource's current owner to transfer it. The previous owner keeps admin access to the resource.
+        /// Get Workspace Members<br/>
+        /// Gets a list of all members of the workspace, including locked members. Service accounts are excluded. Requires the workspace_members_read permission.
         /// </summary>
-        /// <param name="resourceId">
-        /// The ID of the target resource.
-        /// </param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> TransferAsync(
-            string resourceId,
-
-            global::ElevenLabs.BodyTransferWorkspaceResourceOwnershipV1WorkspaceResourcesResourceIdTransferPost request,
+        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>> List6Async(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await TransferAsResponseAsync(
-                resourceId: resourceId,
-
-                request: request,
+            var __response = await List6AsResponseAsync(
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -72,37 +58,26 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Transfer Workspace Resource Ownership<br/>
-        /// Transfers ownership of a workspace resource from the current owner to another user in the same workspace. You must be the resource's current owner to transfer it. The previous owner keeps admin access to the resource.
+        /// Get Workspace Members<br/>
+        /// Gets a list of all members of the workspace, including locked members. Service accounts are excluded. Requires the workspace_members_read permission.
         /// </summary>
-        /// <param name="resourceId">
-        /// The ID of the target resource.
-        /// </param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> TransferAsResponseAsync(
-            string resourceId,
-
-            global::ElevenLabs.BodyTransferWorkspaceResourceOwnershipV1WorkspaceResourcesResourceIdTransferPost request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>>> List6AsResponseAsync(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareTransferArguments(
-                httpClient: HttpClient,
-                resourceId: ref resourceId,
-                request: request);
+            PrepareList6Arguments(
+                httpClient: HttpClient);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_TransferSecurityRequirements,
-                operationName: "TransferAsync");
+                securityRequirements: s_List6SecurityRequirements,
+                operationName: "List6Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -122,7 +97,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/workspace/resources/{resourceId}/transfer",
+                                path: "/v1/workspace/members",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -130,7 +105,7 @@ namespace ElevenLabs
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: global::System.Net.Http.HttpMethod.Get,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -153,12 +128,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
-                            __httpRequest.Content = __httpRequestContent;
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -167,11 +136,9 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareTransferRequest(
+                PrepareList6Request(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest,
-                    resourceId: resourceId!,
-                    request: request);
+                    httpRequestMessage: __httpRequest);
 
                 return __httpRequest;
             }
@@ -188,10 +155,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Transfer",
-                                methodName: "TransferAsync",
-                                pathTemplate: "$\"/v1/workspace/resources/{resourceId}/transfer\"",
-                                httpMethod: "POST",
+                                operationId: "List6",
+                                methodName: "List6Async",
+                                pathTemplate: "\"/v1/workspace/members\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -222,10 +189,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Transfer",
-                                methodName: "TransferAsync",
-                                pathTemplate: "$\"/v1/workspace/resources/{resourceId}/transfer\"",
-                                httpMethod: "POST",
+                                operationId: "List6",
+                                methodName: "List6Async",
+                                pathTemplate: "\"/v1/workspace/members\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -263,10 +230,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Transfer",
-                                methodName: "TransferAsync",
-                                pathTemplate: "$\"/v1/workspace/resources/{resourceId}/transfer\"",
-                                httpMethod: "POST",
+                                operationId: "List6",
+                                methodName: "List6Async",
+                                pathTemplate: "\"/v1/workspace/members\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -303,7 +270,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessTransferResponse(
+                ProcessList6Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -311,10 +278,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Transfer",
-                                methodName: "TransferAsync",
-                                pathTemplate: "$\"/v1/workspace/resources/{resourceId}/transfer\"",
-                                httpMethod: "POST",
+                                operationId: "List6",
+                                methodName: "List6Async",
+                                pathTemplate: "\"/v1/workspace/members\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -333,10 +300,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Transfer",
-                                methodName: "TransferAsync",
-                                pathTemplate: "$\"/v1/workspace/resources/{resourceId}/transfer\"",
-                                httpMethod: "POST",
+                                operationId: "List6",
+                                methodName: "List6Async",
+                                pathTemplate: "\"/v1/workspace/members\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -400,7 +367,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessTransferResponseContent(
+                                ProcessList6ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -409,11 +376,13 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>), JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -433,17 +402,19 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>), JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -478,41 +449,6 @@ namespace ElevenLabs
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// Transfer Workspace Resource Ownership<br/>
-        /// Transfers ownership of a workspace resource from the current owner to another user in the same workspace. You must be the resource's current owner to transfer it. The previous owner keeps admin access to the resource.
-        /// </summary>
-        /// <param name="resourceId">
-        /// The ID of the target resource.
-        /// </param>
-        /// <param name="resourceType">
-        /// Resource type of the target resource.
-        /// </param>
-        /// <param name="targetUserId">
-        /// The ID of the user the resource should be transferred to.
-        /// </param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> TransferAsync(
-            string resourceId,
-            global::ElevenLabs.WorkspaceResourceType resourceType,
-            string targetUserId,
-            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::ElevenLabs.BodyTransferWorkspaceResourceOwnershipV1WorkspaceResourcesResourceIdTransferPost
-            {
-                ResourceType = resourceType,
-                TargetUserId = targetUserId,
-            };
-
-            return await TransferAsync(
-                resourceId: resourceId,
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

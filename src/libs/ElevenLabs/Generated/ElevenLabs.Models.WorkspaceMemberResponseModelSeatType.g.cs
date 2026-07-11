@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// The seat type (role) of the workspace member.
     /// </summary>
-    public sealed partial class TransferResourceEndpointResponse
+    public sealed partial class WorkspaceMemberResponseModelSeatType
     {
 
         /// <summary>
