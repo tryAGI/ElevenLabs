@@ -37311,6 +37311,51 @@
         "title": "AuthorizationMethod",
         "default": "public"
       },
+      "AutoGenerationMetadata": {
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id",
+            "description": "Agent whose simulation library this test belongs to."
+          },
+          "stable_topic_id": {
+            "type": "string",
+            "title": "Stable Topic Id",
+            "description": "Stable topic id (from topic discovery) this test covers."
+          },
+          "criteria_id": {
+            "type": "string",
+            "title": "Criteria Id",
+            "description": "Evaluation criterion id this test targets."
+          },
+          "topic_label": {
+            "type": "string",
+            "title": "Topic Label",
+            "description": "Human-readable topic label at generation time."
+          },
+          "source_conversation_id": {
+            "type": "string",
+            "title": "Source Conversation Id",
+            "description": "Conversation the test was generated from."
+          },
+          "generated_at_unix": {
+            "type": "integer",
+            "title": "Generated At Unix",
+            "description": "Unix timestamp (seconds) when the test was generated."
+          }
+        },
+        "type": "object",
+        "required": [
+          "agent_id",
+          "stable_topic_id",
+          "criteria_id",
+          "topic_label",
+          "source_conversation_id",
+          "generated_at_unix"
+        ],
+        "title": "AutoGenerationMetadata",
+        "description": "provenance for an auto-generated simulation-library test (drives dedup + ui grouping)."
+      },
       "AutoSyncInfo": {
         "properties": {
           "minimum_frequency_days": {
@@ -48196,6 +48241,16 @@
         },
         "type": "object",
         "title": "ContentConfig"
+      },
+      "ContentFormat": {
+        "type": "string",
+        "enum": [
+          "html",
+          "markdown"
+        ],
+        "title": "ContentFormat",
+        "description": "Canonical representation of a knowledge base document's stored content.\n\nHTML is the legacy default; documents created before this field existed are\ninterpreted as HTML.",
+        "default": "html"
       },
       "ContentGuardrail-Input": {
         "properties": {
@@ -61342,6 +61397,10 @@
             "type": "string",
             "title": "Extracted Inner Html"
           },
+          "content_format": {
+            "$ref": "#/components/schemas/ContentFormat",
+            "default": "html"
+          },
           "filename": {
             "type": "string",
             "title": "Filename"
@@ -61977,6 +62036,10 @@
           "extracted_inner_html": {
             "type": "string",
             "title": "Extracted Inner Html"
+          },
+          "content_format": {
+            "$ref": "#/components/schemas/ContentFormat",
+            "default": "html"
           }
         },
         "type": "object",
@@ -62046,6 +62109,10 @@
           "extracted_inner_html": {
             "type": "string",
             "title": "Extracted Inner Html"
+          },
+          "content_format": {
+            "$ref": "#/components/schemas/ContentFormat",
+            "default": "html"
           },
           "auto_sync_info": {
             "anyOf": [
@@ -80881,6 +80948,11 @@
           "voices"
         ],
         "title": "SimilarVoicesForSpeakerResponse"
+      },
+      "SimulationLibrarySettings": {
+        "properties": {},
+        "type": "object",
+        "title": "SimulationLibrarySettings"
       },
       "SimulationTestModel": {
         "properties": {
