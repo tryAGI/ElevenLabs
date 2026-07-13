@@ -94,7 +94,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enable_phoneme_tags")]
         public bool? EnablePhonemeTags { get; set; }
@@ -157,7 +157,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="enablePhonemeTags">
         /// Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="audioFilter">
         /// An optional filter applied to the audio output.

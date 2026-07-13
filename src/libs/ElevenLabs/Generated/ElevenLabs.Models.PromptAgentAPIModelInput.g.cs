@@ -121,7 +121,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Time in seconds before cascading to backup LLM. Must be between 2 and 15 seconds.<br/>
-        /// Default Value: 8F
+        /// Default Value: 4F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cascade_timeout_seconds")]
         public double? CascadeTimeoutSeconds { get; set; }
@@ -200,7 +200,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cascadeTimeoutSeconds">
         /// Time in seconds before cascading to backup LLM. Must be between 2 and 15 seconds.<br/>
-        /// Default Value: 8F
+        /// Default Value: 4F
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

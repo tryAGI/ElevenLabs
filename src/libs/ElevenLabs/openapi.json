@@ -12,7 +12,7 @@
           "speech-history"
         ],
         "summary": "List Generated Items",
-        "description": "Returns a list of your generated audio.",
+        "description": "Returns a list of your generated audio (e.g. text to speech, speech to speech, Studio, dubbing). Music and SFX generations are not included and cannot currently be retrieved via the API.",
         "operationId": "get_speech_history",
         "parameters": [
           {
@@ -49013,6 +49013,7 @@
             ]
           },
           "tts": {
+            "model_id": "eleven_turbo_v2",
             "similarity_boost": 0.8,
             "speed": 1.0,
             "stability": 0.5,
@@ -49103,6 +49104,7 @@
             ]
           },
           "tts": {
+            "model_id": "eleven_turbo_v2",
             "similarity_boost": 0.8,
             "speed": 1.0,
             "stability": 0.5,
@@ -61194,7 +61196,31 @@
           "has_auxiliary_audio",
           "transcript"
         ],
-        "title": "GetConversationResponseModel"
+        "title": "GetConversationResponseModel",
+        "example": {
+          "agent_id": "agent_3701k3ttaq12ewp8b7qv5rfyszkz",
+          "agent_name": "My agent",
+          "conversation_id": "conv_7401k5m9x2p8ec3rqv6dtnhb0fzw",
+          "environment": "production",
+          "has_audio": true,
+          "has_auxiliary_audio": true,
+          "has_response_audio": true,
+          "has_user_audio": true,
+          "metadata": {
+            "call_duration_secs": 10,
+            "start_time_unix_secs": 1714423232
+          },
+          "status": "processing",
+          "tag_ids": [],
+          "transcript": [
+            {
+              "message": "Hello, how are you?",
+              "role": "user",
+              "time_in_call_secs": 10
+            }
+          ],
+          "version_id": "agtvrsn_5xM3yVvZQKV0EfqQpLr2"
+        }
       },
       "GetConversationTagsPageResponseModel": {
         "properties": {
@@ -75947,7 +75973,7 @@
             "minimum": 2.0,
             "title": "Cascade Timeout Seconds",
             "description": "Time in seconds before cascading to backup LLM. Must be between 2 and 15 seconds.",
-            "default": 8.0
+            "default": 4.0
           },
           "tools": {
             "items": {
@@ -76175,7 +76201,7 @@
             "minimum": 2.0,
             "title": "Cascade Timeout Seconds",
             "description": "Time in seconds before cascading to backup LLM. Must be between 2 and 15 seconds.",
-            "default": 8.0
+            "default": 4.0
           },
           "tools": {
             "items": {
@@ -84278,7 +84304,8 @@
           "model_id": {
             "$ref": "#/components/schemas/TTSConversationalModel",
             "description": "The model to use for TTS",
-            "default": "eleven_flash_v2"
+            "default": "eleven_flash_v2",
+            "x-convai-client-override": true
           },
           "voice_id": {
             "type": "string",
@@ -84367,7 +84394,7 @@
             "type": "boolean",
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.",
-            "default": false
+            "default": true
           },
           "audio_filter": {
             "anyOf": [
@@ -84400,7 +84427,8 @@
           "model_id": {
             "$ref": "#/components/schemas/TTSConversationalModel",
             "description": "The model to use for TTS",
-            "default": "eleven_flash_v2"
+            "default": "eleven_flash_v2",
+            "x-convai-client-override": true
           },
           "voice_id": {
             "type": "string",
@@ -84489,7 +84517,7 @@
             "type": "boolean",
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.",
-            "default": false
+            "default": true
           },
           "audio_filter": {
             "anyOf": [
@@ -84519,6 +84547,18 @@
       },
       "TTSConversationalConfigOverride": {
         "properties": {
+          "model_id": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TTSConversationalModel"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The model to use for TTS",
+            "x-convai-client-override": true
+          },
           "voice_id": {
             "anyOf": [
               {
@@ -84576,6 +84616,7 @@
         "type": "object",
         "title": "TTSConversationalConfigOverride",
         "example": {
+          "model_id": "eleven_turbo_v2",
           "similarity_boost": 0.8,
           "speed": 1.0,
           "stability": 0.5,
@@ -84584,6 +84625,12 @@
       },
       "TTSConversationalConfigOverrideConfig": {
         "properties": {
+          "model_id": {
+            "type": "boolean",
+            "title": "Model Id",
+            "description": "Whether to allow overriding the model_id field.",
+            "default": false
+          },
           "voice_id": {
             "type": "boolean",
             "title": "Voice Id",
@@ -84623,7 +84670,8 @@
                 "type": "null"
               }
             ],
-            "description": "The model to use for TTS"
+            "description": "The model to use for TTS",
+            "x-convai-client-override": true
           },
           "voice_id": {
             "anyOf": [
@@ -84817,7 +84865,8 @@
                 "type": "null"
               }
             ],
-            "description": "The model to use for TTS"
+            "description": "The model to use for TTS",
+            "x-convai-client-override": true
           },
           "voice_id": {
             "anyOf": [
