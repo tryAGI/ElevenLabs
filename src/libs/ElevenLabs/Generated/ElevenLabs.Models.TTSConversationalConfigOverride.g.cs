@@ -4,10 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"}
+    /// Example: {"model_id":"eleven_turbo_v2","similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"}
     /// </summary>
     public sealed partial class TTSConversationalConfigOverride
     {
+        /// <summary>
+        /// The model to use for TTS
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
+        public global::ElevenLabs.TTSConversationalModel? ModelId { get; set; }
+
         /// <summary>
         /// The voice ID to use for TTS
         /// </summary>
@@ -41,6 +47,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="TTSConversationalConfigOverride" /> class.
         /// </summary>
+        /// <param name="modelId">
+        /// The model to use for TTS
+        /// </param>
         /// <param name="voiceId">
         /// The voice ID to use for TTS
         /// </param>
@@ -57,11 +66,13 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public TTSConversationalConfigOverride(
+            global::ElevenLabs.TTSConversationalModel? modelId,
             string? voiceId,
             double? stability,
             double? speed,
             double? similarityBoost)
         {
+            this.ModelId = modelId;
             this.VoiceId = voiceId;
             this.Stability = stability;
             this.Speed = speed;

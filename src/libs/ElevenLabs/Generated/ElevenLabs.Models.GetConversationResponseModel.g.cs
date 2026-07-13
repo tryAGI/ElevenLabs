@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"agent_id":"agent_3701k3ttaq12ewp8b7qv5rfyszkz","agent_name":"My agent","conversation_id":"conv_7401k5m9x2p8ec3rqv6dtnhb0fzw","environment":"production","has_audio":true,"has_auxiliary_audio":true,"has_response_audio":true,"has_user_audio":true,"metadata":{"call_duration_secs":10,"start_time_unix_secs":1714423232},"status":"processing","tag_ids":[],"transcript":[{"message":"Hello, how are you?","role":"user","time_in_call_secs":10}],"version_id":"agtvrsn_5xM3yVvZQKV0EfqQpLr2"}
     /// </summary>
     public sealed partial class GetConversationResponseModel
     {
