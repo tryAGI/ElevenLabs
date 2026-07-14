@@ -22078,6 +22078,105 @@
         "x-fern-sdk-method-name": "search"
       }
     },
+    "/v1/convai/agents/{agent_id}/knowledge-base/rag-query": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Query Agent Knowledge Base Rag",
+        "description": "Run the agent's exact RAG retrieval for an ad-hoc query and return the ranked chunks the agent would retrieve. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.",
+        "operationId": "query_agent_knowledge_base_rag_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "branch_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The ID of the branch to use",
+              "examples": [
+                "agtbranch_0901k4aafjxxfxt93gd841r7tv5t"
+              ],
+              "title": "Branch Id"
+            },
+            "description": "The ID of the branch to use"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentKnowledgeBaseRagQueryRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentKnowledgeBaseRagQueryResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-ignore": true
+      }
+    },
     "/v1/convai/knowledge-base/{documentation_id}/dependent-agents": {
       "get": {
         "tags": [
@@ -33658,6 +33757,104 @@
           "type"
         ],
         "title": "AgentFailureResponseExample"
+      },
+      "AgentKnowledgeBaseRagChunkResponseModel": {
+        "properties": {
+          "document_id": {
+            "type": "string",
+            "title": "Document Id",
+            "description": "ID of the source knowledge base document."
+          },
+          "document_name": {
+            "type": "string",
+            "title": "Document Name",
+            "description": "Name of the source knowledge base document."
+          },
+          "chunk_id": {
+            "type": "string",
+            "title": "Chunk Id",
+            "description": "ID of the retrieved chunk."
+          },
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "description": "Text content of the retrieved chunk."
+          },
+          "vector_distance": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vector Distance",
+            "description": "Similarity distance when exposed by the retrieval strategy."
+          }
+        },
+        "type": "object",
+        "required": [
+          "document_id",
+          "document_name",
+          "chunk_id",
+          "text",
+          "vector_distance"
+        ],
+        "title": "AgentKnowledgeBaseRagChunkResponseModel"
+      },
+      "AgentKnowledgeBaseRagQueryRequestModel": {
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Query",
+            "description": "Query to run against the agent's knowledge base RAG index.",
+            "examples": [
+              "How do I reset my password?"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "query"
+        ],
+        "title": "AgentKnowledgeBaseRagQueryRequestModel"
+      },
+      "AgentKnowledgeBaseRagQueryResponseModel": {
+        "properties": {
+          "retrieval_query": {
+            "type": "string",
+            "title": "Retrieval Query",
+            "description": "Raw query used for retrieval (echoes the request query)."
+          },
+          "chunks": {
+            "items": {
+              "$ref": "#/components/schemas/AgentKnowledgeBaseRagChunkResponseModel"
+            },
+            "type": "array",
+            "title": "Chunks",
+            "description": "Ranked chunks the agent would retrieve, after distance and length filtering."
+          }
+        },
+        "type": "object",
+        "required": [
+          "retrieval_query",
+          "chunks"
+        ],
+        "title": "AgentKnowledgeBaseRagQueryResponseModel",
+        "example": {
+          "chunks": [
+            {
+              "chunk_id": "chunk_498cjVigY5qzO86Huf0OWal",
+              "document_id": "doc_J3Pbu5gP6NNKBscdCdwB",
+              "document_name": "Account FAQ",
+              "text": "To reset your password, open Settings and choose Security...",
+              "vector_distance": 0.21
+            }
+          ],
+          "retrieval_query": "How do I reset my password?"
+        }
       },
       "AgentMetadata": {
         "properties": {
