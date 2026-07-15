@@ -3429,6 +3429,85 @@
         "x-fern-sdk-method-name": "delete"
       }
     },
+    "/v1/voices/{voice_id}/edit": {
+      "post": {
+        "tags": [
+          "voices",
+          "voices"
+        ],
+        "summary": "Edit Voice",
+        "description": "Edit a voice created by you.",
+        "operationId": "edit_voice",
+        "parameters": [
+          {
+            "name": "voice_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.",
+              "examples": [
+                "21m00Tcm4TlvDq8ikWAM"
+              ],
+              "title": "Voice Id"
+            },
+            "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Edit_voice_v1_voices__voice_id__edit_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EditVoiceResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "voices",
+        "x-fern-sdk-method-name": "update"
+      }
+    },
     "/v2/voices": {
       "get": {
         "tags": [
@@ -3749,84 +3828,6 @@
           "ivc"
         ],
         "x-fern-sdk-method-name": "create"
-      }
-    },
-    "/v1/voices/{voice_id}/edit": {
-      "post": {
-        "tags": [
-          "voices"
-        ],
-        "summary": "Edit Voice",
-        "description": "Edit a voice created by you.",
-        "operationId": "edit_voice",
-        "parameters": [
-          {
-            "name": "voice_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.",
-              "examples": [
-                "21m00Tcm4TlvDq8ikWAM"
-              ],
-              "title": "Voice Id"
-            },
-            "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
-          },
-          {
-            "name": "xi-api-key",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
-              "title": "Xi-Api-Key"
-            },
-            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "$ref": "#/components/schemas/Body_Edit_voice_v1_voices__voice_id__edit_post"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EditVoiceResponseModel"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "x-fern-sdk-group-name": "voices",
-        "x-fern-sdk-method-name": "update"
       }
     },
     "/v1/voices/add/{public_user_id}/{voice_id}": {
