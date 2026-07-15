@@ -4,7 +4,10 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// provenance for an auto-generated simulation-library test (drives dedup + ui grouping).
+    /// Metadata for an automatically generated simulation test.<br/>
+    /// Tracks the origin and context of tests that were auto-generated from<br/>
+    /// conversations, including the source conversation, topic, and evaluation<br/>
+    /// criteria the test covers.
     /// </summary>
     public sealed partial class AutoGenerationMetadata
     {

@@ -65,6 +65,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookUsageResponseModel>? Usage { get; set; }
 
         /// <summary>
+        /// The workspace-level events this webhook is currently subscribed to. Only populated when usages are requested.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("events")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookEventType>? Events { get; set; }
+
+        /// <summary>
         /// The most recent error code returned from the callback URL.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("most_recent_failure_error_code")]
@@ -109,6 +115,9 @@ namespace ElevenLabs
         /// <param name="usage">
         /// The list of products that are currently configured to trigger this webhook.
         /// </param>
+        /// <param name="events">
+        /// The workspace-level events this webhook is currently subscribed to. Only populated when usages are requested.
+        /// </param>
         /// <param name="mostRecentFailureErrorCode">
         /// The most recent error code returned from the callback URL.
         /// </param>
@@ -127,6 +136,7 @@ namespace ElevenLabs
             int createdAtUnix,
             global::ElevenLabs.WebhookAuthMethodType authType,
             global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookUsageResponseModel>? usage,
+            global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookEventType>? events,
             int? mostRecentFailureErrorCode,
             int? mostRecentFailureTimestamp)
         {
@@ -138,6 +148,7 @@ namespace ElevenLabs
             this.CreatedAtUnix = createdAtUnix;
             this.AuthType = authType;
             this.Usage = usage;
+            this.Events = events;
             this.MostRecentFailureErrorCode = mostRecentFailureErrorCode;
             this.MostRecentFailureTimestamp = mostRecentFailureTimestamp;
         }
