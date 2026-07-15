@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Actor,
+        /// <summary>
+        /// 
+        /// </summary>
         BillingGroupId,
         /// <summary>
         /// 
@@ -24,6 +28,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         HashedXiApiKey,
+        /// <summary>
+        /// 
+        /// </summary>
+        Modality,
         /// <summary>
         /// 
         /// </summary>
@@ -59,6 +67,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Surface,
+        /// <summary>
+        /// 
+        /// </summary>
         UserId,
         /// <summary>
         /// 
@@ -82,10 +94,12 @@ namespace ElevenLabs
         {
             return value switch
             {
+                BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.Actor => "actor",
                 BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.BillingGroupId => "billing_group_id",
                 BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.FiatChargeType => "fiat_charge_type",
                 BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.FiatCurrency => "fiat_currency",
                 BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.HashedXiApiKey => "hashed_xi_api_key",
+                BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.Modality => "modality",
                 BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.Model => "model",
                 BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.ProductType => "product_type",
                 BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.Region => "region",
@@ -94,6 +108,7 @@ namespace ElevenLabs
                 BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.RequestSource => "request_source",
                 BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.ResourceId => "resource_id",
                 BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.SubresourceId => "subresource_id",
+                BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.Surface => "surface",
                 BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.UserId => "user_id",
                 BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.VoiceId => "voice_id",
                 BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.VoiceMultiplier => "voice_multiplier",
@@ -107,10 +122,12 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "actor" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.Actor,
                 "billing_group_id" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.BillingGroupId,
                 "fiat_charge_type" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.FiatChargeType,
                 "fiat_currency" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.FiatCurrency,
                 "hashed_xi_api_key" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.HashedXiApiKey,
+                "modality" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.Modality,
                 "model" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.Model,
                 "product_type" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.ProductType,
                 "region" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.Region,
@@ -119,6 +136,7 @@ namespace ElevenLabs
                 "request_source" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.RequestSource,
                 "resource_id" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.ResourceId,
                 "subresource_id" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.SubresourceId,
+                "surface" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.Surface,
                 "user_id" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.UserId,
                 "voice_id" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.VoiceId,
                 "voice_multiplier" => BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item.VoiceMultiplier,
