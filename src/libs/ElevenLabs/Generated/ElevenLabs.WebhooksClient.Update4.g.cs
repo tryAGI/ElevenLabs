@@ -502,6 +502,9 @@ namespace ElevenLabs
         /// <param name="requestHeaders">
         /// A list of request headers to include with the webhook delivery (optional)
         /// </param>
+        /// <param name="events">
+        /// The complete set of workspace-level events this webhook should be subscribed to. The webhook is added to the events in the list and removed from any not in the list. Omit to leave the current event subscriptions unchanged.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -511,6 +514,7 @@ namespace ElevenLabs
             string name,
             bool? retryEnabled = default,
             global::System.Collections.Generic.Dictionary<string, string>? requestHeaders = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookEventType>? events = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -520,6 +524,7 @@ namespace ElevenLabs
                 Name = name,
                 RetryEnabled = retryEnabled,
                 RequestHeaders = requestHeaders,
+                Events = events,
             };
 
             return await Update4Async(

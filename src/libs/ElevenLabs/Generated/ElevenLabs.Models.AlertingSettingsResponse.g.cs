@@ -21,12 +21,6 @@ namespace ElevenLabs
         public int? AutoResolveAfterInactiveMinutes { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("notifiers")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AlertingWebhookNotifierResponse>? Notifiers { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -37,18 +31,15 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="monitorConfigs"></param>
         /// <param name="autoResolveAfterInactiveMinutes"></param>
-        /// <param name="notifiers"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AlertingSettingsResponse(
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AlertingMonitorConfig>? monitorConfigs,
-            int? autoResolveAfterInactiveMinutes,
-            global::System.Collections.Generic.IList<global::ElevenLabs.AlertingWebhookNotifierResponse>? notifiers)
+            int? autoResolveAfterInactiveMinutes)
         {
             this.MonitorConfigs = monitorConfigs;
             this.AutoResolveAfterInactiveMinutes = autoResolveAfterInactiveMinutes;
-            this.Notifiers = notifiers;
         }
 
         /// <summary>

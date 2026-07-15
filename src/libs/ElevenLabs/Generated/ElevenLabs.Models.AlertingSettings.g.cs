@@ -26,12 +26,6 @@ namespace ElevenLabs
         public int? AutoResolveAfterInactiveMinutes { get; set; }
 
         /// <summary>
-        /// Delivery channels for alert lifecycle notifications. Stacked and deduped by URL with other layers.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("notifiers")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AlertingWebhookNotifier>? Notifiers { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -46,20 +40,15 @@ namespace ElevenLabs
         /// <param name="autoResolveAfterInactiveMinutes">
         /// How many minutes an alert can stay inactive before it is auto-resolved. Unset values fall through to the next layer.
         /// </param>
-        /// <param name="notifiers">
-        /// Delivery channels for alert lifecycle notifications. Stacked and deduped by URL with other layers.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AlertingSettings(
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AlertingMonitorConfig>? monitorConfigs,
-            int? autoResolveAfterInactiveMinutes,
-            global::System.Collections.Generic.IList<global::ElevenLabs.AlertingWebhookNotifier>? notifiers)
+            int? autoResolveAfterInactiveMinutes)
         {
             this.MonitorConfigs = monitorConfigs;
             this.AutoResolveAfterInactiveMinutes = autoResolveAfterInactiveMinutes;
-            this.Notifiers = notifiers;
         }
 
         /// <summary>

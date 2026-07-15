@@ -30,14 +30,16 @@ namespace ElevenLabs
             ref string? cursor,
             ref int? pageSize,
             global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort,
-            ref string? sortDirection);
+            ref string? sortDirection,
+            ref bool? includeArchived);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
             int? pageSize,
             global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort,
-            string? sortDirection);
+            string? sortDirection,
+            bool? includeArchived);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -66,6 +68,10 @@ namespace ElevenLabs
         /// Which direction to sort the voices in. 'ascending' or 'descending'.<br/>
         /// Default Value: DESCENDING
         /// </param>
+        /// <param name="includeArchived">
+        /// Whether to include archived pronunciation dictionaries in the response.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -74,6 +80,7 @@ namespace ElevenLabs
             int? pageSize = default,
             global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort = default,
             string? sortDirection = default,
+            bool? includeArchived = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -82,6 +89,7 @@ namespace ElevenLabs
                 pageSize: pageSize,
                 sort: sort,
                 sortDirection: sortDirection,
+                includeArchived: includeArchived,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -107,6 +115,10 @@ namespace ElevenLabs
         /// Which direction to sort the voices in. 'ascending' or 'descending'.<br/>
         /// Default Value: DESCENDING
         /// </param>
+        /// <param name="includeArchived">
+        /// Whether to include archived pronunciation dictionaries in the response.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -115,6 +127,7 @@ namespace ElevenLabs
             int? pageSize = default,
             global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort = default,
             string? sortDirection = default,
+            bool? includeArchived = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -125,7 +138,8 @@ namespace ElevenLabs
                 cursor: ref cursor,
                 pageSize: ref pageSize,
                 sort: sort,
-                sortDirection: ref sortDirection);
+                sortDirection: ref sortDirection,
+                includeArchived: ref includeArchived);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -158,6 +172,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("sort", sort?.ToString())
                                 .AddOptionalParameter("sort_direction", sortDirection)
+                                .AddOptionalParameter("include_archived", includeArchived?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -202,7 +217,8 @@ namespace ElevenLabs
                     cursor: cursor,
                     pageSize: pageSize,
                     sort: sort,
-                    sortDirection: sortDirection);
+                    sortDirection: sortDirection,
+                    includeArchived: includeArchived);
 
                 return __httpRequest;
             }
@@ -529,6 +545,10 @@ namespace ElevenLabs
         /// <param name="sortDirection">
         /// Which direction to sort the voices in. 'ascending' or 'descending'.<br/>
         /// Default Value: DESCENDING
+        /// </param>
+        /// <param name="includeArchived">
+        /// Whether to include archived pronunciation dictionaries in the response.<br/>
+        /// Default Value: true
         /// </param> 
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
@@ -536,6 +556,7 @@ namespace ElevenLabs
               int? pageSize = default,
             global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort = default,
             string? sortDirection = default,
+            bool? includeArchived = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -545,6 +566,7 @@ namespace ElevenLabs
                     pageSize: pageSize,
                     sort: sort,
                     sortDirection: sortDirection,
+                    includeArchived: includeArchived,
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null
                     ? null
