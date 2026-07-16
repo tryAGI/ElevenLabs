@@ -28,6 +28,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OAuth2ClientCredsResponse)}");
                 oauth2ClientCredentials = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.RefreshTokenAuthResponse? refreshTokenAuth = default;
+            if (discriminator?.AuthType == global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType.RefreshTokenAuth)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RefreshTokenAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RefreshTokenAuthResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.RefreshTokenAuthResponse)}");
+                refreshTokenAuth = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.BasicAuthResponse? basicAuth = default;
             if (discriminator?.AuthType == global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType.BasicAuth)
             {
@@ -110,6 +117,8 @@ namespace ElevenLabs.JsonConverters
                 discriminator?.AuthType,
                 oauth2ClientCredentials,
 
+                refreshTokenAuth,
+
                 basicAuth,
 
                 bearerAuth,
@@ -150,6 +159,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OAuth2ClientCredsResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OAuth2ClientCredsResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OAuth2ClientCredsResponse).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Oauth2ClientCredentials!, typeInfo);
+            }
+            else if (value.IsRefreshTokenAuth)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RefreshTokenAuthResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RefreshTokenAuthResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.RefreshTokenAuthResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RefreshTokenAuth!, typeInfo);
             }
             else if (value.IsBasicAuth)
             {

@@ -65,6 +65,13 @@ namespace ElevenLabs
         public global::ElevenLabs.TriggerAction3? TriggerAction { get; set; }
 
         /// <summary>
+        /// Evaluate once against the complete non-TTS response instead of cumulative partials. Requires blocking mode.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("evaluate_full_response_only")]
+        public bool? EvaluateFullResponseOnly { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -98,6 +105,10 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="triggerAction"></param>
+        /// <param name="evaluateFullResponseOnly">
+        /// Evaluate once against the complete non-TTS response instead of cumulative partials. Requires blocking mode.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -109,7 +120,8 @@ namespace ElevenLabs
             global::ElevenLabs.CustomGuardrailConfigModel? model,
             int? historyMessageCount,
             bool? historyIncludeToolCalls,
-            global::ElevenLabs.TriggerAction3? triggerAction)
+            global::ElevenLabs.TriggerAction3? triggerAction,
+            bool? evaluateFullResponseOnly)
         {
             this.IsEnabled = isEnabled;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -119,6 +131,7 @@ namespace ElevenLabs
             this.HistoryMessageCount = historyMessageCount;
             this.HistoryIncludeToolCalls = historyIncludeToolCalls;
             this.TriggerAction = triggerAction;
+            this.EvaluateFullResponseOnly = evaluateFullResponseOnly;
         }
 
         /// <summary>
