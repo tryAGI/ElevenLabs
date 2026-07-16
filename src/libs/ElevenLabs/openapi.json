@@ -11811,6 +11811,9 @@
                       "$ref": "#/components/schemas/OAuth2ClientCredsResponse"
                     },
                     {
+                      "$ref": "#/components/schemas/RefreshTokenAuthResponse"
+                    },
+                    {
                       "$ref": "#/components/schemas/BasicAuthResponse"
                     },
                     {
@@ -11848,6 +11851,7 @@
                     "propertyName": "auth_type",
                     "mapping": {
                       "oauth2_client_credentials": "#/components/schemas/OAuth2ClientCredsResponse",
+                      "refresh_token_auth": "#/components/schemas/RefreshTokenAuthResponse",
                       "basic_auth": "#/components/schemas/BasicAuthResponse",
                       "bearer_auth": "#/components/schemas/BearerAuthResponse",
                       "oauth2_jwt": "#/components/schemas/OAuth2JWTResponse",
@@ -12013,6 +12017,9 @@
                       "$ref": "#/components/schemas/OAuth2ClientCredsResponse"
                     },
                     {
+                      "$ref": "#/components/schemas/RefreshTokenAuthResponse"
+                    },
+                    {
                       "$ref": "#/components/schemas/BasicAuthResponse"
                     },
                     {
@@ -12050,6 +12057,7 @@
                     "propertyName": "auth_type",
                     "mapping": {
                       "oauth2_client_credentials": "#/components/schemas/OAuth2ClientCredsResponse",
+                      "refresh_token_auth": "#/components/schemas/RefreshTokenAuthResponse",
                       "basic_auth": "#/components/schemas/BasicAuthResponse",
                       "bearer_auth": "#/components/schemas/BearerAuthResponse",
                       "oauth2_jwt": "#/components/schemas/OAuth2JWTResponse",
@@ -55191,6 +55199,12 @@
                 "retry": "#/components/schemas/RetryTriggerAction"
               }
             }
+          },
+          "evaluate_full_response_only": {
+            "type": "boolean",
+            "title": "Evaluate Full Response Only",
+            "description": "Evaluate once against the complete non-TTS response instead of cumulative partials. Requires blocking mode.",
+            "default": false
           }
         },
         "type": "object",
@@ -66859,6 +66873,9 @@
                   "$ref": "#/components/schemas/OAuth2ClientCredsResponse"
                 },
                 {
+                  "$ref": "#/components/schemas/RefreshTokenAuthResponse"
+                },
+                {
                   "$ref": "#/components/schemas/BasicAuthResponse"
                 },
                 {
@@ -66905,6 +66922,7 @@
                   "oauth2_client_credentials": "#/components/schemas/OAuth2ClientCredsResponse",
                   "oauth2_jwt": "#/components/schemas/OAuth2JWTResponse",
                   "private_key_jwt": "#/components/schemas/PrivateKeyJWTResponse",
+                  "refresh_token_auth": "#/components/schemas/RefreshTokenAuthResponse",
                   "slack_bot_auth": "#/components/schemas/SlackBotAuthResponse",
                   "url_secret": "#/components/schemas/UrlSecretAuthResponse",
                   "whatsapp_auth": "#/components/schemas/WhatsAppAuthResponse"
@@ -78546,6 +78564,98 @@
         ],
         "title": "ReferencedToolCommonModel",
         "description": "Reference to a tool for unit test evaluation."
+      },
+      "RefreshTokenAuthResponse": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "auth_type": {
+            "type": "string",
+            "const": "refresh_token_auth",
+            "title": "Auth Type",
+            "default": "refresh_token_auth"
+          },
+          "provider": {
+            "type": "string",
+            "title": "Provider"
+          },
+          "client_id": {
+            "type": "string",
+            "title": "Client Id"
+          },
+          "token_url": {
+            "type": "string",
+            "title": "Token Url"
+          },
+          "scopes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Scopes",
+            "default": []
+          },
+          "extra_params": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Extra Params",
+            "default": {}
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "used_by": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AuthConnectionDependencies"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuthConnectionStatus",
+            "default": "active"
+          },
+          "status_detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Detail"
+          },
+          "status_updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Updated At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "provider",
+          "client_id",
+          "token_url",
+          "id"
+        ],
+        "title": "RefreshTokenAuthResponse",
+        "description": "Response model for OAuth2 refresh-token-grant auth connections"
       },
       "RegexParameterEvaluationStrategy": {
         "properties": {

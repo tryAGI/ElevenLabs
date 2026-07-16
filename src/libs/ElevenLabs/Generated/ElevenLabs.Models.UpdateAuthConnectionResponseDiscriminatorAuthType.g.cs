@@ -47,6 +47,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        RefreshTokenAuth,
+        /// <summary>
+        /// 
+        /// </summary>
         SlackBotAuth,
         /// <summary>
         /// 
@@ -79,6 +83,7 @@ namespace ElevenLabs
                 UpdateAuthConnectionResponseDiscriminatorAuthType.Oauth2ClientCredentials => "oauth2_client_credentials",
                 UpdateAuthConnectionResponseDiscriminatorAuthType.Oauth2Jwt => "oauth2_jwt",
                 UpdateAuthConnectionResponseDiscriminatorAuthType.PrivateKeyJwt => "private_key_jwt",
+                UpdateAuthConnectionResponseDiscriminatorAuthType.RefreshTokenAuth => "refresh_token_auth",
                 UpdateAuthConnectionResponseDiscriminatorAuthType.SlackBotAuth => "slack_bot_auth",
                 UpdateAuthConnectionResponseDiscriminatorAuthType.UrlSecret => "url_secret",
                 UpdateAuthConnectionResponseDiscriminatorAuthType.WhatsappAuth => "whatsapp_auth",
@@ -101,6 +106,7 @@ namespace ElevenLabs
                 "oauth2_client_credentials" => UpdateAuthConnectionResponseDiscriminatorAuthType.Oauth2ClientCredentials,
                 "oauth2_jwt" => UpdateAuthConnectionResponseDiscriminatorAuthType.Oauth2Jwt,
                 "private_key_jwt" => UpdateAuthConnectionResponseDiscriminatorAuthType.PrivateKeyJwt,
+                "refresh_token_auth" => UpdateAuthConnectionResponseDiscriminatorAuthType.RefreshTokenAuth,
                 "slack_bot_auth" => UpdateAuthConnectionResponseDiscriminatorAuthType.SlackBotAuth,
                 "url_secret" => UpdateAuthConnectionResponseDiscriminatorAuthType.UrlSecret,
                 "whatsapp_auth" => UpdateAuthConnectionResponseDiscriminatorAuthType.WhatsappAuth,
