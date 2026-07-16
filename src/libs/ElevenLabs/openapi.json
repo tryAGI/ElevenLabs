@@ -35389,11 +35389,20 @@
             ],
             "title": "Auto Resolve After Inactive Minutes",
             "description": "How many minutes an alert can stay inactive before it is auto-resolved. Unset values fall through to the next layer."
+          },
+          "notifiers": {
+            "items": {
+              "$ref": "#/components/schemas/AlertingWebhookNotifier"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "title": "Notifiers",
+            "description": "Delivery channels for alert lifecycle notifications. Stacked and deduped by webhook_id with other layers."
           }
         },
         "type": "object",
         "title": "AlertingSettings",
-        "description": "Alerting configuration used at both per-agent and per-workspace level.\n\nAll fields are optional overrides; the cascade resolver fills in defaults\nwhen they are unset. Notifiers stack and dedupe (by URL) across the\nworkspace and agent layers rather than overriding each other.\n\nCascade order for per-monitor threshold and auto-resolve: agent → workspace →\nsystem default."
+        "description": "Alerting configuration used at both per-agent and per-workspace level.\n\nAll fields are optional overrides; the cascade resolver fills in defaults\nwhen they are unset. Notifiers stack and dedupe (by webhook_id) across the\nworkspace and agent layers rather than overriding each other.\n\nCascade order for per-monitor threshold and auto-resolve: agent → workspace →\nsystem default."
       },
       "AlertingSettingsResponse": {
         "properties": {
@@ -35414,10 +35423,18 @@
               }
             ],
             "title": "Auto Resolve After Inactive Minutes"
+          },
+          "notifiers": {
+            "items": {
+              "$ref": "#/components/schemas/AlertingWebhookNotifierResponse"
+            },
+            "type": "array",
+            "title": "Notifiers"
           }
         },
         "type": "object",
-        "title": "AlertingSettingsResponse"
+        "title": "AlertingSettingsResponse",
+        "description": "Customer-facing view of alerting settings. Unlike AdminAlertingSettingsResponse,\nit has no internal_notifiers field: those are ElevenLabs-internal delivery\nchannels whose URLs must never be returned outside the admin API."
       },
       "AlertingWebhookHeader": {
         "properties": {
@@ -35450,36 +35467,6 @@
         ],
         "title": "AlertingWebhookHeader"
       },
-      "AlertingWebhookHeaderResponse": {
-        "properties": {
-          "name": {
-            "type": "string",
-            "title": "Name"
-          },
-          "is_secret": {
-            "type": "boolean",
-            "title": "Is Secret"
-          },
-          "value": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Value",
-            "description": "The header value. Always null for secret headers."
-          }
-        },
-        "type": "object",
-        "required": [
-          "name",
-          "is_secret"
-        ],
-        "title": "AlertingWebhookHeaderResponse"
-      },
       "AlertingWebhookMethod": {
         "type": "string",
         "enum": [
@@ -35497,30 +35484,15 @@
             "title": "Type",
             "default": "webhook"
           },
-          "url": {
+          "webhook_id": {
             "type": "string",
-            "maxLength": 2048,
-            "title": "Url",
-            "description": "The URL to send alert lifecycle notifications to."
-          },
-          "method": {
-            "$ref": "#/components/schemas/AlertingWebhookMethod",
-            "description": "HTTP method used when calling the webhook URL.",
-            "default": "POST"
-          },
-          "headers": {
-            "items": {
-              "$ref": "#/components/schemas/AlertingWebhookHeader"
-            },
-            "type": "array",
-            "maxItems": 25,
-            "title": "Headers",
-            "description": "Custom request headers sent with every notification. Secret header values are encrypted at rest and never returned by the API."
+            "title": "Webhook Id",
+            "description": "ID of the workspace webhook to deliver alert lifecycle notifications to."
           }
         },
         "type": "object",
         "required": [
-          "url"
+          "webhook_id"
         ],
         "title": "AlertingWebhookNotifier"
       },
@@ -35532,25 +35504,14 @@
             "title": "Type",
             "default": "webhook"
           },
-          "url": {
+          "webhook_id": {
             "type": "string",
-            "title": "Url"
-          },
-          "method": {
-            "$ref": "#/components/schemas/AlertingWebhookMethod",
-            "default": "POST"
-          },
-          "headers": {
-            "items": {
-              "$ref": "#/components/schemas/AlertingWebhookHeaderResponse"
-            },
-            "type": "array",
-            "title": "Headers"
+            "title": "Webhook Id"
           }
         },
         "type": "object",
         "required": [
-          "url"
+          "webhook_id"
         ],
         "title": "AlertingWebhookNotifierResponse"
       },
@@ -64819,6 +64780,41 @@
         ],
         "title": "InteractionBudget"
       },
+      "InternalAlertingWebhookNotifier": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "webhook",
+            "title": "Type",
+            "default": "webhook"
+          },
+          "url": {
+            "type": "string",
+            "maxLength": 2048,
+            "title": "Url",
+            "description": "The URL to send alert lifecycle notifications to."
+          },
+          "method": {
+            "$ref": "#/components/schemas/AlertingWebhookMethod",
+            "description": "HTTP method used when calling the webhook URL.",
+            "default": "POST"
+          },
+          "headers": {
+            "items": {
+              "$ref": "#/components/schemas/AlertingWebhookHeader"
+            },
+            "type": "array",
+            "maxItems": 25,
+            "title": "Headers",
+            "description": "Custom request headers sent with every notification. Secret header values are encrypted at rest and never returned by the API."
+          }
+        },
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "title": "InternalAlertingWebhookNotifier"
+      },
       "InvoiceResponseModel": {
         "properties": {
           "amount_due_cents": {
@@ -93068,7 +93064,8 @@
           "ConvAI Settings",
           "Voice Library Removal Notices",
           "Speech to Text",
-          "Agent QA Evaluations"
+          "Agent QA Evaluations",
+          "ConvAI Alerting"
         ],
         "title": "WebhookUsageType"
       },
