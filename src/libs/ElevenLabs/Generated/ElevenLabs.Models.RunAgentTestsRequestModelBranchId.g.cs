@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// ID of the branch to run the tests on. If not provided, the tests will be run on the agent default configuration.
+    /// ID of the branch to run the tests on. If not provided, the tests will be run on the agent's main branch.
     /// </summary>
     public sealed partial class RunAgentTestsRequestModelBranchId
     {
