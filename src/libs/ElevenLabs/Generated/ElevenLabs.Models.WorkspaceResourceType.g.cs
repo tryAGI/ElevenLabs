@@ -55,6 +55,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ConvaiAnalysisItems,
+        /// <summary>
+        /// 
+        /// </summary>
         ConvaiApiIntegrationConnections,
         /// <summary>
         /// 
@@ -197,6 +201,7 @@ namespace ElevenLabs
                 WorkspaceResourceType.ConvaiAgentVersions => "convai_agent_versions",
                 WorkspaceResourceType.ConvaiAgentVersionsDeployments => "convai_agent_versions_deployments",
                 WorkspaceResourceType.ConvaiAgents => "convai_agents",
+                WorkspaceResourceType.ConvaiAnalysisItems => "convai_analysis_items",
                 WorkspaceResourceType.ConvaiApiIntegrationConnections => "convai_api_integration_connections",
                 WorkspaceResourceType.ConvaiApiIntegrationTriggerConnections => "convai_api_integration_trigger_connections",
                 WorkspaceResourceType.ConvaiBatchCalls => "convai_batch_calls",
@@ -248,6 +253,7 @@ namespace ElevenLabs
                 "convai_agent_versions" => WorkspaceResourceType.ConvaiAgentVersions,
                 "convai_agent_versions_deployments" => WorkspaceResourceType.ConvaiAgentVersionsDeployments,
                 "convai_agents" => WorkspaceResourceType.ConvaiAgents,
+                "convai_analysis_items" => WorkspaceResourceType.ConvaiAnalysisItems,
                 "convai_api_integration_connections" => WorkspaceResourceType.ConvaiApiIntegrationConnections,
                 "convai_api_integration_trigger_connections" => WorkspaceResourceType.ConvaiApiIntegrationTriggerConnections,
                 "convai_batch_calls" => WorkspaceResourceType.ConvaiBatchCalls,
