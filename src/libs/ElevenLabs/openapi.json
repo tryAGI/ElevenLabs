@@ -36262,16 +36262,50 @@
       },
       "ArrayJsonSchemaProperty-Input": {
         "properties": {
-          "type": {
+          "property_kind": {
             "type": "string",
-            "const": "array",
-            "title": "Type",
+            "enum": [
+              "array",
+              "object"
+            ],
+            "title": "Property Kind",
             "default": "array"
           },
           "description": {
             "type": "string",
             "title": "Description",
             "default": ""
+          },
+          "dynamic_variable": {
+            "type": "string",
+            "title": "Dynamic Variable",
+            "description": "When set, the entire parameter is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided value), constant_value, and is_omitted.",
+            "default": ""
+          },
+          "constant_value": {
+            "anyOf": [
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Constant Value",
+            "description": "When set, the entire array uses this constant value at runtime. Mutually exclusive with description (LLM-provided array), dynamic_variable, and is_omitted."
+          },
+          "is_omitted": {
+            "type": "boolean",
+            "title": "Is Omitted",
+            "description": "If true, this parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, and constant_value.",
+            "default": false
+          },
+          "type": {
+            "type": "string",
+            "const": "array",
+            "title": "Type",
+            "default": "array"
           },
           "items": {
             "oneOf": [
@@ -36296,32 +36330,29 @@
               "constant_value": "",
               "is_omitted": false
             }
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "ArrayJsonSchemaProperty"
+      },
+      "ArrayJsonSchemaProperty-Output": {
+        "properties": {
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "default": ""
           },
           "dynamic_variable": {
             "type": "string",
             "title": "Dynamic Variable",
-            "description": "When set, the entire array is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided array), constant_value, and is_omitted.",
+            "description": "When set, the entire parameter is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided value), constant_value, and is_omitted.",
             "default": ""
           },
           "constant_value": {
             "anyOf": [
               {
-                "items": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "integer"
-                    },
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "type": "boolean"
-                    }
-                  ]
-                },
+                "items": {},
                 "type": "array"
               },
               {
@@ -36334,26 +36365,14 @@
           "is_omitted": {
             "type": "boolean",
             "title": "Is Omitted",
-            "description": "If true, this array parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, and constant_value.",
+            "description": "If true, this parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, and constant_value.",
             "default": false
-          }
-        },
-        "additionalProperties": false,
-        "type": "object",
-        "title": "ArrayJsonSchemaProperty"
-      },
-      "ArrayJsonSchemaProperty-Output": {
-        "properties": {
+          },
           "type": {
             "type": "string",
             "const": "array",
             "title": "Type",
             "default": "array"
-          },
-          "description": {
-            "type": "string",
-            "title": "Description",
-            "default": ""
           },
           "items": {
             "oneOf": [
@@ -36378,46 +36397,6 @@
               "constant_value": "",
               "is_omitted": false
             }
-          },
-          "dynamic_variable": {
-            "type": "string",
-            "title": "Dynamic Variable",
-            "description": "When set, the entire array is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided array), constant_value, and is_omitted.",
-            "default": ""
-          },
-          "constant_value": {
-            "anyOf": [
-              {
-                "items": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "integer"
-                    },
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "type": "boolean"
-                    }
-                  ]
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Constant Value",
-            "description": "When set, the entire array uses this constant value at runtime. Mutually exclusive with description (LLM-provided array), dynamic_variable, and is_omitted."
-          },
-          "is_omitted": {
-            "type": "boolean",
-            "title": "Is Omitted",
-            "description": "If true, this array parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, and constant_value.",
-            "default": false
           }
         },
         "additionalProperties": false,
@@ -48398,23 +48377,12 @@
                 "type": "boolean"
               },
               {
-                "items": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "integer"
-                    },
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "type": "boolean"
-                    }
-                  ]
-                },
+                "items": {},
                 "type": "array"
+              },
+              {
+                "additionalProperties": true,
+                "type": "object"
               }
             ],
             "title": "Constant Value",
@@ -71094,6 +71062,45 @@
       },
       "ObjectJsonSchemaProperty-Input": {
         "properties": {
+          "property_kind": {
+            "type": "string",
+            "enum": [
+              "array",
+              "object"
+            ],
+            "title": "Property Kind",
+            "default": "object"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "default": ""
+          },
+          "dynamic_variable": {
+            "type": "string",
+            "title": "Dynamic Variable",
+            "description": "When set, the entire parameter is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided value), constant_value, and is_omitted.",
+            "default": ""
+          },
+          "constant_value": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Constant Value",
+            "description": "When set, the entire object uses this constant JSON value at runtime. Mutually exclusive with description (LLM-provided object), dynamic_variable, and is_omitted."
+          },
+          "is_omitted": {
+            "type": "boolean",
+            "title": "Is Omitted",
+            "description": "If true, this parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, and constant_value.",
+            "default": false
+          },
           "type": {
             "type": "string",
             "const": "object",
@@ -71106,11 +71113,6 @@
             },
             "type": "array",
             "title": "Required"
-          },
-          "description": {
-            "type": "string",
-            "title": "Description",
-            "default": ""
           },
           "properties": {
             "additionalProperties": {
@@ -71146,6 +71148,36 @@
       },
       "ObjectJsonSchemaProperty-Output": {
         "properties": {
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "default": ""
+          },
+          "dynamic_variable": {
+            "type": "string",
+            "title": "Dynamic Variable",
+            "description": "When set, the entire parameter is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided value), constant_value, and is_omitted.",
+            "default": ""
+          },
+          "constant_value": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Constant Value",
+            "description": "When set, the entire object uses this constant JSON value at runtime. Mutually exclusive with description (LLM-provided object), dynamic_variable, and is_omitted."
+          },
+          "is_omitted": {
+            "type": "boolean",
+            "title": "Is Omitted",
+            "description": "If true, this parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, and constant_value.",
+            "default": false
+          },
           "type": {
             "type": "string",
             "const": "object",
@@ -71158,11 +71190,6 @@
             },
             "type": "array",
             "title": "Required"
-          },
-          "description": {
-            "type": "string",
-            "title": "Description",
-            "default": ""
           },
           "properties": {
             "additionalProperties": {
