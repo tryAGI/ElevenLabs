@@ -79273,7 +79273,7 @@
               }
             ],
             "title": "Branch Id",
-            "description": "ID of the branch to run the tests on. If not provided, the tests will be run on the agent default configuration."
+            "description": "ID of the branch to run the tests on. If not provided, the tests will be run on the agent's main branch."
           }
         },
         "type": "object",
@@ -79438,7 +79438,7 @@
               }
             ],
             "title": "Branch Id",
-            "description": "ID of the branch to run the tests on. If not provided, the tests will be run on the agent default configuration."
+            "description": "ID of the branch to run the tests on. If not provided, the tests will be run on the agent's main branch."
           },
           "repeat_count": {
             "type": "integer",

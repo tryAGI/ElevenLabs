@@ -496,7 +496,7 @@ namespace ElevenLabs
         /// Agent ID to resubmit tests for
         /// </param>
         /// <param name="branchId">
-        /// ID of the branch to run the tests on. If not provided, the tests will be run on the agent default configuration.
+        /// ID of the branch to run the tests on. If not provided, the tests will be run on the agent's main branch.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
