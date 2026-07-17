@@ -13410,6 +13410,24 @@
         "operationId": "speech_to_text",
         "parameters": [
           {
+            "name": "token",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "A single-use authentication token created via POST /v1/single-use-token/batch_scribe. This token can only be used once and expires after 15 minutes. Alternative to API key or bearer token authentication for frontend clients.",
+              "title": "Token"
+            },
+            "description": "A single-use authentication token created via POST /v1/single-use-token/batch_scribe. This token can only be used once and expires after 15 minutes. Alternative to API key or bearer token authentication for frontend clients."
+          },
+          {
             "name": "enable_logging",
             "in": "query",
             "required": false,
@@ -81571,6 +81589,7 @@
         "type": "string",
         "enum": [
           "realtime_scribe",
+          "batch_scribe",
           "tts_websocket"
         ],
         "title": "SingleUseTokenType"
