@@ -95,6 +95,18 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("background_blur")]
+        public double? BackgroundBlur { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("background_border_radius")]
+        public double? BackgroundBorderRadius { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("word_highlights_enabled")]
         public bool? WordHighlightsEnabled { get; set; }
 
@@ -119,6 +131,18 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("word_highlights_border_radius")]
+        public double? WordHighlightsBorderRadius { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("word_highlights_blur")]
+        public double? WordHighlightsBlur { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("section_animation")]
         public global::ElevenLabs.CaptionStyleSectionAnimationModel? SectionAnimation { get; set; }
 
@@ -133,6 +157,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_animation")]
         public global::ElevenLabs.CaptionStyleCharacterAnimationModel? CharacterAnimation { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cursor_enabled")]
+        public bool? CursorEnabled { get; set; }
 
         /// <summary>
         /// 
@@ -193,13 +223,18 @@ namespace ElevenLabs
         /// <param name="backgroundEnabled"></param>
         /// <param name="backgroundColor"></param>
         /// <param name="backgroundOpacity"></param>
+        /// <param name="backgroundBlur"></param>
+        /// <param name="backgroundBorderRadius"></param>
         /// <param name="wordHighlightsEnabled"></param>
         /// <param name="wordHighlightsColor"></param>
         /// <param name="wordHighlightsBackgroundColor"></param>
         /// <param name="wordHighlightsOpacity"></param>
+        /// <param name="wordHighlightsBorderRadius"></param>
+        /// <param name="wordHighlightsBlur"></param>
         /// <param name="sectionAnimation"></param>
         /// <param name="wordAnimation"></param>
         /// <param name="characterAnimation"></param>
+        /// <param name="cursorEnabled"></param>
         /// <param name="widthPct"></param>
         /// <param name="horizontalPlacement"></param>
         /// <param name="verticalPlacement"></param>
@@ -224,13 +259,18 @@ namespace ElevenLabs
             bool? backgroundEnabled,
             string? backgroundColor,
             double? backgroundOpacity,
+            double? backgroundBlur,
+            double? backgroundBorderRadius,
             bool? wordHighlightsEnabled,
             string? wordHighlightsColor,
             string? wordHighlightsBackgroundColor,
             double? wordHighlightsOpacity,
+            double? wordHighlightsBorderRadius,
+            double? wordHighlightsBlur,
             global::ElevenLabs.CaptionStyleSectionAnimationModel? sectionAnimation,
             global::ElevenLabs.CaptionStyleWordAnimationModel? wordAnimation,
             global::ElevenLabs.CaptionStyleCharacterAnimationModel? characterAnimation,
+            bool? cursorEnabled,
             double? widthPct,
             global::ElevenLabs.CaptionStyleHorizontalPlacementModel? horizontalPlacement,
             global::ElevenLabs.CaptionStyleVerticalPlacementModel? verticalPlacement,
@@ -252,13 +292,18 @@ namespace ElevenLabs
             this.BackgroundEnabled = backgroundEnabled;
             this.BackgroundColor = backgroundColor;
             this.BackgroundOpacity = backgroundOpacity;
+            this.BackgroundBlur = backgroundBlur;
+            this.BackgroundBorderRadius = backgroundBorderRadius;
             this.WordHighlightsEnabled = wordHighlightsEnabled;
             this.WordHighlightsColor = wordHighlightsColor;
             this.WordHighlightsBackgroundColor = wordHighlightsBackgroundColor;
             this.WordHighlightsOpacity = wordHighlightsOpacity;
+            this.WordHighlightsBorderRadius = wordHighlightsBorderRadius;
+            this.WordHighlightsBlur = wordHighlightsBlur;
             this.SectionAnimation = sectionAnimation;
             this.WordAnimation = wordAnimation;
             this.CharacterAnimation = characterAnimation;
+            this.CursorEnabled = cursorEnabled;
             this.WidthPct = widthPct;
             this.HorizontalPlacement = horizontalPlacement;
             this.VerticalPlacement = verticalPlacement;

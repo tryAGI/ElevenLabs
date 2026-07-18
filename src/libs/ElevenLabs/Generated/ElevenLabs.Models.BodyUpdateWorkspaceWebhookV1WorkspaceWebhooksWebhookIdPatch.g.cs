@@ -35,6 +35,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, string>? RequestHeaders { get; set; }
 
         /// <summary>
+        /// The complete set of workspace-level events this webhook should be subscribed to. The webhook is added to the events in the list and removed from any not in the list. Omit to leave the current event subscriptions unchanged.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("events")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookEventType>? Events { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -55,6 +61,9 @@ namespace ElevenLabs
         /// <param name="requestHeaders">
         /// A list of request headers to include with the webhook delivery (optional)
         /// </param>
+        /// <param name="events">
+        /// The complete set of workspace-level events this webhook should be subscribed to. The webhook is added to the events in the list and removed from any not in the list. Omit to leave the current event subscriptions unchanged.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -62,12 +71,14 @@ namespace ElevenLabs
             bool isDisabled,
             string name,
             bool? retryEnabled,
-            global::System.Collections.Generic.Dictionary<string, string>? requestHeaders)
+            global::System.Collections.Generic.Dictionary<string, string>? requestHeaders,
+            global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookEventType>? events)
         {
             this.IsDisabled = isDisabled;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.RetryEnabled = retryEnabled;
             this.RequestHeaders = requestHeaders;
+            this.Events = events;
         }
 
         /// <summary>

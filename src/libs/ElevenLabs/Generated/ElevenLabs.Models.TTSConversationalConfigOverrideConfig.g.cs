@@ -9,6 +9,13 @@ namespace ElevenLabs
     public sealed partial class TTSConversationalConfigOverrideConfig
     {
         /// <summary>
+        /// Whether to allow overriding the model_id field.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
+        public bool? ModelId { get; set; }
+
+        /// <summary>
         /// Whether to allow overriding the voice_id field.<br/>
         /// Default Value: false
         /// </summary>
@@ -45,6 +52,10 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="TTSConversationalConfigOverrideConfig" /> class.
         /// </summary>
+        /// <param name="modelId">
+        /// Whether to allow overriding the model_id field.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="voiceId">
         /// Whether to allow overriding the voice_id field.<br/>
         /// Default Value: false
@@ -65,11 +76,13 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public TTSConversationalConfigOverrideConfig(
+            bool? modelId,
             bool? voiceId,
             bool? stability,
             bool? speed,
             bool? similarityBoost)
         {
+            this.ModelId = modelId;
             this.VoiceId = voiceId;
             this.Stability = stability;
             this.Speed = speed;

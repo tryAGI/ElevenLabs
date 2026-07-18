@@ -86,6 +86,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("call_success_score")]
+        public double? CallSuccessScore { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript_summary")]
         public string? TranscriptSummary { get; set; }
 
@@ -151,6 +157,7 @@ namespace ElevenLabs
         /// <param name="versionId"></param>
         /// <param name="agentName"></param>
         /// <param name="terminationReason"></param>
+        /// <param name="callSuccessScore"></param>
         /// <param name="transcriptSummary"></param>
         /// <param name="callSummaryTitle"></param>
         /// <param name="mainLanguage"></param>
@@ -174,6 +181,7 @@ namespace ElevenLabs
             string? versionId,
             string? agentName,
             string? terminationReason,
+            double? callSuccessScore,
             string? transcriptSummary,
             string? callSummaryTitle,
             string? mainLanguage,
@@ -194,6 +202,7 @@ namespace ElevenLabs
             this.Status = status;
             this.TerminationReason = terminationReason;
             this.CallSuccessful = callSuccessful;
+            this.CallSuccessScore = callSuccessScore;
             this.TranscriptSummary = transcriptSummary;
             this.CallSummaryTitle = callSummaryTitle;
             this.MainLanguage = mainLanguage;

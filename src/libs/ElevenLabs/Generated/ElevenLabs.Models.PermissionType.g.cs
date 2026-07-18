@@ -67,6 +67,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Flows,
+        /// <summary>
+        /// 
+        /// </summary>
         ForcedAlignment,
         /// <summary>
         /// 
@@ -140,6 +144,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         SynthidDetector,
+        /// <summary>
+        /// 
+        /// </summary>
+        Templates,
         /// <summary>
         /// 
         /// </summary>
@@ -224,6 +232,7 @@ namespace ElevenLabs
                 PermissionType.CreateUserApiKey => "create_user_api_key",
                 PermissionType.DubbingRead => "dubbing_read",
                 PermissionType.DubbingWrite => "dubbing_write",
+                PermissionType.Flows => "flows",
                 PermissionType.ForcedAlignment => "forced_alignment",
                 PermissionType.GroupMembersManage => "group_members_manage",
                 PermissionType.ImageVideoGeneration => "image_video_generation",
@@ -243,6 +252,7 @@ namespace ElevenLabs
                 PermissionType.SpeechToSpeech => "speech_to_speech",
                 PermissionType.SpeechToText => "speech_to_text",
                 PermissionType.SynthidDetector => "synthid_detector",
+                PermissionType.Templates => "templates",
                 PermissionType.TermsOfServiceAccept => "terms_of_service_accept",
                 PermissionType.TextToSpeech => "text_to_speech",
                 PermissionType.UserRead => "user_read",
@@ -281,6 +291,7 @@ namespace ElevenLabs
                 "create_user_api_key" => PermissionType.CreateUserApiKey,
                 "dubbing_read" => PermissionType.DubbingRead,
                 "dubbing_write" => PermissionType.DubbingWrite,
+                "flows" => PermissionType.Flows,
                 "forced_alignment" => PermissionType.ForcedAlignment,
                 "group_members_manage" => PermissionType.GroupMembersManage,
                 "image_video_generation" => PermissionType.ImageVideoGeneration,
@@ -300,6 +311,7 @@ namespace ElevenLabs
                 "speech_to_speech" => PermissionType.SpeechToSpeech,
                 "speech_to_text" => PermissionType.SpeechToText,
                 "synthid_detector" => PermissionType.SynthidDetector,
+                "templates" => PermissionType.Templates,
                 "terms_of_service_accept" => PermissionType.TermsOfServiceAccept,
                 "text_to_speech" => PermissionType.TextToSpeech,
                 "user_read" => PermissionType.UserRead,

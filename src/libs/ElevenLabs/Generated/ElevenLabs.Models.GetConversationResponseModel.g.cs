@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"agent_id":"agent_3701k3ttaq12ewp8b7qv5rfyszkz","agent_name":"My agent","conversation_id":"conv_7401k5m9x2p8ec3rqv6dtnhb0fzw","environment":"production","has_audio":true,"has_auxiliary_audio":true,"has_response_audio":true,"has_user_audio":true,"metadata":{"call_duration_secs":10,"start_time_unix_secs":1714423232},"status":"processing","tag_ids":[],"transcript":[{"message":"Hello, how are you?","role":"user","time_in_call_secs":10}],"version_id":"agtvrsn_5xM3yVvZQKV0EfqQpLr2"}
     /// </summary>
     public sealed partial class GetConversationResponseModel
     {
@@ -115,6 +115,13 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_auxiliary_audio")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool HasAuxiliaryAudio { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptResponseModel> Transcript { get; set; }
@@ -147,6 +154,7 @@ namespace ElevenLabs
         /// <param name="hasAudio"></param>
         /// <param name="hasUserAudio"></param>
         /// <param name="hasResponseAudio"></param>
+        /// <param name="hasAuxiliaryAudio"></param>
         /// <param name="transcript"></param>
         /// <param name="agentName"></param>
         /// <param name="conversationProduct">
@@ -180,6 +188,7 @@ namespace ElevenLabs
             bool hasAudio,
             bool hasUserAudio,
             bool hasResponseAudio,
+            bool hasAuxiliaryAudio,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptResponseModel> transcript,
             string? agentName,
             string? conversationProduct,
@@ -209,6 +218,7 @@ namespace ElevenLabs
             this.HasAudio = hasAudio;
             this.HasUserAudio = hasUserAudio;
             this.HasResponseAudio = hasResponseAudio;
+            this.HasAuxiliaryAudio = hasAuxiliaryAudio;
             this.Transcript = transcript ?? throw new global::System.ArgumentNullException(nameof(transcript));
             this.TagIds = tagIds;
             this.OtlpTraces = otlpTraces;

@@ -30,11 +30,13 @@ namespace ElevenLabs
         partial void PrepareCreate13Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string mcpServerId,
+            ref string? environment,
             global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel request);
         partial void PrepareCreate13Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string mcpServerId,
+            string? environment,
             global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel request);
         partial void ProcessCreate13Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -52,6 +54,10 @@ namespace ElevenLabs
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
+        /// <param name="environment">
+        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
+        /// Default Value: production
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -60,6 +66,7 @@ namespace ElevenLabs
             string mcpServerId,
 
             global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel request,
+            string? environment = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -67,6 +74,7 @@ namespace ElevenLabs
                 mcpServerId: mcpServerId,
 
                 request: request,
+                environment: environment,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -80,6 +88,10 @@ namespace ElevenLabs
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
+        /// <param name="environment">
+        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
+        /// Default Value: production
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -88,6 +100,7 @@ namespace ElevenLabs
             string mcpServerId,
 
             global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel request,
+            string? environment = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -98,6 +111,7 @@ namespace ElevenLabs
             PrepareCreate13Arguments(
                 httpClient: HttpClient,
                 mcpServerId: ref mcpServerId,
+                environment: ref environment,
                 request: request);
 
 
@@ -126,6 +140,9 @@ namespace ElevenLabs
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-configs",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("environment", environment)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -173,6 +190,7 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     mcpServerId: mcpServerId!,
+                    environment: environment,
                     request: request);
 
                 return __httpRequest;
@@ -524,14 +542,18 @@ namespace ElevenLabs
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
+        /// <param name="environment">
+        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
+        /// Default Value: production
+        /// </param>
         /// <param name="preToolSpeech">
         /// If set, overrides the server's pre_tool_speech setting for this tool.
         /// </param>
-        /// <param name="disableInterruptions">
-        /// If set, overrides the server's disable_interruptions setting for this tool
+        /// <param name="interruptionMode">
+        /// If set, overrides the server's interruption_mode setting for this tool.
         /// </param>
         /// <param name="toolCallSound">
-        /// If set, overrides the server's tool_call_sound setting for this tool
+        /// Overrides the server's tool_call_sound setting for this tool. A sound name plays that sound; 'off' overrides to no sound (silence); null means do not override (inherit the server default).
         /// </param>
         /// <param name="toolCallSoundBehavior">
         /// If set, overrides the server's tool_call_sound_behavior setting for this tool
@@ -560,9 +582,10 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create13Async(
             string mcpServerId,
             string toolName,
+            string? environment = default,
             global::ElevenLabs.PreToolSpeechMode? preToolSpeech = default,
-            bool? disableInterruptions = default,
-            global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
+            global::ElevenLabs.ToolInterruptionMode? interruptionMode = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.ToolCallSoundType?, string, object>? toolCallSound = default,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
             global::ElevenLabs.ToolExecutionMode? executionMode = default,
             int? responseTimeoutSecs = default,
@@ -575,7 +598,7 @@ namespace ElevenLabs
             var __request = new global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel
             {
                 PreToolSpeech = preToolSpeech,
-                DisableInterruptions = disableInterruptions,
+                InterruptionMode = interruptionMode,
                 ToolCallSound = toolCallSound,
                 ToolCallSoundBehavior = toolCallSoundBehavior,
                 ExecutionMode = executionMode,
@@ -588,6 +611,7 @@ namespace ElevenLabs
 
             return await Create13Async(
                 mcpServerId: mcpServerId,
+                environment: environment,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

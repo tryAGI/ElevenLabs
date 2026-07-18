@@ -27,13 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareGet3Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string dubbingId,
-            ref string languageCode);
+            ref string projectId);
         partial void PrepareGet3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string dubbingId,
-            string languageCode);
+            string projectId);
         partial void ProcessGet3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -41,30 +39,25 @@ namespace ElevenLabs
         partial void ProcessGet3ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref byte[] content);
+            ref string content);
 
         /// <summary>
-        /// Get Dubbed File<br/>
-        /// Returns dub as a streamed MP3 or MP4 file. If this dub has been edited using Dubbing Studio you need to use the resource render endpoint as this endpoint only returns the original automatic dub result.
+        /// Get Dubbing Transcript<br/>
+        /// The project's source transcript, as editable segments.
         /// </summary>
-        /// <param name="dubbingId">
-        /// ID of the dubbing project.
-        /// </param>
-        /// <param name="languageCode">
-        /// ID of the language.
+        /// <param name="projectId">
+        /// Identifier of the dubbing project.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<byte[]> Get3Async(
-            string dubbingId,
-            string languageCode,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingSourceTranscriptResponse> Get3Async(
+            string projectId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get3AsResponseAsync(
-                dubbingId: dubbingId,
-                languageCode: languageCode,
+                projectId: projectId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -72,21 +65,17 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Dubbed File<br/>
-        /// Returns dub as a streamed MP3 or MP4 file. If this dub has been edited using Dubbing Studio you need to use the resource render endpoint as this endpoint only returns the original automatic dub result.
+        /// Get Dubbing Transcript<br/>
+        /// The project's source transcript, as editable segments.
         /// </summary>
-        /// <param name="dubbingId">
-        /// ID of the dubbing project.
-        /// </param>
-        /// <param name="languageCode">
-        /// ID of the language.
+        /// <param name="projectId">
+        /// Identifier of the dubbing project.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.IO.Stream> Get3AsStreamAsync(
-            string dubbingId,
-            string languageCode,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingSourceTranscriptResponse>> Get3AsResponseAsync(
+            string projectId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -94,8 +83,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet3Arguments(
                 httpClient: HttpClient,
-                dubbingId: ref dubbingId,
-                languageCode: ref languageCode);
+                projectId: ref projectId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -121,7 +109,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/dubbing/{dubbingId}/audio/{languageCode}",
+                                path: $"/v1/dubbing/project/{projectId}/transcript",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -163,8 +151,7 @@ namespace ElevenLabs
                 PrepareGet3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    dubbingId: dubbingId!,
-                    languageCode: languageCode!);
+                    projectId: projectId!);
 
                 return __httpRequest;
             }
@@ -183,463 +170,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get3",
                                 methodName: "Get3Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/audio/{languageCode}\"",
-                                httpMethod: "GET",
-                                baseUri: BaseUri,
-                                request: __httpRequest!,
-                                response: null,
-                                exception: null,
-                                clientOptions: Options,
-                                requestOptions: requestOptions,
-                                attempt: __attempt,
-                                maxAttempts: __maxAttempts,
-                                willRetry: false,
-                                retryDelay: null,
-                                retryReason: global::System.String.Empty,
-                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
-                    try
-                    {
-                        __response = await HttpClient.SendAsync(
-                request: __httpRequest,
-                completionOption: global::System.Net.Http.HttpCompletionOption.ResponseHeadersRead,
-                cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
-                    }
-                    catch (global::System.Net.Http.HttpRequestException __exception)
-                    {
-                        var __retryDelay = global::ElevenLabs.AutoSDKRequestOptionsSupport.GetRetryDelay(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
-                            response: null,
-                            attempt: __attempt);
-                        var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
-                        await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
-                            clientOptions: Options,
-                            context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get3",
-                                methodName: "Get3Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/audio/{languageCode}\"",
-                                httpMethod: "GET",
-                                baseUri: BaseUri,
-                                request: __httpRequest!,
-                                response: null,
-                                exception: __exception,
-                                clientOptions: Options,
-                                requestOptions: requestOptions,
-                                attempt: __attempt,
-                                maxAttempts: __maxAttempts,
-                                willRetry: __willRetry,
-                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
-                                retryReason: "exception",
-                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
-                        if (!__willRetry)
-                        {
-                            throw;
-                        }
-
-                        __httpRequest.Dispose();
-                        __httpRequest = null;
-                        await global::ElevenLabs.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            retryDelay: __retryDelay,
-                            cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
-                        continue;
-                    }
-
-                    if (__response != null &&
-                        __attempt < __maxAttempts &&
-                        global::ElevenLabs.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
-                    {
-                        var __retryDelay = global::ElevenLabs.AutoSDKRequestOptionsSupport.GetRetryDelay(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
-                            response: __response,
-                            attempt: __attempt);
-                        await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
-                            clientOptions: Options,
-                            context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get3",
-                                methodName: "Get3Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/audio/{languageCode}\"",
-                                httpMethod: "GET",
-                                baseUri: BaseUri,
-                                request: __httpRequest!,
-                                response: __response,
-                                exception: null,
-                                clientOptions: Options,
-                                requestOptions: requestOptions,
-                                attempt: __attempt,
-                                maxAttempts: __maxAttempts,
-                                willRetry: true,
-                                retryDelay: __retryDelay,
-                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
-                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
-                        __response.Dispose();
-                        __response = null;
-                        __httpRequest.Dispose();
-                        __httpRequest = null;
-                        await global::ElevenLabs.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            retryDelay: __retryDelay,
-                            cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
-                        continue;
-                    }
-
-                    break;
-                }
-
-                if (__response == null)
-                {
-                    throw new global::System.InvalidOperationException("No response received.");
-                }
-
-                try
-                {
-
-                ProcessResponse(
-                    client: HttpClient,
-                    response: __response);
-                ProcessGet3Response(
-                    httpClient: HttpClient,
-                    httpResponseMessage: __response);
-                if (__response.IsSuccessStatusCode)
-                {
-                    await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
-                            clientOptions: Options,
-                            context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get3",
-                                methodName: "Get3Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/audio/{languageCode}\"",
-                                httpMethod: "GET",
-                                baseUri: BaseUri,
-                                request: __httpRequest!,
-                                response: __response,
-                                exception: null,
-                                clientOptions: Options,
-                                requestOptions: requestOptions,
-                                attempt: __attemptNumber,
-                                maxAttempts: __maxAttempts,
-                                willRetry: false,
-                                retryDelay: null,
-                                retryReason: global::System.String.Empty,
-                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
-                }
-                else
-                {
-                    await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
-                            clientOptions: Options,
-                            context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get3",
-                                methodName: "Get3Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/audio/{languageCode}\"",
-                                httpMethod: "GET",
-                                baseUri: BaseUri,
-                                request: __httpRequest!,
-                                response: __response,
-                                exception: null,
-                                clientOptions: Options,
-                                requestOptions: requestOptions,
-                                attempt: __attemptNumber,
-                                maxAttempts: __maxAttempts,
-                                willRetry: false,
-                                retryDelay: null,
-                                retryReason: global::System.String.Empty,
-                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
-                }
-                            // Permission denied
-                            if ((int)__response.StatusCode == 403)
-                            {
-                                string? __content_403 = null;
-                                global::System.Exception? __exception_403 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_403 = __ex;
-                                }
-
-
-                                throw global::ElevenLabs.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_403,
-                                    responseBody: __content_403,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
-                            // Dubbing not found
-                            if ((int)__response.StatusCode == 404)
-                            {
-                                string? __content_404 = null;
-                                global::System.Exception? __exception_404 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_404 = __ex;
-                                }
-
-
-                                throw global::ElevenLabs.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_404,
-                                    responseBody: __content_404,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
-                            // Dubbing not ready
-                            if ((int)__response.StatusCode == 425)
-                            {
-                                string? __content_425 = null;
-                                global::System.Exception? __exception_425 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_425 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_425 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_425 = __ex;
-                                }
-
-
-                                throw global::ElevenLabs.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_425 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_425,
-                                    responseBody: __content_425,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
-                            // Validation Error
-                            if ((int)__response.StatusCode == 422)
-                            {
-                                string? __content_422 = null;
-                                global::System.Exception? __exception_422 = null;
-                                global::ElevenLabs.HTTPValidationError? __value_422 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
-                                    }
-                                    else
-                                    {
-                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_422 = __ex;
-                                }
-
-
-                                throw global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_422,
-                                    responseBody: __content_422,
-                                    responseObject: __value_422,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
-
-                            try
-                            {
-                                __response.EnsureSuccessStatusCode();
-
-                                var __content = await __response.Content.ReadAsStreamAsync(
-                #if NET5_0_OR_GREATER
-                                    __effectiveCancellationToken
-                #endif
-                                ).ConfigureAwait(false);
-
-                                return new global::ElevenLabs.ResponseStream(__response, __content);
-                            }
-                            catch (global::System.Exception __ex)
-                            {
-                                string? __content = null;
-                                try
-                                {
-                                    __content = await __response.Content.ReadAsStringAsync(
-                #if NET5_0_OR_GREATER
-                                        __effectiveCancellationToken
-                #endif
-                                    ).ConfigureAwait(false);
-                                }
-                                catch (global::System.Exception)
-                                {
-                                }
-
-                                throw global::ElevenLabs.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __ex,
-                                    responseBody: __content,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
-
-                }
-                catch
-                {
-                    __response.Dispose();
-                    throw;
-                }
-            }
-            finally
-            {
-                __httpRequest?.Dispose();
-            }
-        }
-        /// <summary>
-        /// Get Dubbed File<br/>
-        /// Returns dub as a streamed MP3 or MP4 file. If this dub has been edited using Dubbing Studio you need to use the resource render endpoint as this endpoint only returns the original automatic dub result.
-        /// </summary>
-        /// <param name="dubbingId">
-        /// ID of the dubbing project.
-        /// </param>
-        /// <param name="languageCode">
-        /// ID of the language.
-        /// </param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<byte[]>> Get3AsResponseAsync(
-            string dubbingId,
-            string languageCode,
-            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            PrepareArguments(
-                client: HttpClient);
-            PrepareGet3Arguments(
-                httpClient: HttpClient,
-                dubbingId: ref dubbingId,
-                languageCode: ref languageCode);
-
-
-            var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
-                availableAuthorizations: Authorizations,
-                securityRequirements: s_Get3SecurityRequirements,
-                operationName: "Get3Async");
-
-            using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
-                clientOptions: Options,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken);
-            var __effectiveCancellationToken = __timeoutCancellationTokenSource?.Token ?? cancellationToken;
-            var __effectiveReadResponseAsString = global::ElevenLabs.AutoSDKRequestOptionsSupport.GetReadResponseAsString(
-                clientOptions: Options,
-                requestOptions: requestOptions,
-                fallbackValue: ReadResponseAsString);
-            var __maxAttempts = global::ElevenLabs.AutoSDKRequestOptionsSupport.GetMaxAttempts(
-                clientOptions: Options,
-                requestOptions: requestOptions,
-                supportsRetry: true);
-
-            global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
-            {
-
-                            var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/dubbing/{dubbingId}/audio/{languageCode}",
-                                baseUri: HttpClient.BaseAddress);
-                            var __path = __pathBuilder.ToString();
-                __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
-                    path: __path,
-                    clientParameters: Options.QueryParameters,
-                    requestParameters: requestOptions?.QueryParameters);
-                var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Get,
-                    requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
-#if NET6_0_OR_GREATER
-                __httpRequest.Version = global::System.Net.HttpVersion.Version11;
-                __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
-#endif
-
-            foreach (var __authorization in __authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2" ||
-                    __authorization.Type == "OpenIdConnect")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
-            }
-                global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
-                    request: __httpRequest,
-                    clientHeaders: Options.Headers,
-                    requestHeaders: requestOptions?.Headers);
-
-                PrepareRequest(
-                    client: HttpClient,
-                    request: __httpRequest);
-                PrepareGet3Request(
-                    httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest,
-                    dubbingId: dubbingId!,
-                    languageCode: languageCode!);
-
-                return __httpRequest;
-            }
-
-            global::System.Net.Http.HttpRequestMessage? __httpRequest = null;
-            global::System.Net.Http.HttpResponseMessage? __response = null;
-            var __attemptNumber = 0;
-            try
-            {
-                for (var __attempt = 1; __attempt <= __maxAttempts; __attempt++)
-                {
-                    __attemptNumber = __attempt;
-                    __httpRequest = __CreateHttpRequest();
-                    await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
-                            clientOptions: Options,
-                            context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get3",
-                                methodName: "Get3Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/audio/{languageCode}\"",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/transcript\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -673,7 +204,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get3",
                                 methodName: "Get3Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/audio/{languageCode}\"",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/transcript\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -714,7 +245,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get3",
                                 methodName: "Get3Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/audio/{languageCode}\"",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/transcript\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -762,7 +293,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get3",
                                 methodName: "Get3Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/audio/{languageCode}\"",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/transcript\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -784,7 +315,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get3",
                                 methodName: "Get3Async",
-                                pathTemplate: "$\"/v1/dubbing/{dubbingId}/audio/{languageCode}\"",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/transcript\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -799,102 +330,6 @@ namespace ElevenLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // Permission denied
-                            if ((int)__response.StatusCode == 403)
-                            {
-                                string? __content_403 = null;
-                                global::System.Exception? __exception_403 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_403 = __ex;
-                                }
-
-
-                                throw global::ElevenLabs.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_403,
-                                    responseBody: __content_403,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
-                            // Dubbing not found
-                            if ((int)__response.StatusCode == 404)
-                            {
-                                string? __content_404 = null;
-                                global::System.Exception? __exception_404 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_404 = __ex;
-                                }
-
-
-                                throw global::ElevenLabs.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_404,
-                                    responseBody: __content_404,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
-                            // Dubbing not ready
-                            if ((int)__response.StatusCode == 425)
-                            {
-                                string? __content_425 = null;
-                                global::System.Exception? __exception_425 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_425 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_425 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_425 = __ex;
-                                }
-
-
-                                throw global::ElevenLabs.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_425 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_425,
-                                    responseBody: __content_425,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
                             // Validation Error
                             if ((int)__response.StatusCode == 422)
                             {
@@ -935,12 +370,16 @@ namespace ElevenLabs
 
                             if (__effectiveReadResponseAsString)
                             {
-                                var __content = await __response.Content.ReadAsByteArrayAsync(
+                                var __content = await __response.Content.ReadAsStringAsync(
                 #if NET5_0_OR_GREATER
                                     __effectiveCancellationToken
                 #endif
                                 ).ConfigureAwait(false);
 
+                                ProcessResponseContent(
+                                    client: HttpClient,
+                                    response: __response,
+                                    content: ref __content);
                                 ProcessGet3ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
@@ -950,19 +389,21 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<byte[]>(
+                                    var __value = global::ElevenLabs.DubbingSourceTranscriptResponse.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingSourceTranscriptResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __response.ReasonPhrase ?? string.Empty,
+                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        responseBody: null,
+                                        responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
@@ -974,17 +415,19 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsByteArrayAsync(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<byte[]>(
+                                    var __value = await global::ElevenLabs.DubbingSourceTranscriptResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingSourceTranscriptResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

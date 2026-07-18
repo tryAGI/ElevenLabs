@@ -90,11 +90,20 @@ namespace ElevenLabs
         public global::ElevenLabs.PreToolSpeechMode? PreToolSpeech { get; set; }
 
         /// <summary>
-        /// If true, the user will not be able to interrupt the agent while any tool from this MCP server is running.<br/>
+        /// DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while any tool from this MCP server is running.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("disable_interruptions")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? DisableInterruptions { get; set; }
+
+        /// <summary>
+        /// Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it. Applies to every tool from this MCP server unless overridden per tool.<br/>
+        /// Default Value: allow
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("interruption_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolInterruptionModeJsonConverter))]
+        public global::ElevenLabs.ToolInterruptionMode? InterruptionMode { get; set; }
 
         /// <summary>
         /// Predefined tool call sound type to play during tool execution for all tools from this MCP server
@@ -176,9 +185,9 @@ namespace ElevenLabs
         /// Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency. Applies to every tool from this MCP server unless overridden per tool.<br/>
         /// Default Value: auto
         /// </param>
-        /// <param name="disableInterruptions">
-        /// If true, the user will not be able to interrupt the agent while any tool from this MCP server is running.<br/>
-        /// Default Value: false
+        /// <param name="interruptionMode">
+        /// Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it. Applies to every tool from this MCP server unless overridden per tool.<br/>
+        /// Default Value: allow
         /// </param>
         /// <param name="toolCallSound">
         /// Predefined tool call sound type to play during tool execution for all tools from this MCP server
@@ -216,7 +225,7 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection,
             string? description,
             global::ElevenLabs.PreToolSpeechMode? preToolSpeech,
-            bool? disableInterruptions,
+            global::ElevenLabs.ToolInterruptionMode? interruptionMode,
             global::ElevenLabs.ToolCallSoundType? toolCallSound,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
             global::ElevenLabs.ToolExecutionMode? executionMode,
@@ -234,7 +243,7 @@ namespace ElevenLabs
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description;
             this.PreToolSpeech = preToolSpeech;
-            this.DisableInterruptions = disableInterruptions;
+            this.InterruptionMode = interruptionMode;
             this.ToolCallSound = toolCallSound;
             this.ToolCallSoundBehavior = toolCallSoundBehavior;
             this.ExecutionMode = executionMode;

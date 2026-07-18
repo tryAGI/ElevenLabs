@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ConvAIAlerting,
+        /// <summary>
+        /// 
+        /// </summary>
         ConvAISettings,
         /// <summary>
         /// 
@@ -44,6 +48,7 @@ namespace ElevenLabs
             {
                 WebhookUsageType.AgentQaEvaluations => "Agent QA Evaluations",
                 WebhookUsageType.ConvAIAgentSettings => "ConvAI Agent Settings",
+                WebhookUsageType.ConvAIAlerting => "ConvAI Alerting",
                 WebhookUsageType.ConvAISettings => "ConvAI Settings",
                 WebhookUsageType.SpeechToText => "Speech to Text",
                 WebhookUsageType.VoiceLibraryRemovalNotices => "Voice Library Removal Notices",
@@ -59,6 +64,7 @@ namespace ElevenLabs
             {
                 "Agent QA Evaluations" => WebhookUsageType.AgentQaEvaluations,
                 "ConvAI Agent Settings" => WebhookUsageType.ConvAIAgentSettings,
+                "ConvAI Alerting" => WebhookUsageType.ConvAIAlerting,
                 "ConvAI Settings" => WebhookUsageType.ConvAISettings,
                 "Speech to Text" => WebhookUsageType.SpeechToText,
                 "Voice Library Removal Notices" => WebhookUsageType.VoiceLibraryRemovalNotices,

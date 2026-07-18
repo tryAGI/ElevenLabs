@@ -49,6 +49,46 @@ namespace ElevenLabs
         public double? AverageFrustrationScore { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("recent_scored_conversation_count")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int RecentScoredConversationCount { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("recent_positive_count")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int RecentPositiveCount { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("recent_neutral_count")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int RecentNeutralCount { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("recent_negative_count")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int RecentNegativeCount { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("recent_average_sentiment_score")]
+        public double? RecentAverageSentimentScore { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("recent_average_frustration_score")]
+        public double? RecentAverageFrustrationScore { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -61,8 +101,14 @@ namespace ElevenLabs
         /// <param name="positiveCount"></param>
         /// <param name="neutralCount"></param>
         /// <param name="negativeCount"></param>
+        /// <param name="recentScoredConversationCount"></param>
+        /// <param name="recentPositiveCount"></param>
+        /// <param name="recentNeutralCount"></param>
+        /// <param name="recentNegativeCount"></param>
         /// <param name="averageSentimentScore"></param>
         /// <param name="averageFrustrationScore"></param>
+        /// <param name="recentAverageSentimentScore"></param>
+        /// <param name="recentAverageFrustrationScore"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -71,8 +117,14 @@ namespace ElevenLabs
             int positiveCount,
             int neutralCount,
             int negativeCount,
+            int recentScoredConversationCount,
+            int recentPositiveCount,
+            int recentNeutralCount,
+            int recentNegativeCount,
             double? averageSentimentScore,
-            double? averageFrustrationScore)
+            double? averageFrustrationScore,
+            double? recentAverageSentimentScore,
+            double? recentAverageFrustrationScore)
         {
             this.ScoredConversationCount = scoredConversationCount;
             this.PositiveCount = positiveCount;
@@ -80,6 +132,12 @@ namespace ElevenLabs
             this.NegativeCount = negativeCount;
             this.AverageSentimentScore = averageSentimentScore;
             this.AverageFrustrationScore = averageFrustrationScore;
+            this.RecentScoredConversationCount = recentScoredConversationCount;
+            this.RecentPositiveCount = recentPositiveCount;
+            this.RecentNeutralCount = recentNeutralCount;
+            this.RecentNegativeCount = recentNegativeCount;
+            this.RecentAverageSentimentScore = recentAverageSentimentScore;
+            this.RecentAverageFrustrationScore = recentAverageFrustrationScore;
         }
 
         /// <summary>

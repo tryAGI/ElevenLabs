@@ -55,6 +55,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ConvaiAnalysisItems,
+        /// <summary>
+        /// 
+        /// </summary>
         ConvaiApiIntegrationConnections,
         /// <summary>
         /// 
@@ -76,6 +80,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ConvaiCrawlTasks,
+        /// <summary>
+        /// 
+        /// </summary>
+        ConvaiKbExternalSyncJobs,
         /// <summary>
         /// 
         /// </summary>
@@ -193,12 +201,14 @@ namespace ElevenLabs
                 WorkspaceResourceType.ConvaiAgentVersions => "convai_agent_versions",
                 WorkspaceResourceType.ConvaiAgentVersionsDeployments => "convai_agent_versions_deployments",
                 WorkspaceResourceType.ConvaiAgents => "convai_agents",
+                WorkspaceResourceType.ConvaiAnalysisItems => "convai_analysis_items",
                 WorkspaceResourceType.ConvaiApiIntegrationConnections => "convai_api_integration_connections",
                 WorkspaceResourceType.ConvaiApiIntegrationTriggerConnections => "convai_api_integration_trigger_connections",
                 WorkspaceResourceType.ConvaiBatchCalls => "convai_batch_calls",
                 WorkspaceResourceType.ConvaiCoachingProposals => "convai_coaching_proposals",
                 WorkspaceResourceType.ConvaiCrawlJobs => "convai_crawl_jobs",
                 WorkspaceResourceType.ConvaiCrawlTasks => "convai_crawl_tasks",
+                WorkspaceResourceType.ConvaiKbExternalSyncJobs => "convai_kb_external_sync_jobs",
                 WorkspaceResourceType.ConvaiKnowledgeBaseDocuments => "convai_knowledge_base_documents",
                 WorkspaceResourceType.ConvaiMcpServers => "convai_mcp_servers",
                 WorkspaceResourceType.ConvaiMemoryEntries => "convai_memory_entries",
@@ -243,12 +253,14 @@ namespace ElevenLabs
                 "convai_agent_versions" => WorkspaceResourceType.ConvaiAgentVersions,
                 "convai_agent_versions_deployments" => WorkspaceResourceType.ConvaiAgentVersionsDeployments,
                 "convai_agents" => WorkspaceResourceType.ConvaiAgents,
+                "convai_analysis_items" => WorkspaceResourceType.ConvaiAnalysisItems,
                 "convai_api_integration_connections" => WorkspaceResourceType.ConvaiApiIntegrationConnections,
                 "convai_api_integration_trigger_connections" => WorkspaceResourceType.ConvaiApiIntegrationTriggerConnections,
                 "convai_batch_calls" => WorkspaceResourceType.ConvaiBatchCalls,
                 "convai_coaching_proposals" => WorkspaceResourceType.ConvaiCoachingProposals,
                 "convai_crawl_jobs" => WorkspaceResourceType.ConvaiCrawlJobs,
                 "convai_crawl_tasks" => WorkspaceResourceType.ConvaiCrawlTasks,
+                "convai_kb_external_sync_jobs" => WorkspaceResourceType.ConvaiKbExternalSyncJobs,
                 "convai_knowledge_base_documents" => WorkspaceResourceType.ConvaiKnowledgeBaseDocuments,
                 "convai_mcp_servers" => WorkspaceResourceType.ConvaiMcpServers,
                 "convai_memory_entries" => WorkspaceResourceType.ConvaiMemoryEntries,

@@ -78,6 +78,16 @@ namespace ElevenLabs
         public required string ExtractedInnerHtml { get; set; }
 
         /// <summary>
+        /// Canonical representation of a knowledge base document's stored content.<br/>
+        /// HTML is the legacy default; documents created before this field existed are<br/>
+        /// interpreted as HTML.<br/>
+        /// Default Value: html
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("content_format")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ContentFormatJsonConverter))]
+        public global::ElevenLabs.ContentFormat? ContentFormat { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auto_sync_info")]
@@ -107,6 +117,12 @@ namespace ElevenLabs
         /// <param name="folderPath">
         /// The folder path segments leading to this entity, from root to parent folder.
         /// </param>
+        /// <param name="contentFormat">
+        /// Canonical representation of a knowledge base document's stored content.<br/>
+        /// HTML is the legacy default; documents created before this field existed are<br/>
+        /// interpreted as HTML.<br/>
+        /// Default Value: html
+        /// </param>
         /// <param name="autoSyncInfo"></param>
         /// <param name="type"></param>
 #if NET7_0_OR_GREATER
@@ -122,6 +138,7 @@ namespace ElevenLabs
             string extractedInnerHtml,
             string? folderParentId,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? folderPath,
+            global::ElevenLabs.ContentFormat? contentFormat,
             global::ElevenLabs.AutoSyncInfo? autoSyncInfo,
             string type = "url")
         {
@@ -135,6 +152,7 @@ namespace ElevenLabs
             this.Type = type;
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.ExtractedInnerHtml = extractedInnerHtml ?? throw new global::System.ArgumentNullException(nameof(extractedInnerHtml));
+            this.ContentFormat = contentFormat;
             this.AutoSyncInfo = autoSyncInfo;
         }
 

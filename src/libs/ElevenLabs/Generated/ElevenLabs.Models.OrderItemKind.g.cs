@@ -16,6 +16,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Subtitles,
+        /// <summary>
+        /// 
+        /// </summary>
+        Transcription,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace ElevenLabs
             {
                 OrderItemKind.Dub => "dub",
                 OrderItemKind.Subtitles => "subtitles",
+                OrderItemKind.Transcription => "transcription",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace ElevenLabs
             {
                 "dub" => OrderItemKind.Dub,
                 "subtitles" => OrderItemKind.Subtitles,
+                "transcription" => OrderItemKind.Transcription,
                 _ => null,
             };
         }

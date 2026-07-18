@@ -11,6 +11,38 @@ namespace ElevenLabs
         /// <summary>
         /// Default Value: object
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("property_kind")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ObjectJsonSchemaPropertyInputPropertyKindJsonConverter))]
+        public global::ElevenLabs.ObjectJsonSchemaPropertyInputPropertyKind? PropertyKind { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string? Description { get; set; }
+
+        /// <summary>
+        /// When set, the entire parameter is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided value), constant_value, and is_omitted.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variable")]
+        public string? DynamicVariable { get; set; }
+
+        /// <summary>
+        /// When set, the entire object uses this constant JSON value at runtime. Mutually exclusive with description (LLM-provided object), dynamic_variable, and is_omitted.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("constant_value")]
+        public object? ConstantValue { get; set; }
+
+        /// <summary>
+        /// If true, this parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, and constant_value.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_omitted")]
+        public bool? IsOmitted { get; set; }
+
+        /// <summary>
+        /// Default Value: object
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         public string? Type { get; set; }
 
@@ -19,12 +51,6 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("required")]
         public global::System.Collections.Generic.IList<string>? Required { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
-        public string? Description { get; set; }
 
         /// <summary>
         /// 
@@ -47,26 +73,47 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectJsonSchemaPropertyInput" /> class.
         /// </summary>
+        /// <param name="propertyKind">
+        /// Default Value: object
+        /// </param>
+        /// <param name="description"></param>
+        /// <param name="dynamicVariable">
+        /// When set, the entire parameter is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided value), constant_value, and is_omitted.
+        /// </param>
+        /// <param name="constantValue">
+        /// When set, the entire object uses this constant JSON value at runtime. Mutually exclusive with description (LLM-provided object), dynamic_variable, and is_omitted.
+        /// </param>
+        /// <param name="isOmitted">
+        /// If true, this parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, and constant_value.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="type">
         /// Default Value: object
         /// </param>
         /// <param name="required"></param>
-        /// <param name="description"></param>
         /// <param name="properties"></param>
         /// <param name="requiredConstraints"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ObjectJsonSchemaPropertyInput(
+            global::ElevenLabs.ObjectJsonSchemaPropertyInputPropertyKind? propertyKind,
+            string? description,
+            string? dynamicVariable,
+            object? constantValue,
+            bool? isOmitted,
             string? type,
             global::System.Collections.Generic.IList<string>? required,
-            string? description,
             object? properties,
             global::ElevenLabs.RequiredConstraints? requiredConstraints)
         {
+            this.PropertyKind = propertyKind;
+            this.Description = description;
+            this.DynamicVariable = dynamicVariable;
+            this.ConstantValue = constantValue;
+            this.IsOmitted = isOmitted;
             this.Type = type;
             this.Required = required;
-            this.Description = description;
             this.Properties = properties;
             this.RequiredConstraints = requiredConstraints;
         }

@@ -29,7 +29,7 @@ namespace ElevenLabs
         public required string AgentId { get; set; }
 
         /// <summary>
-        /// ID of the branch to run the tests on. If not provided, the tests will be run on the agent default configuration.
+        /// ID of the branch to run the tests on. If not provided, the tests will be run on the agent's main branch.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("branch_id")]
         public string? BranchId { get; set; }
@@ -53,7 +53,7 @@ namespace ElevenLabs
         /// Configuration overrides to use for testing. If not provided, the agent's default configuration will be used.
         /// </param>
         /// <param name="branchId">
-        /// ID of the branch to run the tests on. If not provided, the tests will be run on the agent default configuration.
+        /// ID of the branch to run the tests on. If not provided, the tests will be run on the agent's main branch.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

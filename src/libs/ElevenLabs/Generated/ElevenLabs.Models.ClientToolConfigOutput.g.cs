@@ -40,11 +40,20 @@ namespace ElevenLabs
         public int? ResponseTimeoutSecs { get; set; }
 
         /// <summary>
-        /// If true, the user will not be able to interrupt the agent while this tool is running.<br/>
+        /// DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while this tool is running.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("disable_interruptions")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? DisableInterruptions { get; set; }
+
+        /// <summary>
+        /// Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it.<br/>
+        /// Default Value: allow
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("interruption_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolInterruptionModeJsonConverter))]
+        public global::ElevenLabs.ToolInterruptionMode? InterruptionMode { get; set; }
 
         /// <summary>
         /// DEPRECATED: use `pre_tool_speech` instead. If true, the agent will speak before the tool call.<br/>
@@ -109,7 +118,7 @@ namespace ElevenLabs
         /// </summary>
         /// <example>{"dynamic_variable_placeholders":{"user_name":"John Doe"}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
-        public global::ElevenLabs.DynamicVariablesConfigOutput? DynamicVariables { get; set; }
+        public global::ElevenLabs.DynamicVariablesConfig? DynamicVariables { get; set; }
 
         /// <summary>
         /// Determines when and how the tool executes: 'immediate' executes the tool right away when requested by the LLM, 'post_tool_speech' waits for the agent to finish speaking before executing, 'async' runs the tool in the background without blocking - best for long-running operations.<br/>
@@ -140,9 +149,9 @@ namespace ElevenLabs
         /// The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive).<br/>
         /// Default Value: 20
         /// </param>
-        /// <param name="disableInterruptions">
-        /// If true, the user will not be able to interrupt the agent while this tool is running.<br/>
-        /// Default Value: false
+        /// <param name="interruptionMode">
+        /// Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it.<br/>
+        /// Default Value: allow
         /// </param>
         /// <param name="preToolSpeech">
         /// Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency.<br/>
@@ -185,7 +194,7 @@ namespace ElevenLabs
             string description,
             string? type,
             int? responseTimeoutSecs,
-            bool? disableInterruptions,
+            global::ElevenLabs.ToolInterruptionMode? interruptionMode,
             global::ElevenLabs.PreToolSpeechMode? preToolSpeech,
             global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments,
             global::ElevenLabs.ToolCallSoundType? toolCallSound,
@@ -193,14 +202,14 @@ namespace ElevenLabs
             global::ElevenLabs.ToolErrorHandlingMode? toolErrorHandlingMode,
             global::ElevenLabs.ObjectJsonSchemaPropertyOutput? parameters,
             bool? expectsResponse,
-            global::ElevenLabs.DynamicVariablesConfigOutput? dynamicVariables,
+            global::ElevenLabs.DynamicVariablesConfig? dynamicVariables,
             global::ElevenLabs.ToolExecutionMode? executionMode)
         {
             this.Type = type;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.ResponseTimeoutSecs = responseTimeoutSecs;
-            this.DisableInterruptions = disableInterruptions;
+            this.InterruptionMode = interruptionMode;
             this.PreToolSpeech = preToolSpeech;
             this.Assignments = assignments;
             this.ToolCallSound = toolCallSound;

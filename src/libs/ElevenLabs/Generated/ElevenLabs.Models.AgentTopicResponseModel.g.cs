@@ -55,6 +55,12 @@ namespace ElevenLabs
         public double? Y2d { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metrics")]
+        public global::ElevenLabs.TopicMetricsAggregate? Metrics { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -70,6 +76,7 @@ namespace ElevenLabs
         /// <param name="parentTopicId"></param>
         /// <param name="x2d"></param>
         /// <param name="y2d"></param>
+        /// <param name="metrics"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -80,7 +87,8 @@ namespace ElevenLabs
             int conversationCount,
             string? parentTopicId,
             double? x2d,
-            double? y2d)
+            double? y2d,
+            global::ElevenLabs.TopicMetricsAggregate? metrics)
         {
             this.TopicId = topicId ?? throw new global::System.ArgumentNullException(nameof(topicId));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
@@ -89,6 +97,7 @@ namespace ElevenLabs
             this.ParentTopicId = parentTopicId;
             this.X2d = x2d;
             this.Y2d = y2d;
+            this.Metrics = metrics;
         }
 
         /// <summary>

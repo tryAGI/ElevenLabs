@@ -76,6 +76,12 @@ namespace ElevenLabs
         public string? SummaryLanguage { get; set; }
 
         /// <summary>
+        /// When enabled, a conversation transcript is automatically translated to the viewer's application language when they open the transcript page. If not set or false, transcripts are shown in their original language unless the viewer manually selects a translation.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auto_translate_transcript_to_app_language")]
+        public bool? AutoTranslateTranscriptToAppLanguage { get; set; }
+
+        /// <summary>
         /// Settings for authentication<br/>
         /// Example: {"allowlist":[{"hostname":"https://example.com"}],"enable_auth":true,"require_origin_header":true,"shareable_token":"1234567890"}
         /// </summary>
@@ -122,6 +128,12 @@ namespace ElevenLabs
         public global::ElevenLabs.TopicDiscoverySettings? TopicDiscovery { get; set; }
 
         /// <summary>
+        /// Per-agent post-call sentiment analysis configuration
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sentiment_analysis")]
+        public global::ElevenLabs.SentimentAnalysisSettings? SentimentAnalysis { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -164,6 +176,9 @@ namespace ElevenLabs
         /// <param name="summaryLanguage">
         /// Language for all conversation analysis outputs (summaries, titles, evaluation rationales, data collection rationales). If not set, the language will be inferred from the conversation. Must be one of the supported conversation languages.
         /// </param>
+        /// <param name="autoTranslateTranscriptToAppLanguage">
+        /// When enabled, a conversation transcript is automatically translated to the viewer's application language when they open the transcript page. If not set or false, transcripts are shown in their original language unless the viewer manually selects a translation.
+        /// </param>
         /// <param name="auth">
         /// Settings for authentication<br/>
         /// Example: {"allowlist":[{"hostname":"https://example.com"}],"enable_auth":true,"require_origin_header":true,"shareable_token":"1234567890"}
@@ -187,6 +202,9 @@ namespace ElevenLabs
         /// <param name="topicDiscovery">
         /// Per-agent topic discovery configuration
         /// </param>
+        /// <param name="sentimentAnalysis">
+        /// Per-agent post-call sentiment analysis configuration
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -201,12 +219,14 @@ namespace ElevenLabs
             bool? archived,
             global::ElevenLabs.GuardrailsV1Input? guardrails,
             string? summaryLanguage,
+            bool? autoTranslateTranscriptToAppLanguage,
             global::ElevenLabs.AuthSettings? auth,
             global::ElevenLabs.AgentCallLimits? callLimits,
             global::ElevenLabs.PrivacyConfigInput? privacy,
             global::ElevenLabs.AgentTrustContext? trustContext,
             global::ElevenLabs.Llm? analysisLlm,
-            global::ElevenLabs.TopicDiscoverySettings? topicDiscovery)
+            global::ElevenLabs.TopicDiscoverySettings? topicDiscovery,
+            global::ElevenLabs.SentimentAnalysisSettings? sentimentAnalysis)
         {
             this.Evaluation = evaluation;
             this.Widget = widget;
@@ -218,12 +238,14 @@ namespace ElevenLabs
             this.Archived = archived;
             this.Guardrails = guardrails;
             this.SummaryLanguage = summaryLanguage;
+            this.AutoTranslateTranscriptToAppLanguage = autoTranslateTranscriptToAppLanguage;
             this.Auth = auth;
             this.CallLimits = callLimits;
             this.Privacy = privacy;
             this.TrustContext = trustContext;
             this.AnalysisLlm = analysisLlm;
             this.TopicDiscovery = topicDiscovery;
+            this.SentimentAnalysis = sentimentAnalysis;
         }
 
         /// <summary>

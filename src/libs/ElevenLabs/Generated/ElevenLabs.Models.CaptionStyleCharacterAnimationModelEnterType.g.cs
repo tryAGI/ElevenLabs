@@ -16,6 +16,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         None,
+        /// <summary>
+        /// 
+        /// </summary>
+        Typewriter,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace ElevenLabs
             {
                 CaptionStyleCharacterAnimationModelEnterType.Fade => "fade",
                 CaptionStyleCharacterAnimationModelEnterType.None => "none",
+                CaptionStyleCharacterAnimationModelEnterType.Typewriter => "typewriter",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace ElevenLabs
             {
                 "fade" => CaptionStyleCharacterAnimationModelEnterType.Fade,
                 "none" => CaptionStyleCharacterAnimationModelEnterType.None,
+                "typewriter" => CaptionStyleCharacterAnimationModelEnterType.Typewriter,
                 _ => null,
             };
         }

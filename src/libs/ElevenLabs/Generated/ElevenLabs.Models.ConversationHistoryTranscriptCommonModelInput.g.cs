@@ -90,10 +90,22 @@ namespace ElevenLabs
         public bool? Interrupted { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ignored_as_backchannel")]
+        public bool? IgnoredAsBackchannel { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("original_message")]
         public string? OriginalMessage { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reasoning")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationReasoningModel>? Reasoning { get; set; }
 
         /// <summary>
         /// 
@@ -143,7 +155,11 @@ namespace ElevenLabs
         /// <param name="interrupted">
         /// Default Value: false
         /// </param>
+        /// <param name="ignoredAsBackchannel">
+        /// Default Value: false
+        /// </param>
         /// <param name="originalMessage"></param>
+        /// <param name="reasoning"></param>
         /// <param name="sourceMedium"></param>
         /// <param name="sourceEventId"></param>
         /// <param name="usedStaticKbDocumentIds"></param>
@@ -165,7 +181,9 @@ namespace ElevenLabs
             global::ElevenLabs.RagRetrievalInfo? ragRetrievalInfo,
             global::ElevenLabs.LLMUsageInput? llmUsage,
             bool? interrupted,
+            bool? ignoredAsBackchannel,
             string? originalMessage,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationReasoningModel>? reasoning,
             global::ElevenLabs.ChatSourceMedium? sourceMedium,
             int? sourceEventId,
             global::System.Collections.Generic.IList<string>? usedStaticKbDocumentIds,
@@ -184,7 +202,9 @@ namespace ElevenLabs
             this.RagRetrievalInfo = ragRetrievalInfo;
             this.LlmUsage = llmUsage;
             this.Interrupted = interrupted;
+            this.IgnoredAsBackchannel = ignoredAsBackchannel;
             this.OriginalMessage = originalMessage;
+            this.Reasoning = reasoning;
             this.SourceMedium = sourceMedium;
             this.SourceEventId = sourceEventId;
             this.UsedStaticKbDocumentIds = usedStaticKbDocumentIds;

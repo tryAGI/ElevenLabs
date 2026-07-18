@@ -35,6 +35,11 @@ install_autosdk_cli
 rm -rf Generated
 if [[ "$use_pinned_spec" == false ]]; then
   fetch_spec --fail --silent --show-error -L https://api.elevenlabs.io/openapi.json | jq '
+    # ElevenLabs publishes the agent RAG query route in its public OpenAPI document,
+    # but x-fern-ignore prevents non-Fern generators from exposing the operation.
+    del(.paths["/v1/convai/agents/{agent_id}/knowledge-base/rag-query"].post["x-fern-ignore"])
+    | (.paths["/v1/convai/agents/{agent_id}/knowledge-base/rag-query"].post["x-fern-sdk-method-name"]) = "query_knowledge_base_rag"
+    |
     # The upstream GenerationNode response spec lists every model-specific parameter
     # schema in one large anyOf. That generates a huge AnyOf<...> type which trips
     # Roslyn/System.Text.Json source generation, while the corresponding request

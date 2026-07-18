@@ -15,11 +15,11 @@ namespace ElevenLabs
         public string? Type { get; set; }
 
         /// <summary>
-        /// The URL to send alert lifecycle notifications to.
+        /// ID of the workspace webhook to deliver alert lifecycle notifications to.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("url")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("webhook_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Url { get; set; }
+        public required string WebhookId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -30,8 +30,8 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AlertingWebhookNotifier" /> class.
         /// </summary>
-        /// <param name="url">
-        /// The URL to send alert lifecycle notifications to.
+        /// <param name="webhookId">
+        /// ID of the workspace webhook to deliver alert lifecycle notifications to.
         /// </param>
         /// <param name="type">
         /// Default Value: webhook
@@ -40,11 +40,11 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AlertingWebhookNotifier(
-            string url,
+            string webhookId,
             string? type)
         {
             this.Type = type;
-            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
+            this.WebhookId = webhookId ?? throw new global::System.ArgumentNullException(nameof(webhookId));
         }
 
         /// <summary>

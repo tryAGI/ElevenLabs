@@ -59,6 +59,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Flows,
+        /// <summary>
+        /// 
+        /// </summary>
         GroupMembersManage,
         /// <summary>
         /// 
@@ -104,6 +108,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         SynthidDetector,
+        /// <summary>
+        /// 
+        /// </summary>
+        Templates,
         /// <summary>
         /// 
         /// </summary>
@@ -174,6 +182,7 @@ namespace ElevenLabs
                 WorkspaceGroupPermission.CreateProfessionalVoiceClone => "create_professional_voice_clone",
                 WorkspaceGroupPermission.CreateUserApiKey => "create_user_api_key",
                 WorkspaceGroupPermission.Dubbing => "dubbing",
+                WorkspaceGroupPermission.Flows => "flows",
                 WorkspaceGroupPermission.GroupMembersManage => "group_members_manage",
                 WorkspaceGroupPermission.ImageVideoGeneration => "image_video_generation",
                 WorkspaceGroupPermission.Music => "music",
@@ -186,6 +195,7 @@ namespace ElevenLabs
                 WorkspaceGroupPermission.SpeechToSpeech => "speech_to_speech",
                 WorkspaceGroupPermission.SpeechToText => "speech_to_text",
                 WorkspaceGroupPermission.SynthidDetector => "synthid_detector",
+                WorkspaceGroupPermission.Templates => "templates",
                 WorkspaceGroupPermission.TermsOfServiceAccept => "terms_of_service_accept",
                 WorkspaceGroupPermission.TextToSpeech => "text_to_speech",
                 WorkspaceGroupPermission.ViewFiatBalance => "view_fiat_balance",
@@ -219,6 +229,7 @@ namespace ElevenLabs
                 "create_professional_voice_clone" => WorkspaceGroupPermission.CreateProfessionalVoiceClone,
                 "create_user_api_key" => WorkspaceGroupPermission.CreateUserApiKey,
                 "dubbing" => WorkspaceGroupPermission.Dubbing,
+                "flows" => WorkspaceGroupPermission.Flows,
                 "group_members_manage" => WorkspaceGroupPermission.GroupMembersManage,
                 "image_video_generation" => WorkspaceGroupPermission.ImageVideoGeneration,
                 "music" => WorkspaceGroupPermission.Music,
@@ -231,6 +242,7 @@ namespace ElevenLabs
                 "speech_to_speech" => WorkspaceGroupPermission.SpeechToSpeech,
                 "speech_to_text" => WorkspaceGroupPermission.SpeechToText,
                 "synthid_detector" => WorkspaceGroupPermission.SynthidDetector,
+                "templates" => WorkspaceGroupPermission.Templates,
                 "terms_of_service_accept" => WorkspaceGroupPermission.TermsOfServiceAccept,
                 "text_to_speech" => WorkspaceGroupPermission.TextToSpeech,
                 "view_fiat_balance" => WorkspaceGroupPermission.ViewFiatBalance,

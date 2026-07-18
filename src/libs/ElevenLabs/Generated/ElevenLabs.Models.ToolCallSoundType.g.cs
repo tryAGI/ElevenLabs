@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Predefined tool call sound types.
+    /// Predefined tool call sounds; ``None`` means no sound.
     /// </summary>
     public enum ToolCallSoundType
     {

@@ -71,6 +71,16 @@ namespace ElevenLabs
         public required string ExtractedInnerHtml { get; set; }
 
         /// <summary>
+        /// Canonical representation of a knowledge base document's stored content.<br/>
+        /// HTML is the legacy default; documents created before this field existed are<br/>
+        /// interpreted as HTML.<br/>
+        /// Default Value: html
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("content_format")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ContentFormatJsonConverter))]
+        public global::ElevenLabs.ContentFormat? ContentFormat { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -93,6 +103,12 @@ namespace ElevenLabs
         /// <param name="folderPath">
         /// The folder path segments leading to this entity, from root to parent folder.
         /// </param>
+        /// <param name="contentFormat">
+        /// Canonical representation of a knowledge base document's stored content.<br/>
+        /// HTML is the legacy default; documents created before this field existed are<br/>
+        /// interpreted as HTML.<br/>
+        /// Default Value: html
+        /// </param>
         /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -106,6 +122,7 @@ namespace ElevenLabs
             string extractedInnerHtml,
             string? folderParentId,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? folderPath,
+            global::ElevenLabs.ContentFormat? contentFormat,
             string type = "text")
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -117,6 +134,7 @@ namespace ElevenLabs
             this.FolderPath = folderPath;
             this.Type = type;
             this.ExtractedInnerHtml = extractedInnerHtml ?? throw new global::System.ArgumentNullException(nameof(extractedInnerHtml));
+            this.ContentFormat = contentFormat;
         }
 
         /// <summary>

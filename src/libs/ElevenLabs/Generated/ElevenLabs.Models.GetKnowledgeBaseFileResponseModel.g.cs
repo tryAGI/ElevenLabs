@@ -71,6 +71,16 @@ namespace ElevenLabs
         public required string ExtractedInnerHtml { get; set; }
 
         /// <summary>
+        /// Canonical representation of a knowledge base document's stored content.<br/>
+        /// HTML is the legacy default; documents created before this field existed are<br/>
+        /// interpreted as HTML.<br/>
+        /// Default Value: html
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("content_format")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ContentFormatJsonConverter))]
+        public global::ElevenLabs.ContentFormat? ContentFormat { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
@@ -113,6 +123,12 @@ namespace ElevenLabs
         /// <param name="folderPath">
         /// The folder path segments leading to this entity, from root to parent folder.
         /// </param>
+        /// <param name="contentFormat">
+        /// Canonical representation of a knowledge base document's stored content.<br/>
+        /// HTML is the legacy default; documents created before this field existed are<br/>
+        /// interpreted as HTML.<br/>
+        /// Default Value: html
+        /// </param>
         /// <param name="externalSyncInfo"></param>
         /// <param name="isFrozen">
         /// Default Value: false
@@ -131,6 +147,7 @@ namespace ElevenLabs
             string filename,
             string? folderParentId,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? folderPath,
+            global::ElevenLabs.ContentFormat? contentFormat,
             global::ElevenLabs.ExternalFileSyncInfo? externalSyncInfo,
             bool? isFrozen,
             string type = "file")
@@ -144,6 +161,7 @@ namespace ElevenLabs
             this.FolderPath = folderPath;
             this.Type = type;
             this.ExtractedInnerHtml = extractedInnerHtml ?? throw new global::System.ArgumentNullException(nameof(extractedInnerHtml));
+            this.ContentFormat = contentFormat;
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.ExternalSyncInfo = externalSyncInfo;
             this.IsFrozen = isFrozen;

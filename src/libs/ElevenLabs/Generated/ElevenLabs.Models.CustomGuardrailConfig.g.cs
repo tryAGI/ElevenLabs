@@ -44,14 +44,14 @@ namespace ElevenLabs
         public global::ElevenLabs.CustomGuardrailConfigModel? Model { get; set; }
 
         /// <summary>
-        /// How many recent customer messages to include in the guardrail's history, plus the agent replies that follow them (and tool calls and results when history_include_tool_calls is enabled). Only customer messages count toward the limit. 0 (default) shows none; 1 shows the customer's latest message onward. When &gt; 0, the guardrail prompt can refer to this history as &lt;conversation_history&gt;; the reply under evaluation appears as &lt;agent_message&gt; and may repeat at the end of the history.<br/>
+        /// How much recent history the guardrail sees before the reply it evaluates, counted in user messages (the agent replies between them are included too). The guardrail always gets a single &lt;conversation_history&gt; transcript ending in the evaluated reply, marked 'AGENT [current reply]:'. 0 (default) adds no prior history (just that line); 1 adds the latest user message onward.<br/>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("history_message_count")]
         public int? HistoryMessageCount { get; set; }
 
         /// <summary>
-        /// When history is on (history_message_count &gt; 0), also render interleaved tool calls and results in the window. Off by default: history shows only customer and agent text. Tool payloads can be large, so enabling this increases evaluation token cost.<br/>
+        /// When enabled, the history also renders the agent's tool calls, their input arguments, and the tool results, interleaved with the text, so an action between two agent messages is visible. Off by default: history shows only user and agent text. Tool payloads can be large and can mislead smaller evaluator models, so enabling this raises token cost.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("history_include_tool_calls")]
@@ -63,6 +63,13 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("trigger_action")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TriggerAction3JsonConverter))]
         public global::ElevenLabs.TriggerAction3? TriggerAction { get; set; }
+
+        /// <summary>
+        /// Evaluate once against the complete non-TTS response instead of cumulative partials. Requires blocking mode.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("evaluate_full_response_only")]
+        public bool? EvaluateFullResponseOnly { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -90,14 +97,18 @@ namespace ElevenLabs
         /// Default Value: gemini-2.5-flash-lite
         /// </param>
         /// <param name="historyMessageCount">
-        /// How many recent customer messages to include in the guardrail's history, plus the agent replies that follow them (and tool calls and results when history_include_tool_calls is enabled). Only customer messages count toward the limit. 0 (default) shows none; 1 shows the customer's latest message onward. When &gt; 0, the guardrail prompt can refer to this history as &lt;conversation_history&gt;; the reply under evaluation appears as &lt;agent_message&gt; and may repeat at the end of the history.<br/>
+        /// How much recent history the guardrail sees before the reply it evaluates, counted in user messages (the agent replies between them are included too). The guardrail always gets a single &lt;conversation_history&gt; transcript ending in the evaluated reply, marked 'AGENT [current reply]:'. 0 (default) adds no prior history (just that line); 1 adds the latest user message onward.<br/>
         /// Default Value: 0
         /// </param>
         /// <param name="historyIncludeToolCalls">
-        /// When history is on (history_message_count &gt; 0), also render interleaved tool calls and results in the window. Off by default: history shows only customer and agent text. Tool payloads can be large, so enabling this increases evaluation token cost.<br/>
+        /// When enabled, the history also renders the agent's tool calls, their input arguments, and the tool results, interleaved with the text, so an action between two agent messages is visible. Off by default: history shows only user and agent text. Tool payloads can be large and can mislead smaller evaluator models, so enabling this raises token cost.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="triggerAction"></param>
+        /// <param name="evaluateFullResponseOnly">
+        /// Evaluate once against the complete non-TTS response instead of cumulative partials. Requires blocking mode.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -109,7 +120,8 @@ namespace ElevenLabs
             global::ElevenLabs.CustomGuardrailConfigModel? model,
             int? historyMessageCount,
             bool? historyIncludeToolCalls,
-            global::ElevenLabs.TriggerAction3? triggerAction)
+            global::ElevenLabs.TriggerAction3? triggerAction,
+            bool? evaluateFullResponseOnly)
         {
             this.IsEnabled = isEnabled;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -119,6 +131,7 @@ namespace ElevenLabs
             this.HistoryMessageCount = historyMessageCount;
             this.HistoryIncludeToolCalls = historyIncludeToolCalls;
             this.TriggerAction = triggerAction;
+            this.EvaluateFullResponseOnly = evaluateFullResponseOnly;
         }
 
         /// <summary>

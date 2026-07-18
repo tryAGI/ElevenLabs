@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The optimization for streaming latency
+    /// Deprecated: this field is a no-op and is ignored.
     /// </summary>
     public sealed partial class TTSConversationalConfigWorkflowOverrideInputOptimizeStreamingLatency
     {

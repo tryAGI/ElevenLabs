@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0,"use_llm_generated_message":false},"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_model":"turn_v3","turn_timeout":7.0}
+    /// Example: {"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0,"use_llm_generated_message":false},"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_model":"turn_v3","turn_timeout":7.0}
     /// </summary>
     public sealed partial class TurnConfigWorkflowOverride
     {
@@ -69,6 +69,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? InterruptionIgnoreTerms { get; set; }
 
         /// <summary>
+        /// Language codes for which preset ignore-term categories have been activated. Stored explicitly so display is not inferred from term overlap.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("interruption_ignore_term_languages")]
+        public global::System.Collections.Generic.IList<string>? InterruptionIgnoreTermLanguages { get; set; }
+
+        /// <summary>
         /// When interruptions are disabled, still transcribe what the user says so it can carry into the next turn. When off, user speech during a non-interruptible turn is ignored and won't trigger a turn.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcribe_on_disabled_interruptions")]
@@ -119,6 +125,9 @@ namespace ElevenLabs
         /// <param name="interruptionIgnoreTerms">
         /// List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching.
         /// </param>
+        /// <param name="interruptionIgnoreTermLanguages">
+        /// Language codes for which preset ignore-term categories have been activated. Stored explicitly so display is not inferred from term overlap.
+        /// </param>
         /// <param name="transcribeOnDisabledInterruptions">
         /// When interruptions are disabled, still transcribe what the user says so it can carry into the next turn. When off, user speech during a non-interruptible turn is ignored and won't trigger a turn.
         /// </param>
@@ -139,6 +148,7 @@ namespace ElevenLabs
             bool? retranscribeOnTurnTimeout,
             global::ElevenLabs.TurnModel? turnModel,
             global::System.Collections.Generic.IList<string>? interruptionIgnoreTerms,
+            global::System.Collections.Generic.IList<string>? interruptionIgnoreTermLanguages,
             bool? transcribeOnDisabledInterruptions,
             global::ElevenLabs.SoftTimeoutConfigWorkflowOverride? softTimeoutConfig)
         {
@@ -152,6 +162,7 @@ namespace ElevenLabs
             this.RetranscribeOnTurnTimeout = retranscribeOnTurnTimeout;
             this.TurnModel = turnModel;
             this.InterruptionIgnoreTerms = interruptionIgnoreTerms;
+            this.InterruptionIgnoreTermLanguages = interruptionIgnoreTermLanguages;
             this.TranscribeOnDisabledInterruptions = transcribeOnDisabledInterruptions;
             this.SoftTimeoutConfig = softTimeoutConfig;
         }

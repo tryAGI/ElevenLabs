@@ -267,6 +267,48 @@ namespace ElevenLabs
         public string? AgentError { get; set; }
 
         /// <summary>
+        /// Text and ARIA label for the attach file button.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("attach_file")]
+        public string? AttachFile { get; set; }
+
+        /// <summary>
+        /// ARIA label for the remove file button.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("remove_file")]
+        public string? RemoveFile { get; set; }
+
+        /// <summary>
+        /// Error message displayed when a file fails to upload.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("file_upload_error")]
+        public string? FileUploadError { get; set; }
+
+        /// <summary>
+        /// Error message displayed when an unsupported file type is selected. Followed by the list of accepted types.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("file_type_unsupported")]
+        public string? FileTypeUnsupported { get; set; }
+
+        /// <summary>
+        /// Error message displayed when a file exceeds the maximum size limit.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("file_too_large")]
+        public string? FileTooLarge { get; set; }
+
+        /// <summary>
+        /// Error message displayed when the maximum number of files for a conversation is reached.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("file_limit_reached")]
+        public string? FileLimitReached { get; set; }
+
+        /// <summary>
+        /// Status text displayed while the agent is typing.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("typing_indicator")]
+        public string? TypingIndicator { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -404,6 +446,27 @@ namespace ElevenLabs
         /// <param name="agentError">
         /// Status text displayed when the agent encounters an error during a tool call.
         /// </param>
+        /// <param name="attachFile">
+        /// Text and ARIA label for the attach file button.
+        /// </param>
+        /// <param name="removeFile">
+        /// ARIA label for the remove file button.
+        /// </param>
+        /// <param name="fileUploadError">
+        /// Error message displayed when a file fails to upload.
+        /// </param>
+        /// <param name="fileTypeUnsupported">
+        /// Error message displayed when an unsupported file type is selected. Followed by the list of accepted types.
+        /// </param>
+        /// <param name="fileTooLarge">
+        /// Error message displayed when a file exceeds the maximum size limit.
+        /// </param>
+        /// <param name="fileLimitReached">
+        /// Error message displayed when the maximum number of files for a conversation is reached.
+        /// </param>
+        /// <param name="typingIndicator">
+        /// Status text displayed while the agent is typing.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -450,7 +513,14 @@ namespace ElevenLabs
             string? wrap,
             string? agentWorking,
             string? agentDone,
-            string? agentError)
+            string? agentError,
+            string? attachFile,
+            string? removeFile,
+            string? fileUploadError,
+            string? fileTypeUnsupported,
+            string? fileTooLarge,
+            string? fileLimitReached,
+            string? typingIndicator)
         {
             this.MainLabel = mainLabel;
             this.StartCall = startCall;
@@ -495,6 +565,13 @@ namespace ElevenLabs
             this.AgentWorking = agentWorking;
             this.AgentDone = agentDone;
             this.AgentError = agentError;
+            this.AttachFile = attachFile;
+            this.RemoveFile = removeFile;
+            this.FileUploadError = fileUploadError;
+            this.FileTypeUnsupported = fileTypeUnsupported;
+            this.FileTooLarge = fileTooLarge;
+            this.FileLimitReached = fileLimitReached;
+            this.TypingIndicator = typingIndicator;
         }
 
         /// <summary>

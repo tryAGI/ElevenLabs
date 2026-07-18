@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        BatchScribe,
+        /// <summary>
+        /// 
+        /// </summary>
         RealtimeScribe,
         /// <summary>
         /// 
@@ -30,6 +34,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                SingleUseTokenType.BatchScribe => "batch_scribe",
                 SingleUseTokenType.RealtimeScribe => "realtime_scribe",
                 SingleUseTokenType.TtsWebsocket => "tts_websocket",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -42,6 +47,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "batch_scribe" => SingleUseTokenType.BatchScribe,
                 "realtime_scribe" => SingleUseTokenType.RealtimeScribe,
                 "tts_websocket" => SingleUseTokenType.TtsWebsocket,
                 _ => null,

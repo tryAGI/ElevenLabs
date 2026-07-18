@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Disable Api Key<br/>
-        /// Disable the API key used to authenticate this request. Requires the query parameter `api_key_name=self` as an explicit confirmation. This endpoint requires additional permissions and is not enabled by default. Reach out to your ElevenLabs contact to request access.
+        /// Disable the API key used to authenticate this request. Requires the query parameter `api_key_name=self` as an explicit confirmation.
         /// </summary>
         /// <param name="apiKeyName">
         /// Must be set to `self` to disable the API key used to authenticate this request. Required as an explicit confirmation to avoid accidentally disabling the wrong key.
@@ -20,7 +20,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Disable Api Key<br/>
-        /// Disable the API key used to authenticate this request. Requires the query parameter `api_key_name=self` as an explicit confirmation. This endpoint requires additional permissions and is not enabled by default. Reach out to your ElevenLabs contact to request access.
+        /// Disable the API key used to authenticate this request. Requires the query parameter `api_key_name=self` as an explicit confirmation.
         /// </summary>
         /// <param name="apiKeyName">
         /// Must be set to `self` to disable the API key used to authenticate this request. Required as an explicit confirmation to avoid accidentally disabling the wrong key.
