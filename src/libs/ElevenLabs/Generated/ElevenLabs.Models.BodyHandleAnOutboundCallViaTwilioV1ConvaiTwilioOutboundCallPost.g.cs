@@ -42,7 +42,7 @@ namespace ElevenLabs
         public bool? CallRecordingEnabled { get; set; }
 
         /// <summary>
-        /// Default Value: {"ringing_timeout_secs":60}
+        /// Default Value: {"ringing_timeout_secs":60,"twilio_call_recording_enabled":false}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("telephony_call_config")]
         public global::ElevenLabs.TelephonyCallConfig? TelephonyCallConfig { get; set; }
@@ -64,7 +64,7 @@ namespace ElevenLabs
         /// Whether let Twilio record the call.
         /// </param>
         /// <param name="telephonyCallConfig">
-        /// Default Value: {"ringing_timeout_secs":60}
+        /// Default Value: {"ringing_timeout_secs":60,"twilio_call_recording_enabled":false}
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
