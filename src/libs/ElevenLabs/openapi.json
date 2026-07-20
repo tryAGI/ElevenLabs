@@ -59805,72 +59805,6 @@
         "type": "object",
         "title": "FeaturesUsageCommonModel"
       },
-      "FeedbackResponseModel": {
-        "properties": {
-          "thumbs_up": {
-            "type": "boolean",
-            "title": "Thumbs Up",
-            "description": "Whether the user liked the generated item."
-          },
-          "feedback": {
-            "type": "string",
-            "title": "Feedback",
-            "description": "The feedback text provided by the user."
-          },
-          "emotions": {
-            "type": "boolean",
-            "title": "Emotions",
-            "description": "Whether the user provided emotions."
-          },
-          "inaccurate_clone": {
-            "type": "boolean",
-            "title": "Inaccurate Clone",
-            "description": "Whether the user thinks the clone is inaccurate."
-          },
-          "glitches": {
-            "type": "boolean",
-            "title": "Glitches",
-            "description": "Whether the user thinks there are glitches in the audio."
-          },
-          "audio_quality": {
-            "type": "boolean",
-            "title": "Audio Quality",
-            "description": "Whether the user thinks the audio quality is good."
-          },
-          "other": {
-            "type": "boolean",
-            "title": "Other",
-            "description": "Whether the user provided other feedback."
-          },
-          "review_status": {
-            "type": "string",
-            "title": "Review Status",
-            "description": "The review status of the item. Defaults to 'not_reviewed'.",
-            "default": "not_reviewed"
-          }
-        },
-        "type": "object",
-        "required": [
-          "thumbs_up",
-          "feedback",
-          "emotions",
-          "inaccurate_clone",
-          "glitches",
-          "audio_quality",
-          "other"
-        ],
-        "title": "FeedbackResponseModel",
-        "example": {
-          "audio_quality": true,
-          "emotions": true,
-          "feedback": "This is an example of test feedback.",
-          "glitches": true,
-          "inaccurate_clone": false,
-          "other": false,
-          "review_status": "not_reviewed",
-          "thumbs_up": true
-        }
-      },
       "FileInputConfig": {
         "properties": {
           "enabled": {
@@ -64274,6 +64208,11 @@
           "enable_audio_message_response": {
             "type": "boolean",
             "title": "Enable Audio Message Response",
+            "default": true
+          },
+          "enable_typing_indicator": {
+            "type": "boolean",
+            "title": "Enable Typing Indicator",
             "default": true
           },
           "assigned_agent_name": {
@@ -82919,17 +82858,6 @@
             "title": "Settings",
             "description": "The settings of the history item."
           },
-          "feedback": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/FeedbackResponseModel"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Feedback associated with the generated item. Returns null if no feedback has been provided."
-          },
           "share_link_id": {
             "anyOf": [
               {
@@ -89691,6 +89619,17 @@
               }
             ],
             "title": "Enable Audio Message Response"
+          },
+          "enable_typing_indicator": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enable Typing Indicator"
           }
         },
         "type": "object",

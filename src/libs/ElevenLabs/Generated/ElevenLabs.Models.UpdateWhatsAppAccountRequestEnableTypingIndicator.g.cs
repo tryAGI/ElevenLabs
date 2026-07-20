@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Feedback associated with the generated item. Returns null if no feedback has been provided.
+    /// 
     /// </summary>
-    public sealed partial class SpeechHistoryItemResponseModelFeedback
+    public sealed partial class UpdateWhatsAppAccountRequestEnableTypingIndicator
     {
 
         /// <summary>
