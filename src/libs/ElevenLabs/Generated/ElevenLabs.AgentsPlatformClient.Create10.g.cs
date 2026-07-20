@@ -484,7 +484,7 @@ namespace ElevenLabs
         /// <param name="branchId"></param>
         /// <param name="environment"></param>
         /// <param name="telephonyCallConfig">
-        /// Default Value: {"ringing_timeout_secs":60}
+        /// Default Value: {"ringing_timeout_secs":60,"twilio_call_recording_enabled":false}
         /// </param>
         /// <param name="targetConcurrencyLimit">
         /// Maximum number of simultaneous calls for this batch. When set, dispatch is governed by this limit rather than workspace/agent capacity percentages.
