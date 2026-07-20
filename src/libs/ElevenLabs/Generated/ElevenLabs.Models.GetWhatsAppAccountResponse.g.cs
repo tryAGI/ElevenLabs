@@ -62,6 +62,12 @@ namespace ElevenLabs
         public bool? EnableAudioMessageResponse { get; set; }
 
         /// <summary>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_typing_indicator")]
+        public bool? EnableTypingIndicator { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assigned_agent_name")]
@@ -94,6 +100,9 @@ namespace ElevenLabs
         /// <param name="enableAudioMessageResponse">
         /// Default Value: true
         /// </param>
+        /// <param name="enableTypingIndicator">
+        /// Default Value: true
+        /// </param>
         /// <param name="assignedAgentName"></param>
         /// <param name="isTokenExpired">
         /// Default Value: false
@@ -110,6 +119,7 @@ namespace ElevenLabs
             string? assignedAgentId,
             bool? enableMessaging,
             bool? enableAudioMessageResponse,
+            bool? enableTypingIndicator,
             string? assignedAgentName,
             bool? isTokenExpired)
         {
@@ -121,6 +131,7 @@ namespace ElevenLabs
             this.AssignedAgentId = assignedAgentId;
             this.EnableMessaging = enableMessaging;
             this.EnableAudioMessageResponse = enableAudioMessageResponse;
+            this.EnableTypingIndicator = enableTypingIndicator;
             this.AssignedAgentName = assignedAgentName;
             this.IsTokenExpired = isTokenExpired;
         }
