@@ -3511,6 +3511,7 @@
     "/v2/voices": {
       "get": {
         "tags": [
+          "voices",
           "voices"
         ],
         "summary": "Get Voices V2",
@@ -98573,6 +98574,10 @@
     {
       "name": "music-generation",
       "description": "Generate music from a text prompt."
+    },
+    {
+      "name": "music-finetunes",
+      "description": "Create and manage music finetunes."
     },
     {
       "name": "video-to-music",
