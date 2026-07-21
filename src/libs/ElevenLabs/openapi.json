@@ -61722,6 +61722,11 @@
             "type": "integer",
             "title": "Children Count"
           },
+          "document_count": {
+            "type": "integer",
+            "title": "Document Count",
+            "description": "Number of non-folder documents anywhere in this folder's subtree (recursive). Counting stops past 1000;"
+          },
           "auto_sync_info": {
             "anyOf": [
               {
@@ -61767,7 +61772,8 @@
           "supported_usages",
           "access_info",
           "type",
-          "children_count"
+          "children_count",
+          "document_count"
         ],
         "title": "GetKnowledgeBaseFolderResponseModel"
       },
@@ -61999,6 +62005,11 @@
             "type": "integer",
             "title": "Children Count"
           },
+          "document_count": {
+            "type": "integer",
+            "title": "Document Count",
+            "description": "Number of non-folder documents anywhere in this folder's subtree (recursive). Counting stops past 1000;"
+          },
           "auto_sync_info": {
             "anyOf": [
               {
@@ -62034,7 +62045,8 @@
           "access_info",
           "dependent_agents",
           "type",
-          "children_count"
+          "children_count",
+          "document_count"
         ],
         "title": "GetKnowledgeBaseSummaryFolderResponseModel"
       },
@@ -65463,6 +65475,9 @@
           "gpt-5.4-mini",
           "gpt-5.4-nano",
           "gpt-5.5",
+          "gpt-5.6-sol",
+          "gpt-5.6-terra",
+          "gpt-5.6-luna",
           "gpt-5-mini",
           "gpt-5-nano",
           "gpt-3.5-turbo",
@@ -66053,7 +66068,8 @@
           "low",
           "medium",
           "high",
-          "xhigh"
+          "xhigh",
+          "max"
         ],
         "title": "LLMReasoningEffort"
       },
