@@ -339,6 +339,18 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Gpt56Luna,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gpt56Sol,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gpt56Terra,
+        /// <summary>
+        /// 
+        /// </summary>
         GptOss120b,
         /// <summary>
         /// 
@@ -468,6 +480,9 @@ namespace ElevenLabs
                 Llm.Gpt54Nano20260317 => "gpt-5.4-nano-2026-03-17",
                 Llm.Gpt55 => "gpt-5.5",
                 Llm.Gpt5520260423 => "gpt-5.5-2026-04-23",
+                Llm.Gpt56Luna => "gpt-5.6-luna",
+                Llm.Gpt56Sol => "gpt-5.6-sol",
+                Llm.Gpt56Terra => "gpt-5.6-terra",
                 Llm.GptOss120b => "gpt-oss-120b",
                 Llm.GptOss20b => "gpt-oss-20b",
                 Llm.GrokBeta => "grok-beta",
@@ -569,6 +584,9 @@ namespace ElevenLabs
                 "gpt-5.4-nano-2026-03-17" => Llm.Gpt54Nano20260317,
                 "gpt-5.5" => Llm.Gpt55,
                 "gpt-5.5-2026-04-23" => Llm.Gpt5520260423,
+                "gpt-5.6-luna" => Llm.Gpt56Luna,
+                "gpt-5.6-sol" => Llm.Gpt56Sol,
+                "gpt-5.6-terra" => Llm.Gpt56Terra,
                 "gpt-oss-120b" => Llm.GptOss120b,
                 "gpt-oss-20b" => Llm.GptOss20b,
                 "grok-beta" => Llm.GrokBeta,

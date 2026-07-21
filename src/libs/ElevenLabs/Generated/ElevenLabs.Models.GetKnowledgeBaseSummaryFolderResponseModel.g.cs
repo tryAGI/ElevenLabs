@@ -80,6 +80,13 @@ namespace ElevenLabs
         public required int ChildrenCount { get; set; }
 
         /// <summary>
+        /// Number of non-folder documents anywhere in this folder's subtree (recursive). Counting stops past 1000;
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_count")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int DocumentCount { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auto_sync_info")]
@@ -117,6 +124,9 @@ namespace ElevenLabs
         /// This field is deprecated and will be removed in the future, use the separate endpoint to get dependent agents instead.
         /// </param>
         /// <param name="childrenCount"></param>
+        /// <param name="documentCount">
+        /// Number of non-folder documents anywhere in this folder's subtree (recursive). Counting stops past 1000;
+        /// </param>
         /// <param name="folderParentId">
         /// The ID of the parent folder, or null if the document is at the root level.
         /// </param>
@@ -140,6 +150,7 @@ namespace ElevenLabs
             global::ElevenLabs.ResourceAccessInfo accessInfo,
             global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem2> dependentAgents,
             int childrenCount,
+            int documentCount,
             string? folderParentId,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentSummaryResponseModel>? folderPath,
             global::ElevenLabs.AutoSyncInfo? autoSyncInfo,
@@ -157,6 +168,7 @@ namespace ElevenLabs
             this.DependentAgents = dependentAgents ?? throw new global::System.ArgumentNullException(nameof(dependentAgents));
             this.Type = type;
             this.ChildrenCount = childrenCount;
+            this.DocumentCount = documentCount;
             this.AutoSyncInfo = autoSyncInfo;
             this.ExternalSyncInfo = externalSyncInfo;
             this.IsFrozen = isFrozen;
