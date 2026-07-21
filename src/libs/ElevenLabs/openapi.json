@@ -29087,6 +29087,456 @@
         "x-fern-sdk-method-name": "separate_stems"
       }
     },
+    "/v1/music/finetunes": {
+      "get": {
+        "tags": [
+          "music-finetunes"
+        ],
+        "summary": "Get Music Finetunes",
+        "description": "List music finetunes accessible to you (your own, workspace-shared, and ElevenLabs-curated), with optional filtering, sorting, and cursor pagination.",
+        "operationId": "get_finetunes",
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Used for fetching the next page. Cursor is returned in the response.",
+              "title": "Cursor"
+            },
+            "description": "Used for fetching the next page. Cursor is returned in the response."
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "How many finetunes to return. Max 100, default 50.",
+              "default": 50,
+              "title": "Page Size"
+            },
+            "description": "How many finetunes to return. Max 100, default 50."
+          },
+          {
+            "name": "visibility",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/FinetuneVisibility"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by visibility. 'private' returns private finetunes; 'workspace' returns workspace-shared finetunes; 'public' returns public finetunes, which are currently ElevenLabs curated finetunes. Omit to return all accessible finetunes.",
+              "title": "Visibility"
+            },
+            "description": "Filter by visibility. 'private' returns private finetunes; 'workspace' returns workspace-shared finetunes; 'public' returns public finetunes, which are currently ElevenLabs curated finetunes. Omit to return all accessible finetunes."
+          },
+          {
+            "name": "created_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/FinetuneCreatedBy"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by creator. 'self' returns finetunes you created; 'workspace' returns finetunes created by workspace teammates; 'elevenlabs' returns ElevenLabs curated finetunes. Omit to return finetunes from all creators.",
+              "title": "Created By"
+            },
+            "description": "Filter by creator. 'self' returns finetunes you created; 'workspace' returns finetunes created by workspace teammates; 'elevenlabs' returns ElevenLabs curated finetunes. Omit to return finetunes from all creators."
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "created_at",
+                "name"
+              ],
+              "type": "string",
+              "description": "Sort by field (created_at or name)",
+              "default": "created_at",
+              "title": "Sort"
+            },
+            "description": "Sort by field (created_at or name)"
+          },
+          {
+            "name": "sort_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "string",
+              "description": "Sort direction (asc or desc)",
+              "default": "desc",
+              "title": "Sort Direction"
+            },
+            "description": "Sort direction (asc or desc)"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MusicFinetunePageResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "music",
+          "finetunes"
+        ],
+        "x-fern-sdk-method-name": "list"
+      },
+      "post": {
+        "tags": [
+          "music-finetunes"
+        ],
+        "summary": "Create Music Finetune",
+        "description": "Create a new music finetune",
+        "operationId": "create_finetune",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Create_Music_Finetune_v1_music_finetunes_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MusicFinetuneResponseModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing permissions to manage music finetunes."
+          },
+          "404": {
+            "description": "Finetune not found."
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "music",
+          "finetunes"
+        ],
+        "x-fern-sdk-method-name": "create"
+      }
+    },
+    "/v1/music/finetunes/{finetune_id}": {
+      "get": {
+        "tags": [
+          "music-finetunes"
+        ],
+        "summary": "Get Music Finetune",
+        "description": "Get a music finetune.",
+        "operationId": "get_finetune",
+        "parameters": [
+          {
+            "name": "finetune_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Finetune Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MusicFinetuneResponseModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing permissions to manage music finetunes."
+          },
+          "404": {
+            "description": "Finetune not found."
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "music",
+          "finetunes"
+        ],
+        "x-fern-sdk-method-name": "get"
+      },
+      "patch": {
+        "tags": [
+          "music-finetunes"
+        ],
+        "summary": "Update Music Finetune",
+        "description": "Update a music finetune.",
+        "operationId": "update_finetune",
+        "parameters": [
+          {
+            "name": "finetune_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Finetune Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMusicFinetuneRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MusicFinetuneResponseModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing permissions to manage music finetunes."
+          },
+          "404": {
+            "description": "Finetune not found."
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "music",
+          "finetunes"
+        ],
+        "x-fern-sdk-method-name": "update"
+      },
+      "delete": {
+        "tags": [
+          "music-finetunes"
+        ],
+        "summary": "Delete Music Finetune",
+        "description": "Delete a music finetune",
+        "operationId": "delete_finetune",
+        "parameters": [
+          {
+            "name": "finetune_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Finetune Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MusicFinetuneResponseModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing permissions to manage music finetunes."
+          },
+          "404": {
+            "description": "Finetune not found."
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "music",
+          "finetunes"
+        ],
+        "x-fern-sdk-method-name": "delete"
+      }
+    },
     "/v1/productions/orders": {
       "post": {
         "tags": [
@@ -39160,8 +39610,7 @@
               }
             ],
             "title": "Finetune Id",
-            "description": "The ID of the finetune to use for the generation",
-            "x-fern-ignore": true
+            "description": "The ID of the finetune to use for the generation"
           },
           "finetune_strength": {
             "type": "number",
@@ -39169,8 +39618,7 @@
             "exclusiveMinimum": 0.0,
             "title": "Finetune Strength",
             "description": "How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.",
-            "default": 1.0,
-            "x-fern-ignore": true
+            "default": 1.0
           },
           "use_phonetic_names": {
             "type": "boolean",
@@ -39345,8 +39793,7 @@
               }
             ],
             "title": "Finetune Id",
-            "description": "The ID of the finetune to use for the generation",
-            "x-fern-ignore": true
+            "description": "The ID of the finetune to use for the generation"
           },
           "finetune_strength": {
             "type": "number",
@@ -39354,8 +39801,7 @@
             "exclusiveMinimum": 0.0,
             "title": "Finetune Strength",
             "description": "How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.",
-            "default": 1.0,
-            "x-fern-ignore": true
+            "default": 1.0
           },
           "use_phonetic_names": {
             "type": "boolean",
@@ -39597,6 +40043,74 @@
         },
         "type": "object",
         "title": "Body_Create_Dubbing_Project_v1_dubbing_project_post"
+      },
+      "Body_Create_Music_Finetune_v1_music_finetunes_post": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 5,
+            "title": "Name",
+            "description": "Name for the finetune (5-200 characters)."
+          },
+          "primary_genre": {
+            "type": "string",
+            "title": "Primary Genre",
+            "description": "Primary musical genre of the finetune."
+          },
+          "files": {
+            "items": {
+              "type": "string",
+              "format": "binary"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "title": "Files",
+            "description": "Audio files to train on.",
+            "default": []
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Tags",
+            "description": "Tags to associate with the finetune.",
+            "default": []
+          },
+          "visibility": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "private",
+                  "workspace"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Visibility",
+            "description": "Finetune visibility. Only 'private' and 'workspace' can be set."
+          },
+          "model_id": {
+            "type": "string",
+            "enum": [
+              "music_v1",
+              "music_v2"
+            ],
+            "title": "Model Id",
+            "description": "The model to create a finetune for.",
+            "default": "music_v1"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "primary_genre"
+        ],
+        "title": "Body_Create_Music_Finetune_v1_music_finetunes_post"
       },
       "Body_Create_PVC_voice_v1_voices_pvc_post": {
         "properties": {
@@ -43371,8 +43885,7 @@
               }
             ],
             "title": "Finetune Id",
-            "description": "The ID of the finetune to use for the generation",
-            "x-fern-ignore": true
+            "description": "The ID of the finetune to use for the generation"
           },
           "finetune_strength": {
             "type": "number",
@@ -43380,8 +43893,7 @@
             "exclusiveMinimum": 0.0,
             "title": "Finetune Strength",
             "description": "How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.",
-            "default": 1.0,
-            "x-fern-ignore": true
+            "default": 1.0
           },
           "use_phonetic_names": {
             "type": "boolean",
@@ -43528,8 +44040,7 @@
               }
             ],
             "title": "Finetune Id",
-            "description": "The ID of the finetune to use for the generation",
-            "x-fern-ignore": true
+            "description": "The ID of the finetune to use for the generation"
           },
           "finetune_strength": {
             "type": "number",
@@ -43537,8 +44048,7 @@
             "exclusiveMinimum": 0.0,
             "title": "Finetune Strength",
             "description": "How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.",
-            "default": 1.0,
-            "x-fern-ignore": true
+            "default": 1.0
           },
           "use_phonetic_names": {
             "type": "boolean",
@@ -59856,6 +60366,72 @@
         "type": "object",
         "title": "FileInputConfigWorkflowOverride"
       },
+      "FileRefreshStatus": {
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/CrawlStatus",
+            "default": "queued"
+          },
+          "enqueued_at": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enqueued At"
+          },
+          "started_at": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Started At"
+          },
+          "completed_at": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          },
+          "last_synced_at": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Synced At"
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message"
+          }
+        },
+        "type": "object",
+        "title": "FileRefreshStatus",
+        "description": "In-flight/last refresh state for an externally-synced KB file."
+      },
       "FineTuningResponseModel": {
         "properties": {
           "is_allowed_to_fine_tune": {
@@ -60035,6 +60611,24 @@
           "verification_attempts_count": 2,
           "verification_failures": []
         }
+      },
+      "FinetuneCreatedBy": {
+        "type": "string",
+        "enum": [
+          "self",
+          "workspace",
+          "elevenlabs"
+        ],
+        "title": "FinetuneCreatedBy"
+      },
+      "FinetuneVisibility": {
+        "type": "string",
+        "enum": [
+          "private",
+          "workspace",
+          "public"
+        ],
+        "title": "FinetuneVisibility"
       },
       "FocusGuardrail": {
         "properties": {
@@ -61652,6 +62246,27 @@
               }
             ]
           },
+          "auto_sync_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AutoSyncInfo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "refresh_status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FileRefreshStatus"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "In-flight or last refresh state for an externally-synced file. Used by clients to render sync progress and disable re-sync while a refresh is queued or processing."
+          },
           "is_frozen": {
             "type": "boolean",
             "title": "Is Frozen",
@@ -61907,6 +62522,26 @@
             "anyOf": [
               {
                 "$ref": "#/components/schemas/ExternalFileSyncInfo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "auto_sync_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AutoSyncInfo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "refresh_status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FileRefreshStatus"
               },
               {
                 "type": "null"
@@ -70653,6 +71288,148 @@
         ],
         "title": "MusicExploreSongSourceContext"
       },
+      "MusicFinetuneFailureReason": {
+        "type": "string",
+        "enum": [
+          "audio_processing_failed",
+          "copyright_violation",
+          "training_failed"
+        ],
+        "title": "MusicFinetuneFailureReason"
+      },
+      "MusicFinetunePageResponseModel": {
+        "properties": {
+          "finetunes": {
+            "items": {
+              "$ref": "#/components/schemas/MusicFinetuneResponseModel"
+            },
+            "type": "array",
+            "title": "Finetunes",
+            "description": "The finetunes in this page."
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor",
+            "description": "Cursor to pass as `cursor` to fetch the next page; `null` when there are no more results."
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More",
+            "description": "Whether more finetunes are available beyond this page."
+          }
+        },
+        "type": "object",
+        "required": [
+          "finetunes",
+          "next_cursor",
+          "has_more"
+        ],
+        "title": "MusicFinetunePageResponseModel"
+      },
+      "MusicFinetuneResponseModel": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Unique identifier of the finetune."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Name of the finetune."
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Tags",
+            "description": "Tags associated with the finetune."
+          },
+          "primary_genre": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Primary Genre",
+            "description": "Primary musical genre of the finetune."
+          },
+          "model_id": {
+            "type": "string",
+            "title": "Model Id",
+            "description": "The base music model the finetune was trained on."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "When the finetune was created (UTC)."
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/FinetuneVisibility",
+            "description": "Who can access this finetune: `private` (only you), `workspace` (members of your workspace), `public` (ElevenLabs-curated, available to everyone)."
+          },
+          "created_by": {
+            "$ref": "#/components/schemas/FinetuneCreatedBy",
+            "description": "Who created the finetune: `self`, `workspace`, or `elevenlabs`."
+          },
+          "status": {
+            "$ref": "#/components/schemas/MusicFinetuneStatus",
+            "description": "Training lifecycle status: pending, in_progress, completed, failed, and blocked."
+          },
+          "training_progress": {
+            "type": "number",
+            "title": "Training Progress",
+            "description": "Training progress from 0.0 to 1.0."
+          },
+          "failure_reason": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MusicFinetuneFailureReason"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Reason the finetune failed or was blocked, if applicable."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tags",
+          "model_id",
+          "created_at",
+          "visibility",
+          "created_by",
+          "status",
+          "training_progress"
+        ],
+        "title": "MusicFinetuneResponseModel"
+      },
+      "MusicFinetuneStatus": {
+        "type": "string",
+        "enum": [
+          "pending",
+          "in_progress",
+          "completed",
+          "failed",
+          "blocked"
+        ],
+        "title": "MusicFinetuneStatus"
+      },
       "MusicGenerationMode": {
         "type": "string",
         "enum": [
@@ -78415,6 +79192,17 @@
             "type": "boolean",
             "title": "Is Fallback Name",
             "default": false
+          },
+          "chapter_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Chapter Id"
           }
         },
         "type": "object",
@@ -88739,6 +89527,70 @@
         },
         "type": "object",
         "title": "UpdateLocationParams"
+      },
+      "UpdateMusicFinetuneRequestModel": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200,
+                "minLength": 5
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name",
+            "description": "Updated name for the finetune."
+          },
+          "tags": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "maxItems": 5
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tags",
+            "description": "Replacement set of tags."
+          },
+          "primary_genre": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Primary Genre",
+            "description": "Updated primary musical genre."
+          },
+          "visibility": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "private",
+                  "workspace"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Visibility",
+            "description": "Finetune visibility. Only 'private' and 'workspace' can be set."
+          }
+        },
+        "type": "object",
+        "title": "UpdateMusicFinetuneRequestModel"
       },
       "UpdateOAuth2ClientCredsRequest": {
         "properties": {

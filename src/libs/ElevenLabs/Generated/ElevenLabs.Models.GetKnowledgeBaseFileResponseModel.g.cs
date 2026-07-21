@@ -94,6 +94,18 @@ namespace ElevenLabs
         public global::ElevenLabs.ExternalFileSyncInfo? ExternalSyncInfo { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auto_sync_info")]
+        public global::ElevenLabs.AutoSyncInfo? AutoSyncInfo { get; set; }
+
+        /// <summary>
+        /// In-flight or last refresh state for an externally-synced file. Used by clients to render sync progress and disable re-sync while a refresh is queued or processing.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("refresh_status")]
+        public global::ElevenLabs.FileRefreshStatus? RefreshStatus { get; set; }
+
+        /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_frozen")]
@@ -130,6 +142,10 @@ namespace ElevenLabs
         /// Default Value: html
         /// </param>
         /// <param name="externalSyncInfo"></param>
+        /// <param name="autoSyncInfo"></param>
+        /// <param name="refreshStatus">
+        /// In-flight or last refresh state for an externally-synced file. Used by clients to render sync progress and disable re-sync while a refresh is queued or processing.
+        /// </param>
         /// <param name="isFrozen">
         /// Default Value: false
         /// </param>
@@ -149,6 +165,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? folderPath,
             global::ElevenLabs.ContentFormat? contentFormat,
             global::ElevenLabs.ExternalFileSyncInfo? externalSyncInfo,
+            global::ElevenLabs.AutoSyncInfo? autoSyncInfo,
+            global::ElevenLabs.FileRefreshStatus? refreshStatus,
             bool? isFrozen,
             string type = "file")
         {
@@ -164,6 +182,8 @@ namespace ElevenLabs
             this.ContentFormat = contentFormat;
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.ExternalSyncInfo = externalSyncInfo;
+            this.AutoSyncInfo = autoSyncInfo;
+            this.RefreshStatus = refreshStatus;
             this.IsFrozen = isFrozen;
         }
 

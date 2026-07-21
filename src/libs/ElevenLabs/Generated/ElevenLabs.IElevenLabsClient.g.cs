@@ -121,6 +121,11 @@ namespace ElevenLabs
         public MusicClient Music { get; }
 
         /// <summary>
+        /// Create and manage music finetunes.
+        /// </summary>
+        public MusicFinetunesClient MusicFinetunes { get; }
+
+        /// <summary>
         /// Generate music from a text prompt.
         /// </summary>
         public MusicGenerationClient MusicGeneration { get; }

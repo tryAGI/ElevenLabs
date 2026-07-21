@@ -176,6 +176,15 @@ namespace ElevenLabs
         };
 
         /// <summary>
+        /// Create and manage music finetunes.
+        /// </summary>
+        public MusicFinetunesClient MusicFinetunes => new MusicFinetunesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
         /// Generate music from a text prompt.
         /// </summary>
         public MusicGenerationClient MusicGeneration => new MusicGenerationClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
