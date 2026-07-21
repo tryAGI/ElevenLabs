@@ -67,6 +67,12 @@ namespace ElevenLabs
         public bool? IsFallbackName { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("chapter_id")]
+        public string? ChapterId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -90,6 +96,7 @@ namespace ElevenLabs
         /// <param name="isFallbackName">
         /// Default Value: false
         /// </param>
+        /// <param name="chapterId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -102,7 +109,8 @@ namespace ElevenLabs
             bool? hasSummary,
             double? durationSeconds,
             string? fileNumber,
-            bool? isFallbackName)
+            bool? isFallbackName,
+            string? chapterId)
         {
             this.ChapterName = chapterName ?? throw new global::System.ArgumentNullException(nameof(chapterName));
             this.WordCount = wordCount;
@@ -113,6 +121,7 @@ namespace ElevenLabs
             this.DurationSeconds = durationSeconds;
             this.FileNumber = fileNumber;
             this.IsFallbackName = isFallbackName;
+            this.ChapterId = chapterId;
         }
 
         /// <summary>

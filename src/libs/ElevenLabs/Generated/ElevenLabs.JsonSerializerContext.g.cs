@@ -185,6 +185,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2NullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2NullableJsonConverter),
@@ -669,6 +677,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.FineTuningResponseModelState2NullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.FinetuneCreatedByJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneCreatedByNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneVisibilityJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneVisibilityNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelNullableJsonConverter),
@@ -900,6 +916,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.MockingStrategyJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.MockingStrategyNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneStatusJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneStatusNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.MusicGenerationModeJsonConverter),
 
@@ -1377,6 +1401,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2NullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2NullableJsonConverter),
@@ -1692,6 +1720,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.StreamComposeOutputFormatJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.StreamComposeOutputFormatNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter),
 
@@ -2528,6 +2564,9 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceSettings))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPost))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPost))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostModelId), TypeInfoPropertyName = "BodyCreateMusicFinetuneV1MusicFinetunesPostModelId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreatePvcVoiceV1VoicesPvcPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreatePronunciationDictionariesV1StudioProjectsProjectIdPronunciationDictionariesPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel>))]
@@ -2642,9 +2681,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyStreamStudioProjectAudioV1StudioProjectsProjectIdSnapshotsProjectSnapshotIdStreamPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyStreamChapterAudioV1StudioProjectsProjectIdChaptersChapterIdSnapshotsChapterSnapshotIdStreamPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyStreamComposedMusicV1MusicStreamPost))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyStreamComposedMusicV1MusicStreamPostModelId), TypeInfoPropertyName = "BodyStreamComposedMusicV1MusicStreamPostModelId2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyStreamComposedMusicWithADetailedResponseV1MusicDetailedStreamPost))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyStreamComposedMusicWithADetailedResponseV1MusicDetailedStreamPostModelId), TypeInfoPropertyName = "BodyStreamComposedMusicWithADetailedResponseV1MusicDetailedStreamPostModelId2")]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -2827,6 +2863,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2NullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2JsonConverter),
 
@@ -3312,6 +3356,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.FineTuningResponseModelState2NullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.FinetuneCreatedByJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneCreatedByNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneVisibilityJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneVisibilityNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelNullableJsonConverter),
@@ -3543,6 +3595,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.MockingStrategyJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.MockingStrategyNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneStatusJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneStatusNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.MusicGenerationModeJsonConverter),
 
@@ -4020,6 +4080,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2NullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2NullableJsonConverter),
@@ -4335,6 +4399,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.StreamComposeOutputFormatJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.StreamComposeOutputFormatNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter),
 
@@ -4804,6 +4876,9 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>?), TypeInfoPropertyName = "CreateMTLSAuthRequest_d3123ae541f7c02c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyStreamComposedMusicV1MusicStreamPostModelId), TypeInfoPropertyName = "BodyStreamComposedMusicV1MusicStreamPostModelId2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyStreamComposedMusicWithADetailedResponseV1MusicDetailedStreamPost))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyStreamComposedMusicWithADetailedResponseV1MusicDetailedStreamPostModelId), TypeInfoPropertyName = "BodyStreamComposedMusicWithADetailedResponseV1MusicDetailedStreamPostModelId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipient>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OutboundCallRecipient))]
@@ -5285,9 +5360,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.WordTimestamp>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WordTimestamp))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DetectedEntity))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DeviceModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DialogueInputResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DirectPublishingReadResponseModel))]
     internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -5470,6 +5542,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2NullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2JsonConverter),
 
@@ -5955,6 +6035,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.FineTuningResponseModelState2NullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.FinetuneCreatedByJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneCreatedByNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneVisibilityJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneVisibilityNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelNullableJsonConverter),
@@ -6186,6 +6274,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.MockingStrategyJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.MockingStrategyNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneStatusJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneStatusNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.MusicGenerationModeJsonConverter),
 
@@ -6663,6 +6759,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2NullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2NullableJsonConverter),
@@ -6978,6 +7078,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.StreamComposeOutputFormatJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.StreamComposeOutputFormatNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter),
 
@@ -7447,6 +7555,9 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>?), TypeInfoPropertyName = "CreateMTLSAuthRequest_d3123ae541f7c02c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DeviceModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DialogueInputResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DirectPublishingReadResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ReadMetadataChapterDBModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ReadMetadataChapterDBModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DirectPublishingReadResponseModelDisplayMode2))]
@@ -7562,12 +7673,15 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FeatureStatusCommonModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowFeaturesUsageCommonModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TestsFeatureUsageCommonModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FileRefreshStatus))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FineTuningResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.FineTuningResponseModelState2>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FineTuningResponseModelState2), TypeInfoPropertyName = "FineTuningResponseModelState22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.VerificationAttemptResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VerificationAttemptResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ManualVerificationResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FinetuneCreatedBy), TypeInfoPropertyName = "FinetuneCreatedBy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FinetuneVisibility), TypeInfoPropertyName = "FinetuneVisibility2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FocusGuardrail))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ForcedAlignmentCharacterResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ForcedAlignmentResponseModel))]
@@ -7925,12 +8039,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InputOverridesVariant16), TypeInfoPropertyName = "InputOverridesVariant162")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModelInputOverridesDiscriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModelInputOverridesDiscriminatorSource), TypeInfoPropertyName = "MCPToolConfigOverrideUpdateRequestModelInputOverridesDiscriminatorSource2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ManualSource))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ManualVerificationFileResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ManualVerificationFileResponseModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MatchAnythingParameterEvaluationStrategy))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MemoryEntrySearchResult))]
     internal sealed partial class SourceGenerationContextChunk2 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -8113,6 +8221,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2NullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2JsonConverter),
 
@@ -8598,6 +8714,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.FineTuningResponseModelState2NullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.FinetuneCreatedByJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneCreatedByNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneVisibilityJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneVisibilityNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelNullableJsonConverter),
@@ -8829,6 +8953,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.MockingStrategyJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.MockingStrategyNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneStatusJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneStatusNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.MusicGenerationModeJsonConverter),
 
@@ -9306,6 +9438,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2NullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2NullableJsonConverter),
@@ -9621,6 +9757,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.StreamComposeOutputFormatJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.StreamComposeOutputFormatNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter),
 
@@ -10090,6 +10234,12 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>?), TypeInfoPropertyName = "CreateMTLSAuthRequest_d3123ae541f7c02c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModelInputOverridesDiscriminatorSource), TypeInfoPropertyName = "MCPToolConfigOverrideUpdateRequestModelInputOverridesDiscriminatorSource2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ManualSource))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ManualVerificationFileResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ManualVerificationFileResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MatchAnythingParameterEvaluationStrategy))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MemoryEntrySearchResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.ConversationSource, global::ElevenLabs.ManualSource, object>), TypeInfoPropertyName = "AnyOfConversationSourceManualSourceObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MergePreviewResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem2>))]
@@ -10115,6 +10265,11 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicAllowedOutputFormats), TypeInfoPropertyName = "MusicAllowedOutputFormats2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicOnlyOutputFormats), TypeInfoPropertyName = "MusicOnlyOutputFormats2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicExploreSongSourceContext))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicFinetuneFailureReason), TypeInfoPropertyName = "MusicFinetuneFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicFinetunePageResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.MusicFinetuneResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicFinetuneResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicFinetuneStatus), TypeInfoPropertyName = "MusicFinetuneStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicOutputFormat), TypeInfoPropertyName = "MusicOutputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SongSection>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SongSection))]
@@ -10531,6 +10686,8 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateBearerAuthRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateEnvironmentVariableRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, global::ElevenLabs.EnvironmentVariableSecretValueRequest, global::ElevenLabs.EnvironmentVariableAuthConnectionValueRequest, object>), TypeInfoPropertyName = "AnyOfStringEnvironmentVariableSecretValueRequestEnvironmentVariableAuthConnectionValueRequestObject2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateMusicFinetuneRequestModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateMusicFinetuneRequestModelVisibility2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateOAuth2ClientCredsRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateOAuth2JWTRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateOAuth2JWTRequestAlgorithm2))]
@@ -10561,19 +10718,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.VideoKeyMoment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VideoKeyMoment))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceDesignRequestModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceDesignRequestModelModelId), TypeInfoPropertyName = "VoiceDesignRequestModelModelId2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoicePreviewResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoicePreviewsRequestModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoicePreviewsResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.VoicePreviewResponseModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceRemixRequestModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SampleResponseModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceResponseModelCategory), TypeInfoPropertyName = "VoiceResponseModelCategory2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceSharingResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceResponseModelSafetyControl2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceVerificationResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceResponseModelRecordingQuality2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceResponseModelLabellingStatus2))]
     internal sealed partial class SourceGenerationContextChunk3 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -10757,6 +10901,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2NullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2NullableJsonConverter),
@@ -11241,6 +11393,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.FineTuningResponseModelState2NullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.FinetuneCreatedByJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneCreatedByNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneVisibilityJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneVisibilityNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelNullableJsonConverter),
@@ -11472,6 +11632,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.MockingStrategyJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.MockingStrategyNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneStatusJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneStatusNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.MusicGenerationModeJsonConverter),
 
@@ -11949,6 +12117,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2NullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2NullableJsonConverter),
@@ -12264,6 +12436,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.StreamComposeOutputFormatJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.StreamComposeOutputFormatNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter),
 
@@ -12733,6 +12913,19 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>?), TypeInfoPropertyName = "CreateMTLSAuthRequest_d3123ae541f7c02c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceDesignRequestModelModelId), TypeInfoPropertyName = "VoiceDesignRequestModelModelId2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoicePreviewResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoicePreviewsRequestModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoicePreviewsResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.VoicePreviewResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceRemixRequestModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SampleResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceResponseModelCategory), TypeInfoPropertyName = "VoiceResponseModelCategory2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceSharingResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceResponseModelSafetyControl2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceVerificationResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceResponseModelRecordingQuality2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceResponseModelLabellingStatus2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceSamplePreviewResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceSampleVisualWaveformResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceSharingModerationCheckResponseModel))]
@@ -12910,6 +13103,8 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ComposeDetailedOutputFormat), TypeInfoPropertyName = "ComposeDetailedOutputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ComposeDetailedStreamOutputFormat), TypeInfoPropertyName = "ComposeDetailedStreamOutputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.StreamComposeOutputFormat), TypeInfoPropertyName = "StreamComposeOutputFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetFinetunesSort), TypeInfoPropertyName = "GetFinetunesSort2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetFinetunesSortDirection), TypeInfoPropertyName = "GetFinetunesSortDirection2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.OrderRequestState>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DownloadSpeechHistoryItemsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.DubbingTranscriptResponseModel, string>), TypeInfoPropertyName = "AnyOfDubbingTranscriptResponseModelString2")]
@@ -13029,6 +13224,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelId?), TypeInfoPropertyName = "NullableBodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix?), TypeInfoPropertyName = "NullableBodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyComposeMusicV1MusicPostModelId?), TypeInfoPropertyName = "NullableBodyComposeMusicV1MusicPostModelId2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostModelId?), TypeInfoPropertyName = "NullableBodyCreateMusicFinetuneV1MusicFinetunesPostModelId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.QualityPresetType?), TypeInfoPropertyName = "NullableQualityPresetType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode>?), TypeInfoPropertyName = "NullableAnyOfPodcastConversationModePodcastBulletinMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>>?), TypeInfoPropertyName = "NullableAnyOfPodcastTextSourcePodcastURLSourceIListAnyOfPodcastTextSourcePodcastURLSource2")]
@@ -13168,6 +13364,8 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ExternalSyncJobTrigger?), TypeInfoPropertyName = "NullableExternalSyncJobTrigger2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ExternalSyncJobType?), TypeInfoPropertyName = "NullableExternalSyncJobType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FineTuningResponseModelState2?), TypeInfoPropertyName = "NullableFineTuningResponseModelState22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FinetuneCreatedBy?), TypeInfoPropertyName = "NullableFinetuneCreatedBy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FinetuneVisibility?), TypeInfoPropertyName = "NullableFinetuneVisibility2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FrustratedConversationRefOverallLabel?), TypeInfoPropertyName = "NullableFrustratedConversationRefOverallLabel2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GenerationChunkInputContextAdherence?), TypeInfoPropertyName = "NullableGenerationChunkInputContextAdherence2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GenerationChunkOutputContextAdherence?), TypeInfoPropertyName = "NullableGenerationChunkOutputContextAdherence2")]
@@ -13199,24 +13397,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant1ItemDiscriminatorType?), TypeInfoPropertyName = "NullableGetSecretDependenciesResponseModelDependenciesVariant1ItemDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DependenciesVariant2Item?), TypeInfoPropertyName = "NullableDependenciesVariant2Item2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant2ItemDiscriminatorType?), TypeInfoPropertyName = "NullableGetSecretDependenciesResponseModelDependenciesVariant2ItemDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AgentsItem3?), TypeInfoPropertyName = "NullableAgentsItem32")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetToolDependentAgentsResponseModelAgentDiscriminatorType?), TypeInfoPropertyName = "NullableGetToolDependentAgentsResponseModelAgentDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ImageAnalysisStatus?), TypeInfoPropertyName = "NullableImageAnalysisStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.IntegrationType?), TypeInfoPropertyName = "NullableIntegrationType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InvoiceResponseModelPaymentIntentStatusse?), TypeInfoPropertyName = "NullableInvoiceResponseModelPaymentIntentStatusse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Document?), TypeInfoPropertyName = "NullableDocument2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseContentSearchResultDocumentDiscriminatorType?), TypeInfoPropertyName = "NullableKnowledgeBaseContentSearchResultDocumentDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseDependentType?), TypeInfoPropertyName = "NullableKnowledgeBaseDependentType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseDocumentType?), TypeInfoPropertyName = "NullableKnowledgeBaseDocumentType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseRagToolStatus?), TypeInfoPropertyName = "NullableKnowledgeBaseRagToolStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseSortBy?), TypeInfoPropertyName = "NullableKnowledgeBaseSortBy2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Data?), TypeInfoPropertyName = "NullableData2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModelDataDiscriminatorType?), TypeInfoPropertyName = "NullableKnowledgeBaseSummaryBatchSuccessfulResponseModelDataDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LLMReasoningEffort?), TypeInfoPropertyName = "NullableLLMReasoningEffort2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.LLMLiteralJsonSchemaPropertyType?, global::System.Collections.Generic.IList<string>>?), TypeInfoPropertyName = "NullableAnyOfLLMLiteralJsonSchemaPropertyTypeIListString2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LLMLiteralJsonSchemaPropertyType?), TypeInfoPropertyName = "NullableLLMLiteralJsonSchemaPropertyType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LanguagesResponse?), TypeInfoPropertyName = "NullableLanguagesResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LanguagesResponseDiscriminatorKind?), TypeInfoPropertyName = "NullableLanguagesResponseDiscriminatorKind2")]
     internal sealed partial class SourceGenerationContextChunk4 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -13400,6 +13580,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2NullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2NullableJsonConverter),
@@ -13884,6 +14072,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.FineTuningResponseModelState2NullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.FinetuneCreatedByJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneCreatedByNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneVisibilityJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneVisibilityNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelNullableJsonConverter),
@@ -14115,6 +14311,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.MockingStrategyJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.MockingStrategyNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneStatusJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneStatusNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.MusicGenerationModeJsonConverter),
 
@@ -14592,6 +14796,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2NullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2NullableJsonConverter),
@@ -14907,6 +15115,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.StreamComposeOutputFormatJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.StreamComposeOutputFormatNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter),
 
@@ -15376,6 +15592,24 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>?), TypeInfoPropertyName = "CreateMTLSAuthRequest_d3123ae541f7c02c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AgentsItem3?), TypeInfoPropertyName = "NullableAgentsItem32")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetToolDependentAgentsResponseModelAgentDiscriminatorType?), TypeInfoPropertyName = "NullableGetToolDependentAgentsResponseModelAgentDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ImageAnalysisStatus?), TypeInfoPropertyName = "NullableImageAnalysisStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.IntegrationType?), TypeInfoPropertyName = "NullableIntegrationType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InvoiceResponseModelPaymentIntentStatusse?), TypeInfoPropertyName = "NullableInvoiceResponseModelPaymentIntentStatusse2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Document?), TypeInfoPropertyName = "NullableDocument2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseContentSearchResultDocumentDiscriminatorType?), TypeInfoPropertyName = "NullableKnowledgeBaseContentSearchResultDocumentDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseDependentType?), TypeInfoPropertyName = "NullableKnowledgeBaseDependentType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseDocumentType?), TypeInfoPropertyName = "NullableKnowledgeBaseDocumentType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseRagToolStatus?), TypeInfoPropertyName = "NullableKnowledgeBaseRagToolStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseSortBy?), TypeInfoPropertyName = "NullableKnowledgeBaseSortBy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Data?), TypeInfoPropertyName = "NullableData2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModelDataDiscriminatorType?), TypeInfoPropertyName = "NullableKnowledgeBaseSummaryBatchSuccessfulResponseModelDataDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LLMReasoningEffort?), TypeInfoPropertyName = "NullableLLMReasoningEffort2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.LLMLiteralJsonSchemaPropertyType?, global::System.Collections.Generic.IList<string>>?), TypeInfoPropertyName = "NullableAnyOfLLMLiteralJsonSchemaPropertyTypeIListString2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LLMLiteralJsonSchemaPropertyType?), TypeInfoPropertyName = "NullableLLMLiteralJsonSchemaPropertyType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LanguagesResponse?), TypeInfoPropertyName = "NullableLanguagesResponse2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LanguagesResponseDiscriminatorKind?), TypeInfoPropertyName = "NullableLanguagesResponseDiscriminatorKind2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LibraryVoiceResponseModelCategory?), TypeInfoPropertyName = "NullableLibraryVoiceResponseModelCategory2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AuthConnectionsItem?), TypeInfoPropertyName = "NullableAuthConnectionsItem2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType?), TypeInfoPropertyName = "NullableListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType2")]
@@ -15411,6 +15645,8 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MockingStrategy?), TypeInfoPropertyName = "NullableMockingStrategy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicAllowedOutputFormats?), TypeInfoPropertyName = "NullableMusicAllowedOutputFormats2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicOnlyOutputFormats?), TypeInfoPropertyName = "NullableMusicOnlyOutputFormats2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicFinetuneFailureReason?), TypeInfoPropertyName = "NullableMusicFinetuneFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicFinetuneStatus?), TypeInfoPropertyName = "NullableMusicFinetuneStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicOutputFormat?), TypeInfoPropertyName = "NullableMusicOutputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.NonStreamingOutputFormats?), TypeInfoPropertyName = "NullableNonStreamingOutputFormats2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OAuth2JWTResponseAlgorithm?), TypeInfoPropertyName = "NullableOAuth2JWTResponseAlgorithm2")]
@@ -15590,6 +15826,8 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ComposeDetailedOutputFormat?), TypeInfoPropertyName = "NullableComposeDetailedOutputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ComposeDetailedStreamOutputFormat?), TypeInfoPropertyName = "NullableComposeDetailedStreamOutputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.StreamComposeOutputFormat?), TypeInfoPropertyName = "NullableStreamComposeOutputFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetFinetunesSort?), TypeInfoPropertyName = "NullableGetFinetunesSort2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetFinetunesSortDirection?), TypeInfoPropertyName = "NullableGetFinetunesSortDirection2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.DubbingTranscriptResponseModel, string>?), TypeInfoPropertyName = "NullableAnyOfDubbingTranscriptResponseModelString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CreateAuthConnectionResponse?), TypeInfoPropertyName = "NullableCreateAuthConnectionResponse2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType?), TypeInfoPropertyName = "NullableCreateAuthConnectionResponseDiscriminatorAuthType2")]
@@ -15790,6 +16028,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.MessagesSearchResult>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.LanguageResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.SpeechToTextChunkResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.MusicFinetuneResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.SongSection>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ToolsItem3>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DeliverableInfo>))]
@@ -15837,29 +16076,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.TopicEvaluationCriteriaAggregate>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AgentTransferInput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AgentTransferOutput>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.PhoneNumberTransfer>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<double>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.VideoSubject>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.VideoSegment>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.VideoKeyMoment>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.VoicePreviewResponseModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.SampleResponseModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ReaderResourceResponseModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.WhatsAppTemplateTextParam>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ParametersItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.CustomSipHeadersItem2>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.CustomSipHeadersItem3>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.WorkflowToolLocator>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.StepsItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.StepsItem2>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceAnalyticsQueryResponseModelColumnType>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ColumnUnit>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceApiKeyResponseModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceAuditLogEntryResponse>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.BatchCallResponse>))]
     internal sealed partial class SourceGenerationContextChunk5 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -16042,6 +16258,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2NullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2JsonConverter),
 
@@ -16527,6 +16751,14 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.FineTuningResponseModelState2NullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.FinetuneCreatedByJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneCreatedByNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneVisibilityJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.FinetuneVisibilityNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelNullableJsonConverter),
@@ -16758,6 +16990,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.MockingStrategyJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.MockingStrategyNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneStatusJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.MusicFinetuneStatusNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.MusicGenerationModeJsonConverter),
 
@@ -17235,6 +17475,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2NullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2NullableJsonConverter),
@@ -17550,6 +17794,14 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.StreamComposeOutputFormatJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.StreamComposeOutputFormatNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter),
 
@@ -18019,6 +18271,29 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>?), TypeInfoPropertyName = "CreateMTLSAuthRequest_d3123ae541f7c02c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.PhoneNumberTransfer>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<double>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.VideoSubject>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.VideoSegment>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.VideoKeyMoment>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.VoicePreviewResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.SampleResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ReaderResourceResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.WhatsAppTemplateTextParam>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ParametersItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.CustomSipHeadersItem2>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.CustomSipHeadersItem3>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.WorkflowToolLocator>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.StepsItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.StepsItem2>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceAnalyticsQueryResponseModelColumnType>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ColumnUnit>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceApiKeyResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceAuditLogEntryResponse>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.BatchCallResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceGroupPermission>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceServiceAccountResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DefaultSharingGroupResponseModel>))]
@@ -18174,6 +18449,10 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefixNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.BodyComposeMusicV1MusicPostModelIdNullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2JsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2NullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2NullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.BodyCreateStudioProjectV1StudioProjectsPostFiction2JsonConverter());
@@ -18416,6 +18695,10 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ExternalSyncProviderNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.FineTuningResponseModelState2JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.FineTuningResponseModelState2NullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.FinetuneCreatedByJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.FinetuneCreatedByNullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.FinetuneVisibilityJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.FinetuneVisibilityNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.FrustratedConversationRefOverallLabelNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.GenerationChunkInputContextAdherenceJsonConverter());
@@ -18532,6 +18815,10 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.MockNoMatchBehaviorNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.MockingStrategyJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.MockingStrategyNullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonNullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.MusicFinetuneStatusJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.MusicFinetuneStatusNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.MusicGenerationModeJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.MusicGenerationModeNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.MusicOnlyOutputFormatsJsonConverter());
@@ -18770,6 +19057,8 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.UnitTestRunResponseModelTestInfoVariant1DiscriminatorTypeNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.UnitTestToolCallParameterEvalDiscriminatorTypeNullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2JsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibility2NullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestAlgorithm2NullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.UpdateOAuth2JWTRequestTokenResponseField2JsonConverter());
@@ -18928,6 +19217,10 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ComposeDetailedStreamOutputFormatNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.StreamComposeOutputFormatJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.StreamComposeOutputFormatNullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.GetFinetunesSortJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.GetFinetunesSortNullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.CreateAuthConnectionResponseDiscriminatorAuthTypeNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.UpdateAuthConnectionResponseDiscriminatorAuthTypeJsonConverter());
