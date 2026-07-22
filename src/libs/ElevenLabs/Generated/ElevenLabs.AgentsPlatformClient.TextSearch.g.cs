@@ -44,6 +44,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful,
             global::System.Collections.Generic.IList<string>? toolNamesErrored,
             global::System.Collections.Generic.IList<string>? mainLanguages,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses,
+            global::System.Collections.Generic.IList<string>? terminationReasons,
             ref int? pageSize,
             ref global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
@@ -73,6 +75,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful,
             global::System.Collections.Generic.IList<string>? toolNamesErrored,
             global::System.Collections.Generic.IList<string>? mainLanguages,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses,
+            global::System.Collections.Generic.IList<string>? terminationReasons,
             int? pageSize,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
@@ -146,6 +150,12 @@ namespace ElevenLabs
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
         /// </param>
+        /// <param name="excludeStatuses">
+        /// Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.
+        /// </param>
+        /// <param name="terminationReasons">
+        /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
+        /// </param>
         /// <param name="pageSize">
         /// Number of results per page. Max 50.<br/>
         /// Default Value: 20
@@ -193,6 +203,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
+            global::System.Collections.Generic.IList<string>? terminationReasons = default,
             int? pageSize = default,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
@@ -223,6 +235,8 @@ namespace ElevenLabs
                 toolNamesSuccessful: toolNamesSuccessful,
                 toolNamesErrored: toolNamesErrored,
                 mainLanguages: mainLanguages,
+                excludeStatuses: excludeStatuses,
+                terminationReasons: terminationReasons,
                 pageSize: pageSize,
                 summaryMode: summaryMode,
                 conversationInitiationSource: conversationInitiationSource,
@@ -293,6 +307,12 @@ namespace ElevenLabs
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
         /// </param>
+        /// <param name="excludeStatuses">
+        /// Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.
+        /// </param>
+        /// <param name="terminationReasons">
+        /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
+        /// </param>
         /// <param name="pageSize">
         /// Number of results per page. Max 50.<br/>
         /// Default Value: 20
@@ -340,6 +360,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
+            global::System.Collections.Generic.IList<string>? terminationReasons = default,
             int? pageSize = default,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
@@ -373,6 +395,8 @@ namespace ElevenLabs
                 toolNamesSuccessful: toolNamesSuccessful,
                 toolNamesErrored: toolNamesErrored,
                 mainLanguages: mainLanguages,
+                excludeStatuses: excludeStatuses,
+                terminationReasons: terminationReasons,
                 pageSize: ref pageSize,
                 summaryMode: ref summaryMode,
                 conversationInitiationSource: conversationInitiationSource,
@@ -427,6 +451,8 @@ namespace ElevenLabs
                                 .AddOptionalParameter("tool_names_successful", toolNamesSuccessful?.ToString())
                                 .AddOptionalParameter("tool_names_errored", toolNamesErrored?.ToString())
                                 .AddOptionalParameter("main_languages", mainLanguages?.ToString())
+                                .AddOptionalParameter("exclude_statuses", excludeStatuses?.ToString())
+                                .AddOptionalParameter("termination_reasons", terminationReasons?.ToString())
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("summary_mode", summaryMode?.ToValueString())
                                 .AddOptionalParameter("conversation_initiation_source", conversationInitiationSource?.ToString())
@@ -494,6 +520,8 @@ namespace ElevenLabs
                     toolNamesSuccessful: toolNamesSuccessful,
                     toolNamesErrored: toolNamesErrored,
                     mainLanguages: mainLanguages,
+                    excludeStatuses: excludeStatuses,
+                    terminationReasons: terminationReasons,
                     pageSize: pageSize,
                     summaryMode: summaryMode,
                     conversationInitiationSource: conversationInitiationSource,
@@ -869,6 +897,12 @@ namespace ElevenLabs
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
         /// </param>
+        /// <param name="excludeStatuses">
+        /// Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.
+        /// </param>
+        /// <param name="terminationReasons">
+        /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
+        /// </param>
         /// <param name="pageSize">
         /// Number of results per page. Max 50.<br/>
         /// Default Value: 20
@@ -911,6 +945,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
+            global::System.Collections.Generic.IList<string>? terminationReasons = default,
             int? pageSize = default,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
@@ -941,6 +977,8 @@ namespace ElevenLabs
                     toolNamesSuccessful: toolNamesSuccessful,
                     toolNamesErrored: toolNamesErrored,
                     mainLanguages: mainLanguages,
+                    excludeStatuses: excludeStatuses,
+                    terminationReasons: terminationReasons,
                     pageSize: pageSize,
                     summaryMode: summaryMode,
                     conversationInitiationSource: conversationInitiationSource,

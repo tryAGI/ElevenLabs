@@ -18813,6 +18813,55 @@
             "description": "Filter conversations by detected main language (language code)."
           },
           {
+            "name": "exclude_statuses",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "initiated",
+                      "in-progress",
+                      "processing",
+                      "done",
+                      "failed"
+                    ],
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.",
+              "title": "Exclude Statuses"
+            },
+            "description": "Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views."
+          },
+          {
+            "name": "termination_reasons",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.",
+              "title": "Termination Reasons"
+            },
+            "description": "Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several."
+          },
+          {
             "name": "page_size",
             "in": "query",
             "required": false,
@@ -39897,7 +39946,8 @@
             "exclusiveMinimum": 0.0,
             "title": "Finetune Strength",
             "description": "How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.",
-            "default": 1.0
+            "default": 1.0,
+            "x-fern-ignore": true
           },
           "use_phonetic_names": {
             "type": "boolean",
@@ -40080,7 +40130,8 @@
             "exclusiveMinimum": 0.0,
             "title": "Finetune Strength",
             "description": "How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.",
-            "default": 1.0
+            "default": 1.0,
+            "x-fern-ignore": true
           },
           "use_phonetic_names": {
             "type": "boolean",
@@ -44172,7 +44223,8 @@
             "exclusiveMinimum": 0.0,
             "title": "Finetune Strength",
             "description": "How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.",
-            "default": 1.0
+            "default": 1.0,
+            "x-fern-ignore": true
           },
           "use_phonetic_names": {
             "type": "boolean",
@@ -44327,7 +44379,8 @@
             "exclusiveMinimum": 0.0,
             "title": "Finetune Strength",
             "description": "How strongly the finetune influences the generation. Defaults to 1.0 (full strength). Lower values soften the influence of the finetune, leaving more room for prompt-level steering. Only meaningful when `finetune_id` is also provided.",
-            "default": 1.0
+            "default": 1.0,
+            "x-fern-ignore": true
           },
           "use_phonetic_names": {
             "type": "boolean",
@@ -71658,7 +71711,11 @@
           "model_id": {
             "type": "string",
             "title": "Model Id",
-            "description": "The base music model the finetune was trained on."
+            "description": "The base music model the finetune was trained on.",
+            "examples": [
+              "music_v1",
+              "music_v2"
+            ]
           },
           "created_at": {
             "type": "string",
@@ -74903,6 +74960,44 @@
             "$ref": "#/components/schemas/ProcedureType",
             "default": "free_form"
           },
+          "trigger": {
+            "type": "string",
+            "title": "Trigger",
+            "description": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it.",
+            "default": ""
+          },
+          "referenced_tool_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Tool Ids",
+            "description": "Tool IDs referenced in the procedure content"
+          },
+          "referenced_kb_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Kb Ids",
+            "description": "Knowledge base IDs referenced in the procedure content"
+          },
+          "referenced_procedure_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Procedure Ids",
+            "description": "Procedure IDs referenced in the procedure content"
+          },
+          "referenced_dynamic_variables": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Dynamic Variables",
+            "description": "Dynamic variable names used in the procedure content"
+          },
           "content": {
             "type": "string",
             "maxLength": 50000,
@@ -74959,6 +75054,44 @@
           "type": {
             "$ref": "#/components/schemas/ProcedureType",
             "default": "free_form"
+          },
+          "trigger": {
+            "type": "string",
+            "title": "Trigger",
+            "description": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it.",
+            "default": ""
+          },
+          "referenced_tool_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Tool Ids",
+            "description": "Tool IDs referenced in the procedure content"
+          },
+          "referenced_kb_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Kb Ids",
+            "description": "Knowledge base IDs referenced in the procedure content"
+          },
+          "referenced_procedure_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Procedure Ids",
+            "description": "Procedure IDs referenced in the procedure content"
+          },
+          "referenced_dynamic_variables": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Dynamic Variables",
+            "description": "Dynamic variable names used in the procedure content"
           },
           "content": {
             "type": "string",
@@ -87134,11 +87267,16 @@
           "token": {
             "type": "string",
             "title": "Token"
+          },
+          "conversation_id": {
+            "type": "string",
+            "title": "Conversation Id"
           }
         },
         "type": "object",
         "required": [
-          "token"
+          "token",
+          "conversation_id"
         ],
         "title": "TokenResponseModel"
       },
