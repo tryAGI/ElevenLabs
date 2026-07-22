@@ -30,6 +30,36 @@ namespace ElevenLabs
         public global::ElevenLabs.ProcedureType? Type { get; set; }
 
         /// <summary>
+        /// When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("trigger")]
+        public string? Trigger { get; set; }
+
+        /// <summary>
+        /// Tool IDs referenced in the procedure content
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("referenced_tool_ids")]
+        public global::System.Collections.Generic.IList<string>? ReferencedToolIds { get; set; }
+
+        /// <summary>
+        /// Knowledge base IDs referenced in the procedure content
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("referenced_kb_ids")]
+        public global::System.Collections.Generic.IList<string>? ReferencedKbIds { get; set; }
+
+        /// <summary>
+        /// Procedure IDs referenced in the procedure content
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("referenced_procedure_ids")]
+        public global::System.Collections.Generic.IList<string>? ReferencedProcedureIds { get; set; }
+
+        /// <summary>
+        /// Dynamic variable names used in the procedure content
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("referenced_dynamic_variables")]
+        public global::System.Collections.Generic.IList<string>? ReferencedDynamicVariables { get; set; }
+
+        /// <summary>
         /// Procedure content
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
@@ -79,6 +109,21 @@ namespace ElevenLabs
         /// <param name="type">
         /// Default Value: free_form
         /// </param>
+        /// <param name="trigger">
+        /// When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it.
+        /// </param>
+        /// <param name="referencedToolIds">
+        /// Tool IDs referenced in the procedure content
+        /// </param>
+        /// <param name="referencedKbIds">
+        /// Knowledge base IDs referenced in the procedure content
+        /// </param>
+        /// <param name="referencedProcedureIds">
+        /// Procedure IDs referenced in the procedure content
+        /// </param>
+        /// <param name="referencedDynamicVariables">
+        /// Dynamic variable names used in the procedure content
+        /// </param>
         /// <param name="guardrails"></param>
         /// <param name="versionId">
         /// Version ID of a version of the procedure. None for a procedure never versioned.
@@ -92,12 +137,22 @@ namespace ElevenLabs
             string content,
             string agentId,
             global::ElevenLabs.ProcedureType? type,
+            string? trigger,
+            global::System.Collections.Generic.IList<string>? referencedToolIds,
+            global::System.Collections.Generic.IList<string>? referencedKbIds,
+            global::System.Collections.Generic.IList<string>? referencedProcedureIds,
+            global::System.Collections.Generic.IList<string>? referencedDynamicVariables,
             global::System.Collections.Generic.IList<global::ElevenLabs.CustomGuardrailConfig>? guardrails,
             string? versionId)
         {
             this.ProcedureId = procedureId ?? throw new global::System.ArgumentNullException(nameof(procedureId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Type = type;
+            this.Trigger = trigger;
+            this.ReferencedToolIds = referencedToolIds;
+            this.ReferencedKbIds = referencedKbIds;
+            this.ReferencedProcedureIds = referencedProcedureIds;
+            this.ReferencedDynamicVariables = referencedDynamicVariables;
             this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
             this.Guardrails = guardrails;
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
