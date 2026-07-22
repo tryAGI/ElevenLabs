@@ -33421,6 +33421,102 @@
         ],
         "title": "AdhocAgentConfigOverrideForTestRequestModel"
       },
+      "AgentAnalysisItems-Input": {
+        "properties": {
+          "evaluation_criteria": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/AttachedUserEvaluationRef"
+                },
+                {
+                  "$ref": "#/components/schemas/AttachedSystemEvaluationRef"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "source",
+                "mapping": {
+                  "system": "#/components/schemas/AttachedSystemEvaluationRef",
+                  "user": "#/components/schemas/AttachedUserEvaluationRef"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Evaluation Criteria"
+          },
+          "data_collection": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/AttachedUserDataCollectionRef"
+                },
+                {
+                  "$ref": "#/components/schemas/AttachedSystemDataCollectionRef"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "source",
+                "mapping": {
+                  "system": "#/components/schemas/AttachedSystemDataCollectionRef",
+                  "user": "#/components/schemas/AttachedUserDataCollectionRef"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Data Collection"
+          }
+        },
+        "type": "object",
+        "title": "AgentAnalysisItems"
+      },
+      "AgentAnalysisItems-Output": {
+        "properties": {
+          "evaluation_criteria": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/AttachedUserEvaluationRef"
+                },
+                {
+                  "$ref": "#/components/schemas/AttachedSystemEvaluationRef"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "source",
+                "mapping": {
+                  "system": "#/components/schemas/AttachedSystemEvaluationRef",
+                  "user": "#/components/schemas/AttachedUserEvaluationRef"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Evaluation Criteria"
+          },
+          "data_collection": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/AttachedUserDataCollectionRef"
+                },
+                {
+                  "$ref": "#/components/schemas/AttachedSystemDataCollectionRef"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "source",
+                "mapping": {
+                  "system": "#/components/schemas/AttachedSystemDataCollectionRef",
+                  "user": "#/components/schemas/AttachedUserDataCollectionRef"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Data Collection"
+          }
+        },
+        "type": "object",
+        "title": "AgentAnalysisItems"
+      },
       "AgentBranchBasicInfo": {
         "properties": {
           "id": {
@@ -34554,6 +34650,17 @@
             "title": "Data Collection Scopes",
             "description": "Scope per data collection item ID. Missing keys default to conversation scope."
           },
+          "analysis_items": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentAnalysisItems-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Evaluation + data-collection items attached by reference. None means the agent has not been migrated onto analysis items yet (distinct from an empty, migrated set); reads fall back to the legacy evaluation/data_collection fields in that case."
+          },
           "overrides": {
             "$ref": "#/components/schemas/ConversationInitiationClientDataConfig-Input",
             "description": "Additional overrides for the agent during conversation initiation"
@@ -34666,6 +34773,17 @@
             "type": "object",
             "title": "Data Collection Scopes",
             "description": "Scope per data collection item ID. Missing keys default to conversation scope."
+          },
+          "analysis_items": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentAnalysisItems-Output"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Evaluation + data-collection items attached by reference. None means the agent has not been migrated onto analysis items yet (distinct from an empty, migrated set); reads fall back to the legacy evaluation/data_collection fields in that case."
           },
           "overrides": {
             "$ref": "#/components/schemas/ConversationInitiationClientDataConfig-Output",
@@ -37133,6 +37251,73 @@
         "title": "AsyncConversationMetadata",
         "description": "Metadata for async conversation delivery (Zendesk, Slack, etc.)."
       },
+      "AttachedSystemDataCollectionRef": {
+        "properties": {
+          "source": {
+            "type": "string",
+            "const": "system",
+            "title": "Source"
+          },
+          "analysis_item_id": {
+            "type": "string",
+            "const": "__system_data_collection_topic",
+            "title": "Analysis Item Id",
+            "description": "Id of the referenced built-in system data-collection item."
+          },
+          "scope": {
+            "$ref": "#/components/schemas/AnalysisScope",
+            "description": "Transcript context ('conversation' or 'agent') used when running this item.",
+            "default": "conversation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source",
+          "analysis_item_id"
+        ],
+        "title": "AttachedSystemDataCollectionRef"
+      },
+      "AttachedSystemEvaluationRef": {
+        "properties": {
+          "source": {
+            "type": "string",
+            "const": "system",
+            "title": "Source"
+          },
+          "analysis_item_id": {
+            "type": "string",
+            "enum": [
+              "__system_eval_criteria_sentiment",
+              "__system_eval_criteria_frustration"
+            ],
+            "title": "Analysis Item Id",
+            "description": "Id of the referenced built-in system evaluation."
+          },
+          "scope": {
+            "$ref": "#/components/schemas/AnalysisScope",
+            "description": "Transcript context ('conversation' or 'agent') used when running this item.",
+            "default": "conversation"
+          },
+          "weight": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weight",
+            "description": "Optional relative weight for aggregate scoring."
+          }
+        },
+        "type": "object",
+        "required": [
+          "source",
+          "analysis_item_id"
+        ],
+        "title": "AttachedSystemEvaluationRef"
+      },
       "AttachedTestModel": {
         "properties": {
           "test_id": {
@@ -37156,6 +37341,100 @@
           "test_id"
         ],
         "title": "AttachedTestModel"
+      },
+      "AttachedUserDataCollectionRef": {
+        "properties": {
+          "source": {
+            "type": "string",
+            "const": "user",
+            "title": "Source"
+          },
+          "analysis_item_id": {
+            "type": "string",
+            "title": "Analysis Item Id",
+            "description": "Id of the referenced user data-collection item."
+          },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Id",
+            "description": "Pinned item version. None tracks the item's latest published version."
+          },
+          "scope": {
+            "$ref": "#/components/schemas/AnalysisScope",
+            "description": "Transcript context ('conversation' or 'agent') used when running this item.",
+            "default": "conversation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source",
+          "analysis_item_id"
+        ],
+        "title": "AttachedUserDataCollectionRef"
+      },
+      "AttachedUserEvaluationRef": {
+        "properties": {
+          "source": {
+            "type": "string",
+            "const": "user",
+            "title": "Source"
+          },
+          "analysis_item_id": {
+            "type": "string",
+            "title": "Analysis Item Id",
+            "description": "Id of the referenced user evaluation item."
+          },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Id",
+            "description": "Primary item version whose result feeds scoring. None tracks the item's latest published version."
+          },
+          "additional_version_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Additional Version Ids",
+            "description": "Extra item versions to also run for comparison (A/B). These are executed and stored but excluded from scoring; the primary version_id is the one that scores."
+          },
+          "scope": {
+            "$ref": "#/components/schemas/AnalysisScope",
+            "description": "Transcript context ('conversation' or 'agent') used when running this item.",
+            "default": "conversation"
+          },
+          "weight": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weight",
+            "description": "Optional relative weight for aggregate scoring."
+          }
+        },
+        "type": "object",
+        "required": [
+          "source",
+          "analysis_item_id"
+        ],
+        "title": "AttachedUserEvaluationRef"
       },
       "AudioAnalysis": {
         "properties": {
@@ -52839,6 +53118,17 @@
           "tool_mock_config": {
             "$ref": "#/components/schemas/OrchestratorToolMockBehaviorConfig",
             "description": "Configuration for which tools to mock and fallback behavior"
+          },
+          "tool_mock_overrides": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/components/schemas/ToolResponseMockConfig-Output"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Tool Mock Overrides",
+            "description": "Per-tool response mock overrides keyed by resolved tool name, applied ahead of the tool's shared mocks. Used for test-specific mocks."
           }
         },
         "type": "object",

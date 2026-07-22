@@ -35,6 +35,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnalysisScope>? DataCollectionScopes { get; set; }
 
         /// <summary>
+        /// Evaluation + data-collection items attached by reference. None means the agent has not been migrated onto analysis items yet (distinct from an empty, migrated set); reads fall back to the legacy evaluation/data_collection fields in that case.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("analysis_items")]
+        public global::ElevenLabs.AgentAnalysisItemsInput? AnalysisItems { get; set; }
+
+        /// <summary>
         /// Additional overrides for the agent during conversation initiation<br/>
         /// Example: {"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true,"enable_starting_workflow_node_id_from_client":true}
         /// </summary>
@@ -155,6 +161,9 @@ namespace ElevenLabs
         /// <param name="dataCollectionScopes">
         /// Scope per data collection item ID. Missing keys default to conversation scope.
         /// </param>
+        /// <param name="analysisItems">
+        /// Evaluation + data-collection items attached by reference. None means the agent has not been migrated onto analysis items yet (distinct from an empty, migrated set); reads fall back to the legacy evaluation/data_collection fields in that case.
+        /// </param>
         /// <param name="overrides">
         /// Additional overrides for the agent during conversation initiation<br/>
         /// Example: {"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true,"enable_starting_workflow_node_id_from_client":true}
@@ -213,6 +222,7 @@ namespace ElevenLabs
             global::ElevenLabs.WidgetConfigInput? widget,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnalysisProperty>? dataCollection,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnalysisScope>? dataCollectionScopes,
+            global::ElevenLabs.AgentAnalysisItemsInput? analysisItems,
             global::ElevenLabs.ConversationInitiationClientDataConfigInput? overrides,
             global::ElevenLabs.AgentWorkspaceOverridesInput? workspaceOverrides,
             global::ElevenLabs.AgentTestingSettings? testing,
@@ -232,6 +242,7 @@ namespace ElevenLabs
             this.Widget = widget;
             this.DataCollection = dataCollection;
             this.DataCollectionScopes = dataCollectionScopes;
+            this.AnalysisItems = analysisItems;
             this.Overrides = overrides;
             this.WorkspaceOverrides = workspaceOverrides;
             this.Testing = testing;

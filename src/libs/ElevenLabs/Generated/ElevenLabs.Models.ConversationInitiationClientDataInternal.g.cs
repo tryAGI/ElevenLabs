@@ -64,6 +64,12 @@ namespace ElevenLabs
         public global::ElevenLabs.OrchestratorToolMockBehaviorConfig? ToolMockConfig { get; set; }
 
         /// <summary>
+        /// Per-tool response mock overrides keyed by resolved tool name, applied ahead of the tool's shared mocks. Used for test-specific mocks.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_mock_overrides")]
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigOutput>>? ToolMockOverrides { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -95,6 +101,9 @@ namespace ElevenLabs
         /// <param name="toolMockConfig">
         /// Configuration for which tools to mock and fallback behavior
         /// </param>
+        /// <param name="toolMockOverrides">
+        /// Per-tool response mock overrides keyed by resolved tool name, applied ahead of the tool's shared mocks. Used for test-specific mocks.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -107,7 +116,8 @@ namespace ElevenLabs
             string? environment,
             string? startingWorkflowNodeId,
             object? dynamicVariables,
-            global::ElevenLabs.OrchestratorToolMockBehaviorConfig? toolMockConfig)
+            global::ElevenLabs.OrchestratorToolMockBehaviorConfig? toolMockConfig,
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigOutput>>? toolMockOverrides)
         {
             this.ConversationConfigOverride = conversationConfigOverride;
             this.CustomLlmExtraBody = customLlmExtraBody;
@@ -118,6 +128,7 @@ namespace ElevenLabs
             this.StartingWorkflowNodeId = startingWorkflowNodeId;
             this.DynamicVariables = dynamicVariables;
             this.ToolMockConfig = toolMockConfig;
+            this.ToolMockOverrides = toolMockOverrides;
         }
 
         /// <summary>
