@@ -15,6 +15,12 @@ namespace ElevenLabs
         public global::ElevenLabs.WidgetTextContents? TextContents { get; set; }
 
         /// <summary>
+        /// The translation cache for the text contents
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text_contents_translation")]
+        public global::ElevenLabs.WidgetTextContentsTranslation? TextContentsTranslation { get; set; }
+
+        /// <summary>
         /// The text to display for terms and conditions in this language
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("terms_text")]
@@ -50,6 +56,9 @@ namespace ElevenLabs
         /// <param name="textContents">
         /// The text contents for the selected language
         /// </param>
+        /// <param name="textContentsTranslation">
+        /// The translation cache for the text contents
+        /// </param>
         /// <param name="termsText">
         /// The text to display for terms and conditions in this language
         /// </param>
@@ -67,12 +76,14 @@ namespace ElevenLabs
 #endif
         public WidgetLanguagePreset(
             global::ElevenLabs.WidgetTextContents? textContents,
+            global::ElevenLabs.WidgetTextContentsTranslation? textContentsTranslation,
             string? termsText,
             string? termsHtml,
             string? termsKey,
             global::ElevenLabs.WidgetTermsTranslation? termsTranslation)
         {
             this.TextContents = textContents;
+            this.TextContentsTranslation = textContentsTranslation;
             this.TermsText = termsText;
             this.TermsHtml = termsHtml;
             this.TermsKey = termsKey;

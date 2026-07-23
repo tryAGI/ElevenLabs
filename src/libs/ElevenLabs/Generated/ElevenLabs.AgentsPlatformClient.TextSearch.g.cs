@@ -29,6 +29,8 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string textQuery,
             ref string? agentId,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds,
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful,
             int? callStartBeforeUnix,
             int? callStartAfterUnix,
@@ -60,6 +62,8 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string textQuery,
             string? agentId,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds,
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful,
             int? callStartBeforeUnix,
             int? callStartAfterUnix,
@@ -104,6 +108,12 @@ namespace ElevenLabs
         /// </param>
         /// <param name="agentId">
         /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
+        /// </param>
+        /// <param name="visitedAgentIds">
+        /// Filter conversations where any of these agents participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="visitedAgentBranchIds">
+        /// Filter conversations where any of these agent branches participated. Can not exceed 50 values.
         /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
@@ -188,6 +198,8 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MessagesSearchResponse> TextSearchAsync(
             string textQuery,
             string? agentId = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds = default,
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
             int? callStartBeforeUnix = default,
             int? callStartAfterUnix = default,
@@ -220,6 +232,8 @@ namespace ElevenLabs
             var __response = await TextSearchAsResponseAsync(
                 textQuery: textQuery,
                 agentId: agentId,
+                visitedAgentIds: visitedAgentIds,
+                visitedAgentBranchIds: visitedAgentBranchIds,
                 callSuccessful: callSuccessful,
                 callStartBeforeUnix: callStartBeforeUnix,
                 callStartAfterUnix: callStartAfterUnix,
@@ -261,6 +275,12 @@ namespace ElevenLabs
         /// </param>
         /// <param name="agentId">
         /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
+        /// </param>
+        /// <param name="visitedAgentIds">
+        /// Filter conversations where any of these agents participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="visitedAgentBranchIds">
+        /// Filter conversations where any of these agent branches participated. Can not exceed 50 values.
         /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
@@ -345,6 +365,8 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MessagesSearchResponse>> TextSearchAsResponseAsync(
             string textQuery,
             string? agentId = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds = default,
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
             int? callStartBeforeUnix = default,
             int? callStartAfterUnix = default,
@@ -380,6 +402,8 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 textQuery: ref textQuery,
                 agentId: ref agentId,
+                visitedAgentIds: visitedAgentIds,
+                visitedAgentBranchIds: visitedAgentBranchIds,
                 callSuccessful: callSuccessful,
                 callStartBeforeUnix: callStartBeforeUnix,
                 callStartAfterUnix: callStartAfterUnix,
@@ -436,6 +460,8 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddRequiredParameter("text_query", textQuery)
                                 .AddOptionalParameter("agent_id", agentId)
+                                .AddOptionalParameter("visited_agent_ids", visitedAgentIds?.ToString())
+                                .AddOptionalParameter("visited_agent_branch_ids", visitedAgentBranchIds?.ToString())
                                 .AddOptionalParameter("call_successful", callSuccessful?.ToString())
                                 .AddOptionalParameter("call_start_before_unix", callStartBeforeUnix?.ToString())
                                 .AddOptionalParameter("call_start_after_unix", callStartAfterUnix?.ToString())
@@ -505,6 +531,8 @@ namespace ElevenLabs
                     httpRequestMessage: __httpRequest,
                     textQuery: textQuery!,
                     agentId: agentId,
+                    visitedAgentIds: visitedAgentIds,
+                    visitedAgentBranchIds: visitedAgentBranchIds,
                     callSuccessful: callSuccessful,
                     callStartBeforeUnix: callStartBeforeUnix,
                     callStartAfterUnix: callStartAfterUnix,
@@ -852,6 +880,12 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
+        /// <param name="visitedAgentIds">
+        /// Filter conversations where any of these agents participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="visitedAgentBranchIds">
+        /// Filter conversations where any of these agent branches participated. Can not exceed 50 values.
+        /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
         /// </param>
@@ -930,6 +964,8 @@ namespace ElevenLabs
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.MessagesSearchResult> TextSearchAutoPagingAsync(
             string textQuery,             string? agentId = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds = default,
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
             int? callStartBeforeUnix = default,
             int? callStartAfterUnix = default,
@@ -962,6 +998,8 @@ namespace ElevenLabs
                 fetchPage: (__cursor, __ct) => TextSearchAsync(
                     textQuery: textQuery,
                     agentId: agentId,
+                    visitedAgentIds: visitedAgentIds,
+                    visitedAgentBranchIds: visitedAgentBranchIds,
                     callSuccessful: callSuccessful,
                     callStartBeforeUnix: callStartBeforeUnix,
                     callStartAfterUnix: callStartAfterUnix,

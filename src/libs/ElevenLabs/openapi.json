@@ -4005,102 +4005,6 @@
         "x-fern-sdk-method-name": "create_podcast"
       }
     },
-    "/v1/music/video-to-music": {
-      "post": {
-        "tags": [
-          "video-to-music"
-        ],
-        "summary": "Video To Music",
-        "description": "Generate background music from one or more video files. Videos are combined in order. Optional description and style tags influence the generated music.",
-        "operationId": "video_to_music",
-        "parameters": [
-          {
-            "name": "output_format",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/AllowedOutputFormats",
-              "title": "Output format of the generated audio.",
-              "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.",
-              "enum": [
-                "mp3_22050_32",
-                "mp3_24000_48",
-                "mp3_44100_32",
-                "mp3_44100_64",
-                "mp3_44100_96",
-                "mp3_44100_128",
-                "mp3_44100_192",
-                "pcm_8000",
-                "pcm_16000",
-                "pcm_22050",
-                "pcm_24000",
-                "pcm_32000",
-                "pcm_44100",
-                "pcm_48000",
-                "ulaw_8000",
-                "alaw_8000",
-                "opus_48000_32",
-                "opus_48000_64",
-                "opus_48000_96",
-                "opus_48000_128",
-                "opus_48000_192"
-              ],
-              "default": "mp3_44100_128"
-            },
-            "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs."
-          },
-          {
-            "name": "xi-api-key",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
-              "title": "Xi-Api-Key"
-            },
-            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "$ref": "#/components/schemas/Body_Video_to_Music_v1_music_video_to_music_post"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Generated audio file matching the video. Content-Type and file extension depend on the output_format parameter (default mp3).",
-            "content": {
-              "audio/*": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Subscription required."
-          },
-          "422": {
-            "description": "Validation error (e.g. invalid or missing videos)."
-          }
-        },
-        "x-fern-sdk-group-name": "music",
-        "x-fern-sdk-method-name": "video_to_music"
-      }
-    },
     "/v1/studio/projects/{project_id}/pronunciation-dictionaries": {
       "post": {
         "tags": [
@@ -13401,6 +13305,102 @@
         "x-fern-sdk-method-name": "delete"
       }
     },
+    "/v1/music/video-to-music": {
+      "post": {
+        "tags": [
+          "video-to-music"
+        ],
+        "summary": "Video To Music",
+        "description": "Generate background music from one or more video files. Videos are combined in order. Optional description and style tags influence the generated music.",
+        "operationId": "video_to_music",
+        "parameters": [
+          {
+            "name": "output_format",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/AllowedOutputFormats",
+              "title": "Output format of the generated audio.",
+              "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.",
+              "enum": [
+                "mp3_22050_32",
+                "mp3_24000_48",
+                "mp3_44100_32",
+                "mp3_44100_64",
+                "mp3_44100_96",
+                "mp3_44100_128",
+                "mp3_44100_192",
+                "pcm_8000",
+                "pcm_16000",
+                "pcm_22050",
+                "pcm_24000",
+                "pcm_32000",
+                "pcm_44100",
+                "pcm_48000",
+                "ulaw_8000",
+                "alaw_8000",
+                "opus_48000_32",
+                "opus_48000_64",
+                "opus_48000_96",
+                "opus_48000_128",
+                "opus_48000_192"
+              ],
+              "default": "mp3_44100_128"
+            },
+            "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Video_to_Music_v1_music_video_to_music_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Generated audio file matching the video. Content-Type and file extension depend on the output_format parameter (default mp3).",
+            "content": {
+              "audio/*": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Subscription required."
+          },
+          "422": {
+            "description": "Validation error (e.g. invalid or missing videos)."
+          }
+        },
+        "x-fern-sdk-group-name": "music",
+        "x-fern-sdk-method-name": "video_to_music"
+      }
+    },
     "/v1/speech-to-text": {
       "post": {
         "tags": [
@@ -17217,6 +17217,50 @@
             "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource."
           },
           {
+            "name": "visited_agent_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 50
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations where any of these agents participated. Can not exceed 50 values.",
+              "title": "Visited Agent Ids"
+            },
+            "description": "Filter conversations where any of these agents participated. Can not exceed 50 values."
+          },
+          {
+            "name": "visited_agent_branch_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 50
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations where any of these agent branches participated. Can not exceed 50 values.",
+              "title": "Visited Agent Branch Ids"
+            },
+            "description": "Filter conversations where any of these agent branches participated. Can not exceed 50 values."
+          },
+          {
             "name": "call_successful",
             "in": "query",
             "required": false,
@@ -18516,6 +18560,50 @@
               "title": "Agent Id"
             },
             "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource."
+          },
+          {
+            "name": "visited_agent_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 50
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations where any of these agents participated. Can not exceed 50 values.",
+              "title": "Visited Agent Ids"
+            },
+            "description": "Filter conversations where any of these agents participated. Can not exceed 50 values."
+          },
+          {
+            "name": "visited_agent_branch_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 50
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations where any of these agent branches participated. Can not exceed 50 values.",
+              "title": "Visited Agent Branch Ids"
+            },
+            "description": "Filter conversations where any of these agent branches participated. Can not exceed 50 values."
           },
           {
             "name": "call_successful",
@@ -21066,6 +21154,321 @@
           "documents"
         ],
         "x-fern-sdk-method-name": "create_from_url"
+      }
+    },
+    "/v1/convai/knowledge-base/crawl": {
+      "post": {
+        "tags": [
+          "Conversational AI"
+        ],
+        "summary": "Create Crawl Job",
+        "description": "Create a crawl job to crawl the given URL with specified depth and page limits.",
+        "operationId": "create_crawl_job_route",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Create_crawl_job_v1_convai_knowledge_base_crawl_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCrawlJobResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "knowledge_base",
+          "crawl_jobs"
+        ],
+        "x-fern-sdk-method-name": "create"
+      },
+      "get": {
+        "tags": [
+          "Conversational AI"
+        ],
+        "summary": "List Ongoing And Recent Crawl Jobs Created By A User",
+        "description": "Get a list of ongoing and recent crawl jobs for the user.",
+        "operationId": "list_crawl_jobs_route",
+        "parameters": [
+          {
+            "name": "include_job_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Ids of additional crawl jobs to retrieve",
+              "title": "Include Job Ids"
+            },
+            "description": "Ids of additional crawl jobs to retrieve"
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "How many documents to return at maximum. Can not exceed 100, defaults to 30.",
+              "default": 30,
+              "title": "Page Size"
+            },
+            "description": "How many documents to return at maximum. Can not exceed 100, defaults to 30."
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Used for fetching next page. Cursor is returned in the response.",
+              "title": "Cursor"
+            },
+            "description": "Used for fetching next page. Cursor is returned in the response."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCrawlJobsResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "knowledge_base",
+          "crawl_jobs"
+        ],
+        "x-fern-sdk-method-name": "list"
+      }
+    },
+    "/v1/convai/knowledge-base/crawl/{crawl_job_id}": {
+      "get": {
+        "tags": [
+          "Conversational AI"
+        ],
+        "summary": "Get Crawl Job Details",
+        "description": "Get details about a specific crawl job including status and progress.",
+        "operationId": "get_crawl_job_route",
+        "parameters": [
+          {
+            "name": "crawl_job_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of the crawl job to retrieve",
+              "embed": true,
+              "title": "Crawl Job Id"
+            },
+            "description": "The id of the crawl job to retrieve"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCrawlJobResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "knowledge_base",
+          "crawl_jobs"
+        ],
+        "x-fern-sdk-method-name": "get"
+      }
+    },
+    "/v1/convai/knowledge-base/crawl/{crawl_job_id}/cancel": {
+      "post": {
+        "tags": [
+          "Conversational AI"
+        ],
+        "summary": "Cancel Crawl Job",
+        "description": "Cancel a crawl job and delete all associated documents and folders.",
+        "operationId": "cancel_crawl_job_route",
+        "parameters": [
+          {
+            "name": "crawl_job_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of the crawl job to retrieve",
+              "embed": true,
+              "title": "Crawl Job Id"
+            },
+            "description": "The id of the crawl job to retrieve"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "knowledge_base",
+          "crawl_jobs"
+        ],
+        "x-fern-sdk-method-name": "cancel"
       }
     },
     "/v1/convai/knowledge-base/file": {
@@ -41322,6 +41725,88 @@
         ],
         "title": "Body_Create_chapter_v1_studio_projects__project_id__chapters_post"
       },
+      "Body_Create_crawl_job_v1_convai_knowledge_base_crawl_post": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "description": "URL to a page of documentation that the agent will have access to in order to interact with users."
+          },
+          "max_depth": {
+            "type": "integer",
+            "maximum": 5.0,
+            "minimum": 1.0,
+            "title": "Max Depth",
+            "description": "Maximum depth for crawling (1-5), defaults to 3.",
+            "default": 3
+          },
+          "max_pages": {
+            "type": "integer",
+            "maximum": 10000.0,
+            "minimum": 1.0,
+            "title": "Max Pages",
+            "description": "Maximum number of pages to crawl (1-10,000), defaults to 1000.",
+            "default": 1000
+          },
+          "pattern": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2048
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pattern",
+            "description": "If set, only URLs that match this pattern are included."
+          },
+          "sitemap_urls": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sitemap Urls",
+            "description": "List of URLs to crawl from sitemap (optional, overrides automatic URL discovery)."
+          },
+          "parent_folder_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parent Folder Id",
+            "description": "If set, the created document or folder will be placed inside the given folder."
+          },
+          "enable_auto_sync": {
+            "type": "boolean",
+            "title": "Enable Auto Sync",
+            "description": "Whether to enable auto-sync for this URL document.",
+            "default": false
+          },
+          "auto_remove": {
+            "type": "boolean",
+            "title": "Auto Remove",
+            "description": "Whether to automatically remove the document if the URL becomes unavailable. Only applicable when auto-sync is enabled.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "title": "Body_Create_crawl_job_v1_convai_knowledge_base_crawl_post"
+      },
       "Body_Create_file_document_v1_convai_knowledge_base_file_post": {
         "properties": {
           "file": {
@@ -53747,6 +54232,14 @@
                 "type": "null"
               }
             ]
+          },
+          "tag_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Tag Ids",
+            "description": "Conversation tag ids assigned to this conversation."
           }
         },
         "type": "object",
@@ -54491,6 +54984,15 @@
         "title": "CrawlStatus",
         "default": "queued"
       },
+      "CrawlType": {
+        "type": "string",
+        "enum": [
+          "discovery",
+          "sitemap"
+        ],
+        "title": "CrawlType",
+        "default": "discovery"
+      },
       "CreateAgentBranchResponseModel": {
         "properties": {
           "created_branch_id": {
@@ -54754,6 +55256,46 @@
           "title"
         ],
         "title": "CreateConversationTagRequestModel"
+      },
+      "CreateCrawlJobResponseModel": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "type": {
+            "$ref": "#/components/schemas/CrawlType"
+          },
+          "root_folder_id": {
+            "type": "string",
+            "title": "Root Folder Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "created_at": {
+            "type": "integer",
+            "title": "Created At"
+          },
+          "folder_path": {
+            "items": {
+              "$ref": "#/components/schemas/KnowledgeBaseFolderPathSegmentSummaryResponseModel"
+            },
+            "type": "array",
+            "title": "Folder Path",
+            "description": "The folder path segments leading to the root folder, from root to parent folder."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "root_folder_id",
+          "status",
+          "created_at"
+        ],
+        "title": "CreateCrawlJobResponseModel"
       },
       "CreateCustomHeaderAuthRequest": {
         "properties": {
@@ -62466,6 +63008,88 @@
         ],
         "title": "GetConversationsPageResponseModel"
       },
+      "GetCrawlJobResponseModel": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/CrawlType",
+            "default": "discovery"
+          },
+          "seed_url": {
+            "type": "string",
+            "title": "Seed Url"
+          },
+          "pattern": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pattern"
+          },
+          "max_depth": {
+            "type": "integer",
+            "title": "Max Depth"
+          },
+          "max_pages": {
+            "type": "integer",
+            "title": "Max Pages"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CrawlStatus",
+            "default": "queued"
+          },
+          "pages_identified": {
+            "type": "integer",
+            "title": "Pages Identified",
+            "default": 0
+          },
+          "pages_scraped": {
+            "type": "integer",
+            "title": "Pages Scraped",
+            "default": 0
+          },
+          "pages_skipped": {
+            "type": "integer",
+            "title": "Pages Skipped",
+            "default": 0
+          },
+          "pages_failed": {
+            "type": "integer",
+            "title": "Pages Failed",
+            "default": 0
+          },
+          "root_folder_id": {
+            "type": "string",
+            "title": "Root Folder Id"
+          },
+          "updated_at": {
+            "type": "integer",
+            "title": "Updated At"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "created_at": {
+            "type": "integer",
+            "title": "Created At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "seed_url",
+          "max_depth",
+          "max_pages",
+          "root_folder_id",
+          "updated_at",
+          "id",
+          "created_at"
+        ],
+        "title": "GetCrawlJobResponseModel"
+      },
       "GetKnowledgeBaseDependentAgentsResponseModel": {
         "properties": {
           "agents": {
@@ -67995,6 +68619,33 @@
         "type": "object",
         "title": "ListClientsParams",
         "description": "List clients ordered by most recently updated, with an optional limit."
+      },
+      "ListCrawlJobsResponseModel": {
+        "properties": {
+          "crawl_jobs": {
+            "items": {
+              "$ref": "#/components/schemas/GetCrawlJobResponseModel"
+            },
+            "type": "array",
+            "title": "Crawl Jobs"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor"
+          }
+        },
+        "type": "object",
+        "required": [
+          "crawl_jobs"
+        ],
+        "title": "ListCrawlJobsResponseModel"
       },
       "ListCustomerFacingAgentsParams": {
         "properties": {
@@ -75195,6 +75846,7 @@
           "status": {
             "type": "string",
             "enum": [
+              "draft",
               "pending",
               "creating",
               "finished",
@@ -75204,15 +75856,7 @@
             "description": "The status of the project creation action."
           },
           "type": {
-            "type": "string",
-            "enum": [
-              "blank",
-              "generate_podcast",
-              "auto_assign_voices",
-              "dub_video",
-              "import_speech"
-            ],
-            "title": "Type",
+            "$ref": "#/components/schemas/ProjectCreationMetaType",
             "description": "The type of the project creation action."
           }
         },
@@ -75228,6 +75872,17 @@
           "status": "pending",
           "type": "blank"
         }
+      },
+      "ProjectCreationMetaType": {
+        "type": "string",
+        "enum": [
+          "blank",
+          "generate_podcast",
+          "auto_assign_voices",
+          "dub_video",
+          "import_speech"
+        ],
+        "title": "ProjectCreationMetaType"
       },
       "ProjectExtendedResponseModel": {
         "properties": {
@@ -96296,6 +96951,17 @@
             ],
             "description": "The text contents for the selected language"
           },
+          "text_contents_translation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WidgetTextContentsTranslation"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The translation cache for the text contents"
+          },
           "terms_text": {
             "anyOf": [
               {
@@ -97293,6 +97959,28 @@
         },
         "type": "object",
         "title": "WidgetTextContents"
+      },
+      "WidgetTextContentsTranslation": {
+        "properties": {
+          "source": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Source",
+            "description": "The source text each translated field was derived from"
+          },
+          "text": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Text",
+            "description": "The last auto-translated output for each translated field"
+          }
+        },
+        "type": "object",
+        "title": "WidgetTextContentsTranslation"
       },
       "WordTimestamp": {
         "properties": {
