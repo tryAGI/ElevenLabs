@@ -16590,7 +16590,7 @@
     "/v1/convai/agent-testing/summaries": {
       "post": {
         "summary": "Get Agent Response Test Summaries By Ids",
-        "description": "Gets multiple agent response tests by their IDs. Returns a dictionary mapping test IDs to test summaries.",
+        "description": "Gets agent response test summaries for the requested test IDs.",
         "operationId": "get_agent_response_tests_summaries_route",
         "parameters": [
           {
@@ -17470,6 +17470,48 @@
               "title": "Data Collection Params"
             },
             "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values."
+          },
+          {
+            "name": "data_collection_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Data collection field IDs to include in each conversation summary. Repeat param. When omitted, data_collection_results is not returned.",
+              "title": "Data Collection Ids"
+            },
+            "description": "Data collection field IDs to include in each conversation summary. Repeat param. When omitted, data_collection_results is not returned."
+          },
+          {
+            "name": "evaluation_criteria_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Evaluation criteria IDs to include in each conversation summary. Repeat param. When omitted, evaluation_criteria_results is not returned.",
+              "title": "Evaluation Criteria Ids"
+            },
+            "description": "Evaluation criteria IDs to include in each conversation summary. Repeat param. When omitted, evaluation_criteria_results is not returned."
           },
           {
             "name": "tool_names",
@@ -54233,6 +54275,32 @@
               }
             ]
           },
+          "data_collection_results": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Data Collection Results"
+          },
+          "evaluation_criteria_results": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/EvaluationCriteriaSummaryResult"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Evaluation Criteria Results"
+          },
           "tag_ids": {
             "items": {
               "type": "string"
@@ -60534,6 +60602,40 @@
           "has_more"
         ],
         "title": "EnvironmentVariablesListResponse"
+      },
+      "EvaluationCriteriaSummaryResult": {
+        "properties": {
+          "result": {
+            "$ref": "#/components/schemas/EvaluationSuccessResult"
+          },
+          "score": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score"
+          },
+          "max_score": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Score"
+          }
+        },
+        "type": "object",
+        "required": [
+          "result"
+        ],
+        "title": "EvaluationCriteriaSummaryResult"
       },
       "EvaluationSettings-Input": {
         "properties": {
@@ -68969,7 +69071,7 @@
             },
             "type": "array",
             "title": "Test Ids",
-            "description": "List of test IDs to fetch. No duplicates allowed.",
+            "description": "List of test IDs to fetch. No duplicates allowed. Prefer at most 1000 IDs per request.",
             "examples": [
               [
                 "test_id_1",
@@ -75813,6 +75915,44 @@
             "$ref": "#/components/schemas/ProcedureType",
             "description": "Procedure type",
             "default": "free_form"
+          },
+          "trigger": {
+            "type": "string",
+            "title": "Trigger",
+            "description": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it.",
+            "default": ""
+          },
+          "referenced_tool_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Tool Ids",
+            "description": "Tool IDs referenced in the procedure content"
+          },
+          "referenced_kb_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Kb Ids",
+            "description": "Knowledge base IDs referenced in the procedure content"
+          },
+          "referenced_procedure_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Procedure Ids",
+            "description": "Procedure IDs referenced in the procedure content"
+          },
+          "referenced_dynamic_variables": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Dynamic Variables",
+            "description": "Dynamic variable names used in the procedure content"
           }
         },
         "type": "object",
@@ -75823,6 +75963,19 @@
         "example": {
           "name": "Customer Support Procedure",
           "procedure_id": "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3",
+          "referenced_dynamic_variables": [
+            "customer_id"
+          ],
+          "referenced_kb_ids": [
+            "kb_123"
+          ],
+          "referenced_procedure_ids": [
+            "agtprc_other"
+          ],
+          "referenced_tool_ids": [
+            "tool_123"
+          ],
+          "trigger": "When the customer asks for support",
           "type": "free_form",
           "version_id": "agtprcv_7rbqxer9o12cyxi55ckw6sgz1dl4"
         }

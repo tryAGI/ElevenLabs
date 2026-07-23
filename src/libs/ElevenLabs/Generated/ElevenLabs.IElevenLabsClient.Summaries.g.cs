@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Get Agent Response Test Summaries By Ids<br/>
-        /// Gets multiple agent response tests by their IDs. Returns a dictionary mapping test IDs to test summaries.
+        /// Gets agent response test summaries for the requested test IDs.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -19,7 +19,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Agent Response Test Summaries By Ids<br/>
-        /// Gets multiple agent response tests by their IDs. Returns a dictionary mapping test IDs to test summaries.
+        /// Gets agent response test summaries for the requested test IDs.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -32,10 +32,10 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Agent Response Test Summaries By Ids<br/>
-        /// Gets multiple agent response tests by their IDs. Returns a dictionary mapping test IDs to test summaries.
+        /// Gets agent response test summaries for the requested test IDs.
         /// </summary>
         /// <param name="testIds">
-        /// List of test IDs to fetch. No duplicates allowed.
+        /// List of test IDs to fetch. No duplicates allowed. Prefer at most 1000 IDs per request.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

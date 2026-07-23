@@ -138,6 +138,18 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationSentimentAnalysis? SentimentAnalysis { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("data_collection_results")]
+        public object? DataCollectionResults { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("evaluation_criteria_results")]
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EvaluationCriteriaSummaryResult>? EvaluationCriteriaResults { get; set; }
+
+        /// <summary>
         /// Conversation tag ids assigned to this conversation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tag_ids")]
@@ -172,6 +184,8 @@ namespace ElevenLabs
         /// <param name="direction"></param>
         /// <param name="rating"></param>
         /// <param name="sentimentAnalysis"></param>
+        /// <param name="dataCollectionResults"></param>
+        /// <param name="evaluationCriteriaResults"></param>
         /// <param name="tagIds">
         /// Conversation tag ids assigned to this conversation.
         /// </param>
@@ -199,6 +213,8 @@ namespace ElevenLabs
             global::ElevenLabs.TelephonyDirection? direction,
             double? rating,
             global::ElevenLabs.ConversationSentimentAnalysis? sentimentAnalysis,
+            object? dataCollectionResults,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EvaluationCriteriaSummaryResult>? evaluationCriteriaResults,
             global::System.Collections.Generic.IList<string>? tagIds)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
@@ -221,6 +237,8 @@ namespace ElevenLabs
             this.Direction = direction;
             this.Rating = rating;
             this.SentimentAnalysis = sentimentAnalysis;
+            this.DataCollectionResults = dataCollectionResults;
+            this.EvaluationCriteriaResults = evaluationCriteriaResults;
             this.TagIds = tagIds;
         }
 
