@@ -138,6 +138,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationSentimentAnalysis? SentimentAnalysis { get; set; }
 
         /// <summary>
+        /// Conversation tag ids assigned to this conversation.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tag_ids")]
+        public global::System.Collections.Generic.IList<string>? TagIds { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -166,6 +172,9 @@ namespace ElevenLabs
         /// <param name="direction"></param>
         /// <param name="rating"></param>
         /// <param name="sentimentAnalysis"></param>
+        /// <param name="tagIds">
+        /// Conversation tag ids assigned to this conversation.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -189,7 +198,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames,
             global::ElevenLabs.TelephonyDirection? direction,
             double? rating,
-            global::ElevenLabs.ConversationSentimentAnalysis? sentimentAnalysis)
+            global::ElevenLabs.ConversationSentimentAnalysis? sentimentAnalysis,
+            global::System.Collections.Generic.IList<string>? tagIds)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.BranchId = branchId;
@@ -211,6 +221,7 @@ namespace ElevenLabs
             this.Direction = direction;
             this.Rating = rating;
             this.SentimentAnalysis = sentimentAnalysis;
+            this.TagIds = tagIds;
         }
 
         /// <summary>

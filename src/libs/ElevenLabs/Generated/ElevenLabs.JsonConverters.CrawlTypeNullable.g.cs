@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class ProjectCreationMetaResponseModelTypeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.ProjectCreationMetaResponseModelType>
+    public sealed class CrawlTypeNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.CrawlType?>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.ProjectCreationMetaResponseModelType Read(
+        public override global::ElevenLabs.CrawlType? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.ProjectCreationMetaResponseModelTypeExtensions.ToEnum(stringValue) ?? default;
+                        return global::ElevenLabs.CrawlTypeExtensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.ProjectCreationMetaResponseModelType)numValue;
+                    return (global::ElevenLabs.CrawlType)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::ElevenLabs.ProjectCreationMetaResponseModelType);
+                    return default(global::ElevenLabs.CrawlType?);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,12 +42,19 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.ProjectCreationMetaResponseModelType value,
+            global::ElevenLabs.CrawlType? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::ElevenLabs.ProjectCreationMetaResponseModelTypeExtensions.ToValueString(value));
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::ElevenLabs.CrawlTypeExtensions.ToValueString(value.Value));
+            }
         }
     }
 }

@@ -1,0 +1,51 @@
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    /// Default Value: discovery
+    /// </summary>
+    public enum CrawlType
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        Discovery,
+        /// <summary>
+        /// 
+        /// </summary>
+        Sitemap,
+    }
+
+    /// <summary>
+    /// Enum extensions to do fast conversions without the reflection.
+    /// </summary>
+    public static class CrawlTypeExtensions
+    {
+        /// <summary>
+        /// Converts an enum to a string.
+        /// </summary>
+        public static string ToValueString(this CrawlType value)
+        {
+            return value switch
+            {
+                CrawlType.Discovery => "discovery",
+                CrawlType.Sitemap => "sitemap",
+                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
+            };
+        }
+        /// <summary>
+        /// Converts an string to a enum.
+        /// </summary>
+        public static CrawlType? ToEnum(string value)
+        {
+            return value switch
+            {
+                "discovery" => CrawlType.Discovery,
+                "sitemap" => CrawlType.Sitemap,
+                _ => null,
+            };
+        }
+    }
+}
