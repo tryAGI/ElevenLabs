@@ -22917,6 +22917,117 @@
         "x-fern-sdk-method-name": "get_agents"
       }
     },
+    "/v1/convai/knowledge-base/dependent-agents": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Get Dependent Agents For Multiple Documents",
+        "description": "Get a list of agents depending on any of the given knowledge base documents.",
+        "operationId": "get_knowledge_base_bulk_dependent_agents_route",
+        "parameters": [
+          {
+            "name": "dependent_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/KnowledgeBaseDependentType",
+              "description": "Type of dependent agents to return.",
+              "default": "all"
+            },
+            "description": "Type of dependent agents to return."
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "How many documents to return at maximum. Can not exceed 100, defaults to 30.",
+              "default": 30,
+              "title": "Page Size"
+            },
+            "description": "How many documents to return at maximum. Can not exceed 100, defaults to 30."
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Used for fetching next page. Cursor is returned in the response.",
+              "title": "Cursor"
+            },
+            "description": "Used for fetching next page. Cursor is returned in the response."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Get_dependent_agents_for_multiple_documents_v1_convai_knowledge_base_dependent_agents_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetKnowledgeBaseDependentAgentsResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "knowledge_base",
+          "documents"
+        ],
+        "x-fern-sdk-method-name": "get_bulk_agents"
+      }
+    },
     "/v1/convai/knowledge-base/{documentation_id}/content": {
       "get": {
         "tags": [
@@ -23429,6 +23540,92 @@
           "documents"
         ],
         "x-fern-sdk-method-name": "bulk_move"
+      }
+    },
+    "/v1/convai/knowledge-base/bulk-delete": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Bulk Delete Knowledge Base Documents",
+        "description": "Delete multiple documents or folders from the knowledge base. Each id succeeds or fails independently.",
+        "operationId": "post_knowledge_base_bulk_delete_route",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Bulk_delete_knowledge_base_documents_v1_convai_knowledge_base_bulk_delete_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/KnowledgeBaseBulkDeleteSuccessfulResponseModel"
+                      },
+                      {
+                        "$ref": "#/components/schemas/BatchFailureResponseModel"
+                      }
+                    ],
+                    "discriminator": {
+                      "propertyName": "status",
+                      "mapping": {
+                        "success": "#/components/schemas/KnowledgeBaseBulkDeleteSuccessfulResponseModel",
+                        "failure": "#/components/schemas/BatchFailureResponseModel"
+                      }
+                    }
+                  },
+                  "title": "Response Bulk Delete Knowledge Base Documents V1 Convai Knowledge Base Bulk Delete Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "knowledge_base",
+          "documents"
+        ],
+        "x-fern-sdk-method-name": "bulk_delete"
       }
     },
     "/v1/convai/agents/{agent_id}/topics": {
@@ -40186,6 +40383,38 @@
         ],
         "title": "Body_Audio_Isolation_v1_audio_isolation_post"
       },
+      "Body_Bulk_delete_knowledge_base_documents_v1_convai_knowledge_base_bulk_delete_post": {
+        "properties": {
+          "document_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 20,
+            "minItems": 1,
+            "uniqueItems": true,
+            "title": "Document Ids",
+            "description": "The ids of documents or folders from the knowledge base.",
+            "examples": [
+              [
+                "21m00Tcm4TlvDq8ikWAM",
+                "31m00Tcm4TlvDq8ikWBM"
+              ]
+            ]
+          },
+          "force": {
+            "type": "boolean",
+            "title": "Force",
+            "description": "If set to true, documents or folders will be deleted regardless of whether they are used by any agents and will be removed from the dependent agents. For non-empty folders, this will also delete all child documents and folders.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "document_ids"
+        ],
+        "title": "Body_Bulk_delete_knowledge_base_documents_v1_convai_knowledge_base_bulk_delete_post"
+      },
       "Body_Bulk_move_entities_to_folder_v1_convai_knowledge_base_bulk_move_post": {
         "properties": {
           "document_ids": {
@@ -42976,6 +43205,32 @@
           "end_time"
         ],
         "title": "Body_Get_Workspace_Usage_v1_workspace_analytics_query_usage_by_product_over_time_post"
+      },
+      "Body_Get_dependent_agents_for_multiple_documents_v1_convai_knowledge_base_dependent_agents_post": {
+        "properties": {
+          "document_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 20,
+            "minItems": 1,
+            "uniqueItems": true,
+            "title": "Document Ids",
+            "description": "The ids of documents or folders from the knowledge base.",
+            "examples": [
+              [
+                "21m00Tcm4TlvDq8ikWAM",
+                "31m00Tcm4TlvDq8ikWBM"
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "document_ids"
+        ],
+        "title": "Body_Get_dependent_agents_for_multiple_documents_v1_convai_knowledge_base_dependent_agents_post"
       },
       "Body_Get_similar_library_voices_v1_similar_voices_post": {
         "properties": {
@@ -66799,6 +67054,25 @@
         ],
         "title": "KbExternalSyncJob"
       },
+      "KnowledgeBaseBulkDeleteSuccessfulResponseModel": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "const": "success",
+            "title": "Status",
+            "default": "success"
+          },
+          "data": {
+            "$ref": "#/components/schemas/KnowledgeBaseDeletedResponseModel"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "data"
+        ],
+        "title": "KnowledgeBaseBulkDeleteSuccessfulResponseModel"
+      },
       "KnowledgeBaseContentSearchResponseModel": {
         "properties": {
           "results": {
@@ -66879,6 +67153,19 @@
           "score"
         ],
         "title": "KnowledgeBaseContentSearchResult"
+      },
+      "KnowledgeBaseDeletedResponseModel": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "title": "KnowledgeBaseDeletedResponseModel"
       },
       "KnowledgeBaseDependentType": {
         "type": "string",
@@ -67046,6 +67333,29 @@
           "usage_mode": "auto"
         }
       },
+      "KnowledgeBaseRagChunkModel": {
+        "properties": {
+          "chunk_id": {
+            "type": "string",
+            "title": "Chunk Id"
+          },
+          "document_id": {
+            "type": "string",
+            "title": "Document Id"
+          },
+          "content": {
+            "type": "string",
+            "title": "Content"
+          }
+        },
+        "type": "object",
+        "required": [
+          "chunk_id",
+          "document_id",
+          "content"
+        ],
+        "title": "KnowledgeBaseRagChunkModel"
+      },
       "KnowledgeBaseRagToolConfig": {
         "properties": {
           "system_tool_type": {
@@ -67081,6 +67391,14 @@
             "title": "Message",
             "description": "Human-readable status for the LLM about the search results",
             "default": "Referenced knowledge base."
+          },
+          "chunks": {
+            "items": {
+              "$ref": "#/components/schemas/KnowledgeBaseRagChunkModel"
+            },
+            "type": "array",
+            "title": "Chunks",
+            "description": "Retrieved chunks; populated only in the rag-result-in-tool-result mode"
           }
         },
         "type": "object",
