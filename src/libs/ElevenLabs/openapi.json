@@ -25270,6 +25270,73 @@
         "x-fern-sdk-method-name": "get_dependencies"
       }
     },
+    "/v1/convai/batch-calling/{batch_id}/export": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Export Batch Call Results",
+        "description": "Download all recipients and conversation results for a terminal batch call as CSV.",
+        "operationId": "export_batch_call",
+        "parameters": [
+          {
+            "name": "batch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Batch Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Batch call results CSV.",
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "batch_calls"
+        ],
+        "x-fern-sdk-method-name": "export"
+      }
+    },
     "/v1/convai/batch-calling/submit": {
       "post": {
         "tags": [
