@@ -27,6 +27,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Flows,
+        /// <summary>
+        /// 
+        /// </summary>
         SpeechToText,
         /// <summary>
         /// 
@@ -50,6 +54,7 @@ namespace ElevenLabs
                 WebhookUsageType.ConvAIAgentSettings => "ConvAI Agent Settings",
                 WebhookUsageType.ConvAIAlerting => "ConvAI Alerting",
                 WebhookUsageType.ConvAISettings => "ConvAI Settings",
+                WebhookUsageType.Flows => "Flows",
                 WebhookUsageType.SpeechToText => "Speech to Text",
                 WebhookUsageType.VoiceLibraryRemovalNotices => "Voice Library Removal Notices",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -66,6 +71,7 @@ namespace ElevenLabs
                 "ConvAI Agent Settings" => WebhookUsageType.ConvAIAgentSettings,
                 "ConvAI Alerting" => WebhookUsageType.ConvAIAlerting,
                 "ConvAI Settings" => WebhookUsageType.ConvAISettings,
+                "Flows" => WebhookUsageType.Flows,
                 "Speech to Text" => WebhookUsageType.SpeechToText,
                 "Voice Library Removal Notices" => WebhookUsageType.VoiceLibraryRemovalNotices,
                 _ => null,
