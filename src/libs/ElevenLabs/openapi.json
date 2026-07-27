@@ -56562,6 +56562,17 @@
             "$ref": "#/components/schemas/SimulationToolMockBehaviorConfig",
             "description": "Configuration for which tools to mock and fallback behavior."
           },
+          "tool_mock_overrides": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/components/schemas/ToolResponseMockConfig-Input"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Tool Mock Overrides",
+            "description": "Test-specific response mocks, keyed by tool ID. Applied ahead of the tool's shared mocks and only within this test. Only take effect for tools that are mocked (see tool_mock_config)."
+          },
           "evaluation_model": {
             "anyOf": [
               {
@@ -65557,6 +65568,17 @@
           "tool_mock_config": {
             "$ref": "#/components/schemas/SimulationToolMockBehaviorConfig",
             "description": "Configuration for which tools to mock and fallback behavior."
+          },
+          "tool_mock_overrides": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/components/schemas/ToolResponseMockConfig-Output"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Tool Mock Overrides",
+            "description": "Test-specific response mocks, keyed by tool ID. Applied ahead of the tool's shared mocks and only within this test. Only take effect for tools that are mocked (see tool_mock_config)."
           },
           "evaluation_model": {
             "anyOf": [
@@ -82989,6 +83011,14 @@
             "minLength": 1,
             "title": "Text",
             "description": "Literal text message to be spoken by the agent."
+          },
+          "text_translations": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/TranslatedString"
+            },
+            "type": "object",
+            "title": "Text Translations",
+            "description": "Translations for the text field"
           }
         },
         "type": "object",
@@ -83010,12 +83040,21 @@
             "minLength": 1,
             "title": "Text",
             "description": "Literal text message to be spoken by the agent."
+          },
+          "text_translations": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/TranslatedString"
+            },
+            "type": "object",
+            "title": "Text Translations",
+            "description": "Translations for the text field"
           }
         },
         "type": "object",
         "required": [
           "type",
-          "text"
+          "text",
+          "text_translations"
         ],
         "title": "SayNodeLiteralMessage"
       },
@@ -83903,6 +83942,17 @@
           "tool_mock_config": {
             "$ref": "#/components/schemas/SimulationToolMockBehaviorConfig",
             "description": "Configuration for which tools to mock and fallback behavior."
+          },
+          "tool_mock_overrides": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/components/schemas/ToolResponseMockConfig-Output"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Tool Mock Overrides",
+            "description": "Test-specific response mocks, keyed by tool ID. Applied ahead of the tool's shared mocks and only within this test. Only take effect for tools that are mocked (see tool_mock_config)."
           },
           "evaluation_model": {
             "anyOf": [
@@ -89015,6 +89065,12 @@
             "type": "string",
             "title": "Mock Result",
             "description": "The return value the LLM sees when this mock is active."
+          },
+          "is_error": {
+            "type": "boolean",
+            "title": "Is Error",
+            "description": "If true, the mock result is surfaced to the LLM as a tool error rather than a successful result.",
+            "default": false
           }
         },
         "type": "object",
@@ -89037,6 +89093,12 @@
             "type": "string",
             "title": "Mock Result",
             "description": "The return value the LLM sees when this mock is active."
+          },
+          "is_error": {
+            "type": "boolean",
+            "title": "Is Error",
+            "description": "If true, the mock result is surfaced to the LLM as a tool error rather than a successful result.",
+            "default": false
           }
         },
         "type": "object",
@@ -89934,6 +89996,20 @@
         ],
         "title": "TransferTypeEnum",
         "default": "conference"
+      },
+      "TranslatedString": {
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Value"
+          }
+        },
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "title": "TranslatedString"
       },
       "TurnConfig": {
         "properties": {
@@ -91804,6 +91880,17 @@
           "tool_mock_config": {
             "$ref": "#/components/schemas/SimulationToolMockBehaviorConfig",
             "description": "Configuration for which tools to mock and fallback behavior."
+          },
+          "tool_mock_overrides": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/components/schemas/ToolResponseMockConfig-Input"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Tool Mock Overrides",
+            "description": "Test-specific response mocks, keyed by tool ID. Applied ahead of the tool's shared mocks and only within this test. Only take effect for tools that are mocked (see tool_mock_config)."
           },
           "evaluation_model": {
             "anyOf": [

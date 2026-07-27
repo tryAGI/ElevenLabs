@@ -79,6 +79,12 @@ namespace ElevenLabs
         public global::ElevenLabs.SimulationToolMockBehaviorConfig? ToolMockConfig { get; set; }
 
         /// <summary>
+        /// Test-specific response mocks, keyed by tool ID. Applied ahead of the tool's shared mocks and only within this test. Only take effect for tools that are mocked (see tool_mock_config).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_mock_overrides")]
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>>? ToolMockOverrides { get; set; }
+
+        /// <summary>
         /// LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("evaluation_model")]
@@ -142,6 +148,9 @@ namespace ElevenLabs
         /// <param name="toolMockConfig">
         /// Configuration for which tools to mock and fallback behavior.
         /// </param>
+        /// <param name="toolMockOverrides">
+        /// Test-specific response mocks, keyed by tool ID. Applied ahead of the tool's shared mocks and only within this test. Only take effect for tools that are mocked (see tool_mock_config).
+        /// </param>
         /// <param name="evaluationModel">
         /// LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6.
         /// </param>
@@ -166,6 +175,7 @@ namespace ElevenLabs
             int? simulationMaxTurns,
             string? simulationEnvironment,
             global::ElevenLabs.SimulationToolMockBehaviorConfig? toolMockConfig,
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>>? toolMockOverrides,
             global::ElevenLabs.Llm? evaluationModel,
             global::ElevenLabs.Llm? simulatedUserModel,
             string? parentFolderId)
@@ -180,6 +190,7 @@ namespace ElevenLabs
             this.SimulationMaxTurns = simulationMaxTurns;
             this.SimulationEnvironment = simulationEnvironment;
             this.ToolMockConfig = toolMockConfig;
+            this.ToolMockOverrides = toolMockOverrides;
             this.EvaluationModel = evaluationModel;
             this.SimulatedUserModel = simulatedUserModel;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
