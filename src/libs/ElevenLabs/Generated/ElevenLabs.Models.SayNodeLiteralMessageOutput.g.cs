@@ -23,6 +23,13 @@ namespace ElevenLabs
         public required string Text { get; set; }
 
         /// <summary>
+        /// Translations for the text field
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text_translations")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.TranslatedString> TextTranslations { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -34,6 +41,9 @@ namespace ElevenLabs
         /// <param name="text">
         /// Literal text message to be spoken by the agent.
         /// </param>
+        /// <param name="textTranslations">
+        /// Translations for the text field
+        /// </param>
         /// <param name="type">
         /// Default Value: literal
         /// </param>
@@ -42,10 +52,12 @@ namespace ElevenLabs
 #endif
         public SayNodeLiteralMessageOutput(
             string text,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.TranslatedString> textTranslations,
             string type = "literal")
         {
             this.Type = type;
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
+            this.TextTranslations = textTranslations ?? throw new global::System.ArgumentNullException(nameof(textTranslations));
         }
 
         /// <summary>
@@ -53,18 +65,6 @@ namespace ElevenLabs
         /// </summary>
         public SayNodeLiteralMessageOutput()
         {
-        }
-
-        /// <summary>
-        /// Creates a new <see cref="SayNodeLiteralMessageOutput"/> from its single non-const required field,
-        /// hardcoding any const discriminator fields.
-        /// </summary>
-        public static SayNodeLiteralMessageOutput FromText(string text)
-        {
-            return new SayNodeLiteralMessageOutput
-            {
-                Text = text,
-            };
         }
 
     }
