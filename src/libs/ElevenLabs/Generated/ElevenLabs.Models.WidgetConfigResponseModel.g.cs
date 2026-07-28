@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"file_input_config":{"enabled":false,"max_files_per_conversation":10},"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}
+    /// Example: {"file_input_config":{"enabled":false,"max_files_in_memory":10,"max_files_per_conversation":10},"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}
     /// </summary>
     public sealed partial class WidgetConfigResponseModel
     {

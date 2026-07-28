@@ -100,12 +100,6 @@ namespace ElevenLabs
         public bool? EnablePhonemeTags { get; set; }
 
         /// <summary>
-        /// An optional filter applied to the audio output.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("audio_filter")]
-        public global::ElevenLabs.AudioFilterId? AudioFilter { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -159,9 +153,6 @@ namespace ElevenLabs
         /// Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.<br/>
         /// Default Value: true
         /// </param>
-        /// <param name="audioFilter">
-        /// An optional filter applied to the audio output.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -177,8 +168,7 @@ namespace ElevenLabs
             double? similarityBoost,
             global::ElevenLabs.TextNormalisationType? textNormalisationType,
             global::System.Collections.Generic.IList<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? pronunciationDictionaryLocators,
-            bool? enablePhonemeTags,
-            global::ElevenLabs.AudioFilterId? audioFilter)
+            bool? enablePhonemeTags)
         {
             this.ModelId = modelId;
             this.VoiceId = voiceId;
@@ -192,7 +182,6 @@ namespace ElevenLabs
             this.TextNormalisationType = textNormalisationType;
             this.PronunciationDictionaryLocators = pronunciationDictionaryLocators;
             this.EnablePhonemeTags = enablePhonemeTags;
-            this.AudioFilter = audioFilter;
         }
 
         /// <summary>

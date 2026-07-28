@@ -17722,6 +17722,24 @@
             "description": "Filter conversations by branch ID."
           },
           {
+            "name": "version_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations by version ID.",
+              "title": "Version Id"
+            },
+            "description": "Filter conversations by version ID."
+          },
+          {
             "name": "topic_ids",
             "in": "query",
             "required": false,
@@ -19094,6 +19112,24 @@
               "title": "Branch Id"
             },
             "description": "Filter conversations by branch ID."
+          },
+          {
+            "name": "version_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations by version ID.",
+              "title": "Version Id"
+            },
+            "description": "Filter conversations by version ID."
           },
           {
             "name": "topic_ids",
@@ -28626,6 +28662,813 @@
           }
         },
         "x-fern-sdk-group-name": "speech_engine",
+        "x-fern-sdk-method-name": "delete"
+      }
+    },
+    "/v1/convai/agents/{agent_id}/branches/{branch_id}/procedures": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Create Procedure",
+        "description": "Create a new procedure for the agent on a branch.",
+        "operationId": "create_procedure_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Agent ID to get the procedure draft from",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "title": "Agent Id"
+            },
+            "description": "Agent ID to get the procedure draft from"
+          },
+          {
+            "name": "branch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Branch ID to get the procedure draft from",
+              "examples": [
+                "agtbranch_0901k4aafjxxfxt93gd841r7tv5t"
+              ],
+              "title": "Branch Id"
+            },
+            "description": "Branch ID to get the procedure draft from"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateProcedureRequestModel"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateProcedureResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "procedures"
+        ],
+        "x-fern-sdk-method-name": "create"
+      },
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "List Procedures",
+        "description": "List the agent's procedures on a branch with their procedure_id, version_id, name, type, trigger, and has_draft. has_draft is true when a procedure has unpublished draft changes on this branch; its name/type/trigger then reflect that draft. Does not return procedure content -- use Get Procedure to read a procedure's body.",
+        "operationId": "list_procedures_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Agent ID to get the procedure draft from",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "title": "Agent Id"
+            },
+            "description": "Agent ID to get the procedure draft from"
+          },
+          {
+            "name": "branch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Branch ID to get the procedure draft from",
+              "examples": [
+                "agtbranch_0901k4aafjxxfxt93gd841r7tv5t"
+              ],
+              "title": "Branch Id"
+            },
+            "description": "Branch ID to get the procedure draft from"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListProceduresResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "procedures"
+        ],
+        "x-fern-sdk-method-name": "list"
+      }
+    },
+    "/v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/compile": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Compile Procedures",
+        "description": "Compile procedure drafts into a workflow.",
+        "operationId": "compile_procedures_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Agent ID to get the procedure draft from",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "title": "Agent Id"
+            },
+            "description": "Agent ID to get the procedure draft from"
+          },
+          {
+            "name": "branch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Branch ID to get the procedure draft from",
+              "examples": [
+                "agtbranch_0901k4aafjxxfxt93gd841r7tv5t"
+              ],
+              "title": "Branch Id"
+            },
+            "description": "Branch ID to get the procedure draft from"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompileProceduresResponseModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Structured procedure validation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompileProceduresValidationErrorResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "procedures"
+        ],
+        "x-fern-sdk-method-name": "compile"
+      }
+    },
+    "/v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}": {
+      "delete": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Remove Procedure",
+        "description": "Remove a procedure from the agent's draft working set.",
+        "operationId": "remove_procedure_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Agent ID to get the procedure draft from",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "title": "Agent Id"
+            },
+            "description": "Agent ID to get the procedure draft from"
+          },
+          {
+            "name": "branch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Branch ID to get the procedure draft from",
+              "examples": [
+                "agtbranch_0901k4aafjxxfxt93gd841r7tv5t"
+              ],
+              "title": "Branch Id"
+            },
+            "description": "Branch ID to get the procedure draft from"
+          },
+          {
+            "name": "procedure_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The procedure ID",
+              "examples": [
+                "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3"
+              ],
+              "title": "Procedure Id"
+            },
+            "description": "The procedure ID"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "procedures"
+        ],
+        "x-fern-sdk-method-name": "remove"
+      },
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Get Procedure",
+        "description": "Retrieve a procedure at a specific version or the current branch HEAD.",
+        "operationId": "get_procedure_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Agent ID to get the procedure draft from",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "title": "Agent Id"
+            },
+            "description": "Agent ID to get the procedure draft from"
+          },
+          {
+            "name": "branch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Branch ID to get the procedure draft from",
+              "examples": [
+                "agtbranch_0901k4aafjxxfxt93gd841r7tv5t"
+              ],
+              "title": "Branch Id"
+            },
+            "description": "Branch ID to get the procedure draft from"
+          },
+          {
+            "name": "procedure_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The procedure ID",
+              "examples": [
+                "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3"
+              ],
+              "title": "Procedure Id"
+            },
+            "description": "The procedure ID"
+          },
+          {
+            "name": "version_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The version ID to retrieve. If omitted, returns the version at branch HEAD.",
+              "examples": [
+                "agtprcv_7rbqxer9o12cyxi55ckw6sgz1dl4"
+              ],
+              "title": "Version Id"
+            },
+            "description": "The version ID to retrieve. If omitted, returns the version at branch HEAD."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProcedureAtVersionResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "procedures"
+        ],
+        "x-fern-sdk-method-name": "get"
+      }
+    },
+    "/v1/convai/agents/{agent_id}/branches/{branch_id}/procedures/{procedure_id}/draft": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Get Procedure Draft",
+        "description": "Get user's draft for a procedure",
+        "operationId": "get_procedure_draft_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Agent ID to get the procedure draft from",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "title": "Agent Id"
+            },
+            "description": "Agent ID to get the procedure draft from"
+          },
+          {
+            "name": "branch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Branch ID to get the procedure draft from",
+              "examples": [
+                "agtbranch_0901k4aafjxxfxt93gd841r7tv5t"
+              ],
+              "title": "Branch Id"
+            },
+            "description": "Branch ID to get the procedure draft from"
+          },
+          {
+            "name": "procedure_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The procedure ID",
+              "examples": [
+                "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3"
+              ],
+              "title": "Procedure Id"
+            },
+            "description": "The procedure ID"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProcedureDraftResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "procedures",
+          "drafts"
+        ],
+        "x-fern-sdk-method-name": "get"
+      },
+      "patch": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Update Procedure Draft",
+        "description": "Create or update user's draft for a procedure",
+        "operationId": "update_procedure_draft_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Agent ID to get the procedure draft from",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "title": "Agent Id"
+            },
+            "description": "Agent ID to get the procedure draft from"
+          },
+          {
+            "name": "branch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Branch ID to get the procedure draft from",
+              "examples": [
+                "agtbranch_0901k4aafjxxfxt93gd841r7tv5t"
+              ],
+              "title": "Branch Id"
+            },
+            "description": "Branch ID to get the procedure draft from"
+          },
+          {
+            "name": "procedure_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The procedure ID",
+              "examples": [
+                "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3"
+              ],
+              "title": "Procedure Id"
+            },
+            "description": "The procedure ID"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProcedureDraftRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProcedureDraftResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "procedures",
+          "drafts"
+        ],
+        "x-fern-sdk-method-name": "update"
+      },
+      "delete": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Delete Procedure Draft",
+        "description": "Delete user's draft for a procedure, resetting to the committed version",
+        "operationId": "delete_procedure_draft_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Agent ID to get the procedure draft from",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "title": "Agent Id"
+            },
+            "description": "Agent ID to get the procedure draft from"
+          },
+          {
+            "name": "branch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Branch ID to get the procedure draft from",
+              "examples": [
+                "agtbranch_0901k4aafjxxfxt93gd841r7tv5t"
+              ],
+              "title": "Branch Id"
+            },
+            "description": "Branch ID to get the procedure draft from"
+          },
+          {
+            "name": "procedure_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The procedure ID",
+              "examples": [
+                "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3"
+              ],
+              "title": "Procedure Id"
+            },
+            "description": "The procedure ID"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "procedures",
+          "drafts"
+        ],
         "x-fern-sdk-method-name": "delete"
       }
     },
@@ -38286,16 +39129,6 @@
           "description"
         ],
         "title": "AudioAnalysisResult"
-      },
-      "AudioFilterId": {
-        "type": "string",
-        "enum": [
-          "phone",
-          "low_quality_phone",
-          "bright_phone"
-        ],
-        "title": "AudioFilterId",
-        "description": "Identifiers for audio voice filters."
       },
       "AudioFormat": {
         "type": "string",
@@ -50023,6 +50856,57 @@
         ],
         "title": "ColumnUnit"
       },
+      "CompileProceduresResponseModel": {
+        "properties": {
+          "workflow": {
+            "$ref": "#/components/schemas/AgentWorkflowResponseModel",
+            "description": "Generated workflow from compilation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "workflow"
+        ],
+        "title": "CompileProceduresResponseModel",
+        "example": {
+          "workflow": {
+            "edges": [],
+            "nodes": []
+          }
+        }
+      },
+      "CompileProceduresValidationErrorResponseModel": {
+        "properties": {
+          "errors": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/components/schemas/ProcedureValidationError"
+              },
+              "type": "array",
+              "minItems": 1
+            },
+            "type": "object",
+            "minProperties": 1,
+            "title": "Errors",
+            "description": "Validation errors keyed by procedure ID."
+          }
+        },
+        "type": "object",
+        "required": [
+          "errors"
+        ],
+        "title": "CompileProceduresValidationErrorResponseModel",
+        "example": {
+          "errors": {
+            "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3": [
+              {
+                "message": "Field required",
+                "path": "steps.0.message"
+              }
+            ]
+          }
+        }
+      },
       "CompositionPlan": {
         "properties": {
           "chunks": {
@@ -53160,6 +54044,9 @@
                     "$ref": "#/components/schemas/KnowledgeBaseRagToolResultModel"
                   },
                   {
+                    "$ref": "#/components/schemas/KnowledgeBaseToolResultModel"
+                  },
+                  {
                     "$ref": "#/components/schemas/RunSubagentToolResultSuccessModel"
                   },
                   {
@@ -53171,6 +54058,7 @@
                   "mapping": {
                     "end_call_success": "#/components/schemas/EndCallToolResultModel",
                     "knowledge_base_rag_success": "#/components/schemas/KnowledgeBaseRagToolResultModel",
+                    "knowledge_base_success": "#/components/schemas/KnowledgeBaseToolResultModel",
                     "language_detection_success": "#/components/schemas/LanguageDetectionToolResultModel",
                     "play_dtmf_error": "#/components/schemas/PlayDTMFResultErrorModel",
                     "play_dtmf_success": "#/components/schemas/PlayDTMFResultSuccessModel",
@@ -53307,6 +54195,9 @@
                     "$ref": "#/components/schemas/KnowledgeBaseRagToolResultModel"
                   },
                   {
+                    "$ref": "#/components/schemas/KnowledgeBaseToolResultModel"
+                  },
+                  {
                     "$ref": "#/components/schemas/RunSubagentToolResultSuccessModel"
                   },
                   {
@@ -53318,6 +54209,7 @@
                   "mapping": {
                     "end_call_success": "#/components/schemas/EndCallToolResultModel",
                     "knowledge_base_rag_success": "#/components/schemas/KnowledgeBaseRagToolResultModel",
+                    "knowledge_base_success": "#/components/schemas/KnowledgeBaseToolResultModel",
                     "language_detection_success": "#/components/schemas/LanguageDetectionToolResultModel",
                     "play_dtmf_error": "#/components/schemas/PlayDTMFResultErrorModel",
                     "play_dtmf_success": "#/components/schemas/PlayDTMFResultSuccessModel",
@@ -56237,6 +57129,59 @@
         ],
         "title": "CreatePrivateKeyJWTRequest",
         "description": "Request model for creating Private Key JWT auth connections - inherits common settings and includes sensitive fields"
+      },
+      "CreateProcedureRequestModel": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 200,
+            "title": "Name",
+            "description": "Procedure name",
+            "default": ""
+          },
+          "content": {
+            "type": "string",
+            "title": "Content",
+            "description": "Initial procedure content",
+            "default": ""
+          },
+          "type": {
+            "$ref": "#/components/schemas/ProcedureType",
+            "description": "Procedure type",
+            "default": "free_form"
+          },
+          "trigger": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Trigger",
+            "description": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it. If omitted or null, the trigger is derived from the content instead. Also accepts `description` as an alias."
+          }
+        },
+        "type": "object",
+        "title": "CreateProcedureRequestModel"
+      },
+      "CreateProcedureResponseModel": {
+        "properties": {
+          "procedure_id": {
+            "type": "string",
+            "title": "Procedure Id",
+            "description": "ID of the created procedure"
+          }
+        },
+        "type": "object",
+        "required": [
+          "procedure_id"
+        ],
+        "title": "CreateProcedureResponseModel",
+        "example": {
+          "procedure_id": "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3"
+        }
       },
       "CreateProductParams": {
         "properties": {
@@ -61650,12 +62595,18 @@
             "description": "When enabled, users may attach images or PDFs in chat when the LLM supports multimodal input.",
             "default": true
           },
+          "max_files_in_memory": {
+            "type": "integer",
+            "maximum": 30.0,
+            "minimum": 1.0,
+            "title": "Max Files In Memory",
+            "description": "Number of most-recent files kept in memory during a conversation. Older files are summarized and their bytes freed.",
+            "default": 10
+          },
           "max_files_per_conversation": {
             "type": "integer",
-            "maximum": 10.0,
-            "minimum": 1.0,
             "title": "Max Files Per Conversation",
-            "description": "Maximum number of files that can be uploaded per conversation.",
+            "description": "Total files a user can upload in one conversation. Uploads are billed per file. Use -1 for no limit, or a value >= max_files_in_memory.",
             "default": 10
           }
         },
@@ -61676,6 +62627,18 @@
             "title": "Enabled",
             "description": "When enabled, users may attach images or PDFs in chat when the LLM supports multimodal input."
           },
+          "max_files_in_memory": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Files In Memory",
+            "description": "Number of most-recent files kept in memory during a conversation. Older files are summarized and their bytes freed."
+          },
           "max_files_per_conversation": {
             "anyOf": [
               {
@@ -61686,7 +62649,7 @@
               }
             ],
             "title": "Max Files Per Conversation",
-            "description": "Maximum number of files that can be uploaded per conversation."
+            "description": "Total files a user can upload in one conversation. Uploads are billed per file. Use -1 for no limit, or a value >= max_files_in_memory."
           }
         },
         "type": "object",
@@ -67575,6 +68538,75 @@
         ],
         "title": "KnowledgeBaseSummaryBatchSuccessfulResponseModel"
       },
+      "KnowledgeBaseToolConfig": {
+        "properties": {
+          "system_tool_type": {
+            "type": "string",
+            "const": "knowledge_base",
+            "title": "System Tool Type",
+            "default": "knowledge_base"
+          },
+          "enabled_strategies": {
+            "items": {
+              "$ref": "#/components/schemas/SearchStrategy"
+            },
+            "type": "array",
+            "title": "Enabled Strategies"
+          }
+        },
+        "type": "object",
+        "title": "KnowledgeBaseToolConfig"
+      },
+      "KnowledgeBaseToolInfo": {
+        "properties": {
+          "enabled_strategies": {
+            "items": {
+              "$ref": "#/components/schemas/SearchStrategy"
+            },
+            "type": "array",
+            "title": "Enabled Strategies",
+            "description": "Search strategies exposed to the model. Must be non-empty."
+          }
+        },
+        "type": "object",
+        "title": "KnowledgeBaseToolInfo"
+      },
+      "KnowledgeBaseToolResultModel": {
+        "properties": {
+          "result_type": {
+            "type": "string",
+            "const": "knowledge_base_success",
+            "title": "Result Type",
+            "default": "knowledge_base_success"
+          },
+          "status": {
+            "$ref": "#/components/schemas/KnowledgeBaseToolStatus",
+            "default": "success"
+          },
+          "chunk_count": {
+            "type": "integer",
+            "title": "Chunk Count",
+            "default": 0
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "default": "Referenced knowledge base."
+          }
+        },
+        "type": "object",
+        "title": "KnowledgeBaseToolResultModel"
+      },
+      "KnowledgeBaseToolStatus": {
+        "type": "string",
+        "enum": [
+          "success",
+          "no_matching_documents",
+          "no_results"
+        ],
+        "title": "KnowledgeBaseToolStatus",
+        "default": "success"
+      },
       "LLM": {
         "type": "string",
         "enum": [
@@ -69307,6 +70339,35 @@
               "submitted_at": "2025-03-15T10:30:00Z",
               "total_amount_usd": 11.0,
               "updated_at": "2025-03-15T10:30:00Z"
+            }
+          ]
+        }
+      },
+      "ListProceduresResponseModel": {
+        "properties": {
+          "procedures": {
+            "items": {
+              "$ref": "#/components/schemas/ProcedureListItemResponseModel"
+            },
+            "type": "array",
+            "title": "Procedures",
+            "description": "Procedures on the branch with their draft-aware metadata."
+          }
+        },
+        "type": "object",
+        "required": [
+          "procedures"
+        ],
+        "title": "ListProceduresResponseModel",
+        "example": {
+          "procedures": [
+            {
+              "has_draft": false,
+              "name": "Customer Support Procedure",
+              "procedure_id": "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3",
+              "trigger": "When the customer asks for support",
+              "type": "free_form",
+              "version_id": "agtprcv_7rbqxer9o12cyxi55ckw6sgz1dl4"
             }
           ]
         }
@@ -76299,6 +77360,168 @@
         ],
         "title": "ProcedureAtVersion"
       },
+      "ProcedureAtVersionResponseModel": {
+        "properties": {
+          "procedure_id": {
+            "type": "string",
+            "title": "Procedure Id",
+            "description": "Procedure ID"
+          },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Id",
+            "description": "Version ID of a version of the procedure. None for a procedure never versioned."
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 200,
+            "title": "Name",
+            "description": "Procedure name"
+          },
+          "content": {
+            "type": "string",
+            "maxLength": 50000,
+            "title": "Content",
+            "description": "Procedure content"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ProcedureType",
+            "description": "Procedure type",
+            "default": "free_form"
+          },
+          "trigger": {
+            "type": "string",
+            "title": "Trigger",
+            "description": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it.",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "procedure_id",
+          "name",
+          "content"
+        ],
+        "title": "ProcedureAtVersionResponseModel",
+        "example": {
+          "content": "# Customer Support Procedure\n\n1. Greet the customer...",
+          "name": "Customer Support Procedure",
+          "procedure_id": "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3",
+          "trigger": "When the customer asks for support",
+          "type": "free_form",
+          "version_id": "agtprcv_7rbqxer9o12cyxi55ckw6sgz1dl4"
+        }
+      },
+      "ProcedureDraftResponseModel": {
+        "properties": {
+          "procedure_id": {
+            "type": "string",
+            "title": "Procedure Id",
+            "description": "Procedure ID"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 200,
+            "title": "Name",
+            "description": "Procedure name"
+          },
+          "content": {
+            "type": "string",
+            "maxLength": 50000,
+            "title": "Content",
+            "description": "Procedure content"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ProcedureType",
+            "description": "Procedure type",
+            "default": "free_form"
+          },
+          "trigger": {
+            "type": "string",
+            "title": "Trigger",
+            "description": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it.",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "procedure_id",
+          "name",
+          "content"
+        ],
+        "title": "ProcedureDraftResponseModel",
+        "example": {
+          "content": "# Customer Support Procedure\n\n1. Greet the customer...",
+          "name": "Customer Support Procedure",
+          "procedure_id": "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3",
+          "trigger": "When the customer asks for support",
+          "type": "free_form"
+        }
+      },
+      "ProcedureListItemResponseModel": {
+        "properties": {
+          "procedure_id": {
+            "type": "string",
+            "title": "Procedure Id",
+            "description": "Procedure ID"
+          },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Id",
+            "description": "Version ID of a version of the procedure. None for a procedure never versioned."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Procedure name",
+            "default": ""
+          },
+          "type": {
+            "$ref": "#/components/schemas/ProcedureType",
+            "description": "Procedure type",
+            "default": "free_form"
+          },
+          "trigger": {
+            "type": "string",
+            "title": "Trigger",
+            "description": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it.",
+            "default": ""
+          },
+          "has_draft": {
+            "type": "boolean",
+            "title": "Has Draft",
+            "description": "True when the procedure has unpublished draft changes on this branch (a newly created or edited procedure not yet published). When true, the name, type, and trigger reflect that draft."
+          }
+        },
+        "type": "object",
+        "required": [
+          "procedure_id",
+          "has_draft"
+        ],
+        "title": "ProcedureListItemResponseModel",
+        "example": {
+          "has_draft": false,
+          "name": "Customer Support Procedure",
+          "procedure_id": "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3",
+          "trigger": "When the customer asks for support",
+          "type": "free_form",
+          "version_id": "agtprcv_7rbqxer9o12cyxi55ckw6sgz1dl4"
+        }
+      },
       "ProcedureRefResponseModel": {
         "properties": {
           "procedure_id": {
@@ -76401,6 +77624,26 @@
         ],
         "title": "ProcedureType",
         "default": "free_form"
+      },
+      "ProcedureValidationError": {
+        "properties": {
+          "path": {
+            "type": "string",
+            "title": "Path",
+            "description": "JSON path to the error, e.g. 'trigger', 'steps[0].instruction'"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "description": "Human-readable error message"
+          }
+        },
+        "type": "object",
+        "required": [
+          "path",
+          "message"
+        ],
+        "title": "ProcedureValidationError"
       },
       "ProjectCreationMetaResponseModel": {
         "properties": {
@@ -78682,7 +79925,7 @@
             "default": false
           },
           "rag": {
-            "$ref": "#/components/schemas/RagConfig",
+            "$ref": "#/components/schemas/RagConfig-Input",
             "description": "Configuration for RAG"
           },
           "timezone": {
@@ -78910,7 +80153,7 @@
             "default": false
           },
           "rag": {
-            "$ref": "#/components/schemas/RagConfig",
+            "$ref": "#/components/schemas/RagConfig-Output",
             "description": "Configuration for RAG"
           },
           "timezone": {
@@ -79401,7 +80644,7 @@
           "rag": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/RagConfigWorkflowOverride"
+                "$ref": "#/components/schemas/RagConfigWorkflowOverride-Input"
               },
               {
                 "type": "null"
@@ -79696,7 +80939,7 @@
           "rag": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/RagConfigWorkflowOverride"
+                "$ref": "#/components/schemas/RagConfigWorkflowOverride-Output"
               },
               {
                 "type": "null"
@@ -80522,7 +81765,7 @@
         ],
         "title": "RagChunkMetadata"
       },
-      "RagConfig": {
+      "RagConfig-Input": {
         "properties": {
           "enabled": {
             "type": "boolean",
@@ -80604,7 +81847,191 @@
         "type": "object",
         "title": "RagConfig"
       },
-      "RagConfigWorkflowOverride": {
+      "RagConfig-Output": {
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "title": "Enabled",
+            "default": false
+          },
+          "embedding_model": {
+            "$ref": "#/components/schemas/EmbeddingModelEnum",
+            "default": "e5_mistral_7b_instruct"
+          },
+          "max_vector_distance": {
+            "type": "number",
+            "exclusiveMaximum": 1.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Max Vector Distance",
+            "description": "Maximum vector distance of retrieved chunks.",
+            "default": 0.6,
+            "examples": [
+              0.5
+            ]
+          },
+          "max_documents_length": {
+            "type": "integer",
+            "exclusiveMaximum": 10000000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Max Documents Length",
+            "description": "Maximum total length of document chunks retrieved from RAG.",
+            "default": 50000,
+            "examples": [
+              "50000"
+            ]
+          },
+          "max_retrieved_rag_chunks_count": {
+            "type": "integer",
+            "maximum": 20.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Max Retrieved Rag Chunks Count",
+            "description": "Maximum number of RAG document chunks to initially retrieve from the vector store. These are then further filtered by vector distance and total length.",
+            "default": 20,
+            "examples": [
+              5
+            ]
+          },
+          "num_candidates": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 10000.0,
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Num Candidates",
+            "description": "Number of candidates evaluated in ANN vector search. Higher number means better results, but higher latency. Minimum recommended value is 100. If disabled, the default value is used.",
+            "examples": [
+              300
+            ]
+          },
+          "query_rewrite_prompt_override": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 1000,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Query Rewrite Prompt Override",
+            "description": "Custom prompt for rewriting user queries before RAG retrieval. The conversation history will be automatically appended at the end. If not set, the default prompt will be used.",
+            "examples": [
+              "You are given a conversation between a user and an assistant. Rewrite the last question to be self-contained and clear."
+            ]
+          }
+        },
+        "type": "object",
+        "title": "RagConfig"
+      },
+      "RagConfigWorkflowOverride-Input": {
+        "properties": {
+          "enabled": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enabled"
+          },
+          "embedding_model": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EmbeddingModelEnum"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "max_vector_distance": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Vector Distance",
+            "description": "Maximum vector distance of retrieved chunks.",
+            "examples": [
+              0.5
+            ]
+          },
+          "max_documents_length": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Documents Length",
+            "description": "Maximum total length of document chunks retrieved from RAG.",
+            "examples": [
+              "50000"
+            ]
+          },
+          "max_retrieved_rag_chunks_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Retrieved Rag Chunks Count",
+            "description": "Maximum number of RAG document chunks to initially retrieve from the vector store. These are then further filtered by vector distance and total length.",
+            "examples": [
+              5
+            ]
+          },
+          "num_candidates": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Num Candidates",
+            "description": "Number of candidates evaluated in ANN vector search. Higher number means better results, but higher latency. Minimum recommended value is 100. If disabled, the default value is used.",
+            "examples": [
+              300
+            ]
+          },
+          "query_rewrite_prompt_override": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Query Rewrite Prompt Override",
+            "description": "Custom prompt for rewriting user queries before RAG retrieval. The conversation history will be automatically appended at the end. If not set, the default prompt will be used.",
+            "examples": [
+              "You are given a conversation between a user and an assistant. Rewrite the last question to be self-contained and clear."
+            ]
+          }
+        },
+        "type": "object",
+        "title": "RagConfigWorkflowOverride"
+      },
+      "RagConfigWorkflowOverride-Output": {
         "properties": {
           "enabled": {
             "anyOf": [
@@ -83264,6 +84691,16 @@
           "is_hit"
         ],
         "title": "SearchHighlightSegment"
+      },
+      "SearchStrategy": {
+        "type": "string",
+        "enum": [
+          "cat",
+          "keyword",
+          "semantic",
+          "ls"
+        ],
+        "title": "SearchStrategy"
       },
       "SeatType": {
         "type": "string",
@@ -86954,6 +88391,9 @@
                 "$ref": "#/components/schemas/KnowledgeBaseRagToolConfig"
               },
               {
+                "$ref": "#/components/schemas/KnowledgeBaseToolConfig"
+              },
+              {
                 "$ref": "#/components/schemas/StartProcedureToolConfig-Input"
               },
               {
@@ -86969,6 +88409,7 @@
               "mapping": {
                 "end_call": "#/components/schemas/EndCallToolConfig",
                 "end_procedure": "#/components/schemas/EndProcedureToolConfig-Input",
+                "knowledge_base": "#/components/schemas/KnowledgeBaseToolConfig",
                 "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
@@ -87118,6 +88559,9 @@
                 "$ref": "#/components/schemas/KnowledgeBaseRagToolConfig"
               },
               {
+                "$ref": "#/components/schemas/KnowledgeBaseToolConfig"
+              },
+              {
                 "$ref": "#/components/schemas/StartProcedureToolConfig-Output"
               },
               {
@@ -87133,6 +88577,7 @@
               "mapping": {
                 "end_call": "#/components/schemas/EndCallToolConfig",
                 "end_procedure": "#/components/schemas/EndProcedureToolConfig-Output",
+                "knowledge_base": "#/components/schemas/KnowledgeBaseToolConfig",
                 "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
@@ -87269,18 +88714,6 @@
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.",
             "default": true
-          },
-          "audio_filter": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AudioFilterId"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "An optional filter applied to the audio output.",
-            "x-fern-ignore": true
           }
         },
         "type": "object",
@@ -87392,18 +88825,6 @@
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.",
             "default": true
-          },
-          "audio_filter": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AudioFilterId"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "An optional filter applied to the audio output.",
-            "x-fern-ignore": true
           }
         },
         "type": "object",
@@ -87701,18 +89122,6 @@
             ],
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model."
-          },
-          "audio_filter": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AudioFilterId"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "An optional filter applied to the audio output.",
-            "x-fern-ignore": true
           }
         },
         "type": "object",
@@ -87896,18 +89305,6 @@
             ],
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model."
-          },
-          "audio_filter": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AudioFilterId"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "An optional filter applied to the audio output.",
-            "x-fern-ignore": true
           }
         },
         "type": "object",
@@ -91674,6 +93071,45 @@
         },
         "type": "object",
         "title": "UpdatePhoneNumberRequest"
+      },
+      "UpdateProcedureDraftRequestModel": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 200,
+            "title": "Name",
+            "description": "Procedure name"
+          },
+          "content": {
+            "type": "string",
+            "maxLength": 50000,
+            "title": "Content",
+            "description": "Procedure content"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ProcedureType",
+            "description": "Procedure type"
+          },
+          "trigger": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Trigger",
+            "description": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it. If omitted or null, the trigger is derived from the content instead. Also accepts `description` as an alias."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "content",
+          "type"
+        ],
+        "title": "UpdateProcedureDraftRequestModel"
       },
       "UpdateProductParams": {
         "properties": {
@@ -97516,6 +98952,7 @@
         "example": {
           "file_input_config": {
             "enabled": false,
+            "max_files_in_memory": 10,
             "max_files_per_conversation": 10
           },
           "first_message": "Hello! How can I help you today?",
