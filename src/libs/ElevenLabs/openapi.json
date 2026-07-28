@@ -13387,6 +13387,12 @@
                   "type": "string",
                   "format": "binary"
                 }
+              },
+              "application/zip": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
               }
             }
           },
