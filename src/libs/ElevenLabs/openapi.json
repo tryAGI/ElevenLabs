@@ -3202,6 +3202,105 @@
         "x-fern-sdk-method-name": "update"
       }
     },
+    "/v1/voices/accents": {
+      "get": {
+        "tags": [
+          "voices"
+        ],
+        "summary": "Get Voice Accents",
+        "description": "Gets the list of available accents in the shared voice library.",
+        "operationId": "get_voice_accents",
+        "parameters": [
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "If provided, only accents for this language code are returned.",
+              "examples": [
+                "en"
+              ],
+              "title": "Language"
+            },
+            "description": "If provided, only accents for this language code are returned."
+          },
+          {
+            "name": "model_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "If provided, returns the accents available for this model. Defaults to the most complete accent list when omitted.",
+              "examples": [
+                "eleven_v3"
+              ],
+              "title": "Model Id"
+            },
+            "description": "If provided, returns the accents available for this model. Defaults to the most complete accent list when omitted."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetVoiceAccentsResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "voices",
+          "accents"
+        ],
+        "x-fern-sdk-method-name": "get"
+      }
+    },
     "/v1/voices": {
       "get": {
         "tags": [
@@ -58256,7 +58355,7 @@
           },
           "api_type": {
             "$ref": "#/components/schemas/CustomLLMAPIType",
-            "description": "The API type to use (chat_completions or responses)",
+            "description": "The API type to use (chat_completions, responses or websocket)",
             "default": "chat_completions"
           }
         },
@@ -58270,7 +58369,8 @@
         "type": "string",
         "enum": [
           "chat_completions",
-          "responses"
+          "responses",
+          "websocket"
         ],
         "title": "CustomLLMAPIType",
         "default": "chat_completions"
@@ -67026,6 +67126,33 @@
           "has_more"
         ],
         "title": "GetToolExecutionsPageResponseModel"
+      },
+      "GetVoiceAccentsResponseModel": {
+        "properties": {
+          "accents": {
+            "items": {
+              "$ref": "#/components/schemas/VoiceAccentResponseModel"
+            },
+            "type": "array",
+            "title": "Accents",
+            "description": "A list of available voice accents."
+          }
+        },
+        "type": "object",
+        "required": [
+          "accents"
+        ],
+        "title": "GetVoiceAccentsResponseModel",
+        "example": {
+          "accents": [
+            {
+              "accent": "american",
+              "code": "en-american",
+              "language": "en",
+              "name": "American"
+            }
+          ]
+        }
       },
       "GetVoicesResponseModel": {
         "properties": {
@@ -94818,6 +94945,44 @@
         ],
         "title": "VisitedAgentRef",
         "description": "An agent (and optional branch) that participated in the call, in first-seen transcript order."
+      },
+      "VoiceAccentResponseModel": {
+        "properties": {
+          "accent": {
+            "type": "string",
+            "title": "Accent",
+            "description": "The accent value used for filtering shared voices via the `accent` query parameter on `GET /v1/shared-voices`."
+          },
+          "language": {
+            "type": "string",
+            "title": "Language",
+            "description": "The language code this accent belongs to, e.g. `en`."
+          },
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "The full accent code, e.g. `en-american`."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The human-readable accent name, e.g. `American`."
+          }
+        },
+        "type": "object",
+        "required": [
+          "accent",
+          "language",
+          "code",
+          "name"
+        ],
+        "title": "VoiceAccentResponseModel",
+        "example": {
+          "accent": "american",
+          "code": "en-american",
+          "language": "en",
+          "name": "American"
+        }
       },
       "VoiceDesignRequestModel": {
         "properties": {

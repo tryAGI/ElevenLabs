@@ -1,13 +1,15 @@
 
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial class VoicesClient
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Get2SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Get3SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,50 +23,51 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Get2SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Get3SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_Get2SecurityRequirement0,
+            {                s_Get3SecurityRequirement0,
             };
-        partial void PrepareGet2Arguments(
+        partial void PrepareGet3Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? language,
-            ref string? modelId);
-        partial void PrepareGet2Request(
+            ref string voiceId,
+            ref bool? withSettings);
+        partial void PrepareGet3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? language,
-            string? modelId);
-        partial void ProcessGet2Response(
+            string voiceId,
+            bool? withSettings);
+        partial void ProcessGet3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGet2ResponseContent(
+        partial void ProcessGet3ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Voice Accents<br/>
-        /// Gets the list of available accents in the shared voice library.
+        /// Get Voice<br/>
+        /// Returns metadata about a specific voice.
         /// </summary>
-        /// <param name="language">
-        /// If provided, only accents for this language code are returned.
+        /// <param name="voiceId">
+        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
-        /// <param name="modelId">
-        /// If provided, returns the accents available for this model. Defaults to the most complete accent list when omitted.
+        /// <param name="withSettings">
+        /// This parameter is now deprecated. It is ignored and will be removed in a future version.<br/>
+        /// Default Value: true
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetVoiceAccentsResponseModel> Get2Async(
-            string? language = default,
-            string? modelId = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoiceResponseModel> Get3Async(
+            string voiceId,
+            bool? withSettings = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Get2AsResponseAsync(
-                language: language,
-                modelId: modelId,
+            var __response = await Get3AsResponseAsync(
+                voiceId: voiceId,
+                withSettings: withSettings,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -72,36 +75,37 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Voice Accents<br/>
-        /// Gets the list of available accents in the shared voice library.
+        /// Get Voice<br/>
+        /// Returns metadata about a specific voice.
         /// </summary>
-        /// <param name="language">
-        /// If provided, only accents for this language code are returned.
+        /// <param name="voiceId">
+        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
-        /// <param name="modelId">
-        /// If provided, returns the accents available for this model. Defaults to the most complete accent list when omitted.
+        /// <param name="withSettings">
+        /// This parameter is now deprecated. It is ignored and will be removed in a future version.<br/>
+        /// Default Value: true
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetVoiceAccentsResponseModel>> Get2AsResponseAsync(
-            string? language = default,
-            string? modelId = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.VoiceResponseModel>> Get3AsResponseAsync(
+            string voiceId,
+            bool? withSettings = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGet2Arguments(
+            PrepareGet3Arguments(
                 httpClient: HttpClient,
-                language: ref language,
-                modelId: ref modelId);
+                voiceId: ref voiceId,
+                withSettings: ref withSettings);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Get2SecurityRequirements,
-                operationName: "Get2Async");
+                securityRequirements: s_Get3SecurityRequirements,
+                operationName: "Get3Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -121,11 +125,10 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/voices/accents",
+                                path: $"/v1/voices/{voiceId}",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("language", language)
-                                .AddOptionalParameter("model_id", modelId)
+                                .AddOptionalParameter("with_settings", withSettings?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -164,11 +167,11 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGet2Request(
+                PrepareGet3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    language: language,
-                    modelId: modelId);
+                    voiceId: voiceId!,
+                    withSettings: withSettings);
 
                 return __httpRequest;
             }
@@ -185,9 +188,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get2",
-                                methodName: "Get2Async",
-                                pathTemplate: "\"/v1/voices/accents\"",
+                                operationId: "Get3",
+                                methodName: "Get3Async",
+                                pathTemplate: "$\"/v1/voices/{voiceId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -219,9 +222,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get2",
-                                methodName: "Get2Async",
-                                pathTemplate: "\"/v1/voices/accents\"",
+                                operationId: "Get3",
+                                methodName: "Get3Async",
+                                pathTemplate: "$\"/v1/voices/{voiceId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -260,9 +263,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get2",
-                                methodName: "Get2Async",
-                                pathTemplate: "\"/v1/voices/accents\"",
+                                operationId: "Get3",
+                                methodName: "Get3Async",
+                                pathTemplate: "$\"/v1/voices/{voiceId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -300,7 +303,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGet2Response(
+                ProcessGet3Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -308,9 +311,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get2",
-                                methodName: "Get2Async",
-                                pathTemplate: "\"/v1/voices/accents\"",
+                                operationId: "Get3",
+                                methodName: "Get3Async",
+                                pathTemplate: "$\"/v1/voices/{voiceId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -330,9 +333,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get2",
-                                methodName: "Get2Async",
-                                pathTemplate: "\"/v1/voices/accents\"",
+                                operationId: "Get3",
+                                methodName: "Get3Async",
+                                pathTemplate: "$\"/v1/voices/{voiceId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -397,7 +400,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGet2ResponseContent(
+                                ProcessGet3ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -406,9 +409,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.GetVoiceAccentsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.VoiceResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetVoiceAccentsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.VoiceResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -438,9 +441,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.GetVoiceAccentsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.VoiceResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetVoiceAccentsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.VoiceResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
