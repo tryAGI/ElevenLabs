@@ -37533,7 +37533,6 @@
               "agent_id": "success_transfer_agent",
               "delay_ms": 0,
               "edge_order": [],
-              "enable_nesting": false,
               "enable_transferred_agent_first_message": false,
               "position": {
                 "x": 0.0,
@@ -50244,7 +50243,7 @@
         "type": "string",
         "enum": [
           "young",
-          "middle-aged",
+          "middle_aged",
           "old"
         ]
       },
@@ -50385,6 +50384,16 @@
               }
             ],
             "title": "Accent"
+          },
+          "role": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CharacterRole"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -50419,6 +50428,14 @@
                 "type": "null"
               }
             ]
+          },
+          "recommended_voice_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Recommended Voice Ids",
+            "default": []
           }
         },
         "type": "object",
@@ -50428,6 +50445,15 @@
           "metadata"
         ],
         "title": "CharacterResponseModel"
+      },
+      "CharacterRole": {
+        "type": "string",
+        "enum": [
+          "narrator",
+          "main",
+          "supporting",
+          "minor"
+        ]
       },
       "ChatSourceMedium": {
         "type": "string",
@@ -57593,6 +57619,10 @@
             "$ref": "#/components/schemas/BaseTurnConfig",
             "description": "Turn detection configuration"
           },
+          "vad": {
+            "$ref": "#/components/schemas/VADConfig",
+            "description": "Configuration for voice activity detection"
+          },
           "conversation": {
             "$ref": "#/components/schemas/ConversationConfig-Input",
             "description": "Conversation configuration (client events, etc.)"
@@ -63716,7 +63746,6 @@
                 "agent_id": "success_transfer_agent",
                 "delay_ms": 0,
                 "edge_order": [],
-                "enable_nesting": false,
                 "enable_transferred_agent_first_message": false,
                 "position": {
                   "x": 0.0,
@@ -73118,7 +73147,6 @@
                 "agent_id": "success_transfer_agent",
                 "delay_ms": 0,
                 "edge_order": [],
-                "enable_nesting": false,
                 "enable_transferred_agent_first_message": false,
                 "position": {
                   "x": 0.0,
@@ -86461,6 +86489,10 @@
             "$ref": "#/components/schemas/BaseTurnConfig",
             "description": "Turn detection configuration"
           },
+          "vad": {
+            "$ref": "#/components/schemas/VADConfig",
+            "description": "Configuration for voice activity detection"
+          },
           "conversation": {
             "$ref": "#/components/schemas/ConversationConfig-Output",
             "description": "Conversation-level settings including client events and duration limits"
@@ -86514,6 +86546,7 @@
           "asr",
           "tts",
           "turn",
+          "vad",
           "conversation",
           "privacy",
           "call_limits",
@@ -86586,6 +86619,9 @@
             "silence_end_call_timeout": -1,
             "turn_eagerness": "normal",
             "turn_timeout": 7.0
+          },
+          "vad": {
+            "background_voice_detection": false
           }
         }
       },
@@ -93426,6 +93462,16 @@
             "anyOf": [
               {
                 "$ref": "#/components/schemas/BaseTurnConfig"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "vad": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/VADConfig"
               },
               {
                 "type": "null"
