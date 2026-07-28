@@ -29,6 +29,12 @@ namespace ElevenLabs
         public global::ElevenLabs.CharacterMetadataResponseModel? Metadata { get; set; }
 
         /// <summary>
+        /// Default Value: []
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("recommended_voice_ids")]
+        public global::System.Collections.Generic.IList<string>? RecommendedVoiceIds { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -40,17 +46,22 @@ namespace ElevenLabs
         /// <param name="characterId"></param>
         /// <param name="name"></param>
         /// <param name="metadata"></param>
+        /// <param name="recommendedVoiceIds">
+        /// Default Value: []
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CharacterResponseModel(
             string characterId,
             string name,
-            global::ElevenLabs.CharacterMetadataResponseModel? metadata)
+            global::ElevenLabs.CharacterMetadataResponseModel? metadata,
+            global::System.Collections.Generic.IList<string>? recommendedVoiceIds)
         {
             this.CharacterId = characterId ?? throw new global::System.ArgumentNullException(nameof(characterId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Metadata = metadata;
+            this.RecommendedVoiceIds = recommendedVoiceIds;
         }
 
         /// <summary>

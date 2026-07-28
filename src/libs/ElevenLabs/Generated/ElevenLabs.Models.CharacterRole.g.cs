@@ -6,50 +6,56 @@ namespace ElevenLabs
     /// <summary>
     /// 
     /// </summary>
-    public enum CharacterAge
+    public enum CharacterRole
     {
         /// <summary>
         /// 
         /// </summary>
-        MiddleAged,
+        Main,
         /// <summary>
         /// 
         /// </summary>
-        Old,
+        Minor,
         /// <summary>
         /// 
         /// </summary>
-        Young,
+        Narrator,
+        /// <summary>
+        /// 
+        /// </summary>
+        Supporting,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class CharacterAgeExtensions
+    public static class CharacterRoleExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this CharacterAge value)
+        public static string ToValueString(this CharacterRole value)
         {
             return value switch
             {
-                CharacterAge.MiddleAged => "middle_aged",
-                CharacterAge.Old => "old",
-                CharacterAge.Young => "young",
+                CharacterRole.Main => "main",
+                CharacterRole.Minor => "minor",
+                CharacterRole.Narrator => "narrator",
+                CharacterRole.Supporting => "supporting",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static CharacterAge? ToEnum(string value)
+        public static CharacterRole? ToEnum(string value)
         {
             return value switch
             {
-                "middle_aged" => CharacterAge.MiddleAged,
-                "old" => CharacterAge.Old,
-                "young" => CharacterAge.Young,
+                "main" => CharacterRole.Main,
+                "minor" => CharacterRole.Minor,
+                "narrator" => CharacterRole.Narrator,
+                "supporting" => CharacterRole.Supporting,
                 _ => null,
             };
         }
