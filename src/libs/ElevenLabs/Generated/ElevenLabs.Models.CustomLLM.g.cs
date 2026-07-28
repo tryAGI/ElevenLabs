@@ -48,7 +48,7 @@ namespace ElevenLabs
         public string? ApiVersion { get; set; }
 
         /// <summary>
-        /// The API type to use (chat_completions or responses)<br/>
+        /// The API type to use (chat_completions, responses or websocket)<br/>
         /// Default Value: chat_completions
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_type")]
@@ -83,7 +83,7 @@ namespace ElevenLabs
         /// The API version to use for the request
         /// </param>
         /// <param name="apiType">
-        /// The API type to use (chat_completions or responses)<br/>
+        /// The API type to use (chat_completions, responses or websocket)<br/>
         /// Default Value: chat_completions
         /// </param>
 #if NET7_0_OR_GREATER
