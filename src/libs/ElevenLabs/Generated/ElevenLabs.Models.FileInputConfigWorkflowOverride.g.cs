@@ -15,7 +15,13 @@ namespace ElevenLabs
         public bool? Enabled { get; set; }
 
         /// <summary>
-        /// Maximum number of files that can be uploaded per conversation.
+        /// Number of most-recent files kept in memory during a conversation. Older files are summarized and their bytes freed.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_files_in_memory")]
+        public long? MaxFilesInMemory { get; set; }
+
+        /// <summary>
+        /// Total files a user can upload in one conversation. Uploads are billed per file. Use -1 for no limit, or a value &gt;= max_files_in_memory.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_files_per_conversation")]
         public int? MaxFilesPerConversation { get; set; }
@@ -32,17 +38,22 @@ namespace ElevenLabs
         /// <param name="enabled">
         /// When enabled, users may attach images or PDFs in chat when the LLM supports multimodal input.
         /// </param>
+        /// <param name="maxFilesInMemory">
+        /// Number of most-recent files kept in memory during a conversation. Older files are summarized and their bytes freed.
+        /// </param>
         /// <param name="maxFilesPerConversation">
-        /// Maximum number of files that can be uploaded per conversation.
+        /// Total files a user can upload in one conversation. Uploads are billed per file. Use -1 for no limit, or a value &gt;= max_files_in_memory.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public FileInputConfigWorkflowOverride(
             bool? enabled,
+            long? maxFilesInMemory,
             int? maxFilesPerConversation)
         {
             this.Enabled = enabled;
+            this.MaxFilesInMemory = maxFilesInMemory;
             this.MaxFilesPerConversation = maxFilesPerConversation;
         }
 

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Maximum number of files that can be uploaded per conversation.
+    /// Total files a user can upload in one conversation. Uploads are billed per file. Use -1 for no limit, or a value &gt;= max_files_in_memory.
     /// </summary>
     public sealed partial class FileInputConfigWorkflowOverrideMaxFilesPerConversation
     {

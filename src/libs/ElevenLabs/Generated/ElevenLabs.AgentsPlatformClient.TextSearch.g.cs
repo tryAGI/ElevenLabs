@@ -54,6 +54,7 @@ namespace ElevenLabs
             bool? textOnly,
             global::ElevenLabs.ConversationProduct? conversationProductType,
             ref string? branchId,
+            ref string? versionId,
             global::System.Collections.Generic.IList<string>? topicIds,
             ref global::ElevenLabs.MessageSearchSortBy? sortBy,
             ref string? cursor);
@@ -87,6 +88,7 @@ namespace ElevenLabs
             bool? textOnly,
             global::ElevenLabs.ConversationProduct? conversationProductType,
             string? branchId,
+            string? versionId,
             global::System.Collections.Generic.IList<string>? topicIds,
             global::ElevenLabs.MessageSearchSortBy? sortBy,
             string? cursor);
@@ -182,6 +184,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
+        /// <param name="versionId">
+        /// Filter conversations by version ID.
+        /// </param>
         /// <param name="topicIds">
         /// Filter conversations by topic IDs assigned during topic discovery.
         /// </param>
@@ -223,6 +228,7 @@ namespace ElevenLabs
             bool? textOnly = default,
             global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
+            string? versionId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = default,
@@ -257,6 +263,7 @@ namespace ElevenLabs
                 textOnly: textOnly,
                 conversationProductType: conversationProductType,
                 branchId: branchId,
+                versionId: versionId,
                 topicIds: topicIds,
                 sortBy: sortBy,
                 cursor: cursor,
@@ -349,6 +356,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
+        /// <param name="versionId">
+        /// Filter conversations by version ID.
+        /// </param>
         /// <param name="topicIds">
         /// Filter conversations by topic IDs assigned during topic discovery.
         /// </param>
@@ -390,6 +400,7 @@ namespace ElevenLabs
             bool? textOnly = default,
             global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
+            string? versionId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = default,
@@ -427,6 +438,7 @@ namespace ElevenLabs
                 textOnly: textOnly,
                 conversationProductType: conversationProductType,
                 branchId: ref branchId,
+                versionId: ref versionId,
                 topicIds: topicIds,
                 sortBy: ref sortBy,
                 cursor: ref cursor);
@@ -485,6 +497,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("text_only", textOnly?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("conversation_product_type", conversationProductType?.ToString())
                                 .AddOptionalParameter("branch_id", branchId)
+                                .AddOptionalParameter("version_id", versionId)
                                 .AddOptionalParameter("topic_ids", topicIds?.ToString())
                                 .AddOptionalParameter("sort_by", sortBy?.ToValueString())
                                 .AddOptionalParameter("cursor", cursor)
@@ -556,6 +569,7 @@ namespace ElevenLabs
                     textOnly: textOnly,
                     conversationProductType: conversationProductType,
                     branchId: branchId,
+                    versionId: versionId,
                     topicIds: topicIds,
                     sortBy: sortBy,
                     cursor: cursor);
@@ -953,6 +967,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
+        /// <param name="versionId">
+        /// Filter conversations by version ID.
+        /// </param>
         /// <param name="topicIds">
         /// Filter conversations by topic IDs assigned during topic discovery.
         /// </param>
@@ -989,6 +1006,7 @@ namespace ElevenLabs
             bool? textOnly = default,
             global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
+            string? versionId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = null,
@@ -1023,6 +1041,7 @@ namespace ElevenLabs
                     textOnly: textOnly,
                     conversationProductType: conversationProductType,
                     branchId: branchId,
+                    versionId: versionId,
                     topicIds: topicIds,
                     sortBy: sortBy,
                     cursor: __cursor,
