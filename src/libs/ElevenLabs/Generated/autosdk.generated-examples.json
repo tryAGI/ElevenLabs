@@ -182,7 +182,7 @@
       "Slug": "query-agent-knowledge-base-rag-route",
       "Description": "Run the agent\u0027s exact RAG retrieval for an ad-hoc query and return the ranked chunks the agent would retrieve. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.",
       "Language": "http",
-      "Code": "### Query Agent Knowledge Base Rag\n# @name query_agent_knowledge_base_rag_route\nPOST {{host}}/v1/convai/agents/{{agent_id}}/knowledge-base/rag-query?branch_id={{branch_id}}\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022query\u0022: \u0022string\u0022\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Query Agent Knowledge Base Rag\n# @name query_agent_knowledge_base_rag_route\nPOST {{host}}/v1/convai/agents/{{agent_id}}/knowledge-base/rag-query?branch_id={{branch_id}}\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022query\u0022: \u0022string\u0022,\n  \u0022use_agent_defaults\u0022: true\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "query_agent_knowledge_base_rag_route",
       "Setup": null
