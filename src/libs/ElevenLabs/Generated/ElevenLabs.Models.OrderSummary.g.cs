@@ -56,6 +56,12 @@ namespace ElevenLabs
         public global::System.DateTime? UpdatedAt { get; set; }
 
         /// <summary>
+        /// The reason the order was cancelled, if applicable.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cancel_reason")]
+        public string? CancelReason { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -86,6 +92,9 @@ namespace ElevenLabs
         /// <param name="updatedAt">
         /// The timestamp when the order was last modified, if applicable.
         /// </param>
+        /// <param name="cancelReason">
+        /// The reason the order was cancelled, if applicable.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -96,7 +105,8 @@ namespace ElevenLabs
             double? totalAmountUsd,
             bool? sandbox,
             global::System.DateTime? submittedAt,
-            global::System.DateTime? updatedAt)
+            global::System.DateTime? updatedAt,
+            string? cancelReason)
         {
             this.OrderId = orderId ?? throw new global::System.ArgumentNullException(nameof(orderId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -105,6 +115,7 @@ namespace ElevenLabs
             this.Sandbox = sandbox;
             this.SubmittedAt = submittedAt;
             this.UpdatedAt = updatedAt;
+            this.CancelReason = cancelReason;
         }
 
         /// <summary>

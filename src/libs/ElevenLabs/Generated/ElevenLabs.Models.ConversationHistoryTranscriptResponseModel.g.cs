@@ -134,6 +134,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_input")]
         public global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? FileInput { get; set; }
 
@@ -182,6 +188,7 @@ namespace ElevenLabs
         /// <param name="sourceEventId"></param>
         /// <param name="usedStaticKbDocumentIds"></param>
         /// <param name="userIdentifier"></param>
+        /// <param name="id"></param>
         /// <param name="fileInput"></param>
         /// <param name="contextualUpdateInfo"></param>
         /// <param name="reasoned">
@@ -211,6 +218,7 @@ namespace ElevenLabs
             int? sourceEventId,
             global::System.Collections.Generic.IList<string>? usedStaticKbDocumentIds,
             string? userIdentifier,
+            string? id,
             global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? fileInput,
             global::ElevenLabs.ContextualUpdateInfo? contextualUpdateInfo,
             bool? reasoned)
@@ -235,6 +243,7 @@ namespace ElevenLabs
             this.SourceEventId = sourceEventId;
             this.UsedStaticKbDocumentIds = usedStaticKbDocumentIds;
             this.UserIdentifier = userIdentifier;
+            this.Id = id;
             this.FileInput = fileInput;
             this.ContextualUpdateInfo = contextualUpdateInfo;
             this.Reasoned = reasoned;

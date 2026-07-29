@@ -29,7 +29,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref int? pageSize,
             ref int? offset,
-            global::System.Collections.Generic.IList<global::ElevenLabs.OrderRequestState>? status,
+            global::System.Collections.Generic.IList<global::ElevenLabs.OrderState>? status,
             global::System.DateTime? startDate,
             global::System.DateTime? endDate);
         partial void PrepareListRequest(
@@ -37,7 +37,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? pageSize,
             int? offset,
-            global::System.Collections.Generic.IList<global::ElevenLabs.OrderRequestState>? status,
+            global::System.Collections.Generic.IList<global::ElevenLabs.OrderState>? status,
             global::System.DateTime? startDate,
             global::System.DateTime? endDate);
         partial void ProcessListResponse(
@@ -76,7 +76,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListOrdersResponse> ListAsync(
             int? pageSize = default,
             int? offset = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.OrderRequestState>? status = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.OrderState>? status = default,
             global::System.DateTime? startDate = default,
             global::System.DateTime? endDate = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -121,7 +121,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListOrdersResponse>> ListAsResponseAsync(
             int? pageSize = default,
             int? offset = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.OrderRequestState>? status = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.OrderState>? status = default,
             global::System.DateTime? startDate = default,
             global::System.DateTime? endDate = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,

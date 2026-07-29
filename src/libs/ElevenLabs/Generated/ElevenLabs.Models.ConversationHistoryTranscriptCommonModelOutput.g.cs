@@ -132,6 +132,12 @@ namespace ElevenLabs
         public string? UserIdentifier { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -164,6 +170,7 @@ namespace ElevenLabs
         /// <param name="sourceEventId"></param>
         /// <param name="usedStaticKbDocumentIds"></param>
         /// <param name="userIdentifier"></param>
+        /// <param name="id"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -187,7 +194,8 @@ namespace ElevenLabs
             global::ElevenLabs.ChatSourceMedium? sourceMedium,
             int? sourceEventId,
             global::System.Collections.Generic.IList<string>? usedStaticKbDocumentIds,
-            string? userIdentifier)
+            string? userIdentifier,
+            string? id)
         {
             this.Role = role;
             this.AgentMetadata = agentMetadata;
@@ -209,6 +217,7 @@ namespace ElevenLabs
             this.SourceEventId = sourceEventId;
             this.UsedStaticKbDocumentIds = usedStaticKbDocumentIds;
             this.UserIdentifier = userIdentifier;
+            this.Id = id;
         }
 
         /// <summary>

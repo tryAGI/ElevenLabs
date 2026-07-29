@@ -15,7 +15,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Cancelled,
+        /// <summary>
+        /// 
+        /// </summary>
+        Cancelling,
+        /// <summary>
+        /// 
+        /// </summary>
         Done,
+        /// <summary>
+        /// 
+        /// </summary>
+        Expired,
         /// <summary>
         /// 
         /// </summary>
@@ -47,7 +59,10 @@ namespace ElevenLabs
             return value switch
             {
                 OrderState.Accepted => "accepted",
+                OrderState.Cancelled => "cancelled",
+                OrderState.Cancelling => "cancelling",
                 OrderState.Done => "done",
+                OrderState.Expired => "expired",
                 OrderState.Open => "open",
                 OrderState.Paid => "paid",
                 OrderState.Rejected => "rejected",
@@ -63,7 +78,10 @@ namespace ElevenLabs
             return value switch
             {
                 "accepted" => OrderState.Accepted,
+                "cancelled" => OrderState.Cancelled,
+                "cancelling" => OrderState.Cancelling,
                 "done" => OrderState.Done,
+                "expired" => OrderState.Expired,
                 "open" => OrderState.Open,
                 "paid" => OrderState.Paid,
                 "rejected" => OrderState.Rejected,

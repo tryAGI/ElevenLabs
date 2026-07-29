@@ -31359,7 +31359,7 @@
                 {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/OrderRequestState"
+                    "$ref": "#/components/schemas/OrderState"
                   }
                 },
                 {
@@ -36195,6 +36195,12 @@
             "examples": [
               "How do I reset my password?"
             ]
+          },
+          "use_agent_defaults": {
+            "type": "boolean",
+            "title": "Use Agent Defaults",
+            "description": "When true (the default), retrieval uses the agent's own RAG settings, reproducing exactly what the agent would retrieve. Set to false to retrieve with neutral default RAG settings instead (the agent's embedding model is always kept, since it determines which vector index exists). Useful for auditing the knowledge base independently of how a particular agent is tuned.",
+            "default": true
           }
         },
         "type": "object",
@@ -53533,6 +53539,17 @@
               }
             ],
             "title": "User Identifier"
+          },
+          "id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id"
           }
         },
         "type": "object",
@@ -53731,6 +53748,17 @@
               }
             ],
             "title": "User Identifier"
+          },
+          "id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id"
           }
         },
         "type": "object",
@@ -54034,6 +54062,17 @@
               }
             ],
             "title": "User Identifier"
+          },
+          "id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id"
           },
           "file_input": {
             "anyOf": [
@@ -75409,18 +75448,6 @@
           "signed_url": "https://storage.googleapis.com/example-bucket/media/example.mp4?X-Goog-Signature=..."
         }
       },
-      "OrderRequestState": {
-        "type": "string",
-        "enum": [
-          "open",
-          "submitted",
-          "paid",
-          "accepted",
-          "rejected",
-          "done"
-        ],
-        "title": "OrderRequestState"
-      },
       "OrderResponse": {
         "properties": {
           "order_id": {
@@ -75519,6 +75546,18 @@
             ],
             "title": "Completed At",
             "description": "The timestamp when the order was completed, if applicable."
+          },
+          "cancel_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cancel Reason",
+            "description": "The reason the order was cancelled, if applicable."
           }
         },
         "type": "object",
@@ -75569,7 +75608,10 @@
           "paid",
           "accepted",
           "rejected",
-          "done"
+          "done",
+          "cancelling",
+          "cancelled",
+          "expired"
         ],
         "title": "OrderState"
       },
@@ -75631,6 +75673,18 @@
             ],
             "title": "Updated At",
             "description": "The timestamp when the order was last modified, if applicable."
+          },
+          "cancel_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cancel Reason",
+            "description": "The reason the order was cancelled, if applicable."
           }
         },
         "type": "object",
