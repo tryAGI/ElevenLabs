@@ -3863,6 +3863,85 @@
         "x-fern-sdk-method-name": "search"
       }
     },
+    "/v1/voices/{voice_id}/replicate-to-isolated-environment": {
+      "post": {
+        "tags": [
+          "voices",
+          "voices"
+        ],
+        "summary": "Replicate Voice To Isolated Environment",
+        "description": "Replicates an Instant Voice Clone or Voice Design voice to a workspace in a different data residency. The target workspace must belong to the same consolidated billing group. The user must have VOICES_WRITE in the source workspace, and be an admin on the source voice. Human users (i.e. not service accounts) must also have VOICES_WRITE in the target workspace. This endpoint is available on the central environment only.",
+        "operationId": "replicate_voice_to_isolated_environment",
+        "parameters": [
+          {
+            "name": "voice_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.",
+              "examples": [
+                "21m00Tcm4TlvDq8ikWAM"
+              ],
+              "title": "Voice Id"
+            },
+            "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReplicateVoiceToIsolatedEnvironmentRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReplicateVoiceToIsolatedEnvironmentResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "voices",
+        "x-fern-sdk-method-name": "replicate_to_isolated_environment"
+      }
+    },
     "/v1/voices/add": {
       "post": {
         "tags": [
@@ -83003,6 +83082,43 @@
           "zip"
         ],
         "title": "RenderType"
+      },
+      "ReplicateVoiceToIsolatedEnvironmentRequestModel": {
+        "properties": {
+          "target_workspace_id": {
+            "type": "string",
+            "title": "Target Workspace Id",
+            "description": "ID of the workspace to replicate the voice into. It must belong to the same consolidated billing group as the calling workspace; the target's data residency is derived from that link."
+          },
+          "preserve_voice_id": {
+            "type": "boolean",
+            "title": "Preserve Voice Id",
+            "description": "When true (default) the replicated voice keeps the same voice ID in the target residency; set to false to assign a new voice ID.",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_workspace_id"
+        ],
+        "title": "ReplicateVoiceToIsolatedEnvironmentRequestModel"
+      },
+      "ReplicateVoiceToIsolatedEnvironmentResponseModel": {
+        "properties": {
+          "voice_id": {
+            "type": "string",
+            "title": "Voice Id",
+            "description": "Voice ID of the replicated voice in the target residency."
+          }
+        },
+        "type": "object",
+        "required": [
+          "voice_id"
+        ],
+        "title": "ReplicateVoiceToIsolatedEnvironmentResponseModel",
+        "example": {
+          "voice_id": "21m00Tcm4TlvDq8ikWAM"
+        }
       },
       "ReportKnowledgeGapParams": {
         "properties": {
