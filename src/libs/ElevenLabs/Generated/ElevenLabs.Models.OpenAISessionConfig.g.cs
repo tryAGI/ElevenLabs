@@ -15,7 +15,7 @@ namespace ElevenLabs
         public string? Type { get; set; }
 
         /// <summary>
-        /// Default Value: eleven_realtime_fast
+        /// Default Value: eleven_realtime_v1_mini
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         public string? Model { get; set; }
@@ -84,7 +84,7 @@ namespace ElevenLabs
         /// Default Value: realtime
         /// </param>
         /// <param name="model">
-        /// Default Value: eleven_realtime_fast
+        /// Default Value: eleven_realtime_v1_mini
         /// </param>
         /// <param name="instructions"></param>
         /// <param name="modalities"></param>

@@ -23,6 +23,13 @@ namespace ElevenLabs
         public bool? HashTerminator { get; set; }
 
         /// <summary>
+        /// If true, replace the caller's DTMF (keypad) entries with a redaction marker in the transcript, conversation log and analysis. Digits the agent repeats back or passes to a tool are not affected.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("redact_input")]
+        public bool? RedactInput { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -39,15 +46,21 @@ namespace ElevenLabs
         /// If true, pressing # immediately completes DTMF input<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="redactInput">
+        /// If true, replace the caller's DTMF (keypad) entries with a redaction marker in the transcript, conversation log and analysis. Digits the agent repeats back or passes to a tool are not affected.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public DTMFInputConfig(
             double? dtmfInputTimeout,
-            bool? hashTerminator)
+            bool? hashTerminator,
+            bool? redactInput)
         {
             this.DtmfInputTimeout = dtmfInputTimeout;
             this.HashTerminator = hashTerminator;
+            this.RedactInput = redactInput;
         }
 
         /// <summary>
