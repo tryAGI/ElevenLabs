@@ -58572,6 +58572,12 @@
             "title": "Hash Terminator",
             "description": "If true, pressing # immediately completes DTMF input",
             "default": true
+          },
+          "redact_input": {
+            "type": "boolean",
+            "title": "Redact Input",
+            "description": "If true, replace the caller's DTMF (keypad) entries with a redaction marker in the transcript, conversation log and analysis. Digits the agent repeats back or passes to a tool are not affected.",
+            "default": false
           }
         },
         "type": "object",
@@ -75074,7 +75080,7 @@
           "model": {
             "type": "string",
             "title": "Model",
-            "default": "eleven_realtime_fast"
+            "default": "eleven_realtime_v1_mini"
           },
           "instructions": {
             "type": "string",
