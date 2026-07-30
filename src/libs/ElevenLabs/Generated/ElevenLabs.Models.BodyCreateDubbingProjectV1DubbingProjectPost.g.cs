@@ -57,6 +57,18 @@ namespace ElevenLabs
         public string? TargetLanguage { get; set; }
 
         /// <summary>
+        /// Optional JSON transcript to use instead of automatic transcription. When provided, source_language is required. Segments may include an optional external_id and an optional translation; if any segment includes a translation, target_language is required and every segment must include one (used to seed the target created via target_language).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transcript")]
+        public byte[]? Transcript { get; set; }
+
+        /// <summary>
+        /// Optional JSON transcript to use instead of automatic transcription. When provided, source_language is required. Segments may include an optional external_id and an optional translation; if any segment includes a translation, target_language is required and every segment must include one (used to seed the target created via target_language).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transcriptname")]
+        public string? Transcriptname { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -89,6 +101,12 @@ namespace ElevenLabs
         /// <param name="targetLanguage">
         /// Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready.
         /// </param>
+        /// <param name="transcript">
+        /// Optional JSON transcript to use instead of automatic transcription. When provided, source_language is required. Segments may include an optional external_id and an optional translation; if any segment includes a translation, target_language is required and every segment must include one (used to seed the target created via target_language).
+        /// </param>
+        /// <param name="transcriptname">
+        /// Optional JSON transcript to use instead of automatic transcription. When provided, source_language is required. Segments may include an optional external_id and an optional translation; if any segment includes a translation, target_language is required and every segment must include one (used to seed the target created via target_language).
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -100,7 +118,9 @@ namespace ElevenLabs
             string? sourceLanguage,
             string? modelId,
             global::System.Collections.Generic.IList<string>? keyterms,
-            string? targetLanguage)
+            string? targetLanguage,
+            byte[]? transcript,
+            string? transcriptname)
         {
             this.File = file;
             this.Filename = filename;
@@ -110,6 +130,8 @@ namespace ElevenLabs
             this.ModelId = modelId;
             this.Keyterms = keyterms;
             this.TargetLanguage = targetLanguage;
+            this.Transcript = transcript;
+            this.Transcriptname = transcriptname;
         }
 
         /// <summary>

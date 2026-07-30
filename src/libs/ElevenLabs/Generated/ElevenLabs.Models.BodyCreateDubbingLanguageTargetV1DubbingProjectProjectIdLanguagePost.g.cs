@@ -28,6 +28,12 @@ namespace ElevenLabs
         public global::ElevenLabs.VoiceSettings? VoiceSettings { get; set; }
 
         /// <summary>
+        /// Optional translations to use instead of machine translation. A map from each source segment's external_id (or its id, if you supplied none) to the translated text; every source segment must be covered exactly once. At most 20000 entries, totalling at most 4 MiB of text.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("translations")]
+        public global::System.Collections.Generic.Dictionary<string, string>? Translations { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -45,17 +51,22 @@ namespace ElevenLabs
         /// <param name="voiceSettings">
         /// Voice settings applied to the whole language (e.g. cloning strength).
         /// </param>
+        /// <param name="translations">
+        /// Optional translations to use instead of machine translation. A map from each source segment's external_id (or its id, if you supplied none) to the translated text; every source segment must be covered exactly once. At most 20000 entries, totalling at most 4 MiB of text.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePost(
             string targetLanguage,
             string? modelId,
-            global::ElevenLabs.VoiceSettings? voiceSettings)
+            global::ElevenLabs.VoiceSettings? voiceSettings,
+            global::System.Collections.Generic.Dictionary<string, string>? translations)
         {
             this.TargetLanguage = targetLanguage ?? throw new global::System.ArgumentNullException(nameof(targetLanguage));
             this.ModelId = modelId;
             this.VoiceSettings = voiceSettings;
+            this.Translations = translations;
         }
 
         /// <summary>
