@@ -51627,10 +51627,6 @@
       },
       "ConvAIUserSecretDBModel": {
         "properties": {
-          "id": {
-            "type": "string",
-            "title": "Id"
-          },
           "name": {
             "type": "string",
             "title": "Name"
@@ -51642,14 +51638,18 @@
           "nonce": {
             "type": "string",
             "title": "Nonce"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
           }
         },
         "type": "object",
         "required": [
-          "id",
           "name",
           "encrypted_value",
-          "nonce"
+          "nonce",
+          "id"
         ],
         "title": "ConvAIUserSecretDBModel",
         "description": "User-specific secret model that are not shared with other users in a workspace."
