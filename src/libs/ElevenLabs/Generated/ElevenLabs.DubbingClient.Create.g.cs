@@ -233,6 +233,48 @@ namespace ElevenLabs
                                     name: "\"target_language\"");
 
                             }
+                            if (request.Transcript != default)
+                            {
+
+                                var __contentTranscript = new global::System.Net.Http.ByteArrayContent(request.Transcript ?? global::System.Array.Empty<byte>());
+                                __contentTranscript.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
+                                    request.Transcriptname is null
+                                        ? "application/octet-stream"
+                                        : (global::System.IO.Path.GetExtension(request.Transcriptname) ?? string.Empty).ToLowerInvariant() switch
+                                        {
+                                            ".aac" => "audio/aac",
+                                            ".flac" => "audio/flac",
+                                            ".gif" => "image/gif",
+                                            ".jpeg" => "image/jpeg",
+                                            ".jpg" => "image/jpeg",
+                                            ".json" => "application/json",
+                                            ".m4a" => "audio/mp4",
+                                            ".mp3" => "audio/mpeg",
+                                            ".mp4" => "video/mp4",
+                                            ".mpeg" => "audio/mpeg",
+                                            ".mpga" => "audio/mpeg",
+                                            ".oga" => "audio/ogg",
+                                            ".ogg" => "audio/ogg",
+                                            ".opus" => "audio/ogg",
+                                            ".pdf" => "application/pdf",
+                                            ".png" => "image/png",
+                                            ".txt" => "text/plain",
+                                            ".wav" => "audio/wav",
+                                            ".weba" => "audio/webm",
+                                            ".webm" => "video/webm",
+                                            ".webp" => "image/webp",
+                                            _ => "application/octet-stream",
+                                        });
+                                __httpRequestContent.Add(
+                                    content: __contentTranscript,
+                                    name: "\"transcript\"",
+                                    fileName: request.Transcriptname != null ? $"\"{request.Transcriptname}\"" : string.Empty);
+                                if (__contentTranscript.Headers.ContentDisposition != null)
+                                {
+                                    __contentTranscript.Headers.ContentDisposition.FileNameStar = null;
+                                }
+
+                            }
 
                             __httpRequest.Content = __httpRequestContent;
 
@@ -587,6 +629,12 @@ namespace ElevenLabs
         /// <param name="targetLanguage">
         /// Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready.
         /// </param>
+        /// <param name="transcript">
+        /// Optional JSON transcript to use instead of automatic transcription. When provided, source_language is required. Segments may include an optional external_id and an optional translation; if any segment includes a translation, target_language is required and every segment must include one (used to seed the target created via target_language).
+        /// </param>
+        /// <param name="transcriptname">
+        /// Optional JSON transcript to use instead of automatic transcription. When provided, source_language is required. Segments may include an optional external_id and an optional translation; if any segment includes a translation, target_language is required and every segment must include one (used to seed the target created via target_language).
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -599,6 +647,8 @@ namespace ElevenLabs
             string? modelId = default,
             global::System.Collections.Generic.IList<string>? keyterms = default,
             string? targetLanguage = default,
+            byte[]? transcript = default,
+            string? transcriptname = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -612,6 +662,8 @@ namespace ElevenLabs
                 ModelId = modelId,
                 Keyterms = keyterms,
                 TargetLanguage = targetLanguage,
+                Transcript = transcript,
+                Transcriptname = transcriptname,
             };
 
             return await CreateAsync(

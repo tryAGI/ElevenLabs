@@ -44,6 +44,12 @@ namespace ElevenLabs
         public required double EndS { get; set; }
 
         /// <summary>
+        /// The caller-supplied external id for this segment, if one was provided.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("external_id")]
+        public string? ExternalId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -67,6 +73,9 @@ namespace ElevenLabs
         /// <param name="endS">
         /// End time of the segment, in seconds.
         /// </param>
+        /// <param name="externalId">
+        /// The caller-supplied external id for this segment, if one was provided.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -75,13 +84,15 @@ namespace ElevenLabs
             string text,
             string speakerId,
             double startS,
-            double endS)
+            double endS,
+            string? externalId)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.SpeakerId = speakerId ?? throw new global::System.ArgumentNullException(nameof(speakerId));
             this.StartS = startS;
             this.EndS = endS;
+            this.ExternalId = externalId;
         }
 
         /// <summary>
