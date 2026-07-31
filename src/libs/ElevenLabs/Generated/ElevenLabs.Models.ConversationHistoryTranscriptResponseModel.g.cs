@@ -140,6 +140,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("triggered_guardrails")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TriggeredGuardrailCommonModel>? TriggeredGuardrails { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_input")]
         public global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? FileInput { get; set; }
 
@@ -189,6 +195,7 @@ namespace ElevenLabs
         /// <param name="usedStaticKbDocumentIds"></param>
         /// <param name="userIdentifier"></param>
         /// <param name="id"></param>
+        /// <param name="triggeredGuardrails"></param>
         /// <param name="fileInput"></param>
         /// <param name="contextualUpdateInfo"></param>
         /// <param name="reasoned">
@@ -219,6 +226,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? usedStaticKbDocumentIds,
             string? userIdentifier,
             string? id,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TriggeredGuardrailCommonModel>? triggeredGuardrails,
             global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? fileInput,
             global::ElevenLabs.ContextualUpdateInfo? contextualUpdateInfo,
             bool? reasoned)
@@ -244,6 +252,7 @@ namespace ElevenLabs
             this.UsedStaticKbDocumentIds = usedStaticKbDocumentIds;
             this.UserIdentifier = userIdentifier;
             this.Id = id;
+            this.TriggeredGuardrails = triggeredGuardrails;
             this.FileInput = fileInput;
             this.ContextualUpdateInfo = contextualUpdateInfo;
             this.Reasoned = reasoned;

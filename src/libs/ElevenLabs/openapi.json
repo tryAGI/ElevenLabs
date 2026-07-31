@@ -53676,6 +53676,13 @@
               }
             ],
             "title": "Id"
+          },
+          "triggered_guardrails": {
+            "items": {
+              "$ref": "#/components/schemas/TriggeredGuardrailCommonModel"
+            },
+            "type": "array",
+            "title": "Triggered Guardrails"
           }
         },
         "type": "object",
@@ -53885,6 +53892,13 @@
               }
             ],
             "title": "Id"
+          },
+          "triggered_guardrails": {
+            "items": {
+              "$ref": "#/components/schemas/TriggeredGuardrailCommonModel"
+            },
+            "type": "array",
+            "title": "Triggered Guardrails"
           }
         },
         "type": "object",
@@ -54199,6 +54213,13 @@
               }
             ],
             "title": "Id"
+          },
+          "triggered_guardrails": {
+            "items": {
+              "$ref": "#/components/schemas/TriggeredGuardrailCommonModel"
+            },
+            "type": "array",
+            "title": "Triggered Guardrails"
           },
           "file_input": {
             "anyOf": [
@@ -67666,6 +67687,29 @@
         ],
         "title": "GuardrailExecutionMode",
         "default": "streaming"
+      },
+      "GuardrailType": {
+        "type": "string",
+        "enum": [
+          "custom",
+          "prompt_injection",
+          "self_harm_intent",
+          "violence_graphic",
+          "sexual",
+          "violence",
+          "harassment",
+          "sexual_minors",
+          "self_harm",
+          "self_harm_instructions",
+          "harassment_threatening",
+          "hate",
+          "hate_threatening",
+          "profanity",
+          "religion_or_politics",
+          "medical_and_legal",
+          "guardrail"
+        ],
+        "title": "GuardrailType"
       },
       "GuardrailsV1-Input": {
         "properties": {
@@ -91811,6 +91855,29 @@
           "value"
         ],
         "title": "TranslatedString"
+      },
+      "TriggeredGuardrailCommonModel": {
+        "properties": {
+          "guardrail_type": {
+            "$ref": "#/components/schemas/GuardrailType"
+          },
+          "guardrail_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Guardrail Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "guardrail_type"
+        ],
+        "title": "TriggeredGuardrailCommonModel"
       },
       "TurnConfig": {
         "properties": {

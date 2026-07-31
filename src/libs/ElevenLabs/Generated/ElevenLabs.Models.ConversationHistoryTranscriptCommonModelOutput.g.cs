@@ -138,6 +138,12 @@ namespace ElevenLabs
         public string? Id { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("triggered_guardrails")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TriggeredGuardrailCommonModel>? TriggeredGuardrails { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -171,6 +177,7 @@ namespace ElevenLabs
         /// <param name="usedStaticKbDocumentIds"></param>
         /// <param name="userIdentifier"></param>
         /// <param name="id"></param>
+        /// <param name="triggeredGuardrails"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -195,7 +202,8 @@ namespace ElevenLabs
             int? sourceEventId,
             global::System.Collections.Generic.IList<string>? usedStaticKbDocumentIds,
             string? userIdentifier,
-            string? id)
+            string? id,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TriggeredGuardrailCommonModel>? triggeredGuardrails)
         {
             this.Role = role;
             this.AgentMetadata = agentMetadata;
@@ -218,6 +226,7 @@ namespace ElevenLabs
             this.UsedStaticKbDocumentIds = usedStaticKbDocumentIds;
             this.UserIdentifier = userIdentifier;
             this.Id = id;
+            this.TriggeredGuardrails = triggeredGuardrails;
         }
 
         /// <summary>
