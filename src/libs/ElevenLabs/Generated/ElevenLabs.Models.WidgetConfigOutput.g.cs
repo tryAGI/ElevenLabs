@@ -303,6 +303,13 @@ namespace ElevenLabs
         public global::ElevenLabs.WidgetStyles? Styles { get; set; }
 
         /// <summary>
+        /// Whether to show the resize button<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("show_resize_button")]
+        public bool? ShowResizeButton { get; set; }
+
+        /// <summary>
         /// Whether to show the language selector<br/>
         /// Default Value: false
         /// </summary>
@@ -494,6 +501,10 @@ namespace ElevenLabs
         /// <param name="styles">
         /// Styles for the widget
         /// </param>
+        /// <param name="showResizeButton">
+        /// Whether to show the resize button<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="languageSelector">
         /// Whether to show the language selector<br/>
         /// Default Value: false
@@ -556,6 +567,7 @@ namespace ElevenLabs
             global::ElevenLabs.WidgetConfigOutputSyntaxHighlightTheme2? syntaxHighlightTheme,
             global::ElevenLabs.WidgetTextContents? textContents,
             global::ElevenLabs.WidgetStyles? styles,
+            bool? showResizeButton,
             bool? languageSelector,
             bool? supportsTextOnly,
             string? customAvatarPath,
@@ -605,6 +617,7 @@ namespace ElevenLabs
             this.SyntaxHighlightTheme = syntaxHighlightTheme;
             this.TextContents = textContents;
             this.Styles = styles;
+            this.ShowResizeButton = showResizeButton;
             this.LanguageSelector = languageSelector;
             this.SupportsTextOnly = supportsTextOnly;
             this.CustomAvatarPath = customAvatarPath;

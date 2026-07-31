@@ -61299,11 +61299,8 @@
           }
         },
         "type": "object",
-        "required": [
-          "translation"
-        ],
         "title": "DubbingTargetSegmentUpdateRequest",
-        "description": "An edit to a target segment's translation."
+        "description": "A partial edit to a target segment. An omitted field is left unchanged; a provided ``null``\nclears it (see each field for what clearing means)."
       },
       "DubbingTargetSegmentUpdateResponse": {
         "properties": {
@@ -98573,6 +98570,12 @@
             "$ref": "#/components/schemas/WidgetStyles",
             "description": "Styles for the widget"
           },
+          "show_resize_button": {
+            "type": "boolean",
+            "title": "Show Resize Button",
+            "description": "Whether to show the resize button",
+            "default": true
+          },
           "language_selector": {
             "type": "boolean",
             "title": "Language Selector",
@@ -98982,6 +98985,12 @@
             "$ref": "#/components/schemas/WidgetStyles",
             "description": "Styles for the widget"
           },
+          "show_resize_button": {
+            "type": "boolean",
+            "title": "Show Resize Button",
+            "description": "Whether to show the resize button",
+            "default": true
+          },
           "language_selector": {
             "type": "boolean",
             "title": "Language Selector",
@@ -99390,6 +99399,12 @@
           "styles": {
             "$ref": "#/components/schemas/WidgetStyles",
             "description": "Styles for the widget"
+          },
+          "show_resize_button": {
+            "type": "boolean",
+            "title": "Show Resize Button",
+            "description": "Whether to show the resize button",
+            "default": true
           },
           "language": {
             "type": "string",
