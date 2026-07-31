@@ -17918,6 +17918,24 @@
             "description": "Filter conversations by version ID."
           },
           {
+            "name": "parent_conversation_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations by parent conversation ID for subagent conversations.",
+              "title": "Parent Conversation Id"
+            },
+            "description": "Filter conversations by parent conversation ID for subagent conversations."
+          },
+          {
             "name": "topic_ids",
             "in": "query",
             "required": false,
