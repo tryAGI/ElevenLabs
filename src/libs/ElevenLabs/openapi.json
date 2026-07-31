@@ -83916,6 +83916,16 @@
           "error": {
             "type": "string",
             "title": "Error"
+          },
+          "details": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SubagentRunResultDetails"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -83945,6 +83955,16 @@
           "agent_response": {
             "type": "string",
             "title": "Agent Response"
+          },
+          "details": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SubagentRunResultDetails"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -88217,6 +88237,34 @@
           "description"
         ],
         "title": "SubAgent"
+      },
+      "SubagentRunResultDetails": {
+        "properties": {
+          "sub_conversation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sub Conversation Id"
+          },
+          "agent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agent Id"
+          }
+        },
+        "type": "object",
+        "title": "SubagentRunResultDetails"
       },
       "SubmitBusinessInfoParams": {
         "properties": {
