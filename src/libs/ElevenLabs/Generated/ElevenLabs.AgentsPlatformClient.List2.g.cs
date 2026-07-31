@@ -58,6 +58,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationProduct? conversationProductType,
             ref string? branchId,
             ref string? versionId,
+            ref string? parentConversationId,
             global::System.Collections.Generic.IList<string>? topicIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses,
             global::System.Collections.Generic.IList<string>? tagIds,
@@ -95,6 +96,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationProduct? conversationProductType,
             string? branchId,
             string? versionId,
+            string? parentConversationId,
             global::System.Collections.Generic.IList<string>? topicIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses,
             global::System.Collections.Generic.IList<string>? tagIds,
@@ -198,6 +200,9 @@ namespace ElevenLabs
         /// <param name="versionId">
         /// Filter conversations by version ID.
         /// </param>
+        /// <param name="parentConversationId">
+        /// Filter conversations by parent conversation ID for subagent conversations.
+        /// </param>
         /// <param name="topicIds">
         /// Filter conversations by topic IDs assigned during topic discovery.
         /// </param>
@@ -246,6 +251,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
             string? versionId = default,
+            string? parentConversationId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::System.Collections.Generic.IList<string>? tagIds = default,
@@ -284,6 +290,7 @@ namespace ElevenLabs
                 conversationProductType: conversationProductType,
                 branchId: branchId,
                 versionId: versionId,
+                parentConversationId: parentConversationId,
                 topicIds: topicIds,
                 excludeStatuses: excludeStatuses,
                 tagIds: tagIds,
@@ -384,6 +391,9 @@ namespace ElevenLabs
         /// <param name="versionId">
         /// Filter conversations by version ID.
         /// </param>
+        /// <param name="parentConversationId">
+        /// Filter conversations by parent conversation ID for subagent conversations.
+        /// </param>
         /// <param name="topicIds">
         /// Filter conversations by topic IDs assigned during topic discovery.
         /// </param>
@@ -432,6 +442,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
             string? versionId = default,
+            string? parentConversationId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::System.Collections.Generic.IList<string>? tagIds = default,
@@ -473,6 +484,7 @@ namespace ElevenLabs
                 conversationProductType: conversationProductType,
                 branchId: ref branchId,
                 versionId: ref versionId,
+                parentConversationId: ref parentConversationId,
                 topicIds: topicIds,
                 excludeStatuses: excludeStatuses,
                 tagIds: tagIds,
@@ -535,6 +547,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("conversation_product_type", conversationProductType?.ToString())
                                 .AddOptionalParameter("branch_id", branchId)
                                 .AddOptionalParameter("version_id", versionId)
+                                .AddOptionalParameter("parent_conversation_id", parentConversationId)
                                 .AddOptionalParameter("topic_ids", topicIds?.ToString())
                                 .AddOptionalParameter("exclude_statuses", excludeStatuses?.ToString())
                                 .AddOptionalParameter("tag_ids", tagIds?.ToString())
@@ -610,6 +623,7 @@ namespace ElevenLabs
                     conversationProductType: conversationProductType,
                     branchId: branchId,
                     versionId: versionId,
+                    parentConversationId: parentConversationId,
                     topicIds: topicIds,
                     excludeStatuses: excludeStatuses,
                     tagIds: tagIds,
@@ -1012,6 +1026,9 @@ namespace ElevenLabs
         /// <param name="versionId">
         /// Filter conversations by version ID.
         /// </param>
+        /// <param name="parentConversationId">
+        /// Filter conversations by parent conversation ID for subagent conversations.
+        /// </param>
         /// <param name="topicIds">
         /// Filter conversations by topic IDs assigned during topic discovery.
         /// </param>
@@ -1058,6 +1075,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
             string? versionId = default,
+            string? parentConversationId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::System.Collections.Generic.IList<string>? tagIds = default,
@@ -1097,6 +1115,7 @@ namespace ElevenLabs
                     conversationProductType: conversationProductType,
                     branchId: branchId,
                     versionId: versionId,
+                    parentConversationId: parentConversationId,
                     topicIds: topicIds,
                     excludeStatuses: excludeStatuses,
                     tagIds: tagIds,
