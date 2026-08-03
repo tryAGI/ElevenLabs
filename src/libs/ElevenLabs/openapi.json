@@ -38045,6 +38045,29 @@
         ],
         "title": "AllowlistItem"
       },
+      "AnalysisCharging": {
+        "properties": {
+          "total": {
+            "$ref": "#/components/schemas/AnalysisRunningTotal"
+          },
+          "last_run": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AnalysisRunSnapshot"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "total"
+        ],
+        "title": "AnalysisCharging",
+        "description": "Cost of running post-call analysis on this conversation.\n\nPresent once analysis has incurred a cost. `last_run` is null when the\nmost recent pass incurred none."
+      },
       "AnalysisProperty": {
         "properties": {
           "type": {
@@ -38147,6 +38170,80 @@
           "type": "string"
         }
       },
+      "AnalysisRunSnapshot": {
+        "properties": {
+          "price": {
+            "type": "number",
+            "title": "Price",
+            "default": 0.0
+          },
+          "charge": {
+            "type": "integer",
+            "title": "Charge",
+            "default": 0
+          },
+          "price_per_feature": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "propertyNames": {
+              "$ref": "#/components/schemas/AnalysisType"
+            },
+            "type": "object",
+            "title": "Price Per Feature"
+          },
+          "charge_per_feature": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "propertyNames": {
+              "$ref": "#/components/schemas/AnalysisType"
+            },
+            "type": "object",
+            "title": "Charge Per Feature"
+          }
+        },
+        "type": "object",
+        "title": "AnalysisRunSnapshot",
+        "description": "LLM cost of the most recent post-call analysis pass on this conversation."
+      },
+      "AnalysisRunningTotal": {
+        "properties": {
+          "price": {
+            "type": "number",
+            "title": "Price",
+            "default": 0.0
+          },
+          "charge": {
+            "type": "integer",
+            "title": "Charge",
+            "default": 0
+          },
+          "price_per_feature": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "propertyNames": {
+              "$ref": "#/components/schemas/AnalysisType"
+            },
+            "type": "object",
+            "title": "Price Per Feature"
+          },
+          "charge_per_feature": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "propertyNames": {
+              "$ref": "#/components/schemas/AnalysisType"
+            },
+            "type": "object",
+            "title": "Charge Per Feature"
+          }
+        },
+        "type": "object",
+        "title": "AnalysisRunningTotal",
+        "description": "Cumulative LLM cost of running post-call analysis on this conversation."
+      },
       "AnalysisScope": {
         "type": "string",
         "enum": [
@@ -38155,6 +38252,14 @@
         ],
         "title": "AnalysisScope",
         "default": "conversation"
+      },
+      "AnalysisType": {
+        "type": "string",
+        "enum": [
+          "evaluation_criteria",
+          "data_collection"
+        ],
+        "title": "AnalysisType"
       },
       "ApiIntegrationOAuth2AuthCodeResponse": {
         "properties": {
@@ -51913,6 +52018,16 @@
                 "type": "null"
               }
             ]
+          },
+          "analysis": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AnalysisCharging"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -54362,11 +54477,15 @@
                   },
                   {
                     "$ref": "#/components/schemas/RunSubagentToolResultErrorModel"
+                  },
+                  {
+                    "$ref": "#/components/schemas/DummyToolResultModel"
                   }
                 ],
                 "discriminator": {
                   "propertyName": "result_type",
                   "mapping": {
+                    "dummy": "#/components/schemas/DummyToolResultModel",
                     "end_call_success": "#/components/schemas/EndCallToolResultModel",
                     "knowledge_base_rag_success": "#/components/schemas/KnowledgeBaseRagToolResultModel",
                     "knowledge_base_success": "#/components/schemas/KnowledgeBaseToolResultModel",
@@ -54513,11 +54632,15 @@
                   },
                   {
                     "$ref": "#/components/schemas/RunSubagentToolResultErrorModel"
+                  },
+                  {
+                    "$ref": "#/components/schemas/DummyToolResultModel"
                   }
                 ],
                 "discriminator": {
                   "propertyName": "result_type",
                   "mapping": {
+                    "dummy": "#/components/schemas/DummyToolResultModel",
                     "end_call_success": "#/components/schemas/EndCallToolResultModel",
                     "knowledge_base_rag_success": "#/components/schemas/KnowledgeBaseRagToolResultModel",
                     "knowledge_base_success": "#/components/schemas/KnowledgeBaseToolResultModel",
@@ -61658,6 +61781,18 @@
           "transcript_format"
         ],
         "title": "DubbingTranscriptsResponseModel"
+      },
+      "DummyToolResultModel": {
+        "properties": {
+          "result_type": {
+            "type": "string",
+            "const": "dummy",
+            "title": "Result Type",
+            "default": "dummy"
+          }
+        },
+        "type": "object",
+        "title": "DummyToolResultModel"
       },
       "DynamicVariableAssignment": {
         "properties": {
