@@ -243,6 +243,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        TriggerUserVerification,
+        /// <summary>
+        /// 
+        /// </summary>
         UpdateAgentProcedure,
         /// <summary>
         /// 
@@ -300,6 +304,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         UpdateStaff,
+        /// <summary>
+        /// 
+        /// </summary>
+        ValidateUserVerificationCode,
     }
 
     /// <summary>
@@ -372,6 +380,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients => "search_clients",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug => "set_booking_slug",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo => "submit_business_info",
+                SMBToolConfigParamsDiscriminatorSmbToolType.TriggerUserVerification => "trigger_user_verification",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentProcedure => "update_agent_procedure",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentRule => "update_agent_rule",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAsset => "update_asset",
@@ -387,6 +396,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateProduct => "update_product",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateService => "update_service",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateStaff => "update_staff",
+                SMBToolConfigParamsDiscriminatorSmbToolType.ValidateUserVerificationCode => "validate_user_verification_code",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -455,6 +465,7 @@ namespace ElevenLabs
                 "search_clients" => SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients,
                 "set_booking_slug" => SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug,
                 "submit_business_info" => SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo,
+                "trigger_user_verification" => SMBToolConfigParamsDiscriminatorSmbToolType.TriggerUserVerification,
                 "update_agent_procedure" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentProcedure,
                 "update_agent_rule" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentRule,
                 "update_asset" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAsset,
@@ -470,6 +481,7 @@ namespace ElevenLabs
                 "update_product" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateProduct,
                 "update_service" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateService,
                 "update_staff" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateStaff,
+                "validate_user_verification_code" => SMBToolConfigParamsDiscriminatorSmbToolType.ValidateUserVerificationCode,
                 _ => null,
             };
         }
