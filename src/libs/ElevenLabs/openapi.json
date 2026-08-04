@@ -39436,16 +39436,6 @@
         ],
         "title": "AudioAnalysisResult"
       },
-      "AudioFormat": {
-        "type": "string",
-        "enum": [
-          "audio/pcm",
-          "audio/pcmu",
-          "audio/pcma"
-        ],
-        "title": "AudioFormat",
-        "default": "audio/pcm"
-      },
       "AudioIsolationHistoryItemResponseModel": {
         "properties": {
           "id": {
@@ -51388,6 +51378,16 @@
         "title": "ConfigEntityType",
         "description": "Entity types for the API configuration.\n\nThis enum contains all valid entity type configurations that users can specify:\n- Parent types (e.g., \"name\", \"financial_id\") that expand to all subtypes\n- Specific subtypes using dot notation (e.g., \"name.full_name\")\n- Standalone terminal types (e.g., \"email_address\")\n\nWhen converted for service use, parent types expand to all their terminal subtypes."
       },
+      "ConflictSection": {
+        "type": "string",
+        "enum": [
+          "conversation_config",
+          "platform_settings",
+          "procedures",
+          "workflow"
+        ],
+        "title": "ConflictSection"
+      },
       "ConstantSchemaOverride": {
         "properties": {
           "source": {
@@ -54473,12 +54473,6 @@
                     "$ref": "#/components/schemas/KnowledgeBaseToolResultModel"
                   },
                   {
-                    "$ref": "#/components/schemas/RunSubagentToolResultSuccessModel"
-                  },
-                  {
-                    "$ref": "#/components/schemas/RunSubagentToolResultErrorModel"
-                  },
-                  {
                     "$ref": "#/components/schemas/DummyToolResultModel"
                   }
                 ],
@@ -54492,8 +54486,6 @@
                     "language_detection_success": "#/components/schemas/LanguageDetectionToolResultModel",
                     "play_dtmf_error": "#/components/schemas/PlayDTMFResultErrorModel",
                     "play_dtmf_success": "#/components/schemas/PlayDTMFResultSuccessModel",
-                    "run_subagent_error": "#/components/schemas/RunSubagentToolResultErrorModel",
-                    "run_subagent_success": "#/components/schemas/RunSubagentToolResultSuccessModel",
                     "skip_turn_success": "#/components/schemas/SkipTurnToolResponseModel",
                     "testing_tool_result": "#/components/schemas/TestToolResultModel",
                     "transfer_to_agent_error": "#/components/schemas/TransferToAgentToolResultErrorModel",
@@ -54628,12 +54620,6 @@
                     "$ref": "#/components/schemas/KnowledgeBaseToolResultModel"
                   },
                   {
-                    "$ref": "#/components/schemas/RunSubagentToolResultSuccessModel"
-                  },
-                  {
-                    "$ref": "#/components/schemas/RunSubagentToolResultErrorModel"
-                  },
-                  {
                     "$ref": "#/components/schemas/DummyToolResultModel"
                   }
                 ],
@@ -54647,8 +54633,6 @@
                     "language_detection_success": "#/components/schemas/LanguageDetectionToolResultModel",
                     "play_dtmf_error": "#/components/schemas/PlayDTMFResultErrorModel",
                     "play_dtmf_success": "#/components/schemas/PlayDTMFResultSuccessModel",
-                    "run_subagent_error": "#/components/schemas/RunSubagentToolResultErrorModel",
-                    "run_subagent_success": "#/components/schemas/RunSubagentToolResultSuccessModel",
                     "skip_turn_success": "#/components/schemas/SkipTurnToolResponseModel",
                     "testing_tool_result": "#/components/schemas/TestToolResultModel",
                     "transfer_to_agent_error": "#/components/schemas/TransferToAgentToolResultErrorModel",
@@ -61949,15 +61933,6 @@
           }
         }
       },
-      "Eagerness": {
-        "type": "string",
-        "enum": [
-          "low",
-          "medium",
-          "high"
-        ],
-        "title": "Eagerness"
-      },
       "EditChapterResponseModel": {
         "properties": {
           "chapter": {
@@ -63052,6 +63027,37 @@
         },
         "type": "object",
         "title": "FeaturesUsageCommonModel"
+      },
+      "FieldConflict": {
+        "properties": {
+          "path": {
+            "type": "string",
+            "title": "Path",
+            "description": "Identifier of the conflicting field relative to its section: a dot-path within conversation_config/platform_settings, or a procedure id."
+          },
+          "section": {
+            "$ref": "#/components/schemas/ConflictSection",
+            "description": "Which config section this path belongs to."
+          },
+          "base_value": {
+            "title": "Base Value",
+            "description": "Value at the common ancestor (merge base)."
+          },
+          "source_value": {
+            "title": "Source Value",
+            "description": "Value on the source branch tip."
+          },
+          "target_value": {
+            "title": "Target Value",
+            "description": "Value on the target branch tip."
+          }
+        },
+        "type": "object",
+        "required": [
+          "path",
+          "section"
+        ],
+        "title": "FieldConflict"
       },
       "FileInputConfig": {
         "properties": {
@@ -73440,6 +73446,14 @@
             "title": "Overridden Fields",
             "description": "Dot-paths of config fields where both branches modified the same field relative to their common ancestor (conflicts). Present regardless of which side wins the conflict."
           },
+          "conflicts": {
+            "items": {
+              "$ref": "#/components/schemas/FieldConflict"
+            },
+            "type": "array",
+            "title": "Conflicts",
+            "description": "Structured view of the same conflicts as overridden_fields, each carrying the value on the base (common ancestor), source branch, and target branch so the divergence can be presented and resolved field-by-field."
+          },
           "source_identical_to_target": {
             "type": "boolean",
             "title": "Source Identical To Target",
@@ -75146,354 +75160,6 @@
         },
         "type": "object",
         "title": "OmitSchemaOverride"
-      },
-      "OpenAIAudioConfig": {
-        "properties": {
-          "input": {
-            "$ref": "#/components/schemas/OpenAIAudioInputConfig"
-          },
-          "output": {
-            "$ref": "#/components/schemas/OpenAIAudioOutputConfig"
-          }
-        },
-        "type": "object",
-        "title": "OpenAIAudioConfig"
-      },
-      "OpenAIAudioInputConfig": {
-        "properties": {
-          "format": {
-            "$ref": "#/components/schemas/OpenAIAudioInputFormat"
-          },
-          "turn_detection": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/OpenAITurnDetection"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          }
-        },
-        "type": "object",
-        "title": "OpenAIAudioInputConfig"
-      },
-      "OpenAIAudioInputFormat": {
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/AudioFormat",
-            "default": "audio/pcm"
-          },
-          "rate": {
-            "type": "integer",
-            "title": "Rate",
-            "default": 24000
-          }
-        },
-        "type": "object",
-        "title": "OpenAIAudioInputFormat"
-      },
-      "OpenAIAudioOutputConfig": {
-        "properties": {
-          "format": {
-            "$ref": "#/components/schemas/OpenAIAudioOutputFormat"
-          },
-          "voice": {
-            "type": "string",
-            "title": "Voice",
-            "default": "brian"
-          }
-        },
-        "type": "object",
-        "title": "OpenAIAudioOutputConfig"
-      },
-      "OpenAIAudioOutputFormat": {
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/AudioFormat",
-            "default": "audio/pcm"
-          }
-        },
-        "type": "object",
-        "title": "OpenAIAudioOutputFormat"
-      },
-      "OpenAIFunctionTool": {
-        "properties": {
-          "type": {
-            "type": "string",
-            "const": "function",
-            "title": "Type",
-            "default": "function"
-          },
-          "name": {
-            "type": "string",
-            "title": "Name"
-          },
-          "description": {
-            "type": "string",
-            "title": "Description",
-            "default": ""
-          },
-          "parameters": {
-            "additionalProperties": true,
-            "type": "object",
-            "title": "Parameters"
-          }
-        },
-        "type": "object",
-        "required": [
-          "name"
-        ],
-        "title": "OpenAIFunctionTool"
-      },
-      "OpenAIMCPTool": {
-        "properties": {
-          "type": {
-            "type": "string",
-            "const": "mcp",
-            "title": "Type",
-            "default": "mcp"
-          },
-          "server_label": {
-            "type": "string",
-            "title": "Server Label"
-          },
-          "server_url": {
-            "type": "string",
-            "title": "Server Url"
-          },
-          "authorization": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Authorization"
-          },
-          "allowed_tools": {
-            "anyOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Allowed Tools"
-          },
-          "require_approval": {
-            "type": "string",
-            "enum": [
-              "never",
-              "always"
-            ],
-            "title": "Require Approval",
-            "default": "never"
-          }
-        },
-        "type": "object",
-        "required": [
-          "server_label",
-          "server_url"
-        ],
-        "title": "OpenAIMCPTool"
-      },
-      "OpenAISessionConfig": {
-        "properties": {
-          "type": {
-            "type": "string",
-            "const": "realtime",
-            "title": "Type",
-            "default": "realtime"
-          },
-          "model": {
-            "type": "string",
-            "title": "Model",
-            "default": "eleven_realtime_v1_mini"
-          },
-          "instructions": {
-            "type": "string",
-            "title": "Instructions",
-            "default": ""
-          },
-          "modalities": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Modalities"
-          },
-          "audio": {
-            "$ref": "#/components/schemas/OpenAIAudioConfig"
-          },
-          "tools": {
-            "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/OpenAIFunctionTool"
-                },
-                {
-                  "$ref": "#/components/schemas/OpenAIMCPTool"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "type",
-                "mapping": {
-                  "function": "#/components/schemas/OpenAIFunctionTool",
-                  "mcp": "#/components/schemas/OpenAIMCPTool"
-                }
-              }
-            },
-            "type": "array",
-            "title": "Tools"
-          },
-          "tool_choice": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/components/schemas/OpenAIToolChoiceFunction"
-              }
-            ],
-            "title": "Tool Choice",
-            "default": "auto"
-          },
-          "temperature": {
-            "type": "number",
-            "title": "Temperature",
-            "default": 0.7
-          },
-          "max_response_output_tokens": {
-            "anyOf": [
-              {
-                "type": "integer",
-                "maximum": 4096.0,
-                "minimum": 1.0
-              },
-              {
-                "type": "string",
-                "const": "inf"
-              }
-            ],
-            "title": "Max Response Output Tokens",
-            "default": 4096
-          },
-          "output_modalities": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Output Modalities",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false,
-        "type": "object",
-        "required": [
-          "output_modalities"
-        ],
-        "title": "OpenAISessionConfig"
-      },
-      "OpenAIToolChoiceFunction": {
-        "properties": {
-          "type": {
-            "type": "string",
-            "const": "function",
-            "title": "Type",
-            "default": "function"
-          },
-          "function": {
-            "$ref": "#/components/schemas/OpenAIToolChoiceFunctionInner"
-          }
-        },
-        "type": "object",
-        "required": [
-          "function"
-        ],
-        "title": "OpenAIToolChoiceFunction"
-      },
-      "OpenAIToolChoiceFunctionInner": {
-        "properties": {
-          "name": {
-            "type": "string",
-            "title": "Name"
-          }
-        },
-        "type": "object",
-        "required": [
-          "name"
-        ],
-        "title": "OpenAIToolChoiceFunctionInner"
-      },
-      "OpenAITurnDetection": {
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/TurnDetectionType",
-            "default": "semantic_vad"
-          },
-          "eagerness": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Eagerness"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "create_response": {
-            "type": "boolean",
-            "title": "Create Response",
-            "default": true
-          },
-          "interrupt_response": {
-            "type": "boolean",
-            "title": "Interrupt Response",
-            "default": true
-          },
-          "threshold": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Threshold"
-          },
-          "prefix_padding_ms": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Prefix Padding Ms"
-          },
-          "silence_duration_ms": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Silence Duration Ms"
-          }
-        },
-        "type": "object",
-        "title": "OpenAITurnDetection"
       },
       "OpenerConfig": {
         "properties": {
@@ -82842,91 +82508,6 @@
           "resource_type": "read"
         }
       },
-      "RealtimeConfigSnapshot": {
-        "properties": {
-          "_id": {
-            "type": "string",
-            "title": "Id"
-          },
-          "workspace_id": {
-            "type": "string",
-            "title": "Workspace Id"
-          },
-          "conversation_id": {
-            "type": "string",
-            "title": "Conversation Id"
-          },
-          "seq_no": {
-            "type": "integer",
-            "title": "Seq No"
-          },
-          "time_in_call_secs": {
-            "type": "integer",
-            "title": "Time In Call Secs"
-          },
-          "time_committed_secs": {
-            "type": "integer",
-            "title": "Time Committed Secs"
-          },
-          "source_event_id": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Source Event Id"
-          },
-          "parents": {
-            "$ref": "#/components/schemas/RealtimeConfigSnapshotParents"
-          },
-          "session_config": {
-            "$ref": "#/components/schemas/OpenAISessionConfig"
-          },
-          "safety": {
-            "$ref": "#/components/schemas/SafetyCommonModel-Output"
-          },
-          "changed_paths": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Changed Paths"
-          }
-        },
-        "type": "object",
-        "required": [
-          "_id",
-          "workspace_id",
-          "conversation_id",
-          "seq_no",
-          "time_in_call_secs",
-          "time_committed_secs",
-          "parents",
-          "session_config",
-          "safety"
-        ],
-        "title": "RealtimeConfigSnapshot"
-      },
-      "RealtimeConfigSnapshotParents": {
-        "properties": {
-          "previous_snapshot_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Previous Snapshot Id"
-          }
-        },
-        "type": "object",
-        "title": "RealtimeConfigSnapshotParents"
-      },
       "RecordingResponseModel": {
         "properties": {
           "recording_id": {
@@ -84034,81 +83615,6 @@
         ],
         "title": "RunSubagentToolConfig"
       },
-      "RunSubagentToolResultErrorModel": {
-        "properties": {
-          "result_type": {
-            "type": "string",
-            "const": "run_subagent_error",
-            "title": "Result Type",
-            "default": "run_subagent_error"
-          },
-          "status": {
-            "type": "string",
-            "const": "error",
-            "title": "Status",
-            "default": "error"
-          },
-          "error": {
-            "type": "string",
-            "title": "Error"
-          },
-          "details": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/SubagentRunResultDetails"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          }
-        },
-        "type": "object",
-        "required": [
-          "error"
-        ],
-        "title": "RunSubagentToolResultErrorModel"
-      },
-      "RunSubagentToolResultSuccessModel": {
-        "properties": {
-          "result_type": {
-            "type": "string",
-            "const": "run_subagent_success",
-            "title": "Result Type",
-            "default": "run_subagent_success"
-          },
-          "status": {
-            "type": "string",
-            "const": "success",
-            "title": "Status",
-            "default": "success"
-          },
-          "query": {
-            "type": "string",
-            "title": "Query"
-          },
-          "agent_response": {
-            "type": "string",
-            "title": "Agent Response"
-          },
-          "details": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/SubagentRunResultDetails"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          }
-        },
-        "type": "object",
-        "required": [
-          "query",
-          "agent_response"
-        ],
-        "title": "RunSubagentToolResultSuccessModel"
-      },
       "SIPLogMessage": {
         "properties": {
           "call_id": {
@@ -84298,6 +83804,32 @@
           "sip_uri"
         ],
         "title": "SIPUriTransferDestination"
+      },
+      "SMBClientAccessConfig": {
+        "properties": {
+          "enable_secure_mode": {
+            "type": "boolean",
+            "title": "Enable Secure Mode",
+            "default": false
+          },
+          "identity_verification_enabled": {
+            "type": "boolean",
+            "title": "Identity Verification Enabled",
+            "default": false
+          },
+          "identity_verification_email_enabled": {
+            "type": "boolean",
+            "title": "Identity Verification Email Enabled",
+            "default": false
+          },
+          "identity_verification_sms_enabled": {
+            "type": "boolean",
+            "title": "Identity Verification Sms Enabled",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "SMBClientAccessConfig"
       },
       "SMBToolConfig": {
         "properties": {
@@ -84607,6 +84139,12 @@
               },
               {
                 "$ref": "#/components/schemas/OptOutSmsReminderParams"
+              },
+              {
+                "$ref": "#/components/schemas/TriggerUserVerificationParams"
+              },
+              {
+                "$ref": "#/components/schemas/ValidateUserVerificationCodeParams"
               }
             ],
             "title": "Params",
@@ -84671,6 +84209,7 @@
                 "search_clients": "#/components/schemas/SearchClientsParams",
                 "set_booking_slug": "#/components/schemas/SetBookingSlugParams",
                 "submit_business_info": "#/components/schemas/SubmitBusinessInfoParams",
+                "trigger_user_verification": "#/components/schemas/TriggerUserVerificationParams",
                 "update_agent_procedure": "#/components/schemas/UpdateAgentProcedureParams",
                 "update_agent_rule": "#/components/schemas/UpdateAgentRuleParams",
                 "update_asset": "#/components/schemas/UpdateAssetParams",
@@ -84685,7 +84224,8 @@
                 "update_location": "#/components/schemas/UpdateLocationParams",
                 "update_product": "#/components/schemas/UpdateProductParams",
                 "update_service": "#/components/schemas/UpdateServiceParams",
-                "update_staff": "#/components/schemas/UpdateStaffParams"
+                "update_staff": "#/components/schemas/UpdateStaffParams",
+                "validate_user_verification_code": "#/components/schemas/ValidateUserVerificationCodeParams"
               }
             }
           }
@@ -92036,6 +91576,18 @@
         ],
         "title": "TranslatedString"
       },
+      "TriggerUserVerificationParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "trigger_user_verification",
+            "title": "Smb Tool Type",
+            "default": "trigger_user_verification"
+          }
+        },
+        "type": "object",
+        "title": "TriggerUserVerificationParams"
+      },
       "TriggeredGuardrailCommonModel": {
         "properties": {
           "guardrail_type": {
@@ -92377,15 +91929,6 @@
           "turn_model": "turn_v3",
           "turn_timeout": 7.0
         }
-      },
-      "TurnDetectionType": {
-        "type": "string",
-        "enum": [
-          "semantic_vad",
-          "server_vad"
-        ],
-        "title": "TurnDetectionType",
-        "default": "semantic_vad"
       },
       "TurnEagerness": {
         "type": "string",
@@ -95000,6 +94543,18 @@
           "professional",
           "famous"
         ]
+      },
+      "ValidateUserVerificationCodeParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "validate_user_verification_code",
+            "title": "Smb Tool Type",
+            "default": "validate_user_verification_code"
+          }
+        },
+        "type": "object",
+        "title": "ValidateUserVerificationCodeParams"
       },
       "ValidationError": {
         "properties": {

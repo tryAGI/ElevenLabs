@@ -532,6 +532,20 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OptOutSmsReminderParams)}");
                 optOutSmsReminder = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.TriggerUserVerificationParams? triggerUserVerification = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.TriggerUserVerification)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TriggerUserVerificationParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TriggerUserVerificationParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TriggerUserVerificationParams)}");
+                triggerUserVerification = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.ValidateUserVerificationCodeParams? validateUserVerificationCode = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ValidateUserVerificationCode)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ValidateUserVerificationCodeParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ValidateUserVerificationCodeParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ValidateUserVerificationCodeParams)}");
+                validateUserVerificationCode = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var __value = new global::ElevenLabs.Params(
                 discriminator?.SmbToolType,
@@ -679,7 +693,11 @@ namespace ElevenLabs.JsonConverters
 
                 optInSmsReminder,
 
-                optOutSmsReminder
+                optOutSmsReminder,
+
+                triggerUserVerification,
+
+                validateUserVerificationCode
                 );
 
             return __value;
@@ -1131,6 +1149,18 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OptOutSmsReminderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OptOutSmsReminderParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OptOutSmsReminderParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.OptOutSmsReminder!, typeInfo);
+            }
+            else if (value.IsTriggerUserVerification)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TriggerUserVerificationParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TriggerUserVerificationParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TriggerUserVerificationParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TriggerUserVerification!, typeInfo);
+            }
+            else if (value.IsValidateUserVerificationCode)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ValidateUserVerificationCodeParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ValidateUserVerificationCodeParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ValidateUserVerificationCodeParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ValidateUserVerificationCode!, typeInfo);
             }
         }
     }

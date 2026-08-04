@@ -99,6 +99,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? OverriddenFields { get; set; }
 
         /// <summary>
+        /// Structured view of the same conflicts as overridden_fields, each carrying the value on the base (common ancestor), source branch, and target branch so the divergence can be presented and resolved field-by-field.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conflicts")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.FieldConflict>? Conflicts { get; set; }
+
+        /// <summary>
         /// True when the merge/rebase would be a no-op, i.e. the merged result is identical to the source branch tip. The rebase endpoint rejects in this case.<br/>
         /// Default Value: false
         /// </summary>
@@ -157,6 +163,9 @@ namespace ElevenLabs
         /// <param name="overriddenFields">
         /// Dot-paths of config fields where both branches modified the same field relative to their common ancestor (conflicts). Present regardless of which side wins the conflict.
         /// </param>
+        /// <param name="conflicts">
+        /// Structured view of the same conflicts as overridden_fields, each carrying the value on the base (common ancestor), source branch, and target branch so the divergence can be presented and resolved field-by-field.
+        /// </param>
         /// <param name="sourceIdenticalToTarget">
         /// True when the merge/rebase would be a no-op, i.e. the merged result is identical to the source branch tip. The rebase endpoint rejects in this case.<br/>
         /// Default Value: false
@@ -179,6 +188,7 @@ namespace ElevenLabs
             string? branchId,
             string? mainBranchId,
             global::System.Collections.Generic.IList<string>? overriddenFields,
+            global::System.Collections.Generic.IList<global::ElevenLabs.FieldConflict>? conflicts,
             bool? sourceIdenticalToTarget)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
@@ -195,6 +205,7 @@ namespace ElevenLabs
             this.BranchId = branchId;
             this.MainBranchId = mainBranchId;
             this.OverriddenFields = overriddenFields;
+            this.Conflicts = conflicts;
             this.SourceIdenticalToTarget = sourceIdenticalToTarget;
         }
 
