@@ -42129,7 +42129,7 @@
           "target_language": {
             "type": "string",
             "title": "Target Language",
-            "description": "BCP-47 language tag to dub the project into (e.g. 'fr', 'es-419')."
+            "description": "BCP-47 language tag to dub the project into (e.g. 'fr', 'es-MX'); must be a language the dubbing model supports. A region-qualified tag must be one of the supported dialects."
           },
           "model_id": {
             "anyOf": [
@@ -42227,7 +42227,7 @@
               }
             ],
             "title": "Source Language",
-            "description": "BCP-47 language tag of the source media. Omit to auto-detect."
+            "description": "BCP-47 language tag of the source media; must be a language the transcription model supports. Any region or script subtag is ignored, since transcription is per-language. Omit to auto-detect."
           },
           "model_id": {
             "anyOf": [
@@ -42260,7 +42260,7 @@
               }
             ],
             "title": "Target Language",
-            "description": "Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready."
+            "description": "Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready. Must be a language the dubbing model supports, and a region-qualified tag must be one of the supported dialects."
           },
           "transcript": {
             "anyOf": [

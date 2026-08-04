@@ -46,7 +46,7 @@ namespace ElevenLabs
         /// Identifier of the parent dubbing project.
         /// </param>
         /// <param name="targetLanguage">
-        /// BCP-47 language tag to dub the project into (e.g. 'fr', 'es-419').
+        /// BCP-47 language tag to dub the project into (e.g. 'fr', 'es-MX'); must be a language the dubbing model supports. A region-qualified tag must be one of the supported dialects.
         /// </param>
         /// <param name="modelId">
         /// Dubbing model id for this target; omit to use the project default.

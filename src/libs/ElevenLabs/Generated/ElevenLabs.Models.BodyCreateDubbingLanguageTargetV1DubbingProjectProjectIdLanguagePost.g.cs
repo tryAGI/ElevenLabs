@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePost
     {
         /// <summary>
-        /// BCP-47 language tag to dub the project into (e.g. 'fr', 'es-419').
+        /// BCP-47 language tag to dub the project into (e.g. 'fr', 'es-MX'); must be a language the dubbing model supports. A region-qualified tag must be one of the supported dialects.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_language")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -43,7 +43,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePost" /> class.
         /// </summary>
         /// <param name="targetLanguage">
-        /// BCP-47 language tag to dub the project into (e.g. 'fr', 'es-419').
+        /// BCP-47 language tag to dub the project into (e.g. 'fr', 'es-MX'); must be a language the dubbing model supports. A region-qualified tag must be one of the supported dialects.
         /// </param>
         /// <param name="modelId">
         /// Dubbing model id for this target; omit to use the project default.
