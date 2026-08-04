@@ -33,7 +33,7 @@ namespace ElevenLabs
         public string? Reference { get; set; }
 
         /// <summary>
-        /// BCP-47 language tag of the source media. Omit to auto-detect.
+        /// BCP-47 language tag of the source media; must be a language the transcription model supports. Any region or script subtag is ignored, since transcription is per-language. Omit to auto-detect.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_language")]
         public string? SourceLanguage { get; set; }
@@ -51,7 +51,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? Keyterms { get; set; }
 
         /// <summary>
-        /// Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready.
+        /// Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready. Must be a language the dubbing model supports, and a region-qualified tag must be one of the supported dialects.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_language")]
         public string? TargetLanguage { get; set; }
@@ -90,7 +90,7 @@ namespace ElevenLabs
         /// Optional free-form string (max 500 characters) to identify the project on your end.
         /// </param>
         /// <param name="sourceLanguage">
-        /// BCP-47 language tag of the source media. Omit to auto-detect.
+        /// BCP-47 language tag of the source media; must be a language the transcription model supports. Any region or script subtag is ignored, since transcription is per-language. Omit to auto-detect.
         /// </param>
         /// <param name="modelId">
         /// Default dubbing model id for the project's language targets; a target may override it. Omit to use the system default.
@@ -99,7 +99,7 @@ namespace ElevenLabs
         /// Key terms to bias transcription/translation toward (e.g. product or brand names). At most 1000 terms; each term at most 50 characters and 5 words; the characters `&lt;&gt;{}[]\` are not allowed.
         /// </param>
         /// <param name="targetLanguage">
-        /// Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready.
+        /// Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready. Must be a language the dubbing model supports, and a region-qualified tag must be one of the supported dialects.
         /// </param>
         /// <param name="transcript">
         /// Optional JSON transcript to use instead of automatic transcription. When provided, source_language is required. Segments may include an optional external_id and an optional translation; if any segment includes a translation, target_language is required and every segment must include one (used to seed the target created via target_language).
