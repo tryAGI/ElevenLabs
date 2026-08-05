@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_UpdateSegmentSecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_UpdateSegmentsSecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,55 +21,48 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_UpdateSegmentSecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_UpdateSegmentsSecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_UpdateSegmentSecurityRequirement0,
+            {                s_UpdateSegmentsSecurityRequirement0,
             };
-        partial void PrepareUpdateSegmentArguments(
+        partial void PrepareUpdateSegmentsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string projectId,
-            ref string segmentId,
-            global::ElevenLabs.DubbingSegmentUpdateRequest request);
-        partial void PrepareUpdateSegmentRequest(
+            global::ElevenLabs.DubbingBulkSegmentUpdateRequest request);
+        partial void PrepareUpdateSegmentsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string projectId,
-            string segmentId,
-            global::ElevenLabs.DubbingSegmentUpdateRequest request);
-        partial void ProcessUpdateSegmentResponse(
+            global::ElevenLabs.DubbingBulkSegmentUpdateRequest request);
+        partial void ProcessUpdateSegmentsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessUpdateSegmentResponseContent(
+        partial void ProcessUpdateSegmentsResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Update Dubbing Transcript Segment<br/>
-        /// Enterprise only. Edit a source segment's text, speaker, or timing.
+        /// Update Dubbing Transcript Segments<br/>
+        /// Edit several source segments' text, speaker, or timing in one atomic request.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
-        /// </param>
-        /// <param name="segmentId">
-        /// Identifier of the segment to edit.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingSourceSegmentUpdateResponse> UpdateSegmentAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingBulkSourceSegmentUpdateResponse> UpdateSegmentsAsync(
             string projectId,
-            string segmentId,
 
-            global::ElevenLabs.DubbingSegmentUpdateRequest request,
+            global::ElevenLabs.DubbingBulkSegmentUpdateRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await UpdateSegmentAsResponseAsync(
+            var __response = await UpdateSegmentsAsResponseAsync(
                 projectId: projectId,
-                segmentId: segmentId,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -79,24 +72,20 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Update Dubbing Transcript Segment<br/>
-        /// Enterprise only. Edit a source segment's text, speaker, or timing.
+        /// Update Dubbing Transcript Segments<br/>
+        /// Edit several source segments' text, speaker, or timing in one atomic request.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
-        /// </param>
-        /// <param name="segmentId">
-        /// Identifier of the segment to edit.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingSourceSegmentUpdateResponse>> UpdateSegmentAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingBulkSourceSegmentUpdateResponse>> UpdateSegmentsAsResponseAsync(
             string projectId,
-            string segmentId,
 
-            global::ElevenLabs.DubbingSegmentUpdateRequest request,
+            global::ElevenLabs.DubbingBulkSegmentUpdateRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -104,17 +93,16 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareUpdateSegmentArguments(
+            PrepareUpdateSegmentsArguments(
                 httpClient: HttpClient,
                 projectId: ref projectId,
-                segmentId: ref segmentId,
                 request: request);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_UpdateSegmentSecurityRequirements,
-                operationName: "UpdateSegmentAsync");
+                securityRequirements: s_UpdateSegmentsSecurityRequirements,
+                operationName: "UpdateSegmentsAsync");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -134,7 +122,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/dubbing/project/{projectId}/transcript/segment/{segmentId}",
+                                path: $"/v1/dubbing/project/{projectId}/transcript/segments",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -179,11 +167,10 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareUpdateSegmentRequest(
+                PrepareUpdateSegmentsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     projectId: projectId!,
-                    segmentId: segmentId!,
                     request: request);
 
                 return __httpRequest;
@@ -201,9 +188,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "UpdateSegment",
-                                methodName: "UpdateSegmentAsync",
-                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/transcript/segment/{segmentId}\"",
+                                operationId: "UpdateSegments",
+                                methodName: "UpdateSegmentsAsync",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/transcript/segments\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -235,9 +222,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "UpdateSegment",
-                                methodName: "UpdateSegmentAsync",
-                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/transcript/segment/{segmentId}\"",
+                                operationId: "UpdateSegments",
+                                methodName: "UpdateSegmentsAsync",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/transcript/segments\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -276,9 +263,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "UpdateSegment",
-                                methodName: "UpdateSegmentAsync",
-                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/transcript/segment/{segmentId}\"",
+                                operationId: "UpdateSegments",
+                                methodName: "UpdateSegmentsAsync",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/transcript/segments\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -316,7 +303,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessUpdateSegmentResponse(
+                ProcessUpdateSegmentsResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -324,9 +311,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "UpdateSegment",
-                                methodName: "UpdateSegmentAsync",
-                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/transcript/segment/{segmentId}\"",
+                                operationId: "UpdateSegments",
+                                methodName: "UpdateSegmentsAsync",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/transcript/segments\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -346,9 +333,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "UpdateSegment",
-                                methodName: "UpdateSegmentAsync",
-                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/transcript/segment/{segmentId}\"",
+                                operationId: "UpdateSegments",
+                                methodName: "UpdateSegmentsAsync",
+                                pathTemplate: "$\"/v1/dubbing/project/{projectId}/transcript/segments\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -413,7 +400,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessUpdateSegmentResponseContent(
+                                ProcessUpdateSegmentsResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -422,9 +409,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.DubbingSourceSegmentUpdateResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.DubbingBulkSourceSegmentUpdateResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingSourceSegmentUpdateResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingBulkSourceSegmentUpdateResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -454,9 +441,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.DubbingSourceSegmentUpdateResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.DubbingBulkSourceSegmentUpdateResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingSourceSegmentUpdateResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingBulkSourceSegmentUpdateResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -497,51 +484,31 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Dubbing Transcript Segment<br/>
-        /// Enterprise only. Edit a source segment's text, speaker, or timing.
+        /// Update Dubbing Transcript Segments<br/>
+        /// Edit several source segments' text, speaker, or timing in one atomic request.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
         /// </param>
-        /// <param name="segmentId">
-        /// Identifier of the segment to edit.
-        /// </param>
-        /// <param name="text">
-        /// New text for the segment.
-        /// </param>
-        /// <param name="speakerId">
-        /// New speaker id for the segment.
-        /// </param>
-        /// <param name="startS">
-        /// New start time, in seconds.
-        /// </param>
-        /// <param name="endS">
-        /// New end time, in seconds.
+        /// <param name="segments">
+        /// Map of segment id to the partial update to apply to that segment.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingSourceSegmentUpdateResponse> UpdateSegmentAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingBulkSourceSegmentUpdateResponse> UpdateSegmentsAsync(
             string projectId,
-            string segmentId,
-            string? text = default,
-            string? speakerId = default,
-            double? startS = default,
-            double? endS = default,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DubbingSegmentUpdateRequest> segments,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.DubbingSegmentUpdateRequest
+            var __request = new global::ElevenLabs.DubbingBulkSegmentUpdateRequest
             {
-                Text = text,
-                SpeakerId = speakerId,
-                StartS = startS,
-                EndS = endS,
+                Segments = segments,
             };
 
-            return await UpdateSegmentAsync(
+            return await UpdateSegmentsAsync(
                 projectId: projectId,
-                segmentId: segmentId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

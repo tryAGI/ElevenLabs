@@ -5,79 +5,55 @@ namespace ElevenLabs
     public partial interface IDubbingClient
     {
         /// <summary>
-        /// Update Dubbing Transcript Segment<br/>
-        /// Enterprise only. Edit a source segment's text, speaker, or timing.
+        /// Update Dubbing Transcript Segments<br/>
+        /// Edit several source segments' text, speaker, or timing in one atomic request.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
-        /// </param>
-        /// <param name="segmentId">
-        /// Identifier of the segment to edit.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingSourceSegmentUpdateResponse> UpdateSegmentAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingBulkSourceSegmentUpdateResponse> UpdateSegmentsAsync(
             string projectId,
-            string segmentId,
 
-            global::ElevenLabs.DubbingSegmentUpdateRequest request,
+            global::ElevenLabs.DubbingBulkSegmentUpdateRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update Dubbing Transcript Segment<br/>
-        /// Enterprise only. Edit a source segment's text, speaker, or timing.
+        /// Update Dubbing Transcript Segments<br/>
+        /// Edit several source segments' text, speaker, or timing in one atomic request.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
-        /// </param>
-        /// <param name="segmentId">
-        /// Identifier of the segment to edit.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingSourceSegmentUpdateResponse>> UpdateSegmentAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingBulkSourceSegmentUpdateResponse>> UpdateSegmentsAsResponseAsync(
             string projectId,
-            string segmentId,
 
-            global::ElevenLabs.DubbingSegmentUpdateRequest request,
+            global::ElevenLabs.DubbingBulkSegmentUpdateRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update Dubbing Transcript Segment<br/>
-        /// Enterprise only. Edit a source segment's text, speaker, or timing.
+        /// Update Dubbing Transcript Segments<br/>
+        /// Edit several source segments' text, speaker, or timing in one atomic request.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
         /// </param>
-        /// <param name="segmentId">
-        /// Identifier of the segment to edit.
-        /// </param>
-        /// <param name="text">
-        /// New text for the segment.
-        /// </param>
-        /// <param name="speakerId">
-        /// New speaker id for the segment.
-        /// </param>
-        /// <param name="startS">
-        /// New start time, in seconds.
-        /// </param>
-        /// <param name="endS">
-        /// New end time, in seconds.
+        /// <param name="segments">
+        /// Map of segment id to the partial update to apply to that segment.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingSourceSegmentUpdateResponse> UpdateSegmentAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingBulkSourceSegmentUpdateResponse> UpdateSegmentsAsync(
             string projectId,
-            string segmentId,
-            string? text = default,
-            string? speakerId = default,
-            double? startS = default,
-            double? endS = default,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DubbingSegmentUpdateRequest> segments,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
