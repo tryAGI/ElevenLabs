@@ -54,6 +54,12 @@ namespace ElevenLabs
         public object? RequestHeaders { get; set; }
 
         /// <summary>
+        /// Entries sent in the MCP `_meta` field of tools/call requests. Values may be JSON scalars, or references to a workspace secret, dynamic variable, or environment variable resolved per call.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("request_meta")]
+        public object? RequestMeta { get; set; }
+
+        /// <summary>
         /// Optional auth connection to use for authentication with this MCP server
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_connection")]
@@ -177,6 +183,9 @@ namespace ElevenLabs
         /// <param name="requestHeaders">
         /// The headers included in the request
         /// </param>
+        /// <param name="requestMeta">
+        /// Entries sent in the MCP `_meta` field of tools/call requests. Values may be JSON scalars, or references to a workspace secret, dynamic variable, or environment variable resolved per call.
+        /// </param>
         /// <param name="authConnection">
         /// Optional auth connection to use for authentication with this MCP server
         /// </param>
@@ -222,6 +231,7 @@ namespace ElevenLabs
             global::ElevenLabs.MCPServerTransport? transport,
             global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIUserSecretDBModel, object>? secretToken,
             object? requestHeaders,
+            object? requestMeta,
             global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection,
             string? description,
             global::ElevenLabs.PreToolSpeechMode? preToolSpeech,
@@ -239,6 +249,7 @@ namespace ElevenLabs
             this.Url = url;
             this.SecretToken = secretToken;
             this.RequestHeaders = requestHeaders;
+            this.RequestMeta = requestMeta;
             this.AuthConnection = authConnection;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description;

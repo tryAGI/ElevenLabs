@@ -886,7 +886,7 @@ namespace ElevenLabs
             bool? loop = default,
             double? durationSeconds = default,
             double? promptInfluence = default,
-            string? modelId = default,
+            global::ElevenLabs.SFXModelId? modelId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

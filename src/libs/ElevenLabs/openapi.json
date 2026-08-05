@@ -45651,8 +45651,7 @@
             "default": 0.3
           },
           "model_id": {
-            "type": "string",
-            "title": "Model Id",
+            "$ref": "#/components/schemas/SFXModelId",
             "description": "The model ID to use for the sound generation.",
             "default": "eleven_text_to_sound_v2",
             "examples": [
@@ -58278,6 +58277,24 @@
         ],
         "title": "CreateToolCallUnitTestRequest"
       },
+      "CreateTransferRuleParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "create_transfer_rule",
+            "title": "Smb Tool Type",
+            "default": "create_transfer_rule"
+          },
+          "post_dial_digits_enabled": {
+            "type": "boolean",
+            "title": "Post Dial Digits Enabled",
+            "description": "Whether to offer the post_dial_digits parameter, set from the receptionists' enable_play_keypad_touch_tone_tool config. Digits saved while that is off are dropped when the receptionist is built, so the parameter is hidden rather than accepted and ignored.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "CreateTransferRuleParams"
+      },
       "CreateTwilioPhoneNumberRequest": {
         "properties": {
           "phone_number": {
@@ -59232,6 +59249,18 @@
         "type": "object",
         "title": "DeleteStaffParams",
         "description": "Delete an existing staff member from the system."
+      },
+      "DeleteTransferRuleParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "delete_transfer_rule",
+            "title": "Smb Tool Type",
+            "default": "delete_transfer_rule"
+          }
+        },
+        "type": "object",
+        "title": "DeleteTransferRuleParams"
       },
       "DeleteVoiceResponseModel": {
         "properties": {
@@ -71181,6 +71210,18 @@
         ],
         "title": "ListTestsByIdsRequestModel"
       },
+      "ListTransferRulesParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "list_transfer_rules",
+            "title": "Smb Tool Type",
+            "default": "list_transfer_rules"
+          }
+        },
+        "type": "object",
+        "title": "ListTransferRulesParams"
+      },
       "ListWhatsAppAccountsResponse": {
         "properties": {
           "items": {
@@ -71438,6 +71479,36 @@
             "title": "Request Headers",
             "description": "The headers included in the request"
           },
+          "request_meta": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "#/components/schemas/ConvAISecretLocator"
+                },
+                {
+                  "$ref": "#/components/schemas/ConvAIDynamicVariable"
+                },
+                {
+                  "$ref": "#/components/schemas/ConvAIEnvVarLocator"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Request Meta",
+            "description": "Entries sent in the MCP `_meta` field of tools/call requests. Values may be JSON scalars, or references to a workspace secret, dynamic variable, or environment variable resolved per call."
+          },
           "auth_connection": {
             "anyOf": [
               {
@@ -71603,6 +71674,36 @@
             "type": "object",
             "title": "Request Headers",
             "description": "The headers included in the request"
+          },
+          "request_meta": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "#/components/schemas/ConvAISecretLocator"
+                },
+                {
+                  "$ref": "#/components/schemas/ConvAIDynamicVariable"
+                },
+                {
+                  "$ref": "#/components/schemas/ConvAIEnvVarLocator"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Request Meta",
+            "description": "Entries sent in the MCP `_meta` field of tools/call requests. Values may be JSON scalars, or references to a workspace secret, dynamic variable, or environment variable resolved per call."
           },
           "auth_connection": {
             "anyOf": [
@@ -71838,6 +71939,43 @@
             ],
             "title": "Request Headers",
             "description": "The headers to include in requests to the MCP server"
+          },
+          "request_meta": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ConvAISecretLocator"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ConvAIDynamicVariable"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ConvAIEnvVarLocator"
+                    }
+                  ]
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Request Meta",
+            "description": "Entries sent in the MCP `_meta` field of tools/call requests. Values may be JSON scalars, or references to a workspace secret, dynamic variable, or environment variable resolved per call."
           },
           "disable_compression": {
             "anyOf": [
@@ -83715,6 +83853,14 @@
         ],
         "title": "RunSubagentToolConfig"
       },
+      "SFXModelId": {
+        "type": "string",
+        "enum": [
+          "eleven_text_to_sound_v2"
+        ],
+        "title": "SFXModelId",
+        "default": "eleven_text_to_sound_v2"
+      },
       "SIPLogMessage": {
         "properties": {
           "call_id": {
@@ -84158,6 +84304,18 @@
                 "$ref": "#/components/schemas/DeleteAgentRuleParams"
               },
               {
+                "$ref": "#/components/schemas/ListTransferRulesParams"
+              },
+              {
+                "$ref": "#/components/schemas/CreateTransferRuleParams"
+              },
+              {
+                "$ref": "#/components/schemas/UpdateTransferRuleParams"
+              },
+              {
+                "$ref": "#/components/schemas/DeleteTransferRuleParams"
+              },
+              {
                 "$ref": "#/components/schemas/ListAgentProceduresParams"
               },
               {
@@ -84273,6 +84431,7 @@
                 "create_product": "#/components/schemas/CreateProductParams",
                 "create_service": "#/components/schemas/CreateServiceParams",
                 "create_staff": "#/components/schemas/CreateStaffParams",
+                "create_transfer_rule": "#/components/schemas/CreateTransferRuleParams",
                 "delete_agent_procedure": "#/components/schemas/DeleteAgentProcedureParams",
                 "delete_agent_rule": "#/components/schemas/DeleteAgentRuleParams",
                 "delete_asset": "#/components/schemas/DeleteAssetParams",
@@ -84285,6 +84444,7 @@
                 "delete_product": "#/components/schemas/DeleteProductParams",
                 "delete_service": "#/components/schemas/DeleteServiceParams",
                 "delete_staff": "#/components/schemas/DeleteStaffParams",
+                "delete_transfer_rule": "#/components/schemas/DeleteTransferRuleParams",
                 "get_analytics_summary": "#/components/schemas/GetAnalyticsSummaryParams",
                 "get_appointment_by_confirmation_number": "#/components/schemas/GetAppointmentByConfirmationNumberParams",
                 "get_booking_page_settings": "#/components/schemas/GetBookingPageSettingsParams",
@@ -84307,6 +84467,7 @@
                 "list_products": "#/components/schemas/ListProductsParams",
                 "list_services": "#/components/schemas/ListServicesParams",
                 "list_staff": "#/components/schemas/ListStaffParams",
+                "list_transfer_rules": "#/components/schemas/ListTransferRulesParams",
                 "opt_in_sms_reminder": "#/components/schemas/OptInSmsReminderParams",
                 "opt_out_sms_reminder": "#/components/schemas/OptOutSmsReminderParams",
                 "register_for_group_session": "#/components/schemas/RegisterForGroupSessionParams",
@@ -84332,6 +84493,7 @@
                 "update_product": "#/components/schemas/UpdateProductParams",
                 "update_service": "#/components/schemas/UpdateServiceParams",
                 "update_staff": "#/components/schemas/UpdateStaffParams",
+                "update_transfer_rule": "#/components/schemas/UpdateTransferRuleParams",
                 "validate_user_verification_code": "#/components/schemas/ValidateUserVerificationCodeParams"
               }
             }
@@ -93908,6 +94070,24 @@
           "name"
         ],
         "title": "UpdateToolCallUnitTestRequest"
+      },
+      "UpdateTransferRuleParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "update_transfer_rule",
+            "title": "Smb Tool Type",
+            "default": "update_transfer_rule"
+          },
+          "post_dial_digits_enabled": {
+            "type": "boolean",
+            "title": "Post Dial Digits Enabled",
+            "description": "Whether to offer the post_dial_digits parameter, set from the receptionists' enable_play_keypad_touch_tone_tool config. Digits saved while that is off are dropped when the receptionist is built, so the parameter is hidden rather than accepted and ignored.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "UpdateTransferRuleParams"
       },
       "UpdateWhatsAppAccountRequest": {
         "properties": {

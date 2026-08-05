@@ -322,6 +322,34 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DeleteAgentRuleParams)}");
                 deleteAgentRule = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.ListTransferRulesParams? listTransferRules = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListTransferRules)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListTransferRulesParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListTransferRulesParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ListTransferRulesParams)}");
+                listTransferRules = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.CreateTransferRuleParams? createTransferRule = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CreateTransferRule)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateTransferRuleParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateTransferRuleParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreateTransferRuleParams)}");
+                createTransferRule = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.UpdateTransferRuleParams? updateTransferRule = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateTransferRule)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateTransferRuleParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateTransferRuleParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UpdateTransferRuleParams)}");
+                updateTransferRule = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.DeleteTransferRuleParams? deleteTransferRule = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.DeleteTransferRule)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DeleteTransferRuleParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DeleteTransferRuleParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DeleteTransferRuleParams)}");
+                deleteTransferRule = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.ListAgentProceduresParams? listAgentProcedures = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListAgentProcedures)
             {
@@ -634,6 +662,14 @@ namespace ElevenLabs.JsonConverters
                 updateAgentRule,
 
                 deleteAgentRule,
+
+                listTransferRules,
+
+                createTransferRule,
+
+                updateTransferRule,
+
+                deleteTransferRule,
 
                 listAgentProcedures,
 
@@ -969,6 +1005,30 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DeleteAgentRuleParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DeleteAgentRuleParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DeleteAgentRuleParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeleteAgentRule!, typeInfo);
+            }
+            else if (value.IsListTransferRules)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListTransferRulesParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListTransferRulesParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ListTransferRulesParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ListTransferRules!, typeInfo);
+            }
+            else if (value.IsCreateTransferRule)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateTransferRuleParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateTransferRuleParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateTransferRuleParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateTransferRule!, typeInfo);
+            }
+            else if (value.IsUpdateTransferRule)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateTransferRuleParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateTransferRuleParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UpdateTransferRuleParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateTransferRule!, typeInfo);
+            }
+            else if (value.IsDeleteTransferRule)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DeleteTransferRuleParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DeleteTransferRuleParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DeleteTransferRuleParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeleteTransferRule!, typeInfo);
             }
             else if (value.IsListAgentProcedures)
             {
