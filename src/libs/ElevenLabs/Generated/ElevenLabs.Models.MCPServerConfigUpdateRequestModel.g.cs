@@ -73,6 +73,12 @@ namespace ElevenLabs
         public object? RequestHeaders { get; set; }
 
         /// <summary>
+        /// Entries sent in the MCP `_meta` field of tools/call requests. Values may be JSON scalars, or references to a workspace secret, dynamic variable, or environment variable resolved per call.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("request_meta")]
+        public object? RequestMeta { get; set; }
+
+        /// <summary>
         /// Whether to disable HTTP compression for this MCP server
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("disable_compression")]
@@ -124,6 +130,9 @@ namespace ElevenLabs
         /// <param name="requestHeaders">
         /// The headers to include in requests to the MCP server
         /// </param>
+        /// <param name="requestMeta">
+        /// Entries sent in the MCP `_meta` field of tools/call requests. Values may be JSON scalars, or references to a workspace secret, dynamic variable, or environment variable resolved per call.
+        /// </param>
         /// <param name="disableCompression">
         /// Whether to disable HTTP compression for this MCP server
         /// </param>
@@ -145,6 +154,7 @@ namespace ElevenLabs
             global::ElevenLabs.ToolExecutionMode? executionMode,
             int? responseTimeoutSecs,
             object? requestHeaders,
+            object? requestMeta,
             bool? disableCompression,
             global::ElevenLabs.ConvAISecretLocator? secretToken,
             global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection)
@@ -157,6 +167,7 @@ namespace ElevenLabs
             this.ExecutionMode = executionMode;
             this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.RequestHeaders = requestHeaders;
+            this.RequestMeta = requestMeta;
             this.DisableCompression = disableCompression;
             this.SecretToken = secretToken;
             this.AuthConnection = authConnection;
