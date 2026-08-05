@@ -18045,6 +18045,48 @@
             "description": "Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several."
           },
           {
+            "name": "guardrail_types",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GuardrailType"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter to conversations where a guardrail of any of these types triggered (metadata.triggered_guardrails.guardrail_type). Repeat param to match any of several.",
+              "title": "Guardrail Types"
+            },
+            "description": "Filter to conversations where a guardrail of any of these types triggered (metadata.triggered_guardrails.guardrail_type). Repeat param to match any of several."
+          },
+          {
+            "name": "custom_guardrail_names",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter to conversations where a custom guardrail with any of these names triggered (metadata.triggered_guardrails.guardrail_name). Only custom guardrails carry a name. Repeat param to match any of several.",
+              "title": "Custom Guardrail Names"
+            },
+            "description": "Filter to conversations where a custom guardrail with any of these names triggered (metadata.triggered_guardrails.guardrail_name). Only custom guardrails carry a name. Repeat param to match any of several."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -35495,6 +35537,42 @@
             "title": "Calls 7D",
             "description": "Number of calls in the last 7 days",
             "default": 0
+          },
+          "commits_ahead": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Commits Ahead",
+            "description": "Number of commits on this branch not yet on main, relative to their common ancestor. Null if it could not be computed (e.g. no common ancestor, or the branch history exceeds the comparison budget)."
+          },
+          "commits_behind": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Commits Behind",
+            "description": "Number of commits on main not yet incorporated into this branch, relative to their common ancestor. Null if it could not be computed (e.g. no common ancestor, or the branch history exceeds the comparison budget)."
+          },
+          "merged_into_branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Merged Into Branch Id",
+            "description": "ID of the branch this branch's tip version was merged into, if any"
           }
         },
         "type": "object",
@@ -36552,6 +36630,17 @@
           "sentiment_analysis": {
             "$ref": "#/components/schemas/SentimentAnalysisSettings",
             "description": "Per-agent post-call sentiment analysis configuration"
+          },
+          "alerting": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AlertingSettings"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Agent-level alerting configuration overriding workspace settings."
           }
         },
         "type": "object",
@@ -36676,6 +36765,17 @@
           "sentiment_analysis": {
             "$ref": "#/components/schemas/SentimentAnalysisSettings",
             "description": "Per-agent post-call sentiment analysis configuration"
+          },
+          "alerting": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AlertingSettingsResponse"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Agent-level alerting configuration overriding workspace settings."
           },
           "safety": {
             "$ref": "#/components/schemas/SafetyResponseModel"
@@ -42131,19 +42231,6 @@
             "title": "Target Language",
             "description": "BCP-47 language tag to dub the project into (e.g. 'fr', 'es-MX'); must be a language the dubbing model supports. A region-qualified tag must be one of the supported dialects."
           },
-          "model_id": {
-            "anyOf": [
-              {
-                "type": "string",
-                "const": "dubbing_v2"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Model Id",
-            "description": "Dubbing model id for this target; omit to use the project default."
-          },
           "voice_settings": {
             "anyOf": [
               {
@@ -42233,14 +42320,20 @@
             "anyOf": [
               {
                 "type": "string",
-                "const": "dubbing_v2"
+                "enum": [
+                  "dubbing_v1",
+                  "dubbing_v2"
+                ]
+              },
+              {
+                "type": "string"
               },
               {
                 "type": "null"
               }
             ],
             "title": "Model Id",
-            "description": "Default dubbing model id for the project's language targets; a target may override it. Omit to use the system default."
+            "description": "Default dubbing model id ('dubbing_v1' or 'dubbing_v2') for the project's language targets; a target may override it. Omit to use the system default."
           },
           "keyterms": {
             "items": {
@@ -69937,6 +70030,12 @@
             "const": "language_detection",
             "title": "System Tool Type",
             "default": "language_detection"
+          },
+          "only_at_conversation_start": {
+            "type": "boolean",
+            "title": "Only At Conversation Start",
+            "description": "If no language switch happens in the first 2 user turns, later attempts fail and the conversation stays in the current language. If the language switches during those turns, later switching stays available. Enable to reduce the possibility of false switching.",
+            "default": false
           }
         },
         "type": "object",

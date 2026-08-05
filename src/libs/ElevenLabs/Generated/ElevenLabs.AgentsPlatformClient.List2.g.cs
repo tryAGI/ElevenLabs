@@ -63,7 +63,9 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses,
             global::System.Collections.Generic.IList<string>? tagIds,
             ref string? workflowNodeEnteredId,
-            global::System.Collections.Generic.IList<string>? terminationReasons);
+            global::System.Collections.Generic.IList<string>? terminationReasons,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GuardrailType>? guardrailTypes,
+            global::System.Collections.Generic.IList<string>? customGuardrailNames);
         partial void PrepareList2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -101,7 +103,9 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses,
             global::System.Collections.Generic.IList<string>? tagIds,
             string? workflowNodeEnteredId,
-            global::System.Collections.Generic.IList<string>? terminationReasons);
+            global::System.Collections.Generic.IList<string>? terminationReasons,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GuardrailType>? guardrailTypes,
+            global::System.Collections.Generic.IList<string>? customGuardrailNames);
         partial void ProcessList2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -218,6 +222,12 @@ namespace ElevenLabs
         /// <param name="terminationReasons">
         /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
         /// </param>
+        /// <param name="guardrailTypes">
+        /// Filter to conversations where a guardrail of any of these types triggered (metadata.triggered_guardrails.guardrail_type). Repeat param to match any of several.
+        /// </param>
+        /// <param name="customGuardrailNames">
+        /// Filter to conversations where a custom guardrail with any of these names triggered (metadata.triggered_guardrails.guardrail_name). Only custom guardrails carry a name. Repeat param to match any of several.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -257,6 +267,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? tagIds = default,
             string? workflowNodeEnteredId = default,
             global::System.Collections.Generic.IList<string>? terminationReasons = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GuardrailType>? guardrailTypes = default,
+            global::System.Collections.Generic.IList<string>? customGuardrailNames = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -296,6 +308,8 @@ namespace ElevenLabs
                 tagIds: tagIds,
                 workflowNodeEnteredId: workflowNodeEnteredId,
                 terminationReasons: terminationReasons,
+                guardrailTypes: guardrailTypes,
+                customGuardrailNames: customGuardrailNames,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -409,6 +423,12 @@ namespace ElevenLabs
         /// <param name="terminationReasons">
         /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
         /// </param>
+        /// <param name="guardrailTypes">
+        /// Filter to conversations where a guardrail of any of these types triggered (metadata.triggered_guardrails.guardrail_type). Repeat param to match any of several.
+        /// </param>
+        /// <param name="customGuardrailNames">
+        /// Filter to conversations where a custom guardrail with any of these names triggered (metadata.triggered_guardrails.guardrail_name). Only custom guardrails carry a name. Repeat param to match any of several.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -448,6 +468,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? tagIds = default,
             string? workflowNodeEnteredId = default,
             global::System.Collections.Generic.IList<string>? terminationReasons = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GuardrailType>? guardrailTypes = default,
+            global::System.Collections.Generic.IList<string>? customGuardrailNames = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -489,7 +511,9 @@ namespace ElevenLabs
                 excludeStatuses: excludeStatuses,
                 tagIds: tagIds,
                 workflowNodeEnteredId: ref workflowNodeEnteredId,
-                terminationReasons: terminationReasons);
+                terminationReasons: terminationReasons,
+                guardrailTypes: guardrailTypes,
+                customGuardrailNames: customGuardrailNames);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -553,6 +577,8 @@ namespace ElevenLabs
                                 .AddOptionalParameter("tag_ids", tagIds?.ToString())
                                 .AddOptionalParameter("workflow_node_entered_id", workflowNodeEnteredId)
                                 .AddOptionalParameter("termination_reasons", terminationReasons?.ToString())
+                                .AddOptionalParameter("guardrail_types", guardrailTypes?.ToString())
+                                .AddOptionalParameter("custom_guardrail_names", customGuardrailNames?.ToString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -628,7 +654,9 @@ namespace ElevenLabs
                     excludeStatuses: excludeStatuses,
                     tagIds: tagIds,
                     workflowNodeEnteredId: workflowNodeEnteredId,
-                    terminationReasons: terminationReasons);
+                    terminationReasons: terminationReasons,
+                    guardrailTypes: guardrailTypes,
+                    customGuardrailNames: customGuardrailNames);
 
                 return __httpRequest;
             }
@@ -1043,6 +1071,12 @@ namespace ElevenLabs
         /// </param>
         /// <param name="terminationReasons">
         /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
+        /// </param>
+        /// <param name="guardrailTypes">
+        /// Filter to conversations where a guardrail of any of these types triggered (metadata.triggered_guardrails.guardrail_type). Repeat param to match any of several.
+        /// </param>
+        /// <param name="customGuardrailNames">
+        /// Filter to conversations where a custom guardrail with any of these names triggered (metadata.triggered_guardrails.guardrail_name). Only custom guardrails carry a name. Repeat param to match any of several.
         /// </param> 
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
@@ -1081,6 +1115,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? tagIds = default,
             string? workflowNodeEnteredId = default,
             global::System.Collections.Generic.IList<string>? terminationReasons = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GuardrailType>? guardrailTypes = default,
+            global::System.Collections.Generic.IList<string>? customGuardrailNames = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -1121,6 +1157,8 @@ namespace ElevenLabs
                     tagIds: tagIds,
                     workflowNodeEnteredId: workflowNodeEnteredId,
                     terminationReasons: terminationReasons,
+                    guardrailTypes: guardrailTypes,
+                    customGuardrailNames: customGuardrailNames,
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null
                     ? null

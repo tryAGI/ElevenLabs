@@ -48,9 +48,6 @@ namespace ElevenLabs
         /// <param name="targetLanguage">
         /// BCP-47 language tag to dub the project into (e.g. 'fr', 'es-MX'); must be a language the dubbing model supports. A region-qualified tag must be one of the supported dialects.
         /// </param>
-        /// <param name="modelId">
-        /// Dubbing model id for this target; omit to use the project default.
-        /// </param>
         /// <param name="voiceSettings">
         /// Voice settings applied to the whole language (e.g. cloning strength).
         /// </param>
@@ -63,7 +60,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingLanguageResponse> Create2Async(
             string projectId,
             string targetLanguage,
-            string? modelId = default,
             global::ElevenLabs.VoiceSettings? voiceSettings = default,
             global::System.Collections.Generic.Dictionary<string, string>? translations = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,

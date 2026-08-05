@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Dubbing model id for this target; omit to use the project default.
+    /// Agent-level alerting configuration overriding workspace settings.
     /// </summary>
-    public sealed partial class BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostModelId
+    public sealed partial class AgentPlatformSettingsResponseModelAlerting
     {
 
         /// <summary>
