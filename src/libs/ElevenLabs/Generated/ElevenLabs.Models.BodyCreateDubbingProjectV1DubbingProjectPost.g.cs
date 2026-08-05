@@ -39,10 +39,11 @@ namespace ElevenLabs
         public string? SourceLanguage { get; set; }
 
         /// <summary>
-        /// Default dubbing model id for the project's language targets; a target may override it. Omit to use the system default.
+        /// Default dubbing model id ('dubbing_v1' or 'dubbing_v2') for the project's language targets; a target may override it. Omit to use the system default.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
-        public string? ModelId { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string, object>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string, object>? ModelId { get; set; }
 
         /// <summary>
         /// Key terms to bias transcription/translation toward (e.g. product or brand names). At most 1000 terms; each term at most 50 characters and 5 words; the characters `&lt;&gt;{}[]\` are not allowed.
@@ -93,7 +94,7 @@ namespace ElevenLabs
         /// BCP-47 language tag of the source media; must be a language the transcription model supports. Any region or script subtag is ignored, since transcription is per-language. Omit to auto-detect.
         /// </param>
         /// <param name="modelId">
-        /// Default dubbing model id for the project's language targets; a target may override it. Omit to use the system default.
+        /// Default dubbing model id ('dubbing_v1' or 'dubbing_v2') for the project's language targets; a target may override it. Omit to use the system default.
         /// </param>
         /// <param name="keyterms">
         /// Key terms to bias transcription/translation toward (e.g. product or brand names). At most 1000 terms; each term at most 50 characters and 5 words; the characters `&lt;&gt;{}[]\` are not allowed.
@@ -116,7 +117,7 @@ namespace ElevenLabs
             string? sourceUrl,
             string? reference,
             string? sourceLanguage,
-            string? modelId,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string, object>? modelId,
             global::System.Collections.Generic.IList<string>? keyterms,
             string? targetLanguage,
             byte[]? transcript,

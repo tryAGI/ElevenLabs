@@ -50,7 +50,7 @@ namespace ElevenLabs
         /// BCP-47 language tag of the source media; must be a language the transcription model supports. Any region or script subtag is ignored, since transcription is per-language. Omit to auto-detect.
         /// </param>
         /// <param name="modelId">
-        /// Default dubbing model id for the project's language targets; a target may override it. Omit to use the system default.
+        /// Default dubbing model id ('dubbing_v1' or 'dubbing_v2') for the project's language targets; a target may override it. Omit to use the system default.
         /// </param>
         /// <param name="keyterms">
         /// Key terms to bias transcription/translation toward (e.g. product or brand names). At most 1000 terms; each term at most 50 characters and 5 words; the characters `&lt;&gt;{}[]\` are not allowed.
@@ -73,7 +73,7 @@ namespace ElevenLabs
             string? sourceUrl = default,
             string? reference = default,
             string? sourceLanguage = default,
-            string? modelId = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string, object>? modelId = default,
             global::System.Collections.Generic.IList<string>? keyterms = default,
             string? targetLanguage = default,
             byte[]? transcript = default,

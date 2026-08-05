@@ -140,6 +140,12 @@ namespace ElevenLabs
         public global::ElevenLabs.SentimentAnalysisSettings? SentimentAnalysis { get; set; }
 
         /// <summary>
+        /// Agent-level alerting configuration overriding workspace settings.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("alerting")]
+        public global::ElevenLabs.AlertingSettings? Alerting { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -214,6 +220,9 @@ namespace ElevenLabs
         /// <param name="sentimentAnalysis">
         /// Per-agent post-call sentiment analysis configuration
         /// </param>
+        /// <param name="alerting">
+        /// Agent-level alerting configuration overriding workspace settings.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -236,7 +245,8 @@ namespace ElevenLabs
             global::ElevenLabs.AgentTrustContext? trustContext,
             global::ElevenLabs.Llm? analysisLlm,
             global::ElevenLabs.TopicDiscoverySettings? topicDiscovery,
-            global::ElevenLabs.SentimentAnalysisSettings? sentimentAnalysis)
+            global::ElevenLabs.SentimentAnalysisSettings? sentimentAnalysis,
+            global::ElevenLabs.AlertingSettings? alerting)
         {
             this.Evaluation = evaluation;
             this.Widget = widget;
@@ -257,6 +267,7 @@ namespace ElevenLabs
             this.AnalysisLlm = analysisLlm;
             this.TopicDiscovery = topicDiscovery;
             this.SentimentAnalysis = sentimentAnalysis;
+            this.Alerting = alerting;
         }
 
         /// <summary>

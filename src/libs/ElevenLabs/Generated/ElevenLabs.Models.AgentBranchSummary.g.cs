@@ -98,6 +98,24 @@ namespace ElevenLabs
         public int? Calls7d { get; set; }
 
         /// <summary>
+        /// Number of commits on this branch not yet on main, relative to their common ancestor. Null if it could not be computed (e.g. no common ancestor, or the branch history exceeds the comparison budget).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("commits_ahead")]
+        public int? CommitsAhead { get; set; }
+
+        /// <summary>
+        /// Number of commits on main not yet incorporated into this branch, relative to their common ancestor. Null if it could not be computed (e.g. no common ancestor, or the branch history exceeds the comparison budget).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("commits_behind")]
+        public int? CommitsBehind { get; set; }
+
+        /// <summary>
+        /// ID of the branch this branch's tip version was merged into, if any
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("merged_into_branch_id")]
+        public string? MergedIntoBranchId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -134,6 +152,15 @@ namespace ElevenLabs
         /// Number of calls in the last 7 days<br/>
         /// Default Value: 0
         /// </param>
+        /// <param name="commitsAhead">
+        /// Number of commits on this branch not yet on main, relative to their common ancestor. Null if it could not be computed (e.g. no common ancestor, or the branch history exceeds the comparison budget).
+        /// </param>
+        /// <param name="commitsBehind">
+        /// Number of commits on main not yet incorporated into this branch, relative to their common ancestor. Null if it could not be computed (e.g. no common ancestor, or the branch history exceeds the comparison budget).
+        /// </param>
+        /// <param name="mergedIntoBranchId">
+        /// ID of the branch this branch's tip version was merged into, if any
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -150,7 +177,10 @@ namespace ElevenLabs
             double? currentLivePercentage,
             string? parentBranchId,
             bool? draftExists,
-            int? calls7d)
+            int? calls7d,
+            int? commitsAhead,
+            int? commitsBehind,
+            string? mergedIntoBranchId)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -165,6 +195,9 @@ namespace ElevenLabs
             this.ParentBranchId = parentBranchId;
             this.DraftExists = draftExists;
             this.Calls7d = calls7d;
+            this.CommitsAhead = commitsAhead;
+            this.CommitsBehind = commitsBehind;
+            this.MergedIntoBranchId = mergedIntoBranchId;
         }
 
         /// <summary>
