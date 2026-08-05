@@ -69257,6 +69257,7 @@
           "gemini-3.1-flash-lite-preview",
           "gemini-3.1-flash-lite",
           "gemini-3.5-flash",
+          "gemini-3.5-flash-lite",
           "claude-sonnet-4-5",
           "claude-opus-4-7",
           "claude-opus-4-8",
@@ -84011,6 +84012,13 @@
             "$ref": "#/components/schemas/ToolErrorHandlingMode",
             "description": "Controls how tool errors are processed before being shared with the agent. 'auto' determines handling based on tool type (summarized for native integrations, hide for others), 'summarized' sends an LLM-generated summary, 'passthrough' sends the raw error, 'hide' does not share the error with the agent.",
             "default": "auto"
+          },
+          "human_description": {
+            "type": "string",
+            "minLength": 0,
+            "title": "Human Description",
+            "description": "User-facing tooltip for the procedure reference picker. Not sent to the LLM.",
+            "default": ""
           },
           "enabled": {
             "type": "boolean",
