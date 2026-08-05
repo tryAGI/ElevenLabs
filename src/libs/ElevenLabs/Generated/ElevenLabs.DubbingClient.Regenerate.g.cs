@@ -45,7 +45,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Regenerate Dubbing Target<br/>
-        /// Re-dub a target from its edited transcript (charged like a generation).
+        /// Enterprise only. Re-dub a target from its edited transcript (charged like a generation).
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -73,7 +73,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Regenerate Dubbing Target<br/>
-        /// Re-dub a target from its edited transcript (charged like a generation).
+        /// Enterprise only. Re-dub a target from its edited transcript (charged like a generation).
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.

@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Delete Dubbing Transcript Segment<br/>
-        /// Remove a source segment from the transcript.
+        /// Enterprise only. Remove a source segment from the transcript.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -24,7 +24,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete Dubbing Transcript Segment<br/>
-        /// Remove a source segment from the transcript.
+        /// Enterprise only. Remove a source segment from the transcript.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.

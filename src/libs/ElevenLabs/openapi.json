@@ -6910,7 +6910,7 @@
           "Dubbing"
         ],
         "summary": "Update Dubbing Transcript Segment",
-        "description": "Edit a source segment's text, speaker, or timing.",
+        "description": "Enterprise only. Edit a source segment's text, speaker, or timing.",
         "operationId": "dubbing_transcript_segment_update",
         "parameters": [
           {
@@ -7021,7 +7021,7 @@
           "Dubbing"
         ],
         "summary": "Delete Dubbing Transcript Segment",
-        "description": "Remove a source segment from the transcript.",
+        "description": "Enterprise only. Remove a source segment from the transcript.",
         "operationId": "dubbing_transcript_segment_delete",
         "parameters": [
           {
@@ -7108,13 +7108,130 @@
         ]
       }
     },
+    "/v1/dubbing/project/{project_id}/transcript/segments": {
+      "patch": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "Update Dubbing Transcript Segments",
+        "description": "Edit several source segments' text, speaker, or timing in one atomic request.",
+        "operationId": "dubbing_transcript_segments_update",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the dubbing project.",
+              "title": "Project Id"
+            },
+            "description": "Identifier of the dubbing project."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DubbingBulkSegmentUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DubbingBulkSourceSegmentUpdateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project",
+          "transcript"
+        ],
+        "x-fern-sdk-method-name": "update_segments",
+        "x-fern-examples": [
+          {
+            "path-parameters": {
+              "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3"
+            },
+            "request": {
+              "segments": {
+                "0199a3f0-1c2d-7abc-8def-0123456789ab": {
+                  "text": "Welcome to our latest product demo."
+                },
+                "0199a3f0-3e4f-7abc-8def-0123456789cd": {
+                  "speaker_id": "narrator"
+                }
+              }
+            },
+            "response": {
+              "body": {
+                "segments": [
+                  {
+                    "id": "0199a3f0-1c2d-7abc-8def-0123456789ab",
+                    "text": "Welcome to our latest product demo.",
+                    "speaker_id": "default_speaker",
+                    "start_s": 0.0,
+                    "end_s": 2.5
+                  },
+                  {
+                    "id": "0199a3f0-3e4f-7abc-8def-0123456789cd",
+                    "text": "Let's get started.",
+                    "speaker_id": "narrator",
+                    "start_s": 2.5,
+                    "end_s": 4.0
+                  }
+                ],
+                "revision": 5
+              }
+            }
+          }
+        ]
+      }
+    },
     "/v1/dubbing/project/{project_id}/transcript/segment": {
       "post": {
         "tags": [
           "Dubbing"
         ],
         "summary": "Add Dubbing Transcript Segment",
-        "description": "Add a new source segment to the transcript.",
+        "description": "Enterprise only. Add a new source segment to the transcript.",
         "operationId": "dubbing_transcript_segment_add",
         "parameters": [
           {
@@ -7324,7 +7441,7 @@
           "Dubbing"
         ],
         "summary": "Update Dubbing Target Transcript Segment",
-        "description": "Edit a segment's translation for a language target.",
+        "description": "Enterprise only. Edit a segment's translation for a language target.",
         "operationId": "dubbing_target_transcript_segment_update",
         "parameters": [
           {
@@ -7445,13 +7562,145 @@
         ]
       }
     },
+    "/v1/dubbing/project/{project_id}/language/{language_id}/transcript/segments": {
+      "patch": {
+        "tags": [
+          "Dubbing"
+        ],
+        "summary": "Update Dubbing Target Transcript Segments",
+        "description": "Edit several segments' translations for a language target in one atomic request.",
+        "operationId": "dubbing_target_transcript_segments_update",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the dubbing project.",
+              "title": "Project Id"
+            },
+            "description": "Identifier of the dubbing project."
+          },
+          {
+            "name": "language_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Identifier of the language target.",
+              "title": "Language Id"
+            },
+            "description": "Identifier of the language target."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DubbingBulkTargetSegmentUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DubbingBulkTargetSegmentUpdateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "dubbing",
+          "project",
+          "language",
+          "transcript"
+        ],
+        "x-fern-sdk-method-name": "update_segments",
+        "x-fern-examples": [
+          {
+            "path-parameters": {
+              "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3",
+              "language_id": "lang_1001kwkyxp0je6ktn4knsfrasx5s"
+            },
+            "request": {
+              "segments": {
+                "0199a3f0-1c2d-7abc-8def-0123456789ab": {
+                  "translation": "Bienvenido a nuestra última demostración de producto."
+                },
+                "0199a3f0-3e4f-7abc-8def-0123456789cd": {
+                  "translation": "Empecemos."
+                }
+              }
+            },
+            "response": {
+              "body": {
+                "segments": [
+                  {
+                    "id": "0199a3f0-1c2d-7abc-8def-0123456789ab",
+                    "speaker_id": "default_speaker",
+                    "start_s": 0.0,
+                    "end_s": 2.5,
+                    "source_text": "Welcome to our product demo.",
+                    "translation": "Bienvenido a nuestra última demostración de producto."
+                  },
+                  {
+                    "id": "0199a3f0-3e4f-7abc-8def-0123456789cd",
+                    "speaker_id": "narrator",
+                    "start_s": 2.5,
+                    "end_s": 4.0,
+                    "source_text": "Let's get started.",
+                    "translation": "Empecemos."
+                  }
+                ],
+                "revision": 5
+              }
+            }
+          }
+        ]
+      }
+    },
     "/v1/dubbing/project/{project_id}/language/{language_id}/transcript/regenerate": {
       "post": {
         "tags": [
           "Dubbing"
         ],
         "summary": "Regenerate Dubbing Target",
-        "description": "Re-dub a target from its edited transcript (charged like a generation).",
+        "description": "Enterprise only. Re-dub a target from its edited transcript (charged like a generation).",
         "operationId": "dubbing_target_transcript_regenerate",
         "parameters": [
           {
@@ -38685,10 +38934,10 @@
           },
           "response_timeout_secs": {
             "type": "integer",
-            "maximum": 120.0,
+            "maximum": 300.0,
             "minimum": 5.0,
             "title": "Response Timeout Secs",
-            "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).",
+            "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 300 seconds (inclusive).",
             "default": 20
           },
           "disable_interruptions": {
@@ -38811,10 +39060,10 @@
           },
           "response_timeout_secs": {
             "type": "integer",
-            "maximum": 120.0,
+            "maximum": 300.0,
             "minimum": 5.0,
             "title": "Response Timeout Secs",
-            "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).",
+            "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 300 seconds (inclusive).",
             "default": 20
           },
           "disable_interruptions": {
@@ -60724,6 +60973,94 @@
           "media_ref"
         ],
         "title": "DubbedSegment"
+      },
+      "DubbingBulkSegmentUpdateRequest": {
+        "properties": {
+          "segments": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/DubbingSegmentUpdateRequest"
+            },
+            "type": "object",
+            "maxProperties": 500,
+            "minProperties": 1,
+            "title": "Segments",
+            "description": "Map of segment id to the partial update to apply to that segment."
+          }
+        },
+        "type": "object",
+        "required": [
+          "segments"
+        ],
+        "title": "DubbingBulkSegmentUpdateRequest",
+        "description": "Edit several source segments at once, applied atomically (all succeed or none do)."
+      },
+      "DubbingBulkSourceSegmentUpdateResponse": {
+        "properties": {
+          "segments": {
+            "items": {
+              "$ref": "#/components/schemas/DubbingTranscriptSegment"
+            },
+            "type": "array",
+            "title": "Segments",
+            "description": "The edited segments in their updated state."
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "The project's source-transcript revision after the edits."
+          }
+        },
+        "type": "object",
+        "required": [
+          "segments",
+          "revision"
+        ],
+        "title": "DubbingBulkSourceSegmentUpdateResponse",
+        "description": "The result of a bulk source edit: the updated segments and the new revision."
+      },
+      "DubbingBulkTargetSegmentUpdateRequest": {
+        "properties": {
+          "segments": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/DubbingTargetSegmentUpdateRequest"
+            },
+            "type": "object",
+            "maxProperties": 500,
+            "minProperties": 1,
+            "title": "Segments",
+            "description": "Map of segment id to the translation edit to apply to that segment."
+          }
+        },
+        "type": "object",
+        "required": [
+          "segments"
+        ],
+        "title": "DubbingBulkTargetSegmentUpdateRequest",
+        "description": "Edit several target translations at once, applied atomically (all succeed or none do)."
+      },
+      "DubbingBulkTargetSegmentUpdateResponse": {
+        "properties": {
+          "segments": {
+            "items": {
+              "$ref": "#/components/schemas/DubbingTargetTranscriptSegment"
+            },
+            "type": "array",
+            "title": "Segments",
+            "description": "The edited target segments in their updated state."
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "description": "The target's revision after the edits."
+          }
+        },
+        "type": "object",
+        "required": [
+          "segments",
+          "revision"
+        ],
+        "title": "DubbingBulkTargetSegmentUpdateResponse",
+        "description": "The result of a bulk target edit: the updated segments and the new revision."
       },
       "DubbingLanguageListResponse": {
         "properties": {
@@ -97601,10 +97938,10 @@
           },
           "response_timeout_secs": {
             "type": "integer",
-            "maximum": 120.0,
+            "maximum": 300.0,
             "minimum": 5.0,
             "title": "Response Timeout Secs",
-            "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).",
+            "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 300 seconds (inclusive).",
             "default": 20
           },
           "disable_interruptions": {
@@ -97711,10 +98048,10 @@
           },
           "response_timeout_secs": {
             "type": "integer",
-            "maximum": 120.0,
+            "maximum": 300.0,
             "minimum": 5.0,
             "title": "Response Timeout Secs",
-            "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).",
+            "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 300 seconds (inclusive).",
             "default": 20
           },
           "disable_interruptions": {
