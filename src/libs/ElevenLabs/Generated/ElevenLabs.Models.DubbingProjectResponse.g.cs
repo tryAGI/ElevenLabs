@@ -62,6 +62,18 @@ namespace ElevenLabs
         public required int Revision { get; set; }
 
         /// <summary>
+        /// Why the project failed; null unless `status` is 'failed'. Also null for the few projects that failed before failure reporting was introduced.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("error")]
+        public global::ElevenLabs.DubbingError? Error { get; set; }
+
+        /// <summary>
+        /// Non-fatal conditions raised while preparing the source, empty when there are none. Reflects the latest preparation. Conditions raised while dubbing a particular language are reported on that language instead.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("warnings")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VoicesNotPermittedWarning>? Warnings { get; set; }
+
+        /// <summary>
         /// When the project was created.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
@@ -115,6 +127,12 @@ namespace ElevenLabs
         /// Identifiers of the language targets created under this project.<br/>
         /// Default Value: []
         /// </param>
+        /// <param name="error">
+        /// Why the project failed; null unless `status` is 'failed'. Also null for the few projects that failed before failure reporting was introduced.
+        /// </param>
+        /// <param name="warnings">
+        /// Non-fatal conditions raised while preparing the source, empty when there are none. Reflects the latest preparation. Conditions raised while dubbing a particular language are reported on that language instead.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -128,7 +146,9 @@ namespace ElevenLabs
             string? sourceLanguage,
             string? modelId,
             global::ElevenLabs.DubbingSourceMediaInfo? media,
-            global::System.Collections.Generic.IList<string>? languageIds)
+            global::System.Collections.Generic.IList<string>? languageIds,
+            global::ElevenLabs.DubbingError? error,
+            global::System.Collections.Generic.IList<global::ElevenLabs.VoicesNotPermittedWarning>? warnings)
         {
             this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));
             this.Status = status;
@@ -138,6 +158,8 @@ namespace ElevenLabs
             this.Media = media;
             this.LanguageIds = languageIds;
             this.Revision = revision;
+            this.Error = error;
+            this.Warnings = warnings;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
         }

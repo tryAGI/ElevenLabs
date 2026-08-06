@@ -6062,6 +6062,7 @@
                 "model_id": "dubbing_v2",
                 "language_ids": [],
                 "revision": 0,
+                "warnings": [],
                 "created_at": "2026-07-03T10:15:30Z",
                 "updated_at": "2026-07-03T10:15:30Z"
               }
@@ -6211,6 +6212,15 @@
                       "lang_1001kwkyxp0je6ktn4knsfrasx5s"
                     ],
                     "revision": 3,
+                    "warnings": [
+                      {
+                        "type": "voices_not_permitted",
+                        "speaker_ids": [
+                          "speaker_1"
+                        ],
+                        "message": "Voice cloning was not permitted for speaker speaker_1, so a replacement voice was used."
+                      }
+                    ],
                     "created_at": "2026-07-03T10:15:30Z",
                     "updated_at": "2026-07-03T10:17:12Z"
                   }
@@ -6309,6 +6319,15 @@
                   "lang_1001kwkyxp0je6ktn4knsfrasx5s"
                 ],
                 "revision": 3,
+                "warnings": [
+                  {
+                    "type": "voices_not_permitted",
+                    "speaker_ids": [
+                      "speaker_1"
+                    ],
+                    "message": "Voice cloning was not permitted for speaker speaker_1, so a replacement voice was used."
+                  }
+                ],
                 "created_at": "2026-07-03T10:15:30Z",
                 "updated_at": "2026-07-03T10:17:12Z"
               }
@@ -6477,6 +6496,7 @@
                 "status": "queued",
                 "model_id": "dubbing_v2",
                 "revision": 0,
+                "warnings": [],
                 "created_at": "2026-07-03T10:16:00Z",
                 "updated_at": "2026-07-03T10:16:00Z"
               }
@@ -6616,10 +6636,11 @@
                     "status": "completed",
                     "model_id": "dubbing_v2",
                     "outputs": {
-                      "lossless_audio": "https://storage.googleapis.com/eleven-dubbing/proj_1601kwkyxp0hfzvtmyxwqxx6mcy3/lang_1001kwkyxp0je6ktn4knsfrasx5s/output.wav?X-Goog-Signature=..."
+                      "lossless_audio": "https://storage.googleapis.com/eleven-dubbing/proj_1601kwkyxp0hfzvtmyxwqxx6mcy3/lang_1001kwkyxp0je6ktn4knsfrasx5s/output.flac?X-Goog-Signature=..."
                     },
                     "revision": 3,
                     "output_revision": 3,
+                    "warnings": [],
                     "created_at": "2026-07-03T10:16:00Z",
                     "updated_at": "2026-07-03T10:20:45Z"
                   }
@@ -6722,10 +6743,11 @@
                 "status": "completed",
                 "model_id": "dubbing_v2",
                 "outputs": {
-                  "lossless_audio": "https://storage.googleapis.com/eleven-dubbing/proj_1601kwkyxp0hfzvtmyxwqxx6mcy3/lang_1001kwkyxp0je6ktn4knsfrasx5s/output.wav?X-Goog-Signature=..."
+                  "lossless_audio": "https://storage.googleapis.com/eleven-dubbing/proj_1601kwkyxp0hfzvtmyxwqxx6mcy3/lang_1001kwkyxp0je6ktn4knsfrasx5s/output.flac?X-Goog-Signature=..."
                 },
                 "revision": 3,
                 "output_revision": 3,
+                "warnings": [],
                 "created_at": "2026-07-03T10:16:00Z",
                 "updated_at": "2026-07-03T10:20:45Z"
               }
@@ -40540,6 +40562,7 @@
           "livekit_token",
           "livekit_token_website",
           "genesys_api_key",
+          "audiocodes_api_key",
           "whatsapp",
           "sms"
         ],
@@ -55896,6 +55919,7 @@
           "twilio",
           "exotel",
           "genesys",
+          "audiocodes",
           "swift_sdk",
           "whatsapp",
           "twilio_sms",
@@ -61090,6 +61114,32 @@
         "title": "DubbingBulkTargetSegmentUpdateResponse",
         "description": "The result of a bulk target edit: the updated segments and the new revision."
       },
+      "DubbingError": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Stable identifier for the failure, safe to branch on. New codes are added over time, so treat an unrecognized value as 'internal_error'."
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "description": "Human-readable description of the failure, for display. The wording may change at any time; branch on `code` instead."
+          },
+          "retryable": {
+            "type": "boolean",
+            "title": "Retryable",
+            "description": "Whether resubmitting the same input could succeed. False means the failure describes the input or the account, so an identical retry will fail the same way."
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "message",
+          "retryable"
+        ],
+        "title": "DubbingError"
+      },
       "DubbingLanguageListResponse": {
         "properties": {
           "languages": {
@@ -61217,6 +61267,25 @@
             ],
             "title": "Output Revision",
             "description": "The `revision` the current dubbed output was generated from; equal to `revision` when up to date, less than it when 'stale'. Null until a generation has completed."
+          },
+          "error": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DubbingError"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Why this language failed; null unless `status` is 'failed', and also null for the few languages that failed before failure reporting was introduced. A code of 'project_failed' means the parent project failed, so read the project for the underlying cause."
+          },
+          "warnings": {
+            "items": {
+              "$ref": "#/components/schemas/VoicesNotPermittedWarning"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "description": "Non-fatal conditions raised while dubbing this language, empty when there are none. Reflects the latest generation. Conditions raised while preparing the source are reported on the project instead."
           },
           "created_at": {
             "type": "string",
@@ -61556,6 +61625,25 @@
             "type": "integer",
             "title": "Revision",
             "description": "Monotonic counter incremented whenever the source transcript is edited (segment add/edit/delete)."
+          },
+          "error": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DubbingError"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Why the project failed; null unless `status` is 'failed'. Also null for the few projects that failed before failure reporting was introduced."
+          },
+          "warnings": {
+            "items": {
+              "$ref": "#/components/schemas/VoicesNotPermittedWarning"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "description": "Non-fatal conditions raised while preparing the source, empty when there are none. Reflects the latest preparation. Conditions raised while dubbing a particular language are reported on that language instead."
           },
           "created_at": {
             "type": "string",
@@ -97573,6 +97661,36 @@
         "type": "object",
         "title": "VoicemailDetectionToolConfig",
         "description": "Allows the agent to detect when a voicemail system is encountered.\n\nThis tool should be invoked by the LLM when it detects that the call has been\nanswered by a voicemail system rather than a human. If a voicemail message\nis configured, it will be played; otherwise the call will end immediately."
+      },
+      "VoicesNotPermittedWarning": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "voices_not_permitted",
+            "title": "Type",
+            "description": "Identifies this warning; branch on it to read the fields below."
+          },
+          "speaker_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Speaker Ids",
+            "description": "Speakers whose voices were not permitted for cloning. The dub used a replacement voice for each of them; the rest of the speakers are unaffected."
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "description": "Human-readable description of the warning, for display. The wording may change at any time; branch on `type` instead."
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "speaker_ids",
+          "message"
+        ],
+        "title": "VoicesNotPermittedWarning"
       },
       "WebhookAuthMethodType": {
         "type": "string",
