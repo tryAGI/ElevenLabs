@@ -69,6 +69,18 @@ namespace ElevenLabs
         public int? OutputRevision { get; set; }
 
         /// <summary>
+        /// Why this language failed; null unless `status` is 'failed', and also null for the few languages that failed before failure reporting was introduced. A code of 'project_failed' means the parent project failed, so read the project for the underlying cause.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("error")]
+        public global::ElevenLabs.DubbingError? Error { get; set; }
+
+        /// <summary>
+        /// Non-fatal conditions raised while dubbing this language, empty when there are none. Reflects the latest generation. Conditions raised while preparing the source are reported on the project instead.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("warnings")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VoicesNotPermittedWarning>? Warnings { get; set; }
+
+        /// <summary>
         /// When the language target was created.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
@@ -124,6 +136,12 @@ namespace ElevenLabs
         /// <param name="outputRevision">
         /// The `revision` the current dubbed output was generated from; equal to `revision` when up to date, less than it when 'stale'. Null until a generation has completed.
         /// </param>
+        /// <param name="error">
+        /// Why this language failed; null unless `status` is 'failed', and also null for the few languages that failed before failure reporting was introduced. A code of 'project_failed' means the parent project failed, so read the project for the underlying cause.
+        /// </param>
+        /// <param name="warnings">
+        /// Non-fatal conditions raised while dubbing this language, empty when there are none. Reflects the latest generation. Conditions raised while preparing the source are reported on the project instead.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -138,7 +156,9 @@ namespace ElevenLabs
             string? modelId,
             global::ElevenLabs.VoiceSettings? voiceSettings,
             global::ElevenLabs.DubbingLanguageOutputs? outputs,
-            int? outputRevision)
+            int? outputRevision,
+            global::ElevenLabs.DubbingError? error,
+            global::System.Collections.Generic.IList<global::ElevenLabs.VoicesNotPermittedWarning>? warnings)
         {
             this.LanguageId = languageId ?? throw new global::System.ArgumentNullException(nameof(languageId));
             this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));
@@ -149,6 +169,8 @@ namespace ElevenLabs
             this.Outputs = outputs;
             this.Revision = revision;
             this.OutputRevision = outputRevision;
+            this.Error = error;
+            this.Warnings = warnings;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
         }

@@ -16,6 +16,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Audiocodes,
+        /// <summary>
+        /// 
+        /// </summary>
         Exotel,
         /// <summary>
         /// 
@@ -124,6 +128,7 @@ namespace ElevenLabs
             return value switch
             {
                 ConversationInitiationSource.AndroidSdk => "android_sdk",
+                ConversationInitiationSource.Audiocodes => "audiocodes",
                 ConversationInitiationSource.Exotel => "exotel",
                 ConversationInitiationSource.FlutterSdk => "flutter_sdk",
                 ConversationInitiationSource.FreshdeskIntegration => "freshdesk_integration",
@@ -159,6 +164,7 @@ namespace ElevenLabs
             return value switch
             {
                 "android_sdk" => ConversationInitiationSource.AndroidSdk,
+                "audiocodes" => ConversationInitiationSource.Audiocodes,
                 "exotel" => ConversationInitiationSource.Exotel,
                 "flutter_sdk" => ConversationInitiationSource.FlutterSdk,
                 "freshdesk_integration" => ConversationInitiationSource.FreshdeskIntegration,

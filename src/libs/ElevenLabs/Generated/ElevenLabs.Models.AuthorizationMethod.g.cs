@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AudiocodesApiKey,
+        /// <summary>
+        /// 
+        /// </summary>
         AuthorizationHeader,
         /// <summary>
         /// 
@@ -62,6 +66,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                AuthorizationMethod.AudiocodesApiKey => "audiocodes_api_key",
                 AuthorizationMethod.AuthorizationHeader => "authorization_header",
                 AuthorizationMethod.GenesysApiKey => "genesys_api_key",
                 AuthorizationMethod.Invalid => "invalid",
@@ -82,6 +87,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "audiocodes_api_key" => AuthorizationMethod.AudiocodesApiKey,
                 "authorization_header" => AuthorizationMethod.AuthorizationHeader,
                 "genesys_api_key" => AuthorizationMethod.GenesysApiKey,
                 "invalid" => AuthorizationMethod.Invalid,
