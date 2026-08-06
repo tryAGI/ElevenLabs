@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// LLM model for the simulated user. Defaults to Claude Sonnet 4.6.
+    /// LLM model for the simulated user.<br/>
+    /// Default Value: claude-sonnet-4-6
     /// </summary>
     public sealed partial class UpdateSimulationTestRequestSimulatedUserModel
     {

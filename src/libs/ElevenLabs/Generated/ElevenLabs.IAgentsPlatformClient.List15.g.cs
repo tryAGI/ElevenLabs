@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// How many results at most should be returned<br/>
         /// Default Value: 100
         /// </param>
+        /// <param name="includeCommitStatus">
+        /// Whether to compute how far each branch has diverged from main (commits_ahead/commits_behind). This walks the version DAG of every branch, so it is slow on agents with long histories and is off by default, leaving those fields null.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -26,6 +30,7 @@ namespace ElevenLabs
             string agentId,
             bool? includeArchived = default,
             int? limit = default,
+            bool? includeCommitStatus = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -43,6 +48,10 @@ namespace ElevenLabs
         /// How many results at most should be returned<br/>
         /// Default Value: 100
         /// </param>
+        /// <param name="includeCommitStatus">
+        /// Whether to compute how far each branch has diverged from main (commits_ahead/commits_behind). This walks the version DAG of every branch, so it is slow on agents with long histories and is off by default, leaving those fields null.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -50,6 +59,7 @@ namespace ElevenLabs
             string agentId,
             bool? includeArchived = default,
             int? limit = default,
+            bool? includeCommitStatus = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

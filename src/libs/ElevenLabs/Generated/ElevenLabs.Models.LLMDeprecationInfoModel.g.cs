@@ -9,14 +9,12 @@ namespace ElevenLabs
     public sealed partial class LLMDeprecationInfoModel
     {
         /// <summary>
-        /// The identifier of the deprecated LLM model.<br/>
-        /// Default Value: gemini-2.5-flash
+        /// The identifier of the deprecated LLM model.
         /// </summary>
-        /// <default>global::ElevenLabs.Llm.Gemini25Flash</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LlmJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.Llm Llm { get; set; } = global::ElevenLabs.Llm.Gemini25Flash;
+        public required global::ElevenLabs.Llm Llm { get; set; }
 
         /// <summary>
         /// Whether this model is currently deprecated. True if the model is immediately deprecated or within the warning period.
@@ -74,8 +72,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="LLMDeprecationInfoModel" /> class.
         /// </summary>
         /// <param name="llm">
-        /// The identifier of the deprecated LLM model.<br/>
-        /// Default Value: gemini-2.5-flash
+        /// The identifier of the deprecated LLM model.
         /// </param>
         /// <param name="isDeprecated">
         /// Whether this model is currently deprecated. True if the model is immediately deprecated or within the warning period.
