@@ -27,6 +27,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Dubbing,
+        /// <summary>
+        /// 
+        /// </summary>
         Flows,
         /// <summary>
         /// 
@@ -54,6 +58,7 @@ namespace ElevenLabs
                 WebhookUsageType.ConvAIAgentSettings => "ConvAI Agent Settings",
                 WebhookUsageType.ConvAIAlerting => "ConvAI Alerting",
                 WebhookUsageType.ConvAISettings => "ConvAI Settings",
+                WebhookUsageType.Dubbing => "Dubbing",
                 WebhookUsageType.Flows => "Flows",
                 WebhookUsageType.SpeechToText => "Speech to Text",
                 WebhookUsageType.VoiceLibraryRemovalNotices => "Voice Library Removal Notices",
@@ -71,6 +76,7 @@ namespace ElevenLabs
                 "ConvAI Agent Settings" => WebhookUsageType.ConvAIAgentSettings,
                 "ConvAI Alerting" => WebhookUsageType.ConvAIAlerting,
                 "ConvAI Settings" => WebhookUsageType.ConvAISettings,
+                "Dubbing" => WebhookUsageType.Dubbing,
                 "Flows" => WebhookUsageType.Flows,
                 "Speech to Text" => WebhookUsageType.SpeechToText,
                 "Voice Library Removal Notices" => WebhookUsageType.VoiceLibraryRemovalNotices,

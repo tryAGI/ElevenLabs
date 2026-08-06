@@ -55,6 +55,13 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? LanguageIds { get; set; }
 
         /// <summary>
+        /// Workspace webhooks notified when this project becomes ready or fails, and when any of its languages completes or fails.<br/>
+        /// Default Value: []
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("webhook_ids")]
+        public global::System.Collections.Generic.IList<string>? WebhookIds { get; set; }
+
+        /// <summary>
         /// Monotonic counter incremented whenever the source transcript is edited (segment add/edit/delete).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("revision")]
@@ -127,6 +134,10 @@ namespace ElevenLabs
         /// Identifiers of the language targets created under this project.<br/>
         /// Default Value: []
         /// </param>
+        /// <param name="webhookIds">
+        /// Workspace webhooks notified when this project becomes ready or fails, and when any of its languages completes or fails.<br/>
+        /// Default Value: []
+        /// </param>
         /// <param name="error">
         /// Why the project failed; null unless `status` is 'failed'. Also null for the few projects that failed before failure reporting was introduced.
         /// </param>
@@ -147,6 +158,7 @@ namespace ElevenLabs
             string? modelId,
             global::ElevenLabs.DubbingSourceMediaInfo? media,
             global::System.Collections.Generic.IList<string>? languageIds,
+            global::System.Collections.Generic.IList<string>? webhookIds,
             global::ElevenLabs.DubbingError? error,
             global::System.Collections.Generic.IList<global::ElevenLabs.VoicesNotPermittedWarning>? warnings)
         {
@@ -157,6 +169,7 @@ namespace ElevenLabs
             this.ModelId = modelId;
             this.Media = media;
             this.LanguageIds = languageIds;
+            this.WebhookIds = webhookIds;
             this.Revision = revision;
             this.Error = error;
             this.Warnings = warnings;

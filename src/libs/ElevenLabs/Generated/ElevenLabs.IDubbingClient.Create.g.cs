@@ -55,6 +55,9 @@ namespace ElevenLabs
         /// <param name="keyterms">
         /// Key terms to bias transcription/translation toward (e.g. product or brand names). At most 1000 terms; each term at most 50 characters and 5 words; the characters `&lt;&gt;{}[]\` are not allowed.
         /// </param>
+        /// <param name="webhookIds">
+        /// Ids of workspace webhooks to notify when this project becomes ready or fails, and when any of its languages completes or fails. At most 3; each must be a webhook configured in your workspace.
+        /// </param>
         /// <param name="targetLanguage">
         /// Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready. Must be a language the dubbing model supports, and a region-qualified tag must be one of the supported dialects.
         /// </param>
@@ -75,6 +78,7 @@ namespace ElevenLabs
             string? sourceLanguage = default,
             global::ElevenLabs.AnyOf<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string, object>? modelId = default,
             global::System.Collections.Generic.IList<string>? keyterms = default,
+            global::System.Collections.Generic.IList<string>? webhookIds = default,
             string? targetLanguage = default,
             byte[]? transcript = default,
             string? transcriptname = default,
