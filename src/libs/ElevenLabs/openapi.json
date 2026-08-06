@@ -27777,6 +27777,18 @@
             "description": "How many results at most should be returned"
           },
           {
+            "name": "include_commit_status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "Whether to compute how far each branch has diverged from main (commits_ahead/commits_behind). This walks the version DAG of every branch, so it is slow on agents with long histories and is off by default, leaving those fields null.",
+              "default": false,
+              "title": "Include Commit Status"
+            },
+            "description": "Whether to compute how far each branch has diverged from main (commits_ahead/commits_behind). This walks the version DAG of every branch, so it is slow on agents with long histories and is off by default, leaving those fields null."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -58292,7 +58304,8 @@
                 "type": "null"
               }
             ],
-            "description": "LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6."
+            "description": "LLM model to use for evaluating simulation results.",
+            "default": "claude-sonnet-4-6"
           },
           "simulated_user_model": {
             "anyOf": [
@@ -58303,7 +58316,8 @@
                 "type": "null"
               }
             ],
-            "description": "LLM model for the simulated user. Defaults to Claude Sonnet 4.6."
+            "description": "LLM model for the simulated user.",
+            "default": "claude-sonnet-4-6"
           },
           "name": {
             "type": "string",
@@ -59090,6 +59104,20 @@
         ],
         "title": "CustomSIPHeaderWithDynamicVariable",
         "description": "Custom SIP header for phone transfers with a dynamic variable reference.\nThe value is a variable name that will be resolved at runtime.\nValue is not validated here since it will be substituted with actual value later."
+      },
+      "CustomToolApiSchemaConfig": {
+        "properties": {
+          "request_body_schema": {
+            "$ref": "#/components/schemas/ObjectJsonSchemaProperty-Output",
+            "description": "JSON schema for the parameters the LLM provides to this tool."
+          }
+        },
+        "type": "object",
+        "required": [
+          "request_body_schema"
+        ],
+        "title": "CustomToolApiSchemaConfig",
+        "description": "Parameter schema for an integration tool the brain answers itself.\n\nUnlike ``WebhookToolApiSchemaConfig`` there is no HTTP transport: ``handler``\nreceives the LLM's parameters and produces the tool result."
       },
       "DTMFInputConfig": {
         "properties": {
@@ -67488,7 +67516,8 @@
                 "type": "null"
               }
             ],
-            "description": "LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6."
+            "description": "LLM model to use for evaluating simulation results.",
+            "default": "claude-sonnet-4-6"
           },
           "simulated_user_model": {
             "anyOf": [
@@ -67499,7 +67528,8 @@
                 "type": "null"
               }
             ],
-            "description": "LLM model for the simulated user. Defaults to Claude Sonnet 4.6."
+            "description": "LLM model for the simulated user.",
+            "default": "claude-sonnet-4-6"
           },
           "id": {
             "type": "string",
@@ -69686,8 +69716,7 @@
           "watt-tool-8b",
           "watt-tool-70b"
         ],
-        "title": "LLM",
-        "default": "gemini-2.5-flash"
+        "title": "LLM"
       },
       "LLMCategoryUsage": {
         "properties": {
@@ -86138,7 +86167,8 @@
                 "type": "null"
               }
             ],
-            "description": "LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6."
+            "description": "LLM model to use for evaluating simulation results.",
+            "default": "claude-sonnet-4-6"
           },
           "simulated_user_model": {
             "anyOf": [
@@ -86149,7 +86179,8 @@
                 "type": "null"
               }
             ],
-            "description": "LLM model for the simulated user. Defaults to Claude Sonnet 4.6."
+            "description": "LLM model for the simulated user.",
+            "default": "claude-sonnet-4-6"
           }
         },
         "type": "object",
@@ -94137,7 +94168,8 @@
                 "type": "null"
               }
             ],
-            "description": "LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6."
+            "description": "LLM model to use for evaluating simulation results.",
+            "default": "claude-sonnet-4-6"
           },
           "simulated_user_model": {
             "anyOf": [
@@ -94148,7 +94180,8 @@
                 "type": "null"
               }
             ],
-            "description": "LLM model for the simulated user. Defaults to Claude Sonnet 4.6."
+            "description": "LLM model for the simulated user.",
+            "default": "claude-sonnet-4-6"
           },
           "name": {
             "type": "string",
