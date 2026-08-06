@@ -6061,6 +6061,7 @@
                 "source_language": "en",
                 "model_id": "dubbing_v2",
                 "language_ids": [],
+                "webhook_ids": [],
                 "revision": 0,
                 "warnings": [],
                 "created_at": "2026-07-03T10:15:30Z",
@@ -6211,6 +6212,7 @@
                     "language_ids": [
                       "lang_1001kwkyxp0je6ktn4knsfrasx5s"
                     ],
+                    "webhook_ids": [],
                     "revision": 3,
                     "warnings": [
                       {
@@ -6318,6 +6320,7 @@
                 "language_ids": [
                   "lang_1001kwkyxp0je6ktn4knsfrasx5s"
                 ],
+                "webhook_ids": [],
                 "revision": 3,
                 "warnings": [
                   {
@@ -6485,8 +6488,7 @@
               "project_id": "proj_1601kwkyxp0hfzvtmyxwqxx6mcy3"
             },
             "request": {
-              "target_language": "es",
-              "model_id": "dubbing_v2"
+              "target_language": "es"
             },
             "response": {
               "body": {
@@ -7136,7 +7138,7 @@
           "Dubbing"
         ],
         "summary": "Update Dubbing Transcript Segments",
-        "description": "Edit several source segments' text, speaker, or timing in one atomic request.",
+        "description": "Enterprise only. Edit several source segments' text, speaker, or timing in one atomic request.",
         "operationId": "dubbing_transcript_segments_update",
         "parameters": [
           {
@@ -7590,7 +7592,7 @@
           "Dubbing"
         ],
         "summary": "Update Dubbing Target Transcript Segments",
-        "description": "Edit several segments' translations for a language target in one atomic request.",
+        "description": "Enterprise only. Edit several segments' translations for a language target in one atomic request.",
         "operationId": "dubbing_target_transcript_segments_update",
         "parameters": [
           {
@@ -25821,73 +25823,6 @@
         "x-fern-sdk-method-name": "get_dependencies"
       }
     },
-    "/v1/convai/batch-calling/{batch_id}/export": {
-      "get": {
-        "tags": [
-          "Agents Platform"
-        ],
-        "summary": "Export Batch Call Results",
-        "description": "Download all recipients and conversation results for a terminal batch call as CSV.",
-        "operationId": "export_batch_call",
-        "parameters": [
-          {
-            "name": "batch_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Batch Id"
-            }
-          },
-          {
-            "name": "xi-api-key",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
-              "title": "Xi-Api-Key"
-            },
-            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Batch call results CSV.",
-            "content": {
-              "text/csv": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "x-fern-sdk-group-name": [
-          "conversational_ai",
-          "batch_calls"
-        ],
-        "x-fern-sdk-method-name": "export"
-      }
-    },
     "/v1/convai/batch-calling/submit": {
       "post": {
         "tags": [
@@ -26309,6 +26244,73 @@
           "batch_calls"
         ],
         "x-fern-sdk-method-name": "retry"
+      }
+    },
+    "/v1/convai/batch-calling/{batch_id}/export": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Export Batch Call Results",
+        "description": "Download all recipients and conversation results for a terminal batch call as CSV.",
+        "operationId": "export_batch_call",
+        "parameters": [
+          {
+            "name": "batch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Batch Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Batch call results CSV.",
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "batch_calls"
+        ],
+        "x-fern-sdk-method-name": "export"
       }
     },
     "/v1/convai/sip-trunk/outbound-call": {
@@ -42626,6 +42628,14 @@
             "type": "array",
             "title": "Keyterms",
             "description": "Key terms to bias transcription/translation toward (e.g. product or brand names). At most 1000 terms; each term at most 50 characters and 5 words; the characters `<>{}[]\\` are not allowed."
+          },
+          "webhook_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Webhook Ids",
+            "description": "Ids of workspace webhooks to notify when this project becomes ready or fails, and when any of its languages completes or fails. At most 3; each must be a webhook configured in your workspace."
           },
           "target_language": {
             "anyOf": [
@@ -61619,6 +61629,15 @@
             "type": "array",
             "title": "Language Ids",
             "description": "Identifiers of the language targets created under this project.",
+            "default": []
+          },
+          "webhook_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Webhook Ids",
+            "description": "Workspace webhooks notified when this project becomes ready or fails, and when any of its languages completes or fails.",
             "default": []
           },
           "revision": {
@@ -98304,7 +98323,8 @@
           "Speech to Text",
           "Agent QA Evaluations",
           "ConvAI Alerting",
-          "Flows"
+          "Flows",
+          "Dubbing"
         ],
         "title": "WebhookUsageType"
       },
