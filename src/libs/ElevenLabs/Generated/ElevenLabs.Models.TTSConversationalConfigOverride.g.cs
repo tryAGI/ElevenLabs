@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"model_id":"eleven_turbo_v2","similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"}
+    /// Example: {"model_id":"eleven_turbo_v2","pronunciation_dictionary_locators":[],"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"}
     /// </summary>
     public sealed partial class TTSConversationalConfigOverride
     {
@@ -39,6 +39,12 @@ namespace ElevenLabs
         public double? SimilarityBoost { get; set; }
 
         /// <summary>
+        /// The pronunciation dictionary locators
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pronunciation_dictionary_locators")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? PronunciationDictionaryLocators { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -62,6 +68,9 @@ namespace ElevenLabs
         /// <param name="similarityBoost">
         /// The similarity boost for generated speech
         /// </param>
+        /// <param name="pronunciationDictionaryLocators">
+        /// The pronunciation dictionary locators
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -70,13 +79,15 @@ namespace ElevenLabs
             string? voiceId,
             double? stability,
             double? speed,
-            double? similarityBoost)
+            double? similarityBoost,
+            global::System.Collections.Generic.IList<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? pronunciationDictionaryLocators)
         {
             this.ModelId = modelId;
             this.VoiceId = voiceId;
             this.Stability = stability;
             this.Speed = speed;
             this.SimilarityBoost = similarityBoost;
+            this.PronunciationDictionaryLocators = pronunciationDictionaryLocators;
         }
 
         /// <summary>

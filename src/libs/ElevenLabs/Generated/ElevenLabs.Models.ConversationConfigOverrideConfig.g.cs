@@ -16,6 +16,13 @@ namespace ElevenLabs
         public bool? TextOnly { get; set; }
 
         /// <summary>
+        /// Whether to allow overriding the max_duration_seconds field.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_duration_seconds")]
+        public bool? MaxDurationSeconds { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -28,13 +35,19 @@ namespace ElevenLabs
         /// Whether to allow overriding the text_only field.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="maxDurationSeconds">
+        /// Whether to allow overriding the max_duration_seconds field.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConversationConfigOverrideConfig(
-            bool? textOnly)
+            bool? textOnly,
+            bool? maxDurationSeconds)
         {
             this.TextOnly = textOnly;
+            this.MaxDurationSeconds = maxDurationSeconds;
         }
 
         /// <summary>
