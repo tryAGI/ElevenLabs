@@ -5,8 +5,7 @@ namespace ElevenLabs
 {
     /// <summary>
     /// Cost of running post-call analysis on this conversation.<br/>
-    /// Present once analysis has incurred a cost. `last_run` is null when the<br/>
-    /// most recent pass incurred none.
+    /// Present once an analysis pass has run, billed or not.
     /// </summary>
     public sealed partial class AnalysisCharging
     {
@@ -18,10 +17,11 @@ namespace ElevenLabs
         public required global::ElevenLabs.AnalysisRunningTotal Total { get; set; }
 
         /// <summary>
-        /// 
+        /// LLM cost of the most recent post-call analysis pass on this conversation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_run")]
-        public global::ElevenLabs.AnalysisRunSnapshot? LastRun { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.AnalysisRunSnapshot LastRun { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -35,16 +35,18 @@ namespace ElevenLabs
         /// <param name="total">
         /// Cumulative LLM cost of running post-call analysis on this conversation.
         /// </param>
-        /// <param name="lastRun"></param>
+        /// <param name="lastRun">
+        /// LLM cost of the most recent post-call analysis pass on this conversation.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AnalysisCharging(
             global::ElevenLabs.AnalysisRunningTotal total,
-            global::ElevenLabs.AnalysisRunSnapshot? lastRun)
+            global::ElevenLabs.AnalysisRunSnapshot lastRun)
         {
             this.Total = total ?? throw new global::System.ArgumentNullException(nameof(total));
-            this.LastRun = lastRun;
+            this.LastRun = lastRun ?? throw new global::System.ArgumentNullException(nameof(lastRun));
         }
 
         /// <summary>

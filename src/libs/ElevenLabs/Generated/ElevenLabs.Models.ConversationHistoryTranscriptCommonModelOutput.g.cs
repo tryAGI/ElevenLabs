@@ -61,6 +61,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("producing_llm")]
+        public string? ProducingLlm { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("time_in_call_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int TimeInCallSecs { get; set; }
@@ -161,6 +167,7 @@ namespace ElevenLabs
         /// <param name="toolResults"></param>
         /// <param name="feedback"></param>
         /// <param name="llmOverride"></param>
+        /// <param name="producingLlm"></param>
         /// <param name="conversationTurnMetrics"></param>
         /// <param name="ragRetrievalInfo"></param>
         /// <param name="llmUsage"></param>
@@ -191,6 +198,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>? toolResults,
             global::ElevenLabs.UserFeedback? feedback,
             string? llmOverride,
+            string? producingLlm,
             global::ElevenLabs.ConversationTurnMetrics? conversationTurnMetrics,
             global::ElevenLabs.RagRetrievalInfo? ragRetrievalInfo,
             global::ElevenLabs.LLMUsageOutput? llmUsage,
@@ -213,6 +221,7 @@ namespace ElevenLabs
             this.ToolResults = toolResults;
             this.Feedback = feedback;
             this.LlmOverride = llmOverride;
+            this.ProducingLlm = producingLlm;
             this.TimeInCallSecs = timeInCallSecs;
             this.ConversationTurnMetrics = conversationTurnMetrics;
             this.RagRetrievalInfo = ragRetrievalInfo;
