@@ -43,6 +43,24 @@ namespace ElevenLabs
         public double? VectorDistance { get; set; }
 
         /// <summary>
+        /// Format of the chunk text. Markdown chunks contain raw markdown; HTML chunks contain HTML.<br/>
+        /// Default Value: html
+        /// </summary>
+        /// <default>global::ElevenLabs.ContentFormat.Html</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("content_format")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ContentFormatJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.ContentFormat ContentFormat { get; set; } = global::ElevenLabs.ContentFormat.Html;
+
+        /// <summary>
+        /// Type of the source knowledge base document.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.KnowledgeBaseDocumentTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.KnowledgeBaseDocumentType DocumentType { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -63,6 +81,13 @@ namespace ElevenLabs
         /// <param name="text">
         /// Text content of the retrieved chunk.
         /// </param>
+        /// <param name="contentFormat">
+        /// Format of the chunk text. Markdown chunks contain raw markdown; HTML chunks contain HTML.<br/>
+        /// Default Value: html
+        /// </param>
+        /// <param name="documentType">
+        /// Type of the source knowledge base document.
+        /// </param>
         /// <param name="vectorDistance">
         /// Similarity distance when exposed by the retrieval strategy.
         /// </param>
@@ -74,6 +99,8 @@ namespace ElevenLabs
             string documentName,
             string chunkId,
             string text,
+            global::ElevenLabs.ContentFormat contentFormat,
+            global::ElevenLabs.KnowledgeBaseDocumentType documentType,
             double? vectorDistance)
         {
             this.DocumentId = documentId ?? throw new global::System.ArgumentNullException(nameof(documentId));
@@ -81,6 +108,8 @@ namespace ElevenLabs
             this.ChunkId = chunkId ?? throw new global::System.ArgumentNullException(nameof(chunkId));
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.VectorDistance = vectorDistance;
+            this.ContentFormat = contentFormat;
+            this.DocumentType = documentType;
         }
 
         /// <summary>
