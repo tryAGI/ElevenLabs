@@ -95,7 +95,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Whether to remove the default personality lines from the system prompt<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ignore_default_personality")]
         public bool? IgnoreDefaultPersonality { get; set; }
@@ -187,7 +187,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="ignoreDefaultPersonality">
         /// Whether to remove the default personality lines from the system prompt<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="rag">
         /// Configuration for RAG

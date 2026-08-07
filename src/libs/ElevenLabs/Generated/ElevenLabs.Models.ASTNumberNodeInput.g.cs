@@ -18,8 +18,9 @@ namespace ElevenLabs
         /// Value of this literal.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("value")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<double?, int?>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Value { get; set; }
+        public required global::ElevenLabs.AnyOf<double?, int?> Value { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,7 +41,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ASTNumberNodeInput(
-            double value,
+            global::ElevenLabs.AnyOf<double?, int?> value,
             string? type)
         {
             this.Type = type;

@@ -21,6 +21,12 @@ namespace ElevenLabs
         public int? Charge { get; set; }
 
         /// <summary>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("runs")]
+        public int? Runs { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("price_per_feature")]
@@ -47,6 +53,9 @@ namespace ElevenLabs
         /// <param name="charge">
         /// Default Value: 0
         /// </param>
+        /// <param name="runs">
+        /// Default Value: 0
+        /// </param>
         /// <param name="pricePerFeature"></param>
         /// <param name="chargePerFeature"></param>
 #if NET7_0_OR_GREATER
@@ -55,11 +64,13 @@ namespace ElevenLabs
         public AnalysisRunningTotal(
             double? price,
             int? charge,
+            int? runs,
             global::System.Collections.Generic.Dictionary<string, double>? pricePerFeature,
             global::System.Collections.Generic.Dictionary<string, int>? chargePerFeature)
         {
             this.Price = price;
             this.Charge = charge;
+            this.Runs = runs;
             this.PricePerFeature = pricePerFeature;
             this.ChargePerFeature = chargePerFeature;
         }

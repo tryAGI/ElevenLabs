@@ -35224,7 +35224,14 @@
             "default": "number_literal"
           },
           "value": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              }
+            ],
             "title": "Value",
             "description": "Value of this literal."
           }
@@ -35244,7 +35251,14 @@
             "default": "number_literal"
           },
           "value": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              }
+            ],
             "title": "Value",
             "description": "Value of this literal."
           }
@@ -38647,22 +38661,16 @@
             "$ref": "#/components/schemas/AnalysisRunningTotal"
           },
           "last_run": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/AnalysisRunSnapshot"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/AnalysisRunSnapshot"
           }
         },
         "type": "object",
         "required": [
-          "total"
+          "total",
+          "last_run"
         ],
         "title": "AnalysisCharging",
-        "description": "Cost of running post-call analysis on this conversation.\n\nPresent once analysis has incurred a cost. `last_run` is null when the\nmost recent pass incurred none."
+        "description": "Cost of running post-call analysis on this conversation.\nPresent once an analysis pass has run, billed or not."
       },
       "AnalysisProperty": {
         "properties": {
@@ -38813,6 +38821,11 @@
           "charge": {
             "type": "integer",
             "title": "Charge",
+            "default": 0
+          },
+          "runs": {
+            "type": "integer",
+            "title": "Runs",
             "default": 0
           },
           "price_per_feature": {
@@ -42753,7 +42766,7 @@
               }
             ],
             "title": "Translations",
-            "description": "Optional translations to use instead of machine translation. A map from each source segment's external_id (or its id, if you supplied none) to the translated text; every source segment must be covered exactly once. At most 20000 entries, totalling at most 4 MiB of text."
+            "description": "Enterprise only. Optional translations to use instead of machine translation. A map from each source segment's external_id (or its id, if you supplied none) to the translated text; every source segment must be covered exactly once. At most 20000 entries, totalling at most 4 MiB of text."
           }
         },
         "type": "object",
@@ -42871,7 +42884,7 @@
               }
             ],
             "title": "Transcript",
-            "description": "Optional JSON transcript to use instead of automatic transcription. When provided, source_language is required. Segments may include an optional external_id and an optional translation; if any segment includes a translation, target_language is required and every segment must include one (used to seed the target created via target_language)."
+            "description": "Enterprise only. Optional JSON transcript to use instead of automatic transcription. When provided, source_language is required. Segments may include an optional external_id and an optional translation; if any segment includes a translation, target_language is required and every segment must include one (used to seed the target created via target_language)."
           }
         },
         "type": "object",
@@ -54311,6 +54324,17 @@
             ],
             "title": "Llm Override"
           },
+          "producing_llm": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Producing Llm"
+          },
           "time_in_call_secs": {
             "type": "integer",
             "title": "Time In Call Secs"
@@ -54526,6 +54550,17 @@
               }
             ],
             "title": "Llm Override"
+          },
+          "producing_llm": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Producing Llm"
           },
           "time_in_call_secs": {
             "type": "integer",
@@ -54847,6 +54882,17 @@
               }
             ],
             "title": "Llm Override"
+          },
+          "producing_llm": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Producing Llm"
           },
           "time_in_call_secs": {
             "type": "integer",
@@ -71655,7 +71701,8 @@
           }
         },
         "type": "object",
-        "title": "ListLocationsParams"
+        "title": "ListLocationsParams",
+        "description": "Params + Reception-proxied ``run()`` for list_locations."
       },
       "ListMCPToolsResponseModel": {
         "properties": {
@@ -81118,7 +81165,7 @@
             ],
             "title": "Ignore Default Personality",
             "description": "Whether to remove the default personality lines from the system prompt",
-            "default": false
+            "default": true
           },
           "rag": {
             "$ref": "#/components/schemas/RagConfig-Input",
@@ -81346,7 +81393,7 @@
             ],
             "title": "Ignore Default Personality",
             "description": "Whether to remove the default personality lines from the system prompt",
-            "default": false
+            "default": true
           },
           "rag": {
             "$ref": "#/components/schemas/RagConfig-Output",

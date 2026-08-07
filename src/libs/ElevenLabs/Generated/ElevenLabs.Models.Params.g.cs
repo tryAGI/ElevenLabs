@@ -2594,7 +2594,7 @@ namespace ElevenLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteClientInteraction' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        /// Params + Reception-proxied ``run()`` for list_locations.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListLocationsParams? ListLocations { get; init; }

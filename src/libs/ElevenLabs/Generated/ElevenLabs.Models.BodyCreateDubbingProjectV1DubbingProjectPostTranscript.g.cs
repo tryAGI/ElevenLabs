@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Optional JSON transcript to use instead of automatic transcription. When provided, source_language is required. Segments may include an optional external_id and an optional translation; if any segment includes a translation, target_language is required and every segment must include one (used to seed the target created via target_language).
+    /// Enterprise only. Optional JSON transcript to use instead of automatic transcription. When provided, source_language is required. Segments may include an optional external_id and an optional translation; if any segment includes a translation, target_language is required and every segment must include one (used to seed the target created via target_language).
     /// </summary>
     public sealed partial class BodyCreateDubbingProjectV1DubbingProjectPostTranscript
     {
