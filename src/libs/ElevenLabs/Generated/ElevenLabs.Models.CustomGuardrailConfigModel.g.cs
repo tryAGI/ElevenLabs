@@ -5,7 +5,7 @@ namespace ElevenLabs
 {
     /// <summary>
     /// LLM model to use for custom guardrail evaluation<br/>
-    /// Default Value: gemini-2.5-flash-lite
+    /// Default Value: gemini-3.1-flash-lite
     /// </summary>
     public enum CustomGuardrailConfigModel
     {

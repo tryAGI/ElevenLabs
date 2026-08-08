@@ -37,7 +37,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// LLM model to use for custom guardrail evaluation<br/>
-        /// Default Value: gemini-2.5-flash-lite
+        /// Default Value: gemini-3.1-flash-lite
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.CustomGuardrailConfigModelJsonConverter))]
@@ -94,7 +94,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="model">
         /// LLM model to use for custom guardrail evaluation<br/>
-        /// Default Value: gemini-2.5-flash-lite
+        /// Default Value: gemini-3.1-flash-lite
         /// </param>
         /// <param name="historyMessageCount">
         /// How much recent history the guardrail sees before the reply it evaluates, counted in user messages (the agent replies between them are included too). The guardrail always gets a single &lt;conversation_history&gt; transcript ending in the evaluated reply, marked 'AGENT [current reply]:'. 0 (default) adds no prior history (just that line); 1 adds the latest user message onward.<br/>
