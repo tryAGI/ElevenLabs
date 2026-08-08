@@ -59112,7 +59112,7 @@
             ],
             "title": "Model",
             "description": "LLM model to use for custom guardrail evaluation",
-            "default": "gemini-2.5-flash-lite"
+            "default": "gemini-3.1-flash-lite"
           },
           "history_message_count": {
             "type": "integer",
