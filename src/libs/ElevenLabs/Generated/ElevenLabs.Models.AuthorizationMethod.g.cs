@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        AvayaApiKey,
+        /// <summary>
+        /// 
+        /// </summary>
         GenesysApiKey,
         /// <summary>
         /// 
@@ -68,6 +72,7 @@ namespace ElevenLabs
             {
                 AuthorizationMethod.AudiocodesApiKey => "audiocodes_api_key",
                 AuthorizationMethod.AuthorizationHeader => "authorization_header",
+                AuthorizationMethod.AvayaApiKey => "avaya_api_key",
                 AuthorizationMethod.GenesysApiKey => "genesys_api_key",
                 AuthorizationMethod.Invalid => "invalid",
                 AuthorizationMethod.LivekitToken => "livekit_token",
@@ -89,6 +94,7 @@ namespace ElevenLabs
             {
                 "audiocodes_api_key" => AuthorizationMethod.AudiocodesApiKey,
                 "authorization_header" => AuthorizationMethod.AuthorizationHeader,
+                "avaya_api_key" => AuthorizationMethod.AvayaApiKey,
                 "genesys_api_key" => AuthorizationMethod.GenesysApiKey,
                 "invalid" => AuthorizationMethod.Invalid,
                 "livekit_token" => AuthorizationMethod.LivekitToken,

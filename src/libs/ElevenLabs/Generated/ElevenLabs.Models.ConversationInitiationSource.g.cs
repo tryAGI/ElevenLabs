@@ -20,6 +20,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Avaya,
+        /// <summary>
+        /// 
+        /// </summary>
         Exotel,
         /// <summary>
         /// 
@@ -129,6 +133,7 @@ namespace ElevenLabs
             {
                 ConversationInitiationSource.AndroidSdk => "android_sdk",
                 ConversationInitiationSource.Audiocodes => "audiocodes",
+                ConversationInitiationSource.Avaya => "avaya",
                 ConversationInitiationSource.Exotel => "exotel",
                 ConversationInitiationSource.FlutterSdk => "flutter_sdk",
                 ConversationInitiationSource.FreshdeskIntegration => "freshdesk_integration",
@@ -165,6 +170,7 @@ namespace ElevenLabs
             {
                 "android_sdk" => ConversationInitiationSource.AndroidSdk,
                 "audiocodes" => ConversationInitiationSource.Audiocodes,
+                "avaya" => ConversationInitiationSource.Avaya,
                 "exotel" => ConversationInitiationSource.Exotel,
                 "flutter_sdk" => ConversationInitiationSource.FlutterSdk,
                 "freshdesk_integration" => ConversationInitiationSource.FreshdeskIntegration,

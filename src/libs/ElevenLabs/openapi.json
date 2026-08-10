@@ -40788,6 +40788,7 @@
           "livekit_token",
           "livekit_token_website",
           "genesys_api_key",
+          "avaya_api_key",
           "audiocodes_api_key",
           "whatsapp",
           "sms"
@@ -40909,13 +40910,13 @@
             "minimum": 0.01,
             "title": "Volume",
             "description": "Volume level for background sound (0.01 to 1.0).",
-            "default": 0.6
+            "default": 0.15
           },
           "crossfade_loop": {
             "type": "boolean",
             "title": "Crossfade Loop",
             "description": "Apply a crossfade at the loop boundary to avoid audible pops when the sound loops.",
-            "default": false
+            "default": true
           }
         },
         "type": "object",
@@ -56220,6 +56221,7 @@
           "twilio",
           "exotel",
           "genesys",
+          "avaya",
           "audiocodes",
           "swift_sdk",
           "whatsapp",
