@@ -1609,6 +1609,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1DiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeNullableJsonConverter),
@@ -1994,6 +1998,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.TransferDestination3JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.PostDialDigitsVariant13JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.SchemaOverridesVariant12JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.StepsItemJsonConverter),
 
@@ -2505,7 +2511,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponseScopeSeparator), TypeInfoPropertyName = "ApiIntegrationOAuth2CustomAppResponseScopeSeparator2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationWebhookOverrides))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SchemaOverridesVariant1), TypeInfoPropertyName = "SchemaOverridesVariant12")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SchemaOverridesVariant1), TypeInfoPropertyName = "SchemaOverridesVariant12_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConstantSchemaOverride))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DynamicVariableSchemaOverride))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LLMSchemaOverride))]
@@ -4344,6 +4350,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1DiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeNullableJsonConverter),
@@ -4729,6 +4739,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.TransferDestination3JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.PostDialDigitsVariant13JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.SchemaOverridesVariant12JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.StepsItemJsonConverter),
 
@@ -7079,6 +7091,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1DiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeNullableJsonConverter),
@@ -7464,6 +7480,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.TransferDestination3JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.PostDialDigitsVariant13JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.SchemaOverridesVariant12JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.StepsItemJsonConverter),
 
@@ -9814,6 +9832,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1DiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeNullableJsonConverter),
@@ -10199,6 +10221,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.TransferDestination3JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.PostDialDigitsVariant13JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.SchemaOverridesVariant12JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.StepsItemJsonConverter),
 
@@ -12549,6 +12573,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1DiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeNullableJsonConverter),
@@ -12934,6 +12962,8 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.TransferDestination3JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.PostDialDigitsVariant13JsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.SchemaOverridesVariant12JsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.StepsItemJsonConverter),
 
@@ -13373,6 +13403,9 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1DiscriminatorType), TypeInfoPropertyName = "WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1DiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowToolEdgeStepModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowToolLocator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SchemaOverridesVariant12), TypeInfoPropertyName = "SchemaOverridesVariant122")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowToolLocatorSchemaOverridesDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowToolLocatorSchemaOverridesDiscriminatorSource), TypeInfoPropertyName = "WorkflowToolLocatorSchemaOverridesDiscriminatorSource2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowToolNestedToolsStepModelInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput))]
@@ -13567,7 +13600,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponseScopeSeparator?), TypeInfoPropertyName = "NullableApiIntegrationOAuth2AuthCodeResponseScopeSeparator2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AuthConnectionStatus?), TypeInfoPropertyName = "NullableAuthConnectionStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponseScopeSeparator?), TypeInfoPropertyName = "NullableApiIntegrationOAuth2CustomAppResponseScopeSeparator2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SchemaOverridesVariant1?), TypeInfoPropertyName = "NullableSchemaOverridesVariant12")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SchemaOverridesVariant1?), TypeInfoPropertyName = "NullableSchemaOverridesVariant12_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource?), TypeInfoPropertyName = "NullableApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, global::ElevenLabs.ConvAIDynamicVariable>?), TypeInfoPropertyName = "NullableAnyOfStringConvAIDynamicVariable2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolInterruptionMode?), TypeInfoPropertyName = "NullableToolInterruptionMode2")]
@@ -13674,9 +13707,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConflictSection?), TypeInfoPropertyName = "NullableConflictSection2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.Collections.Generic.IList<object>, object>?), TypeInfoPropertyName = "NullableAnyOfStringInt32DoubleBooleanIListObjectObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GuardrailExecutionMode?), TypeInfoPropertyName = "NullableGuardrailExecutionMode2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TriggerAction?), TypeInfoPropertyName = "NullableTriggerAction2_3")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminatorType?), TypeInfoPropertyName = "NullableContentGuardrailInputTriggerActionDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TriggerAction2?), TypeInfoPropertyName = "NullableTriggerAction22")]
     internal sealed partial class SourceGenerationContextChunk4 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -15284,6 +15314,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1DiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeNullableJsonConverter),
@@ -15670,6 +15704,8 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.PostDialDigitsVariant13JsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.SchemaOverridesVariant12JsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.StepsItemJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.StepsItem2JsonConverter),
@@ -15928,6 +15964,9 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>?), TypeInfoPropertyName = "CreateMTLSAuthRequest_d3123ae541f7c02c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TriggerAction?), TypeInfoPropertyName = "NullableTriggerAction2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminatorType?), TypeInfoPropertyName = "NullableContentGuardrailInputTriggerActionDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TriggerAction2?), TypeInfoPropertyName = "NullableTriggerAction22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ContentGuardrailOutputTriggerActionDiscriminatorType?), TypeInfoPropertyName = "NullableContentGuardrailOutputTriggerActionDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<double?, global::ElevenLabs.ContentThresholdGuardrailThreshold?>?), TypeInfoPropertyName = "NullableAnyOfDoubleContentThresholdGuardrailThreshold2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ContentThresholdGuardrailThreshold?), TypeInfoPropertyName = "NullableContentThresholdGuardrailThreshold2")]
@@ -16219,6 +16258,8 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TransferDestination3?), TypeInfoPropertyName = "NullableTransferDestination32")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputTransferDestinationDiscriminatorType?), TypeInfoPropertyName = "NullableWorkflowPhoneNumberNodeModelOutputTransferDestinationDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1DiscriminatorType?), TypeInfoPropertyName = "NullableWorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1DiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SchemaOverridesVariant12?), TypeInfoPropertyName = "NullableSchemaOverridesVariant122")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowToolLocatorSchemaOverridesDiscriminatorSource?), TypeInfoPropertyName = "NullableWorkflowToolLocatorSchemaOverridesDiscriminatorSource2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.StepsItem?), TypeInfoPropertyName = "NullableStepsItem2_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowToolResponseModelInputStepDiscriminatorType?), TypeInfoPropertyName = "NullableWorkflowToolResponseModelInputStepDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.StepsItem2?), TypeInfoPropertyName = "NullableStepsItem22")]
@@ -16407,11 +16448,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.GetWhatsAppAccountResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AgentTestFolderPathSegmentResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AgentTopicResponseModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AgentSummaryResponseModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AudioIsolationHistoryItemResponseModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ChapterResponseModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ChartsItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.VisitedAgentRef>))]
     internal sealed partial class SourceGenerationContextChunk5 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -18019,6 +18055,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1DiscriminatorTypeNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeNullableJsonConverter),
@@ -18405,6 +18445,8 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.PostDialDigitsVariant13JsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.SchemaOverridesVariant12JsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.StepsItemJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.StepsItem2JsonConverter),
@@ -18663,6 +18705,11 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>?), TypeInfoPropertyName = "CreateMTLSAuthRequest_d3123ae541f7c02c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AgentSummaryResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AudioIsolationHistoryItemResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ChapterResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ChartsItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.VisitedAgentRef>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ConversationTagResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ConversationUserResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ConversationSummaryResponseModel>))]
@@ -19670,6 +19717,8 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.WorkflowPhoneNumberNodeModelOutputTransferDestinationDiscriminatorTypeNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1DiscriminatorTypeJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1DiscriminatorTypeNullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.WorkflowToolLocatorSchemaOverridesDiscriminatorSourceNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.WorkflowToolResponseModelInputStepDiscriminatorTypeNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.WorkflowToolResponseModelOutputStepDiscriminatorTypeJsonConverter());
@@ -19863,6 +19912,7 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.CustomSipHeadersItem3JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.TransferDestination3JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.PostDialDigitsVariant13JsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.SchemaOverridesVariant12JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.StepsItemJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.StepsItem2JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.CreateEnvironmentVariableRequestJsonConverter());
