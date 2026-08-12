@@ -41118,6 +41118,12 @@
             "title": "Interruption Ignore Term Languages",
             "description": "Language codes for which preset ignore-term categories have been activated. Stored explicitly so display is not inferred from term overlap."
           },
+          "merge_with_default_ignore_terms": {
+            "type": "boolean",
+            "title": "Merge With Default Ignore Terms",
+            "description": "When enabled, the curated default terms for interruption_ignore_term_languages are used in addition to interruption_ignore_terms.",
+            "default": false
+          },
           "transcribe_on_disabled_interruptions": {
             "type": "boolean",
             "title": "Transcribe On Disabled Interruptions",
@@ -41130,6 +41136,7 @@
         "example": {
           "interruption_ignore_term_languages": [],
           "interruption_ignore_terms": [],
+          "merge_with_default_ignore_terms": false,
           "mode": "turn",
           "retranscribe_on_turn_timeout": false,
           "silence_end_call_timeout": -1.0,
@@ -57148,6 +57155,7 @@
           "turn": {
             "interruption_ignore_term_languages": [],
             "interruption_ignore_terms": [],
+            "merge_with_default_ignore_terms": false,
             "mode": "turn",
             "retranscribe_on_turn_timeout": false,
             "silence_end_call_timeout": -1.0,
@@ -57303,6 +57311,7 @@
           "turn": {
             "interruption_ignore_term_languages": [],
             "interruption_ignore_terms": [],
+            "merge_with_default_ignore_terms": false,
             "mode": "turn",
             "retranscribe_on_turn_timeout": false,
             "silence_end_call_timeout": -1.0,
@@ -59431,20 +59440,6 @@
         ],
         "title": "CustomSIPHeaderWithDynamicVariable",
         "description": "Custom SIP header for phone transfers with a dynamic variable reference.\nThe value is a variable name that will be resolved at runtime.\nValue is not validated here since it will be substituted with actual value later."
-      },
-      "CustomToolApiSchemaConfig": {
-        "properties": {
-          "request_body_schema": {
-            "$ref": "#/components/schemas/ObjectJsonSchemaProperty-Output",
-            "description": "JSON schema for the parameters the LLM provides to this tool."
-          }
-        },
-        "type": "object",
-        "required": [
-          "request_body_schema"
-        ],
-        "title": "CustomToolApiSchemaConfig",
-        "description": "Parameter schema for an integration tool the brain answers itself.\n\nUnlike ``WebhookToolApiSchemaConfig`` there is no HTTP transport: ``handler``\nreceives the LLM's parameters and produces the tool result."
       },
       "DTMFInputConfig": {
         "properties": {
@@ -92796,6 +92791,12 @@
             "title": "Interruption Ignore Term Languages",
             "description": "Language codes for which preset ignore-term categories have been activated. Stored explicitly so display is not inferred from term overlap."
           },
+          "merge_with_default_ignore_terms": {
+            "type": "boolean",
+            "title": "Merge With Default Ignore Terms",
+            "description": "When enabled, the curated default terms for interruption_ignore_term_languages are used in addition to interruption_ignore_terms.",
+            "default": false
+          },
           "transcribe_on_disabled_interruptions": {
             "type": "boolean",
             "title": "Transcribe On Disabled Interruptions",
@@ -92812,6 +92813,7 @@
         "example": {
           "interruption_ignore_term_languages": [],
           "interruption_ignore_terms": [],
+          "merge_with_default_ignore_terms": false,
           "mode": "turn",
           "retranscribe_on_turn_timeout": false,
           "silence_end_call_timeout": -1.0,
@@ -92996,6 +92998,18 @@
             "title": "Interruption Ignore Term Languages",
             "description": "Language codes for which preset ignore-term categories have been activated. Stored explicitly so display is not inferred from term overlap."
           },
+          "merge_with_default_ignore_terms": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Merge With Default Ignore Terms",
+            "description": "When enabled, the curated default terms for interruption_ignore_term_languages are used in addition to interruption_ignore_terms."
+          },
           "transcribe_on_disabled_interruptions": {
             "anyOf": [
               {
@@ -93025,6 +93039,7 @@
         "example": {
           "interruption_ignore_term_languages": [],
           "interruption_ignore_terms": [],
+          "merge_with_default_ignore_terms": false,
           "mode": "turn",
           "retranscribe_on_turn_timeout": false,
           "silence_end_call_timeout": -1.0,
@@ -103618,17 +103633,6 @@
               }
             ],
             "title": "Character Count"
-          },
-          "scim_external_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Scim External Id"
           },
           "is_scim_synced": {
             "type": "boolean",

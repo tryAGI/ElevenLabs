@@ -56,12 +56,6 @@ namespace ElevenLabs
         public int? CharacterCount { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("scim_external_id")]
-        public string? ScimExternalId { get; set; }
-
-        /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_scim_synced")]
@@ -95,7 +89,6 @@ namespace ElevenLabs
         /// <param name="groupUsageLimit"></param>
         /// <param name="groupPvcLimit"></param>
         /// <param name="characterCount"></param>
-        /// <param name="scimExternalId"></param>
         /// <param name="isScimSynced">
         /// Default Value: false
         /// </param>
@@ -114,7 +107,6 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<int?, string, object>? groupUsageLimit,
             global::ElevenLabs.AnyOf<int?, string, object>? groupPvcLimit,
             int? characterCount,
-            string? scimExternalId,
             bool? isScimSynced,
             global::ElevenLabs.ScimGroupResponseModel? scimGroup,
             bool? scimFrozen)
@@ -126,7 +118,6 @@ namespace ElevenLabs
             this.GroupUsageLimit = groupUsageLimit;
             this.GroupPvcLimit = groupPvcLimit;
             this.CharacterCount = characterCount;
-            this.ScimExternalId = scimExternalId;
             this.IsScimSynced = isScimSynced;
             this.ScimGroup = scimGroup;
             this.ScimFrozen = scimFrozen;
