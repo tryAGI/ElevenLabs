@@ -68,6 +68,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public AssetsClient Assets { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public AudioIsolationClient AudioIsolation { get; }
 
         /// <summary>
@@ -99,6 +104,11 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public EnvironmentVariablesClient EnvironmentVariables { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public FlowsClient Flows { get; }
 
         /// <summary>
         /// 

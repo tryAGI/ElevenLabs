@@ -33924,6 +33924,1102 @@
         "x-fern-sdk-method-name": "request"
       }
     },
+    "/v1/flows/video": {
+      "post": {
+        "tags": [
+          "Flows",
+          "Video"
+        ],
+        "summary": "Create Video Generation",
+        "description": "Start a video generation with the selected model.",
+        "operationId": "create_video_generation",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VideoGenerationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MediaGenerationCreateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "flows",
+          "video"
+        ],
+        "x-fern-sdk-method-name": "create"
+      },
+      "get": {
+        "tags": [
+          "Flows",
+          "Video"
+        ],
+        "summary": "List Video Generations",
+        "description": "List the video generations created through this API, newest first.",
+        "operationId": "list_video_generations",
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Pagination cursor: the `next_cursor` value of the previous page's response. Omit it for the first page.",
+              "title": "Cursor"
+            },
+            "description": "Pagination cursor: the `next_cursor` value of the previous page's response. Omit it for the first page."
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "How many generations to return per page.",
+              "default": 30,
+              "title": "Page Size"
+            },
+            "description": "How many generations to return per page."
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "pending",
+                    "generating",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only return generations with this lifecycle status.",
+              "title": "Status"
+            },
+            "description": "Only return generations with this lifecycle status."
+          },
+          {
+            "name": "model_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only return generations of this model.",
+              "title": "Model Id"
+            },
+            "description": "Only return generations of this model."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MediaGenerationListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "flows",
+          "video"
+        ],
+        "x-fern-sdk-method-name": "list"
+      }
+    },
+    "/v1/flows/video/{generation_id}": {
+      "get": {
+        "tags": [
+          "Flows",
+          "Video"
+        ],
+        "summary": "Get Video Generation",
+        "description": "Retrieve the status of a video generation, and retrieve its output URL once completed.",
+        "operationId": "get_video_generation",
+        "parameters": [
+          {
+            "name": "generation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Generation Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MediaGenerationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "flows",
+          "video"
+        ],
+        "x-fern-sdk-method-name": "get"
+      }
+    },
+    "/v1/flows/image": {
+      "post": {
+        "tags": [
+          "Flows",
+          "Image"
+        ],
+        "summary": "Create Image Generation",
+        "description": "Start an image generation with the selected model.",
+        "operationId": "create_image_generation",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImageGenerationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MediaGenerationCreateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "flows",
+          "image"
+        ],
+        "x-fern-sdk-method-name": "create"
+      },
+      "get": {
+        "tags": [
+          "Flows",
+          "Image"
+        ],
+        "summary": "List Image Generations",
+        "description": "List the image generations created through this API, newest first.",
+        "operationId": "list_image_generations",
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Pagination cursor: the `next_cursor` value of the previous page's response. Omit it for the first page.",
+              "title": "Cursor"
+            },
+            "description": "Pagination cursor: the `next_cursor` value of the previous page's response. Omit it for the first page."
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "How many generations to return per page.",
+              "default": 30,
+              "title": "Page Size"
+            },
+            "description": "How many generations to return per page."
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "pending",
+                    "generating",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only return generations with this lifecycle status.",
+              "title": "Status"
+            },
+            "description": "Only return generations with this lifecycle status."
+          },
+          {
+            "name": "model_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only return generations of this model.",
+              "title": "Model Id"
+            },
+            "description": "Only return generations of this model."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MediaGenerationListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "flows",
+          "image"
+        ],
+        "x-fern-sdk-method-name": "list"
+      }
+    },
+    "/v1/flows/image/{generation_id}": {
+      "get": {
+        "tags": [
+          "Flows",
+          "Image"
+        ],
+        "summary": "Get Image Generation",
+        "description": "Retrieve the status of an image generation, and retrieve its output URL once completed.",
+        "operationId": "get_image_generation",
+        "parameters": [
+          {
+            "name": "generation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Generation Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MediaGenerationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "flows",
+          "image"
+        ],
+        "x-fern-sdk-method-name": "get"
+      }
+    },
+    "/v1/flows/text-to-speech": {
+      "post": {
+        "tags": [
+          "Flows",
+          "Text to Speech"
+        ],
+        "summary": "Create Speech Generation",
+        "description": "Start a speech generation with the selected model. Charged per character via text-to-speech billing. Use this over `/v1/text-to-speech` for the asynchronous generation lifecycle or for models not offered there; for direct, synchronous speech synthesis, prefer `/v1/text-to-speech`.",
+        "operationId": "create_text_to_speech_generation",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextToSpeechGenerationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MediaGenerationCreateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "flows",
+          "text_to_speech"
+        ],
+        "x-fern-sdk-method-name": "create"
+      },
+      "get": {
+        "tags": [
+          "Flows",
+          "Text to Speech"
+        ],
+        "summary": "List Speech Generations",
+        "description": "List the speech generations created through this API, newest first.",
+        "operationId": "list_text_to_speech_generations",
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Pagination cursor: the `next_cursor` value of the previous page's response. Omit it for the first page.",
+              "title": "Cursor"
+            },
+            "description": "Pagination cursor: the `next_cursor` value of the previous page's response. Omit it for the first page."
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "How many generations to return per page.",
+              "default": 30,
+              "title": "Page Size"
+            },
+            "description": "How many generations to return per page."
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "pending",
+                    "generating",
+                    "completed",
+                    "failed"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only return generations with this lifecycle status.",
+              "title": "Status"
+            },
+            "description": "Only return generations with this lifecycle status."
+          },
+          {
+            "name": "model_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only return generations of this model.",
+              "title": "Model Id"
+            },
+            "description": "Only return generations of this model."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MediaGenerationListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "flows",
+          "text_to_speech"
+        ],
+        "x-fern-sdk-method-name": "list"
+      }
+    },
+    "/v1/flows/text-to-speech/{generation_id}": {
+      "get": {
+        "tags": [
+          "Flows",
+          "Text to Speech"
+        ],
+        "summary": "Get Speech Generation",
+        "description": "Retrieve the status of a speech generation, and retrieve its output URL once completed.",
+        "operationId": "get_text_to_speech_generation",
+        "parameters": [
+          {
+            "name": "generation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Generation Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MediaGenerationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "flows",
+          "text_to_speech"
+        ],
+        "x-fern-sdk-method-name": "get"
+      }
+    },
+    "/v1/assets": {
+      "post": {
+        "tags": [
+          "Assets"
+        ],
+        "summary": "Upload Asset",
+        "description": "Upload a new asset.",
+        "operationId": "upload_asset",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Upload_asset_v1_assets_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "assets"
+        ],
+        "x-fern-sdk-method-name": "create"
+      },
+      "get": {
+        "tags": [
+          "Assets"
+        ],
+        "summary": "List Assets",
+        "description": "List assets in the workspace, most recently created first.",
+        "operationId": "list_assets",
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of assets to return.",
+              "default": 30,
+              "title": "Page Size"
+            },
+            "description": "Number of assets to return."
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Token from a previous response's `next_cursor`. Omit to fetch the first page.",
+              "title": "Cursor"
+            },
+            "description": "Token from a previous response's `next_cursor`. Omit to fetch the first page."
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Optional free-text search filter over asset names.",
+              "title": "Search"
+            },
+            "description": "Optional free-text search filter over asset names."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "assets"
+        ],
+        "x-fern-sdk-method-name": "list"
+      }
+    },
+    "/v1/assets/{asset_id}": {
+      "get": {
+        "tags": [
+          "Assets"
+        ],
+        "summary": "Get Asset",
+        "description": "Retrieve a single asset by ID.",
+        "operationId": "get_asset",
+        "parameters": [
+          {
+            "name": "asset_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "ID of the asset.",
+              "examples": [
+                "5xM2KqOnZyce22SPZ9d4"
+              ],
+              "title": "Asset Id"
+            },
+            "description": "ID of the asset."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "assets"
+        ],
+        "x-fern-sdk-method-name": "get"
+      },
+      "delete": {
+        "tags": [
+          "Assets"
+        ],
+        "summary": "Delete Asset",
+        "description": "Delete an asset by ID.",
+        "operationId": "delete_asset_endpoint",
+        "parameters": [
+          {
+            "name": "asset_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "ID of the asset.",
+              "examples": [
+                "5xM2KqOnZyce22SPZ9d4"
+              ],
+              "title": "Asset Id"
+            },
+            "description": "ID of the asset."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "assets"
+        ],
+        "x-fern-sdk-method-name": "delete"
+      }
+    },
     "/v1/workspace/analytics/query/usage-by-product-over-time": {
       "post": {
         "tags": [
@@ -39581,6 +40677,110 @@
         "type": "object",
         "title": "ArrayJsonSchemaProperty"
       },
+      "AssetListResponse": {
+        "properties": {
+          "assets": {
+            "items": {
+              "$ref": "#/components/schemas/AssetResponse"
+            },
+            "type": "array",
+            "title": "Assets",
+            "description": "List of Asset objects."
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor",
+            "description": "Pass as `cursor` to fetch the next page. `null` if there are no more results."
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More",
+            "description": "Whether there are more results to fetch.",
+            "readOnly": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "assets",
+          "next_cursor",
+          "has_more"
+        ],
+        "title": "AssetListResponse",
+        "description": "One page of the workspace's assets, most recently created first.",
+        "example": {
+          "assets": [
+            {
+              "asset_id": "5xM2KqOnZyce22SPZ9d4",
+              "content_url": "https://.../a1b2c3d4/content?...",
+              "created_at_unix": 1721520000,
+              "mime_type": "audio/mpeg",
+              "name": "podcast-intro.mp3"
+            }
+          ],
+          "has_more": true,
+          "next_cursor": "eyJvZmZzZXQiOjEwfQ"
+        }
+      },
+      "AssetResponse": {
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "title": "Asset Id",
+            "description": "Unique identifier for the asset."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Display name of the asset."
+          },
+          "mime_type": {
+            "type": "string",
+            "title": "Mime Type",
+            "description": "MIME type of the uploaded file (e.g. `audio/mpeg`)."
+          },
+          "created_at_unix": {
+            "type": "integer",
+            "title": "Created At Unix",
+            "description": "Unix timestamp (seconds) the asset was created."
+          },
+          "content_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Url",
+            "description": "Signed URL to fetch the asset's content. May be `null` if the asset has not finished processing. Do not rely on it being valid for more than 1 hour; fetch the asset again for a fresh URL."
+          }
+        },
+        "type": "object",
+        "required": [
+          "asset_id",
+          "name",
+          "mime_type",
+          "created_at_unix",
+          "content_url"
+        ],
+        "title": "AssetResponse",
+        "description": "The public Asset object.",
+        "example": {
+          "asset_id": "5xM2KqOnZyce22SPZ9d4",
+          "content_url": "https://.../a1b2c3d4/content?...",
+          "created_at_unix": 1721520000,
+          "mime_type": "audio/mpeg",
+          "name": "podcast-intro.mp3"
+        }
+      },
       "AssetTranscription": {
         "properties": {
           "status": {
@@ -40363,6 +41563,27 @@
           "range"
         ],
         "title": "AudioRefChunk"
+      },
+      "AudioReference": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/GenerationReference"
+          },
+          {
+            "$ref": "#/components/schemas/StaticAssetReference"
+          },
+          {
+            "$ref": "#/components/schemas/InlineAudioReference"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "asset": "#/components/schemas/StaticAssetReference",
+            "generation": "#/components/schemas/GenerationReference",
+            "inline_base64": "#/components/schemas/InlineAudioReference"
+          }
+        }
       },
       "AudioSegment": {
         "properties": {
@@ -48139,6 +49360,30 @@
         ],
         "title": "Body_Update_workspace_webhook_v1_workspace_webhooks__webhook_id__patch"
       },
+      "Body_Upload_asset_v1_assets_post": {
+        "properties": {
+          "asset": {
+            "type": "string",
+            "format": "binary",
+            "title": "Asset",
+            "description": "The file to upload."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Display name for the asset.",
+            "examples": [
+              "podcast-intro.mp3"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "asset",
+          "name"
+        ],
+        "title": "Body_Upload_asset_v1_assets_post"
+      },
       "Body_Upload_file_v1_convai_conversations__conversation_id__files_post": {
         "properties": {
           "file": {
@@ -49842,6 +51087,774 @@
         },
         "type": "object",
         "title": "BuiltInToolsWorkflowOverride"
+      },
+      "BytedanceSeedance25Request": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "model_id": {
+            "type": "string",
+            "const": "bytedance-seedance-v2.5",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the video to generate.",
+            "examples": [
+              "A corgi rides a tiny surfboard across a sunlit wave at golden hour, cinematic"
+            ]
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "21:9",
+              "16:9",
+              "4:3",
+              "1:1",
+              "3:4",
+              "9:16"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output video. With `auto`, the model picks an aspect ratio based on the inputs. First-frame / first-and-last-frame tasks always use `auto`.",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "480p",
+              "720p"
+            ],
+            "title": "Resolution",
+            "description": "The resolution of the output video.",
+            "default": "720p"
+          },
+          "duration_secs": {
+            "type": "integer",
+            "maximum": 30.0,
+            "minimum": 4.0,
+            "title": "Duration Secs",
+            "description": "The duration of the output video in seconds.",
+            "default": 5
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "description": "Whether to generate audio with the video.",
+            "default": true
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The image to use as the video's first frame."
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The image to use as the video's last frame."
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ImageReference"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Images",
+            "description": "Up to 30 reference images to draw subjects from. Cannot be combined with `start_frame`/`end_frame`."
+          },
+          "videos": {
+            "items": {
+              "$ref": "#/components/schemas/VideoReference"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "title": "Videos",
+            "description": "Up to 10 reference videos to draw subjects or motion from. Cannot be combined with `start_frame`/`end_frame`."
+          },
+          "audios": {
+            "items": {
+              "$ref": "#/components/schemas/AudioReference"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "title": "Audios",
+            "description": "Up to 10 reference audios, e.g. for lipsync. Cannot be combined with `start_frame`/`end_frame`."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "model_id",
+          "prompt"
+        ],
+        "title": "BytedanceSeedance25Request",
+        "description": "Request body for the ByteDance Seedance 2.5 video model.\n\nDiverges from the Seedance 2.0 public shape: 480p/720p only, durations up\nto 30s, larger reference caps, audio-only input allowed, and no ``seed``\n(Ark tolerates it but does not honour it)."
+      },
+      "BytedanceSeedance2FastRequest": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the video to generate.",
+            "examples": [
+              "A corgi rides a tiny surfboard across a sunlit wave at golden hour, cinematic"
+            ]
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "21:9",
+              "16:9",
+              "4:3",
+              "1:1",
+              "3:4",
+              "9:16"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output video. With `auto`, the model picks an aspect ratio based on the inputs.",
+            "default": "16:9"
+          },
+          "duration_secs": {
+            "type": "integer",
+            "maximum": 15.0,
+            "minimum": 4.0,
+            "title": "Duration Secs",
+            "description": "The duration of the output video in seconds.",
+            "default": 5
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed",
+            "description": "A seed for reproducible generation: the same seed and inputs give similar output across generations. Omit for random."
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "description": "Whether to generate audio with the video.",
+            "default": true
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The image to use as the video's first frame."
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The image to use as the video's last frame."
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ImageReference"
+            },
+            "type": "array",
+            "maxItems": 9,
+            "title": "Images",
+            "description": "Up to 9 reference images to draw subjects from. Cannot be combined with `start_frame`/`end_frame`."
+          },
+          "videos": {
+            "items": {
+              "$ref": "#/components/schemas/VideoReference"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Videos",
+            "description": "Up to 3 reference videos to draw subjects or motion from. Cannot be combined with `start_frame`/`end_frame`."
+          },
+          "audios": {
+            "items": {
+              "$ref": "#/components/schemas/AudioReference"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Audios",
+            "description": "Up to 3 reference audios, e.g. for lipsync. Requires at least one of `images` or `videos`, and cannot be combined with `start_frame`/`end_frame`."
+          },
+          "model_id": {
+            "type": "string",
+            "const": "bytedance-seedance-v2-fast",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "480p",
+              "720p"
+            ],
+            "title": "Resolution",
+            "description": "The resolution of the output video.",
+            "default": "720p"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "BytedanceSeedance2FastRequest",
+        "description": "Request body for the ByteDance Seedance 2.0 Fast video model."
+      },
+      "BytedanceSeedance2MiniRequest": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the video to generate.",
+            "examples": [
+              "A corgi rides a tiny surfboard across a sunlit wave at golden hour, cinematic"
+            ]
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "21:9",
+              "16:9",
+              "4:3",
+              "1:1",
+              "3:4",
+              "9:16"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output video. With `auto`, the model picks an aspect ratio based on the inputs.",
+            "default": "16:9"
+          },
+          "duration_secs": {
+            "type": "integer",
+            "maximum": 15.0,
+            "minimum": 4.0,
+            "title": "Duration Secs",
+            "description": "The duration of the output video in seconds.",
+            "default": 5
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed",
+            "description": "A seed for reproducible generation: the same seed and inputs give similar output across generations. Omit for random."
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "description": "Whether to generate audio with the video.",
+            "default": true
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The image to use as the video's first frame."
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The image to use as the video's last frame."
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ImageReference"
+            },
+            "type": "array",
+            "maxItems": 9,
+            "title": "Images",
+            "description": "Up to 9 reference images to draw subjects from. Cannot be combined with `start_frame`/`end_frame`."
+          },
+          "videos": {
+            "items": {
+              "$ref": "#/components/schemas/VideoReference"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Videos",
+            "description": "Up to 3 reference videos to draw subjects or motion from. Cannot be combined with `start_frame`/`end_frame`."
+          },
+          "audios": {
+            "items": {
+              "$ref": "#/components/schemas/AudioReference"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Audios",
+            "description": "Up to 3 reference audios, e.g. for lipsync. Requires at least one of `images` or `videos`, and cannot be combined with `start_frame`/`end_frame`."
+          },
+          "model_id": {
+            "type": "string",
+            "const": "bytedance-seedance-v2-mini",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "480p",
+              "720p"
+            ],
+            "title": "Resolution",
+            "description": "The resolution of the output video.",
+            "default": "720p"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "BytedanceSeedance2MiniRequest",
+        "description": "Request body for the ByteDance Seedance 2.0 Mini video model."
+      },
+      "BytedanceSeedance2Request": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the video to generate.",
+            "examples": [
+              "A corgi rides a tiny surfboard across a sunlit wave at golden hour, cinematic"
+            ]
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "21:9",
+              "16:9",
+              "4:3",
+              "1:1",
+              "3:4",
+              "9:16"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output video. With `auto`, the model picks an aspect ratio based on the inputs.",
+            "default": "16:9"
+          },
+          "duration_secs": {
+            "type": "integer",
+            "maximum": 15.0,
+            "minimum": 4.0,
+            "title": "Duration Secs",
+            "description": "The duration of the output video in seconds.",
+            "default": 5
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed",
+            "description": "A seed for reproducible generation: the same seed and inputs give similar output across generations. Omit for random."
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "description": "Whether to generate audio with the video.",
+            "default": true
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The image to use as the video's first frame."
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The image to use as the video's last frame."
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ImageReference"
+            },
+            "type": "array",
+            "maxItems": 9,
+            "title": "Images",
+            "description": "Up to 9 reference images to draw subjects from. Cannot be combined with `start_frame`/`end_frame`."
+          },
+          "videos": {
+            "items": {
+              "$ref": "#/components/schemas/VideoReference"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Videos",
+            "description": "Up to 3 reference videos to draw subjects or motion from. Cannot be combined with `start_frame`/`end_frame`."
+          },
+          "audios": {
+            "items": {
+              "$ref": "#/components/schemas/AudioReference"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Audios",
+            "description": "Up to 3 reference audios, e.g. for lipsync. Requires at least one of `images` or `videos`, and cannot be combined with `start_frame`/`end_frame`."
+          },
+          "model_id": {
+            "type": "string",
+            "const": "bytedance-seedance-v2",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "480p",
+              "720p",
+              "1080p",
+              "4k"
+            ],
+            "title": "Resolution",
+            "description": "The resolution of the output video.",
+            "default": "720p"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "BytedanceSeedance2Request",
+        "description": "Request body for the ByteDance Seedance 2.0 video model."
+      },
+      "BytedanceSeedream5LiteRequest": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the image to generate.",
+            "examples": [
+              "A corgi in a tiny lifeguard chair on a sunlit beach at golden hour, photorealistic"
+            ]
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ImageReference"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "title": "Images",
+            "description": "Up to 10 reference images to edit or draw from."
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "1:1",
+              "3:4",
+              "16:9",
+              "4:3",
+              "9:16"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output image. With `auto`, the model picks an aspect ratio based on the inputs.",
+            "default": "16:9"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed",
+            "description": "A seed for reproducible generation: the same seed and inputs give similar output across generations. Omit for random."
+          },
+          "model_id": {
+            "type": "string",
+            "const": "bytedance-seedream-5-lite",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "2K",
+              "3K"
+            ],
+            "title": "Resolution",
+            "description": "The resolution of the output image.",
+            "default": "2K"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "BytedanceSeedream5LiteRequest",
+        "description": "Request body for the ByteDance Seedream 5.0 Lite image model."
+      },
+      "BytedanceSeedream5ProRequest": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the image to generate.",
+            "examples": [
+              "A corgi in a tiny lifeguard chair on a sunlit beach at golden hour, photorealistic"
+            ]
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ImageReference"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "title": "Images",
+            "description": "Up to 10 reference images to edit or draw from."
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "1:1",
+              "3:4",
+              "16:9",
+              "4:3",
+              "9:16"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output image. With `auto`, the model picks an aspect ratio based on the inputs.",
+            "default": "16:9"
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed",
+            "description": "A seed for reproducible generation: the same seed and inputs give similar output across generations. Omit for random."
+          },
+          "model_id": {
+            "type": "string",
+            "const": "bytedance-seedream-5-pro",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "1K",
+              "2K"
+            ],
+            "title": "Resolution",
+            "description": "The resolution of the output image.",
+            "default": "2K"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "BytedanceSeedream5ProRequest",
+        "description": "Request body for the ByteDance Seedream 5.0 Pro image model."
       },
       "CancelCalendarEventParams": {
         "properties": {
@@ -58975,6 +60988,93 @@
         ],
         "title": "CreateTwilioPhoneNumberRequest"
       },
+      "CreatifyAuroraRequest": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "model_id": {
+            "type": "string",
+            "const": "creatify-aurora",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "image": {
+            "$ref": "#/components/schemas/ImageReference",
+            "description": "The image of the character to animate."
+          },
+          "audio": {
+            "$ref": "#/components/schemas/AudioReference",
+            "description": "The speech audio to drive the character's lip movements."
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "480p",
+              "720p"
+            ],
+            "title": "Resolution",
+            "description": "The resolution of the output video.",
+            "default": "720p"
+          },
+          "guidance_scale": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 5.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Guidance Scale",
+            "description": "How strongly the generation adheres to the input image. Omit to use the model's default."
+          },
+          "audio_guidance_scale": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 5.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audio Guidance Scale",
+            "description": "How strongly the lip movements adhere to the audio. Omit to use the model's default."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "model_id",
+          "image",
+          "audio"
+        ],
+        "title": "CreatifyAuroraRequest",
+        "description": "Request body for the Creatify Aurora lipsync video model."
+      },
       "CriteriaScoringMode": {
         "type": "string",
         "enum": [
@@ -62909,6 +65009,384 @@
           "status": "ok"
         }
       },
+      "ElevenFlashV2_5Request": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "description": "The text to synthesize into speech.",
+            "examples": [
+              "The first move is what sets everything in motion."
+            ]
+          },
+          "voice": {
+            "type": "string",
+            "title": "Voice",
+            "description": "The ID of the voice to speak with.",
+            "examples": [
+              "JBFqnCBsd6RMkjVDRZzb"
+            ]
+          },
+          "output_format": {
+            "type": "string",
+            "enum": [
+              "mp3_22050_32",
+              "mp3_24000_48",
+              "mp3_44100_32",
+              "mp3_44100_64",
+              "mp3_44100_96",
+              "mp3_44100_128",
+              "mp3_44100_192"
+            ],
+            "title": "Output Format",
+            "description": "The audio encoding of the output, as `codec_sampleRateHz_bitrateKbps`. `mp3_44100_192` requires the Creator tier or above.",
+            "default": "mp3_44100_128"
+          },
+          "pronunciation_dictionary_locators": {
+            "items": {
+              "$ref": "#/components/schemas/PronunciationDictionaryVersionLocator"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Pronunciation Dictionary Locators",
+            "description": "Pronunciation dictionaries to apply to the text, in order of precedence. Up to 3."
+          },
+          "model_id": {
+            "type": "string",
+            "const": "eleven_flash_v2_5",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "language_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language Code",
+            "description": "ISO 639-1 language code to enforce on the output. Omit to detect the language from the text.",
+            "examples": [
+              "en"
+            ]
+          },
+          "voice_settings": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ElevenFlashV2_5VoiceSettings"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Overrides for the voice's saved settings, applied to this generation only."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "text",
+          "voice",
+          "model_id"
+        ],
+        "title": "ElevenFlashV2_5Request",
+        "description": "Request body for the ElevenLabs Flash v2.5 TTS model."
+      },
+      "ElevenFlashV2_5VoiceSettings": {
+        "properties": {
+          "stability": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stability",
+            "description": "How consistent the voice stays across generations. Lower values give more expressive, varied speech."
+          },
+          "similarity_boost": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Similarity Boost",
+            "description": "How closely the output adheres to the original voice."
+          },
+          "speed": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.2,
+                "minimum": 0.7
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Speed",
+            "description": "The speed of the generated speech, where 1.0 is the voice's natural pace."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "ElevenFlashV2_5VoiceSettings",
+        "description": "Overrides for the voice's saved settings, applied to one generation."
+      },
+      "ElevenMultilingualV2Request": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "description": "The text to synthesize into speech.",
+            "examples": [
+              "The first move is what sets everything in motion."
+            ]
+          },
+          "voice": {
+            "type": "string",
+            "title": "Voice",
+            "description": "The ID of the voice to speak with.",
+            "examples": [
+              "JBFqnCBsd6RMkjVDRZzb"
+            ]
+          },
+          "output_format": {
+            "type": "string",
+            "enum": [
+              "mp3_22050_32",
+              "mp3_24000_48",
+              "mp3_44100_32",
+              "mp3_44100_64",
+              "mp3_44100_96",
+              "mp3_44100_128",
+              "mp3_44100_192"
+            ],
+            "title": "Output Format",
+            "description": "The audio encoding of the output, as `codec_sampleRateHz_bitrateKbps`. `mp3_44100_192` requires the Creator tier or above.",
+            "default": "mp3_44100_128"
+          },
+          "pronunciation_dictionary_locators": {
+            "items": {
+              "$ref": "#/components/schemas/PronunciationDictionaryVersionLocator"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Pronunciation Dictionary Locators",
+            "description": "Pronunciation dictionaries to apply to the text, in order of precedence. Up to 3."
+          },
+          "model_id": {
+            "type": "string",
+            "const": "eleven_multilingual_v2",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "voice_settings": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TtsVoiceSettings"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Overrides for the voice's saved settings, applied to this generation only."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "text",
+          "voice",
+          "model_id"
+        ],
+        "title": "ElevenMultilingualV2Request",
+        "description": "Request body for the ElevenLabs Multilingual v2 TTS model."
+      },
+      "ElevenV3Request": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "description": "The text to synthesize into speech.",
+            "examples": [
+              "The first move is what sets everything in motion."
+            ]
+          },
+          "voice": {
+            "type": "string",
+            "title": "Voice",
+            "description": "The ID of the voice to speak with.",
+            "examples": [
+              "JBFqnCBsd6RMkjVDRZzb"
+            ]
+          },
+          "output_format": {
+            "type": "string",
+            "enum": [
+              "mp3_22050_32",
+              "mp3_24000_48",
+              "mp3_44100_32",
+              "mp3_44100_64",
+              "mp3_44100_96",
+              "mp3_44100_128",
+              "mp3_44100_192"
+            ],
+            "title": "Output Format",
+            "description": "The audio encoding of the output, as `codec_sampleRateHz_bitrateKbps`. `mp3_44100_192` requires the Creator tier or above.",
+            "default": "mp3_44100_128"
+          },
+          "pronunciation_dictionary_locators": {
+            "items": {
+              "$ref": "#/components/schemas/PronunciationDictionaryVersionLocator"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Pronunciation Dictionary Locators",
+            "description": "Pronunciation dictionaries to apply to the text, in order of precedence. Up to 3."
+          },
+          "model_id": {
+            "type": "string",
+            "const": "eleven_v3",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "language_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language Code",
+            "description": "ISO 639-1 language code to enforce on the output. Omit to detect the language from the text.",
+            "examples": [
+              "en"
+            ]
+          },
+          "voice_settings": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ElevenV3VoiceSettings"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Overrides for the voice's saved settings, applied to this generation only."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "text",
+          "voice",
+          "model_id"
+        ],
+        "title": "ElevenV3Request",
+        "description": "Request body for the Eleven v3 TTS model."
+      },
+      "ElevenV3VoiceSettings": {
+        "properties": {
+          "stability": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stability",
+            "description": "How consistent the voice stays across generations. Lower values give more expressive, varied speech."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "ElevenV3VoiceSettings",
+        "description": "Overrides for the voice's saved settings, applied to one generation."
+      },
       "EmbedVariant": {
         "type": "string",
         "enum": [
@@ -64467,6 +66945,659 @@
         ],
         "title": "FrustratedConversationRef"
       },
+      "GPTImage1Request": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the image to generate.",
+            "examples": [
+              "A corgi in a tiny lifeguard chair on a sunlit beach at golden hour, photorealistic"
+            ]
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ImageReference"
+            },
+            "type": "array",
+            "maxItems": 5,
+            "title": "Images",
+            "description": "Up to 5 reference images to edit or draw from."
+          },
+          "mask": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An image whose fully transparent areas mark where the first reference image may be edited; requires `images`."
+          },
+          "quality": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "title": "Quality",
+            "description": "The quality of the output image.",
+            "default": "medium"
+          },
+          "background": {
+            "type": "string",
+            "enum": [
+              "transparent",
+              "opaque",
+              "auto"
+            ],
+            "title": "Background",
+            "description": "The background of the output image. With `auto`, the model picks the background that suits the image.",
+            "default": "auto"
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "1:1",
+              "3:2",
+              "2:3"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output image.",
+            "default": "1:1"
+          },
+          "model_id": {
+            "type": "string",
+            "const": "gpt-image-1",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "GPTImage1Request",
+        "description": "Request body for the OpenAI GPT Image 1 model."
+      },
+      "GPTImage1_5Request": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the image to generate.",
+            "examples": [
+              "A corgi in a tiny lifeguard chair on a sunlit beach at golden hour, photorealistic"
+            ]
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ImageReference"
+            },
+            "type": "array",
+            "maxItems": 5,
+            "title": "Images",
+            "description": "Up to 5 reference images to edit or draw from."
+          },
+          "mask": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An image whose fully transparent areas mark where the first reference image may be edited; requires `images`."
+          },
+          "quality": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "title": "Quality",
+            "description": "The quality of the output image.",
+            "default": "medium"
+          },
+          "background": {
+            "type": "string",
+            "enum": [
+              "transparent",
+              "opaque",
+              "auto"
+            ],
+            "title": "Background",
+            "description": "The background of the output image. With `auto`, the model picks the background that suits the image.",
+            "default": "auto"
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "1:1",
+              "3:2",
+              "2:3"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output image.",
+            "default": "1:1"
+          },
+          "model_id": {
+            "type": "string",
+            "const": "gpt-image-1.5",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "GPTImage1_5Request",
+        "description": "Request body for the OpenAI GPT Image 1.5 model."
+      },
+      "GPTImage2Request": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the image to generate.",
+            "examples": [
+              "A corgi in a tiny lifeguard chair on a sunlit beach at golden hour, photorealistic"
+            ]
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ImageReference"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "title": "Images",
+            "description": "Up to 10 reference images to edit or draw from."
+          },
+          "mask": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An image whose fully transparent areas mark where the first reference image may be edited; requires `images`."
+          },
+          "quality": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "title": "Quality",
+            "description": "The quality of the output image.",
+            "default": "medium"
+          },
+          "model_id": {
+            "type": "string",
+            "const": "gpt-image-2",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "1:1",
+              "4:5",
+              "5:4",
+              "3:4",
+              "4:3",
+              "2:3",
+              "3:2",
+              "1:2",
+              "2:1",
+              "9:16",
+              "16:9",
+              "21:9",
+              "1:3",
+              "3:1"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output image. With `auto`, the model picks an aspect ratio based on the inputs.",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "1K",
+              "2K",
+              "4K"
+            ],
+            "title": "Resolution",
+            "description": "The resolution of the output image.",
+            "default": "1K"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "GPTImage2Request",
+        "description": "Request body for the OpenAI GPT Image 2 model."
+      },
+      "Gemini25FlashImageRequest": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the image to generate.",
+            "examples": [
+              "A corgi in a tiny lifeguard chair on a sunlit beach at golden hour, photorealistic"
+            ]
+          },
+          "model_id": {
+            "type": "string",
+            "const": "gemini-2.5-flash-image",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ImageReference"
+            },
+            "type": "array",
+            "maxItems": 5,
+            "title": "Images",
+            "description": "Up to 5 reference images to edit or draw from."
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "1:1",
+              "2:3",
+              "3:2",
+              "3:4",
+              "4:3",
+              "4:5",
+              "5:4",
+              "9:16",
+              "16:9",
+              "21:9"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output image. With `auto`, the model picks an aspect ratio based on the inputs.",
+            "default": "16:9"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "Gemini25FlashImageRequest",
+        "description": "Request body for the Google Gemini 2.5 Flash image model."
+      },
+      "Gemini31FlashImageRequest": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the image to generate.",
+            "examples": [
+              "A corgi in a tiny lifeguard chair on a sunlit beach at golden hour, photorealistic"
+            ]
+          },
+          "model_id": {
+            "type": "string",
+            "const": "gemini-3.1-flash-image",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ImageReference"
+            },
+            "type": "array",
+            "maxItems": 14,
+            "title": "Images",
+            "description": "Up to 14 reference images to edit or draw from."
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "1:1",
+              "2:3",
+              "3:2",
+              "3:4",
+              "4:3",
+              "4:5",
+              "5:4",
+              "9:16",
+              "16:9",
+              "21:9",
+              "1:4",
+              "4:1",
+              "1:8",
+              "8:1"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output image. With `auto`, the model picks an aspect ratio based on the inputs.",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "512",
+              "1K",
+              "2K",
+              "4K"
+            ],
+            "title": "Resolution",
+            "description": "The resolution of the output image.",
+            "default": "1K"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "Gemini31FlashImageRequest",
+        "description": "Request body for the Google Gemini 3.1 Flash image model."
+      },
+      "Gemini31FlashLiteImageRequest": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the image to generate.",
+            "examples": [
+              "A corgi in a tiny lifeguard chair on a sunlit beach at golden hour, photorealistic"
+            ]
+          },
+          "model_id": {
+            "type": "string",
+            "const": "gemini-3.1-flash-lite-image",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ImageReference"
+            },
+            "type": "array",
+            "maxItems": 14,
+            "title": "Images",
+            "description": "Up to 14 reference images to edit or draw from."
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "1:1",
+              "2:3",
+              "3:2",
+              "3:4",
+              "4:3",
+              "4:5",
+              "5:4",
+              "9:16",
+              "16:9",
+              "21:9"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output image. With `auto`, the model picks an aspect ratio based on the inputs.",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "1K",
+            "title": "Resolution",
+            "description": "The resolution of the output image.",
+            "default": "1K"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "Gemini31FlashLiteImageRequest",
+        "description": "Request body for the Google Gemini 3.1 Flash Lite image model."
+      },
+      "Gemini3ProImageRequest": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the image to generate.",
+            "examples": [
+              "A corgi in a tiny lifeguard chair on a sunlit beach at golden hour, photorealistic"
+            ]
+          },
+          "model_id": {
+            "type": "string",
+            "const": "gemini-3-pro-image",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ImageReference"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "title": "Images",
+            "description": "Up to 10 reference images to edit or draw from."
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "1:1",
+              "2:3",
+              "3:2",
+              "3:4",
+              "4:3",
+              "4:5",
+              "5:4",
+              "9:16",
+              "16:9",
+              "21:9"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output image. With `auto`, the model picks an aspect ratio based on the inputs.",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "1K",
+              "2K",
+              "4K"
+            ],
+            "title": "Resolution",
+            "description": "The resolution of the output image.",
+            "default": "1K"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "Gemini3ProImageRequest",
+        "description": "Request body for the Google Gemini 3 Pro image model."
+      },
       "GenerationChunk-Input": {
         "properties": {
           "text": {
@@ -64630,6 +67761,31 @@
           "positive_styles"
         ],
         "title": "GenerationChunk"
+      },
+      "GenerationReference": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "generation",
+            "title": "Type"
+          },
+          "generation_id": {
+            "type": "string",
+            "title": "Generation Id",
+            "description": "The ID of the generation whose output to use, as returned when the generation was created.",
+            "examples": [
+              "JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "generation_id"
+        ],
+        "title": "GenerationReference",
+        "description": "The output of a prior generation on this API."
       },
       "GenerationSourceContext": {
         "properties": {
@@ -69181,6 +72337,72 @@
         "type": "object",
         "title": "ImageAvatar"
       },
+      "ImageGenerationRequest": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/GPTImage1Request"
+          },
+          {
+            "$ref": "#/components/schemas/GPTImage1_5Request"
+          },
+          {
+            "$ref": "#/components/schemas/GPTImage2Request"
+          },
+          {
+            "$ref": "#/components/schemas/Gemini25FlashImageRequest"
+          },
+          {
+            "$ref": "#/components/schemas/Gemini3ProImageRequest"
+          },
+          {
+            "$ref": "#/components/schemas/Gemini31FlashImageRequest"
+          },
+          {
+            "$ref": "#/components/schemas/Gemini31FlashLiteImageRequest"
+          },
+          {
+            "$ref": "#/components/schemas/BytedanceSeedream5LiteRequest"
+          },
+          {
+            "$ref": "#/components/schemas/BytedanceSeedream5ProRequest"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "model_id",
+          "mapping": {
+            "bytedance-seedream-5-lite": "#/components/schemas/BytedanceSeedream5LiteRequest",
+            "bytedance-seedream-5-pro": "#/components/schemas/BytedanceSeedream5ProRequest",
+            "gemini-2.5-flash-image": "#/components/schemas/Gemini25FlashImageRequest",
+            "gemini-3-pro-image": "#/components/schemas/Gemini3ProImageRequest",
+            "gemini-3.1-flash-image": "#/components/schemas/Gemini31FlashImageRequest",
+            "gemini-3.1-flash-lite-image": "#/components/schemas/Gemini31FlashLiteImageRequest",
+            "gpt-image-1": "#/components/schemas/GPTImage1Request",
+            "gpt-image-1.5": "#/components/schemas/GPTImage1_5Request",
+            "gpt-image-2": "#/components/schemas/GPTImage2Request"
+          }
+        }
+      },
+      "ImageReference": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/GenerationReference"
+          },
+          {
+            "$ref": "#/components/schemas/StaticAssetReference"
+          },
+          {
+            "$ref": "#/components/schemas/InlineImageReference"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "asset": "#/components/schemas/StaticAssetReference",
+            "generation": "#/components/schemas/GenerationReference",
+            "inline_base64": "#/components/schemas/InlineImageReference"
+          }
+        }
+      },
       "ImageSubject": {
         "properties": {
           "name": {
@@ -69273,6 +72495,118 @@
         },
         "type": "object",
         "title": "InboundSIPTrunkConfigRequestModel"
+      },
+      "InlineAudioReference": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "inline_base64",
+            "title": "Type"
+          },
+          "content_base64": {
+            "type": "string",
+            "maxLength": 34952536,
+            "title": "Content Base64",
+            "description": "The media file's bytes, base64-encoded (standard alphabet). Up to 25MB decoded.",
+            "examples": [
+              "iVBORw0KGgoAAAANSUhEUgAA..."
+            ]
+          },
+          "mime_type": {
+            "type": "string",
+            "enum": [
+              "audio/mpeg",
+              "audio/wav"
+            ],
+            "title": "Mime Type",
+            "description": "The MIME type of the encoded audio."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "content_base64",
+          "mime_type"
+        ],
+        "title": "InlineAudioReference",
+        "description": "Audio passed inline as base64. The audio is stored as an ephemeral\nasset with no guaranteed retention: it may be deleted at any time after\nthe generation completes. To keep an input and reuse it across\ngenerations, upload it via the assets API (`POST /v1/assets`) and pass\nan `asset` reference instead."
+      },
+      "InlineImageReference": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "inline_base64",
+            "title": "Type"
+          },
+          "content_base64": {
+            "type": "string",
+            "maxLength": 34952536,
+            "title": "Content Base64",
+            "description": "The media file's bytes, base64-encoded (standard alphabet). Up to 25MB decoded.",
+            "examples": [
+              "iVBORw0KGgoAAAANSUhEUgAA..."
+            ]
+          },
+          "mime_type": {
+            "type": "string",
+            "enum": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/heic",
+              "image/heif"
+            ],
+            "title": "Mime Type",
+            "description": "The MIME type of the encoded image."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "content_base64",
+          "mime_type"
+        ],
+        "title": "InlineImageReference",
+        "description": "An image passed inline as base64. The image is stored as an ephemeral\nasset with no guaranteed retention: it may be deleted at any time after\nthe generation completes. To keep an input and reuse it across\ngenerations, upload it via the assets API (`POST /v1/assets`) and pass\nan `asset` reference instead."
+      },
+      "InlineVideoReference": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "inline_base64",
+            "title": "Type"
+          },
+          "content_base64": {
+            "type": "string",
+            "maxLength": 34952536,
+            "title": "Content Base64",
+            "description": "The media file's bytes, base64-encoded (standard alphabet). Up to 25MB decoded.",
+            "examples": [
+              "iVBORw0KGgoAAAANSUhEUgAA..."
+            ]
+          },
+          "mime_type": {
+            "type": "string",
+            "enum": [
+              "video/mp4",
+              "video/quicktime",
+              "video/webm"
+            ],
+            "title": "Mime Type",
+            "description": "The MIME type of the encoded video."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "content_base64",
+          "mime_type"
+        ],
+        "title": "InlineVideoReference",
+        "description": "A video passed inline as base64. The video is stored as an ephemeral\nasset with no guaranteed retention: it may be deleted at any time after\nthe generation completes. To keep an input and reuse it across\ngenerations, upload it via the assets API (`POST /v1/assets`) and pass\nan `asset` reference instead."
       },
       "IntegrationType": {
         "type": "string",
@@ -74308,6 +77642,264 @@
           "PCMA/8000"
         ],
         "title": "MediaCodec"
+      },
+      "MediaGenerationCompletedResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The unique identifier of the generation.",
+            "examples": [
+              "JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "const": "completed",
+            "title": "Status",
+            "description": "The lifecycle status of the generation.",
+            "examples": [
+              "completed"
+            ]
+          },
+          "content_url": {
+            "type": "string",
+            "title": "Content Url",
+            "description": "A signed URL to download the generated media from. It expires about an hour after this response is returned; fetch the generation again for a fresh URL.",
+            "examples": [
+              "https://storage.googleapis.com/generations/JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "content_mime_type": {
+            "type": "string",
+            "title": "Content Mime Type",
+            "description": "The MIME type of the generated media.",
+            "examples": [
+              "video/mp4",
+              "image/png",
+              "audio/mpeg"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "content_url",
+          "content_mime_type"
+        ],
+        "title": "MediaGenerationCompletedResponse",
+        "description": "A completed media generation and its output.",
+        "example": {
+          "content_mime_type": "video/mp4",
+          "content_url": "https://storage.googleapis.com/generations/JWr5N6X9ZTqf8jD2LmQb",
+          "id": "JWr5N6X9ZTqf8jD2LmQb",
+          "status": "completed"
+        }
+      },
+      "MediaGenerationCreateResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The unique identifier of the generation. Pass it to the corresponding GET endpoint to retrieve the output.",
+            "examples": [
+              "JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "const": "pending",
+            "title": "Status",
+            "description": "A newly created generation is always `pending`.",
+            "examples": [
+              "pending"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status"
+        ],
+        "title": "MediaGenerationCreateResponse",
+        "description": "A newly queued media generation; fetch the GET endpoint for the output.",
+        "example": {
+          "id": "JWr5N6X9ZTqf8jD2LmQb",
+          "status": "pending"
+        }
+      },
+      "MediaGenerationFailedResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The unique identifier of the generation.",
+            "examples": [
+              "JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "const": "failed",
+            "title": "Status",
+            "description": "The lifecycle status of the generation.",
+            "examples": [
+              "failed"
+            ]
+          },
+          "failure_reason": {
+            "type": "string",
+            "enum": [
+              "timeout",
+              "model_error",
+              "moderated",
+              "invalid_parameters",
+              "dependency_failed",
+              "charging_failed",
+              "internal_error"
+            ],
+            "title": "Failure Reason",
+            "description": "The category of failure.",
+            "examples": [
+              "timeout"
+            ]
+          },
+          "error_message": {
+            "type": "string",
+            "title": "Error Message",
+            "description": "A human-readable description of the failure. Failed generations are not charged.",
+            "examples": [
+              "Timed out while processing. You were not charged for this generation."
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "failure_reason",
+          "error_message"
+        ],
+        "title": "MediaGenerationFailedResponse",
+        "description": "A failed media generation and why it failed.",
+        "example": {
+          "error_message": "Timed out while processing. You were not charged for this generation.",
+          "failure_reason": "timeout",
+          "id": "JWr5N6X9ZTqf8jD2LmQb",
+          "status": "failed"
+        }
+      },
+      "MediaGenerationInProgressResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The unique identifier of the generation.",
+            "examples": [
+              "JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "generating"
+            ],
+            "title": "Status",
+            "description": "The lifecycle status of the generation. It ends at `completed` or `failed`.",
+            "examples": [
+              "generating"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status"
+        ],
+        "title": "MediaGenerationInProgressResponse",
+        "description": "A media generation that has not finished yet.",
+        "example": {
+          "id": "JWr5N6X9ZTqf8jD2LmQb",
+          "status": "generating"
+        }
+      },
+      "MediaGenerationListResponse": {
+        "properties": {
+          "generations": {
+            "items": {
+              "$ref": "#/components/schemas/MediaGenerationResponse"
+            },
+            "type": "array",
+            "title": "Generations",
+            "description": "The generations on this page, newest first. Each item has the same shape as the corresponding GET endpoint's response."
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor",
+            "description": "Pass as `cursor` to fetch the next page. `null` when there is no further page."
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More",
+            "description": "Whether more generations exist beyond this page.",
+            "readOnly": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "generations",
+          "next_cursor",
+          "has_more"
+        ],
+        "title": "MediaGenerationListResponse",
+        "description": "One page of the caller's generations, newest first.",
+        "example": {
+          "generations": [
+            {
+              "content_mime_type": "video/mp4",
+              "content_url": "https://storage.googleapis.com/generations/JWr5N6X9ZTqf8jD2LmQb",
+              "id": "JWr5N6X9ZTqf8jD2LmQb",
+              "status": "completed"
+            },
+            {
+              "id": "Kx2mP7Y4WVrg9kE3NnRc",
+              "status": "generating"
+            }
+          ],
+          "has_more": true,
+          "next_cursor": "MjAyNi0wNy0xN1QxMjowMDowMHxLeDJtUDdZNFdWcmc5a0UzTm5SYw"
+        }
+      },
+      "MediaGenerationResponse": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/MediaGenerationInProgressResponse"
+          },
+          {
+            "$ref": "#/components/schemas/MediaGenerationCompletedResponse"
+          },
+          {
+            "$ref": "#/components/schemas/MediaGenerationFailedResponse"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "status",
+          "mapping": {
+            "completed": "#/components/schemas/MediaGenerationCompletedResponse",
+            "failed": "#/components/schemas/MediaGenerationFailedResponse",
+            "generating": "#/components/schemas/MediaGenerationInProgressResponse",
+            "pending": "#/components/schemas/MediaGenerationInProgressResponse"
+          }
+        }
       },
       "MediaId": {
         "type": "string",
@@ -82633,6 +86225,37 @@
           "version_rules_num": 5
         }
       },
+      "PronunciationDictionaryVersionLocator": {
+        "properties": {
+          "pronunciation_dictionary_id": {
+            "type": "string",
+            "title": "Pronunciation Dictionary Id",
+            "description": "The ID of a pronunciation dictionary created via `POST /v1/pronunciation-dictionaries/add-from-file` or `POST /v1/pronunciation-dictionaries/add-from-rules`.",
+            "examples": [
+              "5xM3yVvZQKV0EfqQpLrJ"
+            ]
+          },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Id",
+            "description": "The version of the dictionary to use. Omit to use the latest version."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "pronunciation_dictionary_id"
+        ],
+        "title": "PronunciationDictionaryVersionLocator",
+        "description": "A pronunciation dictionary to apply during speech synthesis."
+      },
       "PronunciationDictionaryVersionLocatorDBModel": {
         "properties": {
           "pronunciation_dictionary_id": {
@@ -88604,6 +92227,31 @@
           "status": "ok"
         }
       },
+      "StaticAssetReference": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "asset",
+            "title": "Type"
+          },
+          "asset_id": {
+            "type": "string",
+            "title": "Asset Id",
+            "description": "The ID of an asset uploaded via the assets API (`POST /v1/assets`), as returned in that response's `asset_id`.",
+            "examples": [
+              "5xM2KqOnZyce22SPZ9d4"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "asset_id"
+        ],
+        "title": "StaticAssetReference",
+        "description": "An asset uploaded via the assets API."
+      },
       "StatusId": {
         "type": "integer",
         "enum": [
@@ -91103,6 +94751,27 @@
         "description": "Method for converting numbers to words before sending to TTS",
         "default": "system_prompt"
       },
+      "TextToSpeechGenerationRequest": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ElevenFlashV2_5Request"
+          },
+          {
+            "$ref": "#/components/schemas/ElevenMultilingualV2Request"
+          },
+          {
+            "$ref": "#/components/schemas/ElevenV3Request"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "model_id",
+          "mapping": {
+            "eleven_flash_v2_5": "#/components/schemas/ElevenFlashV2_5Request",
+            "eleven_multilingual_v2": "#/components/schemas/ElevenMultilingualV2Request",
+            "eleven_v3": "#/components/schemas/ElevenV3Request"
+          }
+        }
+      },
       "ThresholdGuardrail": {
         "properties": {
           "is_enabled": {
@@ -92716,6 +96385,82 @@
           "guardrail_type"
         ],
         "title": "TriggeredGuardrailCommonModel"
+      },
+      "TtsVoiceSettings": {
+        "properties": {
+          "stability": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stability",
+            "description": "How consistent the voice stays across generations. Lower values give more expressive, varied speech."
+          },
+          "similarity_boost": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Similarity Boost",
+            "description": "How closely the output adheres to the original voice."
+          },
+          "style": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Style",
+            "description": "How strongly the speaking style is exaggerated."
+          },
+          "use_speaker_boost": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Use Speaker Boost",
+            "description": "Whether to boost similarity to the original speaker, at some latency cost."
+          },
+          "speed": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.2,
+                "minimum": 0.7
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Speed",
+            "description": "The speed of the generated speech, where 1.0 is the voice's natural pace."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "TtsVoiceSettings",
+        "description": "Overrides for the voice's saved settings, applied to one generation."
       },
       "TurnConfig": {
         "properties": {
@@ -95735,6 +99480,325 @@
         ],
         "title": "ValidationError"
       },
+      "Veo3_1FastRequest": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the video to generate.",
+            "examples": [
+              "A corgi rides a tiny surfboard across a sunlit wave at golden hour, cinematic"
+            ]
+          },
+          "negative_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Negative Prompt",
+            "description": "A text description of what the video should avoid."
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed",
+            "description": "A seed for reproducible generation: the same seed and inputs give similar output across generations. Omit for random."
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "description": "Whether the model may rewrite the prompt to improve results.",
+            "default": true
+          },
+          "duration_secs": {
+            "type": "integer",
+            "enum": [
+              4,
+              6,
+              8
+            ],
+            "title": "Duration Secs",
+            "description": "The duration of the output video in seconds.",
+            "default": 8
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "16:9",
+              "9:16"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output video.",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "720p",
+              "1080p",
+              "4K"
+            ],
+            "title": "Resolution",
+            "description": "The resolution of the output video.",
+            "default": "720p"
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "description": "Whether to generate audio with the video.",
+            "default": true
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The image to use as the video's first frame."
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The image to use as the video's last frame."
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/VeoImageReference"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Images",
+            "description": "Up to 3 reference images to draw subjects or style from. Cannot be combined with `start_frame`/`end_frame`, and requires the 8-second duration."
+          },
+          "model_id": {
+            "type": "string",
+            "const": "veo-3.1-fast-generate-001",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "Veo3_1FastRequest",
+        "description": "Request body for the Google Veo 3.1 Fast video model."
+      },
+      "Veo3_1Request": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the video to generate.",
+            "examples": [
+              "A corgi rides a tiny surfboard across a sunlit wave at golden hour, cinematic"
+            ]
+          },
+          "negative_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Negative Prompt",
+            "description": "A text description of what the video should avoid."
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed",
+            "description": "A seed for reproducible generation: the same seed and inputs give similar output across generations. Omit for random."
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "description": "Whether the model may rewrite the prompt to improve results.",
+            "default": true
+          },
+          "duration_secs": {
+            "type": "integer",
+            "enum": [
+              4,
+              6,
+              8
+            ],
+            "title": "Duration Secs",
+            "description": "The duration of the output video in seconds.",
+            "default": 8
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "16:9",
+              "9:16"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output video.",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "720p",
+              "1080p",
+              "4K"
+            ],
+            "title": "Resolution",
+            "description": "The resolution of the output video.",
+            "default": "720p"
+          },
+          "generate_audio": {
+            "type": "boolean",
+            "title": "Generate Audio",
+            "description": "Whether to generate audio with the video.",
+            "default": true
+          },
+          "start_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The image to use as the video's first frame."
+          },
+          "end_frame": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The image to use as the video's last frame."
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/VeoImageReference"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Images",
+            "description": "Up to 3 reference images to draw subjects or style from. Cannot be combined with `start_frame`/`end_frame`, and requires the 8-second duration."
+          },
+          "model_id": {
+            "type": "string",
+            "const": "veo-3.1-generate-001",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "Veo3_1Request",
+        "description": "Request body for the Google Veo 3.1 video model."
+      },
+      "VeoImageReference": {
+        "properties": {
+          "image": {
+            "$ref": "#/components/schemas/ImageReference",
+            "description": "The reference image."
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "subject",
+              "style"
+            ],
+            "title": "Role",
+            "description": "How the model uses the image: `subject` places its subject or scene elements into the video; `style` transfers its visual style."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "image",
+          "role"
+        ],
+        "title": "VeoImageReference",
+        "description": "A reference image guiding a Veo generation, with its role."
+      },
       "Verbosity": {
         "type": "string",
         "enum": [
@@ -95979,6 +100043,43 @@
         ],
         "title": "VideoAnalysisResult"
       },
+      "VideoGenerationRequest": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreatifyAuroraRequest"
+          },
+          {
+            "$ref": "#/components/schemas/Veo3_1Request"
+          },
+          {
+            "$ref": "#/components/schemas/Veo3_1FastRequest"
+          },
+          {
+            "$ref": "#/components/schemas/BytedanceSeedance2Request"
+          },
+          {
+            "$ref": "#/components/schemas/BytedanceSeedance2FastRequest"
+          },
+          {
+            "$ref": "#/components/schemas/BytedanceSeedance2MiniRequest"
+          },
+          {
+            "$ref": "#/components/schemas/BytedanceSeedance25Request"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "model_id",
+          "mapping": {
+            "bytedance-seedance-v2": "#/components/schemas/BytedanceSeedance2Request",
+            "bytedance-seedance-v2-fast": "#/components/schemas/BytedanceSeedance2FastRequest",
+            "bytedance-seedance-v2-mini": "#/components/schemas/BytedanceSeedance2MiniRequest",
+            "bytedance-seedance-v2.5": "#/components/schemas/BytedanceSeedance25Request",
+            "creatify-aurora": "#/components/schemas/CreatifyAuroraRequest",
+            "veo-3.1-fast-generate-001": "#/components/schemas/Veo3_1FastRequest",
+            "veo-3.1-generate-001": "#/components/schemas/Veo3_1Request"
+          }
+        }
+      },
       "VideoKeyMoment": {
         "properties": {
           "timestamp_ms": {
@@ -96001,6 +100102,27 @@
           "description"
         ],
         "title": "VideoKeyMoment"
+      },
+      "VideoReference": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/GenerationReference"
+          },
+          {
+            "$ref": "#/components/schemas/StaticAssetReference"
+          },
+          {
+            "$ref": "#/components/schemas/InlineVideoReference"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "asset": "#/components/schemas/StaticAssetReference",
+            "generation": "#/components/schemas/GenerationReference",
+            "inline_base64": "#/components/schemas/InlineVideoReference"
+          }
+        }
       },
       "VideoSegment": {
         "properties": {
@@ -98155,6 +102277,68 @@
         ],
         "title": "WebhookHMACSettings",
         "description": "Settings for creating an HMAC-authenticated webhook"
+      },
+      "WebhookTarget": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/WebhookTargetAll"
+          },
+          {
+            "$ref": "#/components/schemas/WebhookTargetIds"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "all": "#/components/schemas/WebhookTargetAll",
+            "ids": "#/components/schemas/WebhookTargetIds"
+          }
+        }
+      },
+      "WebhookTargetAll": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "all",
+            "title": "Type",
+            "description": "Send the result to all of the workspace's configured flows webhooks.",
+            "default": "all"
+          }
+        },
+        "type": "object",
+        "title": "WebhookTargetAll",
+        "description": "Deliver the result to all of the workspace's configured flows webhooks."
+      },
+      "WebhookTargetIds": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "ids",
+            "title": "Type",
+            "description": "Send the result to the listed flows webhooks.",
+            "default": "ids"
+          },
+          "ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Ids",
+            "description": "The IDs of the workspace flows webhooks to deliver the result to. Each must be one of the workspace's configured flows webhooks.",
+            "examples": [
+              [
+                "Q8mVr2LpXcT4nB6yJdKw"
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "ids"
+        ],
+        "title": "WebhookTargetIds",
+        "description": "Deliver the result to specific configured flows webhooks."
       },
       "WebhookToolApiSchemaConfig-Input": {
         "properties": {
