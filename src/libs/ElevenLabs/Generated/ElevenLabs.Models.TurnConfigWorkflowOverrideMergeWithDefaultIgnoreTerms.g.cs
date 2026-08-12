@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// When enabled, the curated default terms for interruption_ignore_term_languages are used in addition to interruption_ignore_terms.
     /// </summary>
-    public sealed partial class WorkspaceGroupResponseModelScimExternalId
+    public sealed partial class TurnConfigWorkflowOverrideMergeWithDefaultIgnoreTerms
     {
 
         /// <summary>
