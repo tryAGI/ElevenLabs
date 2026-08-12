@@ -79,6 +79,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public AssetsClient Assets => new AssetsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public AudioIsolationClient AudioIsolation => new AudioIsolationClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
@@ -134,6 +143,15 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public EnvironmentVariablesClient EnvironmentVariables => new EnvironmentVariablesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public FlowsClient Flows => new FlowsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
