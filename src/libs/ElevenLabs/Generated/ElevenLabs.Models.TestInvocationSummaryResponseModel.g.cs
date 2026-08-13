@@ -63,7 +63,7 @@ namespace ElevenLabs
         public required int PendingCount { get; set; }
 
         /// <summary>
-        /// Title of the test invocation - either the single test name or count of tests
+        /// Title of the test invocation - the folder name for folder runs, otherwise the single test name or count of tests
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -110,7 +110,7 @@ namespace ElevenLabs
         /// Number of test runs that are pending
         /// </param>
         /// <param name="title">
-        /// Title of the test invocation - either the single test name or count of tests
+        /// Title of the test invocation - the folder name for folder runs, otherwise the single test name or count of tests
         /// </param>
         /// <param name="agentId">
         /// The ID of the agent this test invocation belongs to

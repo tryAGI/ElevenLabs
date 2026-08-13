@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Get10SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_GetSummarySecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,50 +21,51 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Get10SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_GetSummarySecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_Get10SecurityRequirement0,
+            {                s_GetSummarySecurityRequirement0,
             };
-        partial void PrepareGet10Arguments(
+        partial void PrepareGetSummaryArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? agentId,
-            global::System.Collections.Generic.IList<string>? agentIds);
-        partial void PrepareGet10Request(
+            ref string conversationId,
+            ref int? maxMessages);
+        partial void PrepareGetSummaryRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? agentId,
-            global::System.Collections.Generic.IList<string>? agentIds);
-        partial void ProcessGet10Response(
+            string conversationId,
+            int? maxMessages);
+        partial void ProcessGetSummaryResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGet10ResponseContent(
+        partial void ProcessGetSummaryResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Live Count<br/>
-        /// Get the live count of the ongoing conversations.
+        /// Get Conversation Summary<br/>
+        /// Get a lightweight summary of a conversation: its title, the generated transcript summary, whether the call was successful, and — only when the conversation is short — the plain chat messages. Tool calls, tool results, and contextual updates are omitted so the response stays small. Use this instead of the full conversation endpoint when you only need the gist (e.g. an agent reading many conversations); use GET /v1/convai/conversations/{conversation_id} when you need the full transcript with tool calls and contextual updates.
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent to restrict the analytics to.
+        /// <param name="conversationId">
+        /// The id of the conversation you're taking the action on.
         /// </param>
-        /// <param name="agentIds">
-        /// Restrict analytics to the union of the given agents. Takes precedence over `agent_id` when both are supplied.
+        /// <param name="maxMessages">
+        /// Maximum number of chat message turns to include inline. When the conversation has more than this, the messages are omitted and messages_omitted is set.<br/>
+        /// Default Value: 40
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetLiveCountResponse> Get10Async(
-            string? agentId = default,
-            global::System.Collections.Generic.IList<string>? agentIds = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConversationSummaryResponseModel> GetSummaryAsync(
+            string conversationId,
+            int? maxMessages = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Get10AsResponseAsync(
-                agentId: agentId,
-                agentIds: agentIds,
+            var __response = await GetSummaryAsResponseAsync(
+                conversationId: conversationId,
+                maxMessages: maxMessages,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -72,36 +73,37 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Live Count<br/>
-        /// Get the live count of the ongoing conversations.
+        /// Get Conversation Summary<br/>
+        /// Get a lightweight summary of a conversation: its title, the generated transcript summary, whether the call was successful, and — only when the conversation is short — the plain chat messages. Tool calls, tool results, and contextual updates are omitted so the response stays small. Use this instead of the full conversation endpoint when you only need the gist (e.g. an agent reading many conversations); use GET /v1/convai/conversations/{conversation_id} when you need the full transcript with tool calls and contextual updates.
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent to restrict the analytics to.
+        /// <param name="conversationId">
+        /// The id of the conversation you're taking the action on.
         /// </param>
-        /// <param name="agentIds">
-        /// Restrict analytics to the union of the given agents. Takes precedence over `agent_id` when both are supplied.
+        /// <param name="maxMessages">
+        /// Maximum number of chat message turns to include inline. When the conversation has more than this, the messages are omitted and messages_omitted is set.<br/>
+        /// Default Value: 40
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetLiveCountResponse>> Get10AsResponseAsync(
-            string? agentId = default,
-            global::System.Collections.Generic.IList<string>? agentIds = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetConversationSummaryResponseModel>> GetSummaryAsResponseAsync(
+            string conversationId,
+            int? maxMessages = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGet10Arguments(
+            PrepareGetSummaryArguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
-                agentIds: agentIds);
+                conversationId: ref conversationId,
+                maxMessages: ref maxMessages);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Get10SecurityRequirements,
-                operationName: "Get10Async");
+                securityRequirements: s_GetSummarySecurityRequirements,
+                operationName: "GetSummaryAsync");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -121,11 +123,10 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/analytics/live-count",
+                                path: $"/v1/convai/conversations/{conversationId}/summary",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("agent_id", agentId)
-                                .AddOptionalParameter("agent_ids", agentIds?.ToString())
+                                .AddOptionalParameter("max_messages", maxMessages?.ToString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -164,11 +165,11 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGet10Request(
+                PrepareGetSummaryRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
-                    agentIds: agentIds);
+                    conversationId: conversationId!,
+                    maxMessages: maxMessages);
 
                 return __httpRequest;
             }
@@ -185,9 +186,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get10",
-                                methodName: "Get10Async",
-                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
+                                operationId: "GetSummary",
+                                methodName: "GetSummaryAsync",
+                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/summary\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -219,9 +220,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get10",
-                                methodName: "Get10Async",
-                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
+                                operationId: "GetSummary",
+                                methodName: "GetSummaryAsync",
+                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/summary\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -260,9 +261,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get10",
-                                methodName: "Get10Async",
-                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
+                                operationId: "GetSummary",
+                                methodName: "GetSummaryAsync",
+                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/summary\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -300,7 +301,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGet10Response(
+                ProcessGetSummaryResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -308,9 +309,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get10",
-                                methodName: "Get10Async",
-                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
+                                operationId: "GetSummary",
+                                methodName: "GetSummaryAsync",
+                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/summary\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -330,9 +331,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get10",
-                                methodName: "Get10Async",
-                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
+                                operationId: "GetSummary",
+                                methodName: "GetSummaryAsync",
+                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/summary\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -397,7 +398,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGet10ResponseContent(
+                                ProcessGetSummaryResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -406,9 +407,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.GetLiveCountResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.GetConversationSummaryResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetLiveCountResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetConversationSummaryResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -438,9 +439,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.GetLiveCountResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.GetConversationSummaryResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetLiveCountResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetConversationSummaryResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

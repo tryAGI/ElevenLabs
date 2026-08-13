@@ -27,6 +27,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ContentSkills,
+        /// <summary>
+        /// 
+        /// </summary>
         ContentTemplates,
         /// <summary>
         /// 
@@ -36,6 +40,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ConvaiAgentDrafts,
+        /// <summary>
+        /// 
+        /// </summary>
+        ConvaiAgentExperiments,
         /// <summary>
         /// 
         /// </summary>
@@ -194,9 +202,11 @@ namespace ElevenLabs
                 WorkspaceResourceType.AvatarVideoGenerations => "avatar_video_generations",
                 WorkspaceResourceType.Avatars => "avatars",
                 WorkspaceResourceType.ContentGenerations => "content_generations",
+                WorkspaceResourceType.ContentSkills => "content_skills",
                 WorkspaceResourceType.ContentTemplates => "content_templates",
                 WorkspaceResourceType.ConvaiAgentBranches => "convai_agent_branches",
                 WorkspaceResourceType.ConvaiAgentDrafts => "convai_agent_drafts",
+                WorkspaceResourceType.ConvaiAgentExperiments => "convai_agent_experiments",
                 WorkspaceResourceType.ConvaiAgentResponseTests => "convai_agent_response_tests",
                 WorkspaceResourceType.ConvaiAgentVersions => "convai_agent_versions",
                 WorkspaceResourceType.ConvaiAgentVersionsDeployments => "convai_agent_versions_deployments",
@@ -246,9 +256,11 @@ namespace ElevenLabs
                 "avatar_video_generations" => WorkspaceResourceType.AvatarVideoGenerations,
                 "avatars" => WorkspaceResourceType.Avatars,
                 "content_generations" => WorkspaceResourceType.ContentGenerations,
+                "content_skills" => WorkspaceResourceType.ContentSkills,
                 "content_templates" => WorkspaceResourceType.ContentTemplates,
                 "convai_agent_branches" => WorkspaceResourceType.ConvaiAgentBranches,
                 "convai_agent_drafts" => WorkspaceResourceType.ConvaiAgentDrafts,
+                "convai_agent_experiments" => WorkspaceResourceType.ConvaiAgentExperiments,
                 "convai_agent_response_tests" => WorkspaceResourceType.ConvaiAgentResponseTests,
                 "convai_agent_versions" => WorkspaceResourceType.ConvaiAgentVersions,
                 "convai_agent_versions_deployments" => WorkspaceResourceType.ConvaiAgentVersionsDeployments,
