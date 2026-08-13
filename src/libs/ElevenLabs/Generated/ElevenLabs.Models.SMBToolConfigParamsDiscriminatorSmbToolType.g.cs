@@ -71,6 +71,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        CreateTransferRule,
+        /// <summary>
+        /// 
+        /// </summary>
         DeleteAgentProcedure,
         /// <summary>
         /// 
@@ -116,6 +120,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         DeleteStaff,
+        /// <summary>
+        /// 
+        /// </summary>
+        DeleteTransferRule,
         /// <summary>
         /// 
         /// </summary>
@@ -207,6 +215,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ListTransferRules,
+        /// <summary>
+        /// 
+        /// </summary>
         OptInSmsReminder,
         /// <summary>
         /// 
@@ -240,6 +252,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         SubmitBusinessInfo,
+        /// <summary>
+        /// 
+        /// </summary>
+        TriggerUserVerification,
         /// <summary>
         /// 
         /// </summary>
@@ -300,6 +316,14 @@ namespace ElevenLabs
         /// 
         /// </summary>
         UpdateStaff,
+        /// <summary>
+        /// 
+        /// </summary>
+        UpdateTransferRule,
+        /// <summary>
+        /// 
+        /// </summary>
+        ValidateUserVerificationCode,
     }
 
     /// <summary>
@@ -329,6 +353,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateProduct => "create_product",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateService => "create_service",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateStaff => "create_staff",
+                SMBToolConfigParamsDiscriminatorSmbToolType.CreateTransferRule => "create_transfer_rule",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteAgentProcedure => "delete_agent_procedure",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteAgentRule => "delete_agent_rule",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteAsset => "delete_asset",
@@ -341,6 +366,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteProduct => "delete_product",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteService => "delete_service",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteStaff => "delete_staff",
+                SMBToolConfigParamsDiscriminatorSmbToolType.DeleteTransferRule => "delete_transfer_rule",
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetAnalyticsSummary => "get_analytics_summary",
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetAppointmentByConfirmationNumber => "get_appointment_by_confirmation_number",
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetBookingPageSettings => "get_booking_page_settings",
@@ -363,6 +389,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListProducts => "list_products",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListServices => "list_services",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListStaff => "list_staff",
+                SMBToolConfigParamsDiscriminatorSmbToolType.ListTransferRules => "list_transfer_rules",
                 SMBToolConfigParamsDiscriminatorSmbToolType.OptInSmsReminder => "opt_in_sms_reminder",
                 SMBToolConfigParamsDiscriminatorSmbToolType.OptOutSmsReminder => "opt_out_sms_reminder",
                 SMBToolConfigParamsDiscriminatorSmbToolType.RegisterForGroupSession => "register_for_group_session",
@@ -372,6 +399,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients => "search_clients",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug => "set_booking_slug",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo => "submit_business_info",
+                SMBToolConfigParamsDiscriminatorSmbToolType.TriggerUserVerification => "trigger_user_verification",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentProcedure => "update_agent_procedure",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentRule => "update_agent_rule",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAsset => "update_asset",
@@ -387,6 +415,8 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateProduct => "update_product",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateService => "update_service",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateStaff => "update_staff",
+                SMBToolConfigParamsDiscriminatorSmbToolType.UpdateTransferRule => "update_transfer_rule",
+                SMBToolConfigParamsDiscriminatorSmbToolType.ValidateUserVerificationCode => "validate_user_verification_code",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -412,6 +442,7 @@ namespace ElevenLabs
                 "create_product" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateProduct,
                 "create_service" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateService,
                 "create_staff" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateStaff,
+                "create_transfer_rule" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateTransferRule,
                 "delete_agent_procedure" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteAgentProcedure,
                 "delete_agent_rule" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteAgentRule,
                 "delete_asset" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteAsset,
@@ -424,6 +455,7 @@ namespace ElevenLabs
                 "delete_product" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteProduct,
                 "delete_service" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteService,
                 "delete_staff" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteStaff,
+                "delete_transfer_rule" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteTransferRule,
                 "get_analytics_summary" => SMBToolConfigParamsDiscriminatorSmbToolType.GetAnalyticsSummary,
                 "get_appointment_by_confirmation_number" => SMBToolConfigParamsDiscriminatorSmbToolType.GetAppointmentByConfirmationNumber,
                 "get_booking_page_settings" => SMBToolConfigParamsDiscriminatorSmbToolType.GetBookingPageSettings,
@@ -446,6 +478,7 @@ namespace ElevenLabs
                 "list_products" => SMBToolConfigParamsDiscriminatorSmbToolType.ListProducts,
                 "list_services" => SMBToolConfigParamsDiscriminatorSmbToolType.ListServices,
                 "list_staff" => SMBToolConfigParamsDiscriminatorSmbToolType.ListStaff,
+                "list_transfer_rules" => SMBToolConfigParamsDiscriminatorSmbToolType.ListTransferRules,
                 "opt_in_sms_reminder" => SMBToolConfigParamsDiscriminatorSmbToolType.OptInSmsReminder,
                 "opt_out_sms_reminder" => SMBToolConfigParamsDiscriminatorSmbToolType.OptOutSmsReminder,
                 "register_for_group_session" => SMBToolConfigParamsDiscriminatorSmbToolType.RegisterForGroupSession,
@@ -455,6 +488,7 @@ namespace ElevenLabs
                 "search_clients" => SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients,
                 "set_booking_slug" => SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug,
                 "submit_business_info" => SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo,
+                "trigger_user_verification" => SMBToolConfigParamsDiscriminatorSmbToolType.TriggerUserVerification,
                 "update_agent_procedure" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentProcedure,
                 "update_agent_rule" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentRule,
                 "update_asset" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAsset,
@@ -470,6 +504,8 @@ namespace ElevenLabs
                 "update_product" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateProduct,
                 "update_service" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateService,
                 "update_staff" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateStaff,
+                "update_transfer_rule" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateTransferRule,
+                "validate_user_verification_code" => SMBToolConfigParamsDiscriminatorSmbToolType.ValidateUserVerificationCode,
                 _ => null,
             };
         }

@@ -34,7 +34,7 @@ namespace ElevenLabs
         {
             return value switch
             {
-                CharacterAge.MiddleAged => "middle-aged",
+                CharacterAge.MiddleAged => "middle_aged",
                 CharacterAge.Old => "old",
                 CharacterAge.Young => "young",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -47,7 +47,7 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "middle-aged" => CharacterAge.MiddleAged,
+                "middle_aged" => CharacterAge.MiddleAged,
                 "old" => CharacterAge.Old,
                 "young" => CharacterAge.Young,
                 _ => null,

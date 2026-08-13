@@ -79,6 +79,18 @@ namespace ElevenLabs
         public global::ElevenLabs.ExternalFileSyncInfo? ExternalSyncInfo { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auto_sync_info")]
+        public global::ElevenLabs.AutoSyncInfo? AutoSyncInfo { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("refresh_status")]
+        public global::ElevenLabs.FileRefreshStatus? RefreshStatus { get; set; }
+
+        /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_frozen")]
@@ -110,6 +122,8 @@ namespace ElevenLabs
         /// The folder path segments leading to this entity, from root to parent folder.
         /// </param>
         /// <param name="externalSyncInfo"></param>
+        /// <param name="autoSyncInfo"></param>
+        /// <param name="refreshStatus"></param>
         /// <param name="isFrozen">
         /// Default Value: false
         /// </param>
@@ -127,6 +141,8 @@ namespace ElevenLabs
             string? folderParentId,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentSummaryResponseModel>? folderPath,
             global::ElevenLabs.ExternalFileSyncInfo? externalSyncInfo,
+            global::ElevenLabs.AutoSyncInfo? autoSyncInfo,
+            global::ElevenLabs.FileRefreshStatus? refreshStatus,
             bool? isFrozen,
             string type = "file")
         {
@@ -140,6 +156,8 @@ namespace ElevenLabs
             this.DependentAgents = dependentAgents ?? throw new global::System.ArgumentNullException(nameof(dependentAgents));
             this.Type = type;
             this.ExternalSyncInfo = externalSyncInfo;
+            this.AutoSyncInfo = autoSyncInfo;
+            this.RefreshStatus = refreshStatus;
             this.IsFrozen = isFrozen;
         }
 

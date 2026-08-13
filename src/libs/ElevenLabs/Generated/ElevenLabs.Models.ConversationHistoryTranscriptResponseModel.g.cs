@@ -61,6 +61,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("producing_llm")]
+        public string? ProducingLlm { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("time_in_call_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int TimeInCallSecs { get; set; }
@@ -134,6 +140,18 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("triggered_guardrails")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TriggeredGuardrailCommonModel>? TriggeredGuardrails { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_input")]
         public global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? FileInput { get; set; }
 
@@ -167,6 +185,7 @@ namespace ElevenLabs
         /// <param name="toolResults"></param>
         /// <param name="feedback"></param>
         /// <param name="llmOverride"></param>
+        /// <param name="producingLlm"></param>
         /// <param name="conversationTurnMetrics"></param>
         /// <param name="ragRetrievalInfo"></param>
         /// <param name="llmUsage"></param>
@@ -182,6 +201,8 @@ namespace ElevenLabs
         /// <param name="sourceEventId"></param>
         /// <param name="usedStaticKbDocumentIds"></param>
         /// <param name="userIdentifier"></param>
+        /// <param name="id"></param>
+        /// <param name="triggeredGuardrails"></param>
         /// <param name="fileInput"></param>
         /// <param name="contextualUpdateInfo"></param>
         /// <param name="reasoned">
@@ -200,6 +221,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>? toolResults,
             global::ElevenLabs.UserFeedback? feedback,
             string? llmOverride,
+            string? producingLlm,
             global::ElevenLabs.ConversationTurnMetrics? conversationTurnMetrics,
             global::ElevenLabs.RagRetrievalInfo? ragRetrievalInfo,
             global::ElevenLabs.LLMUsageOutput? llmUsage,
@@ -211,6 +233,8 @@ namespace ElevenLabs
             int? sourceEventId,
             global::System.Collections.Generic.IList<string>? usedStaticKbDocumentIds,
             string? userIdentifier,
+            string? id,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TriggeredGuardrailCommonModel>? triggeredGuardrails,
             global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? fileInput,
             global::ElevenLabs.ContextualUpdateInfo? contextualUpdateInfo,
             bool? reasoned)
@@ -223,6 +247,7 @@ namespace ElevenLabs
             this.ToolResults = toolResults;
             this.Feedback = feedback;
             this.LlmOverride = llmOverride;
+            this.ProducingLlm = producingLlm;
             this.TimeInCallSecs = timeInCallSecs;
             this.ConversationTurnMetrics = conversationTurnMetrics;
             this.RagRetrievalInfo = ragRetrievalInfo;
@@ -235,6 +260,8 @@ namespace ElevenLabs
             this.SourceEventId = sourceEventId;
             this.UsedStaticKbDocumentIds = usedStaticKbDocumentIds;
             this.UserIdentifier = userIdentifier;
+            this.Id = id;
+            this.TriggeredGuardrails = triggeredGuardrails;
             this.FileInput = fileInput;
             this.ContextualUpdateInfo = contextualUpdateInfo;
             this.Reasoned = reasoned;

@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Draft,
+        /// <summary>
+        /// 
+        /// </summary>
         Failed,
         /// <summary>
         /// 
@@ -39,6 +43,7 @@ namespace ElevenLabs
             return value switch
             {
                 ProjectCreationMetaResponseModelStatus.Creating => "creating",
+                ProjectCreationMetaResponseModelStatus.Draft => "draft",
                 ProjectCreationMetaResponseModelStatus.Failed => "failed",
                 ProjectCreationMetaResponseModelStatus.Finished => "finished",
                 ProjectCreationMetaResponseModelStatus.Pending => "pending",
@@ -53,6 +58,7 @@ namespace ElevenLabs
             return value switch
             {
                 "creating" => ProjectCreationMetaResponseModelStatus.Creating,
+                "draft" => ProjectCreationMetaResponseModelStatus.Draft,
                 "failed" => ProjectCreationMetaResponseModelStatus.Failed,
                 "finished" => ProjectCreationMetaResponseModelStatus.Finished,
                 "pending" => ProjectCreationMetaResponseModelStatus.Pending,

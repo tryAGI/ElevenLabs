@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"file_input_config":{"enabled":false,"max_files_per_conversation":10},"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}
+    /// Example: {"file_input_config":{"enabled":false,"max_files_in_memory":10,"max_files_per_conversation":10},"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}
     /// </summary>
     public sealed partial class WidgetConfigResponseModel
     {
@@ -303,6 +303,13 @@ namespace ElevenLabs
         public global::ElevenLabs.WidgetStyles? Styles { get; set; }
 
         /// <summary>
+        /// Whether to show the resize button<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("show_resize_button")]
+        public bool? ShowResizeButton { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
@@ -520,6 +527,10 @@ namespace ElevenLabs
         /// <param name="styles">
         /// Styles for the widget
         /// </param>
+        /// <param name="showResizeButton">
+        /// Whether to show the resize button<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="supportedLanguageOverrides"></param>
         /// <param name="languagePresets">
         /// Language presets for the widget
@@ -588,6 +599,7 @@ namespace ElevenLabs
             global::ElevenLabs.WidgetConfigResponseModelSyntaxHighlightTheme2? syntaxHighlightTheme,
             global::ElevenLabs.WidgetTextContents? textContents,
             global::ElevenLabs.WidgetStyles? styles,
+            bool? showResizeButton,
             global::System.Collections.Generic.IList<string>? supportedLanguageOverrides,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePresetResponse>? languagePresets,
             bool? textOnly,
@@ -640,6 +652,7 @@ namespace ElevenLabs
             this.SyntaxHighlightTheme = syntaxHighlightTheme;
             this.TextContents = textContents;
             this.Styles = styles;
+            this.ShowResizeButton = showResizeButton;
             this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
             this.SupportedLanguageOverrides = supportedLanguageOverrides;
             this.LanguagePresets = languagePresets;

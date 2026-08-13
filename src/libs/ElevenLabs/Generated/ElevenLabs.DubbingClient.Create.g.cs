@@ -213,7 +213,7 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.ModelId ?? string.Empty),
+                                    content: new global::System.Net.Http.StringContent(request.ModelId.ToString() ?? string.Empty),
                                     name: "\"model_id\"");
 
                             }
@@ -225,12 +225,62 @@ namespace ElevenLabs
                                     name: "\"keyterms\"");
 
                             }
+                            if (request.WebhookIds != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.WebhookIds, x => x))}]"),
+                                    name: "\"webhook_ids\"");
+
+                            }
                             if (request.TargetLanguage != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(request.TargetLanguage ?? string.Empty),
                                     name: "\"target_language\"");
+
+                            }
+                            if (request.Transcript != default)
+                            {
+
+                                var __contentTranscript = new global::System.Net.Http.ByteArrayContent(request.Transcript ?? global::System.Array.Empty<byte>());
+                                __contentTranscript.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
+                                    request.Transcriptname is null
+                                        ? "application/octet-stream"
+                                        : (global::System.IO.Path.GetExtension(request.Transcriptname) ?? string.Empty).ToLowerInvariant() switch
+                                        {
+                                            ".aac" => "audio/aac",
+                                            ".flac" => "audio/flac",
+                                            ".gif" => "image/gif",
+                                            ".jpeg" => "image/jpeg",
+                                            ".jpg" => "image/jpeg",
+                                            ".json" => "application/json",
+                                            ".m4a" => "audio/mp4",
+                                            ".mp3" => "audio/mpeg",
+                                            ".mp4" => "video/mp4",
+                                            ".mpeg" => "audio/mpeg",
+                                            ".mpga" => "audio/mpeg",
+                                            ".oga" => "audio/ogg",
+                                            ".ogg" => "audio/ogg",
+                                            ".opus" => "audio/ogg",
+                                            ".pdf" => "application/pdf",
+                                            ".png" => "image/png",
+                                            ".txt" => "text/plain",
+                                            ".wav" => "audio/wav",
+                                            ".weba" => "audio/webm",
+                                            ".webm" => "video/webm",
+                                            ".webp" => "image/webp",
+                                            _ => "application/octet-stream",
+                                        });
+                                __httpRequestContent.Add(
+                                    content: __contentTranscript,
+                                    name: "\"transcript\"",
+                                    fileName: request.Transcriptname != null ? $"\"{request.Transcriptname}\"" : string.Empty);
+                                if (__contentTranscript.Headers.ContentDisposition != null)
+                                {
+                                    __contentTranscript.Headers.ContentDisposition.FileNameStar = null;
+                                }
 
                             }
 
@@ -576,16 +626,25 @@ namespace ElevenLabs
         /// Optional free-form string (max 500 characters) to identify the project on your end.
         /// </param>
         /// <param name="sourceLanguage">
-        /// BCP-47 language tag of the source media. Omit to auto-detect.
+        /// BCP-47 language tag of the source media; must be a language the transcription model supports. Any region or script subtag is ignored, since transcription is per-language. Omit to auto-detect.
         /// </param>
         /// <param name="modelId">
-        /// Default dubbing model id for the project's language targets; a target may override it. Omit to use the system default.
+        /// Default dubbing model id ('dubbing_v1' or 'dubbing_v2') for the project's language targets; a target may override it. Omit to use the system default.
         /// </param>
         /// <param name="keyterms">
         /// Key terms to bias transcription/translation toward (e.g. product or brand names). At most 1000 terms; each term at most 50 characters and 5 words; the characters `&lt;&gt;{}[]\` are not allowed.
         /// </param>
+        /// <param name="webhookIds">
+        /// Ids of workspace webhooks to notify when this project becomes ready or fails, and when any of its languages completes or fails. At most 3; each must be a webhook configured in your workspace.
+        /// </param>
         /// <param name="targetLanguage">
-        /// Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready.
+        /// Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready. Must be a language the dubbing model supports, and a region-qualified tag must be one of the supported dialects.
+        /// </param>
+        /// <param name="transcript">
+        /// Enterprise only. Optional JSON transcript to use instead of automatic transcription. When provided, source_language is required. Segments may include an optional external_id and an optional translation; if any segment includes a translation, target_language is required and every segment must include one (used to seed the target created via target_language).
+        /// </param>
+        /// <param name="transcriptname">
+        /// Enterprise only. Optional JSON transcript to use instead of automatic transcription. When provided, source_language is required. Segments may include an optional external_id and an optional translation; if any segment includes a translation, target_language is required and every segment must include one (used to seed the target created via target_language).
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -596,9 +655,12 @@ namespace ElevenLabs
             string? sourceUrl = default,
             string? reference = default,
             string? sourceLanguage = default,
-            string? modelId = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string, object>? modelId = default,
             global::System.Collections.Generic.IList<string>? keyterms = default,
+            global::System.Collections.Generic.IList<string>? webhookIds = default,
             string? targetLanguage = default,
+            byte[]? transcript = default,
+            string? transcriptname = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -611,7 +673,10 @@ namespace ElevenLabs
                 SourceLanguage = sourceLanguage,
                 ModelId = modelId,
                 Keyterms = keyterms,
+                WebhookIds = webhookIds,
                 TargetLanguage = targetLanguage,
+                Transcript = transcript,
+                Transcriptname = transcriptname,
             };
 
             return await CreateAsync(

@@ -14,6 +14,12 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
+        /// <param name="visitedAgentIds">
+        /// Filter conversations where any of these agents participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="visitedAgentBranchIds">
+        /// Filter conversations where any of these agent branches participated. Can not exceed 50 values.
+        /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
         /// </param>
@@ -59,6 +65,12 @@ namespace ElevenLabs
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
         /// </param>
+        /// <param name="excludeStatuses">
+        /// Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.
+        /// </param>
+        /// <param name="terminationReasons">
+        /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
+        /// </param>
         /// <param name="pageSize">
         /// Number of results per page. Max 50.<br/>
         /// Default Value: 20
@@ -74,6 +86,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
+        /// </param>
+        /// <param name="versionId">
+        /// Filter conversations by version ID.
         /// </param>
         /// <param name="topicIds">
         /// Filter conversations by topic IDs assigned during topic discovery.
@@ -91,6 +106,8 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.MessagesSearchResponse> TextSearchAsync(
             string textQuery,
             string? agentId = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds = default,
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
             int? callStartBeforeUnix = default,
             int? callStartAfterUnix = default,
@@ -106,12 +123,15 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
+            global::System.Collections.Generic.IList<string>? terminationReasons = default,
             int? pageSize = default,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
             global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
+            string? versionId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = default,
@@ -126,6 +146,12 @@ namespace ElevenLabs
         /// </param>
         /// <param name="agentId">
         /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
+        /// </param>
+        /// <param name="visitedAgentIds">
+        /// Filter conversations where any of these agents participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="visitedAgentBranchIds">
+        /// Filter conversations where any of these agent branches participated. Can not exceed 50 values.
         /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
@@ -172,6 +198,12 @@ namespace ElevenLabs
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
         /// </param>
+        /// <param name="excludeStatuses">
+        /// Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.
+        /// </param>
+        /// <param name="terminationReasons">
+        /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
+        /// </param>
         /// <param name="pageSize">
         /// Number of results per page. Max 50.<br/>
         /// Default Value: 20
@@ -187,6 +219,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
+        /// </param>
+        /// <param name="versionId">
+        /// Filter conversations by version ID.
         /// </param>
         /// <param name="topicIds">
         /// Filter conversations by topic IDs assigned during topic discovery.
@@ -204,6 +239,8 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MessagesSearchResponse>> TextSearchAsResponseAsync(
             string textQuery,
             string? agentId = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds = default,
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
             int? callStartBeforeUnix = default,
             int? callStartAfterUnix = default,
@@ -219,12 +256,15 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
+            global::System.Collections.Generic.IList<string>? terminationReasons = default,
             int? pageSize = default,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
             global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
+            string? versionId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = default,
@@ -239,6 +279,12 @@ namespace ElevenLabs
         /// </param>
         /// <param name="agentId">
         /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
+        /// </param>
+        /// <param name="visitedAgentIds">
+        /// Filter conversations where any of these agents participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="visitedAgentBranchIds">
+        /// Filter conversations where any of these agent branches participated. Can not exceed 50 values.
         /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
@@ -285,6 +331,12 @@ namespace ElevenLabs
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
         /// </param>
+        /// <param name="excludeStatuses">
+        /// Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.
+        /// </param>
+        /// <param name="terminationReasons">
+        /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
+        /// </param>
         /// <param name="pageSize">
         /// Number of results per page. Max 50.<br/>
         /// Default Value: 20
@@ -301,6 +353,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
+        /// <param name="versionId">
+        /// Filter conversations by version ID.
+        /// </param>
         /// <param name="topicIds">
         /// Filter conversations by topic IDs assigned during topic discovery.
         /// </param>
@@ -312,6 +367,8 @@ namespace ElevenLabs
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.MessagesSearchResult> TextSearchAutoPagingAsync(
             string textQuery,             string? agentId = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds = default,
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
             int? callStartBeforeUnix = default,
             int? callStartAfterUnix = default,
@@ -327,12 +384,15 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
+            global::System.Collections.Generic.IList<string>? terminationReasons = default,
             int? pageSize = default,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
             global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
+            string? versionId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = null,

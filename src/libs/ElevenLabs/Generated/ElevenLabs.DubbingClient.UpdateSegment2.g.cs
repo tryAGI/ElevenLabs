@@ -49,7 +49,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Update Dubbing Target Transcript Segment<br/>
-        /// Edit a segment's translation for a language target.
+        /// Enterprise only. Edit a segment's translation for a language target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -87,7 +87,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Update Dubbing Target Transcript Segment<br/>
-        /// Edit a segment's translation for a language target.
+        /// Enterprise only. Edit a segment's translation for a language target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -511,7 +511,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Update Dubbing Target Transcript Segment<br/>
-        /// Edit a segment's translation for a language target.
+        /// Enterprise only. Edit a segment's translation for a language target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.

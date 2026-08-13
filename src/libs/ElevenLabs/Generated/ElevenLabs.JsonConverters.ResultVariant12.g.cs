@@ -119,19 +119,19 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.KnowledgeBaseRagToolResultModel)}");
                 knowledgeBaseRagSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::ElevenLabs.RunSubagentToolResultSuccessModel? runSubagentSuccess = default;
-            if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.RunSubagentSuccess)
+            global::ElevenLabs.KnowledgeBaseToolResultModel? knowledgeBaseSuccess = default;
+            if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.KnowledgeBaseSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RunSubagentToolResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RunSubagentToolResultSuccessModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.RunSubagentToolResultSuccessModel)}");
-                runSubagentSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseToolResultModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.KnowledgeBaseToolResultModel)}");
+                knowledgeBaseSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::ElevenLabs.RunSubagentToolResultErrorModel? runSubagentError = default;
-            if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.RunSubagentError)
+            global::ElevenLabs.DummyToolResultModel? dummy = default;
+            if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.Dummy)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RunSubagentToolResultErrorModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RunSubagentToolResultErrorModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.RunSubagentToolResultErrorModel)}");
-                runSubagentError = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DummyToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DummyToolResultModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DummyToolResultModel)}");
+                dummy = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var __value = new global::ElevenLabs.ResultVariant12(
@@ -164,9 +164,9 @@ namespace ElevenLabs.JsonConverters
 
                 knowledgeBaseRagSuccess,
 
-                runSubagentSuccess,
+                knowledgeBaseSuccess,
 
-                runSubagentError
+                dummy
                 );
 
             return __value;
@@ -265,17 +265,17 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.KnowledgeBaseRagToolResultModel).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeBaseRagSuccess!, typeInfo);
             }
-            else if (value.IsRunSubagentSuccess)
+            else if (value.IsKnowledgeBaseSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RunSubagentToolResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RunSubagentToolResultSuccessModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.RunSubagentToolResultSuccessModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RunSubagentSuccess!, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseToolResultModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.KnowledgeBaseToolResultModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeBaseSuccess!, typeInfo);
             }
-            else if (value.IsRunSubagentError)
+            else if (value.IsDummy)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RunSubagentToolResultErrorModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RunSubagentToolResultErrorModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.RunSubagentToolResultErrorModel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RunSubagentError!, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DummyToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DummyToolResultModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DummyToolResultModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Dummy!, typeInfo);
             }
         }
     }

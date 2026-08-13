@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ListTestsByIdsRequestModel
     {
         /// <summary>
-        /// List of test IDs to fetch. No duplicates allowed.
+        /// List of test IDs to fetch. No duplicates allowed. Prefer at most 1000 IDs per request.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("test_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ListTestsByIdsRequestModel" /> class.
         /// </summary>
         /// <param name="testIds">
-        /// List of test IDs to fetch. No duplicates allowed.
+        /// List of test IDs to fetch. No duplicates allowed. Prefer at most 1000 IDs per request.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

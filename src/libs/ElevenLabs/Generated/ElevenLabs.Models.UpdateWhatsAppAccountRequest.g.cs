@@ -27,6 +27,12 @@ namespace ElevenLabs
         public bool? EnableAudioMessageResponse { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_typing_indicator")]
+        public bool? EnableTypingIndicator { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -38,17 +44,20 @@ namespace ElevenLabs
         /// <param name="assignedAgentId"></param>
         /// <param name="enableMessaging"></param>
         /// <param name="enableAudioMessageResponse"></param>
+        /// <param name="enableTypingIndicator"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UpdateWhatsAppAccountRequest(
             string? assignedAgentId,
             bool? enableMessaging,
-            bool? enableAudioMessageResponse)
+            bool? enableAudioMessageResponse,
+            bool? enableTypingIndicator)
         {
             this.AssignedAgentId = assignedAgentId;
             this.EnableMessaging = enableMessaging;
             this.EnableAudioMessageResponse = enableAudioMessageResponse;
+            this.EnableTypingIndicator = enableTypingIndicator;
         }
 
         /// <summary>

@@ -22,6 +22,13 @@ namespace ElevenLabs
         public required string MockResult { get; set; }
 
         /// <summary>
+        /// If true, the mock result is surfaced to the LLM as a tool error rather than a successful result.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_error")]
+        public bool? IsError { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -36,15 +43,21 @@ namespace ElevenLabs
         /// <param name="parameterConditions">
         /// If the list is empty, the mock will always activate.
         /// </param>
+        /// <param name="isError">
+        /// If true, the mock result is surfaced to the LLM as a tool error rather than a successful result.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ToolResponseMockConfigInput(
             string mockResult,
-            global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestToolCallParameter>? parameterConditions)
+            global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestToolCallParameter>? parameterConditions,
+            bool? isError)
         {
             this.ParameterConditions = parameterConditions;
             this.MockResult = mockResult ?? throw new global::System.ArgumentNullException(nameof(mockResult));
+            this.IsError = isError;
         }
 
         /// <summary>

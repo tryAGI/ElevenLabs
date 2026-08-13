@@ -326,6 +326,43 @@ namespace ElevenLabs
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
+        public global::ElevenLabs.KnowledgeBaseToolConfig? KnowledgeBase { get; init; }
+#else
+        public global::ElevenLabs.KnowledgeBaseToolConfig? KnowledgeBase { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(KnowledgeBase))]
+#endif
+        public bool IsKnowledgeBase => KnowledgeBase != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickKnowledgeBase(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.KnowledgeBaseToolConfig? value)
+        {
+            value = KnowledgeBase;
+            return IsKnowledgeBase;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::ElevenLabs.KnowledgeBaseToolConfig PickKnowledgeBase() => IsKnowledgeBase
+            ? KnowledgeBase!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeBase' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
         public global::ElevenLabs.StartProcedureToolConfigInput? StartProcedure { get; init; }
 #else
         public global::ElevenLabs.StartProcedureToolConfigInput? StartProcedure { get; }
@@ -619,6 +656,29 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator Params2(global::ElevenLabs.KnowledgeBaseToolConfig value) => new Params2((global::ElevenLabs.KnowledgeBaseToolConfig?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::ElevenLabs.KnowledgeBaseToolConfig?(Params2 @this) => @this.KnowledgeBase;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Params2(global::ElevenLabs.KnowledgeBaseToolConfig? value)
+        {
+            KnowledgeBase = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Params2 FromKnowledgeBase(global::ElevenLabs.KnowledgeBaseToolConfig? value) => new Params2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Params2(global::ElevenLabs.StartProcedureToolConfigInput value) => new Params2((global::ElevenLabs.StartProcedureToolConfigInput?)value);
 
         /// <summary>
@@ -698,6 +758,7 @@ namespace ElevenLabs
             global::ElevenLabs.PlayDTMFToolConfig? playKeypadTouchTone,
             global::ElevenLabs.VoicemailDetectionToolConfig? voicemailDetection,
             global::ElevenLabs.KnowledgeBaseRagToolConfig? knowledgeBaseRag,
+            global::ElevenLabs.KnowledgeBaseToolConfig? knowledgeBase,
             global::ElevenLabs.StartProcedureToolConfigInput? startProcedure,
             global::ElevenLabs.EndProcedureToolConfigInput? endProcedure,
             global::ElevenLabs.RunSubagentToolConfigInput? runSubagent
@@ -713,6 +774,7 @@ namespace ElevenLabs
             PlayKeypadTouchTone = playKeypadTouchTone;
             VoicemailDetection = voicemailDetection;
             KnowledgeBaseRag = knowledgeBaseRag;
+            KnowledgeBase = knowledgeBase;
             StartProcedure = startProcedure;
             EndProcedure = endProcedure;
             RunSubagent = runSubagent;
@@ -725,6 +787,7 @@ namespace ElevenLabs
             RunSubagent as object ??
             EndProcedure as object ??
             StartProcedure as object ??
+            KnowledgeBase as object ??
             KnowledgeBaseRag as object ??
             VoicemailDetection as object ??
             PlayKeypadTouchTone as object ??
@@ -747,6 +810,7 @@ namespace ElevenLabs
             PlayKeypadTouchTone?.ToString() ??
             VoicemailDetection?.ToString() ??
             KnowledgeBaseRag?.ToString() ??
+            KnowledgeBase?.ToString() ??
             StartProcedure?.ToString() ??
             EndProcedure?.ToString() ??
             RunSubagent?.ToString() 
@@ -757,7 +821,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsStartProcedure && !IsEndProcedure && IsRunSubagent;
+            return IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsKnowledgeBase && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsKnowledgeBase && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsKnowledgeBase && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsKnowledgeBase && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsKnowledgeBase && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsKnowledgeBase && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && IsVoicemailDetection && !IsKnowledgeBaseRag && !IsKnowledgeBase && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && IsKnowledgeBaseRag && !IsKnowledgeBase && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && IsKnowledgeBase && !IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsKnowledgeBase && IsStartProcedure && !IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsKnowledgeBase && !IsStartProcedure && IsEndProcedure && !IsRunSubagent || !IsEndCall && !IsLanguageDetection && !IsTransferToAgent && !IsTransferToNumber && !IsSkipTurn && !IsPlayKeypadTouchTone && !IsVoicemailDetection && !IsKnowledgeBaseRag && !IsKnowledgeBase && !IsStartProcedure && !IsEndProcedure && IsRunSubagent;
         }
 
         /// <summary>
@@ -772,6 +836,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.PlayDTMFToolConfig, TResult>? playKeypadTouchTone = null,
             global::System.Func<global::ElevenLabs.VoicemailDetectionToolConfig, TResult>? voicemailDetection = null,
             global::System.Func<global::ElevenLabs.KnowledgeBaseRagToolConfig, TResult>? knowledgeBaseRag = null,
+            global::System.Func<global::ElevenLabs.KnowledgeBaseToolConfig, TResult>? knowledgeBase = null,
             global::System.Func<global::ElevenLabs.StartProcedureToolConfigInput, TResult>? startProcedure = null,
             global::System.Func<global::ElevenLabs.EndProcedureToolConfigInput, TResult>? endProcedure = null,
             global::System.Func<global::ElevenLabs.RunSubagentToolConfigInput, TResult>? runSubagent = null,
@@ -814,6 +879,10 @@ namespace ElevenLabs
             {
                 return knowledgeBaseRag(KnowledgeBaseRag!);
             }
+            else if (IsKnowledgeBase && knowledgeBase != null)
+            {
+                return knowledgeBase(KnowledgeBase!);
+            }
             else if (IsStartProcedure && startProcedure != null)
             {
                 return startProcedure(StartProcedure!);
@@ -850,6 +919,8 @@ namespace ElevenLabs
 
             global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolConfig>? knowledgeBaseRag = null,
 
+            global::System.Action<global::ElevenLabs.KnowledgeBaseToolConfig>? knowledgeBase = null,
+
             global::System.Action<global::ElevenLabs.StartProcedureToolConfigInput>? startProcedure = null,
 
             global::System.Action<global::ElevenLabs.EndProcedureToolConfigInput>? endProcedure = null,
@@ -893,6 +964,10 @@ namespace ElevenLabs
             else if (IsKnowledgeBaseRag)
             {
                 knowledgeBaseRag?.Invoke(KnowledgeBaseRag!);
+            }
+            else if (IsKnowledgeBase)
+            {
+                knowledgeBase?.Invoke(KnowledgeBase!);
             }
             else if (IsStartProcedure)
             {
@@ -920,6 +995,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.PlayDTMFToolConfig>? playKeypadTouchTone = null,
             global::System.Action<global::ElevenLabs.VoicemailDetectionToolConfig>? voicemailDetection = null,
             global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolConfig>? knowledgeBaseRag = null,
+            global::System.Action<global::ElevenLabs.KnowledgeBaseToolConfig>? knowledgeBase = null,
             global::System.Action<global::ElevenLabs.StartProcedureToolConfigInput>? startProcedure = null,
             global::System.Action<global::ElevenLabs.EndProcedureToolConfigInput>? endProcedure = null,
             global::System.Action<global::ElevenLabs.RunSubagentToolConfigInput>? runSubagent = null,
@@ -961,6 +1037,10 @@ namespace ElevenLabs
             else if (IsKnowledgeBaseRag)
             {
                 knowledgeBaseRag?.Invoke(KnowledgeBaseRag!);
+            }
+            else if (IsKnowledgeBase)
+            {
+                knowledgeBase?.Invoke(KnowledgeBase!);
             }
             else if (IsStartProcedure)
             {
@@ -999,6 +1079,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.VoicemailDetectionToolConfig),
                 KnowledgeBaseRag,
                 typeof(global::ElevenLabs.KnowledgeBaseRagToolConfig),
+                KnowledgeBase,
+                typeof(global::ElevenLabs.KnowledgeBaseToolConfig),
                 StartProcedure,
                 typeof(global::ElevenLabs.StartProcedureToolConfigInput),
                 EndProcedure,
@@ -1029,6 +1111,7 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PlayDTMFToolConfig?>.Default.Equals(PlayKeypadTouchTone, other.PlayKeypadTouchTone) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.VoicemailDetectionToolConfig?>.Default.Equals(VoicemailDetection, other.VoicemailDetection) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.KnowledgeBaseRagToolConfig?>.Default.Equals(KnowledgeBaseRag, other.KnowledgeBaseRag) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.KnowledgeBaseToolConfig?>.Default.Equals(KnowledgeBase, other.KnowledgeBase) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.StartProcedureToolConfigInput?>.Default.Equals(StartProcedure, other.StartProcedure) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.EndProcedureToolConfigInput?>.Default.Equals(EndProcedure, other.EndProcedure) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.RunSubagentToolConfigInput?>.Default.Equals(RunSubagent, other.RunSubagent) 

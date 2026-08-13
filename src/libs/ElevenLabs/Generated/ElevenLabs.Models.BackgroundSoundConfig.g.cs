@@ -22,14 +22,14 @@ namespace ElevenLabs
 
         /// <summary>
         /// Volume level for background sound (0.01 to 1.0).<br/>
-        /// Default Value: 0.6F
+        /// Default Value: 0.15F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume")]
         public double? Volume { get; set; }
 
         /// <summary>
         /// Apply a crossfade at the loop boundary to avoid audible pops when the sound loops.<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("crossfade_loop")]
         public bool? CrossfadeLoop { get; set; }
@@ -51,11 +51,11 @@ namespace ElevenLabs
         /// </param>
         /// <param name="volume">
         /// Volume level for background sound (0.01 to 1.0).<br/>
-        /// Default Value: 0.6F
+        /// Default Value: 0.15F
         /// </param>
         /// <param name="crossfadeLoop">
         /// Apply a crossfade at the loop boundary to avoid audible pops when the sound loops.<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

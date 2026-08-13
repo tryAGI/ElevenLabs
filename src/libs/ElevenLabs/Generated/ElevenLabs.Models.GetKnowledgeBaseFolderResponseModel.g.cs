@@ -71,6 +71,13 @@ namespace ElevenLabs
         public required int ChildrenCount { get; set; }
 
         /// <summary>
+        /// Number of non-folder documents anywhere in this folder's subtree (recursive). Counting stops past 1000;
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_count")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int DocumentCount { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auto_sync_info")]
@@ -111,6 +118,9 @@ namespace ElevenLabs
         /// Example: {"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </param>
         /// <param name="childrenCount"></param>
+        /// <param name="documentCount">
+        /// Number of non-folder documents anywhere in this folder's subtree (recursive). Counting stops past 1000;
+        /// </param>
         /// <param name="folderParentId">
         /// The ID of the parent folder, or null if the document is at the root level.
         /// </param>
@@ -136,6 +146,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.DocumentUsageModeEnum> supportedUsages,
             global::ElevenLabs.ResourceAccessInfo accessInfo,
             int childrenCount,
+            int documentCount,
             string? folderParentId,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? folderPath,
             global::ElevenLabs.AutoSyncInfo? autoSyncInfo,
@@ -153,6 +164,7 @@ namespace ElevenLabs
             this.FolderPath = folderPath;
             this.Type = type;
             this.ChildrenCount = childrenCount;
+            this.DocumentCount = documentCount;
             this.AutoSyncInfo = autoSyncInfo;
             this.ExternalSyncInfo = externalSyncInfo;
             this.IsFrozen = isFrozen;

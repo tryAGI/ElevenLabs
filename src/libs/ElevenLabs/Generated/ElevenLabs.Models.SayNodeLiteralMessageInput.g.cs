@@ -22,6 +22,12 @@ namespace ElevenLabs
         public required string Text { get; set; }
 
         /// <summary>
+        /// Translations for the text field
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text_translations")]
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.TranslatedString>? TextTranslations { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -36,15 +42,20 @@ namespace ElevenLabs
         /// <param name="type">
         /// Default Value: literal
         /// </param>
+        /// <param name="textTranslations">
+        /// Translations for the text field
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SayNodeLiteralMessageInput(
             string text,
-            string? type)
+            string? type,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.TranslatedString>? textTranslations)
         {
             this.Type = type;
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
+            this.TextTranslations = textTranslations;
         }
 
         /// <summary>

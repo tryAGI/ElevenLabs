@@ -71,6 +71,9 @@ namespace ElevenLabs
         /// <param name="requestHeaders">
         /// The headers to include in requests to the MCP server
         /// </param>
+        /// <param name="requestMeta">
+        /// Entries sent in the MCP `_meta` field of tools/call requests. Values may be JSON scalars, or references to a workspace secret, dynamic variable, or environment variable resolved per call.
+        /// </param>
         /// <param name="disableCompression">
         /// Whether to disable HTTP compression for this MCP server
         /// </param>
@@ -93,6 +96,7 @@ namespace ElevenLabs
             global::ElevenLabs.ToolExecutionMode? executionMode = default,
             int? responseTimeoutSecs = default,
             object? requestHeaders = default,
+            object? requestMeta = default,
             bool? disableCompression = default,
             global::ElevenLabs.ConvAISecretLocator? secretToken = default,
             global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection = default,

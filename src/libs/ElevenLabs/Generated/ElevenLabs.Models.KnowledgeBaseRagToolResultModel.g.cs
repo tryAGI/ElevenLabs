@@ -36,6 +36,12 @@ namespace ElevenLabs
         public string? Message { get; set; }
 
         /// <summary>
+        /// Retrieved chunks; populated only in the rag-result-in-tool-result mode
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("chunks")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseRagChunkModel>? Chunks { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -58,6 +64,9 @@ namespace ElevenLabs
         /// Human-readable status for the LLM about the search results<br/>
         /// Default Value: Referenced knowledge base.
         /// </param>
+        /// <param name="chunks">
+        /// Retrieved chunks; populated only in the rag-result-in-tool-result mode
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -65,12 +74,14 @@ namespace ElevenLabs
             string? resultType,
             global::ElevenLabs.KnowledgeBaseRagToolStatus? status,
             int? chunkCount,
-            string? message)
+            string? message,
+            global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseRagChunkModel>? chunks)
         {
             this.ResultType = resultType;
             this.Status = status;
             this.ChunkCount = chunkCount;
             this.Message = message;
+            this.Chunks = chunks;
         }
 
         /// <summary>

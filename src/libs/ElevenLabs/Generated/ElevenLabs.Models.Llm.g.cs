@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Default Value: gemini-2.5-flash
+    /// 
     /// </summary>
     public enum Llm
     {
@@ -52,6 +52,10 @@ namespace ElevenLabs
         /// 
         /// </summary>
         ClaudeOpus47,
+        /// <summary>
+        /// 
+        /// </summary>
+        ClaudeOpus48,
         /// <summary>
         /// 
         /// </summary>
@@ -172,6 +176,14 @@ namespace ElevenLabs
         /// 
         /// </summary>
         Gemini35Flash,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gemini35FlashLite,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gemini36Flash,
         /// <summary>
         /// 
         /// </summary>
@@ -335,6 +347,18 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Gpt56Luna,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gpt56Sol,
+        /// <summary>
+        /// 
+        /// </summary>
+        Gpt56Terra,
+        /// <summary>
+        /// 
+        /// </summary>
         GptOss120b,
         /// <summary>
         /// 
@@ -393,6 +417,7 @@ namespace ElevenLabs
                 Llm.ClaudeHaiku45 => "claude-haiku-4-5",
                 Llm.ClaudeHaiku45_20251001 => "claude-haiku-4-5@20251001",
                 Llm.ClaudeOpus47 => "claude-opus-4-7",
+                Llm.ClaudeOpus48 => "claude-opus-4-8",
                 Llm.ClaudeSonnet4 => "claude-sonnet-4",
                 Llm.ClaudeSonnet45 => "claude-sonnet-4-5",
                 Llm.ClaudeSonnet45_20250929 => "claude-sonnet-4-5@20250929",
@@ -423,6 +448,8 @@ namespace ElevenLabs
                 Llm.Gemini31FlashLitePreview => "gemini-3.1-flash-lite-preview",
                 Llm.Gemini31ProPreview => "gemini-3.1-pro-preview",
                 Llm.Gemini35Flash => "gemini-3.5-flash",
+                Llm.Gemini35FlashLite => "gemini-3.5-flash-lite",
+                Llm.Gemini36Flash => "gemini-3.6-flash",
                 Llm.Glm45AirFp8 => "glm-45-air-fp8",
                 Llm.Gpt35Turbo => "gpt-3.5-turbo",
                 Llm.Gpt35Turbo0125 => "gpt-3.5-turbo-0125",
@@ -463,6 +490,9 @@ namespace ElevenLabs
                 Llm.Gpt54Nano20260317 => "gpt-5.4-nano-2026-03-17",
                 Llm.Gpt55 => "gpt-5.5",
                 Llm.Gpt5520260423 => "gpt-5.5-2026-04-23",
+                Llm.Gpt56Luna => "gpt-5.6-luna",
+                Llm.Gpt56Sol => "gpt-5.6-sol",
+                Llm.Gpt56Terra => "gpt-5.6-terra",
                 Llm.GptOss120b => "gpt-oss-120b",
                 Llm.GptOss20b => "gpt-oss-20b",
                 Llm.GrokBeta => "grok-beta",
@@ -493,6 +523,7 @@ namespace ElevenLabs
                 "claude-haiku-4-5" => Llm.ClaudeHaiku45,
                 "claude-haiku-4-5@20251001" => Llm.ClaudeHaiku45_20251001,
                 "claude-opus-4-7" => Llm.ClaudeOpus47,
+                "claude-opus-4-8" => Llm.ClaudeOpus48,
                 "claude-sonnet-4" => Llm.ClaudeSonnet4,
                 "claude-sonnet-4-5" => Llm.ClaudeSonnet45,
                 "claude-sonnet-4-5@20250929" => Llm.ClaudeSonnet45_20250929,
@@ -523,6 +554,8 @@ namespace ElevenLabs
                 "gemini-3.1-flash-lite-preview" => Llm.Gemini31FlashLitePreview,
                 "gemini-3.1-pro-preview" => Llm.Gemini31ProPreview,
                 "gemini-3.5-flash" => Llm.Gemini35Flash,
+                "gemini-3.5-flash-lite" => Llm.Gemini35FlashLite,
+                "gemini-3.6-flash" => Llm.Gemini36Flash,
                 "glm-45-air-fp8" => Llm.Glm45AirFp8,
                 "gpt-3.5-turbo" => Llm.Gpt35Turbo,
                 "gpt-3.5-turbo-0125" => Llm.Gpt35Turbo0125,
@@ -563,6 +596,9 @@ namespace ElevenLabs
                 "gpt-5.4-nano-2026-03-17" => Llm.Gpt54Nano20260317,
                 "gpt-5.5" => Llm.Gpt55,
                 "gpt-5.5-2026-04-23" => Llm.Gpt5520260423,
+                "gpt-5.6-luna" => Llm.Gpt56Luna,
+                "gpt-5.6-sol" => Llm.Gpt56Sol,
+                "gpt-5.6-terra" => Llm.Gpt56Terra,
                 "gpt-oss-120b" => Llm.GptOss120b,
                 "gpt-oss-20b" => Llm.GptOss20b,
                 "grok-beta" => Llm.GrokBeta,

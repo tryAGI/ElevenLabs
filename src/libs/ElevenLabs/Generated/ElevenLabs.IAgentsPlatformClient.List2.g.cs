@@ -16,6 +16,12 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
+        /// <param name="visitedAgentIds">
+        /// Filter conversations where any of these agents participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="visitedAgentBranchIds">
+        /// Filter conversations where any of these agent branches participated. Can not exceed 50 values.
+        /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
         /// </param>
@@ -49,6 +55,12 @@ namespace ElevenLabs
         /// <param name="dataCollectionParams">
         /// Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values.
         /// </param>
+        /// <param name="dataCollectionIds">
+        /// Data collection field IDs to include in each conversation summary. Repeat param. When omitted, data_collection_results is not returned.
+        /// </param>
+        /// <param name="evaluationCriteriaIds">
+        /// Evaluation criteria IDs to include in each conversation summary. Repeat param. When omitted, evaluation_criteria_results is not returned.
+        /// </param>
         /// <param name="toolNames">
         /// Filter conversations by tool names used during the call.
         /// </param>
@@ -80,6 +92,12 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
+        /// <param name="versionId">
+        /// Filter conversations by version ID.
+        /// </param>
+        /// <param name="parentConversationId">
+        /// Filter conversations by parent conversation ID for subagent conversations.
+        /// </param>
         /// <param name="topicIds">
         /// Filter conversations by topic IDs assigned during topic discovery.
         /// </param>
@@ -95,12 +113,20 @@ namespace ElevenLabs
         /// <param name="terminationReasons">
         /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
         /// </param>
+        /// <param name="guardrailTypes">
+        /// Filter to conversations where a guardrail of any of these types triggered (metadata.triggered_guardrails.guardrail_type). Repeat param to match any of several.
+        /// </param>
+        /// <param name="customGuardrailNames">
+        /// Filter to conversations where a custom guardrail with any of these names triggered (metadata.triggered_guardrails.guardrail_name). Only custom guardrails carry a name. Repeat param to match any of several.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetConversationsPageResponseModel> List2Async(
             string? cursor = default,
             string? agentId = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds = default,
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
             int? callStartBeforeUnix = default,
             int? callStartAfterUnix = default,
@@ -112,6 +138,8 @@ namespace ElevenLabs
             string? userId = default,
             global::System.Collections.Generic.IList<string>? evaluationParams = default,
             global::System.Collections.Generic.IList<string>? dataCollectionParams = default,
+            global::System.Collections.Generic.IList<string>? dataCollectionIds = default,
+            global::System.Collections.Generic.IList<string>? evaluationCriteriaIds = default,
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
@@ -123,11 +151,15 @@ namespace ElevenLabs
             bool? textOnly = default,
             global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
+            string? versionId = default,
+            string? parentConversationId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::System.Collections.Generic.IList<string>? tagIds = default,
             string? workflowNodeEnteredId = default,
             global::System.Collections.Generic.IList<string>? terminationReasons = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GuardrailType>? guardrailTypes = default,
+            global::System.Collections.Generic.IList<string>? customGuardrailNames = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -140,6 +172,12 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
+        /// <param name="visitedAgentIds">
+        /// Filter conversations where any of these agents participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="visitedAgentBranchIds">
+        /// Filter conversations where any of these agent branches participated. Can not exceed 50 values.
+        /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
         /// </param>
@@ -173,6 +211,12 @@ namespace ElevenLabs
         /// <param name="dataCollectionParams">
         /// Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values.
         /// </param>
+        /// <param name="dataCollectionIds">
+        /// Data collection field IDs to include in each conversation summary. Repeat param. When omitted, data_collection_results is not returned.
+        /// </param>
+        /// <param name="evaluationCriteriaIds">
+        /// Evaluation criteria IDs to include in each conversation summary. Repeat param. When omitted, evaluation_criteria_results is not returned.
+        /// </param>
         /// <param name="toolNames">
         /// Filter conversations by tool names used during the call.
         /// </param>
@@ -204,6 +248,12 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
+        /// <param name="versionId">
+        /// Filter conversations by version ID.
+        /// </param>
+        /// <param name="parentConversationId">
+        /// Filter conversations by parent conversation ID for subagent conversations.
+        /// </param>
         /// <param name="topicIds">
         /// Filter conversations by topic IDs assigned during topic discovery.
         /// </param>
@@ -219,12 +269,20 @@ namespace ElevenLabs
         /// <param name="terminationReasons">
         /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
         /// </param>
+        /// <param name="guardrailTypes">
+        /// Filter to conversations where a guardrail of any of these types triggered (metadata.triggered_guardrails.guardrail_type). Repeat param to match any of several.
+        /// </param>
+        /// <param name="customGuardrailNames">
+        /// Filter to conversations where a custom guardrail with any of these names triggered (metadata.triggered_guardrails.guardrail_name). Only custom guardrails carry a name. Repeat param to match any of several.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetConversationsPageResponseModel>> List2AsResponseAsync(
             string? cursor = default,
             string? agentId = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds = default,
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
             int? callStartBeforeUnix = default,
             int? callStartAfterUnix = default,
@@ -236,6 +294,8 @@ namespace ElevenLabs
             string? userId = default,
             global::System.Collections.Generic.IList<string>? evaluationParams = default,
             global::System.Collections.Generic.IList<string>? dataCollectionParams = default,
+            global::System.Collections.Generic.IList<string>? dataCollectionIds = default,
+            global::System.Collections.Generic.IList<string>? evaluationCriteriaIds = default,
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
@@ -247,11 +307,15 @@ namespace ElevenLabs
             bool? textOnly = default,
             global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
+            string? versionId = default,
+            string? parentConversationId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::System.Collections.Generic.IList<string>? tagIds = default,
             string? workflowNodeEnteredId = default,
             global::System.Collections.Generic.IList<string>? terminationReasons = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GuardrailType>? guardrailTypes = default,
+            global::System.Collections.Generic.IList<string>? customGuardrailNames = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -261,6 +325,12 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
+        /// <param name="visitedAgentIds">
+        /// Filter conversations where any of these agents participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="visitedAgentBranchIds">
+        /// Filter conversations where any of these agent branches participated. Can not exceed 50 values.
+        /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
         /// </param>
@@ -294,6 +364,12 @@ namespace ElevenLabs
         /// <param name="dataCollectionParams">
         /// Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values.
         /// </param>
+        /// <param name="dataCollectionIds">
+        /// Data collection field IDs to include in each conversation summary. Repeat param. When omitted, data_collection_results is not returned.
+        /// </param>
+        /// <param name="evaluationCriteriaIds">
+        /// Evaluation criteria IDs to include in each conversation summary. Repeat param. When omitted, evaluation_criteria_results is not returned.
+        /// </param>
         /// <param name="toolNames">
         /// Filter conversations by tool names used during the call.
         /// </param>
@@ -325,6 +401,12 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter conversations by branch ID.
         /// </param>
+        /// <param name="versionId">
+        /// Filter conversations by version ID.
+        /// </param>
+        /// <param name="parentConversationId">
+        /// Filter conversations by parent conversation ID for subagent conversations.
+        /// </param>
         /// <param name="topicIds">
         /// Filter conversations by topic IDs assigned during topic discovery.
         /// </param>
@@ -339,11 +421,19 @@ namespace ElevenLabs
         /// </param>
         /// <param name="terminationReasons">
         /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
+        /// </param>
+        /// <param name="guardrailTypes">
+        /// Filter to conversations where a guardrail of any of these types triggered (metadata.triggered_guardrails.guardrail_type). Repeat param to match any of several.
+        /// </param>
+        /// <param name="customGuardrailNames">
+        /// Filter to conversations where a custom guardrail with any of these names triggered (metadata.triggered_guardrails.guardrail_name). Only custom guardrails carry a name. Repeat param to match any of several.
         /// </param> 
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ConversationSummaryResponseModel> List2AutoPagingAsync(
               string? agentId = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds = default,
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
             int? callStartBeforeUnix = default,
             int? callStartAfterUnix = default,
@@ -355,6 +445,8 @@ namespace ElevenLabs
             string? userId = default,
             global::System.Collections.Generic.IList<string>? evaluationParams = default,
             global::System.Collections.Generic.IList<string>? dataCollectionParams = default,
+            global::System.Collections.Generic.IList<string>? dataCollectionIds = default,
+            global::System.Collections.Generic.IList<string>? evaluationCriteriaIds = default,
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
@@ -366,11 +458,15 @@ namespace ElevenLabs
             bool? textOnly = default,
             global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
+            string? versionId = default,
+            string? parentConversationId = default,
             global::System.Collections.Generic.IList<string>? topicIds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::System.Collections.Generic.IList<string>? tagIds = default,
             string? workflowNodeEnteredId = default,
             global::System.Collections.Generic.IList<string>? terminationReasons = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GuardrailType>? guardrailTypes = default,
+            global::System.Collections.Generic.IList<string>? customGuardrailNames = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default);
 

@@ -95,12 +95,6 @@ namespace ElevenLabs
         public object? Settings { get; set; }
 
         /// <summary>
-        /// Feedback associated with the generated item. Returns null if no feedback has been provided.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("feedback")]
-        public global::ElevenLabs.FeedbackResponseModel? Feedback { get; set; }
-
-        /// <summary>
         /// The ID of the share link.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("share_link_id")]
@@ -178,9 +172,6 @@ namespace ElevenLabs
         /// <param name="settings">
         /// The settings of the history item.
         /// </param>
-        /// <param name="feedback">
-        /// Feedback associated with the generated item. Returns null if no feedback has been provided.
-        /// </param>
         /// <param name="shareLinkId">
         /// The ID of the share link.
         /// </param>
@@ -213,7 +204,6 @@ namespace ElevenLabs
             global::ElevenLabs.SpeechHistoryItemResponseModelVoiceCategory2? voiceCategory,
             string? text,
             object? settings,
-            global::ElevenLabs.FeedbackResponseModel? feedback,
             string? shareLinkId,
             global::ElevenLabs.SpeechHistoryItemResponseModelSource2? source,
             global::ElevenLabs.HistoryAlignmentsResponseModel? alignments,
@@ -233,7 +223,6 @@ namespace ElevenLabs
             this.ContentType = contentType ?? throw new global::System.ArgumentNullException(nameof(contentType));
             this.State = state;
             this.Settings = settings;
-            this.Feedback = feedback;
             this.ShareLinkId = shareLinkId;
             this.Source = source;
             this.Alignments = alignments;

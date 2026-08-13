@@ -40,11 +40,19 @@ namespace ElevenLabs
 
         /// <summary>
         /// Turn detection configuration<br/>
-        /// Example: {"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}
+        /// Example: {"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"merge_with_default_ignore_terms":false,"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}
         /// </summary>
-        /// <example>{"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}</example>
+        /// <example>{"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"merge_with_default_ignore_terms":false,"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("turn")]
         public global::ElevenLabs.BaseTurnConfig? Turn { get; set; }
+
+        /// <summary>
+        /// Configuration for voice activity detection<br/>
+        /// Example: {"background_voice_detection":false}
+        /// </summary>
+        /// <example>{"background_voice_detection":false}</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("vad")]
+        public global::ElevenLabs.VADConfig? Vad { get; set; }
 
         /// <summary>
         /// Conversation configuration (client events, etc.)<br/>
@@ -115,7 +123,11 @@ namespace ElevenLabs
         /// </param>
         /// <param name="turn">
         /// Turn detection configuration<br/>
-        /// Example: {"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}
+        /// Example: {"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"merge_with_default_ignore_terms":false,"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}
+        /// </param>
+        /// <param name="vad">
+        /// Configuration for voice activity detection<br/>
+        /// Example: {"background_voice_detection":false}
         /// </param>
         /// <param name="conversation">
         /// Conversation configuration (client events, etc.)<br/>
@@ -148,6 +160,7 @@ namespace ElevenLabs
             global::ElevenLabs.ASRConversationalConfig? asr,
             global::ElevenLabs.TTSConversationalConfigInput? tts,
             global::ElevenLabs.BaseTurnConfig? turn,
+            global::ElevenLabs.VADConfig? vad,
             global::ElevenLabs.ConversationConfigInput? conversation,
             global::ElevenLabs.PrivacyConfigInput? privacy,
             global::ElevenLabs.AgentCallLimits? callLimits,
@@ -160,6 +173,7 @@ namespace ElevenLabs
             this.Asr = asr;
             this.Tts = tts;
             this.Turn = turn;
+            this.Vad = vad;
             this.Conversation = conversation;
             this.Privacy = privacy;
             this.CallLimits = callLimits;

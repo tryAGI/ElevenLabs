@@ -41,6 +41,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("vad")]
+        public global::ElevenLabs.VADConfig? Vad { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation")]
         public global::ElevenLabs.ConversationConfigInput? Conversation { get; set; }
 
@@ -88,6 +94,7 @@ namespace ElevenLabs
         /// <param name="asr"></param>
         /// <param name="tts"></param>
         /// <param name="turn"></param>
+        /// <param name="vad"></param>
         /// <param name="conversation"></param>
         /// <param name="privacy"></param>
         /// <param name="callLimits"></param>
@@ -103,6 +110,7 @@ namespace ElevenLabs
             global::ElevenLabs.ASRConversationalConfig? asr,
             global::ElevenLabs.TTSConversationalConfigInput? tts,
             global::ElevenLabs.BaseTurnConfig? turn,
+            global::ElevenLabs.VADConfig? vad,
             global::ElevenLabs.ConversationConfigInput? conversation,
             global::ElevenLabs.PrivacyConfigInput? privacy,
             global::ElevenLabs.AgentCallLimits? callLimits,
@@ -115,6 +123,7 @@ namespace ElevenLabs
             this.Asr = asr;
             this.Tts = tts;
             this.Turn = turn;
+            this.Vad = vad;
             this.Conversation = conversation;
             this.Privacy = privacy;
             this.CallLimits = callLimits;

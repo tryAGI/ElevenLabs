@@ -36,6 +36,33 @@ namespace ElevenLabs
         /// <param name="collectionId">
         /// Collection ID to filter voices by.
         /// </param>
+        /// <param name="gender">
+        /// Gender used for filtering, based on the voice's 'gender' label.
+        /// </param>
+        /// <param name="age">
+        /// Age used for filtering, based on the voice's 'age' label.
+        /// </param>
+        /// <param name="language">
+        /// Languages used for filtering, based on the voice's 'language' label. Voices matching any of the given languages are returned.
+        /// </param>
+        /// <param name="accent">
+        /// Accent used for filtering, based on the voice's 'accent' label.
+        /// </param>
+        /// <param name="useCases">
+        /// Use cases used for filtering, based on the voice's 'use_case' label. Voices matching any of the given use cases are returned.
+        /// </param>
+        /// <param name="minNoticePeriodDays">
+        /// Filter to voices whose sharing notice period is at least the given number of days.
+        /// </param>
+        /// <param name="includeCustomRates">
+        /// Whether to include voices that have a custom sharing rate. Defaults to including them.
+        /// </param>
+        /// <param name="includeLiveModerated">
+        /// Whether to include voices that have live moderation enabled. Defaults to including them.
+        /// </param>
+        /// <param name="highQuality">
+        /// When true, only return studio-quality voices (those whose category is 'high_quality').
+        /// </param>
         /// <param name="includeTotalCount">
         /// Whether to include the total count of voices found in the response. NOTE: The total_count value is a live snapshot and may change between requests as users create, modify, or delete voices. For pagination, rely on the has_more flag instead. Only enable this when you actually need the total count (e.g., for display purposes), as it incurs a performance cost.<br/>
         /// Default Value: true
@@ -56,6 +83,15 @@ namespace ElevenLabs
             string? category = default,
             string? fineTuningState = default,
             string? collectionId = default,
+            string? gender = default,
+            string? age = default,
+            global::System.Collections.Generic.IList<string>? language = default,
+            string? accent = default,
+            global::System.Collections.Generic.IList<string>? useCases = default,
+            int? minNoticePeriodDays = default,
+            bool? includeCustomRates = default,
+            bool? includeLiveModerated = default,
+            bool? highQuality = default,
             bool? includeTotalCount = default,
             global::System.Collections.Generic.IList<string>? voiceIds = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -92,6 +128,33 @@ namespace ElevenLabs
         /// <param name="collectionId">
         /// Collection ID to filter voices by.
         /// </param>
+        /// <param name="gender">
+        /// Gender used for filtering, based on the voice's 'gender' label.
+        /// </param>
+        /// <param name="age">
+        /// Age used for filtering, based on the voice's 'age' label.
+        /// </param>
+        /// <param name="language">
+        /// Languages used for filtering, based on the voice's 'language' label. Voices matching any of the given languages are returned.
+        /// </param>
+        /// <param name="accent">
+        /// Accent used for filtering, based on the voice's 'accent' label.
+        /// </param>
+        /// <param name="useCases">
+        /// Use cases used for filtering, based on the voice's 'use_case' label. Voices matching any of the given use cases are returned.
+        /// </param>
+        /// <param name="minNoticePeriodDays">
+        /// Filter to voices whose sharing notice period is at least the given number of days.
+        /// </param>
+        /// <param name="includeCustomRates">
+        /// Whether to include voices that have a custom sharing rate. Defaults to including them.
+        /// </param>
+        /// <param name="includeLiveModerated">
+        /// Whether to include voices that have live moderation enabled. Defaults to including them.
+        /// </param>
+        /// <param name="highQuality">
+        /// When true, only return studio-quality voices (those whose category is 'high_quality').
+        /// </param>
         /// <param name="includeTotalCount">
         /// Whether to include the total count of voices found in the response. NOTE: The total_count value is a live snapshot and may change between requests as users create, modify, or delete voices. For pagination, rely on the has_more flag instead. Only enable this when you actually need the total count (e.g., for display purposes), as it incurs a performance cost.<br/>
         /// Default Value: true
@@ -112,6 +175,15 @@ namespace ElevenLabs
             string? category = default,
             string? fineTuningState = default,
             string? collectionId = default,
+            string? gender = default,
+            string? age = default,
+            global::System.Collections.Generic.IList<string>? language = default,
+            string? accent = default,
+            global::System.Collections.Generic.IList<string>? useCases = default,
+            int? minNoticePeriodDays = default,
+            bool? includeCustomRates = default,
+            bool? includeLiveModerated = default,
+            bool? highQuality = default,
             bool? includeTotalCount = default,
             global::System.Collections.Generic.IList<string>? voiceIds = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -145,6 +217,33 @@ namespace ElevenLabs
         /// <param name="collectionId">
         /// Collection ID to filter voices by.
         /// </param>
+        /// <param name="gender">
+        /// Gender used for filtering, based on the voice's 'gender' label.
+        /// </param>
+        /// <param name="age">
+        /// Age used for filtering, based on the voice's 'age' label.
+        /// </param>
+        /// <param name="language">
+        /// Languages used for filtering, based on the voice's 'language' label. Voices matching any of the given languages are returned.
+        /// </param>
+        /// <param name="accent">
+        /// Accent used for filtering, based on the voice's 'accent' label.
+        /// </param>
+        /// <param name="useCases">
+        /// Use cases used for filtering, based on the voice's 'use_case' label. Voices matching any of the given use cases are returned.
+        /// </param>
+        /// <param name="minNoticePeriodDays">
+        /// Filter to voices whose sharing notice period is at least the given number of days.
+        /// </param>
+        /// <param name="includeCustomRates">
+        /// Whether to include voices that have a custom sharing rate. Defaults to including them.
+        /// </param>
+        /// <param name="includeLiveModerated">
+        /// Whether to include voices that have live moderation enabled. Defaults to including them.
+        /// </param>
+        /// <param name="highQuality">
+        /// When true, only return studio-quality voices (those whose category is 'high_quality').
+        /// </param>
         /// <param name="includeTotalCount">
         /// Whether to include the total count of voices found in the response. NOTE: The total_count value is a live snapshot and may change between requests as users create, modify, or delete voices. For pagination, rely on the has_more flag instead. Only enable this when you actually need the total count (e.g., for display purposes), as it incurs a performance cost.<br/>
         /// Default Value: true
@@ -163,6 +262,15 @@ namespace ElevenLabs
             string? category = default,
             string? fineTuningState = default,
             string? collectionId = default,
+            string? gender = default,
+            string? age = default,
+            global::System.Collections.Generic.IList<string>? language = default,
+            string? accent = default,
+            global::System.Collections.Generic.IList<string>? useCases = default,
+            int? minNoticePeriodDays = default,
+            bool? includeCustomRates = default,
+            bool? includeLiveModerated = default,
+            bool? highQuality = default,
             bool? includeTotalCount = default,
             global::System.Collections.Generic.IList<string>? voiceIds = default,
             string? nextPageToken = null,

@@ -79,6 +79,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public AssetsClient Assets => new AssetsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public AudioIsolationClient AudioIsolation => new AudioIsolationClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
@@ -142,6 +151,15 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public FlowsClient Flows => new FlowsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ForcedAlignmentClient ForcedAlignment => new ForcedAlignmentClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
@@ -170,6 +188,15 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public MusicClient Music => new MusicClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// Create and manage music finetunes.
+        /// </summary>
+        public MusicFinetunesClient MusicFinetunes => new MusicFinetunesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,

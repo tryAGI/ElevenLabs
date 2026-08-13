@@ -1,47 +1,43 @@
 #nullable enable
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 namespace ElevenLabs
 {
     public partial interface IVoicesClient
     {
         /// <summary>
-        /// Get Voice<br/>
-        /// Returns metadata about a specific voice.
+        /// Get Voice Accents<br/>
+        /// Gets the list of available accents in the shared voice library.
         /// </summary>
-        /// <param name="voiceId">
-        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+        /// <param name="language">
+        /// If provided, only accents for this language code are returned.
         /// </param>
-        /// <param name="withSettings">
-        /// This parameter is now deprecated. It is ignored and will be removed in a future version.<br/>
-        /// Default Value: true
+        /// <param name="modelId">
+        /// If provided, returns the accents available for this model. Defaults to the most complete accent list when omitted.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.VoiceResponseModel> Get2Async(
-            string voiceId,
-            bool? withSettings = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.GetVoiceAccentsResponseModel> Get2Async(
+            string? language = default,
+            string? modelId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get Voice<br/>
-        /// Returns metadata about a specific voice.
+        /// Get Voice Accents<br/>
+        /// Gets the list of available accents in the shared voice library.
         /// </summary>
-        /// <param name="voiceId">
-        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+        /// <param name="language">
+        /// If provided, only accents for this language code are returned.
         /// </param>
-        /// <param name="withSettings">
-        /// This parameter is now deprecated. It is ignored and will be removed in a future version.<br/>
-        /// Default Value: true
+        /// <param name="modelId">
+        /// If provided, returns the accents available for this model. Defaults to the most complete accent list when omitted.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.VoiceResponseModel>> Get2AsResponseAsync(
-            string voiceId,
-            bool? withSettings = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetVoiceAccentsResponseModel>> Get2AsResponseAsync(
+            string? language = default,
+            string? modelId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

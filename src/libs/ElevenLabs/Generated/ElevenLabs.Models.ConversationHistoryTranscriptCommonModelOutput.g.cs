@@ -61,6 +61,12 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("producing_llm")]
+        public string? ProducingLlm { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("time_in_call_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int TimeInCallSecs { get; set; }
@@ -132,6 +138,18 @@ namespace ElevenLabs
         public string? UserIdentifier { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("triggered_guardrails")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TriggeredGuardrailCommonModel>? TriggeredGuardrails { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -149,6 +167,7 @@ namespace ElevenLabs
         /// <param name="toolResults"></param>
         /// <param name="feedback"></param>
         /// <param name="llmOverride"></param>
+        /// <param name="producingLlm"></param>
         /// <param name="conversationTurnMetrics"></param>
         /// <param name="ragRetrievalInfo"></param>
         /// <param name="llmUsage"></param>
@@ -164,6 +183,8 @@ namespace ElevenLabs
         /// <param name="sourceEventId"></param>
         /// <param name="usedStaticKbDocumentIds"></param>
         /// <param name="userIdentifier"></param>
+        /// <param name="id"></param>
+        /// <param name="triggeredGuardrails"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -177,6 +198,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>? toolResults,
             global::ElevenLabs.UserFeedback? feedback,
             string? llmOverride,
+            string? producingLlm,
             global::ElevenLabs.ConversationTurnMetrics? conversationTurnMetrics,
             global::ElevenLabs.RagRetrievalInfo? ragRetrievalInfo,
             global::ElevenLabs.LLMUsageOutput? llmUsage,
@@ -187,7 +209,9 @@ namespace ElevenLabs
             global::ElevenLabs.ChatSourceMedium? sourceMedium,
             int? sourceEventId,
             global::System.Collections.Generic.IList<string>? usedStaticKbDocumentIds,
-            string? userIdentifier)
+            string? userIdentifier,
+            string? id,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TriggeredGuardrailCommonModel>? triggeredGuardrails)
         {
             this.Role = role;
             this.AgentMetadata = agentMetadata;
@@ -197,6 +221,7 @@ namespace ElevenLabs
             this.ToolResults = toolResults;
             this.Feedback = feedback;
             this.LlmOverride = llmOverride;
+            this.ProducingLlm = producingLlm;
             this.TimeInCallSecs = timeInCallSecs;
             this.ConversationTurnMetrics = conversationTurnMetrics;
             this.RagRetrievalInfo = ragRetrievalInfo;
@@ -209,6 +234,8 @@ namespace ElevenLabs
             this.SourceEventId = sourceEventId;
             this.UsedStaticKbDocumentIds = usedStaticKbDocumentIds;
             this.UserIdentifier = userIdentifier;
+            this.Id = id;
+            this.TriggeredGuardrails = triggeredGuardrails;
         }
 
         /// <summary>

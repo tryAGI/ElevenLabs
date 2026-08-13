@@ -11,11 +11,19 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Dummy,
+        /// <summary>
+        /// 
+        /// </summary>
         EndCallSuccess,
         /// <summary>
         /// 
         /// </summary>
         KnowledgeBaseRagSuccess,
+        /// <summary>
+        /// 
+        /// </summary>
+        KnowledgeBaseSuccess,
         /// <summary>
         /// 
         /// </summary>
@@ -28,14 +36,6 @@ namespace ElevenLabs
         /// 
         /// </summary>
         PlayDtmfSuccess,
-        /// <summary>
-        /// 
-        /// </summary>
-        RunSubagentError,
-        /// <summary>
-        /// 
-        /// </summary>
-        RunSubagentSuccess,
         /// <summary>
         /// 
         /// </summary>
@@ -86,13 +86,13 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.Dummy => "dummy",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.EndCallSuccess => "end_call_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.KnowledgeBaseRagSuccess => "knowledge_base_rag_success",
+                ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.KnowledgeBaseSuccess => "knowledge_base_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.LanguageDetectionSuccess => "language_detection_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.PlayDtmfError => "play_dtmf_error",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.PlayDtmfSuccess => "play_dtmf_success",
-                ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.RunSubagentError => "run_subagent_error",
-                ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.RunSubagentSuccess => "run_subagent_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.SkipTurnSuccess => "skip_turn_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TestingToolResult => "testing_tool_result",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToAgentError => "transfer_to_agent_error",
@@ -112,13 +112,13 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "dummy" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.Dummy,
                 "end_call_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.EndCallSuccess,
                 "knowledge_base_rag_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.KnowledgeBaseRagSuccess,
+                "knowledge_base_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.KnowledgeBaseSuccess,
                 "language_detection_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.LanguageDetectionSuccess,
                 "play_dtmf_error" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.PlayDtmfError,
                 "play_dtmf_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.PlayDtmfSuccess,
-                "run_subagent_error" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.RunSubagentError,
-                "run_subagent_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.RunSubagentSuccess,
                 "skip_turn_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.SkipTurnSuccess,
                 "testing_tool_result" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TestingToolResult,
                 "transfer_to_agent_error" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToAgentError,

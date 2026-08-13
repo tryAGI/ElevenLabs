@@ -46,13 +46,13 @@ namespace ElevenLabs
         /// Identifier of the parent dubbing project.
         /// </param>
         /// <param name="targetLanguage">
-        /// BCP-47 language tag to dub the project into (e.g. 'fr', 'es-419').
-        /// </param>
-        /// <param name="modelId">
-        /// Dubbing model id for this target; omit to use the project default.
+        /// BCP-47 language tag to dub the project into (e.g. 'fr', 'es-MX'); must be a language the dubbing model supports. A region-qualified tag must be one of the supported dialects.
         /// </param>
         /// <param name="voiceSettings">
         /// Voice settings applied to the whole language (e.g. cloning strength).
+        /// </param>
+        /// <param name="translations">
+        /// Enterprise only. Optional translations to use instead of machine translation. A map from each source segment's external_id (or its id, if you supplied none) to the translated text; every source segment must be covered exactly once. At most 20000 entries, totalling at most 4 MiB of text.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -60,8 +60,8 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingLanguageResponse> Create2Async(
             string projectId,
             string targetLanguage,
-            string? modelId = default,
             global::ElevenLabs.VoiceSettings? voiceSettings = default,
+            global::System.Collections.Generic.Dictionary<string, string>? translations = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

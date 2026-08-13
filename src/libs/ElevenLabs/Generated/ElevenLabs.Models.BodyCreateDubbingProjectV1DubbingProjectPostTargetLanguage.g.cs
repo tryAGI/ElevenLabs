@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready.
+    /// Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready. Must be a language the dubbing model supports, and a region-qualified tag must be one of the supported dialects.
     /// </summary>
     public sealed partial class BodyCreateDubbingProjectV1DubbingProjectPostTargetLanguage
     {

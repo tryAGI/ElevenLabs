@@ -4,7 +4,8 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6.
+    /// LLM model to use for evaluating simulation results.<br/>
+    /// Default Value: claude-sonnet-4-6
     /// </summary>
     public sealed partial class GetSimulationTestResponseModelEvaluationModel
     {

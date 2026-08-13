@@ -31,7 +31,7 @@ namespace ElevenLabs
         public required string Description { get; set; }
 
         /// <summary>
-        /// The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).<br/>
+        /// The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 300 seconds (inclusive).<br/>
         /// Default Value: 20
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_timeout_secs")]
@@ -159,7 +159,7 @@ namespace ElevenLabs
         /// Default Value: api_integration_webhook
         /// </param>
         /// <param name="responseTimeoutSecs">
-        /// The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).<br/>
+        /// The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 300 seconds (inclusive).<br/>
         /// Default Value: 20
         /// </param>
         /// <param name="interruptionMode">

@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Update Dubbing Transcript Segment<br/>
-        /// Edit a source segment's text, speaker, or timing.
+        /// Enterprise only. Edit a source segment's text, speaker, or timing.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -27,7 +27,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Dubbing Transcript Segment<br/>
-        /// Edit a source segment's text, speaker, or timing.
+        /// Enterprise only. Edit a source segment's text, speaker, or timing.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -48,7 +48,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Dubbing Transcript Segment<br/>
-        /// Edit a source segment's text, speaker, or timing.
+        /// Enterprise only. Edit a source segment's text, speaker, or timing.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.

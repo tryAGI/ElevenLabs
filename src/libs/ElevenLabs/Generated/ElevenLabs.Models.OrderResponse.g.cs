@@ -82,6 +82,12 @@ namespace ElevenLabs
         public global::System.DateTime? CompletedAt { get; set; }
 
         /// <summary>
+        /// The reason the order was cancelled, if applicable.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cancel_reason")]
+        public string? CancelReason { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -124,6 +130,9 @@ namespace ElevenLabs
         /// <param name="completedAt">
         /// The timestamp when the order was completed, if applicable.
         /// </param>
+        /// <param name="cancelReason">
+        /// The reason the order was cancelled, if applicable.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -138,7 +147,8 @@ namespace ElevenLabs
             global::System.DateTime? submittedAt,
             global::System.DateTime? paidAt,
             global::System.DateTime? acceptedAt,
-            global::System.DateTime? completedAt)
+            global::System.DateTime? completedAt,
+            string? cancelReason)
         {
             this.OrderId = orderId ?? throw new global::System.ArgumentNullException(nameof(orderId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -151,6 +161,7 @@ namespace ElevenLabs
             this.PaidAt = paidAt;
             this.AcceptedAt = acceptedAt;
             this.CompletedAt = completedAt;
+            this.CancelReason = cancelReason;
         }
 
         /// <summary>

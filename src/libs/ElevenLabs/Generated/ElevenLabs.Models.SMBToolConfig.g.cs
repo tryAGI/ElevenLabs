@@ -98,6 +98,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ToolErrorHandlingMode? ToolErrorHandlingMode { get; set; }
 
         /// <summary>
+        /// User-facing tooltip for the procedure reference picker. Not sent to the LLM.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("human_description")]
+        public string? HumanDescription { get; set; }
+
+        /// <summary>
         /// Whether this tool is enabled for the agent<br/>
         /// Default Value: true
         /// </summary>
@@ -156,6 +162,9 @@ namespace ElevenLabs
         /// Controls how tool errors are processed before being shared with the agent. 'auto' determines handling based on tool type (summarized for native integrations, hide for others), 'summarized' sends an LLM-generated summary, 'passthrough' sends the raw error, 'hide' does not share the error with the agent.<br/>
         /// Default Value: auto
         /// </param>
+        /// <param name="humanDescription">
+        /// User-facing tooltip for the procedure reference picker. Not sent to the LLM.
+        /// </param>
         /// <param name="enabled">
         /// Whether this tool is enabled for the agent<br/>
         /// Default Value: true
@@ -175,6 +184,7 @@ namespace ElevenLabs
             global::ElevenLabs.ToolCallSoundType? toolCallSound,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
             global::ElevenLabs.ToolErrorHandlingMode? toolErrorHandlingMode,
+            string? humanDescription,
             bool? enabled)
         {
             this.Type = type;
@@ -187,6 +197,7 @@ namespace ElevenLabs
             this.ToolCallSound = toolCallSound;
             this.ToolCallSoundBehavior = toolCallSoundBehavior;
             this.ToolErrorHandlingMode = toolErrorHandlingMode;
+            this.HumanDescription = humanDescription;
             this.Enabled = enabled;
             this.Params = @params;
         }

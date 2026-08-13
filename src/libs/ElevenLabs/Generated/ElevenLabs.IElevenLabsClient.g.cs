@@ -68,6 +68,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public AssetsClient Assets { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public AudioIsolationClient AudioIsolation { get; }
 
         /// <summary>
@@ -103,6 +108,11 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        public FlowsClient Flows { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ForcedAlignmentClient ForcedAlignment { get; }
 
         /// <summary>
@@ -119,6 +129,11 @@ namespace ElevenLabs
         /// 
         /// </summary>
         public MusicClient Music { get; }
+
+        /// <summary>
+        /// Create and manage music finetunes.
+        /// </summary>
+        public MusicFinetunesClient MusicFinetunes { get; }
 
         /// <summary>
         /// Generate music from a text prompt.

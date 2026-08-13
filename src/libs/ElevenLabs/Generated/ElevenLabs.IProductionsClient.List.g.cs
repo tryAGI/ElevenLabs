@@ -31,7 +31,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.ListOrdersResponse> ListAsync(
             int? pageSize = default,
             int? offset = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.OrderRequestState>? status = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.OrderState>? status = default,
             global::System.DateTime? startDate = default,
             global::System.DateTime? endDate = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -63,7 +63,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListOrdersResponse>> ListAsResponseAsync(
             int? pageSize = default,
             int? offset = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.OrderRequestState>? status = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.OrderState>? status = default,
             global::System.DateTime? startDate = default,
             global::System.DateTime? endDate = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,

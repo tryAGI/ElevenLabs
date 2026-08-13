@@ -95,7 +95,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Whether to remove the default personality lines from the system prompt<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ignore_default_personality")]
         public bool? IgnoreDefaultPersonality { get; set; }
@@ -104,7 +104,7 @@ namespace ElevenLabs
         /// Configuration for RAG
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rag")]
-        public global::ElevenLabs.RagConfig? Rag { get; set; }
+        public global::ElevenLabs.RagConfigInput? Rag { get; set; }
 
         /// <summary>
         /// Timezone for displaying current time in system prompt. If set, the current time will be included in the system prompt using this timezone. Must be a valid timezone name (e.g., 'America/New_York', 'Europe/London', 'UTC'). Recommended for accurate time-aware responses; without this, the agent has no knowledge of the current date/time unless you provide it via dynamic variables or tools, which can lead to incorrect or hallucinated time references.
@@ -131,7 +131,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
         [global::System.Obsolete("This property marked as deprecated.")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem4>? Tools { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem3>? Tools { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -187,7 +187,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="ignoreDefaultPersonality">
         /// Whether to remove the default personality lines from the system prompt<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="rag">
         /// Configuration for RAG
@@ -220,7 +220,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? knowledgeBase,
             global::ElevenLabs.CustomLLM? customLlm,
             bool? ignoreDefaultPersonality,
-            global::ElevenLabs.RagConfig? rag,
+            global::ElevenLabs.RagConfigInput? rag,
             string? timezone,
             global::ElevenLabs.BackupLlmConfig? backupLlmConfig,
             double? cascadeTimeoutSeconds)

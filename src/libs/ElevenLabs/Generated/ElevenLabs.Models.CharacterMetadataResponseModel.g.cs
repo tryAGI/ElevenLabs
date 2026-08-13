@@ -45,6 +45,12 @@ namespace ElevenLabs
         public string? Accent { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("role")]
+        public global::ElevenLabs.CharacterRole? Role { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -59,6 +65,7 @@ namespace ElevenLabs
         /// <param name="gender"></param>
         /// <param name="age"></param>
         /// <param name="accent"></param>
+        /// <param name="role"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -68,7 +75,8 @@ namespace ElevenLabs
             string? voiceCreationPromptSuggestion,
             global::ElevenLabs.CharacterGender? gender,
             global::ElevenLabs.CharacterAge? age,
-            string? accent)
+            string? accent,
+            global::ElevenLabs.CharacterRole? role)
         {
             this.Description = description;
             this.SampleMessage = sampleMessage;
@@ -76,6 +84,7 @@ namespace ElevenLabs
             this.Gender = gender;
             this.Age = age;
             this.Accent = accent;
+            this.Role = role;
         }
 
         /// <summary>

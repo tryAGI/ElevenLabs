@@ -50,6 +50,7 @@ namespace ElevenLabs
         /// <param name="asr"></param>
         /// <param name="tts"></param>
         /// <param name="turn"></param>
+        /// <param name="vad"></param>
         /// <param name="conversation"></param>
         /// <param name="privacy"></param>
         /// <param name="callLimits"></param>
@@ -66,6 +67,7 @@ namespace ElevenLabs
             global::ElevenLabs.ASRConversationalConfig? asr = default,
             global::ElevenLabs.TTSConversationalConfigInput? tts = default,
             global::ElevenLabs.BaseTurnConfig? turn = default,
+            global::ElevenLabs.VADConfig? vad = default,
             global::ElevenLabs.ConversationConfigInput? conversation = default,
             global::ElevenLabs.PrivacyConfigInput? privacy = default,
             global::ElevenLabs.AgentCallLimits? callLimits = default,

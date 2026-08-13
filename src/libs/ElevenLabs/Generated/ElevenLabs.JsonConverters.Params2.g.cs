@@ -77,6 +77,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.KnowledgeBaseRagToolConfig)}");
                 knowledgeBaseRag = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.KnowledgeBaseToolConfig? knowledgeBase = default;
+            if (discriminator?.SystemToolType == global::ElevenLabs.SystemToolConfigInputParamsDiscriminatorSystemToolType.KnowledgeBase)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseToolConfig> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.KnowledgeBaseToolConfig)}");
+                knowledgeBase = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.StartProcedureToolConfigInput? startProcedure = default;
             if (discriminator?.SystemToolType == global::ElevenLabs.SystemToolConfigInputParamsDiscriminatorSystemToolType.StartProcedure)
             {
@@ -116,6 +123,8 @@ namespace ElevenLabs.JsonConverters
                 voicemailDetection,
 
                 knowledgeBaseRag,
+
+                knowledgeBase,
 
                 startProcedure,
 
@@ -183,6 +192,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseRagToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseRagToolConfig?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.KnowledgeBaseRagToolConfig).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeBaseRag!, typeInfo);
+            }
+            else if (value.IsKnowledgeBase)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseToolConfig?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.KnowledgeBaseToolConfig).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeBase!, typeInfo);
             }
             else if (value.IsStartProcedure)
             {

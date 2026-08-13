@@ -79,13 +79,21 @@ namespace ElevenLabs
         public global::ElevenLabs.SimulationToolMockBehaviorConfig? ToolMockConfig { get; set; }
 
         /// <summary>
-        /// LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6.
+        /// Test-specific response mocks, keyed by tool ID. Applied ahead of the tool's shared mocks and only within this test. Only take effect for tools that are mocked (see tool_mock_config).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_mock_overrides")]
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigOutput>>? ToolMockOverrides { get; set; }
+
+        /// <summary>
+        /// LLM model to use for evaluating simulation results.<br/>
+        /// Default Value: claude-sonnet-4-6
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("evaluation_model")]
         public global::ElevenLabs.Llm? EvaluationModel { get; set; }
 
         /// <summary>
-        /// LLM model for the simulated user. Defaults to Claude Sonnet 4.6.
+        /// LLM model for the simulated user.<br/>
+        /// Default Value: claude-sonnet-4-6
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("simulated_user_model")]
         public global::ElevenLabs.Llm? SimulatedUserModel { get; set; }
@@ -128,11 +136,16 @@ namespace ElevenLabs
         /// <param name="toolMockConfig">
         /// Configuration for which tools to mock and fallback behavior.
         /// </param>
+        /// <param name="toolMockOverrides">
+        /// Test-specific response mocks, keyed by tool ID. Applied ahead of the tool's shared mocks and only within this test. Only take effect for tools that are mocked (see tool_mock_config).
+        /// </param>
         /// <param name="evaluationModel">
-        /// LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6.
+        /// LLM model to use for evaluating simulation results.<br/>
+        /// Default Value: claude-sonnet-4-6
         /// </param>
         /// <param name="simulatedUserModel">
-        /// LLM model for the simulated user. Defaults to Claude Sonnet 4.6.
+        /// LLM model for the simulated user.<br/>
+        /// Default Value: claude-sonnet-4-6
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -148,6 +161,7 @@ namespace ElevenLabs
             int? simulationMaxTurns,
             string? simulationEnvironment,
             global::ElevenLabs.SimulationToolMockBehaviorConfig? toolMockConfig,
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigOutput>>? toolMockOverrides,
             global::ElevenLabs.Llm? evaluationModel,
             global::ElevenLabs.Llm? simulatedUserModel)
         {
@@ -161,6 +175,7 @@ namespace ElevenLabs
             this.SimulationMaxTurns = simulationMaxTurns;
             this.SimulationEnvironment = simulationEnvironment;
             this.ToolMockConfig = toolMockConfig;
+            this.ToolMockOverrides = toolMockOverrides;
             this.EvaluationModel = evaluationModel;
             this.SimulatedUserModel = simulatedUserModel;
         }
