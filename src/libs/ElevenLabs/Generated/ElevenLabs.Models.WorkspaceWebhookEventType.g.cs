@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Flows,
+        /// <summary>
+        /// 
+        /// </summary>
         SpeechToText,
         /// <summary>
         /// 
@@ -35,6 +39,7 @@ namespace ElevenLabs
             return value switch
             {
                 WorkspaceWebhookEventType.AgentQa => "agent_qa",
+                WorkspaceWebhookEventType.Flows => "flows",
                 WorkspaceWebhookEventType.SpeechToText => "speech_to_text",
                 WorkspaceWebhookEventType.VoiceLibraryRemovalNotice => "voice_library_removal_notice",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -48,6 +53,7 @@ namespace ElevenLabs
             return value switch
             {
                 "agent_qa" => WorkspaceWebhookEventType.AgentQa,
+                "flows" => WorkspaceWebhookEventType.Flows,
                 "speech_to_text" => WorkspaceWebhookEventType.SpeechToText,
                 "voice_library_removal_notice" => WorkspaceWebhookEventType.VoiceLibraryRemovalNotice,
                 _ => null,

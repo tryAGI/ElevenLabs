@@ -108273,7 +108273,8 @@
         "enum": [
           "voice_library_removal_notice",
           "speech_to_text",
-          "agent_qa"
+          "agent_qa",
+          "flows"
         ],
         "title": "WorkspaceWebhookEventType"
       },
