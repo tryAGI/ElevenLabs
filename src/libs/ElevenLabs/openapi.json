@@ -19054,6 +19054,92 @@
         "x-fern-sdk-method-name": "delete"
       }
     },
+    "/v1/convai/conversations/{conversation_id}/summary": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Get Conversation Summary",
+        "description": "Get a lightweight summary of a conversation: its title, the generated transcript summary, whether the call was successful, and — only when the conversation is short — the plain chat messages. Tool calls, tool results, and contextual updates are omitted so the response stays small. Use this instead of the full conversation endpoint when you only need the gist (e.g. an agent reading many conversations); use GET /v1/convai/conversations/{conversation_id} when you need the full transcript with tool calls and contextual updates.",
+        "operationId": "get_conversation_summary_route",
+        "parameters": [
+          {
+            "name": "conversation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of the conversation you're taking the action on.",
+              "examples": [
+                "21m00Tcm4TlvDq8ikWAM"
+              ],
+              "embed": true,
+              "title": "Conversation Id"
+            },
+            "description": "The id of the conversation you're taking the action on."
+          },
+          {
+            "name": "max_messages",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 200,
+              "minimum": 1,
+              "description": "Maximum number of chat message turns to include inline. When the conversation has more than this, the messages are omitted and messages_omitted is set.",
+              "default": 40,
+              "title": "Max Messages"
+            },
+            "description": "Maximum number of chat message turns to include inline. When the conversation has more than this, the messages are omitted and messages_omitted is set."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConversationSummaryResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "conversations"
+        ],
+        "x-fern-sdk-method-name": "get_summary"
+      }
+    },
     "/v1/convai/conversations/{conversation_id}/sip-messages": {
       "get": {
         "tags": [
@@ -21424,6 +21510,33 @@
               "title": "Agent Id"
             },
             "description": "The id of an agent to restrict the analytics to."
+          },
+          {
+            "name": "agent_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 25
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Restrict analytics to the union of the given agents. Takes precedence over `agent_id` when both are supplied.",
+              "examples": [
+                [
+                  "21m00Tcm4TlvDq8ikWAM"
+                ]
+              ],
+              "title": "Agent Ids"
+            },
+            "description": "Restrict analytics to the union of the given agents. Takes precedence over `agent_id` when both are supplied."
           },
           {
             "name": "xi-api-key",
@@ -58440,6 +58553,28 @@
         ],
         "title": "ConversationSource"
       },
+      "ConversationSummaryMessageModel": {
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "user",
+              "agent"
+            ],
+            "title": "Role"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "type": "object",
+        "required": [
+          "role",
+          "message"
+        ],
+        "title": "ConversationSummaryMessageModel"
+      },
       "ConversationSummaryResponseModel": {
         "properties": {
           "agent_id": {
@@ -68869,6 +69004,103 @@
           ],
           "version_id": "agtvrsn_5xM3yVvZQKV0EfqQpLr2"
         }
+      },
+      "GetConversationSummaryResponseModel": {
+        "properties": {
+          "conversation_id": {
+            "type": "string",
+            "title": "Conversation Id"
+          },
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "initiated",
+              "in-progress",
+              "processing",
+              "done",
+              "failed"
+            ],
+            "title": "Status"
+          },
+          "call_summary_title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Call Summary Title",
+            "description": "Short generated title for the conversation."
+          },
+          "transcript_summary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Transcript Summary",
+            "description": "Generated natural-language summary of the call."
+          },
+          "call_successful": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EvaluationSuccessResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "message_count": {
+            "type": "integer",
+            "title": "Message Count",
+            "description": "Number of plain chat message turns in the conversation."
+          },
+          "messages": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ConversationSummaryMessageModel"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Messages",
+            "description": "The plain chat messages (role and text only). Included only when message_count does not exceed the requested max_messages; otherwise null and messages_omitted is true."
+          },
+          "messages_omitted": {
+            "type": "boolean",
+            "title": "Messages Omitted",
+            "description": "True when the chat messages were omitted because the conversation was too long. Fetch the full transcript for the messages.",
+            "default": false
+          },
+          "note": {
+            "type": "string",
+            "title": "Note",
+            "description": "Guidance telling the agent how to get the full transcript."
+          }
+        },
+        "type": "object",
+        "required": [
+          "conversation_id",
+          "agent_id",
+          "status",
+          "message_count",
+          "note"
+        ],
+        "title": "GetConversationSummaryResponseModel"
       },
       "GetConversationTagsPageResponseModel": {
         "properties": {
@@ -90565,6 +90797,12 @@
             "examples": [
               "Output a SHORT neutral filler phrase (1-4 words MAX) acknowledging you heard the user."
             ]
+          },
+          "disable_until_first_user_message": {
+            "type": "boolean",
+            "title": "Disable Until First User Message",
+            "description": "When true, soft timeout fillers are suppressed until the conversation has at least one real user message. Prevents fillers during the agent's opening turn (e.g. workflow generate-immediately / tool calls before the user speaks).",
+            "default": false
           }
         },
         "type": "object",
@@ -90704,6 +90942,18 @@
             "examples": [
               "Output a SHORT neutral filler phrase (1-4 words MAX) acknowledging you heard the user."
             ]
+          },
+          "disable_until_first_user_message": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Disable Until First User Message",
+            "description": "When true, soft timeout fillers are suppressed until the conversation has at least one real user message. Prevents fillers during the agent's opening turn (e.g. workflow generate-immediately / tool calls before the user speaks)."
           }
         },
         "type": "object",
@@ -94536,7 +94786,7 @@
           "title": {
             "type": "string",
             "title": "Title",
-            "description": "Title of the test invocation - either the single test name or count of tests"
+            "description": "Title of the test invocation - the folder name for folder runs, otherwise the single test name or count of tests"
           },
           "access_info": {
             "anyOf": [
@@ -107934,6 +108184,7 @@
           "convai_agent_versions",
           "convai_agent_branches",
           "convai_agent_versions_deployments",
+          "convai_agent_experiments",
           "convai_memory_entries",
           "convai_coaching_proposals",
           "convai_templates",
@@ -107944,6 +108195,7 @@
           "assets",
           "content_generations",
           "content_templates",
+          "content_skills",
           "songs",
           "transcription_tasks",
           "avatars",
