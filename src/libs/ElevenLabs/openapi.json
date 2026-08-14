@@ -38563,6 +38563,26 @@
         "type": "object",
         "title": "AgentPlatformSettingsResponseModel"
       },
+      "AgentQueueingConfig": {
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "title": "Enabled",
+            "description": "Hold callers in a wait queue when the agent is at its concurrency limit, instead of rejecting them immediately",
+            "default": false
+          },
+          "wait_timeout_seconds": {
+            "type": "integer",
+            "maximum": 1800.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Wait Timeout Seconds",
+            "description": "Maximum time a caller can wait in the queue before being rejected",
+            "default": 180
+          }
+        },
+        "type": "object",
+        "title": "AgentQueueingConfig"
+      },
       "AgentSimulatedChatTestResponseModel": {
         "properties": {
           "simulated_conversation": {
