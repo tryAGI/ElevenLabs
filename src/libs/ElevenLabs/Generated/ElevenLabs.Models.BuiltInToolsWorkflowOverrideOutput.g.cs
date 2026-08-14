@@ -9,6 +9,12 @@ namespace ElevenLabs
     public sealed partial class BuiltInToolsWorkflowOverrideOutput
     {
         /// <summary>
+        /// The transfer to agent tool
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transfer_to_agent")]
+        public global::ElevenLabs.SystemToolConfigOutput? TransferToAgent { get; set; }
+
+        /// <summary>
         /// The end call tool
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_call")]
@@ -19,12 +25,6 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_detection")]
         public global::ElevenLabs.SystemToolConfigOutput? LanguageDetection { get; set; }
-
-        /// <summary>
-        /// The transfer to agent tool
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("transfer_to_agent")]
-        public global::ElevenLabs.SystemToolConfigOutput? TransferToAgent { get; set; }
 
         /// <summary>
         /// The transfer to number tool
@@ -59,14 +59,14 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="BuiltInToolsWorkflowOverrideOutput" /> class.
         /// </summary>
+        /// <param name="transferToAgent">
+        /// The transfer to agent tool
+        /// </param>
         /// <param name="endCall">
         /// The end call tool
         /// </param>
         /// <param name="languageDetection">
         /// The language detection tool
-        /// </param>
-        /// <param name="transferToAgent">
-        /// The transfer to agent tool
         /// </param>
         /// <param name="transferToNumber">
         /// The transfer to number tool
@@ -84,17 +84,17 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BuiltInToolsWorkflowOverrideOutput(
+            global::ElevenLabs.SystemToolConfigOutput? transferToAgent,
             global::ElevenLabs.SystemToolConfigOutput? endCall,
             global::ElevenLabs.SystemToolConfigOutput? languageDetection,
-            global::ElevenLabs.SystemToolConfigOutput? transferToAgent,
             global::ElevenLabs.SystemToolConfigOutput? transferToNumber,
             global::ElevenLabs.SystemToolConfigOutput? skipTurn,
             global::ElevenLabs.SystemToolConfigOutput? playKeypadTouchTone,
             global::ElevenLabs.SystemToolConfigOutput? voicemailDetection)
         {
+            this.TransferToAgent = transferToAgent;
             this.EndCall = endCall;
             this.LanguageDetection = languageDetection;
-            this.TransferToAgent = transferToAgent;
             this.TransferToNumber = transferToNumber;
             this.SkipTurn = skipTurn;
             this.PlayKeypadTouchTone = playKeypadTouchTone;

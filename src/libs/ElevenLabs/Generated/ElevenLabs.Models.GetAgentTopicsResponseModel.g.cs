@@ -30,6 +30,18 @@ namespace ElevenLabs
         public required int WindowEndUnixSecs { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
+        public bool? HasMore { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("next_cursor")]
+        public string? NextCursor { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -41,17 +53,25 @@ namespace ElevenLabs
         /// <param name="topics"></param>
         /// <param name="windowStartUnixSecs"></param>
         /// <param name="windowEndUnixSecs"></param>
+        /// <param name="hasMore">
+        /// Default Value: false
+        /// </param>
+        /// <param name="nextCursor"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetAgentTopicsResponseModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentTopicResponseModel> topics,
             int windowStartUnixSecs,
-            int windowEndUnixSecs)
+            int windowEndUnixSecs,
+            bool? hasMore,
+            string? nextCursor)
         {
             this.Topics = topics ?? throw new global::System.ArgumentNullException(nameof(topics));
             this.WindowStartUnixSecs = windowStartUnixSecs;
             this.WindowEndUnixSecs = windowEndUnixSecs;
+            this.HasMore = hasMore;
+            this.NextCursor = nextCursor;
         }
 
         /// <summary>

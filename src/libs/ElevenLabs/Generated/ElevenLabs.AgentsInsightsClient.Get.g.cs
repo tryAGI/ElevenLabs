@@ -28,14 +28,22 @@ namespace ElevenLabs
         partial void PrepareGetArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
+            int? pageSize,
+            ref global::ElevenLabs.TopicSortBy? sortBy,
+            ref global::ElevenLabs.SortDirection? sortDirection,
             int? fromUnixSecs,
-            int? toUnixSecs);
+            int? toUnixSecs,
+            ref string? cursor);
         partial void PrepareGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
+            int? pageSize,
+            global::ElevenLabs.TopicSortBy? sortBy,
+            global::ElevenLabs.SortDirection? sortDirection,
             int? fromUnixSecs,
-            int? toUnixSecs);
+            int? toUnixSecs,
+            string? cursor);
         partial void ProcessGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -52,26 +60,48 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// ID of the agent
         /// </param>
+        /// <param name="pageSize">
+        /// Number of top-level topic groups to return.
+        /// </param>
+        /// <param name="sortBy">
+        /// Topic table column to sort by.<br/>
+        /// Default Value: conversations
+        /// </param>
+        /// <param name="sortDirection">
+        /// Direction to sort topics.<br/>
+        /// Default Value: desc
+        /// </param>
         /// <param name="fromUnixSecs">
         /// Start of the window to view topics for. When set with to_unix_secs, per-day topics in the range are aggregated together.
         /// </param>
         /// <param name="toUnixSecs">
         /// End of the window to view topics for.
         /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentTopicsResponseModel> GetAsync(
             string agentId,
+            int? pageSize = default,
+            global::ElevenLabs.TopicSortBy? sortBy = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
             int? fromUnixSecs = default,
             int? toUnixSecs = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await GetAsResponseAsync(
                 agentId: agentId,
+                pageSize: pageSize,
+                sortBy: sortBy,
+                sortDirection: sortDirection,
                 fromUnixSecs: fromUnixSecs,
                 toUnixSecs: toUnixSecs,
+                cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -85,19 +115,37 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// ID of the agent
         /// </param>
+        /// <param name="pageSize">
+        /// Number of top-level topic groups to return.
+        /// </param>
+        /// <param name="sortBy">
+        /// Topic table column to sort by.<br/>
+        /// Default Value: conversations
+        /// </param>
+        /// <param name="sortDirection">
+        /// Direction to sort topics.<br/>
+        /// Default Value: desc
+        /// </param>
         /// <param name="fromUnixSecs">
         /// Start of the window to view topics for. When set with to_unix_secs, per-day topics in the range are aggregated together.
         /// </param>
         /// <param name="toUnixSecs">
         /// End of the window to view topics for.
         /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAgentTopicsResponseModel>> GetAsResponseAsync(
             string agentId,
+            int? pageSize = default,
+            global::ElevenLabs.TopicSortBy? sortBy = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
             int? fromUnixSecs = default,
             int? toUnixSecs = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -106,8 +154,12 @@ namespace ElevenLabs
             PrepareGetArguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
+                pageSize: pageSize,
+                sortBy: ref sortBy,
+                sortDirection: ref sortDirection,
                 fromUnixSecs: fromUnixSecs,
-                toUnixSecs: toUnixSecs);
+                toUnixSecs: toUnixSecs,
+                cursor: ref cursor);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -136,8 +188,12 @@ namespace ElevenLabs
                                 path: $"/v1/convai/agents/{agentId}/topics",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
+                                .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("sort_by", sortBy?.ToValueString())
+                                .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
                                 .AddOptionalParameter("from_unix_secs", fromUnixSecs?.ToString())
                                 .AddOptionalParameter("to_unix_secs", toUnixSecs?.ToString())
+                                .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -180,8 +236,12 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentId: agentId!,
+                    pageSize: pageSize,
+                    sortBy: sortBy,
+                    sortDirection: sortDirection,
                     fromUnixSecs: fromUnixSecs,
-                    toUnixSecs: toUnixSecs);
+                    toUnixSecs: toUnixSecs,
+                    cursor: cursor);
 
                 return __httpRequest;
             }
@@ -493,5 +553,58 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps GetAsync as an IAsyncEnumerable&lt;global::ElevenLabs.AgentTopicResponseModel&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="agentId">
+        /// ID of the agent
+        /// </param>
+        /// <param name="pageSize">
+        /// Number of top-level topic groups to return.
+        /// </param>
+        /// <param name="sortBy">
+        /// Topic table column to sort by.<br/>
+        /// Default Value: conversations
+        /// </param>
+        /// <param name="sortDirection">
+        /// Direction to sort topics.<br/>
+        /// Default Value: desc
+        /// </param>
+        /// <param name="fromUnixSecs">
+        /// Start of the window to view topics for. When set with to_unix_secs, per-day topics in the range are aggregated together.
+        /// </param>
+        /// <param name="toUnixSecs">
+        /// End of the window to view topics for.
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentTopicResponseModel> GetAutoPagingAsync(
+            string agentId,             int? pageSize = default,
+            global::ElevenLabs.TopicSortBy? sortBy = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
+            int? fromUnixSecs = default,
+            int? toUnixSecs = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetAgentTopicsResponseModel, global::ElevenLabs.AgentTopicResponseModel>(
+                fetchPage: (__cursor, __ct) => GetAsync(
+                    agentId: agentId,
+                    pageSize: pageSize,
+                    sortBy: sortBy,
+                    sortDirection: sortDirection,
+                    fromUnixSecs: fromUnixSecs,
+                    toUnixSecs: toUnixSecs,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.AgentTopicResponseModel>?)__response.Topics,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

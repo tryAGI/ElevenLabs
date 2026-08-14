@@ -24515,6 +24515,48 @@
             "description": "ID of the agent"
           },
           {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 100,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Number of top-level topic groups to return.",
+              "title": "Page Size"
+            },
+            "description": "Number of top-level topic groups to return."
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/TopicSortBy",
+              "description": "Topic table column to sort by.",
+              "default": "conversations"
+            },
+            "description": "Topic table column to sort by."
+          },
+          {
+            "name": "sort_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/SortDirection",
+              "description": "Direction to sort topics.",
+              "default": "desc"
+            },
+            "description": "Direction to sort topics."
+          },
+          {
             "name": "from_unix_secs",
             "in": "query",
             "required": false,
@@ -24549,6 +24591,24 @@
               "title": "To Unix Secs"
             },
             "description": "End of the window to view topics for."
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Used for fetching next page. Cursor is returned in the response.",
+              "title": "Cursor"
+            },
+            "description": "Used for fetching next page. Cursor is returned in the response."
           },
           {
             "name": "xi-api-key",
@@ -40331,27 +40391,6 @@
             ],
             "title": "Schema Overrides"
           },
-          "request_headers": {
-            "anyOf": [
-              {
-                "additionalProperties": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "$ref": "#/components/schemas/ConvAIDynamicVariable"
-                    }
-                  ]
-                },
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Request Headers"
-          },
           "response_filter_mode": {
             "anyOf": [
               {
@@ -40375,11 +40414,31 @@
               }
             ],
             "title": "Response Filters"
+          },
+          "request_headers": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ConvAIDynamicVariable"
+                    }
+                  ]
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Request Headers"
           }
         },
         "type": "object",
-        "title": "ApiIntegrationWebhookOverrides",
-        "description": "A whitelist of fields that can be overridden by users when\nconfiguring an API Integration Webhook Tool."
+        "title": "ApiIntegrationWebhookOverrides"
       },
       "ApiIntegrationWebhookToolConfig-Input": {
         "properties": {
@@ -40495,6 +40554,7 @@
                 "type": "null"
               }
             ],
+            "title": "Api Schema Overrides",
             "description": "User overrides applied on top of the base api_schema"
           }
         },
@@ -40621,6 +40681,7 @@
                 "type": "null"
               }
             ],
+            "title": "Api Schema Overrides",
             "description": "User overrides applied on top of the base api_schema"
           }
         },
@@ -50871,6 +50932,17 @@
       },
       "BuiltInTools-Input": {
         "properties": {
+          "transfer_to_agent": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SystemToolConfig-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The transfer to agent tool"
+          },
           "end_call": {
             "anyOf": [
               {
@@ -50892,17 +50964,6 @@
               }
             ],
             "description": "The language detection tool"
-          },
-          "transfer_to_agent": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/SystemToolConfig-Input"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "The transfer to agent tool"
           },
           "transfer_to_number": {
             "anyOf": [
@@ -50950,10 +51011,22 @@
           }
         },
         "type": "object",
-        "title": "BuiltInTools"
+        "title": "BuiltInTools",
+        "description": "System tools a conversational agent can be given.\n\nDeliberately not named ConversationalBuiltInTools: BuiltInToolsInput and\nBuiltInToolsOutput are part of the public API spec and the generated SDKs."
       },
       "BuiltInTools-Output": {
         "properties": {
+          "transfer_to_agent": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SystemToolConfig-Output"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The transfer to agent tool"
+          },
           "end_call": {
             "anyOf": [
               {
@@ -50975,17 +51048,6 @@
               }
             ],
             "description": "The language detection tool"
-          },
-          "transfer_to_agent": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/SystemToolConfig-Output"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "The transfer to agent tool"
           },
           "transfer_to_number": {
             "anyOf": [
@@ -51033,10 +51095,22 @@
           }
         },
         "type": "object",
-        "title": "BuiltInTools"
+        "title": "BuiltInTools",
+        "description": "System tools a conversational agent can be given.\n\nDeliberately not named ConversationalBuiltInTools: BuiltInToolsInput and\nBuiltInToolsOutput are part of the public API spec and the generated SDKs."
       },
       "BuiltInToolsWorkflowOverride-Input": {
         "properties": {
+          "transfer_to_agent": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SystemToolConfig-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The transfer to agent tool"
+          },
           "end_call": {
             "anyOf": [
               {
@@ -51058,17 +51132,6 @@
               }
             ],
             "description": "The language detection tool"
-          },
-          "transfer_to_agent": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/SystemToolConfig-Input"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "The transfer to agent tool"
           },
           "transfer_to_number": {
             "anyOf": [
@@ -51120,6 +51183,17 @@
       },
       "BuiltInToolsWorkflowOverride-Output": {
         "properties": {
+          "transfer_to_agent": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SystemToolConfig-Output"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The transfer to agent tool"
+          },
           "end_call": {
             "anyOf": [
               {
@@ -51141,17 +51215,6 @@
               }
             ],
             "description": "The language detection tool"
-          },
-          "transfer_to_agent": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/SystemToolConfig-Output"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "The transfer to agent tool"
           },
           "transfer_to_number": {
             "anyOf": [
@@ -68504,6 +68567,22 @@
           "window_end_unix_secs": {
             "type": "integer",
             "title": "Window End Unix Secs"
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More",
+            "default": false
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor"
           }
         },
         "type": "object",
@@ -95931,6 +96010,15 @@
         },
         "type": "object",
         "title": "TopicSentimentAggregate"
+      },
+      "TopicSortBy": {
+        "type": "string",
+        "enum": [
+          "conversations",
+          "sentiment",
+          "success_rate"
+        ],
+        "title": "TopicSortBy"
       },
       "TranscriptionOrderItemRequest": {
         "properties": {
