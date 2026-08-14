@@ -1561,6 +1561,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.ToolTypeFilterNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.TopicSortByJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.TopicSortByNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReasonJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReasonNullableJsonConverter),
@@ -2750,9 +2754,9 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OmitSchemaOverride))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationWebhookOverridesSchemaOverridesDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource), TypeInfoPropertyName = "ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ResponseFilterMode))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, global::ElevenLabs.ConvAIDynamicVariable>), TypeInfoPropertyName = "AnyOfStringConvAIDynamicVariable2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ConvAIDynamicVariable))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ResponseFilterMode))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ApiIntegrationWebhookToolConfigInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolInterruptionMode), TypeInfoPropertyName = "ToolInterruptionMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PreToolSpeechMode), TypeInfoPropertyName = "PreToolSpeechMode2")]
@@ -4533,6 +4537,10 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.ToolTypeFilterJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.ToolTypeFilterNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.TopicSortByJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.TopicSortByNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReasonJsonConverter),
 
@@ -7507,6 +7515,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.ToolTypeFilterNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.TopicSortByJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.TopicSortByNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReasonJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReasonNullableJsonConverter),
@@ -10479,6 +10491,10 @@ namespace ElevenLabs
             typeof(global::ElevenLabs.JsonConverters.ToolTypeFilterJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.ToolTypeFilterNullableJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.TopicSortByJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.TopicSortByNullableJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReasonJsonConverter),
 
@@ -13453,6 +13469,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.ToolTypeFilterNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.TopicSortByJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.TopicSortByNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReasonJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReasonNullableJsonConverter),
@@ -14500,6 +14520,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TopicEvaluationCriteriaAggregate))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TopicSentimentAggregate))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.TopicEvaluationCriteriaAggregate>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TopicSortBy), TypeInfoPropertyName = "TopicSortBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TransferBranchInfoDefaultingToMain))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TransferBranchInfoTrafficSplit))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.AgentTransferInput>))]
@@ -14866,7 +14887,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AgentTestEntityType?), TypeInfoPropertyName = "NullableAgentTestEntityType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AgentTransferOp?), TypeInfoPropertyName = "NullableAgentTransferOp2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AgentTransferOpDiscriminatorType?), TypeInfoPropertyName = "NullableAgentTransferOpDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Nodes?), TypeInfoPropertyName = "NullableNodes2_3")]
     internal sealed partial class SourceGenerationContextChunk4 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -16426,6 +16446,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.ToolTypeFilterNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.TopicSortByJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.TopicSortByNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReasonJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReasonNullableJsonConverter),
@@ -17356,6 +17380,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>?), TypeInfoPropertyName = "CreateMTLSAuthRequest_d3123ae541f7c02c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Nodes?), TypeInfoPropertyName = "NullableNodes2_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AgentWorkflowRequestModelNodesDiscriminatorType?), TypeInfoPropertyName = "NullableAgentWorkflowRequestModelNodesDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Nodes2?), TypeInfoPropertyName = "NullableNodes22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AgentWorkflowResponseModelNodesDiscriminatorType?), TypeInfoPropertyName = "NullableAgentWorkflowResponseModelNodesDiscriminatorType2")]
@@ -17772,6 +17797,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolResponseModelToolConfigDiscriminatorType?), TypeInfoPropertyName = "NullableToolResponseModelToolConfigDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolSortBy?), TypeInfoPropertyName = "NullableToolSortBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolTypeFilter?), TypeInfoPropertyName = "NullableToolTypeFilter2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TopicSortBy?), TypeInfoPropertyName = "NullableTopicSortBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReason?), TypeInfoPropertyName = "NullableTransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReason2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModelOutputBranchInfoVariant1DiscriminatorBranchReason?), TypeInfoPropertyName = "NullableTransferToAgentToolResultSuccessModelOutputBranchInfoVariant1DiscriminatorBranchReason2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UUITransferConfigProtocolDiscriminatorMode?), TypeInfoPropertyName = "NullableUUITransferConfigProtocolDiscriminatorMode2")]
@@ -17838,8 +17864,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateBearerAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest>?), TypeInfoPropertyName = "NullableAnyOfUpdateOAuth2ClientCredsRequestUpdateBasicAuthRequestUpdateBearerAuthRequestUpdateOAuth2JWTRequest2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateResponseUnitTestRequest, global::ElevenLabs.CreateToolCallUnitTestRequest, global::ElevenLabs.CreateSimulationTestRequest>?), TypeInfoPropertyName = "NullableAnyOfCreateResponseUnitTestRequestCreateToolCallUnitTestRequestCreateSimulationTestRequest2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateResponseUnitTestRequest, global::ElevenLabs.UpdateToolCallUnitTestRequest, global::ElevenLabs.UpdateSimulationTestRequest>?), TypeInfoPropertyName = "NullableAnyOfUpdateResponseUnitTestRequestUpdateToolCallUnitTestRequestUpdateSimulationTestRequest2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateExotelPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2>?), TypeInfoPropertyName = "NullableAnyOfCreateTwilioPhoneNumberRequestCreateExotelPhoneNumberRequestCreateSIPTrunkPhoneNumberRequestV22")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CreateEnvironmentVariableRequest?), TypeInfoPropertyName = "NullableCreateEnvironmentVariableRequest2")]
     internal sealed partial class SourceGenerationContextChunk5 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -19399,6 +19423,10 @@ namespace ElevenLabs
 
             typeof(global::ElevenLabs.JsonConverters.ToolTypeFilterNullableJsonConverter),
 
+            typeof(global::ElevenLabs.JsonConverters.TopicSortByJsonConverter),
+
+            typeof(global::ElevenLabs.JsonConverters.TopicSortByNullableJsonConverter),
+
             typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReasonJsonConverter),
 
             typeof(global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReasonNullableJsonConverter),
@@ -20329,6 +20357,8 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>?), TypeInfoPropertyName = "CreateMTLSAuthRequest_d3123ae541f7c02c")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput_1fb871508f067193")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>), TypeInfoPropertyName = "ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput_ab769caeb7eb4850")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateExotelPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2>?), TypeInfoPropertyName = "NullableAnyOfCreateTwilioPhoneNumberRequestCreateExotelPhoneNumberRequestCreateSIPTrunkPhoneNumberRequestV22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CreateEnvironmentVariableRequest?), TypeInfoPropertyName = "NullableCreateEnvironmentVariableRequest2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminatorType?), TypeInfoPropertyName = "NullableCreateEnvironmentVariableRequestDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToSpeechFullOutputFormat?), TypeInfoPropertyName = "NullableTextToSpeechFullOutputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToSpeechFullWithTimestampsOutputFormat?), TypeInfoPropertyName = "NullableTextToSpeechFullWithTimestampsOutputFormat2")]
@@ -21500,6 +21530,8 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ToolTypeNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ToolTypeFilterJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ToolTypeFilterNullableJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.TopicSortByJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.TopicSortByNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReasonJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReasonNullableJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.TransferToAgentToolResultSuccessModelOutputBranchInfoVariant1DiscriminatorBranchReasonJsonConverter());
