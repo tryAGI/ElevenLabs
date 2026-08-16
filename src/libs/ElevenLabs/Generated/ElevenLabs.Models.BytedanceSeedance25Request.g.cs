@@ -5,9 +5,9 @@ namespace ElevenLabs
 {
     /// <summary>
     /// Request body for the ByteDance Seedance 2.5 video model.<br/>
-    /// Diverges from the Seedance 2.0 public shape: 480p/720p only, durations up<br/>
-    /// to 30s, larger reference caps, audio-only input allowed, and no ``seed``<br/>
-    /// (Ark tolerates it but does not honour it).
+    /// Diverges from the Seedance 2.0 public shape: no 4K, durations up to 30s,<br/>
+    /// larger reference caps, audio-only input allowed, and no ``seed`` (Ark<br/>
+    /// tolerates it but does not honour it).
     /// </summary>
     public sealed partial class BytedanceSeedance25Request
     {
