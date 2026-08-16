@@ -51341,7 +51341,8 @@
             "type": "string",
             "enum": [
               "480p",
-              "720p"
+              "720p",
+              "1080p"
             ],
             "title": "Resolution",
             "description": "The resolution of the output video.",
@@ -51418,7 +51419,7 @@
           "prompt"
         ],
         "title": "BytedanceSeedance25Request",
-        "description": "Request body for the ByteDance Seedance 2.5 video model.\n\nDiverges from the Seedance 2.0 public shape: 480p/720p only, durations up\nto 30s, larger reference caps, audio-only input allowed, and no ``seed``\n(Ark tolerates it but does not honour it)."
+        "description": "Request body for the ByteDance Seedance 2.5 video model.\n\nDiverges from the Seedance 2.0 public shape: no 4K, durations up to 30s,\nlarger reference caps, audio-only input allowed, and no ``seed`` (Ark\ntolerates it but does not honour it)."
       },
       "BytedanceSeedance2FastRequest": {
         "properties": {
