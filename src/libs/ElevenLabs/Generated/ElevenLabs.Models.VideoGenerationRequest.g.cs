@@ -126,7 +126,9 @@ namespace ElevenLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'Veo31FastGenerate001' but the value was {ToString()}.");
 
         /// <summary>
-        /// Request body for the ByteDance Seedance 2.0 video model.
+        /// Request body for the ByteDance Seedance 2.0 video model.<br/>
+        /// ByteDance models are disabled by default and require explicit approval<br/>
+        /// before use. Contact support to request access.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BytedanceSeedance2Request? BytedanceSeedanceV2 { get; init; }
@@ -163,7 +165,9 @@ namespace ElevenLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'BytedanceSeedanceV2' but the value was {ToString()}.");
 
         /// <summary>
-        /// Request body for the ByteDance Seedance 2.0 Fast video model.
+        /// Request body for the ByteDance Seedance 2.0 Fast video model.<br/>
+        /// ByteDance models are disabled by default and require explicit approval<br/>
+        /// before use. Contact support to request access.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BytedanceSeedance2FastRequest? BytedanceSeedanceV2Fast { get; init; }
@@ -200,7 +204,9 @@ namespace ElevenLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'BytedanceSeedanceV2Fast' but the value was {ToString()}.");
 
         /// <summary>
-        /// Request body for the ByteDance Seedance 2.0 Mini video model.
+        /// Request body for the ByteDance Seedance 2.0 Mini video model.<br/>
+        /// ByteDance models are disabled by default and require explicit approval<br/>
+        /// before use. Contact support to request access.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BytedanceSeedance2MiniRequest? BytedanceSeedanceV2Mini { get; init; }
@@ -240,7 +246,9 @@ namespace ElevenLabs
         /// Request body for the ByteDance Seedance 2.5 video model.<br/>
         /// Diverges from the Seedance 2.0 public shape: no 4K, durations up to 30s,<br/>
         /// larger reference caps, audio-only input allowed, and no ``seed`` (Ark<br/>
-        /// tolerates it but does not honour it).
+        /// tolerates it but does not honour it).<br/>
+        /// ByteDance models are disabled by default and require explicit approval<br/>
+        /// before use. Contact support to request access.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BytedanceSeedance25Request? BytedanceSeedanceV25 { get; init; }
