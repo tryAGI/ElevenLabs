@@ -35,6 +35,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationInitiationSource? ConversationInitiationSource { get; set; }
 
         /// <summary>
+        /// The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("environment")]
+        public string? Environment { get; set; }
+
+        /// <summary>
         /// Default Value: simulation
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
@@ -117,6 +123,9 @@ namespace ElevenLabs
         /// <param name="conversationInitiationSource">
         /// Simulate the test as if the conversation originated from this channel.
         /// </param>
+        /// <param name="environment">
+        /// The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set.
+        /// </param>
         /// <param name="type">
         /// Default Value: simulation
         /// </param>
@@ -155,6 +164,7 @@ namespace ElevenLabs
             object? dynamicVariables,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput>? chatHistory,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
+            string? environment,
             string? type,
             global::System.Collections.Generic.IList<string>? successConditions,
             string? simulationScenario,
@@ -169,6 +179,7 @@ namespace ElevenLabs
             this.DynamicVariables = dynamicVariables;
             this.ChatHistory = chatHistory;
             this.ConversationInitiationSource = conversationInitiationSource;
+            this.Environment = environment;
             this.Type = type;
             this.SuccessConditions = successConditions;
             this.SimulationScenario = simulationScenario;
