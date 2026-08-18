@@ -45,6 +45,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful,
             global::System.Collections.Generic.IList<string>? toolNamesErrored,
+            ref bool? includeInvalidToolCalls,
             global::System.Collections.Generic.IList<string>? mainLanguages,
             global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses,
             global::System.Collections.Generic.IList<string>? terminationReasons,
@@ -79,6 +80,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful,
             global::System.Collections.Generic.IList<string>? toolNamesErrored,
+            bool? includeInvalidToolCalls,
             global::System.Collections.Generic.IList<string>? mainLanguages,
             global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses,
             global::System.Collections.Generic.IList<string>? terminationReasons,
@@ -159,6 +161,10 @@ namespace ElevenLabs
         /// <param name="toolNamesErrored">
         /// Filter conversations by tool names that had errored calls.
         /// </param>
+        /// <param name="includeInvalidToolCalls">
+        /// Also match tool calls that never ran.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
         /// </param>
@@ -219,6 +225,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
+            bool? includeInvalidToolCalls = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::System.Collections.Generic.IList<string>? terminationReasons = default,
@@ -254,6 +261,7 @@ namespace ElevenLabs
                 toolNames: toolNames,
                 toolNamesSuccessful: toolNamesSuccessful,
                 toolNamesErrored: toolNamesErrored,
+                includeInvalidToolCalls: includeInvalidToolCalls,
                 mainLanguages: mainLanguages,
                 excludeStatuses: excludeStatuses,
                 terminationReasons: terminationReasons,
@@ -331,6 +339,10 @@ namespace ElevenLabs
         /// <param name="toolNamesErrored">
         /// Filter conversations by tool names that had errored calls.
         /// </param>
+        /// <param name="includeInvalidToolCalls">
+        /// Also match tool calls that never ran.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
         /// </param>
@@ -391,6 +403,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
+            bool? includeInvalidToolCalls = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::System.Collections.Generic.IList<string>? terminationReasons = default,
@@ -429,6 +442,7 @@ namespace ElevenLabs
                 toolNames: toolNames,
                 toolNamesSuccessful: toolNamesSuccessful,
                 toolNamesErrored: toolNamesErrored,
+                includeInvalidToolCalls: ref includeInvalidToolCalls,
                 mainLanguages: mainLanguages,
                 excludeStatuses: excludeStatuses,
                 terminationReasons: terminationReasons,
@@ -488,6 +502,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("tool_names", toolNames?.ToString())
                                 .AddOptionalParameter("tool_names_successful", toolNamesSuccessful?.ToString())
                                 .AddOptionalParameter("tool_names_errored", toolNamesErrored?.ToString())
+                                .AddOptionalParameter("include_invalid_tool_calls", includeInvalidToolCalls?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("main_languages", mainLanguages?.ToString())
                                 .AddOptionalParameter("exclude_statuses", excludeStatuses?.ToString())
                                 .AddOptionalParameter("termination_reasons", terminationReasons?.ToString())
@@ -560,6 +575,7 @@ namespace ElevenLabs
                     toolNames: toolNames,
                     toolNamesSuccessful: toolNamesSuccessful,
                     toolNamesErrored: toolNamesErrored,
+                    includeInvalidToolCalls: includeInvalidToolCalls,
                     mainLanguages: mainLanguages,
                     excludeStatuses: excludeStatuses,
                     terminationReasons: terminationReasons,
@@ -942,6 +958,10 @@ namespace ElevenLabs
         /// <param name="toolNamesErrored">
         /// Filter conversations by tool names that had errored calls.
         /// </param>
+        /// <param name="includeInvalidToolCalls">
+        /// Also match tool calls that never ran.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
         /// </param>
@@ -997,6 +1017,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
+            bool? includeInvalidToolCalls = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
             global::System.Collections.Generic.IList<string>? terminationReasons = default,
@@ -1032,6 +1053,7 @@ namespace ElevenLabs
                     toolNames: toolNames,
                     toolNamesSuccessful: toolNamesSuccessful,
                     toolNamesErrored: toolNamesErrored,
+                    includeInvalidToolCalls: includeInvalidToolCalls,
                     mainLanguages: mainLanguages,
                     excludeStatuses: excludeStatuses,
                     terminationReasons: terminationReasons,
