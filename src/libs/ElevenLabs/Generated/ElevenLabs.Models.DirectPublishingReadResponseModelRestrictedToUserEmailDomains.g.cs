@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The API key of the user.
+    /// 
     /// </summary>
-    public sealed partial class UserResponseModelXiApiKey
+    public sealed partial class DirectPublishingReadResponseModelRestrictedToUserEmailDomains
     {
 
         /// <summary>

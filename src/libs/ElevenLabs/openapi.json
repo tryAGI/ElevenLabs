@@ -63524,6 +63524,20 @@
             "type": "boolean",
             "title": "Is Voice Changer On",
             "default": false
+          },
+          "restricted_to_user_email_domains": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Restricted To User Email Domains"
           }
         },
         "type": "object",
@@ -88405,6 +88419,32 @@
           ]
         }
       },
+      "ResponseConversationErrorType": {
+        "type": "string",
+        "enum": [
+          "system_error",
+          "call_initialization_error",
+          "line_busy",
+          "no_answer",
+          "call_rejected",
+          "blocked_by_user",
+          "agent_configuration_error",
+          "invalid_client_request",
+          "permission_error",
+          "entitlement_exceeded",
+          "client_disconnected",
+          "llm_error",
+          "speech_error",
+          "tool_error",
+          "integration_error",
+          "guardrail_triggered",
+          "safety_violation",
+          "max_duration_exceeded",
+          "post_processing_error"
+        ],
+        "title": "ResponseConversationErrorType",
+        "description": "User-facing error types exposed on the public API."
+      },
       "ResponseFilter": {
         "properties": {
           "mode": {
@@ -99813,18 +99853,6 @@
             "description": "Whether the user is new. This field is deprecated and will be removed in the future. Use 'created_at' instead.",
             "deprecated": true
           },
-          "xi_api_key": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Xi Api Key",
-            "description": "The API key of the user."
-          },
           "can_use_delayed_payment_methods": {
             "type": "boolean",
             "title": "Can Use Delayed Payment Methods",
@@ -99961,8 +99989,7 @@
             "voice_limit": 120,
             "voice_slots_used": 1
           },
-          "user_id": "1234567890",
-          "xi_api_key": "8so27l7327189x0h939ekx293380l920"
+          "user_id": "1234567890"
         }
       },
       "UserTypeId": {
