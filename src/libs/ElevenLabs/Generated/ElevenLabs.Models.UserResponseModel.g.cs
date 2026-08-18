@@ -6,7 +6,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"can_use_delayed_payment_methods":false,"created_at":1753999199,"first_name":"John","is_api_key_hashed":false,"is_new_user":false,"is_onboarding_checklist_completed":true,"is_onboarding_completed":true,"seat_type":"workspace_member","show_compliance_terms":false,"subscription":{"allowed_to_extend_character_limit":false,"billing_period":"monthly_period","can_extend_character_limit":false,"can_extend_voice_limit":false,"can_use_instant_voice_cloning":true,"can_use_professional_voice_cloning":true,"character_count":17231,"character_limit":100000,"character_refresh_period":"monthly_period","currency":"usd","current_overage":{"amount":"0","currency":"usd"},"max_character_limit_extension":10000,"max_credit_limit_extension":10000,"max_voice_add_edits":230,"next_character_count_reset_unix":1738356858,"professional_voice_limit":1,"professional_voice_slots_used":0,"professional_voice_slots_used_in_workspace":0,"status":"free","tier":"trial","voice_add_edit_counter":212,"voice_limit":120,"voice_slots_used":1},"user_id":"1234567890","xi_api_key":"8so27l7327189x0h939ekx293380l920"}
+    /// Example: {"can_use_delayed_payment_methods":false,"created_at":1753999199,"first_name":"John","is_api_key_hashed":false,"is_new_user":false,"is_onboarding_checklist_completed":true,"is_onboarding_completed":true,"seat_type":"workspace_member","show_compliance_terms":false,"subscription":{"allowed_to_extend_character_limit":false,"billing_period":"monthly_period","can_extend_character_limit":false,"can_extend_voice_limit":false,"can_use_instant_voice_cloning":true,"can_use_professional_voice_cloning":true,"character_count":17231,"character_limit":100000,"character_refresh_period":"monthly_period","currency":"usd","current_overage":{"amount":"0","currency":"usd"},"max_character_limit_extension":10000,"max_credit_limit_extension":10000,"max_voice_add_edits":230,"next_character_count_reset_unix":1738356858,"professional_voice_limit":1,"professional_voice_slots_used":0,"professional_voice_slots_used_in_workspace":0,"status":"free","tier":"trial","voice_add_edit_counter":212,"voice_limit":120,"voice_slots_used":1},"user_id":"1234567890"}
     /// </summary>
     public sealed partial class UserResponseModel
     {
@@ -32,12 +32,6 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("is_new_user")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool IsNewUser { get; set; }
-
-        /// <summary>
-        /// The API key of the user.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("xi_api_key")]
-        public string? XiApiKey { get; set; }
 
         /// <summary>
         /// This field is deprecated and will be removed in a future major version. Instead use subscription.trust_on_invoice_creation.
@@ -148,9 +142,6 @@ namespace ElevenLabs
         /// <param name="seatType">
         /// The seat type of the user.
         /// </param>
-        /// <param name="xiApiKey">
-        /// The API key of the user.
-        /// </param>
         /// <param name="showComplianceTerms">
         /// Whether to show compliance terms (ToS, Privacy Policy, biometric consent) during onboarding. Set for users signing up from the marketing site.<br/>
         /// Default Value: false
@@ -183,7 +174,6 @@ namespace ElevenLabs
             bool isOnboardingChecklistCompleted,
             global::System.DateTimeOffset createdAt,
             global::ElevenLabs.SeatType seatType,
-            string? xiApiKey,
             bool? showComplianceTerms,
             string? firstName,
             bool? isApiKeyHashed,
@@ -194,7 +184,6 @@ namespace ElevenLabs
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Subscription = subscription ?? throw new global::System.ArgumentNullException(nameof(subscription));
             this.IsNewUser = isNewUser;
-            this.XiApiKey = xiApiKey;
             this.CanUseDelayedPaymentMethods = canUseDelayedPaymentMethods;
             this.IsOnboardingCompleted = isOnboardingCompleted;
             this.IsOnboardingChecklistCompleted = isOnboardingChecklistCompleted;
