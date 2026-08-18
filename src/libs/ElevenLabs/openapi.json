@@ -39739,6 +39739,34 @@
             "title": "Threshold",
             "description": "Failure rate threshold at which this monitor can notify."
           },
+          "relative_increase_threshold": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 10.0,
+                "minimum": 0.05
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Relative Increase Threshold",
+            "description": "Relative increase over the trailing baseline at which this monitor can notify (0.2 = 20% above baseline)."
+          },
+          "suspect_trigger_threshold": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 10.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Suspect Trigger Threshold",
+            "description": "How many suspect buckets within the lookback window are required to promote a suspect to an alert."
+          },
           "auto_resolve_after_inactive_minutes": {
             "anyOf": [
               {
@@ -51419,7 +51447,7 @@
           "prompt"
         ],
         "title": "BytedanceSeedance25Request",
-        "description": "Request body for the ByteDance Seedance 2.5 video model.\n\nDiverges from the Seedance 2.0 public shape: no 4K, durations up to 30s,\nlarger reference caps, audio-only input allowed, and no ``seed`` (Ark\ntolerates it but does not honour it)."
+        "description": "Request body for the ByteDance Seedance 2.5 video model.\n\nDiverges from the Seedance 2.0 public shape: no 4K, durations up to 30s,\nlarger reference caps, audio-only input allowed, and no ``seed`` (Ark\ntolerates it but does not honour it).\n\nByteDance models are disabled by default and require explicit approval\nbefore use. Contact support to request access."
       },
       "BytedanceSeedance2FastRequest": {
         "properties": {
@@ -51567,7 +51595,7 @@
           "model_id"
         ],
         "title": "BytedanceSeedance2FastRequest",
-        "description": "Request body for the ByteDance Seedance 2.0 Fast video model."
+        "description": "Request body for the ByteDance Seedance 2.0 Fast video model.\n\nByteDance models are disabled by default and require explicit approval\nbefore use. Contact support to request access."
       },
       "BytedanceSeedance2MiniRequest": {
         "properties": {
@@ -51715,7 +51743,7 @@
           "model_id"
         ],
         "title": "BytedanceSeedance2MiniRequest",
-        "description": "Request body for the ByteDance Seedance 2.0 Mini video model."
+        "description": "Request body for the ByteDance Seedance 2.0 Mini video model.\n\nByteDance models are disabled by default and require explicit approval\nbefore use. Contact support to request access."
       },
       "BytedanceSeedance2Request": {
         "properties": {
@@ -51865,7 +51893,7 @@
           "model_id"
         ],
         "title": "BytedanceSeedance2Request",
-        "description": "Request body for the ByteDance Seedance 2.0 video model."
+        "description": "Request body for the ByteDance Seedance 2.0 video model.\n\nByteDance models are disabled by default and require explicit approval\nbefore use. Contact support to request access."
       },
       "BytedanceSeedream5LiteRequest": {
         "properties": {
@@ -51958,7 +51986,7 @@
           "model_id"
         ],
         "title": "BytedanceSeedream5LiteRequest",
-        "description": "Request body for the ByteDance Seedream 5.0 Lite image model."
+        "description": "Request body for the ByteDance Seedream 5.0 Lite image model.\n\nByteDance models are disabled by default and require explicit approval\nbefore use. Contact support to request access."
       },
       "BytedanceSeedream5ProRequest": {
         "properties": {
@@ -52051,7 +52079,7 @@
           "model_id"
         ],
         "title": "BytedanceSeedream5ProRequest",
-        "description": "Request body for the ByteDance Seedream 5.0 Pro image model."
+        "description": "Request body for the ByteDance Seedream 5.0 Pro image model.\n\nByteDance models are disabled by default and require explicit approval\nbefore use. Contact support to request access."
       },
       "CancelCalendarEventParams": {
         "properties": {
@@ -60589,6 +60617,18 @@
             ],
             "description": "Simulate the test as if the conversation originated from this channel."
           },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set."
+          },
           "type": {
             "type": "string",
             "const": "llm",
@@ -60793,6 +60833,18 @@
               }
             ],
             "description": "Simulate the test as if the conversation originated from this channel."
+          },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set."
           },
           "type": {
             "type": "string",
@@ -61055,6 +61107,18 @@
               }
             ],
             "description": "Simulate the test as if the conversation originated from this channel."
+          },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set."
           },
           "type": {
             "type": "string",
@@ -71161,6 +71225,18 @@
             ],
             "description": "Simulate the test as if the conversation originated from this channel."
           },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set."
+          },
           "type": {
             "type": "string",
             "const": "llm",
@@ -71365,6 +71441,18 @@
               }
             ],
             "description": "Simulate the test as if the conversation originated from this channel."
+          },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set."
           },
           "type": {
             "type": "string",
@@ -71755,6 +71843,18 @@
               }
             ],
             "description": "Simulate the test as if the conversation originated from this channel."
+          },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set."
           },
           "type": {
             "type": "string",
@@ -88289,6 +88389,18 @@
             ],
             "description": "Simulate the test as if the conversation originated from this channel."
           },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set."
+          },
           "type": {
             "type": "string",
             "const": "llm",
@@ -90486,6 +90598,18 @@
               }
             ],
             "description": "Simulate the test as if the conversation originated from this channel."
+          },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set."
           },
           "type": {
             "type": "string",
@@ -95438,6 +95562,18 @@
             ],
             "description": "Simulate the test as if the conversation originated from this channel."
           },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set."
+          },
           "type": {
             "type": "string",
             "const": "tool",
@@ -98580,6 +98716,18 @@
             ],
             "description": "Simulate the test as if the conversation originated from this channel."
           },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set."
+          },
           "type": {
             "type": "string",
             "const": "llm",
@@ -98683,6 +98831,18 @@
               }
             ],
             "description": "Simulate the test as if the conversation originated from this channel."
+          },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set."
           },
           "type": {
             "type": "string",
@@ -98982,6 +99142,18 @@
               }
             ],
             "description": "Simulate the test as if the conversation originated from this channel."
+          },
+          "environment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment",
+            "description": "The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set."
           },
           "type": {
             "type": "string",

@@ -4,7 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Request body for the ByteDance Seedream 5.0 Lite image model.
+    /// Request body for the ByteDance Seedream 5.0 Lite image model.<br/>
+    /// ByteDance models are disabled by default and require explicit approval<br/>
+    /// before use. Contact support to request access.
     /// </summary>
     public sealed partial class BytedanceSeedream5LiteRequest
     {
