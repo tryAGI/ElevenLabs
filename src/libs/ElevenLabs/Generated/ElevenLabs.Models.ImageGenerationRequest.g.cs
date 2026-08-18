@@ -274,9 +274,7 @@ namespace ElevenLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'Gemini31FlashLiteImage' but the value was {ToString()}.");
 
         /// <summary>
-        /// Request body for the ByteDance Seedream 5.0 Lite image model.<br/>
-        /// ByteDance models are disabled by default and require explicit approval<br/>
-        /// before use. Contact support to request access.
+        /// Request body for the ByteDance Seedream 5.0 Lite image model.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BytedanceSeedream5LiteRequest? BytedanceSeedream5Lite { get; init; }
@@ -313,9 +311,7 @@ namespace ElevenLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'BytedanceSeedream5Lite' but the value was {ToString()}.");
 
         /// <summary>
-        /// Request body for the ByteDance Seedream 5.0 Pro image model.<br/>
-        /// ByteDance models are disabled by default and require explicit approval<br/>
-        /// before use. Contact support to request access.
+        /// Request body for the ByteDance Seedream 5.0 Pro image model.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BytedanceSeedream5ProRequest? BytedanceSeedream5Pro { get; init; }
