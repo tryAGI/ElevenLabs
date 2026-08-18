@@ -49,6 +49,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful,
             global::System.Collections.Generic.IList<string>? toolNamesErrored,
+            ref bool? includeInvalidToolCalls,
             global::System.Collections.Generic.IList<string>? mainLanguages,
             ref int? pageSize,
             ref global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode,
@@ -89,6 +90,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful,
             global::System.Collections.Generic.IList<string>? toolNamesErrored,
+            bool? includeInvalidToolCalls,
             global::System.Collections.Generic.IList<string>? mainLanguages,
             int? pageSize,
             global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode,
@@ -179,6 +181,10 @@ namespace ElevenLabs
         /// <param name="toolNamesErrored">
         /// Filter conversations by tool names that had errored calls.
         /// </param>
+        /// <param name="includeInvalidToolCalls">
+        /// Also match tool calls that never ran.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
         /// </param>
@@ -252,6 +258,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
+            bool? includeInvalidToolCalls = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
             int? pageSize = default,
             global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode = default,
@@ -293,6 +300,7 @@ namespace ElevenLabs
                 toolNames: toolNames,
                 toolNamesSuccessful: toolNamesSuccessful,
                 toolNamesErrored: toolNamesErrored,
+                includeInvalidToolCalls: includeInvalidToolCalls,
                 mainLanguages: mainLanguages,
                 pageSize: pageSize,
                 summaryMode: summaryMode,
@@ -380,6 +388,10 @@ namespace ElevenLabs
         /// <param name="toolNamesErrored">
         /// Filter conversations by tool names that had errored calls.
         /// </param>
+        /// <param name="includeInvalidToolCalls">
+        /// Also match tool calls that never ran.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
         /// </param>
@@ -453,6 +465,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
+            bool? includeInvalidToolCalls = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
             int? pageSize = default,
             global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode = default,
@@ -497,6 +510,7 @@ namespace ElevenLabs
                 toolNames: toolNames,
                 toolNamesSuccessful: toolNamesSuccessful,
                 toolNamesErrored: toolNamesErrored,
+                includeInvalidToolCalls: ref includeInvalidToolCalls,
                 mainLanguages: mainLanguages,
                 pageSize: ref pageSize,
                 summaryMode: ref summaryMode,
@@ -562,6 +576,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("tool_names", toolNames?.ToString())
                                 .AddOptionalParameter("tool_names_successful", toolNamesSuccessful?.ToString())
                                 .AddOptionalParameter("tool_names_errored", toolNamesErrored?.ToString())
+                                .AddOptionalParameter("include_invalid_tool_calls", includeInvalidToolCalls?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("main_languages", mainLanguages?.ToString())
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("summary_mode", summaryMode?.ToValueString())
@@ -640,6 +655,7 @@ namespace ElevenLabs
                     toolNames: toolNames,
                     toolNamesSuccessful: toolNamesSuccessful,
                     toolNamesErrored: toolNamesErrored,
+                    includeInvalidToolCalls: includeInvalidToolCalls,
                     mainLanguages: mainLanguages,
                     pageSize: pageSize,
                     summaryMode: summaryMode,
@@ -1029,6 +1045,10 @@ namespace ElevenLabs
         /// <param name="toolNamesErrored">
         /// Filter conversations by tool names that had errored calls.
         /// </param>
+        /// <param name="includeInvalidToolCalls">
+        /// Also match tool calls that never ran.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
         /// </param>
@@ -1100,6 +1120,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
+            bool? includeInvalidToolCalls = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
             int? pageSize = default,
             global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode = default,
@@ -1142,6 +1163,7 @@ namespace ElevenLabs
                     toolNames: toolNames,
                     toolNamesSuccessful: toolNamesSuccessful,
                     toolNamesErrored: toolNamesErrored,
+                    includeInvalidToolCalls: includeInvalidToolCalls,
                     mainLanguages: mainLanguages,
                     pageSize: pageSize,
                     summaryMode: summaryMode,

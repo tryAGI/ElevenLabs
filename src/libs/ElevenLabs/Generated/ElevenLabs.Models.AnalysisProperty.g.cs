@@ -54,8 +54,8 @@ namespace ElevenLabs
         /// A constant value to use for this property. Mutually exclusive with description, dynamic_variable, is_system_provided, and is_omitted.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("constant_value")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?>))]
-        public global::ElevenLabs.AnyOf<string, int?, double?, bool?>? ConstantValue { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?, object>))]
+        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, object>? ConstantValue { get; set; }
 
         /// <summary>
         /// If true, this parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, is_system_provided, and constant_value.<br/>
@@ -116,7 +116,7 @@ namespace ElevenLabs
             bool? isSystemProvided,
             string? dynamicVariable,
             string? allowedValuesDynamicVariable,
-            global::ElevenLabs.AnyOf<string, int?, double?, bool?>? constantValue,
+            global::ElevenLabs.AnyOf<string, int?, double?, bool?, object>? constantValue,
             bool? isOmitted,
             global::ElevenLabs.Llm? llm)
         {

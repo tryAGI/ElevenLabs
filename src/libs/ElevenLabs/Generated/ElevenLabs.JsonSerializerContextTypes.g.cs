@@ -988,7 +988,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, int?, double?, bool?>? Type240 { get; set; }
+        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, object>? Type240 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -2872,7 +2872,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.Collections.Generic.IList<object>, object>? Type711 { get; set; }
+        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.Collections.Generic.IList<object>, object, object>? Type711 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -9817,7 +9817,7 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.Collections.Generic.List<object>, object>? ListType63 { get; set; }
+        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.Collections.Generic.List<object>, object, object>? ListType63 { get; set; }
         /// <summary>
         /// 
         /// </summary>

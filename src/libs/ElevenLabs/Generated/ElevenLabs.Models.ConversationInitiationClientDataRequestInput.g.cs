@@ -52,6 +52,12 @@ namespace ElevenLabs
         public string? StartingWorkflowNodeId { get; set; }
 
         /// <summary>
+        /// If set, only these procedures are available to the starting agent. Each ID must be attached to that agent; unknown IDs fail conversation start. An empty list disables all of that agent's procedures. Not applied after an agent transfer. Requires enable_procedure_ids_from_client.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("procedure_ids")]
+        public global::System.Collections.Generic.IList<string>? ProcedureIds { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
@@ -85,6 +91,9 @@ namespace ElevenLabs
         /// <param name="startingWorkflowNodeId">
         /// If set, start the workflow at this node id instead of the default entry
         /// </param>
+        /// <param name="procedureIds">
+        /// If set, only these procedures are available to the starting agent. Each ID must be attached to that agent; unknown IDs fail conversation start. An empty list disables all of that agent's procedures. Not applied after an agent transfer. Requires enable_procedure_ids_from_client.
+        /// </param>
         /// <param name="dynamicVariables"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -97,6 +106,7 @@ namespace ElevenLabs
             string? branchId,
             string? environment,
             string? startingWorkflowNodeId,
+            global::System.Collections.Generic.IList<string>? procedureIds,
             object? dynamicVariables)
         {
             this.ConversationConfigOverride = conversationConfigOverride;
@@ -106,6 +116,7 @@ namespace ElevenLabs
             this.BranchId = branchId;
             this.Environment = environment;
             this.StartingWorkflowNodeId = startingWorkflowNodeId;
+            this.ProcedureIds = procedureIds;
             this.DynamicVariables = dynamicVariables;
         }
 

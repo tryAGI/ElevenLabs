@@ -18233,6 +18233,18 @@
             "description": "Filter conversations by tool names that had errored calls."
           },
           {
+            "name": "include_invalid_tool_calls",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "Also match tool calls that never ran.",
+              "default": false,
+              "title": "Include Invalid Tool Calls"
+            },
+            "description": "Also match tool calls that never ran."
+          },
+          {
             "name": "main_languages",
             "in": "query",
             "required": false,
@@ -19740,6 +19752,18 @@
               "title": "Tool Names Errored"
             },
             "description": "Filter conversations by tool names that had errored calls."
+          },
+          {
+            "name": "include_invalid_tool_calls",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "Also match tool calls that never ran.",
+              "default": false,
+              "title": "Include Invalid Tool Calls"
+            },
+            "description": "Also match tool calls that never ran."
           },
           {
             "name": "main_languages",
@@ -40053,6 +40077,9 @@
               },
               {
                 "type": "boolean"
+              },
+              {
+                "type": "null"
               }
             ],
             "title": "Constant Value",
@@ -54273,6 +54300,9 @@
               {
                 "additionalProperties": true,
                 "type": "object"
+              },
+              {
+                "type": "null"
               }
             ],
             "title": "Constant Value",
@@ -58147,6 +58177,12 @@
             "title": "Enable Starting Workflow Node Id From Client",
             "description": "Whether clients may pass starting_workflow_node_id in initiation client data; if false, sending it fails conversation start.",
             "default": false
+          },
+          "enable_procedure_ids_from_client": {
+            "type": "boolean",
+            "title": "Enable Procedure Ids From Client",
+            "description": "Whether clients may pass procedure_ids in initiation client data to select which of the agent's procedures are available for the conversation; if false, sending it fails conversation start.",
+            "default": false
           }
         },
         "type": "object",
@@ -58154,6 +58190,7 @@
         "example": {
           "custom_llm_extra_body": true,
           "enable_conversation_initiation_client_data_from_webhook": true,
+          "enable_procedure_ids_from_client": true,
           "enable_starting_workflow_node_id_from_client": true
         }
       },
@@ -58180,6 +58217,12 @@
             "title": "Enable Starting Workflow Node Id From Client",
             "description": "Whether clients may pass starting_workflow_node_id in initiation client data; if false, sending it fails conversation start.",
             "default": false
+          },
+          "enable_procedure_ids_from_client": {
+            "type": "boolean",
+            "title": "Enable Procedure Ids From Client",
+            "description": "Whether clients may pass procedure_ids in initiation client data to select which of the agent's procedures are available for the conversation; if false, sending it fails conversation start.",
+            "default": false
           }
         },
         "type": "object",
@@ -58187,6 +58230,7 @@
         "example": {
           "custom_llm_extra_body": true,
           "enable_conversation_initiation_client_data_from_webhook": true,
+          "enable_procedure_ids_from_client": true,
           "enable_starting_workflow_node_id_from_client": true
         }
       },
@@ -58250,6 +58294,21 @@
             ],
             "title": "Starting Workflow Node Id",
             "description": "If set, start the workflow at this node id instead of the default entry"
+          },
+          "procedure_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Procedure Ids",
+            "description": "If set, only these procedures are available to the starting agent. Each ID must be attached to that agent; unknown IDs fail conversation start. An empty list disables all of that agent's procedures. Not applied after an agent transfer. Requires enable_procedure_ids_from_client."
           },
           "dynamic_variables": {
             "additionalProperties": true,
@@ -58336,6 +58395,21 @@
             "title": "Starting Workflow Node Id",
             "description": "If set, start the workflow at this node id instead of the default entry"
           },
+          "procedure_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Procedure Ids",
+            "description": "If set, only these procedures are available to the starting agent. Each ID must be attached to that agent; unknown IDs fail conversation start. An empty list disables all of that agent's procedures. Not applied after an agent transfer. Requires enable_procedure_ids_from_client."
+          },
           "dynamic_variables": {
             "additionalProperties": true,
             "type": "object",
@@ -58405,6 +58479,21 @@
             ],
             "title": "Starting Workflow Node Id",
             "description": "If set, start the workflow at this node id instead of the default entry"
+          },
+          "procedure_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Procedure Ids",
+            "description": "If set, only these procedures are available to the starting agent. Each ID must be attached to that agent; unknown IDs fail conversation start. An empty list disables all of that agent's procedures. Not applied after an agent transfer. Requires enable_procedure_ids_from_client."
           },
           "dynamic_variables": {
             "additionalProperties": true,
@@ -75889,6 +75978,9 @@
               },
               {
                 "type": "boolean"
+              },
+              {
+                "type": "null"
               }
             ],
             "title": "Constant Value",
