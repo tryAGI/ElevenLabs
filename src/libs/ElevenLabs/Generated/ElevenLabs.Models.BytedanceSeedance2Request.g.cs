@@ -4,9 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Request body for the ByteDance Seedance 2.0 video model.<br/>
-    /// ByteDance models are disabled by default and require explicit approval<br/>
-    /// before use. Contact support to request access.
+    /// Request body for the ByteDance Seedance 2.0 video model.
     /// </summary>
     public sealed partial class BytedanceSeedance2Request
     {
