@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// A mapping of roles to group IDs. When the resource is shared with a user, the group id is the user's id.
+    /// A mapping of grant slots to group IDs. Keys are the preset access roles plus workspace custom-role ids ('role_...'). When the resource is shared with a user, the group id is the user's id.
     /// </summary>
     public sealed partial class ResourceMetadataResponseModelRoleToGroupIds
     {
