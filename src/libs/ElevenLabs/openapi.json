@@ -53711,6 +53711,7 @@
           "guardrail_triggered",
           "dtmf_request",
           "agent_response_complete",
+          "context_usage",
           "internal_turn_probability",
           "internal_tentative_agent_response"
         ],
@@ -88358,17 +88359,9 @@
               },
               "type": "array"
             },
-            "propertyNames": {
-              "enum": [
-                "admin",
-                "editor",
-                "commenter",
-                "viewer"
-              ]
-            },
             "type": "object",
             "title": "Role To Group Ids",
-            "description": "A mapping of roles to group IDs. When the resource is shared with a user, the group id is the user's id."
+            "description": "A mapping of grant slots to group IDs. Keys are the preset access roles plus workspace custom-role ids ('role_...'). When the resource is shared with a user, the group id is the user's id."
           },
           "share_options": {
             "items": {
@@ -88402,6 +88395,9 @@
             ],
             "editor": [
               "8ruQDGM2R4w1mFbHI5aROCUjIpJZ"
+            ],
+            "role_01jd7yq2k8f0abcd1234wxyz": [
+              "9mQrTx4vNb2wKpLs6ZyE1cHgUdFa"
             ],
             "viewer": []
           },

@@ -59,6 +59,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        ContextUsage,
+        /// <summary>
+        /// 
+        /// </summary>
         ConversationInitiationMetadata,
         /// <summary>
         /// 
@@ -130,6 +134,7 @@ namespace ElevenLabs
                 ClientEvent.Audio => "audio",
                 ClientEvent.ClientError => "client_error",
                 ClientEvent.ClientToolCall => "client_tool_call",
+                ClientEvent.ContextUsage => "context_usage",
                 ClientEvent.ConversationInitiationMetadata => "conversation_initiation_metadata",
                 ClientEvent.DtmfRequest => "dtmf_request",
                 ClientEvent.GuardrailTriggered => "guardrail_triggered",
@@ -164,6 +169,7 @@ namespace ElevenLabs
                 "audio" => ClientEvent.Audio,
                 "client_error" => ClientEvent.ClientError,
                 "client_tool_call" => ClientEvent.ClientToolCall,
+                "context_usage" => ClientEvent.ContextUsage,
                 "conversation_initiation_metadata" => ClientEvent.ConversationInitiationMetadata,
                 "dtmf_request" => ClientEvent.DtmfRequest,
                 "guardrail_triggered" => ClientEvent.GuardrailTriggered,
