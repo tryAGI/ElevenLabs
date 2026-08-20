@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace ElevenLabs
@@ -30,13 +28,6 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("owner_user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string OwnerUserId { get; set; }
-
-        /// <summary>
-        /// Superseded by conversation_ids, which holds every conversation on the ticket. A clustered ticket leaves this null, so it under-reports. Read conversation_ids instead.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("conversation_id")]
-        [global::System.Obsolete("This property marked as deprecated.")]
-        public string? ConversationId { get; set; }
 
         /// <summary>
         /// 

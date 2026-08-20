@@ -4,10 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Superseded by conversation_ids, which holds every conversation on the ticket. A clustered ticket leaves this null, so it under-reports. Read conversation_ids instead.
+    /// Minimum frequency (in days) at which the document is refreshed. The actual interval may be shorter, never longer. Defaults to 7, tightened to the parent folder's frequency if that is stricter. Only applicable when auto-sync is enabled.
     /// </summary>
-    [global::System.Obsolete("This model marked as deprecated.")]
-    public sealed partial class AgentConversationTicketResponseModelConversationId
+    public sealed partial class BodyCreateUrlDocumentV1ConvaiKnowledgeBaseUrlPostMinimumFrequencyDays
     {
 
         /// <summary>

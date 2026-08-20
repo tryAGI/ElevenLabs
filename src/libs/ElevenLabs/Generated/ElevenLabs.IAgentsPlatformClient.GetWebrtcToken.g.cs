@@ -20,6 +20,10 @@ namespace ElevenLabs
         /// <param name="environment">
         /// The environment to use for resolving environment variables (e.g. 'production', 'staging'). Defaults to 'production'.
         /// </param>
+        /// <param name="debugEventsRequest">
+        /// Whether to enable debug events. Only available for users with editor access to the agent.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -28,6 +32,7 @@ namespace ElevenLabs
             string? participantName = default,
             string? branchId = default,
             string? environment = default,
+            bool? debugEventsRequest = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -46,6 +51,10 @@ namespace ElevenLabs
         /// <param name="environment">
         /// The environment to use for resolving environment variables (e.g. 'production', 'staging'). Defaults to 'production'.
         /// </param>
+        /// <param name="debugEventsRequest">
+        /// Whether to enable debug events. Only available for users with editor access to the agent.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -54,6 +63,7 @@ namespace ElevenLabs
             string? participantName = default,
             string? branchId = default,
             string? environment = default,
+            bool? debugEventsRequest = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
