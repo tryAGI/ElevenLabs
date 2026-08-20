@@ -40566,8 +40566,10 @@
             "success_transfer": {
               "agent_id": "success_transfer_agent",
               "delay_ms": 0,
+              "drop_history": false,
               "edge_order": [],
               "enable_transferred_agent_first_message": false,
+              "isolate_history": false,
               "position": {
                 "x": 0.0,
                 "y": 0.0
@@ -69690,8 +69692,10 @@
               "success_transfer": {
                 "agent_id": "success_transfer_agent",
                 "delay_ms": 0,
+                "drop_history": false,
                 "edge_order": [],
                 "enable_transferred_agent_first_message": false,
+                "isolate_history": false,
                 "position": {
                   "x": 0.0,
                   "y": 0.0
@@ -79857,8 +79861,10 @@
               "success_transfer": {
                 "agent_id": "success_transfer_agent",
                 "delay_ms": 0,
+                "drop_history": false,
                 "edge_order": [],
                 "enable_transferred_agent_first_message": false,
+                "isolate_history": false,
                 "position": {
                   "x": 0.0,
                   "y": 0.0
