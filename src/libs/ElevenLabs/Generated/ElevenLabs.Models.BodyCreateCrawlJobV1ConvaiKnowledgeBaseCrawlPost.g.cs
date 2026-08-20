@@ -62,6 +62,12 @@ namespace ElevenLabs
         public bool? AutoRemove { get; set; }
 
         /// <summary>
+        /// Minimum frequency (in days) at which the underlying eligible documents are refreshed. The actual interval may be shorter, never longer. Defaults to 7, tightened to the parent folder's frequency if that is stricter. Only applicable when auto-sync is enabled.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("minimum_frequency_days")]
+        public int? MinimumFrequencyDays { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -98,6 +104,9 @@ namespace ElevenLabs
         /// Whether to automatically remove the document if the URL becomes unavailable. Only applicable when auto-sync is enabled.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="minimumFrequencyDays">
+        /// Minimum frequency (in days) at which the underlying eligible documents are refreshed. The actual interval may be shorter, never longer. Defaults to 7, tightened to the parent folder's frequency if that is stricter. Only applicable when auto-sync is enabled.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -109,7 +118,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? sitemapUrls,
             string? parentFolderId,
             bool? enableAutoSync,
-            bool? autoRemove)
+            bool? autoRemove,
+            int? minimumFrequencyDays)
         {
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.MaxDepth = maxDepth;
@@ -119,6 +129,7 @@ namespace ElevenLabs
             this.ParentFolderId = parentFolderId;
             this.EnableAutoSync = enableAutoSync;
             this.AutoRemove = autoRemove;
+            this.MinimumFrequencyDays = minimumFrequencyDays;
         }
 
         /// <summary>

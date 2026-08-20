@@ -30,14 +30,16 @@ namespace ElevenLabs
             ref string agentId,
             ref bool? includeConversationId,
             ref string? branchId,
-            ref string? environment);
+            ref string? environment,
+            ref bool? debugEventsRequest);
         partial void PrepareGetSignedUrlRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
             bool? includeConversationId,
             string? branchId,
-            string? environment);
+            string? environment,
+            bool? debugEventsRequest);
         partial void ProcessGetSignedUrlResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -64,6 +66,10 @@ namespace ElevenLabs
         /// <param name="environment">
         /// The environment to use for resolving environment variables (e.g. 'production', 'staging'). Defaults to 'production'.
         /// </param>
+        /// <param name="debugEventsRequest">
+        /// Whether to enable debug events. Only available for users with editor access to the agent.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -72,6 +78,7 @@ namespace ElevenLabs
             bool? includeConversationId = default,
             string? branchId = default,
             string? environment = default,
+            bool? debugEventsRequest = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -80,6 +87,7 @@ namespace ElevenLabs
                 includeConversationId: includeConversationId,
                 branchId: branchId,
                 environment: environment,
+                debugEventsRequest: debugEventsRequest,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -103,6 +111,10 @@ namespace ElevenLabs
         /// <param name="environment">
         /// The environment to use for resolving environment variables (e.g. 'production', 'staging'). Defaults to 'production'.
         /// </param>
+        /// <param name="debugEventsRequest">
+        /// Whether to enable debug events. Only available for users with editor access to the agent.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -111,6 +123,7 @@ namespace ElevenLabs
             bool? includeConversationId = default,
             string? branchId = default,
             string? environment = default,
+            bool? debugEventsRequest = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -121,7 +134,8 @@ namespace ElevenLabs
                 agentId: ref agentId,
                 includeConversationId: ref includeConversationId,
                 branchId: ref branchId,
-                environment: ref environment);
+                environment: ref environment,
+                debugEventsRequest: ref debugEventsRequest);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -154,6 +168,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("include_conversation_id", includeConversationId?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("branch_id", branchId)
                                 .AddOptionalParameter("environment", environment)
+                                .AddOptionalParameter("debug_events_request", debugEventsRequest?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -198,7 +213,8 @@ namespace ElevenLabs
                     agentId: agentId!,
                     includeConversationId: includeConversationId,
                     branchId: branchId,
-                    environment: environment);
+                    environment: environment,
+                    debugEventsRequest: debugEventsRequest);
 
                 return __httpRequest;
             }
