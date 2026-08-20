@@ -52,8 +52,8 @@ namespace ElevenLabs
         /// Default Value: music_v1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelIdJsonConverter))]
-        public global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelId? ModelId { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MusicModelIDJsonConverter))]
+        public global::ElevenLabs.MusicModelID? ModelId { get; set; }
 
         /// <summary>
         /// Random seed to initialize the music generation process. Providing the same seed with the same parameters can help achieve more consistent results, but exact reproducibility is not guaranteed and outputs may change across system updates. Cannot be used in conjunction with prompt.
@@ -197,7 +197,7 @@ namespace ElevenLabs
             string? lyricsText,
             global::ElevenLabs.OneOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>? compositionPlan,
             int? musicLengthMs,
-            global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelId? modelId,
+            global::ElevenLabs.MusicModelID? modelId,
             int? seed,
             bool? forceInstrumental,
             string? finetuneId,

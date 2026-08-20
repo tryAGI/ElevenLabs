@@ -36,8 +36,8 @@ namespace ElevenLabs
         /// Default Value: music_v1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyVideoToMusicV1MusicVideoToMusicPostModelIdJsonConverter))]
-        public global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? ModelId { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MusicModelIDJsonConverter))]
+        public global::ElevenLabs.MusicModelID? ModelId { get; set; }
 
         /// <summary>
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
@@ -83,7 +83,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<byte[]> videos,
             string? description,
             global::System.Collections.Generic.IList<string>? tags,
-            global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? modelId,
+            global::ElevenLabs.MusicModelID? modelId,
             bool? signWithC2pa)
         {
             this.Videos = videos ?? throw new global::System.ArgumentNullException(nameof(videos));

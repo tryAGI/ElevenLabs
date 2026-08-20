@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Relative increase over the trailing baseline at which this monitor can notify (0.2 = 20% above baseline).
+    /// Relative increase over the trailing baseline at which this monitor can notify (0.2 = 20% above baseline, 0 = any failure).
     /// </summary>
     public sealed partial class AlertingMonitorConfigRelativeIncreaseThreshold
     {

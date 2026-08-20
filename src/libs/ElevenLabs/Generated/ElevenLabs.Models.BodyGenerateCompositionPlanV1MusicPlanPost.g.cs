@@ -33,8 +33,8 @@ namespace ElevenLabs
         /// Default Value: music_v1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyGenerateCompositionPlanV1MusicPlanPostModelIdJsonConverter))]
-        public global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPostModelId? ModelId { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MusicModelIDJsonConverter))]
+        public global::ElevenLabs.MusicModelID? ModelId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -65,7 +65,7 @@ namespace ElevenLabs
             string prompt,
             int? musicLengthMs,
             global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan, object>? sourceCompositionPlan,
-            global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPostModelId? modelId)
+            global::ElevenLabs.MusicModelID? modelId)
         {
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.MusicLengthMs = musicLengthMs;

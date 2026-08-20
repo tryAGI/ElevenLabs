@@ -95,7 +95,7 @@ namespace ElevenLabs
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
-            global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? modelId = default,
+            global::ElevenLabs.MusicModelID? modelId = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -140,7 +140,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IReadOnlyList<string>? videosFileNames = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
-            global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? modelId = default,
+            global::ElevenLabs.MusicModelID? modelId = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -184,7 +184,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IReadOnlyList<string>? videosFileNames = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
-            global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? modelId = default,
+            global::ElevenLabs.MusicModelID? modelId = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -228,7 +228,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IReadOnlyList<string>? videosFileNames = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
-            global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? modelId = default,
+            global::ElevenLabs.MusicModelID? modelId = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

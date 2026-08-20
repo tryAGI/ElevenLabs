@@ -617,7 +617,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<byte[]>? files = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2? visibility = default,
-            global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostModelId? modelId = default,
+            global::ElevenLabs.MusicModelID? modelId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
