@@ -61,6 +61,12 @@ namespace ElevenLabs
         public global::ElevenLabs.TopicMetricsAggregate? Metrics { get; set; }
 
         /// <summary>
+        /// Success rate across the topic's evaluation criteria, weighted by scored conversations. Returned regardless of include_evaluation_criteria.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("success_rate")]
+        public double? SuccessRate { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -77,6 +83,9 @@ namespace ElevenLabs
         /// <param name="x2d"></param>
         /// <param name="y2d"></param>
         /// <param name="metrics"></param>
+        /// <param name="successRate">
+        /// Success rate across the topic's evaluation criteria, weighted by scored conversations. Returned regardless of include_evaluation_criteria.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -88,7 +97,8 @@ namespace ElevenLabs
             string? parentTopicId,
             double? x2d,
             double? y2d,
-            global::ElevenLabs.TopicMetricsAggregate? metrics)
+            global::ElevenLabs.TopicMetricsAggregate? metrics,
+            double? successRate)
         {
             this.TopicId = topicId ?? throw new global::System.ArgumentNullException(nameof(topicId));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
@@ -98,6 +108,7 @@ namespace ElevenLabs
             this.X2d = x2d;
             this.Y2d = y2d;
             this.Metrics = metrics;
+            this.SuccessRate = successRate;
         }
 
         /// <summary>

@@ -26,10 +26,10 @@ namespace ElevenLabs
         public int? AutoResolveAfterInactiveMinutes { get; set; }
 
         /// <summary>
-        /// Delivery channels for alert lifecycle notifications. Stacked and deduped by webhook_id with other layers.
+        /// Delivery channels for alert lifecycle notifications. Stacked and deduped by ``webhook_id`` / ``connection_id`` with other layers.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("notifiers")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AlertingWebhookNotifier>? Notifiers { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.NotifiersItem>? Notifiers { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -47,7 +47,7 @@ namespace ElevenLabs
         /// How many minutes an alert can stay inactive before it is auto-resolved. Unset values fall through to the next layer.
         /// </param>
         /// <param name="notifiers">
-        /// Delivery channels for alert lifecycle notifications. Stacked and deduped by webhook_id with other layers.
+        /// Delivery channels for alert lifecycle notifications. Stacked and deduped by ``webhook_id`` / ``connection_id`` with other layers.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -55,7 +55,7 @@ namespace ElevenLabs
         public AlertingSettings(
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AlertingMonitorConfig>? monitorConfigs,
             int? autoResolveAfterInactiveMinutes,
-            global::System.Collections.Generic.IList<global::ElevenLabs.AlertingWebhookNotifier>? notifiers)
+            global::System.Collections.Generic.IList<global::ElevenLabs.NotifiersItem>? notifiers)
         {
             this.MonitorConfigs = monitorConfigs;
             this.AutoResolveAfterInactiveMinutes = autoResolveAfterInactiveMinutes;

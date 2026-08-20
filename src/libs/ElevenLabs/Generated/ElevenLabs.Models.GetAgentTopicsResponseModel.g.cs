@@ -30,6 +30,13 @@ namespace ElevenLabs
         public required int WindowEndUnixSecs { get; set; }
 
         /// <summary>
+        /// Number of daily topic-discovery runs the returned metrics were summed over.<br/>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("aggregated_run_count")]
+        public int? AggregatedRunCount { get; set; }
+
+        /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
@@ -53,6 +60,10 @@ namespace ElevenLabs
         /// <param name="topics"></param>
         /// <param name="windowStartUnixSecs"></param>
         /// <param name="windowEndUnixSecs"></param>
+        /// <param name="aggregatedRunCount">
+        /// Number of daily topic-discovery runs the returned metrics were summed over.<br/>
+        /// Default Value: 0
+        /// </param>
         /// <param name="hasMore">
         /// Default Value: false
         /// </param>
@@ -64,12 +75,14 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentTopicResponseModel> topics,
             int windowStartUnixSecs,
             int windowEndUnixSecs,
+            int? aggregatedRunCount,
             bool? hasMore,
             string? nextCursor)
         {
             this.Topics = topics ?? throw new global::System.ArgumentNullException(nameof(topics));
             this.WindowStartUnixSecs = windowStartUnixSecs;
             this.WindowEndUnixSecs = windowEndUnixSecs;
+            this.AggregatedRunCount = aggregatedRunCount;
             this.HasMore = hasMore;
             this.NextCursor = nextCursor;
         }

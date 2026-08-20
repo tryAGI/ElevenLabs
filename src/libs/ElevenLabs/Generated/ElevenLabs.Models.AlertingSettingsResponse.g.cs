@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("notifiers")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AlertingWebhookNotifierResponse>? Notifiers { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.NotifiersItem2>? Notifiers { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -46,7 +46,7 @@ namespace ElevenLabs
         public AlertingSettingsResponse(
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AlertingMonitorConfig>? monitorConfigs,
             int? autoResolveAfterInactiveMinutes,
-            global::System.Collections.Generic.IList<global::ElevenLabs.AlertingWebhookNotifierResponse>? notifiers)
+            global::System.Collections.Generic.IList<global::ElevenLabs.NotifiersItem2>? notifiers)
         {
             this.MonitorConfigs = monitorConfigs;
             this.AutoResolveAfterInactiveMinutes = autoResolveAfterInactiveMinutes;
