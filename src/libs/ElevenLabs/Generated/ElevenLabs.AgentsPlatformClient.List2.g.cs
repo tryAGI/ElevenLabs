@@ -66,7 +66,8 @@ namespace ElevenLabs
             ref string? workflowNodeEnteredId,
             global::System.Collections.Generic.IList<string>? terminationReasons,
             global::System.Collections.Generic.IList<global::ElevenLabs.GuardrailType>? guardrailTypes,
-            global::System.Collections.Generic.IList<string>? customGuardrailNames);
+            global::System.Collections.Generic.IList<string>? customGuardrailNames,
+            ref global::ElevenLabs.SortDirection? sortDirection);
         partial void PrepareList2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -107,7 +108,8 @@ namespace ElevenLabs
             string? workflowNodeEnteredId,
             global::System.Collections.Generic.IList<string>? terminationReasons,
             global::System.Collections.Generic.IList<global::ElevenLabs.GuardrailType>? guardrailTypes,
-            global::System.Collections.Generic.IList<string>? customGuardrailNames);
+            global::System.Collections.Generic.IList<string>? customGuardrailNames,
+            global::ElevenLabs.SortDirection? sortDirection);
         partial void ProcessList2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -234,6 +236,10 @@ namespace ElevenLabs
         /// <param name="customGuardrailNames">
         /// Filter to conversations where a custom guardrail with any of these names triggered (metadata.triggered_guardrails.guardrail_name). Only custom guardrails carry a name. Repeat param to match any of several.
         /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort conversations by call start time. Defaults to descending (newest first).<br/>
+        /// Default Value: desc
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -276,6 +282,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? terminationReasons = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GuardrailType>? guardrailTypes = default,
             global::System.Collections.Generic.IList<string>? customGuardrailNames = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -318,6 +325,7 @@ namespace ElevenLabs
                 terminationReasons: terminationReasons,
                 guardrailTypes: guardrailTypes,
                 customGuardrailNames: customGuardrailNames,
+                sortDirection: sortDirection,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -441,6 +449,10 @@ namespace ElevenLabs
         /// <param name="customGuardrailNames">
         /// Filter to conversations where a custom guardrail with any of these names triggered (metadata.triggered_guardrails.guardrail_name). Only custom guardrails carry a name. Repeat param to match any of several.
         /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort conversations by call start time. Defaults to descending (newest first).<br/>
+        /// Default Value: desc
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -483,6 +495,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? terminationReasons = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GuardrailType>? guardrailTypes = default,
             global::System.Collections.Generic.IList<string>? customGuardrailNames = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -527,7 +540,8 @@ namespace ElevenLabs
                 workflowNodeEnteredId: ref workflowNodeEnteredId,
                 terminationReasons: terminationReasons,
                 guardrailTypes: guardrailTypes,
-                customGuardrailNames: customGuardrailNames);
+                customGuardrailNames: customGuardrailNames,
+                sortDirection: ref sortDirection);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -594,6 +608,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("termination_reasons", terminationReasons?.ToString())
                                 .AddOptionalParameter("guardrail_types", guardrailTypes?.ToString())
                                 .AddOptionalParameter("custom_guardrail_names", customGuardrailNames?.ToString())
+                                .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -672,7 +687,8 @@ namespace ElevenLabs
                     workflowNodeEnteredId: workflowNodeEnteredId,
                     terminationReasons: terminationReasons,
                     guardrailTypes: guardrailTypes,
-                    customGuardrailNames: customGuardrailNames);
+                    customGuardrailNames: customGuardrailNames,
+                    sortDirection: sortDirection);
 
                 return __httpRequest;
             }
@@ -1097,6 +1113,10 @@ namespace ElevenLabs
         /// </param>
         /// <param name="customGuardrailNames">
         /// Filter to conversations where a custom guardrail with any of these names triggered (metadata.triggered_guardrails.guardrail_name). Only custom guardrails carry a name. Repeat param to match any of several.
+        /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort conversations by call start time. Defaults to descending (newest first).<br/>
+        /// Default Value: desc
         /// </param> 
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
@@ -1138,6 +1158,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? terminationReasons = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.GuardrailType>? guardrailTypes = default,
             global::System.Collections.Generic.IList<string>? customGuardrailNames = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -1181,6 +1202,7 @@ namespace ElevenLabs
                     terminationReasons: terminationReasons,
                     guardrailTypes: guardrailTypes,
                     customGuardrailNames: customGuardrailNames,
+                    sortDirection: sortDirection,
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null
                     ? null

@@ -15,7 +15,7 @@ namespace ElevenLabs
         /// Number of top-level topic groups to return.
         /// </param>
         /// <param name="sortBy">
-        /// Topic table column to sort by.<br/>
+        /// Column to rank topics by. Use conversations for volume, sentiment with sort_direction=asc for the most negative topics, and frustration with sort_direction=desc for the most frustrated ones. Topics with no score are always ranked last.<br/>
         /// Default Value: conversations
         /// </param>
         /// <param name="sortDirection">
@@ -23,10 +23,14 @@ namespace ElevenLabs
         /// Default Value: desc
         /// </param>
         /// <param name="fromUnixSecs">
-        /// Start of the window to view topics for. When set with to_unix_secs, per-day topics in the range are aggregated together.
+        /// Start of the window to view topics for. When set with to_unix_secs, the completed daily topic-discovery runs in the range are aggregated together, so the window scopes the metrics as well as the topic set. Floored to the start of its UTC day because runs cover whole UTC days; aggregated_run_count reports how many runs were summed. Omit both bounds to get the single latest run.
         /// </param>
         /// <param name="toUnixSecs">
         /// End of the window to view topics for.
+        /// </param>
+        /// <param name="includeEvaluationCriteria">
+        /// Include the per-criteria evaluation breakdown on each topic's metrics. Pass false to drop it: it dominates the payload and the weighted success_rate is returned either way.<br/>
+        /// Default Value: true
         /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
@@ -41,6 +45,7 @@ namespace ElevenLabs
             global::ElevenLabs.SortDirection? sortDirection = default,
             int? fromUnixSecs = default,
             int? toUnixSecs = default,
+            bool? includeEvaluationCriteria = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -55,7 +60,7 @@ namespace ElevenLabs
         /// Number of top-level topic groups to return.
         /// </param>
         /// <param name="sortBy">
-        /// Topic table column to sort by.<br/>
+        /// Column to rank topics by. Use conversations for volume, sentiment with sort_direction=asc for the most negative topics, and frustration with sort_direction=desc for the most frustrated ones. Topics with no score are always ranked last.<br/>
         /// Default Value: conversations
         /// </param>
         /// <param name="sortDirection">
@@ -63,10 +68,14 @@ namespace ElevenLabs
         /// Default Value: desc
         /// </param>
         /// <param name="fromUnixSecs">
-        /// Start of the window to view topics for. When set with to_unix_secs, per-day topics in the range are aggregated together.
+        /// Start of the window to view topics for. When set with to_unix_secs, the completed daily topic-discovery runs in the range are aggregated together, so the window scopes the metrics as well as the topic set. Floored to the start of its UTC day because runs cover whole UTC days; aggregated_run_count reports how many runs were summed. Omit both bounds to get the single latest run.
         /// </param>
         /// <param name="toUnixSecs">
         /// End of the window to view topics for.
+        /// </param>
+        /// <param name="includeEvaluationCriteria">
+        /// Include the per-criteria evaluation breakdown on each topic's metrics. Pass false to drop it: it dominates the payload and the weighted success_rate is returned either way.<br/>
+        /// Default Value: true
         /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
@@ -81,6 +90,7 @@ namespace ElevenLabs
             global::ElevenLabs.SortDirection? sortDirection = default,
             int? fromUnixSecs = default,
             int? toUnixSecs = default,
+            bool? includeEvaluationCriteria = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -95,7 +105,7 @@ namespace ElevenLabs
         /// Number of top-level topic groups to return.
         /// </param>
         /// <param name="sortBy">
-        /// Topic table column to sort by.<br/>
+        /// Column to rank topics by. Use conversations for volume, sentiment with sort_direction=asc for the most negative topics, and frustration with sort_direction=desc for the most frustrated ones. Topics with no score are always ranked last.<br/>
         /// Default Value: conversations
         /// </param>
         /// <param name="sortDirection">
@@ -103,10 +113,14 @@ namespace ElevenLabs
         /// Default Value: desc
         /// </param>
         /// <param name="fromUnixSecs">
-        /// Start of the window to view topics for. When set with to_unix_secs, per-day topics in the range are aggregated together.
+        /// Start of the window to view topics for. When set with to_unix_secs, the completed daily topic-discovery runs in the range are aggregated together, so the window scopes the metrics as well as the topic set. Floored to the start of its UTC day because runs cover whole UTC days; aggregated_run_count reports how many runs were summed. Omit both bounds to get the single latest run.
         /// </param>
         /// <param name="toUnixSecs">
         /// End of the window to view topics for.
+        /// </param>
+        /// <param name="includeEvaluationCriteria">
+        /// Include the per-criteria evaluation breakdown on each topic's metrics. Pass false to drop it: it dominates the payload and the weighted success_rate is returned either way.<br/>
+        /// Default Value: true
         /// </param> 
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
@@ -116,6 +130,7 @@ namespace ElevenLabs
             global::ElevenLabs.SortDirection? sortDirection = default,
             int? fromUnixSecs = default,
             int? toUnixSecs = default,
+            bool? includeEvaluationCriteria = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default);
 
