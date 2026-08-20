@@ -494,7 +494,7 @@ namespace ElevenLabs
             string prompt,
             int? musicLengthMs = default,
             global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan, object>? sourceCompositionPlan = default,
-            global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPostModelId? modelId = default,
+            global::ElevenLabs.MusicModelID? modelId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

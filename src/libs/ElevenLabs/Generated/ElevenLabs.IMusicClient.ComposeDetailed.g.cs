@@ -130,7 +130,7 @@ namespace ElevenLabs
             string? lyricsText = default,
             global::ElevenLabs.OneOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>? compositionPlan = default,
             int? musicLengthMs = default,
-            global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelId? modelId = default,
+            global::ElevenLabs.MusicModelID? modelId = default,
             int? seed = default,
             bool? forceInstrumental = default,
             string? finetuneId = default,

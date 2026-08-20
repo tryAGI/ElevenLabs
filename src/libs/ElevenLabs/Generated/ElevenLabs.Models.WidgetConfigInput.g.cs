@@ -216,14 +216,14 @@ namespace ElevenLabs
 
         /// <summary>
         /// Whether to enable mic muting<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mic_muting_enabled")]
         public bool? MicMutingEnabled { get; set; }
 
         /// <summary>
         /// Whether the widget should show the conversation transcript as it goes on<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript_enabled")]
         public bool? TranscriptEnabled { get; set; }
@@ -454,11 +454,11 @@ namespace ElevenLabs
         /// </param>
         /// <param name="micMutingEnabled">
         /// Whether to enable mic muting<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="transcriptEnabled">
         /// Whether the widget should show the conversation transcript as it goes on<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="textInputEnabled">
         /// Whether the user should be able to send text messages<br/>

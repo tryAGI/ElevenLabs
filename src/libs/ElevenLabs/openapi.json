@@ -20677,6 +20677,690 @@
         "x-fern-sdk-method-name": "delete"
       }
     },
+    "/v1/convai/agents/{agent_id}/triage-tickets": {
+      "get": {
+        "summary": "List Agent Conversation Tickets",
+        "description": "List an agent's conversation triage tickets, ordered by most recently created first. These are tickets about the agent's own performance on a conversation (for triage with Architect), not tickets an agent opens for end users.",
+        "operationId": "list_agent_conversation_tickets_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "How many agent conversation tickets to return. Can not exceed 100.",
+              "default": 100,
+              "title": "Page Size"
+            },
+            "description": "How many agent conversation tickets to return. Can not exceed 100."
+          },
+          {
+            "name": "conversation_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tickets by conversation id.",
+              "title": "Conversation Id"
+            },
+            "description": "Filter tickets by conversation id."
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/AgentConversationTicketStatus"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tickets by status.",
+              "title": "Status"
+            },
+            "description": "Filter tickets by status."
+          },
+          {
+            "name": "sources",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AgentConversationTicketSource"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.",
+              "title": "Sources"
+            },
+            "description": "Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources."
+          },
+          {
+            "name": "owner_user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tickets by creator. Use 'agent' for agent-raised tickets.",
+              "title": "Owner User Id"
+            },
+            "description": "Filter tickets by creator. Use 'agent' for agent-raised tickets."
+          },
+          {
+            "name": "assignee_user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.",
+              "title": "Assignee User Id"
+            },
+            "description": "Filter tickets by assignee. Use 'unassigned' for tickets with no assignee."
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Used for fetching next page. Cursor is returned in the response.",
+              "title": "Cursor"
+            },
+            "description": "Used for fetching next page. Cursor is returned in the response."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAgentConversationTicketsPageResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Manual Agent Ticket",
+        "description": "Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). The comment is shown as the ticket title. Requires viewer access to the agent.",
+        "operationId": "create_manual_agent_ticket_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateManualTicketRequestModel",
+                "description": "Manual ticket to create."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentConversationTicketResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/convai/agents/{agent_id}/triage-tickets/assignable-users": {
+      "get": {
+        "summary": "Get Agent Conversation Ticket Assignable Users",
+        "description": "All non-service-account workspace members, each flagged with whether they currently have at least viewer access to the agent. Members without access are included (not filtered out) so the UI can offer them as an assignee and prompt to grant access first.",
+        "operationId": "get_assignable_users_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AssignableUserResponseModel"
+                  },
+                  "title": "Response Get Agent Conversation Ticket Assignable Users V1 Convai Agents  Agent Id  Triage Tickets Assignable Users Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/convai/triage-tickets/{agentqa_ticket_id}": {
+      "get": {
+        "summary": "Get Agent Conversation Ticket",
+        "description": "Get an agent conversation ticket by ID.",
+        "operationId": "get_agent_conversation_ticket_route",
+        "parameters": [
+          {
+            "name": "agentqa_ticket_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agentqa Ticket Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentConversationTicketResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update Agent Conversation Ticket",
+        "description": "Update a ticket's comment, status, and/or assignee. Requires editor access to the ticket's agent.",
+        "operationId": "update_agent_conversation_ticket_route",
+        "parameters": [
+          {
+            "name": "agentqa_ticket_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agentqa Ticket Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchAgentConversationTicketRequestModel",
+                "description": "Fields to update. Omit a field to leave it unchanged."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentConversationTicketResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Agent Conversation Ticket",
+        "description": "Delete an agent conversation ticket. Restricted to the ticket creator or a workspace admin.",
+        "operationId": "delete_agent_conversation_ticket_route",
+        "parameters": [
+          {
+            "name": "agentqa_ticket_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agentqa Ticket Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/convai/triage-tickets": {
+      "post": {
+        "summary": "Create Agent Conversation Ticket",
+        "description": "Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.",
+        "operationId": "create_agent_conversation_ticket_route",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAgentConversationTicketRequestModel",
+                "description": "Ticket to create."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentConversationTicketResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/convai/triage-tickets/{agentqa_ticket_id}/comments": {
+      "post": {
+        "summary": "Add Comment To Agent Conversation Ticket",
+        "description": "Append a comment discussing how to resolve the ticket. Requires viewer access to the ticket's agent.",
+        "operationId": "add_ticket_comment_route",
+        "parameters": [
+          {
+            "name": "agentqa_ticket_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agentqa Ticket Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTicketCommentRequestModel",
+                "description": "Comment to append."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentConversationTicketResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/convai/triage-tickets/{agentqa_ticket_id}/turn-comments": {
+      "post": {
+        "summary": "Add Turn Comment To Agent Conversation Ticket",
+        "description": "Append a turn-level comment to a ticket. Requires viewer access to the ticket's agent.",
+        "operationId": "add_turn_comment_route",
+        "parameters": [
+          {
+            "name": "agentqa_ticket_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agentqa Ticket Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTurnCommentRequestModel",
+                "description": "Turn-level comment to append."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentConversationTicketResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/convai/phone-numbers": {
       "post": {
         "tags": [
@@ -31646,13 +32330,13 @@
             "required": false,
             "schema": {
               "type": "integer",
-              "maximum": 100,
+              "maximum": 150,
               "minimum": 1,
-              "description": "How many finetunes to return. Max 100, default 50.",
+              "description": "How many finetunes to return. Max 150, default 50.",
               "default": 50,
               "title": "Page Size"
             },
-            "description": "How many finetunes to return. Max 100, default 50."
+            "description": "How many finetunes to return. Max 150, default 50."
           },
           {
             "name": "visibility",
@@ -36910,6 +37594,45 @@
           "version_rules_num": 5
         }
       },
+      "AddTicketCommentRequestModel": {
+        "properties": {
+          "comment": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Comment",
+            "description": "A comment discussing how to resolve the ticket."
+          }
+        },
+        "type": "object",
+        "required": [
+          "comment"
+        ],
+        "title": "AddTicketCommentRequestModel"
+      },
+      "AddTurnCommentRequestModel": {
+        "properties": {
+          "turn_index": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Turn Index",
+            "description": "Zero-based index of the transcript turn this comment refers to."
+          },
+          "comment": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Comment",
+            "description": "What went wrong at this turn."
+          }
+        },
+        "type": "object",
+        "required": [
+          "turn_index",
+          "comment"
+        ],
+        "title": "AddTurnCommentRequestModel"
+      },
       "AddVoiceIVCResponseModel": {
         "properties": {
           "voice_id": {
@@ -37974,6 +38697,192 @@
         },
         "type": "object",
         "title": "AgentConfigOverrideConfig"
+      },
+      "AgentConversationTicketIssueType": {
+        "type": "string",
+        "enum": [
+          "knowledge_gap",
+          "product_feedback",
+          "tool_issue",
+          "missing_tool",
+          "unnecessary_escalation"
+        ],
+        "title": "AgentConversationTicketIssueType"
+      },
+      "AgentConversationTicketResponseModel": {
+        "properties": {
+          "agentqa_ticket_id": {
+            "type": "string",
+            "title": "Agentqa Ticket Id"
+          },
+          "workspace_id": {
+            "type": "string",
+            "title": "Workspace Id"
+          },
+          "owner_user_id": {
+            "type": "string",
+            "title": "Owner User Id"
+          },
+          "conversation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Conversation Id",
+            "description": "Superseded by conversation_ids, which holds every conversation on the ticket. A clustered ticket leaves this null, so it under-reports. Read conversation_ids instead.",
+            "deprecated": true
+          },
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
+          },
+          "needs_clustering": {
+            "type": "boolean",
+            "title": "Needs Clustering"
+          },
+          "issue_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentConversationTicketIssueType"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "labels": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Labels"
+          },
+          "conversation_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Conversation Ids"
+          },
+          "first_seen_unix_secs": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Seen Unix Secs"
+          },
+          "last_seen_unix_secs": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Seen Unix Secs"
+          },
+          "qa_comment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Qa Comment"
+          },
+          "ticket_comments": {
+            "items": {
+              "$ref": "#/components/schemas/TicketCommentResponseModel"
+            },
+            "type": "array",
+            "title": "Ticket Comments"
+          },
+          "turn_comments": {
+            "items": {
+              "$ref": "#/components/schemas/TurnCommentResponseModel"
+            },
+            "type": "array",
+            "title": "Turn Comments"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AgentConversationTicketStatus"
+          },
+          "source": {
+            "$ref": "#/components/schemas/AgentConversationTicketSource"
+          },
+          "assignee_user_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assignee User Id"
+          },
+          "created_at_unix_secs": {
+            "type": "integer",
+            "title": "Created At Unix Secs"
+          },
+          "updated_at_unix_secs": {
+            "type": "integer",
+            "title": "Updated At Unix Secs"
+          }
+        },
+        "type": "object",
+        "required": [
+          "agentqa_ticket_id",
+          "workspace_id",
+          "owner_user_id",
+          "conversation_id",
+          "agent_id",
+          "needs_clustering",
+          "issue_type",
+          "labels",
+          "conversation_ids",
+          "first_seen_unix_secs",
+          "last_seen_unix_secs",
+          "qa_comment",
+          "ticket_comments",
+          "turn_comments",
+          "status",
+          "source",
+          "assignee_user_id",
+          "created_at_unix_secs",
+          "updated_at_unix_secs"
+        ],
+        "title": "AgentConversationTicketResponseModel"
+      },
+      "AgentConversationTicketSource": {
+        "type": "string",
+        "enum": [
+          "qa",
+          "agent",
+          "manual"
+        ],
+        "title": "AgentConversationTicketSource"
+      },
+      "AgentConversationTicketStatus": {
+        "type": "string",
+        "enum": [
+          "open",
+          "in_progress",
+          "resolved",
+          "merged"
+        ],
+        "title": "AgentConversationTicketStatus"
       },
       "AgentDefinitionSource": {
         "type": "string",
@@ -39768,14 +40677,53 @@
               {
                 "type": "number",
                 "maximum": 10.0,
-                "minimum": 0.05
+                "minimum": 0.0
               },
               {
                 "type": "null"
               }
             ],
             "title": "Relative Increase Threshold",
-            "description": "Relative increase over the trailing baseline at which this monitor can notify (0.2 = 20% above baseline)."
+            "description": "Relative increase over the trailing baseline at which this monitor can notify (0.2 = 20% above baseline, 0 = any failure)."
+          },
+          "min_failure_count": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Min Failure Count",
+            "description": "Minimum failures in the window before this monitor can fire."
+          },
+          "min_history_bucket_count": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Min History Bucket Count",
+            "description": "Minimum trailing buckets with traffic before spike detection can fire."
+          },
+          "min_sample_count": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Min Sample Count",
+            "description": "Minimum samples in the window before this monitor can fire."
           },
           "suspect_trigger_threshold": {
             "anyOf": [
@@ -41138,6 +42086,47 @@
           "tag_ids"
         ],
         "title": "AssignConversationTagsRequestModel"
+      },
+      "AssignableUserResponseModel": {
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "title": "User Id"
+          },
+          "email": {
+            "type": "string",
+            "title": "Email"
+          },
+          "first_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Name"
+          },
+          "is_service_account": {
+            "type": "boolean",
+            "title": "Is Service Account"
+          },
+          "has_access": {
+            "type": "boolean",
+            "title": "Has Access",
+            "description": "Whether this workspace member currently has at least viewer access to the agent. Members without access are still returned so they can be surfaced (e.g. grayed out) and granted access before being assigned."
+          }
+        },
+        "type": "object",
+        "required": [
+          "user_id",
+          "email",
+          "first_name",
+          "is_service_account",
+          "has_access"
+        ],
+        "title": "AssignableUserResponseModel"
       },
       "AsyncConversationMetadata": {
         "properties": {
@@ -43862,12 +44851,7 @@
             "description": "The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 3000ms and 600000ms. Optional - if not provided, the model will choose a length based on the prompt."
           },
           "model_id": {
-            "type": "string",
-            "enum": [
-              "music_v1",
-              "music_v2"
-            ],
-            "title": "Model Id",
+            "$ref": "#/components/schemas/MusicModelID",
             "description": "The model to use for the generation.",
             "default": "music_v1"
           },
@@ -44046,12 +45030,7 @@
             "description": "The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 3000ms and 600000ms. Optional - if not provided, the model will choose a length based on the prompt."
           },
           "model_id": {
-            "type": "string",
-            "enum": [
-              "music_v1",
-              "music_v2"
-            ],
-            "title": "Model Id",
+            "$ref": "#/components/schemas/MusicModelID",
             "description": "The model to use for the generation.",
             "default": "music_v1"
           },
@@ -44419,12 +45398,7 @@
             "description": "Finetune visibility. Only 'private' and 'workspace' can be set."
           },
           "model_id": {
-            "type": "string",
-            "enum": [
-              "music_v1",
-              "music_v2"
-            ],
-            "title": "Model Id",
+            "$ref": "#/components/schemas/MusicModelID",
             "description": "The model to create a finetune for.",
             "default": "music_v1"
           }
@@ -46428,12 +47402,7 @@
             "description": "An optional composition plan to use as a source for the new composition plan."
           },
           "model_id": {
-            "type": "string",
-            "enum": [
-              "music_v1",
-              "music_v2"
-            ],
-            "title": "Model Id",
+            "$ref": "#/components/schemas/MusicModelID",
             "description": "The model to use for the generation.",
             "default": "music_v1"
           }
@@ -48276,12 +49245,7 @@
             "description": "The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 3000ms and 600000ms. Optional - if not provided, the model will choose a length based on the prompt."
           },
           "model_id": {
-            "type": "string",
-            "enum": [
-              "music_v1",
-              "music_v2"
-            ],
-            "title": "Model Id",
+            "$ref": "#/components/schemas/MusicModelID",
             "description": "The model to use for the generation.",
             "default": "music_v1"
           },
@@ -48432,12 +49396,7 @@
             "description": "The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 3000ms and 600000ms. Optional - if not provided, the model will choose a length based on the prompt."
           },
           "model_id": {
-            "type": "string",
-            "enum": [
-              "music_v1",
-              "music_v2"
-            ],
-            "title": "Model Id",
+            "$ref": "#/components/schemas/MusicModelID",
             "description": "The model to use for the generation.",
             "default": "music_v1"
           },
@@ -49662,14 +50621,8 @@
                 "type": "boolean"
               },
               {
-                "type": "string"
+                "$ref": "#/components/schemas/MusicModelID"
               }
-            ],
-            "enum": [
-              true,
-              false,
-              "music_v1",
-              "music_v2"
             ],
             "title": "Extract Composition Plan",
             "description": "Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1` or `music_v2`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.",
@@ -49754,12 +50707,7 @@
             "default": []
           },
           "model_id": {
-            "type": "string",
-            "enum": [
-              "music_v1",
-              "music_v2"
-            ],
-            "title": "Model Id",
+            "$ref": "#/components/schemas/MusicModelID",
             "description": "The model to use for the generation.",
             "default": "music_v1"
           },
@@ -59758,6 +60706,43 @@
         ],
         "title": "CreateAgentBranchResponseModel"
       },
+      "CreateAgentConversationTicketRequestModel": {
+        "properties": {
+          "conversation_id": {
+            "type": "string",
+            "title": "Conversation Id",
+            "description": "Conversation this ticket is about."
+          },
+          "qa_comment": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 10000,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Qa Comment",
+            "description": "The QA finding covering the whole conversation."
+          },
+          "turn_comments": {
+            "items": {
+              "$ref": "#/components/schemas/TurnCommentRequestModel"
+            },
+            "type": "array",
+            "maxItems": 200,
+            "title": "Turn Comments",
+            "description": "Optional turn-level comments on what went wrong."
+          }
+        },
+        "type": "object",
+        "required": [
+          "conversation_id"
+        ],
+        "title": "CreateAgentConversationTicketRequestModel"
+      },
       "CreateAgentProcedureParams": {
         "properties": {
           "smb_tool_type": {
@@ -60260,6 +61245,22 @@
         ],
         "title": "CreateMTLSAuthRequest",
         "description": "Request model for creating mTLS auth connections."
+      },
+      "CreateManualTicketRequestModel": {
+        "properties": {
+          "qa_comment": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Qa Comment",
+            "description": "What the ticket is about, e.g. a follow-up task for the agent. This is shown as the ticket title."
+          }
+        },
+        "type": "object",
+        "required": [
+          "qa_comment"
+        ],
+        "title": "CreateManualTicketRequestModel"
       },
       "CreateOAuth2ClientCredsRequest": {
         "properties": {
@@ -68295,6 +69296,38 @@
           "ap_southeast_1"
         ],
         "title": "GenesysRegion"
+      },
+      "GetAgentConversationTicketsPageResponseModel": {
+        "properties": {
+          "agent_conversation_tickets": {
+            "items": {
+              "$ref": "#/components/schemas/AgentConversationTicketResponseModel"
+            },
+            "type": "array",
+            "title": "Agent Conversation Tickets"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor"
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More"
+          }
+        },
+        "type": "object",
+        "required": [
+          "agent_conversation_tickets",
+          "has_more"
+        ],
+        "title": "GetAgentConversationTicketsPageResponseModel"
       },
       "GetAgentEmbedResponseModel": {
         "properties": {
@@ -79720,6 +80753,21 @@
         ],
         "title": "MusicGenerationMode"
       },
+      "MusicModelID": {
+        "type": "string",
+        "enum": [
+          "music_v1",
+          "music_v2"
+        ],
+        "title": "MusicModelID",
+        "x-fern-enum": {
+          "music_v1": {
+            "description": "Deprecated: Deprecated.",
+            "deprecated": true
+          }
+        },
+        "default": "music_v1"
+      },
       "MusicOnlyOutputFormats": {
         "type": "string",
         "enum": [
@@ -81115,6 +82163,35 @@
             }
           ]
         }
+      },
+      "PatchAgentConversationTicketRequestModel": {
+        "properties": {
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentConversationTicketStatus"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "If provided, updates the ticket status. Omit to leave unchanged."
+          },
+          "assignee_user_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assignee User Id",
+            "description": "If provided, updates who is responsible for resolving this ticket. Must be a workspace member with at least viewer access to the agent. Pass null to unassign. Omit to leave unchanged."
+          }
+        },
+        "type": "object",
+        "title": "PatchAgentConversationTicketRequestModel"
       },
       "PatchConvAIDashboardSettingsRequest": {
         "properties": {
@@ -91112,7 +92189,9 @@
             "type": "array",
             "maxItems": 7,
             "title": "Additional Soft Timeout Messages",
-            "description": "Extra static filler messages for subsequent soft timeouts in the same LLM generation. The first timeout uses `message`. If fewer messages are configured than `max_soft_timeouts_per_generation`, the last configured message is repeated; otherwise a built-in filler is used."
+            "description": "Extra static filler messages for subsequent soft timeouts in the same LLM generation. The first timeout uses `message`. If fewer messages are configured than `max_soft_timeouts_per_generation`, the last configured message is repeated; otherwise a built-in filler is used.",
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
           },
           "use_llm_generated_message": {
             "type": "boolean",
@@ -91182,6 +92261,23 @@
             "description": "Message to show when the first soft timeout is reached while waiting for LLM response. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).",
             "x-convai-client-override": true,
             "x-convai-language-override": true
+          },
+          "additional_soft_timeout_messages": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Additional Soft Timeout Messages",
+            "description": "Extra static filler messages for subsequent soft timeouts in the same LLM generation. The first timeout uses `message`. If fewer messages are configured than `max_soft_timeouts_per_generation`, the last configured message is repeated; otherwise a built-in filler is used.",
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
           }
         },
         "type": "object",
@@ -91196,6 +92292,12 @@
             "type": "boolean",
             "title": "Message",
             "description": "Whether to allow overriding the message field.",
+            "default": false
+          },
+          "additional_soft_timeout_messages": {
+            "type": "boolean",
+            "title": "Additional Soft Timeout Messages",
+            "description": "Whether to allow overriding the additional_soft_timeout_messages field.",
             "default": false
           }
         },
@@ -91243,7 +92345,9 @@
               }
             ],
             "title": "Additional Soft Timeout Messages",
-            "description": "Extra static filler messages for subsequent soft timeouts in the same LLM generation. The first timeout uses `message`. If fewer messages are configured than `max_soft_timeouts_per_generation`, the last configured message is repeated; otherwise a built-in filler is used."
+            "description": "Extra static filler messages for subsequent soft timeouts in the same LLM generation. The first timeout uses `message`. If fewer messages are configured than `max_soft_timeouts_per_generation`, the last configured message is repeated; otherwise a built-in filler is used.",
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
           },
           "use_llm_generated_message": {
             "anyOf": [
@@ -95393,6 +96497,36 @@
         "type": "object",
         "title": "ThresholdGuardrail"
       },
+      "TicketCommentResponseModel": {
+        "properties": {
+          "comment": {
+            "type": "string",
+            "title": "Comment"
+          },
+          "created_at_unix_secs": {
+            "type": "integer",
+            "title": "Created At Unix Secs"
+          },
+          "owner_user_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Owner User Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "comment",
+          "created_at_unix_secs",
+          "owner_user_id"
+        ],
+        "title": "TicketCommentResponseModel"
+      },
       "TimeRange": {
         "properties": {
           "start_ms": {
@@ -97085,6 +98219,64 @@
         "type": "object",
         "title": "TtsVoiceSettings",
         "description": "Overrides for the voice's saved settings, applied to one generation."
+      },
+      "TurnCommentRequestModel": {
+        "properties": {
+          "turn_index": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Turn Index",
+            "description": "Zero-based index of the transcript turn this comment refers to."
+          },
+          "comment": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Comment",
+            "description": "What went wrong at this turn."
+          }
+        },
+        "type": "object",
+        "required": [
+          "turn_index",
+          "comment"
+        ],
+        "title": "TurnCommentRequestModel"
+      },
+      "TurnCommentResponseModel": {
+        "properties": {
+          "turn_index": {
+            "type": "integer",
+            "title": "Turn Index"
+          },
+          "comment": {
+            "type": "string",
+            "title": "Comment"
+          },
+          "created_at_unix_secs": {
+            "type": "integer",
+            "title": "Created At Unix Secs"
+          },
+          "owner_user_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Owner User Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "turn_index",
+          "comment",
+          "created_at_unix_secs",
+          "owner_user_id"
+        ],
+        "title": "TurnCommentResponseModel"
       },
       "TurnConfig": {
         "properties": {
@@ -104236,13 +105428,13 @@
             "type": "boolean",
             "title": "Mic Muting Enabled",
             "description": "Whether to enable mic muting",
-            "default": false
+            "default": true
           },
           "transcript_enabled": {
             "type": "boolean",
             "title": "Transcript Enabled",
             "description": "Whether the widget should show the conversation transcript as it goes on",
-            "default": false
+            "default": true
           },
           "text_input_enabled": {
             "type": "boolean",
@@ -104651,13 +105843,13 @@
             "type": "boolean",
             "title": "Mic Muting Enabled",
             "description": "Whether to enable mic muting",
-            "default": false
+            "default": true
           },
           "transcript_enabled": {
             "type": "boolean",
             "title": "Transcript Enabled",
             "description": "Whether the widget should show the conversation transcript as it goes on",
-            "default": false
+            "default": true
           },
           "text_input_enabled": {
             "type": "boolean",
@@ -105066,13 +106258,13 @@
             "type": "boolean",
             "title": "Mic Muting Enabled",
             "description": "Whether to enable mic muting",
-            "default": false
+            "default": true
           },
           "transcript_enabled": {
             "type": "boolean",
             "title": "Transcript Enabled",
             "description": "Whether the widget should show the conversation transcript as it goes on",
-            "default": false
+            "default": true
           },
           "text_input_enabled": {
             "type": "boolean",

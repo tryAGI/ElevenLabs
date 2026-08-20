@@ -27,8 +27,8 @@ namespace ElevenLabs
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("extract_composition_plan")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<bool?, string>))]
-        public global::ElevenLabs.AnyOf<bool?, string>? ExtractCompositionPlan { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<bool?, global::ElevenLabs.MusicModelID?>))]
+        public global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.MusicModelID?>? ExtractCompositionPlan { get; set; }
 
         /// <summary>
         /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
@@ -66,7 +66,7 @@ namespace ElevenLabs
         public BodyUploadMusicV1MusicUploadPost(
             byte[] file,
             string filename,
-            global::ElevenLabs.AnyOf<bool?, string>? extractCompositionPlan,
+            global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.MusicModelID?>? extractCompositionPlan,
             bool? withTimestamps)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));

@@ -59,7 +59,7 @@ namespace ElevenLabs
         /// Used for fetching the next page. Cursor is returned in the response.
         /// </param>
         /// <param name="pageSize">
-        /// How many finetunes to return. Max 100, default 50.<br/>
+        /// How many finetunes to return. Max 150, default 50.<br/>
         /// Default Value: 50
         /// </param>
         /// <param name="visibility">
@@ -110,7 +110,7 @@ namespace ElevenLabs
         /// Used for fetching the next page. Cursor is returned in the response.
         /// </param>
         /// <param name="pageSize">
-        /// How many finetunes to return. Max 100, default 50.<br/>
+        /// How many finetunes to return. Max 150, default 50.<br/>
         /// Default Value: 50
         /// </param>
         /// <param name="visibility">
@@ -547,7 +547,7 @@ namespace ElevenLabs
         /// Wraps ListAsync as an IAsyncEnumerable&lt;global::ElevenLabs.MusicFinetuneResponseModel&gt; that auto-pages over the response.
         /// </summary>
         /// <param name="pageSize">
-        /// How many finetunes to return. Max 100, default 50.<br/>
+        /// How many finetunes to return. Max 150, default 50.<br/>
         /// Default Value: 50
         /// </param>
         /// <param name="visibility">

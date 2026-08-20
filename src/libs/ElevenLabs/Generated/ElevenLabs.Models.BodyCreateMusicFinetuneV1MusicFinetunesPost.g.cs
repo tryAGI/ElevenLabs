@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// Default Value: music_v1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostModelIdJsonConverter))]
-        public global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostModelId? ModelId { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MusicModelIDJsonConverter))]
+        public global::ElevenLabs.MusicModelID? ModelId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -89,7 +89,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<byte[]>? files,
             global::System.Collections.Generic.IList<string>? tags,
             global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2? visibility,
-            global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostModelId? modelId)
+            global::ElevenLabs.MusicModelID? modelId)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.PrimaryGenre = primaryGenre ?? throw new global::System.ArgumentNullException(nameof(primaryGenre));

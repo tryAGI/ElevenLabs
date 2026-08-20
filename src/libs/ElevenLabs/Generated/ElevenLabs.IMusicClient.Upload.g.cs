@@ -54,7 +54,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.MusicUploadResponse> UploadAsync(
             byte[] file,
             string filename,
-            global::ElevenLabs.AnyOf<bool?, string>? extractCompositionPlan = default,
+            global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.MusicModelID?>? extractCompositionPlan = default,
             bool? withTimestamps = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -83,7 +83,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.MusicUploadResponse> UploadAsync(
             global::System.IO.Stream file,
             string filename,
-            global::ElevenLabs.AnyOf<bool?, string>? extractCompositionPlan = default,
+            global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.MusicModelID?>? extractCompositionPlan = default,
             bool? withTimestamps = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -111,7 +111,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MusicUploadResponse>> UploadAsResponseAsync(
             global::System.IO.Stream file,
             string filename,
-            global::ElevenLabs.AnyOf<bool?, string>? extractCompositionPlan = default,
+            global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.MusicModelID?>? extractCompositionPlan = default,
             bool? withTimestamps = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
