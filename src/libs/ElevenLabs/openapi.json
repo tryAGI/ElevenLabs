@@ -20847,6 +20847,42 @@
             "description": "Filter tickets by assignee. Use 'unassigned' for tickets with no assignee."
           },
           {
+            "name": "issue_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/AgentConversationTicketIssueType"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter clusters by issue type.",
+              "title": "Issue Type"
+            },
+            "description": "Filter clusters by issue type."
+          },
+          {
+            "name": "label",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tickets by an exact label.",
+              "title": "Label"
+            },
+            "description": "Filter tickets by an exact label."
+          },
+          {
             "name": "cursor",
             "in": "query",
             "required": false,
@@ -30616,7 +30652,7 @@
           "Agents Platform"
         ],
         "summary": "Remove Procedure",
-        "description": "Remove a procedure from the agent's draft working set.",
+        "description": "Remove a procedure from the agent's draft working set. Removing a folder cascades to its entire subtree, rejected if any procedure outside the subtree hands off into it.",
         "operationId": "remove_procedure_route",
         "parameters": [
           {

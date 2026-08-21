@@ -28,6 +28,12 @@ namespace ElevenLabs
         /// <param name="assigneeUserId">
         /// Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
         /// </param>
+        /// <param name="issueType">
+        /// Filter clusters by issue type.
+        /// </param>
+        /// <param name="label">
+        /// Filter tickets by an exact label.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -42,6 +48,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources = default,
             string? ownerUserId = default,
             string? assigneeUserId = default,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
+            string? label = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -69,6 +77,12 @@ namespace ElevenLabs
         /// <param name="assigneeUserId">
         /// Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
         /// </param>
+        /// <param name="issueType">
+        /// Filter clusters by issue type.
+        /// </param>
+        /// <param name="label">
+        /// Filter tickets by an exact label.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -83,6 +97,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources = default,
             string? ownerUserId = default,
             string? assigneeUserId = default,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
+            string? label = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -109,6 +125,12 @@ namespace ElevenLabs
         /// </param>
         /// <param name="assigneeUserId">
         /// Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
+        /// </param>
+        /// <param name="issueType">
+        /// Filter clusters by issue type.
+        /// </param>
+        /// <param name="label">
+        /// Filter tickets by an exact label.
         /// </param> 
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
@@ -119,6 +141,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources = default,
             string? ownerUserId = default,
             string? assigneeUserId = default,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
+            string? label = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default);
 
