@@ -30,14 +30,16 @@ namespace ElevenLabs
             ref string agentId,
             ref string branchId,
             ref string procedureId,
-            ref string? versionId);
+            ref string? versionId,
+            ref string? agentVersionId);
         partial void PrepareGet25Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
             string branchId,
             string procedureId,
-            string? versionId);
+            string? versionId,
+            string? agentVersionId);
         partial void ProcessGet25Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -63,6 +65,9 @@ namespace ElevenLabs
         /// <param name="versionId">
         /// The version ID to retrieve. If omitted, returns the version at branch HEAD.
         /// </param>
+        /// <param name="agentVersionId">
+        /// The agent version ID to retrieve the procedure for.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -71,6 +76,7 @@ namespace ElevenLabs
             string branchId,
             string procedureId,
             string? versionId = default,
+            string? agentVersionId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -79,6 +85,7 @@ namespace ElevenLabs
                 branchId: branchId,
                 procedureId: procedureId,
                 versionId: versionId,
+                agentVersionId: agentVersionId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -101,6 +108,9 @@ namespace ElevenLabs
         /// <param name="versionId">
         /// The version ID to retrieve. If omitted, returns the version at branch HEAD.
         /// </param>
+        /// <param name="agentVersionId">
+        /// The agent version ID to retrieve the procedure for.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -109,6 +119,7 @@ namespace ElevenLabs
             string branchId,
             string procedureId,
             string? versionId = default,
+            string? agentVersionId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -119,7 +130,8 @@ namespace ElevenLabs
                 agentId: ref agentId,
                 branchId: ref branchId,
                 procedureId: ref procedureId,
-                versionId: ref versionId);
+                versionId: ref versionId,
+                agentVersionId: ref agentVersionId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -149,6 +161,7 @@ namespace ElevenLabs
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("version_id", versionId)
+                                .AddOptionalParameter("agent_version_id", agentVersionId)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -193,7 +206,8 @@ namespace ElevenLabs
                     agentId: agentId!,
                     branchId: branchId!,
                     procedureId: procedureId!,
-                    versionId: versionId);
+                    versionId: versionId,
+                    agentVersionId: agentVersionId);
 
                 return __httpRequest;
             }
