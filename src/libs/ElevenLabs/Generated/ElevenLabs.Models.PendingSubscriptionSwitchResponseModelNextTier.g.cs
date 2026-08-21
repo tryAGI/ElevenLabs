@@ -23,6 +23,10 @@ namespace ElevenLabs
         /// <summary>
         /// 
         /// </summary>
+        Go,
+        /// <summary>
+        /// 
+        /// </summary>
         GrantTier120250723,
         /// <summary>
         /// 
@@ -65,6 +69,7 @@ namespace ElevenLabs
                 PendingSubscriptionSwitchResponseModelNextTier.Creator => "creator",
                 PendingSubscriptionSwitchResponseModelNextTier.Enterprise => "enterprise",
                 PendingSubscriptionSwitchResponseModelNextTier.Free => "free",
+                PendingSubscriptionSwitchResponseModelNextTier.Go => "go",
                 PendingSubscriptionSwitchResponseModelNextTier.GrantTier120250723 => "grant_tier_1_2025_07_23",
                 PendingSubscriptionSwitchResponseModelNextTier.GrantTier220250723 => "grant_tier_2_2025_07_23",
                 PendingSubscriptionSwitchResponseModelNextTier.GrowingBusiness => "growing_business",
@@ -85,6 +90,7 @@ namespace ElevenLabs
                 "creator" => PendingSubscriptionSwitchResponseModelNextTier.Creator,
                 "enterprise" => PendingSubscriptionSwitchResponseModelNextTier.Enterprise,
                 "free" => PendingSubscriptionSwitchResponseModelNextTier.Free,
+                "go" => PendingSubscriptionSwitchResponseModelNextTier.Go,
                 "grant_tier_1_2025_07_23" => PendingSubscriptionSwitchResponseModelNextTier.GrantTier120250723,
                 "grant_tier_2_2025_07_23" => PendingSubscriptionSwitchResponseModelNextTier.GrantTier220250723,
                 "growing_business" => PendingSubscriptionSwitchResponseModelNextTier.GrowingBusiness,
