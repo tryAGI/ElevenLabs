@@ -34,6 +34,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources,
             ref string? ownerUserId,
             ref string? assigneeUserId,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType,
+            ref string? label,
             ref string? cursor);
         partial void PrepareGetConvaiAgentsByAgentIdTriageTicketsRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -45,6 +47,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources,
             string? ownerUserId,
             string? assigneeUserId,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType,
+            string? label,
             string? cursor);
         partial void ProcessGetConvaiAgentsByAgentIdTriageTicketsResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -79,6 +83,12 @@ namespace ElevenLabs
         /// <param name="assigneeUserId">
         /// Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
         /// </param>
+        /// <param name="issueType">
+        /// Filter clusters by issue type.
+        /// </param>
+        /// <param name="label">
+        /// Filter tickets by an exact label.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -93,6 +103,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources = default,
             string? ownerUserId = default,
             string? assigneeUserId = default,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
+            string? label = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -105,6 +117,8 @@ namespace ElevenLabs
                 sources: sources,
                 ownerUserId: ownerUserId,
                 assigneeUserId: assigneeUserId,
+                issueType: issueType,
+                label: label,
                 cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -136,6 +150,12 @@ namespace ElevenLabs
         /// <param name="assigneeUserId">
         /// Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
         /// </param>
+        /// <param name="issueType">
+        /// Filter clusters by issue type.
+        /// </param>
+        /// <param name="label">
+        /// Filter tickets by an exact label.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -150,6 +170,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources = default,
             string? ownerUserId = default,
             string? assigneeUserId = default,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
+            string? label = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -165,6 +187,8 @@ namespace ElevenLabs
                 sources: sources,
                 ownerUserId: ref ownerUserId,
                 assigneeUserId: ref assigneeUserId,
+                issueType: issueType,
+                label: ref label,
                 cursor: ref cursor);
 
 
@@ -200,6 +224,8 @@ namespace ElevenLabs
                                 .AddOptionalParameter("sources", sources?.ToString())
                                 .AddOptionalParameter("owner_user_id", ownerUserId)
                                 .AddOptionalParameter("assignee_user_id", assigneeUserId)
+                                .AddOptionalParameter("issue_type", issueType?.ToString())
+                                .AddOptionalParameter("label", label)
                                 .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -249,6 +275,8 @@ namespace ElevenLabs
                     sources: sources,
                     ownerUserId: ownerUserId,
                     assigneeUserId: assigneeUserId,
+                    issueType: issueType,
+                    label: label,
                     cursor: cursor);
 
                 return __httpRequest;
@@ -584,6 +612,12 @@ namespace ElevenLabs
         /// </param>
         /// <param name="assigneeUserId">
         /// Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
+        /// </param>
+        /// <param name="issueType">
+        /// Filter clusters by issue type.
+        /// </param>
+        /// <param name="label">
+        /// Filter tickets by an exact label.
         /// </param> 
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
@@ -594,6 +628,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources = default,
             string? ownerUserId = default,
             string? assigneeUserId = default,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
+            string? label = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -606,6 +642,8 @@ namespace ElevenLabs
                     sources: sources,
                     ownerUserId: ownerUserId,
                     assigneeUserId: assigneeUserId,
+                    issueType: issueType,
+                    label: label,
                     cursor: __cursor,
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null

@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Remove Procedure<br/>
-        /// Remove a procedure from the agent's draft working set.
+        /// Remove a procedure from the agent's draft working set. Removing a folder cascades to its entire subtree, rejected if any procedure outside the subtree hands off into it.
         /// </summary>
         /// <param name="agentId">
         /// Agent ID to get the procedure draft from
@@ -28,7 +28,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Remove Procedure<br/>
-        /// Remove a procedure from the agent's draft working set.
+        /// Remove a procedure from the agent's draft working set. Removing a folder cascades to its entire subtree, rejected if any procedure outside the subtree hands off into it.
         /// </summary>
         /// <param name="agentId">
         /// Agent ID to get the procedure draft from
