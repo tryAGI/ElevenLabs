@@ -94,7 +94,7 @@
       "Slug": "get-procedure-route",
       "Description": "Retrieve a procedure at a specific version or the current branch HEAD.",
       "Language": "http",
-      "Code": "### Get Procedure\n# @name get_procedure_route\nGET {{host}}/v1/convai/agents/{{agent_id}}/branches/{{branch_id}}/procedures/{{procedure_id}}?version_id={{version_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Get Procedure\n# @name get_procedure_route\nGET {{host}}/v1/convai/agents/{{agent_id}}/branches/{{branch_id}}/procedures/{{procedure_id}}?version_id={{version_id}}\u0026agent_version_id={{agent_version_id}}\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "get_procedure_route",
       "Setup": null

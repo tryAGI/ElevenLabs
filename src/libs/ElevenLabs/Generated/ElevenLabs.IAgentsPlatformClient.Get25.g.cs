@@ -20,6 +20,9 @@ namespace ElevenLabs
         /// <param name="versionId">
         /// The version ID to retrieve. If omitted, returns the version at branch HEAD.
         /// </param>
+        /// <param name="agentVersionId">
+        /// The agent version ID to retrieve the procedure for.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -28,6 +31,7 @@ namespace ElevenLabs
             string branchId,
             string procedureId,
             string? versionId = default,
+            string? agentVersionId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -46,6 +50,9 @@ namespace ElevenLabs
         /// <param name="versionId">
         /// The version ID to retrieve. If omitted, returns the version at branch HEAD.
         /// </param>
+        /// <param name="agentVersionId">
+        /// The agent version ID to retrieve the procedure for.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -54,6 +61,7 @@ namespace ElevenLabs
             string branchId,
             string procedureId,
             string? versionId = default,
+            string? agentVersionId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

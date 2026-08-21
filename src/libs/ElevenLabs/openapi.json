@@ -30502,6 +30502,27 @@
             "description": "Branch ID to get the procedure draft from"
           },
           {
+            "name": "agent_version_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The agent version ID to retrieve the procedure for.",
+              "examples": [
+                "agtvrsn_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "title": "Agent Version Id"
+            },
+            "description": "The agent version ID to retrieve the procedure for."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -30813,6 +30834,27 @@
               "title": "Version Id"
             },
             "description": "The version ID to retrieve. If omitted, returns the version at branch HEAD."
+          },
+          {
+            "name": "agent_version_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The agent version ID to retrieve the procedure for.",
+              "examples": [
+                "agtvrsn_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "title": "Agent Version Id"
+            },
+            "description": "The agent version ID to retrieve the procedure for."
           },
           {
             "name": "xi-api-key",

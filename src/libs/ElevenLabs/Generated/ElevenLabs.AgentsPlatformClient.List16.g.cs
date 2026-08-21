@@ -28,12 +28,14 @@ namespace ElevenLabs
         partial void PrepareList16Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref string branchId);
+            ref string branchId,
+            ref string? agentVersionId);
         partial void PrepareList16Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            string branchId);
+            string branchId,
+            string? agentVersionId);
         partial void ProcessList16Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -53,18 +55,23 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Branch ID to get the procedure draft from
         /// </param>
+        /// <param name="agentVersionId">
+        /// The agent version ID to retrieve the procedure for.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListProceduresResponseModel> List16Async(
             string agentId,
             string branchId,
+            string? agentVersionId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List16AsResponseAsync(
                 agentId: agentId,
                 branchId: branchId,
+                agentVersionId: agentVersionId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -81,12 +88,16 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Branch ID to get the procedure draft from
         /// </param>
+        /// <param name="agentVersionId">
+        /// The agent version ID to retrieve the procedure for.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListProceduresResponseModel>> List16AsResponseAsync(
             string agentId,
             string branchId,
+            string? agentVersionId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -95,7 +106,8 @@ namespace ElevenLabs
             PrepareList16Arguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                branchId: ref branchId);
+                branchId: ref branchId,
+                agentVersionId: ref agentVersionId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -123,6 +135,9 @@ namespace ElevenLabs
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: $"/v1/convai/agents/{agentId}/branches/{branchId}/procedures",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("agent_version_id", agentVersionId)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -164,7 +179,8 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentId: agentId!,
-                    branchId: branchId!);
+                    branchId: branchId!,
+                    agentVersionId: agentVersionId);
 
                 return __httpRequest;
             }
