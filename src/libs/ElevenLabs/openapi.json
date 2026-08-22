@@ -17953,6 +17953,28 @@
             "description": "Filter conversations where any of these agent branches participated. Can not exceed 50 values."
           },
           {
+            "name": "triggered_procedure_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 50
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations where any of these procedures were triggered. Can not exceed 50 values.",
+              "title": "Triggered Procedure Ids"
+            },
+            "description": "Filter conversations where any of these procedures were triggered. Can not exceed 50 values."
+          },
+          {
             "name": "call_successful",
             "in": "query",
             "required": false,
@@ -19525,6 +19547,28 @@
               "title": "Visited Agent Branch Ids"
             },
             "description": "Filter conversations where any of these agent branches participated. Can not exceed 50 values."
+          },
+          {
+            "name": "triggered_procedure_ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 50
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations where any of these procedures were triggered. Can not exceed 50 values.",
+              "title": "Triggered Procedure Ids"
+            },
+            "description": "Filter conversations where any of these procedures were triggered. Can not exceed 50 values."
           },
           {
             "name": "call_successful",
