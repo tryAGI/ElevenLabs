@@ -22,6 +22,9 @@ namespace ElevenLabs
         /// <param name="visitedAgentBranchIds">
         /// Filter conversations where any of these agent branches participated. Can not exceed 50 values.
         /// </param>
+        /// <param name="triggeredProcedureIds">
+        /// Filter conversations where any of these procedures were triggered. Can not exceed 50 values.
+        /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
         /// </param>
@@ -135,6 +138,7 @@ namespace ElevenLabs
             string? agentId = default,
             global::System.Collections.Generic.IList<string>? visitedAgentIds = default,
             global::System.Collections.Generic.IList<string>? visitedAgentBranchIds = default,
+            global::System.Collections.Generic.IList<string>? triggeredProcedureIds = default,
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
             int? callStartBeforeUnix = default,
             int? callStartAfterUnix = default,
@@ -187,6 +191,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="visitedAgentBranchIds">
         /// Filter conversations where any of these agent branches participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="triggeredProcedureIds">
+        /// Filter conversations where any of these procedures were triggered. Can not exceed 50 values.
         /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
@@ -301,6 +308,7 @@ namespace ElevenLabs
             string? agentId = default,
             global::System.Collections.Generic.IList<string>? visitedAgentIds = default,
             global::System.Collections.Generic.IList<string>? visitedAgentBranchIds = default,
+            global::System.Collections.Generic.IList<string>? triggeredProcedureIds = default,
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
             int? callStartBeforeUnix = default,
             int? callStartAfterUnix = default,
@@ -350,6 +358,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="visitedAgentBranchIds">
         /// Filter conversations where any of these agent branches participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="triggeredProcedureIds">
+        /// Filter conversations where any of these procedures were triggered. Can not exceed 50 values.
         /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
@@ -462,6 +473,7 @@ namespace ElevenLabs
               string? agentId = default,
             global::System.Collections.Generic.IList<string>? visitedAgentIds = default,
             global::System.Collections.Generic.IList<string>? visitedAgentBranchIds = default,
+            global::System.Collections.Generic.IList<string>? triggeredProcedureIds = default,
             global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
             int? callStartBeforeUnix = default,
             int? callStartAfterUnix = default,
