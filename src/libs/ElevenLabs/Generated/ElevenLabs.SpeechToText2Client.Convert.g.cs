@@ -375,12 +375,36 @@ namespace ElevenLabs
                             }
                             if (request.EntityDetection != default)
                             {
+                                if ((request.EntityDetection).GetValueOrDefault().TryPickValue1(out var __valueEntityDetection1))
+                                {
 
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.EntityDetection.ToString() ?? string.Empty),
-                                    name: "\"entity_detection\"");
+                                    var __contentEntityDetection1 = new global::System.Net.Http.StringContent(__valueEntityDetection1 ?? string.Empty);
+                                    __httpRequestContent.Add(
+                                        content: __contentEntityDetection1,
+                                        name: "\"entity_detection\"");
+                                }
+                                else if ((request.EntityDetection).GetValueOrDefault().TryPickValue2(out var __valueEntityDetection2))
+                                {
 
+                                    for (var __iEntityDetection2 = 0; __iEntityDetection2 < (__valueEntityDetection2!).Count; __iEntityDetection2++)
+                                    {
+
+                                        var __contentEntityDetection2Item = new global::System.Net.Http.StringContent((__valueEntityDetection2!)[__iEntityDetection2] ?? string.Empty);
+                                        __httpRequestContent.Add(
+                                            content: __contentEntityDetection2Item,
+                                            name: "\"entity_detection\"");
+                                    }
+                                }
+                                else if ((request.EntityDetection).GetValueOrDefault().TryPickValue3(out var __valueEntityDetection3))
+                                {
+
+                                    var __contentEntityDetection3 = new global::System.Net.Http.StringContent((__valueEntityDetection3!).ToString() ?? string.Empty);
+                                    __httpRequestContent.Add(
+                                        content: __contentEntityDetection3,
+                                        name: "\"entity_detection\"");
+                                }
                             }
+
                             if (request.NoVerbatim != default)
                             {
 
@@ -407,12 +431,36 @@ namespace ElevenLabs
                             }
                             if (request.EntityRedaction != default)
                             {
+                                if ((request.EntityRedaction).GetValueOrDefault().TryPickValue1(out var __valueEntityRedaction1))
+                                {
 
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.EntityRedaction.ToString() ?? string.Empty),
-                                    name: "\"entity_redaction\"");
+                                    var __contentEntityRedaction1 = new global::System.Net.Http.StringContent(__valueEntityRedaction1 ?? string.Empty);
+                                    __httpRequestContent.Add(
+                                        content: __contentEntityRedaction1,
+                                        name: "\"entity_redaction\"");
+                                }
+                                else if ((request.EntityRedaction).GetValueOrDefault().TryPickValue2(out var __valueEntityRedaction2))
+                                {
 
+                                    for (var __iEntityRedaction2 = 0; __iEntityRedaction2 < (__valueEntityRedaction2!).Count; __iEntityRedaction2++)
+                                    {
+
+                                        var __contentEntityRedaction2Item = new global::System.Net.Http.StringContent((__valueEntityRedaction2!)[__iEntityRedaction2] ?? string.Empty);
+                                        __httpRequestContent.Add(
+                                            content: __contentEntityRedaction2Item,
+                                            name: "\"entity_redaction\"");
+                                    }
+                                }
+                                else if ((request.EntityRedaction).GetValueOrDefault().TryPickValue3(out var __valueEntityRedaction3))
+                                {
+
+                                    var __contentEntityRedaction3 = new global::System.Net.Http.StringContent((__valueEntityRedaction3!).ToString() ?? string.Empty);
+                                    __httpRequestContent.Add(
+                                        content: __contentEntityRedaction3,
+                                        name: "\"entity_redaction\"");
+                                }
                             }
+
                             if (request.EntityRedactionMode != default)
                             {
 

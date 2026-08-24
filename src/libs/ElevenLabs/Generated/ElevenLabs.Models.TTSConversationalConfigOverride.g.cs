@@ -21,6 +21,12 @@ namespace ElevenLabs
         public string? VoiceId { get; set; }
 
         /// <summary>
+        /// Additional supported voices for the agent
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("supported_voices")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SupportedVoice>? SupportedVoices { get; set; }
+
+        /// <summary>
         /// The stability of generated speech
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stability")]
@@ -59,6 +65,9 @@ namespace ElevenLabs
         /// <param name="voiceId">
         /// The voice ID to use for TTS
         /// </param>
+        /// <param name="supportedVoices">
+        /// Additional supported voices for the agent
+        /// </param>
         /// <param name="stability">
         /// The stability of generated speech
         /// </param>
@@ -77,6 +86,7 @@ namespace ElevenLabs
         public TTSConversationalConfigOverride(
             global::ElevenLabs.TTSConversationalModel? modelId,
             string? voiceId,
+            global::System.Collections.Generic.IList<global::ElevenLabs.SupportedVoice>? supportedVoices,
             double? stability,
             double? speed,
             double? similarityBoost,
@@ -84,6 +94,7 @@ namespace ElevenLabs
         {
             this.ModelId = modelId;
             this.VoiceId = voiceId;
+            this.SupportedVoices = supportedVoices;
             this.Stability = stability;
             this.Speed = speed;
             this.SimilarityBoost = similarityBoost;
