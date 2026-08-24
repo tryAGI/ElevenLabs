@@ -40794,7 +40794,8 @@
               "type": "tool"
             }
           },
-          "prevent_subagent_loops": false
+          "prevent_subagent_loops": false,
+          "subgraphs": {}
         }
       },
       "AgentWorkspaceOverrides-Input": {
@@ -70054,7 +70055,8 @@
                 "type": "tool"
               }
             },
-            "prevent_subagent_loops": false
+            "prevent_subagent_loops": false,
+            "subgraphs": {}
           }
         }
       },
@@ -80229,7 +80231,8 @@
                 "type": "tool"
               }
             },
-            "prevent_subagent_loops": false
+            "prevent_subagent_loops": false,
+            "subgraphs": {}
           }
         }
       },
@@ -95583,7 +95586,9 @@
             },
             "type": "array",
             "title": "Supported Voices",
-            "description": "Additional supported voices for the agent"
+            "description": "Additional supported voices for the agent",
+            "x-convai-client-override": true,
+            "x-convai-soft-override-disallowed": true
           },
           "expressive_mode": {
             "type": "boolean",
@@ -95695,7 +95700,9 @@
             },
             "type": "array",
             "title": "Supported Voices",
-            "description": "Additional supported voices for the agent"
+            "description": "Additional supported voices for the agent",
+            "x-convai-client-override": true,
+            "x-convai-soft-override-disallowed": true
           },
           "expressive_mode": {
             "type": "boolean",
@@ -95812,6 +95819,23 @@
             "x-convai-client-override": true,
             "x-convai-language-override": true
           },
+          "supported_voices": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/SupportedVoice"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supported Voices",
+            "description": "Additional supported voices for the agent",
+            "x-convai-client-override": true,
+            "x-convai-soft-override-disallowed": true
+          },
           "stability": {
             "anyOf": [
               {
@@ -95893,6 +95917,12 @@
             "description": "Whether to allow overriding the voice_id field.",
             "default": false
           },
+          "supported_voices": {
+            "type": "boolean",
+            "title": "Supported Voices",
+            "description": "Whether to allow overriding the supported_voices field.",
+            "default": false
+          },
           "stability": {
             "type": "boolean",
             "title": "Stability",
@@ -95962,7 +95992,9 @@
               }
             ],
             "title": "Supported Voices",
-            "description": "Additional supported voices for the agent"
+            "description": "Additional supported voices for the agent",
+            "x-convai-client-override": true,
+            "x-convai-soft-override-disallowed": true
           },
           "expressive_mode": {
             "anyOf": [
@@ -96146,7 +96178,9 @@
               }
             ],
             "title": "Supported Voices",
-            "description": "Additional supported voices for the agent"
+            "description": "Additional supported voices for the agent",
+            "x-convai-client-override": true,
+            "x-convai-soft-override-disallowed": true
           },
           "expressive_mode": {
             "anyOf": [

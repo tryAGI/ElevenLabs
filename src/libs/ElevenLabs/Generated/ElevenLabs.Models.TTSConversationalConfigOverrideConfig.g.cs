@@ -23,6 +23,13 @@ namespace ElevenLabs
         public bool? VoiceId { get; set; }
 
         /// <summary>
+        /// Whether to allow overriding the supported_voices field.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("supported_voices")]
+        public bool? SupportedVoices { get; set; }
+
+        /// <summary>
         /// Whether to allow overriding the stability field.<br/>
         /// Default Value: false
         /// </summary>
@@ -67,6 +74,10 @@ namespace ElevenLabs
         /// Whether to allow overriding the voice_id field.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="supportedVoices">
+        /// Whether to allow overriding the supported_voices field.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="stability">
         /// Whether to allow overriding the stability field.<br/>
         /// Default Value: false
@@ -89,6 +100,7 @@ namespace ElevenLabs
         public TTSConversationalConfigOverrideConfig(
             bool? modelId,
             bool? voiceId,
+            bool? supportedVoices,
             bool? stability,
             bool? speed,
             bool? similarityBoost,
@@ -96,6 +108,7 @@ namespace ElevenLabs
         {
             this.ModelId = modelId;
             this.VoiceId = voiceId;
+            this.SupportedVoices = supportedVoices;
             this.Stability = stability;
             this.Speed = speed;
             this.SimilarityBoost = similarityBoost;
