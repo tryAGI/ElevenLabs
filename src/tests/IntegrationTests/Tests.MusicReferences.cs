@@ -61,7 +61,7 @@ public partial class Tests
             outputFormat: GenerateOutputFormat.Mp348000192,
             prompt: MusicPromptText,
             musicLengthMs: 10_000,
-            modelId: BodyComposeMusicV1MusicPostModelId.MusicV2,
+            modelId: MusicModelID.MusicV2,
             storeForInpainting: true);
 
         sourceAudio.Should().BeEquivalentTo([1, 2, 3], options => options.WithStrictOrdering());
@@ -90,7 +90,7 @@ public partial class Tests
         byte[] referencedAudio = await music.ComposeAsync(
             outputFormat: GenerateOutputFormat.Mp348000192,
             compositionPlan: referencePlan,
-            modelId: BodyComposeMusicV1MusicPostModelId.MusicV2);
+            modelId: MusicModelID.MusicV2);
 
         referencedAudio.Should().BeEquivalentTo([4, 5, 6], options => options.WithStrictOrdering());
         music.LastSongId.Should().Be("referenced-song-id");
