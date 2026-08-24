@@ -17981,7 +17981,7 @@
             "schema": {
               "anyOf": [
                 {
-                  "$ref": "#/components/schemas/EvaluationSuccessResult"
+                  "$ref": "#/components/schemas/EvaluationResultFilter"
                 },
                 {
                   "type": "null"
@@ -19577,7 +19577,7 @@
             "schema": {
               "anyOf": [
                 {
-                  "$ref": "#/components/schemas/EvaluationSuccessResult"
+                  "$ref": "#/components/schemas/EvaluationResultFilter"
                 },
                 {
                   "type": "null"
@@ -67450,6 +67450,16 @@
           "result"
         ],
         "title": "EvaluationCriteriaSummaryResult"
+      },
+      "EvaluationResultFilter": {
+        "type": "string",
+        "enum": [
+          "success",
+          "failure",
+          "unknown",
+          "error"
+        ],
+        "title": "EvaluationResultFilter"
       },
       "EvaluationSettings-Input": {
         "properties": {
