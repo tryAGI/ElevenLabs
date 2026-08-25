@@ -20984,7 +20984,12 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "triage_tickets"
+        ],
+        "x-fern-sdk-method-name": "list"
       },
       "post": {
         "summary": "Create Manual Agent Ticket",
@@ -21051,7 +21056,12 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "triage_tickets"
+        ],
+        "x-fern-sdk-method-name": "create_manual"
       }
     },
     "/v1/convai/agents/{agent_id}/triage-tickets/assignable-users": {
@@ -21113,7 +21123,12 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "triage_tickets"
+        ],
+        "x-fern-sdk-method-name": "list_assignable_users"
       }
     },
     "/v1/convai/triage-tickets/{agentqa_ticket_id}": {
@@ -21171,7 +21186,12 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "triage_tickets"
+        ],
+        "x-fern-sdk-method-name": "get"
       },
       "patch": {
         "summary": "Update Agent Conversation Ticket",
@@ -21238,7 +21258,12 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "triage_tickets"
+        ],
+        "x-fern-sdk-method-name": "update"
       },
       "delete": {
         "summary": "Delete Agent Conversation Ticket",
@@ -21287,7 +21312,12 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "triage_tickets"
+        ],
+        "x-fern-sdk-method-name": "delete"
       }
     },
     "/v1/convai/triage-tickets": {
@@ -21347,7 +21377,12 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "triage_tickets"
+        ],
+        "x-fern-sdk-method-name": "create"
       }
     },
     "/v1/convai/triage-tickets/{agentqa_ticket_id}/comments": {
@@ -21416,7 +21451,12 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "triage_tickets"
+        ],
+        "x-fern-sdk-method-name": "add_comment"
       }
     },
     "/v1/convai/triage-tickets/{agentqa_ticket_id}/turn-comments": {
@@ -21485,7 +21525,12 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "triage_tickets"
+        ],
+        "x-fern-sdk-method-name": "add_turn_comment"
       }
     },
     "/v1/convai/phone-numbers": {

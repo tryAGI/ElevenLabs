@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_GetConvaiTriageTicketsByAgentqaTicketIdSecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Delete2SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,71 +21,64 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_GetConvaiTriageTicketsByAgentqaTicketIdSecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Delete2SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_GetConvaiTriageTicketsByAgentqaTicketIdSecurityRequirement0,
+            {                s_Delete2SecurityRequirement0,
             };
-        partial void PrepareGetConvaiTriageTicketsByAgentqaTicketIdArguments(
+        partial void PrepareDelete2Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentqaTicketId);
-        partial void PrepareGetConvaiTriageTicketsByAgentqaTicketIdRequest(
+        partial void PrepareDelete2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentqaTicketId);
-        partial void ProcessGetConvaiTriageTicketsByAgentqaTicketIdResponse(
+        partial void ProcessDelete2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetConvaiTriageTicketsByAgentqaTicketIdResponseContent(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
-
         /// <summary>
-        /// Get Agent Conversation Ticket<br/>
-        /// Get an agent conversation ticket by ID.
+        /// Delete Agent Conversation Ticket<br/>
+        /// Delete an agent conversation ticket. Restricted to the ticket creator or a workspace admin.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> GetConvaiTriageTicketsByAgentqaTicketIdAsync(
+        public async global::System.Threading.Tasks.Task Delete2Async(
             string agentqaTicketId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await GetConvaiTriageTicketsByAgentqaTicketIdAsResponseAsync(
+            await Delete2AsResponseAsync(
                 agentqaTicketId: agentqaTicketId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
-
-            return __response.Body;
         }
         /// <summary>
-        /// Get Agent Conversation Ticket<br/>
-        /// Get an agent conversation ticket by ID.
+        /// Delete Agent Conversation Ticket<br/>
+        /// Delete an agent conversation ticket. Restricted to the ticket creator or a workspace admin.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentConversationTicketResponseModel>> GetConvaiTriageTicketsByAgentqaTicketIdAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse> Delete2AsResponseAsync(
             string agentqaTicketId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetConvaiTriageTicketsByAgentqaTicketIdArguments(
+            PrepareDelete2Arguments(
                 httpClient: HttpClient,
                 agentqaTicketId: ref agentqaTicketId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_GetConvaiTriageTicketsByAgentqaTicketIdSecurityRequirements,
-                operationName: "GetConvaiTriageTicketsByAgentqaTicketIdAsync");
+                securityRequirements: s_Delete2SecurityRequirements,
+                operationName: "Delete2Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -113,7 +106,7 @@ namespace ElevenLabs
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Get,
+                    method: global::System.Net.Http.HttpMethod.Delete,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -144,7 +137,7 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGetConvaiTriageTicketsByAgentqaTicketIdRequest(
+                PrepareDelete2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentqaTicketId: agentqaTicketId!);
@@ -164,10 +157,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "getConvaiTriageTicketsByAgentqaTicketId",
-                                methodName: "GetConvaiTriageTicketsByAgentqaTicketIdAsync",
+                                operationId: "Delete2",
+                                methodName: "Delete2Async",
                                 pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}\"",
-                                httpMethod: "GET",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -198,10 +191,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "getConvaiTriageTicketsByAgentqaTicketId",
-                                methodName: "GetConvaiTriageTicketsByAgentqaTicketIdAsync",
+                                operationId: "Delete2",
+                                methodName: "Delete2Async",
                                 pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}\"",
-                                httpMethod: "GET",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -239,10 +232,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "getConvaiTriageTicketsByAgentqaTicketId",
-                                methodName: "GetConvaiTriageTicketsByAgentqaTicketIdAsync",
+                                operationId: "Delete2",
+                                methodName: "Delete2Async",
                                 pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}\"",
-                                httpMethod: "GET",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -279,7 +272,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGetConvaiTriageTicketsByAgentqaTicketIdResponse(
+                ProcessDelete2Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -287,10 +280,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "getConvaiTriageTicketsByAgentqaTicketId",
-                                methodName: "GetConvaiTriageTicketsByAgentqaTicketIdAsync",
+                                operationId: "Delete2",
+                                methodName: "Delete2Async",
                                 pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}\"",
-                                httpMethod: "GET",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -309,10 +302,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "getConvaiTriageTicketsByAgentqaTicketId",
-                                methodName: "GetConvaiTriageTicketsByAgentqaTicketIdAsync",
+                                operationId: "Delete2",
+                                methodName: "Delete2Async",
                                 pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}\"",
-                                httpMethod: "GET",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -376,22 +369,15 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGetConvaiTriageTicketsByAgentqaTicketIdResponseContent(
-                                    httpClient: HttpClient,
-                                    httpResponseMessage: __response,
-                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.AgentConversationTicketResponseModel.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentConversationTicketResponseModel>(
+                return new global::ElevenLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -411,19 +397,10 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
-                #if NET5_0_OR_GREATER
-                                        __effectiveCancellationToken
-                #endif
-                                    ).ConfigureAwait(false);
-
-                                    var __value = await global::ElevenLabs.AgentConversationTicketResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentConversationTicketResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

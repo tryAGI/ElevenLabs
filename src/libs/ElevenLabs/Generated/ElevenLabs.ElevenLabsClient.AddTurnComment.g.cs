@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_CreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsSecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_AddTurnCommentSecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,24 +21,24 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_CreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsSecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_AddTurnCommentSecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_CreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsSecurityRequirement0,
+            {                s_AddTurnCommentSecurityRequirement0,
             };
-        partial void PrepareCreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsArguments(
+        partial void PrepareAddTurnCommentArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentqaTicketId,
             global::ElevenLabs.AddTurnCommentRequestModel request);
-        partial void PrepareCreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsRequest(
+        partial void PrepareAddTurnCommentRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentqaTicketId,
             global::ElevenLabs.AddTurnCommentRequestModel request);
-        partial void ProcessCreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsResponse(
+        partial void ProcessAddTurnCommentResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsResponseContent(
+        partial void ProcessAddTurnCommentResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -52,14 +52,14 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> CreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> AddTurnCommentAsync(
             string agentqaTicketId,
 
             global::ElevenLabs.AddTurnCommentRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await CreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsAsResponseAsync(
+            var __response = await AddTurnCommentAsResponseAsync(
                 agentqaTicketId: agentqaTicketId,
 
                 request: request,
@@ -78,7 +78,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentConversationTicketResponseModel>> CreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentConversationTicketResponseModel>> AddTurnCommentAsResponseAsync(
             string agentqaTicketId,
 
             global::ElevenLabs.AddTurnCommentRequestModel request,
@@ -89,7 +89,7 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsArguments(
+            PrepareAddTurnCommentArguments(
                 httpClient: HttpClient,
                 agentqaTicketId: ref agentqaTicketId,
                 request: request);
@@ -97,8 +97,8 @@ namespace ElevenLabs
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_CreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsSecurityRequirements,
-                operationName: "CreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsAsync");
+                securityRequirements: s_AddTurnCommentSecurityRequirements,
+                operationName: "AddTurnCommentAsync");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -163,7 +163,7 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsRequest(
+                PrepareAddTurnCommentRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentqaTicketId: agentqaTicketId!,
@@ -184,8 +184,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createConvaiTriageTicketsByAgentqaTicketIdTurnComments",
-                                methodName: "CreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsAsync",
+                                operationId: "AddTurnComment",
+                                methodName: "AddTurnCommentAsync",
                                 pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}/turn-comments\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -218,8 +218,8 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createConvaiTriageTicketsByAgentqaTicketIdTurnComments",
-                                methodName: "CreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsAsync",
+                                operationId: "AddTurnComment",
+                                methodName: "AddTurnCommentAsync",
                                 pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}/turn-comments\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -259,8 +259,8 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createConvaiTriageTicketsByAgentqaTicketIdTurnComments",
-                                methodName: "CreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsAsync",
+                                operationId: "AddTurnComment",
+                                methodName: "AddTurnCommentAsync",
                                 pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}/turn-comments\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -299,7 +299,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsResponse(
+                ProcessAddTurnCommentResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -307,8 +307,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createConvaiTriageTicketsByAgentqaTicketIdTurnComments",
-                                methodName: "CreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsAsync",
+                                operationId: "AddTurnComment",
+                                methodName: "AddTurnCommentAsync",
                                 pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}/turn-comments\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -329,8 +329,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createConvaiTriageTicketsByAgentqaTicketIdTurnComments",
-                                methodName: "CreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsAsync",
+                                operationId: "AddTurnComment",
+                                methodName: "AddTurnCommentAsync",
                                 pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}/turn-comments\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -396,7 +396,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessCreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsResponseContent(
+                                ProcessAddTurnCommentResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -493,7 +493,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> CreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> AddTurnCommentAsync(
             string agentqaTicketId,
             int turnIndex,
             string comment,
@@ -506,7 +506,7 @@ namespace ElevenLabs
                 Comment = comment,
             };
 
-            return await CreateConvaiTriageTicketsByAgentqaTicketIdTurnCommentsAsync(
+            return await AddTurnCommentAsync(
                 agentqaTicketId: agentqaTicketId,
                 request: __request,
                 requestOptions: requestOptions,
