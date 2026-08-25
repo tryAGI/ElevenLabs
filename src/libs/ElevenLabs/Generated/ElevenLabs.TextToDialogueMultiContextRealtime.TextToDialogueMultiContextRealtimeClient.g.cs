@@ -1,0 +1,696 @@
+
+#nullable enable
+
+namespace ElevenLabs.TextToDialogueMultiContextRealtime
+{
+    /// <summary>
+    /// Stream expressive dialogue audio for multiple independent streams (contexts) multiplexed over a single WebSocket connection.<br/>
+    /// Each context, identified by a client-chosen `context_id`, behaves like an independent [Text to Dialogue WebSocket](/docs/api-reference/text-to-dialogue/ttd-websocket) session: it registers its own voices and settings, buffers its own text, and produces its own audio stream. This is useful for scenarios requiring concurrent or interleaved dialogue generations, such as conversational AI applications that need to handle interruptions.<br/>
+    /// The connection uses Eleven v3 dialogue models only (`model_id` must start with `eleven_v3`). The default model is `eleven_v3_conversational`.<br/>
+    /// ## Context setup<br/>
+    /// - Every message **must** include a `context_id`. A message containing only `close_socket` is the exception.<br/>
+    /// - The first message for a new `context_id` creates that context and **must** include `voices` (voice IDs to register for the context). Optional `voice_settings` and `pronunciation_dictionary_locators` are only accepted on this first message.<br/>
+    /// - For `eleven_v3_conversational`, only **one** voice ID may be registered per context. For `eleven_v3`, you may register up to **10** voices per context.<br/>
+    /// - A connection can hold at most **5** simultaneous contexts; close a context to free a slot.<br/>
+    /// ## Streaming text<br/>
+    /// - Send `inputs`: an array of `{ "text", "voice_id", "new_turn"? }`. Each `voice_id` must be registered for that context. Text for the same turn is buffered per context until the server has enough context, then partial audio chunks tagged with the `context_id` are emitted.<br/>
+    /// - Set `new_turn` to `true` (or switch `voice_id`) to finalize the current prosody segment and start a new speaker turn.<br/>
+    /// ## Control messages<br/>
+    /// - `flush`: force generation of the context's buffered text.<br/>
+    /// - `close_context`: flush the context's remaining audio, emit its `is_final` message, and close it. Other contexts stay open.<br/>
+    /// - `close_socket`: flush and close **all** contexts, then close the connection.<br/>
+    /// - `keep_alive`: reset the context's **20 second** inactivity timeout (no generation). A context idle for longer is automatically flushed and closed (its `is_final` message is sent); other contexts are unaffected.<br/>
+    /// Protocol errors — a missing `context_id`, an unregistered voice, messaging a context that is closing, or exceeding the context limit — send an error payload and close the whole connection.<br/>
+    /// ## Authentication<br/>
+    /// Authentication is connection-level, not per context: use the `xi-api-key` or `Authorization` header, `single_use_token` query parameter, or include `xi_api_key`, `authorization`, or `single_use_token` in the first message of the connection. Anonymous sessions are rejected.<br/>
+    /// For a single dialogue stream per connection, see the [Text to Dialogue WebSocket](/docs/api-reference/text-to-dialogue/ttd-websocket). For non-streaming dialogue over HTTP, see [Create dialogue](/docs/api-reference/text-to-dialogue/convert) and [Stream dialogue](/docs/api-reference/text-to-dialogue/stream).
+    /// </summary>
+    public sealed partial class TextToDialogueMultiContextRealtimeClient : global::System.IDisposable, global::System.IAsyncDisposable
+    {
+        /// <summary>
+        /// Default WebSocket base URL.
+        /// </summary>
+        public const string DefaultBaseUrl = "wss://api.elevenlabs.io/v1/text-to-dialogue/multi-stream-input";
+
+        private global::System.Net.WebSockets.ClientWebSocket _clientWebSocket;
+        private global::System.Uri? _lastConnectUri;
+        private global::System.Collections.Generic.Dictionary<string, string>? _lastAdditionalHeaders;
+        private global::System.Collections.Generic.List<string>? _lastAdditionalSubProtocols;
+        private global::System.TimeSpan? _lastKeepAliveInterval;
+        private global::System.TimeSpan? _lastConnectTimeout;
+
+
+        /// <summary>
+        /// Current WebSocket connection status.
+        /// </summary>
+        public enum AutoSDKWebSocketConnectionStatus
+        {
+            /// <summary>
+            /// The client is not connected.
+            /// </summary>
+            Disconnected,
+
+            /// <summary>
+            /// The client is connecting.
+            /// </summary>
+            Connecting,
+
+            /// <summary>
+            /// The client is connected.
+            /// </summary>
+            Connected,
+
+            /// <summary>
+            /// The client observed a normal close.
+            /// </summary>
+            Closed,
+
+            /// <summary>
+            /// The client observed a connection error.
+            /// </summary>
+            Faulted,
+        }
+
+        /// <summary>
+        /// Configures automatic reconnect attempts after receive-loop WebSocket failures.
+        /// </summary>
+        public sealed class AutoSDKWebSocketReconnectOptions
+        {
+            /// <summary>
+            /// Enables reconnect attempts from the receive loop.
+            /// </summary>
+            public bool Enabled { get; set; }
+
+            /// <summary>
+            /// Maximum reconnect attempts per observed receive failure.
+            /// </summary>
+            public int MaxAttempts { get; set; } = 3;
+
+            /// <summary>
+            /// Delay before the first reconnect attempt.
+            /// </summary>
+            public global::System.TimeSpan InitialDelay { get; set; } = global::System.TimeSpan.FromSeconds(1);
+
+            /// <summary>
+            /// Maximum delay between reconnect attempts.
+            /// </summary>
+            public global::System.TimeSpan MaxDelay { get; set; } = global::System.TimeSpan.FromSeconds(30);
+
+            /// <summary>
+            /// Multiplier applied to the delay after each failed reconnect attempt.
+            /// </summary>
+            public double BackoffMultiplier { get; set; } = 2D;
+        }
+
+        /// <summary>
+        /// Event data for closed WebSocket connections.
+        /// </summary>
+        public sealed class AutoSDKWebSocketClosedEventArgs : global::System.EventArgs
+        {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="AutoSDKWebSocketClosedEventArgs"/> class.
+            /// </summary>
+            public AutoSDKWebSocketClosedEventArgs(
+                global::System.Net.WebSockets.WebSocketCloseStatus? closeStatus,
+                string? closeStatusDescription)
+            {
+                CloseStatus = closeStatus;
+                CloseStatusDescription = closeStatusDescription;
+            }
+
+            /// <summary>
+            /// Gets the WebSocket close status.
+            /// </summary>
+            public global::System.Net.WebSockets.WebSocketCloseStatus? CloseStatus { get; }
+
+            /// <summary>
+            /// Gets the WebSocket close status description.
+            /// </summary>
+            public string? CloseStatusDescription { get; }
+        }
+
+        /// <summary>
+        /// Event data for WebSocket exceptions.
+        /// </summary>
+        public sealed class AutoSDKWebSocketExceptionEventArgs : global::System.EventArgs
+        {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="AutoSDKWebSocketExceptionEventArgs"/> class.
+            /// </summary>
+            public AutoSDKWebSocketExceptionEventArgs(
+                global::System.Exception exception)
+            {
+                Exception = exception ?? throw new global::System.ArgumentNullException(nameof(exception));
+            }
+
+            /// <summary>
+            /// Gets the observed exception.
+            /// </summary>
+            public global::System.Exception Exception { get; }
+        }
+
+        /// <summary>
+        /// Event data for WebSocket reconnect attempts.
+        /// </summary>
+        public sealed class AutoSDKWebSocketReconnectEventArgs : global::System.EventArgs
+        {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="AutoSDKWebSocketReconnectEventArgs"/> class.
+            /// </summary>
+            public AutoSDKWebSocketReconnectEventArgs(
+                int attempt,
+                global::System.TimeSpan delay,
+                global::System.Exception exception)
+            {
+                Attempt = attempt;
+                Delay = delay;
+                Exception = exception ?? throw new global::System.ArgumentNullException(nameof(exception));
+            }
+
+            /// <summary>
+            /// Gets the reconnect attempt number.
+            /// </summary>
+            public int Attempt { get; }
+
+            /// <summary>
+            /// Gets the delay before the reconnect attempt.
+            /// </summary>
+            public global::System.TimeSpan Delay { get; }
+
+            /// <summary>
+            /// Gets the exception that triggered reconnect.
+            /// </summary>
+            public global::System.Exception Exception { get; }
+        }
+
+        /// <summary>
+        /// Event data for deserialized WebSocket messages.
+        /// </summary>
+        public sealed class AutoSDKWebSocketMessageEventArgs<TMessage> : global::System.EventArgs
+        {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="AutoSDKWebSocketMessageEventArgs{TMessage}"/> class.
+            /// </summary>
+            public AutoSDKWebSocketMessageEventArgs(
+                TMessage message,
+                string rawText,
+                global::System.Text.Json.JsonElement? json)
+            {
+                Message = message;
+                RawText = rawText ?? string.Empty;
+                Json = json;
+            }
+
+            /// <summary>
+            /// Gets the deserialized message.
+            /// </summary>
+            public TMessage Message { get; }
+
+            /// <summary>
+            /// Gets the raw text received from the WebSocket.
+            /// </summary>
+            public string RawText { get; }
+
+            /// <summary>
+            /// Gets the parsed JSON payload when available.
+            /// </summary>
+            public global::System.Text.Json.JsonElement? Json { get; }
+        }
+
+        /// <summary>
+        /// Event data for messages that could not be deserialized into a known receive type.
+        /// </summary>
+        public sealed class AutoSDKWebSocketUnknownMessageEventArgs : global::System.EventArgs
+        {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="AutoSDKWebSocketUnknownMessageEventArgs"/> class.
+            /// </summary>
+            public AutoSDKWebSocketUnknownMessageEventArgs(
+                string rawText,
+                global::System.Text.Json.JsonElement? json)
+            {
+                RawText = rawText ?? string.Empty;
+                Json = json;
+            }
+
+            /// <summary>
+            /// Gets the raw text received from the WebSocket.
+            /// </summary>
+            public string RawText { get; }
+
+            /// <summary>
+            /// Gets the parsed JSON payload when available.
+            /// </summary>
+            public global::System.Text.Json.JsonElement? Json { get; }
+        }
+
+        /// <summary>
+        /// Gets the current WebSocket connection status.
+        /// </summary>
+        public AutoSDKWebSocketConnectionStatus Status { get; private set; } = AutoSDKWebSocketConnectionStatus.Disconnected;
+
+        /// <summary>
+        /// Gets reconnect options used by the receive loop.
+        /// </summary>
+        public AutoSDKWebSocketReconnectOptions ReconnectOptions { get; } = new AutoSDKWebSocketReconnectOptions();
+
+        /// <summary>
+        /// Raised after the WebSocket connection is opened.
+        /// </summary>
+        public event global::System.EventHandler? Connected;
+
+        /// <summary>
+        /// Raised after the WebSocket connection is closed.
+        /// </summary>
+        public event global::System.EventHandler<AutoSDKWebSocketClosedEventArgs>? Closed;
+
+        /// <summary>
+        /// Raised after a WebSocket connection exception is observed.
+        /// </summary>
+        public event global::System.EventHandler<AutoSDKWebSocketExceptionEventArgs>? ExceptionOccurred;
+
+        /// <summary>
+        /// Raised before a reconnect attempt starts.
+        /// </summary>
+        public event global::System.EventHandler<AutoSDKWebSocketReconnectEventArgs>? Reconnecting;
+
+        /// <summary>
+        /// Raised when an inbound text message cannot be deserialized into a known receive event.
+        /// </summary>
+        public event global::System.EventHandler<AutoSDKWebSocketUnknownMessageEventArgs>? UnknownMessage;
+
+        /// <summary>
+        /// Raised after a text message is deserialized into the receive event type.
+        /// </summary>
+        public event global::System.EventHandler<AutoSDKWebSocketMessageEventArgs<global::ElevenLabs.TextToDialogueMultiContextRealtime.ServerEvent>>? MessageReceived;
+        /// <summary>
+        /// Raised after a audioChunkMulti message is deserialized.
+        /// </summary>
+        public event global::System.EventHandler<AutoSDKWebSocketMessageEventArgs<global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueWebsocketAudioChunkMulti>>? AudioChunkMultiReceived;
+        /// <summary>
+        /// Raised after a finalAudioForTurnMulti message is deserialized.
+        /// </summary>
+        public event global::System.EventHandler<AutoSDKWebSocketMessageEventArgs<global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueWebsocketFinalAudioForTurnMulti>>? FinalAudioForTurnMultiReceived;
+        /// <summary>
+        /// Raised after a finalMulti message is deserialized.
+        /// </summary>
+        public event global::System.EventHandler<AutoSDKWebSocketMessageEventArgs<global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueWebsocketFinalMulti>>? FinalMultiReceived;
+        /// <summary>
+        /// Raised after a error message is deserialized.
+        /// </summary>
+        public event global::System.EventHandler<AutoSDKWebSocketMessageEventArgs<global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueWebsocketError>>? ErrorReceived;
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+        public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; } = global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContext.Default;
+
+        /// <summary>
+        /// Gets a value indicating whether the WebSocket connection is open.
+        /// </summary>
+        public bool IsConnected => _clientWebSocket.State == global::System.Net.WebSockets.WebSocketState.Open;
+
+        /// <summary>
+        /// Creates a new instance of the TextToDialogueMultiContextRealtimeClient.
+        /// If no clientWebSocket is provided, a new one will be created.
+        /// </summary>
+        /// <param name="clientWebSocket">The ClientWebSocket instance. If not provided, a new one will be created.</param>
+        public TextToDialogueMultiContextRealtimeClient(
+            global::System.Net.WebSockets.ClientWebSocket? clientWebSocket = null)
+        {
+            _clientWebSocket = clientWebSocket ?? new global::System.Net.WebSockets.ClientWebSocket();
+
+            Initialized(_clientWebSocket);
+        }
+
+
+        private string? _storedAuthorizationHeaderName;
+        private string? _storedAuthorizationHeaderScheme;
+        private string? _storedAuthorizationApiKey;
+
+        /// <summary>
+        /// Authorize using Bearer authentication.
+        /// </summary>
+        /// <param name="apiKey"></param>
+        public void AuthorizeUsingBearer(
+            string apiKey)
+        {
+            apiKey = apiKey ?? throw new global::System.ArgumentNullException(nameof(apiKey));
+
+            _storedAuthorizationApiKey = apiKey;
+            _storedAuthorizationHeaderName = "Authorization";
+            _storedAuthorizationHeaderScheme = "Bearer";
+        }
+
+        /// <summary>
+        /// Creates a new instance with Bearer token authentication.
+        /// </summary>
+        /// <param name="apiKey"></param>
+        /// <param name="clientWebSocket"></param>
+        public TextToDialogueMultiContextRealtimeClient(
+            string apiKey,
+            global::System.Net.WebSockets.ClientWebSocket? clientWebSocket = null) : this(clientWebSocket)
+        {
+            Authorizing(_clientWebSocket, ref apiKey);
+
+            AuthorizeUsingBearer(apiKey);
+
+            Authorized(_clientWebSocket);
+        }
+
+
+
+
+
+        private void ApplyStoredAuthorization(
+            bool useSubprotocolAuth)
+        {
+
+            if (_storedAuthorizationApiKey is not null &&
+                _storedAuthorizationHeaderName is not null)
+            {
+                var __authorizationValue = _storedAuthorizationHeaderScheme is not null
+                    ? $"{_storedAuthorizationHeaderScheme} {_storedAuthorizationApiKey}"
+                    : _storedAuthorizationApiKey;
+                _clientWebSocket.Options.SetRequestHeader(_storedAuthorizationHeaderName, __authorizationValue);
+            }
+        }
+        private void RememberConnectionOptions(
+            global::System.Uri uri,
+            global::System.Collections.Generic.IDictionary<string, string>? additionalHeaders,
+            global::System.Collections.Generic.IEnumerable<string>? additionalSubProtocols,
+            global::System.TimeSpan? keepAliveInterval,
+            global::System.TimeSpan? connectTimeout)
+        {
+            _lastConnectUri = uri;
+            _lastAdditionalHeaders = additionalHeaders is null
+                ? null
+                : new global::System.Collections.Generic.Dictionary<string, string>(
+                    additionalHeaders,
+                    global::System.StringComparer.OrdinalIgnoreCase);
+            _lastAdditionalSubProtocols = additionalSubProtocols is null
+                ? null
+                : new global::System.Collections.Generic.List<string>(additionalSubProtocols);
+            _lastKeepAliveInterval = keepAliveInterval;
+            _lastConnectTimeout = connectTimeout;
+        }
+
+        private void ResetClientWebSocket()
+        {
+            _clientWebSocket.Dispose();
+            _clientWebSocket = new global::System.Net.WebSockets.ClientWebSocket();
+            Initialized(_clientWebSocket);
+        }
+
+        private void RaiseClosed(
+            global::System.Net.WebSockets.WebSocketCloseStatus? closeStatus,
+            string? closeStatusDescription)
+        {
+            Status = AutoSDKWebSocketConnectionStatus.Closed;
+            Closed?.Invoke(
+                this,
+                new AutoSDKWebSocketClosedEventArgs(closeStatus, closeStatusDescription));
+        }
+
+        private void RaiseException(
+            global::System.Exception exception)
+        {
+            Status = AutoSDKWebSocketConnectionStatus.Faulted;
+            ExceptionOccurred?.Invoke(
+                this,
+                new AutoSDKWebSocketExceptionEventArgs(exception));
+        }
+
+        private global::System.TimeSpan GetReconnectDelay(
+            int attempt)
+        {
+            var delay = ReconnectOptions.InitialDelay;
+            if (delay < global::System.TimeSpan.Zero)
+            {
+                delay = global::System.TimeSpan.Zero;
+            }
+
+            var multiplier = ReconnectOptions.BackoffMultiplier;
+            if (multiplier < 1D)
+            {
+                multiplier = 1D;
+            }
+
+            for (var index = 1; index < attempt; index++)
+            {
+                var nextMilliseconds = delay.TotalMilliseconds * multiplier;
+                if (nextMilliseconds >= ReconnectOptions.MaxDelay.TotalMilliseconds)
+                {
+                    delay = ReconnectOptions.MaxDelay;
+                    break;
+                }
+
+                delay = global::System.TimeSpan.FromMilliseconds(nextMilliseconds);
+            }
+
+            if (ReconnectOptions.MaxDelay >= global::System.TimeSpan.Zero &&
+                delay > ReconnectOptions.MaxDelay)
+            {
+                delay = ReconnectOptions.MaxDelay;
+            }
+
+            return delay;
+        }
+
+        private async global::System.Threading.Tasks.Task<bool> TryReconnectAsync(
+            global::System.Exception exception,
+            global::System.Threading.CancellationToken cancellationToken)
+        {
+            if (!ReconnectOptions.Enabled ||
+                _lastConnectUri is null ||
+                cancellationToken.IsCancellationRequested)
+            {
+                return false;
+            }
+
+            var maxAttempts = ReconnectOptions.MaxAttempts < 1 ? 1 : ReconnectOptions.MaxAttempts;
+            var lastException = exception;
+            for (var attempt = 1; attempt <= maxAttempts; attempt++)
+            {
+                var delay = GetReconnectDelay(attempt);
+                Reconnecting?.Invoke(
+                    this,
+                    new AutoSDKWebSocketReconnectEventArgs(attempt, delay, lastException));
+
+                if (delay > global::System.TimeSpan.Zero)
+                {
+                    await global::System.Threading.Tasks.Task.Delay(delay, cancellationToken).ConfigureAwait(false);
+                }
+
+                try
+                {
+                    ResetClientWebSocket();
+                    await ConnectAsync(
+                        uri: _lastConnectUri,
+                        additionalHeaders: _lastAdditionalHeaders,
+                        additionalSubProtocols: _lastAdditionalSubProtocols,
+                        keepAliveInterval: _lastKeepAliveInterval,
+                        connectTimeout: _lastConnectTimeout,
+                        cancellationToken: cancellationToken).ConfigureAwait(false);
+                    return true;
+                }
+                catch (global::System.Exception reconnectException) when (
+                    reconnectException is global::System.Net.WebSockets.WebSocketException ||
+                    reconnectException is global::System.Net.Http.HttpRequestException ||
+                    reconnectException is global::System.OperationCanceledException)
+                {
+                    lastException = reconnectException;
+                    RaiseException(reconnectException);
+                    if (cancellationToken.IsCancellationRequested)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private void ApplyConnectionOptions(
+            global::System.Collections.Generic.IDictionary<string, string>? additionalHeaders,
+            global::System.Collections.Generic.IEnumerable<string>? additionalSubProtocols,
+            global::System.TimeSpan? keepAliveInterval)
+        {
+            if (keepAliveInterval is not null)
+            {
+                _clientWebSocket.Options.KeepAliveInterval = keepAliveInterval.Value;
+            }
+
+            ApplyStoredAuthorization(false);
+
+            if (additionalHeaders is not null)
+            {
+                foreach (var header in additionalHeaders)
+                {
+                    _clientWebSocket.Options.SetRequestHeader(header.Key, header.Value);
+                }
+            }
+
+            if (additionalSubProtocols is not null)
+            {
+                foreach (var subProtocol in additionalSubProtocols)
+                {
+                    _clientWebSocket.Options.AddSubProtocol(subProtocol);
+                }
+            }
+        }
+
+        private async global::System.Threading.Tasks.Task ConnectAsyncCore(
+            global::System.Uri uri,
+            global::System.TimeSpan? connectTimeout,
+            global::System.Threading.CancellationToken cancellationToken)
+        {
+            global::System.Threading.CancellationTokenSource? __timeoutCancellationTokenSource = null;
+            var __effectiveCancellationToken = cancellationToken;
+
+            if (connectTimeout is not null)
+            {
+                __timeoutCancellationTokenSource = global::System.Threading.CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+                __timeoutCancellationTokenSource.CancelAfter(connectTimeout.Value);
+                __effectiveCancellationToken = __timeoutCancellationTokenSource.Token;
+            }
+
+            try
+            {
+                Status = AutoSDKWebSocketConnectionStatus.Connecting;
+                await _clientWebSocket.ConnectAsync(uri, __effectiveCancellationToken).ConfigureAwait(false);
+                Status = AutoSDKWebSocketConnectionStatus.Connected;
+                Connected?.Invoke(this, global::System.EventArgs.Empty);
+            }
+            catch (global::System.Exception exception) when (
+                exception is global::System.Net.WebSockets.WebSocketException ||
+                exception is global::System.Net.Http.HttpRequestException ||
+                exception is global::System.OperationCanceledException)
+            {
+                RaiseException(exception);
+                throw;
+            }
+            finally
+            {
+                __timeoutCancellationTokenSource?.Dispose();
+            }
+        }
+
+        /// <inheritdoc cref="global::System.Net.WebSockets.ClientWebSocket.ConnectAsync(global::System.Uri, global::System.Threading.CancellationToken)"/>
+        public async global::System.Threading.Tasks.Task ConnectAsync(
+            global::System.Uri? uri = null,
+            global::System.Collections.Generic.IDictionary<string, string>? additionalHeaders = null,
+            global::System.Collections.Generic.IEnumerable<string>? additionalSubProtocols = null,
+            global::System.TimeSpan? keepAliveInterval = null,
+            global::System.TimeSpan? connectTimeout = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            global::System.Uri __uri;
+            if (uri is not null)
+            {
+                __uri = uri;
+            }
+            else
+            {
+                var __pathBuilder = new global::ElevenLabs.TextToDialogueMultiContextRealtime.PathBuilder(
+                    path: DefaultBaseUrl);
+
+                __uri = new global::System.Uri(__pathBuilder.ToString());
+            }
+
+            RememberConnectionOptions(__uri, additionalHeaders, additionalSubProtocols, keepAliveInterval, connectTimeout);
+            ApplyConnectionOptions(additionalHeaders, additionalSubProtocols, keepAliveInterval);
+            await ConnectAsyncCore(__uri, connectTimeout, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Sends a raw text message over the WebSocket connection.
+        /// </summary>
+        public async global::System.Threading.Tasks.Task SendAsync(
+            string text,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            if (!IsConnected)
+            {
+                await ConnectAsync(cancellationToken: cancellationToken).ConfigureAwait(false);
+            }
+
+            await _clientWebSocket.SendAsync(
+                buffer: new global::System.ArraySegment<byte>(global::System.Text.Encoding.UTF8.GetBytes(text)),
+                messageType: global::System.Net.WebSockets.WebSocketMessageType.Text,
+                endOfMessage: true,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Sends raw bytes over the WebSocket connection.
+        /// </summary>
+        public async global::System.Threading.Tasks.Task SendAsync(
+            global::System.ArraySegment<byte> bytes,
+            global::System.Net.WebSockets.WebSocketMessageType messageType,
+            bool endOfMessage,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            if (!IsConnected)
+            {
+                await ConnectAsync(cancellationToken: cancellationToken).ConfigureAwait(false);
+            }
+
+            await _clientWebSocket.SendAsync(
+                bytes,
+                messageType,
+                endOfMessage,
+                cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc/>
+        public void Dispose()
+        {
+            _clientWebSocket.Dispose();
+        }
+
+        /// <inheritdoc/>
+        public async global::System.Threading.Tasks.ValueTask DisposeAsync()
+        {
+            if (IsConnected)
+            {
+                try
+                {
+                    await _clientWebSocket.CloseAsync(
+                        closeStatus: global::System.Net.WebSockets.WebSocketCloseStatus.NormalClosure,
+                        statusDescription: "Closing",
+                        cancellationToken: default).ConfigureAwait(false);
+                }
+                catch (global::System.Net.WebSockets.WebSocketException)
+                {
+                    // Ignore errors during dispose
+                }
+            }
+            _clientWebSocket.Dispose();
+        }
+
+        partial void Initialized(
+            global::System.Net.WebSockets.ClientWebSocket client);
+        partial void Authorizing(
+            global::System.Net.WebSockets.ClientWebSocket client,
+            ref string apiKey);
+        partial void Authorized(
+            global::System.Net.WebSockets.ClientWebSocket client);
+        partial void PrepareArguments(
+            global::System.Net.WebSockets.ClientWebSocket client);
+        partial void PrepareRequest(
+            global::System.Net.WebSockets.ClientWebSocket client,
+            global::System.Net.Http.HttpRequestMessage request);
+        partial void ProcessResponse(
+            global::System.Net.WebSockets.ClientWebSocket client,
+            global::System.Net.Http.HttpResponseMessage response);
+        partial void ProcessResponseContent(
+            global::System.Net.WebSockets.ClientWebSocket client,
+            global::System.Net.Http.HttpResponseMessage response,
+            ref string content);
+        partial void OnReceiveException(
+            global::System.Exception exception,
+            ref bool rethrow);
+    }
+}

@@ -87,3 +87,26 @@ autosdk generate asyncapi.json \
   --security-scheme ApiKey:Header:xi-api-key \
   --auth-env-var ELEVENLABS_API_KEY \
   --base-url https://api.elevenlabs.io
+
+# Official Text to Dialogue WebSocket contracts:
+# https://elevenlabs.io/docs/api-reference/text-to-dialogue/ttd-websocket
+# https://elevenlabs.io/docs/api-reference/text-to-dialogue/ttd-multi-websocket
+autosdk generate text-to-dialogue-asyncapi.json \
+  --namespace ElevenLabs.TextToDialogueRealtime \
+  --websocket-class-name TextToDialogueRealtimeClient \
+  --json-serializer-context TextToDialogueRealtimeJsonContext \
+  --targetFramework net10.0 \
+  --output Generated \
+  --security-scheme ApiKey:Header:xi-api-key \
+  --auth-env-var ELEVENLABS_API_KEY \
+  --base-url https://api.elevenlabs.io
+
+autosdk generate text-to-dialogue-multi-context-asyncapi.json \
+  --namespace ElevenLabs.TextToDialogueMultiContextRealtime \
+  --websocket-class-name TextToDialogueMultiContextRealtimeClient \
+  --json-serializer-context TextToDialogueMultiContextRealtimeJsonContext \
+  --targetFramework net10.0 \
+  --output Generated \
+  --security-scheme ApiKey:Header:xi-api-key \
+  --auth-env-var ELEVENLABS_API_KEY \
+  --base-url https://api.elevenlabs.io
