@@ -203,6 +203,41 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetAppointmentByConfirmationNumberParams)}");
                 getAppointmentByConfirmationNumber = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.CreateOrderParams? createOrder = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CreateOrder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateOrderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateOrderParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreateOrderParams)}");
+                createOrder = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.GetOrderByConfirmationNumberParams? getOrderByConfirmationNumber = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.GetOrderByConfirmationNumber)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetOrderByConfirmationNumberParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetOrderByConfirmationNumberParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetOrderByConfirmationNumberParams)}");
+                getOrderByConfirmationNumber = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.GetClientOrdersParams? getClientOrders = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.GetClientOrders)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetClientOrdersParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetClientOrdersParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetClientOrdersParams)}");
+                getClientOrders = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.UpdateOrderParams? updateOrder = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateOrder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateOrderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateOrderParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UpdateOrderParams)}");
+                updateOrder = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.CancelOrderParams? cancelOrder = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CancelOrder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CancelOrderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CancelOrderParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CancelOrderParams)}");
+                cancelOrder = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.ListGroupSessionsParams? listGroupSessions = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListGroupSessions)
             {
@@ -629,6 +664,16 @@ namespace ElevenLabs.JsonConverters
 
                 getAppointmentByConfirmationNumber,
 
+                createOrder,
+
+                getOrderByConfirmationNumber,
+
+                getClientOrders,
+
+                updateOrder,
+
+                cancelOrder,
+
                 listGroupSessions,
 
                 scheduleGroupSession,
@@ -903,6 +948,36 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetAppointmentByConfirmationNumberParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetAppointmentByConfirmationNumberParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetAppointmentByConfirmationNumberParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.GetAppointmentByConfirmationNumber!, typeInfo);
+            }
+            else if (value.IsCreateOrder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateOrderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateOrderParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateOrderParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateOrder!, typeInfo);
+            }
+            else if (value.IsGetOrderByConfirmationNumber)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetOrderByConfirmationNumberParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetOrderByConfirmationNumberParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetOrderByConfirmationNumberParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GetOrderByConfirmationNumber!, typeInfo);
+            }
+            else if (value.IsGetClientOrders)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetClientOrdersParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetClientOrdersParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetClientOrdersParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GetClientOrders!, typeInfo);
+            }
+            else if (value.IsUpdateOrder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateOrderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateOrderParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UpdateOrderParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateOrder!, typeInfo);
+            }
+            else if (value.IsCancelOrder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CancelOrderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CancelOrderParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CancelOrderParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CancelOrder!, typeInfo);
             }
             else if (value.IsListGroupSessions)
             {

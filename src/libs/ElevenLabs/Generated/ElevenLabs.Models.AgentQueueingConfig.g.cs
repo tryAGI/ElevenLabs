@@ -23,6 +23,12 @@ namespace ElevenLabs
         public int? WaitTimeoutSeconds { get; set; }
 
         /// <summary>
+        /// Custom hold audio played to queued callers; when unset, callers hear the default hold tone. Set via the hold-audio upload route, not writable through agent PATCH.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("hold_audio")]
+        public global::ElevenLabs.AgentHoldAudioConfig? HoldAudio { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -39,15 +45,20 @@ namespace ElevenLabs
         /// Maximum time a caller can wait in the queue before being rejected<br/>
         /// Default Value: 180
         /// </param>
+        /// <param name="holdAudio">
+        /// Custom hold audio played to queued callers; when unset, callers hear the default hold tone. Set via the hold-audio upload route, not writable through agent PATCH.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AgentQueueingConfig(
             bool? enabled,
-            int? waitTimeoutSeconds)
+            int? waitTimeoutSeconds,
+            global::ElevenLabs.AgentHoldAudioConfig? holdAudio)
         {
             this.Enabled = enabled;
             this.WaitTimeoutSeconds = waitTimeoutSeconds;
+            this.HoldAudio = holdAudio;
         }
 
         /// <summary>
