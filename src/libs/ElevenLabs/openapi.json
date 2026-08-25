@@ -39182,6 +39182,45 @@
         ],
         "title": "AgentFailureResponseExample"
       },
+      "AgentHoldAudioConfig": {
+        "properties": {
+          "audio_path": {
+            "type": "string",
+            "title": "Audio Path",
+            "description": "Bucket-relative path of the uploaded clip, used for deletion"
+          },
+          "audio_url": {
+            "type": "string",
+            "title": "Audio Url",
+            "description": "Public CDN URL of the uploaded clip"
+          },
+          "original_filename": {
+            "type": "string",
+            "title": "Original Filename",
+            "description": "Filename of the uploaded clip as provided by the user"
+          },
+          "duration_secs": {
+            "type": "number",
+            "title": "Duration Secs",
+            "description": "Duration of the uploaded clip in seconds"
+          },
+          "size_bytes": {
+            "type": "integer",
+            "title": "Size Bytes",
+            "description": "Size of the uploaded clip in bytes"
+          }
+        },
+        "type": "object",
+        "required": [
+          "audio_path",
+          "audio_url",
+          "original_filename",
+          "duration_secs",
+          "size_bytes"
+        ],
+        "title": "AgentHoldAudioConfig",
+        "description": "Custom hold audio played on loop to callers waiting in the queue.\n\nServer-written only: set via the agent hold-audio upload route and stripped\nfrom user PATCH payloads, since the runtime fetches audio_url at call time."
+      },
       "AgentKnowledgeBaseRagChunkResponseModel": {
         "properties": {
           "document_id": {
@@ -39678,6 +39717,17 @@
             "title": "Wait Timeout Seconds",
             "description": "Maximum time a caller can wait in the queue before being rejected",
             "default": 180
+          },
+          "hold_audio": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentHoldAudioConfig"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Custom hold audio played to queued callers; when unset, callers hear the default hold tone. Set via the hold-audio upload route, not writable through agent PATCH."
           }
         },
         "type": "object",
@@ -53400,6 +53450,18 @@
         "title": "CancelGroupSessionRegistrationParams",
         "description": "Cancel a single client's registration for a group session."
       },
+      "CancelOrderParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "cancel_order",
+            "title": "Smb Tool Type",
+            "default": "cancel_order"
+          }
+        },
+        "type": "object",
+        "title": "CancelOrderParams"
+      },
       "CanvasPlacement": {
         "properties": {
           "x_relative": {
@@ -61751,6 +61813,18 @@
         ],
         "title": "CreateOAuth2JWTRequest",
         "description": "Request model for creating OAuth2 JWT auth connections - inherits common settings and includes sensitive fields"
+      },
+      "CreateOrderParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "create_order",
+            "title": "Smb Tool Type",
+            "default": "create_order"
+          }
+        },
+        "type": "object",
+        "title": "CreateOrderParams"
       },
       "CreateOrderRequest": {
         "properties": {
@@ -70368,6 +70442,23 @@
         "title": "GetClientByPhoneParams",
         "description": "Look up a client by their exact phone number."
       },
+      "GetClientOrdersParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "get_client_orders",
+            "title": "Smb Tool Type",
+            "default": "get_client_orders"
+          },
+          "include_cancelled": {
+            "type": "boolean",
+            "title": "Include Cancelled",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "GetClientOrdersParams"
+      },
       "GetConvAIDashboardSettingsResponseModel": {
         "properties": {
           "charts": {
@@ -71926,6 +72017,18 @@
           "model"
         ],
         "title": "GetOrCreateRAGIndexRequestModel"
+      },
+      "GetOrderByConfirmationNumberParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "get_order_by_confirmation_number",
+            "title": "Smb Tool Type",
+            "default": "get_order_by_confirmation_number"
+          }
+        },
+        "type": "object",
+        "title": "GetOrderByConfirmationNumberParams"
       },
       "GetPhoneNumberExotelResponseModel": {
         "properties": {
@@ -90683,6 +90786,21 @@
                 "$ref": "#/components/schemas/GetAppointmentByConfirmationNumberParams"
               },
               {
+                "$ref": "#/components/schemas/CreateOrderParams"
+              },
+              {
+                "$ref": "#/components/schemas/GetOrderByConfirmationNumberParams"
+              },
+              {
+                "$ref": "#/components/schemas/GetClientOrdersParams"
+              },
+              {
+                "$ref": "#/components/schemas/UpdateOrderParams"
+              },
+              {
+                "$ref": "#/components/schemas/CancelOrderParams"
+              },
+              {
                 "$ref": "#/components/schemas/ListGroupSessionsParams"
               },
               {
@@ -90849,6 +90967,7 @@
                 "cancel_calendar_event": "#/components/schemas/CancelCalendarEventParams",
                 "cancel_group_session_for_all": "#/components/schemas/CancelGroupSessionForAllParams",
                 "cancel_group_session_registration": "#/components/schemas/CancelGroupSessionRegistrationParams",
+                "cancel_order": "#/components/schemas/CancelOrderParams",
                 "check_service_availability": "#/components/schemas/CheckServiceAvailabilityParams",
                 "create_agent_procedure": "#/components/schemas/CreateAgentProcedureParams",
                 "create_agent_rule": "#/components/schemas/CreateAgentRuleParams",
@@ -90858,6 +90977,7 @@
                 "create_client_interaction": "#/components/schemas/CreateClientInteractionParams",
                 "create_holiday": "#/components/schemas/CreateHolidayParams",
                 "create_location": "#/components/schemas/CreateLocationParams",
+                "create_order": "#/components/schemas/CreateOrderParams",
                 "create_product": "#/components/schemas/CreateProductParams",
                 "create_service": "#/components/schemas/CreateServiceParams",
                 "create_staff": "#/components/schemas/CreateStaffParams",
@@ -90881,6 +91001,8 @@
                 "get_booking_slug_status": "#/components/schemas/GetBookingSlugStatusParams",
                 "get_client_appointments": "#/components/schemas/GetClientAppointmentsParams",
                 "get_client_by_phone": "#/components/schemas/GetClientByPhoneParams",
+                "get_client_orders": "#/components/schemas/GetClientOrdersParams",
+                "get_order_by_confirmation_number": "#/components/schemas/GetOrderByConfirmationNumberParams",
                 "get_schedule": "#/components/schemas/GetScheduleParams",
                 "leave_message": "#/components/schemas/LeaveMessageParams",
                 "list_agent_procedures": "#/components/schemas/ListAgentProceduresParams",
@@ -90920,6 +91042,7 @@
                 "update_group_session_seats": "#/components/schemas/UpdateGroupSessionSeatsParams",
                 "update_holiday": "#/components/schemas/UpdateHolidayParams",
                 "update_location": "#/components/schemas/UpdateLocationParams",
+                "update_order": "#/components/schemas/UpdateOrderParams",
                 "update_product": "#/components/schemas/UpdateProductParams",
                 "update_service": "#/components/schemas/UpdateServiceParams",
                 "update_staff": "#/components/schemas/UpdateStaffParams",
@@ -100198,6 +100321,18 @@
         },
         "type": "object",
         "title": "UpdateOAuth2JWTRequest"
+      },
+      "UpdateOrderParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "update_order",
+            "title": "Smb Tool Type",
+            "default": "update_order"
+          }
+        },
+        "type": "object",
+        "title": "UpdateOrderParams"
       },
       "UpdateOrderRequest": {
         "properties": {

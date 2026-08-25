@@ -1,0 +1,57 @@
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed partial class GetClientOrdersParams
+    {
+        /// <summary>
+        /// Default Value: get_client_orders
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("smb_tool_type")]
+        public string? SmbToolType { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("include_cancelled")]
+        public bool? IncludeCancelled { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GetClientOrdersParams" /> class.
+        /// </summary>
+        /// <param name="smbToolType">
+        /// Default Value: get_client_orders
+        /// </param>
+        /// <param name="includeCancelled">
+        /// Default Value: false
+        /// </param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public GetClientOrdersParams(
+            string? smbToolType,
+            bool? includeCancelled)
+        {
+            this.SmbToolType = smbToolType;
+            this.IncludeCancelled = includeCancelled;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GetClientOrdersParams" /> class.
+        /// </summary>
+        public GetClientOrdersParams()
+        {
+        }
+
+    }
+}
