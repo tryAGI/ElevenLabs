@@ -155,10 +155,6 @@ namespace ElevenLabs
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(projectId ?? string.Empty),
-                                name: "\"project_id\"");
-
                             if (request.File != default)
                             {
 
