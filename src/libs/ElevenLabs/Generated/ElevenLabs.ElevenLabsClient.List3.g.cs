@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_DeleteConvaiTriageTicketsByAgentqaTicketIdSecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_List3SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,64 +21,181 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_DeleteConvaiTriageTicketsByAgentqaTicketIdSecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_List3SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_DeleteConvaiTriageTicketsByAgentqaTicketIdSecurityRequirement0,
+            {                s_List3SecurityRequirement0,
             };
-        partial void PrepareDeleteConvaiTriageTicketsByAgentqaTicketIdArguments(
+        partial void PrepareList3Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentqaTicketId);
-        partial void PrepareDeleteConvaiTriageTicketsByAgentqaTicketIdRequest(
+            ref string agentId,
+            ref int? pageSize,
+            ref string? conversationId,
+            global::ElevenLabs.AgentConversationTicketStatus? status,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources,
+            ref string? ownerUserId,
+            ref string? assigneeUserId,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType,
+            ref string? label,
+            ref string? cursor);
+        partial void PrepareList3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentqaTicketId);
-        partial void ProcessDeleteConvaiTriageTicketsByAgentqaTicketIdResponse(
+            string agentId,
+            int? pageSize,
+            string? conversationId,
+            global::ElevenLabs.AgentConversationTicketStatus? status,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources,
+            string? ownerUserId,
+            string? assigneeUserId,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType,
+            string? label,
+            string? cursor);
+        partial void ProcessList3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessList3ResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
         /// <summary>
-        /// Delete Agent Conversation Ticket<br/>
-        /// Delete an agent conversation ticket. Restricted to the ticket creator or a workspace admin.
+        /// List Agent Conversation Tickets<br/>
+        /// List an agent's conversation triage tickets, ordered by most recently created first. These are tickets about the agent's own performance on a conversation (for triage with Architect), not tickets an agent opens for end users.
         /// </summary>
-        /// <param name="agentqaTicketId"></param>
+        /// <param name="agentId"></param>
+        /// <param name="pageSize">
+        /// How many agent conversation tickets to return. Can not exceed 100.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="conversationId">
+        /// Filter tickets by conversation id.
+        /// </param>
+        /// <param name="status">
+        /// Filter tickets by status.
+        /// </param>
+        /// <param name="sources">
+        /// Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
+        /// </param>
+        /// <param name="ownerUserId">
+        /// Filter tickets by creator. Use 'agent' for agent-raised tickets.
+        /// </param>
+        /// <param name="assigneeUserId">
+        /// Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
+        /// </param>
+        /// <param name="issueType">
+        /// Filter clusters by issue type.
+        /// </param>
+        /// <param name="label">
+        /// Filter tickets by an exact label.
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task DeleteConvaiTriageTicketsByAgentqaTicketIdAsync(
-            string agentqaTicketId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentConversationTicketsPageResponseModel> List3Async(
+            string agentId,
+            int? pageSize = default,
+            string? conversationId = default,
+            global::ElevenLabs.AgentConversationTicketStatus? status = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources = default,
+            string? ownerUserId = default,
+            string? assigneeUserId = default,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
+            string? label = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await DeleteConvaiTriageTicketsByAgentqaTicketIdAsResponseAsync(
-                agentqaTicketId: agentqaTicketId,
+            var __response = await List3AsResponseAsync(
+                agentId: agentId,
+                pageSize: pageSize,
+                conversationId: conversationId,
+                status: status,
+                sources: sources,
+                ownerUserId: ownerUserId,
+                assigneeUserId: assigneeUserId,
+                issueType: issueType,
+                label: label,
+                cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
+
+            return __response.Body;
         }
         /// <summary>
-        /// Delete Agent Conversation Ticket<br/>
-        /// Delete an agent conversation ticket. Restricted to the ticket creator or a workspace admin.
+        /// List Agent Conversation Tickets<br/>
+        /// List an agent's conversation triage tickets, ordered by most recently created first. These are tickets about the agent's own performance on a conversation (for triage with Architect), not tickets an agent opens for end users.
         /// </summary>
-        /// <param name="agentqaTicketId"></param>
+        /// <param name="agentId"></param>
+        /// <param name="pageSize">
+        /// How many agent conversation tickets to return. Can not exceed 100.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="conversationId">
+        /// Filter tickets by conversation id.
+        /// </param>
+        /// <param name="status">
+        /// Filter tickets by status.
+        /// </param>
+        /// <param name="sources">
+        /// Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
+        /// </param>
+        /// <param name="ownerUserId">
+        /// Filter tickets by creator. Use 'agent' for agent-raised tickets.
+        /// </param>
+        /// <param name="assigneeUserId">
+        /// Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
+        /// </param>
+        /// <param name="issueType">
+        /// Filter clusters by issue type.
+        /// </param>
+        /// <param name="label">
+        /// Filter tickets by an exact label.
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse> DeleteConvaiTriageTicketsByAgentqaTicketIdAsResponseAsync(
-            string agentqaTicketId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAgentConversationTicketsPageResponseModel>> List3AsResponseAsync(
+            string agentId,
+            int? pageSize = default,
+            string? conversationId = default,
+            global::ElevenLabs.AgentConversationTicketStatus? status = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources = default,
+            string? ownerUserId = default,
+            string? assigneeUserId = default,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
+            string? label = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareDeleteConvaiTriageTicketsByAgentqaTicketIdArguments(
+            PrepareList3Arguments(
                 httpClient: HttpClient,
-                agentqaTicketId: ref agentqaTicketId);
+                agentId: ref agentId,
+                pageSize: ref pageSize,
+                conversationId: ref conversationId,
+                status: status,
+                sources: sources,
+                ownerUserId: ref ownerUserId,
+                assigneeUserId: ref assigneeUserId,
+                issueType: issueType,
+                label: ref label,
+                cursor: ref cursor);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_DeleteConvaiTriageTicketsByAgentqaTicketIdSecurityRequirements,
-                operationName: "DeleteConvaiTriageTicketsByAgentqaTicketIdAsync");
+                securityRequirements: s_List3SecurityRequirements,
+                operationName: "List3Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -98,15 +215,26 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/triage-tickets/{agentqaTicketId}",
+                                path: $"/v1/convai/agents/{agentId}/triage-tickets",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("conversation_id", conversationId)
+                                .AddOptionalParameter("status", status?.ToString())
+                                .AddOptionalParameter("sources", sources?.ToString())
+                                .AddOptionalParameter("owner_user_id", ownerUserId)
+                                .AddOptionalParameter("assignee_user_id", assigneeUserId)
+                                .AddOptionalParameter("issue_type", issueType?.ToString())
+                                .AddOptionalParameter("label", label)
+                                .AddOptionalParameter("cursor", cursor)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Delete,
+                    method: global::System.Net.Http.HttpMethod.Get,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -137,10 +265,19 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareDeleteConvaiTriageTicketsByAgentqaTicketIdRequest(
+                PrepareList3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentqaTicketId: agentqaTicketId!);
+                    agentId: agentId!,
+                    pageSize: pageSize,
+                    conversationId: conversationId,
+                    status: status,
+                    sources: sources,
+                    ownerUserId: ownerUserId,
+                    assigneeUserId: assigneeUserId,
+                    issueType: issueType,
+                    label: label,
+                    cursor: cursor);
 
                 return __httpRequest;
             }
@@ -157,10 +294,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "deleteConvaiTriageTicketsByAgentqaTicketId",
-                                methodName: "DeleteConvaiTriageTicketsByAgentqaTicketIdAsync",
-                                pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}\"",
-                                httpMethod: "DELETE",
+                                operationId: "List3",
+                                methodName: "List3Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/triage-tickets\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -191,10 +328,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "deleteConvaiTriageTicketsByAgentqaTicketId",
-                                methodName: "DeleteConvaiTriageTicketsByAgentqaTicketIdAsync",
-                                pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}\"",
-                                httpMethod: "DELETE",
+                                operationId: "List3",
+                                methodName: "List3Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/triage-tickets\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -232,10 +369,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "deleteConvaiTriageTicketsByAgentqaTicketId",
-                                methodName: "DeleteConvaiTriageTicketsByAgentqaTicketIdAsync",
-                                pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}\"",
-                                httpMethod: "DELETE",
+                                operationId: "List3",
+                                methodName: "List3Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/triage-tickets\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -272,7 +409,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessDeleteConvaiTriageTicketsByAgentqaTicketIdResponse(
+                ProcessList3Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -280,10 +417,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "deleteConvaiTriageTicketsByAgentqaTicketId",
-                                methodName: "DeleteConvaiTriageTicketsByAgentqaTicketIdAsync",
-                                pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}\"",
-                                httpMethod: "DELETE",
+                                operationId: "List3",
+                                methodName: "List3Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/triage-tickets\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -302,10 +439,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "deleteConvaiTriageTicketsByAgentqaTicketId",
-                                methodName: "DeleteConvaiTriageTicketsByAgentqaTicketIdAsync",
-                                pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}\"",
-                                httpMethod: "DELETE",
+                                operationId: "List3",
+                                methodName: "List3Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/triage-tickets\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -369,15 +506,22 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
+                                ProcessList3ResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                return new global::ElevenLabs.AutoSDKHttpResponse(
+                                    var __value = global::ElevenLabs.GetAgentConversationTicketsPageResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAgentConversationTicketsPageResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -397,10 +541,19 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    return new global::ElevenLabs.AutoSDKHttpResponse(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    var __value = await global::ElevenLabs.GetAgentConversationTicketsPageResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAgentConversationTicketsPageResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -436,5 +589,70 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps List3Async as an IAsyncEnumerable&lt;global::ElevenLabs.AgentConversationTicketResponseModel&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="agentId"></param>
+        /// <param name="pageSize">
+        /// How many agent conversation tickets to return. Can not exceed 100.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="conversationId">
+        /// Filter tickets by conversation id.
+        /// </param>
+        /// <param name="status">
+        /// Filter tickets by status.
+        /// </param>
+        /// <param name="sources">
+        /// Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
+        /// </param>
+        /// <param name="ownerUserId">
+        /// Filter tickets by creator. Use 'agent' for agent-raised tickets.
+        /// </param>
+        /// <param name="assigneeUserId">
+        /// Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
+        /// </param>
+        /// <param name="issueType">
+        /// Filter clusters by issue type.
+        /// </param>
+        /// <param name="label">
+        /// Filter tickets by an exact label.
+        /// </param> 
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentConversationTicketResponseModel> List3AutoPagingAsync(
+            string agentId,             int? pageSize = default,
+            string? conversationId = default,
+            global::ElevenLabs.AgentConversationTicketStatus? status = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources = default,
+            string? ownerUserId = default,
+            string? assigneeUserId = default,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
+            string? label = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetAgentConversationTicketsPageResponseModel, global::ElevenLabs.AgentConversationTicketResponseModel>(
+                fetchPage: (__cursor, __ct) => List3Async(
+                    agentId: agentId,
+                    pageSize: pageSize,
+                    conversationId: conversationId,
+                    status: status,
+                    sources: sources,
+                    ownerUserId: ownerUserId,
+                    assigneeUserId: assigneeUserId,
+                    issueType: issueType,
+                    label: label,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.AgentConversationTicketResponseModel>?)__response.AgentConversationTickets,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

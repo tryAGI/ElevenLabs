@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> CreateConvaiTriageTicketsAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> Create2Async(
 
             global::ElevenLabs.CreateAgentConversationTicketRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentConversationTicketResponseModel>> CreateConvaiTriageTicketsAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentConversationTicketResponseModel>> Create2AsResponseAsync(
 
             global::ElevenLabs.CreateAgentConversationTicketRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -46,7 +46,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> CreateConvaiTriageTicketsAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> Create2Async(
             string conversationId,
             string? qaComment = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.TurnCommentRequestModel>? turnComments = default,

@@ -40,7 +40,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentConversationTicketsPageResponseModel> GetConvaiAgentsByAgentIdTriageTicketsAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentConversationTicketsPageResponseModel> List3Async(
             string agentId,
             int? pageSize = default,
             string? conversationId = default,
@@ -89,7 +89,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAgentConversationTicketsPageResponseModel>> GetConvaiAgentsByAgentIdTriageTicketsAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAgentConversationTicketsPageResponseModel>> List3AsResponseAsync(
             string agentId,
             int? pageSize = default,
             string? conversationId = default,
@@ -104,7 +104,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Wraps GetConvaiAgentsByAgentIdTriageTicketsAsync as an IAsyncEnumerable&lt;global::ElevenLabs.AgentConversationTicketResponseModel&gt; that auto-pages over the response.
+        /// Wraps List3Async as an IAsyncEnumerable&lt;global::ElevenLabs.AgentConversationTicketResponseModel&gt; that auto-pages over the response.
         /// </summary>
         /// <param name="agentId"></param>
         /// <param name="pageSize">
@@ -134,7 +134,7 @@ namespace ElevenLabs
         /// </param> 
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
-        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentConversationTicketResponseModel> GetConvaiAgentsByAgentIdTriageTicketsAutoPagingAsync(
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentConversationTicketResponseModel> List3AutoPagingAsync(
             string agentId,             int? pageSize = default,
             string? conversationId = default,
             global::ElevenLabs.AgentConversationTicketStatus? status = default,

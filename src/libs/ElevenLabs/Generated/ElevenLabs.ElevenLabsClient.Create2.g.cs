@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_CreateConvaiTriageTicketsByAgentqaTicketIdCommentsSecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Create2SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,46 +21,41 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_CreateConvaiTriageTicketsByAgentqaTicketIdCommentsSecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Create2SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_CreateConvaiTriageTicketsByAgentqaTicketIdCommentsSecurityRequirement0,
+            {                s_Create2SecurityRequirement0,
             };
-        partial void PrepareCreateConvaiTriageTicketsByAgentqaTicketIdCommentsArguments(
+        partial void PrepareCreate2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentqaTicketId,
-            global::ElevenLabs.AddTicketCommentRequestModel request);
-        partial void PrepareCreateConvaiTriageTicketsByAgentqaTicketIdCommentsRequest(
+            global::ElevenLabs.CreateAgentConversationTicketRequestModel request);
+        partial void PrepareCreate2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentqaTicketId,
-            global::ElevenLabs.AddTicketCommentRequestModel request);
-        partial void ProcessCreateConvaiTriageTicketsByAgentqaTicketIdCommentsResponse(
+            global::ElevenLabs.CreateAgentConversationTicketRequestModel request);
+        partial void ProcessCreate2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateConvaiTriageTicketsByAgentqaTicketIdCommentsResponseContent(
+        partial void ProcessCreate2ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Add Comment To Agent Conversation Ticket<br/>
-        /// Append a comment discussing how to resolve the ticket. Requires viewer access to the ticket's agent.
+        /// Create Agent Conversation Ticket<br/>
+        /// Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
         /// </summary>
-        /// <param name="agentqaTicketId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> CreateConvaiTriageTicketsByAgentqaTicketIdCommentsAsync(
-            string agentqaTicketId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> Create2Async(
 
-            global::ElevenLabs.AddTicketCommentRequestModel request,
+            global::ElevenLabs.CreateAgentConversationTicketRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await CreateConvaiTriageTicketsByAgentqaTicketIdCommentsAsResponseAsync(
-                agentqaTicketId: agentqaTicketId,
+            var __response = await Create2AsResponseAsync(
 
                 request: request,
                 requestOptions: requestOptions,
@@ -70,18 +65,16 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Add Comment To Agent Conversation Ticket<br/>
-        /// Append a comment discussing how to resolve the ticket. Requires viewer access to the ticket's agent.
+        /// Create Agent Conversation Ticket<br/>
+        /// Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
         /// </summary>
-        /// <param name="agentqaTicketId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentConversationTicketResponseModel>> CreateConvaiTriageTicketsByAgentqaTicketIdCommentsAsResponseAsync(
-            string agentqaTicketId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentConversationTicketResponseModel>> Create2AsResponseAsync(
 
-            global::ElevenLabs.AddTicketCommentRequestModel request,
+            global::ElevenLabs.CreateAgentConversationTicketRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -89,16 +82,15 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateConvaiTriageTicketsByAgentqaTicketIdCommentsArguments(
+            PrepareCreate2Arguments(
                 httpClient: HttpClient,
-                agentqaTicketId: ref agentqaTicketId,
                 request: request);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_CreateConvaiTriageTicketsByAgentqaTicketIdCommentsSecurityRequirements,
-                operationName: "CreateConvaiTriageTicketsByAgentqaTicketIdCommentsAsync");
+                securityRequirements: s_Create2SecurityRequirements,
+                operationName: "Create2Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -118,7 +110,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/triage-tickets/{agentqaTicketId}/comments",
+                                path: "/v1/convai/triage-tickets",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -163,10 +155,9 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreateConvaiTriageTicketsByAgentqaTicketIdCommentsRequest(
+                PrepareCreate2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentqaTicketId: agentqaTicketId!,
                     request: request);
 
                 return __httpRequest;
@@ -184,9 +175,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createConvaiTriageTicketsByAgentqaTicketIdComments",
-                                methodName: "CreateConvaiTriageTicketsByAgentqaTicketIdCommentsAsync",
-                                pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}/comments\"",
+                                operationId: "Create2",
+                                methodName: "Create2Async",
+                                pathTemplate: "\"/v1/convai/triage-tickets\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -218,9 +209,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createConvaiTriageTicketsByAgentqaTicketIdComments",
-                                methodName: "CreateConvaiTriageTicketsByAgentqaTicketIdCommentsAsync",
-                                pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}/comments\"",
+                                operationId: "Create2",
+                                methodName: "Create2Async",
+                                pathTemplate: "\"/v1/convai/triage-tickets\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -259,9 +250,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createConvaiTriageTicketsByAgentqaTicketIdComments",
-                                methodName: "CreateConvaiTriageTicketsByAgentqaTicketIdCommentsAsync",
-                                pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}/comments\"",
+                                operationId: "Create2",
+                                methodName: "Create2Async",
+                                pathTemplate: "\"/v1/convai/triage-tickets\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -299,7 +290,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreateConvaiTriageTicketsByAgentqaTicketIdCommentsResponse(
+                ProcessCreate2Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -307,9 +298,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createConvaiTriageTicketsByAgentqaTicketIdComments",
-                                methodName: "CreateConvaiTriageTicketsByAgentqaTicketIdCommentsAsync",
-                                pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}/comments\"",
+                                operationId: "Create2",
+                                methodName: "Create2Async",
+                                pathTemplate: "\"/v1/convai/triage-tickets\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -329,9 +320,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createConvaiTriageTicketsByAgentqaTicketIdComments",
-                                methodName: "CreateConvaiTriageTicketsByAgentqaTicketIdCommentsAsync",
-                                pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}/comments\"",
+                                operationId: "Create2",
+                                methodName: "Create2Async",
+                                pathTemplate: "\"/v1/convai/triage-tickets\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -396,7 +387,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessCreateConvaiTriageTicketsByAgentqaTicketIdCommentsResponseContent(
+                                ProcessCreate2ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -480,29 +471,36 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Add Comment To Agent Conversation Ticket<br/>
-        /// Append a comment discussing how to resolve the ticket. Requires viewer access to the ticket's agent.
+        /// Create Agent Conversation Ticket<br/>
+        /// Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
         /// </summary>
-        /// <param name="agentqaTicketId"></param>
-        /// <param name="comment">
-        /// A comment discussing how to resolve the ticket.
+        /// <param name="conversationId">
+        /// Conversation this ticket is about.
+        /// </param>
+        /// <param name="qaComment">
+        /// The QA finding covering the whole conversation.
+        /// </param>
+        /// <param name="turnComments">
+        /// Optional turn-level comments on what went wrong.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> CreateConvaiTriageTicketsByAgentqaTicketIdCommentsAsync(
-            string agentqaTicketId,
-            string comment,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> Create2Async(
+            string conversationId,
+            string? qaComment = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TurnCommentRequestModel>? turnComments = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.AddTicketCommentRequestModel
+            var __request = new global::ElevenLabs.CreateAgentConversationTicketRequestModel
             {
-                Comment = comment,
+                ConversationId = conversationId,
+                QaComment = qaComment,
+                TurnComments = turnComments,
             };
 
-            return await CreateConvaiTriageTicketsByAgentqaTicketIdCommentsAsync(
-                agentqaTicketId: agentqaTicketId,
+            return await Create2Async(
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
