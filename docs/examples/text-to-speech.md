@@ -18,7 +18,8 @@ Console.WriteLine($"Input text: {text}");
 // Generate speech audio.
 byte[] audioBytes = await client.TextToSpeech.ConvertAsync(
     voiceId: voice.VoiceId,
-    text: text);
+    text: text,
+    modelId: "eleven_v3");
 
 // Persist the result to a local file.
 await File.WriteAllBytesAsync("output.mp3", audioBytes);
