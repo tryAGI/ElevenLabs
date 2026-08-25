@@ -51,7 +51,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Collections.Generic.IAsyncEnumerable<global::System.IO.Stream> ComposeDetailedStreamAsync(
+        public async global::System.Collections.Generic.IAsyncEnumerable<string> ComposeDetailedStreamAsync(
 
             global::ElevenLabs.BodyStreamComposedMusicWithADetailedResponseV1MusicDetailedStreamPost request,
             global::ElevenLabs.ComposeDetailedStreamOutputFormat? outputFormat = default,
@@ -368,7 +368,7 @@ namespace ElevenLabs
                                     yield break;
                                 }
 
-                                var __streamedResponse = (global::System.IO.Stream?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.IO.Stream), JsonSerializerContext) ??
+                                var __streamedResponse = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(string), JsonSerializerContext) ??
                                                        throw global::ElevenLabs.ApiException.Create(
                                                            statusCode: __response.StatusCode,
                                                            message: $"Response deserialization failed for \"{__content}\" ",
@@ -444,7 +444,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Collections.Generic.IAsyncEnumerable<global::System.IO.Stream> ComposeDetailedStreamAsync(
+        public async global::System.Collections.Generic.IAsyncEnumerable<string> ComposeDetailedStreamAsync(
             global::ElevenLabs.ComposeDetailedStreamOutputFormat? outputFormat = default,
             string? prompt = default,
             global::ElevenLabs.MusicGenerationMode? generationMode = default,

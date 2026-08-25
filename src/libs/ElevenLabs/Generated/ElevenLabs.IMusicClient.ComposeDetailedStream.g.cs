@@ -17,7 +17,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Collections.Generic.IAsyncEnumerable<global::System.IO.Stream> ComposeDetailedStreamAsync(
+        global::System.Collections.Generic.IAsyncEnumerable<string> ComposeDetailedStreamAsync(
 
             global::ElevenLabs.BodyStreamComposedMusicWithADetailedResponseV1MusicDetailedStreamPost request,
             global::ElevenLabs.ComposeDetailedStreamOutputFormat? outputFormat = default,
@@ -78,7 +78,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Collections.Generic.IAsyncEnumerable<global::System.IO.Stream> ComposeDetailedStreamAsync(
+        global::System.Collections.Generic.IAsyncEnumerable<string> ComposeDetailedStreamAsync(
             global::ElevenLabs.ComposeDetailedStreamOutputFormat? outputFormat = default,
             string? prompt = default,
             global::ElevenLabs.MusicGenerationMode? generationMode = default,

@@ -160,14 +160,6 @@ namespace ElevenLabs
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            if (outputFormat != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((outputFormat).HasValue ? (outputFormat).GetValueOrDefault().ToValueString() : string.Empty),
-                                    name: "\"output_format\"");
-
-                            }
                             for (var __iVideos = 0; __iVideos < request.Videos.Count; __iVideos++)
                             {
                                 var __contentVideos = new global::System.Net.Http.ByteArrayContent(request.Videos[__iVideos]);
@@ -611,14 +603,6 @@ namespace ElevenLabs
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            if (outputFormat != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((outputFormat).HasValue ? (outputFormat).GetValueOrDefault().ToValueString() : string.Empty),
-                                    name: "\"output_format\"");
-
-                            }
                             for (var __iVideos = 0; __iVideos < request.Videos.Count; __iVideos++)
                             {
                                 var __contentVideos = new global::System.Net.Http.ByteArrayContent(request.Videos[__iVideos]);
@@ -1191,14 +1175,6 @@ namespace ElevenLabs
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            if (outputFormat != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((outputFormat).HasValue ? (outputFormat).GetValueOrDefault().ToValueString() : string.Empty),
-                                    name: "\"output_format\"");
-
-                            }
                             for (var __iVideos = 0; __iVideos < videos.Count; __iVideos++)
                             {
                                 var __fileNameVideos = videosFileNames != null &&
@@ -1737,14 +1713,6 @@ namespace ElevenLabs
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            if (outputFormat != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((outputFormat).HasValue ? (outputFormat).GetValueOrDefault().ToValueString() : string.Empty),
-                                    name: "\"output_format\"");
-
-                            }
                             for (var __iVideos = 0; __iVideos < videos.Count; __iVideos++)
                             {
                                 var __fileNameVideos = videosFileNames != null &&
@@ -2254,14 +2222,6 @@ namespace ElevenLabs
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            if (outputFormat != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((outputFormat).HasValue ? (outputFormat).GetValueOrDefault().ToValueString() : string.Empty),
-                                    name: "\"output_format\"");
-
-                            }
                             for (var __iVideos = 0; __iVideos < videos.Count; __iVideos++)
                             {
                                 var __fileNameVideos = videosFileNames != null &&
