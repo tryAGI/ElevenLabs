@@ -150,10 +150,16 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.TriggeredGuardrailCommonModel>? TriggeredGuardrails { get; set; }
 
         /// <summary>
-        /// 
+        /// Deprecated: the first attachment on this turn. Use `file_inputs` to see every attachment.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_input")]
         public global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? FileInput { get; set; }
+
+        /// <summary>
+        /// All files attached to this turn, in the order the user attached them.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("file_inputs")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel>? FileInputs { get; set; }
 
         /// <summary>
         /// 
@@ -203,7 +209,12 @@ namespace ElevenLabs
         /// <param name="userIdentifier"></param>
         /// <param name="id"></param>
         /// <param name="triggeredGuardrails"></param>
-        /// <param name="fileInput"></param>
+        /// <param name="fileInput">
+        /// Deprecated: the first attachment on this turn. Use `file_inputs` to see every attachment.
+        /// </param>
+        /// <param name="fileInputs">
+        /// All files attached to this turn, in the order the user attached them.
+        /// </param>
         /// <param name="contextualUpdateInfo"></param>
         /// <param name="reasoned">
         /// Default Value: false
@@ -236,6 +247,7 @@ namespace ElevenLabs
             string? id,
             global::System.Collections.Generic.IList<global::ElevenLabs.TriggeredGuardrailCommonModel>? triggeredGuardrails,
             global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? fileInput,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel>? fileInputs,
             global::ElevenLabs.ContextualUpdateInfo? contextualUpdateInfo,
             bool? reasoned)
         {
@@ -263,6 +275,7 @@ namespace ElevenLabs
             this.Id = id;
             this.TriggeredGuardrails = triggeredGuardrails;
             this.FileInput = fileInput;
+            this.FileInputs = fileInputs;
             this.ContextualUpdateInfo = contextualUpdateInfo;
             this.Reasoned = reasoned;
         }

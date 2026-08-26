@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Deprecated: the first attachment on this turn. Use `file_inputs` to see every attachment.
+    /// Whether context compaction is enabled for this agent.
     /// </summary>
-    public sealed partial class ConversationHistoryTranscriptResponseModelFileInput
+    public sealed partial class CompactionSettingsWorkflowOverrideEnabled
     {
 
         /// <summary>
