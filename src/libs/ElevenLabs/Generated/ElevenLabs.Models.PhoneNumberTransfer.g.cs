@@ -32,6 +32,13 @@ namespace ElevenLabs
         public global::ElevenLabs.TransferTypeEnum? TransferType { get; set; }
 
         /// <summary>
+        /// When True, a ringing tone is played on the original call leg while a SIP REFER transfer completes. The tone is carried over RTP to the SIP peer executing the REFER, so disable this if the receiving system (e.g. an SBC or contact center) should not hear it. When disabled the caller hears silence until the transfer completes. SIP REFER transfers only.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sip_refer_play_dialtone")]
+        public bool? SipReferPlayDialtone { get; set; }
+
+        /// <summary>
         /// User-to-User Information (RFC 7433) to attach to SIP REFER transfers. Carries call context such as CRM identifiers or escalation reason across the transfer boundary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("uui")]
@@ -74,6 +81,10 @@ namespace ElevenLabs
         /// <param name="transferType">
         /// Default Value: conference
         /// </param>
+        /// <param name="sipReferPlayDialtone">
+        /// When True, a ringing tone is played on the original call leg while a SIP REFER transfer completes. The tone is carried over RTP to the SIP peer executing the REFER, so disable this if the receiving system (e.g. an SBC or contact center) should not hear it. When disabled the caller hears silence until the transfer completes. SIP REFER transfers only.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="uui">
         /// User-to-User Information (RFC 7433) to attach to SIP REFER transfers. Carries call context such as CRM identifiers or escalation reason across the transfer boundary.
         /// </param>
@@ -88,12 +99,14 @@ namespace ElevenLabs
             string condition,
             global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem>? customSipHeaders,
             global::ElevenLabs.TransferTypeEnum? transferType,
+            bool? sipReferPlayDialtone,
             global::ElevenLabs.UUITransferConfig? uui,
             global::ElevenLabs.PostDialDigitsVariant1? postDialDigits)
         {
             this.CustomSipHeaders = customSipHeaders;
             this.TransferDestination = transferDestination;
             this.TransferType = transferType;
+            this.SipReferPlayDialtone = sipReferPlayDialtone;
             this.Uui = uui;
             this.PostDialDigits = postDialDigits;
             this.Condition = condition ?? throw new global::System.ArgumentNullException(nameof(condition));

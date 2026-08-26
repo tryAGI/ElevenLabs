@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Deprecated: the first attachment on this turn. Use `file_inputs` to see every attachment.
+    /// Context window fraction at which compaction is triggered.
     /// </summary>
-    public sealed partial class ConversationHistoryTranscriptResponseModelFileInput
+    public sealed partial class CompactionSettingsWorkflowOverrideSoftTriggerFraction
     {
 
         /// <summary>

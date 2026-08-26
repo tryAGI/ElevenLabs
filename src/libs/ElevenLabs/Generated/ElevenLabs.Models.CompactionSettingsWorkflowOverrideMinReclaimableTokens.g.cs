@@ -4,9 +4,9 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Deprecated: the first attachment on this turn. Use `file_inputs` to see every attachment.
+    /// Minimum number of tokens that compaction must reclaim.
     /// </summary>
-    public sealed partial class ConversationHistoryTranscriptResponseModelFileInput
+    public sealed partial class CompactionSettingsWorkflowOverrideMinReclaimableTokens
     {
 
         /// <summary>

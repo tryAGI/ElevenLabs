@@ -40830,6 +40830,7 @@
                 "y": 0.0
               },
               "require_acceptance": false,
+              "sip_refer_play_dialtone": true,
               "transfer_destination": {
                 "phone_number": "+1234567890",
                 "type": "phone"
@@ -55453,6 +55454,60 @@
         ],
         "title": "ColumnUnit"
       },
+      "CompactionSettingsWorkflowOverride": {
+        "properties": {
+          "enabled": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enabled",
+            "description": "Whether context compaction is enabled for this agent."
+          },
+          "soft_trigger_fraction": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Soft Trigger Fraction",
+            "description": "Context window fraction at which compaction is triggered."
+          },
+          "tail_size": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tail Size",
+            "description": "Number of recent messages kept verbatim after compaction."
+          },
+          "min_reclaimable_tokens": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Min Reclaimable Tokens",
+            "description": "Minimum number of tokens that compaction must reclaim."
+          }
+        },
+        "type": "object",
+        "title": "CompactionSettingsWorkflowOverride"
+      },
       "CompileProceduresResponseModel": {
         "properties": {
           "workflow": {
@@ -58659,7 +58714,16 @@
               {
                 "type": "null"
               }
-            ]
+            ],
+            "description": "Deprecated: the first attachment on this turn. Use `file_inputs` to see every attachment."
+          },
+          "file_inputs": {
+            "items": {
+              "$ref": "#/components/schemas/ConversationHistoryTranscriptFileInputResponseModel"
+            },
+            "type": "array",
+            "title": "File Inputs",
+            "description": "All files attached to this turn, in the order the user attached them."
           },
           "contextual_update_info": {
             "anyOf": [
@@ -70115,6 +70179,7 @@
                   "y": 0.0
                 },
                 "require_acceptance": false,
+                "sip_refer_play_dialtone": true,
                 "transfer_destination": {
                   "phone_number": "+1234567890",
                   "type": "phone"
@@ -80320,6 +80385,7 @@
                   "y": 0.0
                 },
                 "require_acceptance": false,
+                "sip_refer_play_dialtone": true,
                 "transfer_destination": {
                   "phone_number": "+1234567890",
                   "type": "phone"
@@ -83016,6 +83082,7 @@
               "scale_2024_08_10",
               "grant_tier_1_2025_07_23",
               "grant_tier_2_2025_07_23",
+              "grant",
               "trial",
               "enterprise"
             ],
@@ -83216,6 +83283,12 @@
           "transfer_type": {
             "$ref": "#/components/schemas/TransferTypeEnum",
             "default": "conference"
+          },
+          "sip_refer_play_dialtone": {
+            "type": "boolean",
+            "title": "Sip Refer Play Dialtone",
+            "description": "When True, a ringing tone is played on the original call leg while a SIP REFER transfer completes. The tone is carried over RTP to the SIP peer executing the REFER, so disable this if the receiving system (e.g. an SBC or contact center) should not hear it. When disabled the caller hears silence until the transfer completes. SIP REFER transfers only.",
+            "default": true
           },
           "uui": {
             "anyOf": [
@@ -108696,6 +108769,12 @@
             "$ref": "#/components/schemas/TransferTypeEnum",
             "default": "conference"
           },
+          "sip_refer_play_dialtone": {
+            "type": "boolean",
+            "title": "Sip Refer Play Dialtone",
+            "description": "When True, a ringing tone is played on the original call leg while a SIP REFER transfer completes. The tone is carried over RTP to the SIP peer executing the REFER, so disable this if the receiving system (e.g. an SBC or contact center) should not hear it. When disabled the caller hears silence until the transfer completes. SIP REFER transfers only.",
+            "default": true
+          },
           "uui": {
             "anyOf": [
               {
@@ -108813,6 +108892,12 @@
             "$ref": "#/components/schemas/TransferTypeEnum",
             "default": "conference"
           },
+          "sip_refer_play_dialtone": {
+            "type": "boolean",
+            "title": "Sip Refer Play Dialtone",
+            "description": "When True, a ringing tone is played on the original call leg while a SIP REFER transfer completes. The tone is carried over RTP to the SIP peer executing the REFER, so disable this if the receiving system (e.g. an SBC or contact center) should not hear it. When disabled the caller hears silence until the transfer completes. SIP REFER transfers only.",
+            "default": true
+          },
           "uui": {
             "anyOf": [
               {
@@ -108874,6 +108959,7 @@
           "custom_sip_headers",
           "transfer_destination",
           "transfer_type",
+          "sip_refer_play_dialtone",
           "uui",
           "post_dial_digits",
           "type",
