@@ -45,6 +45,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? MonitoringEvents { get; set; }
 
         /// <summary>
+        /// Configure DTMF (keypad) input collection during phone calls
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dtmf_input_settings")]
+        public global::ElevenLabs.DTMFInputConfig? DtmfInputSettings { get; set; }
+
+        /// <summary>
         /// Configuration for background sound during conversations.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("background_sound")]
@@ -83,6 +89,9 @@ namespace ElevenLabs
         /// <param name="monitoringEvents">
         /// The events that will be sent to monitoring connections.
         /// </param>
+        /// <param name="dtmfInputSettings">
+        /// Configure DTMF (keypad) input collection during phone calls
+        /// </param>
         /// <param name="backgroundSound">
         /// Configuration for background sound during conversations.
         /// </param>
@@ -99,6 +108,7 @@ namespace ElevenLabs
             global::ElevenLabs.FileInputConfigWorkflowOverride? fileInput,
             bool? monitoringEnabled,
             global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? monitoringEvents,
+            global::ElevenLabs.DTMFInputConfig? dtmfInputSettings,
             global::ElevenLabs.BackgroundSoundConfigWorkflowOverride? backgroundSound,
             bool? sourceAttribution)
         {
@@ -108,6 +118,7 @@ namespace ElevenLabs
             this.FileInput = fileInput;
             this.MonitoringEnabled = monitoringEnabled;
             this.MonitoringEvents = monitoringEvents;
+            this.DtmfInputSettings = dtmfInputSettings;
             this.BackgroundSound = backgroundSound;
             this.SourceAttribution = sourceAttribution;
         }

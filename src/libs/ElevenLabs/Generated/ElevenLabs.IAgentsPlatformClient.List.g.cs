@@ -28,6 +28,9 @@ namespace ElevenLabs
         /// <param name="createdByUserId">
         /// Filter agents by creator user ID. When set, only agents created by this user are returned. Takes precedence over show_only_owned_agents. Use '@me' to refer to the authenticated user.
         /// </param>
+        /// <param name="tags">
+        /// Filter agents by tag. Repeat the parameter to match any of several tags.
+        /// </param>
         /// <param name="sortDirection">
         /// The direction to sort the results<br/>
         /// Default Value: desc
@@ -47,6 +50,7 @@ namespace ElevenLabs
             bool? archived = default,
             bool? showOnlyOwnedAgents = default,
             string? createdByUserId = default,
+            global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.AgentSortBy? sortBy = default,
             string? cursor = default,
@@ -74,6 +78,9 @@ namespace ElevenLabs
         /// <param name="createdByUserId">
         /// Filter agents by creator user ID. When set, only agents created by this user are returned. Takes precedence over show_only_owned_agents. Use '@me' to refer to the authenticated user.
         /// </param>
+        /// <param name="tags">
+        /// Filter agents by tag. Repeat the parameter to match any of several tags.
+        /// </param>
         /// <param name="sortDirection">
         /// The direction to sort the results<br/>
         /// Default Value: desc
@@ -93,6 +100,7 @@ namespace ElevenLabs
             bool? archived = default,
             bool? showOnlyOwnedAgents = default,
             string? createdByUserId = default,
+            global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.AgentSortBy? sortBy = default,
             string? cursor = default,
@@ -120,6 +128,9 @@ namespace ElevenLabs
         /// <param name="createdByUserId">
         /// Filter agents by creator user ID. When set, only agents created by this user are returned. Takes precedence over show_only_owned_agents. Use '@me' to refer to the authenticated user.
         /// </param>
+        /// <param name="tags">
+        /// Filter agents by tag. Repeat the parameter to match any of several tags.
+        /// </param>
         /// <param name="sortDirection">
         /// The direction to sort the results<br/>
         /// Default Value: desc
@@ -135,6 +146,7 @@ namespace ElevenLabs
             bool? archived = default,
             bool? showOnlyOwnedAgents = default,
             string? createdByUserId = default,
+            global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.AgentSortBy? sortBy = default,
             string? cursor = null,
