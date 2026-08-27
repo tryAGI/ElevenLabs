@@ -4,30 +4,30 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ApiIntegrationWebhookOverrides
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("schema_overrides")]
         public object? SchemaOverrides { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_filter_mode")]
         public global::ElevenLabs.ResponseFilterMode? ResponseFilterMode { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_filters")]
         public global::System.Collections.Generic.IList<string>? ResponseFilters { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_headers")]
         public object? RequestHeaders { get; set; }

@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum DefaultSharingGroupResponseModelPermissionLevel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Admin,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Editor,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Viewer,
     }

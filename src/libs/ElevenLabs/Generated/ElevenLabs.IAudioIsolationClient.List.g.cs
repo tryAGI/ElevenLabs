@@ -62,7 +62,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="search">
         /// Optional search term used for filtering audio isolation history (title/text).
-        /// </param> 
+        /// </param>
         /// <param name="page">Initial page number to start enumerating from. Defaults to 1.</param>
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AudioIsolationHistoryItemResponseModel> ListAutoPagingAsync(

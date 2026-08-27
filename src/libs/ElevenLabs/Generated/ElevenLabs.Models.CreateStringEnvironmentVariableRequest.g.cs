@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateStringEnvironmentVariableRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"string"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]

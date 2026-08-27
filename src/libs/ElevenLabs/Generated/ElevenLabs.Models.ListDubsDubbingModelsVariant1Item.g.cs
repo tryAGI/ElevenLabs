@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ListDubsDubbingModelsVariant1Item
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DubbingV1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DubbingV2,
     }

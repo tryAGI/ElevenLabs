@@ -4,52 +4,52 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SpeechHistoryItemResponseModelSource2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         An,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvAI,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dubbing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Flows,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InVPC,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pd,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PlayAPI,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Projects,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sts,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tts,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceGeneration,
     }

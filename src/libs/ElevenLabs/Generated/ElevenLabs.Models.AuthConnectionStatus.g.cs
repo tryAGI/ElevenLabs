@@ -14,19 +14,19 @@ namespace ElevenLabs
     public enum AuthConnectionStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Active,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CredentialInvalid,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RefreshFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Revoked,
     }

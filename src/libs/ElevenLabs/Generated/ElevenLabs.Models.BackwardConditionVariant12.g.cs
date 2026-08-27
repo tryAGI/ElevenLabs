@@ -5,12 +5,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct BackwardConditionVariant12 : global::System.IEquatable<BackwardConditionVariant12>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorType? Type { get; }
 
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Unconditional))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsUnconditional => Unconditional != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUnconditional(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WorkflowUnconditionalModelOutput PickUnconditional() => IsUnconditional
             ? Unconditional!
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Llm))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsLlm => Llm != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickLlm(
 #if NET6_0_OR_GREATER
@@ -82,7 +82,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WorkflowLLMConditionModelOutput PickLlm() => IsLlm
             ? Llm!
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Result))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsResult => Result != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResult(
 #if NET6_0_OR_GREATER
@@ -119,7 +119,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WorkflowResultConditionModelOutput PickResult() => IsResult
             ? Result!
@@ -135,7 +135,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Expression))]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         public bool IsExpression => Expression != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickExpression(
 #if NET6_0_OR_GREATER
@@ -156,23 +156,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WorkflowExpressionConditionModelOutput PickExpression() => IsExpression
             ? Expression!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Expression' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator BackwardConditionVariant12(global::ElevenLabs.WorkflowUnconditionalModelOutput value) => new BackwardConditionVariant12((global::ElevenLabs.WorkflowUnconditionalModelOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WorkflowUnconditionalModelOutput?(BackwardConditionVariant12 @this) => @this.Unconditional;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BackwardConditionVariant12(global::ElevenLabs.WorkflowUnconditionalModelOutput? value)
         {
@@ -180,22 +180,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static BackwardConditionVariant12 FromUnconditional(global::ElevenLabs.WorkflowUnconditionalModelOutput? value) => new BackwardConditionVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator BackwardConditionVariant12(global::ElevenLabs.WorkflowLLMConditionModelOutput value) => new BackwardConditionVariant12((global::ElevenLabs.WorkflowLLMConditionModelOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WorkflowLLMConditionModelOutput?(BackwardConditionVariant12 @this) => @this.Llm;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BackwardConditionVariant12(global::ElevenLabs.WorkflowLLMConditionModelOutput? value)
         {
@@ -203,22 +203,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static BackwardConditionVariant12 FromLlm(global::ElevenLabs.WorkflowLLMConditionModelOutput? value) => new BackwardConditionVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator BackwardConditionVariant12(global::ElevenLabs.WorkflowResultConditionModelOutput value) => new BackwardConditionVariant12((global::ElevenLabs.WorkflowResultConditionModelOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WorkflowResultConditionModelOutput?(BackwardConditionVariant12 @this) => @this.Result;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BackwardConditionVariant12(global::ElevenLabs.WorkflowResultConditionModelOutput? value)
         {
@@ -226,22 +226,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static BackwardConditionVariant12 FromResult(global::ElevenLabs.WorkflowResultConditionModelOutput? value) => new BackwardConditionVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator BackwardConditionVariant12(global::ElevenLabs.WorkflowExpressionConditionModelOutput value) => new BackwardConditionVariant12((global::ElevenLabs.WorkflowExpressionConditionModelOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WorkflowExpressionConditionModelOutput?(BackwardConditionVariant12 @this) => @this.Expression;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BackwardConditionVariant12(global::ElevenLabs.WorkflowExpressionConditionModelOutput? value)
         {
@@ -249,12 +249,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static BackwardConditionVariant12 FromExpression(global::ElevenLabs.WorkflowExpressionConditionModelOutput? value) => new BackwardConditionVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BackwardConditionVariant12(
             global::ElevenLabs.WorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorType? type,
@@ -273,27 +273,27 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Expression as object ??
             Result as object ??
             Llm as object ??
-            Unconditional as object 
+            Unconditional as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Unconditional?.ToString() ??
             Llm?.ToString() ??
             Result?.ToString() ??
-            Expression?.ToString() 
+            Expression?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -301,7 +301,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.WorkflowUnconditionalModelOutput, TResult>? unconditional = null,
@@ -336,7 +336,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.WorkflowUnconditionalModelOutput>? unconditional = null,
@@ -372,7 +372,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.WorkflowUnconditionalModelOutput>? unconditional = null,
@@ -405,7 +405,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -430,7 +430,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(BackwardConditionVariant12 other)
         {
@@ -438,12 +438,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowUnconditionalModelOutput?>.Default.Equals(Unconditional, other.Unconditional) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowLLMConditionModelOutput?>.Default.Equals(Llm, other.Llm) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowResultConditionModelOutput?>.Default.Equals(Result, other.Result) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowExpressionConditionModelOutput?>.Default.Equals(Expression, other.Expression) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowExpressionConditionModelOutput?>.Default.Equals(Expression, other.Expression)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(BackwardConditionVariant12 obj1, BackwardConditionVariant12 obj2)
         {
@@ -451,7 +451,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(BackwardConditionVariant12 obj1, BackwardConditionVariant12 obj2)
         {
@@ -459,7 +459,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

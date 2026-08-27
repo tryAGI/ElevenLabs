@@ -10,15 +10,15 @@ namespace ElevenLabs
     public enum BytedanceSeedance25RequestResolution
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x1080p,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x480p,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x720p,
     }

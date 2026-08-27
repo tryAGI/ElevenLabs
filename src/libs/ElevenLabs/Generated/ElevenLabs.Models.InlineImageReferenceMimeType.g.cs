@@ -9,23 +9,23 @@ namespace ElevenLabs
     public enum InlineImageReferenceMimeType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImageHeic,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImageHeif,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImageJpeg,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImagePng,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImageWebp,
     }

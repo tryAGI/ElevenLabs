@@ -4,28 +4,28 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ListDubsDubbingStatusesVariant1Item
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dubbed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dubbing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Preparing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Queued,
     }

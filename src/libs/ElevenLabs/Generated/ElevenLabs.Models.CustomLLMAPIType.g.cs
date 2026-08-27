@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum CustomLLMAPIType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ChatCompletions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Responses,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Websocket,
     }

@@ -4,40 +4,40 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum RAGIndexStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CannotIndexFolder,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Created,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DocumentTooSmall,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         New,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Processing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RagLimitExceeded,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Succeeded,
     }

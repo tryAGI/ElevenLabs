@@ -18,7 +18,7 @@ namespace ElevenLabs
         public string? Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -98,7 +98,7 @@ namespace ElevenLabs
         public global::ElevenLabs.ToolErrorHandlingMode? ToolErrorHandlingMode { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("params")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.Params3JsonConverter))]

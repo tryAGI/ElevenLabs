@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ConversationFeedbackType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rating,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Thumbs,
     }

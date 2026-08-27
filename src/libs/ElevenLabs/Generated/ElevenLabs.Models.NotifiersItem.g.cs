@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct NotifiersItem : global::System.IEquatable<NotifiersItem>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.AlertingSettingsNotifierDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.AlertingWebhookNotifier? Webhook { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Webhook))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsWebhook => Webhook != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickWebhook(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.AlertingWebhookNotifier PickWebhook() => IsWebhook
             ? Webhook!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Webhook' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.AlertingIntegrationNotifier? Integration { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Integration))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsIntegration => Integration != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickIntegration(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.AlertingIntegrationNotifier PickIntegration() => IsIntegration
             ? Integration!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Integration' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator NotifiersItem(global::ElevenLabs.AlertingWebhookNotifier value) => new NotifiersItem((global::ElevenLabs.AlertingWebhookNotifier?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.AlertingWebhookNotifier?(NotifiersItem @this) => @this.Webhook;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public NotifiersItem(global::ElevenLabs.AlertingWebhookNotifier? value)
         {
@@ -106,22 +106,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static NotifiersItem FromWebhook(global::ElevenLabs.AlertingWebhookNotifier? value) => new NotifiersItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator NotifiersItem(global::ElevenLabs.AlertingIntegrationNotifier value) => new NotifiersItem((global::ElevenLabs.AlertingIntegrationNotifier?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.AlertingIntegrationNotifier?(NotifiersItem @this) => @this.Integration;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public NotifiersItem(global::ElevenLabs.AlertingIntegrationNotifier? value)
         {
@@ -129,12 +129,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static NotifiersItem FromIntegration(global::ElevenLabs.AlertingIntegrationNotifier? value) => new NotifiersItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public NotifiersItem(
             global::ElevenLabs.AlertingSettingsNotifierDiscriminatorType? type,
@@ -149,23 +149,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Integration as object ??
-            Webhook as object 
+            Webhook as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Webhook?.ToString() ??
-            Integration?.ToString() 
+            Integration?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -173,7 +173,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.AlertingWebhookNotifier, TResult>? webhook = null,
@@ -198,7 +198,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.AlertingWebhookNotifier>? webhook = null,
@@ -222,7 +222,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.AlertingWebhookNotifier>? webhook = null,
@@ -245,7 +245,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -266,18 +266,18 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(NotifiersItem other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.AlertingWebhookNotifier?>.Default.Equals(Webhook, other.Webhook) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.AlertingIntegrationNotifier?>.Default.Equals(Integration, other.Integration) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.AlertingIntegrationNotifier?>.Default.Equals(Integration, other.Integration)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(NotifiersItem obj1, NotifiersItem obj2)
         {
@@ -285,7 +285,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(NotifiersItem obj1, NotifiersItem obj2)
         {
@@ -293,7 +293,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

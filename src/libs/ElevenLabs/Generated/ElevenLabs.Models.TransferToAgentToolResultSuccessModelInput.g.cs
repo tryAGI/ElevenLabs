@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class TransferToAgentToolResultSuccessModelInput
     {
@@ -21,27 +21,27 @@ namespace ElevenLabs
         public string? Status { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_agent")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string FromAgent { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("to_agent")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ToAgent { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("to_node")]
         public string? ToNode { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("condition")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -54,7 +54,7 @@ namespace ElevenLabs
         public int? DelayMs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_message")]
         public string? TransferMessage { get; set; }
@@ -66,7 +66,7 @@ namespace ElevenLabs
         public bool? EnableTransferredAgentFirstMessage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("branch_info")]
         public global::ElevenLabs.BranchInfoVariant1? BranchInfo { get; set; }

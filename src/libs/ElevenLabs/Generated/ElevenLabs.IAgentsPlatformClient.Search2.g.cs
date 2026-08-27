@@ -71,7 +71,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="types">
         /// If present, the endpoint will return only documents of the given types.
-        /// </param> 
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.KnowledgeBaseContentSearchResult> Search2AutoPagingAsync(

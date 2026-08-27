@@ -9,51 +9,51 @@ namespace ElevenLabs
     public enum PendingSubscriptionSwitchResponseModelNextTier
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Creator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Enterprise,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Free,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Go,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Grant,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GrantTier120250723,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GrantTier220250723,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GrowingBusiness,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pro,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Scale20240810,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Starter,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Trial,
     }

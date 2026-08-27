@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum CreatifyAuroraRequestResolution
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x480p,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x720p,
     }

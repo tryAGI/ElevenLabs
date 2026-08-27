@@ -4,44 +4,44 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ImageGenerationRequestDiscriminatorModelId
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BytedanceSeedream5Lite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BytedanceSeedream5Pro,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini25FlashImage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini3ProImage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini31FlashImage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini31FlashLiteImage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GptImage1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GptImage15,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GptImage2,
     }

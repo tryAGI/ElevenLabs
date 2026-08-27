@@ -4,44 +4,44 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum MetricType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Concurrency,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConcurrencyAverage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Credits,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FiatUnitsSpent,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MinutesUsed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RequestCount,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TtfbAvg,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TtfbP95,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TtsCharacters,
     }

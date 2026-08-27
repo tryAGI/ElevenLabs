@@ -9,23 +9,23 @@ namespace ElevenLabs
     public enum ProjectCreationMetaResponseModelStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Creating,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Draft,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Finished,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pending,
     }

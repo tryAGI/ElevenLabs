@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SMSConversationInfoDirection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Inbound,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Outbound,
     }

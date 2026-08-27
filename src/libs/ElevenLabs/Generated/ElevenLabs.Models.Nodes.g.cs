@@ -5,12 +5,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct Nodes : global::System.IEquatable<Nodes>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.AgentWorkflowRequestModelNodesDiscriminatorType? Type { get; }
 
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Start))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsStart => Start != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickStart(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WorkflowStartNodeModelInput PickStart() => IsStart
             ? Start!
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(End))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsEnd => End != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickEnd(
 #if NET6_0_OR_GREATER
@@ -82,7 +82,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WorkflowEndNodeModelInput PickEnd() => IsEnd
             ? End!
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PhoneNumber))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsPhoneNumber => PhoneNumber != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickPhoneNumber(
 #if NET6_0_OR_GREATER
@@ -119,7 +119,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WorkflowPhoneNumberNodeModelInput PickPhoneNumber() => IsPhoneNumber
             ? PhoneNumber!
@@ -135,7 +135,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(OverrideAgent))]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         public bool IsOverrideAgent => OverrideAgent != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickOverrideAgent(
 #if NET6_0_OR_GREATER
@@ -156,7 +156,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WorkflowOverrideAgentNodeModelInput PickOverrideAgent() => IsOverrideAgent
             ? OverrideAgent!
@@ -172,7 +172,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(StandaloneAgent))]
@@ -180,7 +180,7 @@ namespace ElevenLabs
         public bool IsStandaloneAgent => StandaloneAgent != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickStandaloneAgent(
 #if NET6_0_OR_GREATER
@@ -193,7 +193,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput PickStandaloneAgent() => IsStandaloneAgent
             ? StandaloneAgent!
@@ -209,7 +209,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Tool))]
@@ -217,7 +217,7 @@ namespace ElevenLabs
         public bool IsTool => Tool != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTool(
 #if NET6_0_OR_GREATER
@@ -230,23 +230,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WorkflowToolNodeModelInput PickTool() => IsTool
             ? Tool!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Tool' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Nodes(global::ElevenLabs.WorkflowStartNodeModelInput value) => new Nodes((global::ElevenLabs.WorkflowStartNodeModelInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WorkflowStartNodeModelInput?(Nodes @this) => @this.Start;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Nodes(global::ElevenLabs.WorkflowStartNodeModelInput? value)
         {
@@ -254,22 +254,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Nodes FromStart(global::ElevenLabs.WorkflowStartNodeModelInput? value) => new Nodes(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Nodes(global::ElevenLabs.WorkflowEndNodeModelInput value) => new Nodes((global::ElevenLabs.WorkflowEndNodeModelInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WorkflowEndNodeModelInput?(Nodes @this) => @this.End;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Nodes(global::ElevenLabs.WorkflowEndNodeModelInput? value)
         {
@@ -277,22 +277,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Nodes FromEnd(global::ElevenLabs.WorkflowEndNodeModelInput? value) => new Nodes(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Nodes(global::ElevenLabs.WorkflowPhoneNumberNodeModelInput value) => new Nodes((global::ElevenLabs.WorkflowPhoneNumberNodeModelInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WorkflowPhoneNumberNodeModelInput?(Nodes @this) => @this.PhoneNumber;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Nodes(global::ElevenLabs.WorkflowPhoneNumberNodeModelInput? value)
         {
@@ -300,22 +300,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Nodes FromPhoneNumber(global::ElevenLabs.WorkflowPhoneNumberNodeModelInput? value) => new Nodes(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Nodes(global::ElevenLabs.WorkflowOverrideAgentNodeModelInput value) => new Nodes((global::ElevenLabs.WorkflowOverrideAgentNodeModelInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WorkflowOverrideAgentNodeModelInput?(Nodes @this) => @this.OverrideAgent;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Nodes(global::ElevenLabs.WorkflowOverrideAgentNodeModelInput? value)
         {
@@ -323,22 +323,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Nodes FromOverrideAgent(global::ElevenLabs.WorkflowOverrideAgentNodeModelInput? value) => new Nodes(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Nodes(global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput value) => new Nodes((global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput?(Nodes @this) => @this.StandaloneAgent;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Nodes(global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput? value)
         {
@@ -346,22 +346,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Nodes FromStandaloneAgent(global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput? value) => new Nodes(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Nodes(global::ElevenLabs.WorkflowToolNodeModelInput value) => new Nodes((global::ElevenLabs.WorkflowToolNodeModelInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WorkflowToolNodeModelInput?(Nodes @this) => @this.Tool;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Nodes(global::ElevenLabs.WorkflowToolNodeModelInput? value)
         {
@@ -369,12 +369,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Nodes FromTool(global::ElevenLabs.WorkflowToolNodeModelInput? value) => new Nodes(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Nodes(
             global::ElevenLabs.AgentWorkflowRequestModelNodesDiscriminatorType? type,
@@ -397,7 +397,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Tool as object ??
@@ -405,11 +405,11 @@ namespace ElevenLabs
             OverrideAgent as object ??
             PhoneNumber as object ??
             End as object ??
-            Start as object 
+            Start as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Start?.ToString() ??
@@ -417,11 +417,11 @@ namespace ElevenLabs
             PhoneNumber?.ToString() ??
             OverrideAgent?.ToString() ??
             StandaloneAgent?.ToString() ??
-            Tool?.ToString() 
+            Tool?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -429,7 +429,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.WorkflowStartNodeModelInput, TResult>? start = null,
@@ -474,7 +474,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.WorkflowStartNodeModelInput>? start = null,
@@ -522,7 +522,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.WorkflowStartNodeModelInput>? start = null,
@@ -565,7 +565,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -594,7 +594,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(Nodes other)
         {
@@ -604,12 +604,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowPhoneNumberNodeModelInput?>.Default.Equals(PhoneNumber, other.PhoneNumber) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowOverrideAgentNodeModelInput?>.Default.Equals(OverrideAgent, other.OverrideAgent) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput?>.Default.Equals(StandaloneAgent, other.StandaloneAgent) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowToolNodeModelInput?>.Default.Equals(Tool, other.Tool) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowToolNodeModelInput?>.Default.Equals(Tool, other.Tool)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(Nodes obj1, Nodes obj2)
         {
@@ -617,7 +617,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(Nodes obj1, Nodes obj2)
         {
@@ -625,7 +625,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

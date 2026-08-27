@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum InlineAudioReferenceMimeType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioMpeg,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioWav,
     }

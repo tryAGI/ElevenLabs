@@ -4,156 +4,156 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum WorkspaceGroupPermission
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AddVoiceFromVoiceLibrary,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AiSpeechClassifier,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioNative,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AuditLogRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConversationPrivacyManage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConversationalAi,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConversationalAiRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CopyResourcesCrossWorkspace,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateInstantVoiceClone,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateProfessionalVoiceClone,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateUserApiKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dubbing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Flows,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GroupMembersManage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImageVideoGeneration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Music,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Projects,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PublishStudioProject,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PublishVoiceToVoiceLibrary,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ServiceAccountsManage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ShareVoiceExternally,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SoundEffects,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechToSpeech,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechToText,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SynthidDetector,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Templates,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TermsOfServiceAccept,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TextToSpeech,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ViewFiatBalance,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceDesign,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceIsolator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceLab,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceoverStudio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WebhooksManage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceAnalyticsFullRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceMembersInvite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceMembersRemove,
     }

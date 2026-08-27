@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum ListChatResponseTestsRouteSortMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Default,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FoldersFirst,
     }

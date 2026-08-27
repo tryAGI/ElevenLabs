@@ -370,7 +370,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -770,7 +770,7 @@ namespace ElevenLabs
         /// <param name="sort">
         /// Sort criteria. Must be one of: created_date, usage_character_count_1y, trending, cloned_by_count.<br/>
         /// Default Value: created_date
-        /// </param> 
+        /// </param>
         /// <param name="page">Initial page number to start enumerating from. Defaults to 1.</param>
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.LibraryVoiceResponseModel> GetSharedAutoPagingAsync(

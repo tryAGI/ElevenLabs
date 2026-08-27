@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum BytedanceSeedance2FastRequestResolution
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x480p,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x720p,
     }

@@ -9,7 +9,7 @@ namespace ElevenLabs
     public enum BackgroundSoundSourceType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Preset,
     }

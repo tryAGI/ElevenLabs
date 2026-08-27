@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum TelephonyDirection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Inbound,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Outbound,
     }

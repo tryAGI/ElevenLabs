@@ -11,7 +11,7 @@ namespace ElevenLabs
     public sealed partial class CustomSIPHeaderWithDynamicVariable
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"dynamic"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]

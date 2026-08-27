@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AgentPlatformSettingsResponseModel
     {
@@ -146,7 +146,7 @@ namespace ElevenLabs
         public global::ElevenLabs.AlertingSettingsResponse? Alerting { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("safety")]
         public global::ElevenLabs.SafetyResponseModel? Safety { get; set; }

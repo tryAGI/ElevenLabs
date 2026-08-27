@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum BodySpeechToTextV1SpeechToTextPostFileFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Other,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PcmS16le16,
     }

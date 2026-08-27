@@ -4,33 +4,33 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetKnowledgeBaseFolderResponseModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel Metadata { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supported_usages")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -57,14 +57,14 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? FolderPath { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"folder"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         public string Type { get; set; } = "folder";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("children_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -78,13 +78,13 @@ namespace ElevenLabs
         public required int DocumentCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auto_sync_info")]
         public global::ElevenLabs.AutoSyncInfo? AutoSyncInfo { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_sync_info")]
         public global::ElevenLabs.ExternalFolderSyncInfo? ExternalSyncInfo { get; set; }

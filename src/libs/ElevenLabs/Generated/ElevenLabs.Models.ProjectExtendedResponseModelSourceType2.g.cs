@@ -4,32 +4,32 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ProjectExtendedResponseModelSourceType2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Article,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Blank,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Book,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Genfm,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Screenplay,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Video,
     }

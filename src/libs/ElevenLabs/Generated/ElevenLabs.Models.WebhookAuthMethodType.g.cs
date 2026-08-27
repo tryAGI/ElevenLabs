@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum WebhookAuthMethodType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Hmac,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mtls,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Oauth2,
     }

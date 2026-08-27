@@ -650,7 +650,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -1134,7 +1134,7 @@ namespace ElevenLabs
         /// <param name="sortDirection">
         /// The direction to sort conversations by call start time. Defaults to descending (newest first).<br/>
         /// Default Value: desc
-        /// </param> 
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ConversationSummaryResponseModel> List2AutoPagingAsync(

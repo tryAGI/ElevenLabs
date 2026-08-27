@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SingleUseTokenType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BatchScribe,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RealtimeScribe,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TtsWebsocket,
     }

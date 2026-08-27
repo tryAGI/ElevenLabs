@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum TopicSortBy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Conversations,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Frustration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sentiment,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SuccessRate,
     }

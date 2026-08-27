@@ -9,11 +9,11 @@ namespace ElevenLabs.Realtime
     public enum TranscriptionWordType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Spacing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Word,
     }

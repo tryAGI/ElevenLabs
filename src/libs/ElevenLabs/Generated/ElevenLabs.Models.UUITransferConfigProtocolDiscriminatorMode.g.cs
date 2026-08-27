@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum UUITransferConfigProtocolDiscriminatorMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PdParameter,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Prefix,
     }

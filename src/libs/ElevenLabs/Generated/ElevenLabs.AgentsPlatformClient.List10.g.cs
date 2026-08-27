@@ -180,7 +180,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -520,7 +520,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="search">
         /// If specified, returns only secrets whose names start with this string.
-        /// </param> 
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig> List10AutoPagingAsync(

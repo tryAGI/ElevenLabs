@@ -9,179 +9,179 @@ namespace ElevenLabs
     public enum WorkspaceResourceType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Assets,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AvatarVideoGenerations,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Avatars,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ContentGenerations,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ContentSkills,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ContentTemplates,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiAgentBranches,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiAgentDrafts,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiAgentExperiments,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiAgentResponseTests,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiAgentVersions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiAgentVersionsDeployments,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiAgents,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiAnalysisItems,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiApiIntegrationConnections,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiApiIntegrationTriggerConnections,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiBatchCalls,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiCoachingProposals,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiCrawlJobs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiCrawlTasks,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiKbExternalSyncJobs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiKnowledgeBaseDocuments,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiMcpServers,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiMemoryEntries,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiPhoneNumbers,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiSecrets,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiSettings,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiTemplates,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiTestSuiteInvocations,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiTools,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiWhatsappAccounts,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dashboard,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DashboardConfiguration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dubbing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Project,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PronunciationDictionary,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResourceCollection,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResourceLocators,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Songs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StudioProjects,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TranscriptionTasks,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Voice,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceCollection,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceAuthConnections,
     }

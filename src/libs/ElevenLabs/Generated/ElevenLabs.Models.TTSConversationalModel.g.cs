@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum TTSConversationalModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ElevenFlashV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ElevenFlashV25,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ElevenMultilingualV2,
         /// <summary>
@@ -29,7 +29,7 @@ namespace ElevenLabs
         /// </summary>
         ElevenTurboV25,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ElevenV3Conversational,
     }

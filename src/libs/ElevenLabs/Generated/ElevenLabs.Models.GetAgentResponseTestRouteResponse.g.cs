@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct GetAgentResponseTestRouteResponse : global::System.IEquatable<GetAgentResponseTestRouteResponse>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetAgentResponseTestRouteResponseDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetResponseUnitTestResponseModel? Llm { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Llm))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsLlm => Llm != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickLlm(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetResponseUnitTestResponseModel PickLlm() => IsLlm
             ? Llm!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Llm' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetToolCallUnitTestResponseModel? Tool { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Tool))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsTool => Tool != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTool(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetToolCallUnitTestResponseModel PickTool() => IsTool
             ? Tool!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Tool' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetSimulationTestResponseModel? Simulation { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Simulation))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsSimulation => Simulation != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSimulation(
 #if NET6_0_OR_GREATER
@@ -119,23 +119,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetSimulationTestResponseModel PickSimulation() => IsSimulation
             ? Simulation!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Simulation' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator GetAgentResponseTestRouteResponse(global::ElevenLabs.GetResponseUnitTestResponseModel value) => new GetAgentResponseTestRouteResponse((global::ElevenLabs.GetResponseUnitTestResponseModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetResponseUnitTestResponseModel?(GetAgentResponseTestRouteResponse @this) => @this.Llm;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public GetAgentResponseTestRouteResponse(global::ElevenLabs.GetResponseUnitTestResponseModel? value)
         {
@@ -143,22 +143,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static GetAgentResponseTestRouteResponse FromLlm(global::ElevenLabs.GetResponseUnitTestResponseModel? value) => new GetAgentResponseTestRouteResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator GetAgentResponseTestRouteResponse(global::ElevenLabs.GetToolCallUnitTestResponseModel value) => new GetAgentResponseTestRouteResponse((global::ElevenLabs.GetToolCallUnitTestResponseModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetToolCallUnitTestResponseModel?(GetAgentResponseTestRouteResponse @this) => @this.Tool;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public GetAgentResponseTestRouteResponse(global::ElevenLabs.GetToolCallUnitTestResponseModel? value)
         {
@@ -166,22 +166,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static GetAgentResponseTestRouteResponse FromTool(global::ElevenLabs.GetToolCallUnitTestResponseModel? value) => new GetAgentResponseTestRouteResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator GetAgentResponseTestRouteResponse(global::ElevenLabs.GetSimulationTestResponseModel value) => new GetAgentResponseTestRouteResponse((global::ElevenLabs.GetSimulationTestResponseModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetSimulationTestResponseModel?(GetAgentResponseTestRouteResponse @this) => @this.Simulation;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public GetAgentResponseTestRouteResponse(global::ElevenLabs.GetSimulationTestResponseModel? value)
         {
@@ -189,12 +189,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static GetAgentResponseTestRouteResponse FromSimulation(global::ElevenLabs.GetSimulationTestResponseModel? value) => new GetAgentResponseTestRouteResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public GetAgentResponseTestRouteResponse(
             global::ElevenLabs.GetAgentResponseTestRouteResponseDiscriminatorType? type,
@@ -211,25 +211,25 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Simulation as object ??
             Tool as object ??
-            Llm as object 
+            Llm as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Llm?.ToString() ??
             Tool?.ToString() ??
-            Simulation?.ToString() 
+            Simulation?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -237,7 +237,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.GetResponseUnitTestResponseModel, TResult>? llm = null,
@@ -267,7 +267,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.GetResponseUnitTestResponseModel>? llm = null,
@@ -297,7 +297,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.GetResponseUnitTestResponseModel>? llm = null,
@@ -325,7 +325,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -348,19 +348,19 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(GetAgentResponseTestRouteResponse other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetResponseUnitTestResponseModel?>.Default.Equals(Llm, other.Llm) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetToolCallUnitTestResponseModel?>.Default.Equals(Tool, other.Tool) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetSimulationTestResponseModel?>.Default.Equals(Simulation, other.Simulation) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetSimulationTestResponseModel?>.Default.Equals(Simulation, other.Simulation)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(GetAgentResponseTestRouteResponse obj1, GetAgentResponseTestRouteResponse obj2)
         {
@@ -368,7 +368,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(GetAgentResponseTestRouteResponse obj1, GetAgentResponseTestRouteResponse obj2)
         {
@@ -376,7 +376,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

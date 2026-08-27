@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DocxExportOptions
     {
@@ -21,26 +21,26 @@ namespace ElevenLabs
         public bool? IncludeTimestamps { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"docx"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("format")]
         public string Format { get; set; } = "docx";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segment_on_silence_longer_than_s")]
         public double? SegmentOnSilenceLongerThanS { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_segment_duration_s")]
         public double? MaxSegmentDurationS { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_segment_chars")]
         public int? MaxSegmentChars { get; set; }

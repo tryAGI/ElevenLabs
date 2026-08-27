@@ -5,12 +5,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct OrderItemRequestOutput : global::System.IEquatable<OrderItemRequestOutput>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.OrderItemRequestOutputDiscriminatorKind? Kind { get; }
 
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Dub))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsDub => Dub != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDub(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DubOrderItemRequest PickDub() => IsDub
             ? Dub!
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Subtitles))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsSubtitles => Subtitles != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSubtitles(
 #if NET6_0_OR_GREATER
@@ -82,7 +82,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SubtitleOrderItemRequest PickSubtitles() => IsSubtitles
             ? Subtitles!
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Transcription))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsTranscription => Transcription != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTranscription(
 #if NET6_0_OR_GREATER
@@ -119,23 +119,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TranscriptionOrderItemRequest PickTranscription() => IsTranscription
             ? Transcription!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Transcription' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator OrderItemRequestOutput(global::ElevenLabs.DubOrderItemRequest value) => new OrderItemRequestOutput((global::ElevenLabs.DubOrderItemRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DubOrderItemRequest?(OrderItemRequestOutput @this) => @this.Dub;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public OrderItemRequestOutput(global::ElevenLabs.DubOrderItemRequest? value)
         {
@@ -143,22 +143,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static OrderItemRequestOutput FromDub(global::ElevenLabs.DubOrderItemRequest? value) => new OrderItemRequestOutput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator OrderItemRequestOutput(global::ElevenLabs.SubtitleOrderItemRequest value) => new OrderItemRequestOutput((global::ElevenLabs.SubtitleOrderItemRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SubtitleOrderItemRequest?(OrderItemRequestOutput @this) => @this.Subtitles;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public OrderItemRequestOutput(global::ElevenLabs.SubtitleOrderItemRequest? value)
         {
@@ -166,22 +166,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static OrderItemRequestOutput FromSubtitles(global::ElevenLabs.SubtitleOrderItemRequest? value) => new OrderItemRequestOutput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator OrderItemRequestOutput(global::ElevenLabs.TranscriptionOrderItemRequest value) => new OrderItemRequestOutput((global::ElevenLabs.TranscriptionOrderItemRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TranscriptionOrderItemRequest?(OrderItemRequestOutput @this) => @this.Transcription;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public OrderItemRequestOutput(global::ElevenLabs.TranscriptionOrderItemRequest? value)
         {
@@ -189,12 +189,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static OrderItemRequestOutput FromTranscription(global::ElevenLabs.TranscriptionOrderItemRequest? value) => new OrderItemRequestOutput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public OrderItemRequestOutput(
             global::ElevenLabs.OrderItemRequestOutputDiscriminatorKind? kind,
@@ -211,25 +211,25 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Transcription as object ??
             Subtitles as object ??
-            Dub as object 
+            Dub as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Dub?.ToString() ??
             Subtitles?.ToString() ??
-            Transcription?.ToString() 
+            Transcription?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -237,7 +237,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.DubOrderItemRequest, TResult>? dub = null,
@@ -267,7 +267,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.DubOrderItemRequest>? dub = null,
@@ -297,7 +297,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.DubOrderItemRequest>? dub = null,
@@ -325,7 +325,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -348,19 +348,19 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(OrderItemRequestOutput other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DubOrderItemRequest?>.Default.Equals(Dub, other.Dub) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SubtitleOrderItemRequest?>.Default.Equals(Subtitles, other.Subtitles) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TranscriptionOrderItemRequest?>.Default.Equals(Transcription, other.Transcription) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TranscriptionOrderItemRequest?>.Default.Equals(Transcription, other.Transcription)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(OrderItemRequestOutput obj1, OrderItemRequestOutput obj2)
         {
@@ -368,7 +368,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(OrderItemRequestOutput obj1, OrderItemRequestOutput obj2)
         {
@@ -376,7 +376,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

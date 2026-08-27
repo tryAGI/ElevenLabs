@@ -4,36 +4,36 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum NonStreamingOutputFormats
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wav16000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wav22050,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wav24000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wav32000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wav44100,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wav48000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wav8000,
     }

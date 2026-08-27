@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class WorkflowToolResponseModelOutput
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("steps")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.StepsItem2>? Steps { get; set; }

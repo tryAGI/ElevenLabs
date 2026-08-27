@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum DocumentUsageModeEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Prompt,
     }

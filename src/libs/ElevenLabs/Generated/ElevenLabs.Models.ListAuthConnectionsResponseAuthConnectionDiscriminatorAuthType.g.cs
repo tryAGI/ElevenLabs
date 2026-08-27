@@ -4,60 +4,60 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiIntegrationOauth2AuthCode,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiIntegrationOauth2CustomApp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BasicAuth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BearerAuth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CustomHeaderAuth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mtls,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Oauth2ClientCredentials,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Oauth2Jwt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PrivateKeyJwt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RefreshTokenAuth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SlackBotAuth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UrlSecret,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WhatsappAuth,
     }

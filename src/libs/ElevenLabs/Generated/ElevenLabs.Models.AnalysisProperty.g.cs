@@ -12,7 +12,7 @@ namespace ElevenLabs
     public sealed partial class AnalysisProperty
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnalysisPropertyTypeJsonConverter))]

@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchCharacterLimit
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Clear,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NoUpdate,
     }

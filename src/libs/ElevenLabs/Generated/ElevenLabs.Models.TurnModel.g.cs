@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum TurnModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TurnV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TurnV3,
     }

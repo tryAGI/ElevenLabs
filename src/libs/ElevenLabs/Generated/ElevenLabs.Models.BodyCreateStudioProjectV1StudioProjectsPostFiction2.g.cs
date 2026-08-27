@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum BodyCreateStudioProjectV1StudioProjectsPostFiction2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Fiction,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NonFiction,
     }

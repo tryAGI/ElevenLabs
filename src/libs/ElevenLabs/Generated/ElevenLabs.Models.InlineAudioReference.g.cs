@@ -13,7 +13,7 @@ namespace ElevenLabs
     public sealed partial class InlineAudioReference
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"inline_base64"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]

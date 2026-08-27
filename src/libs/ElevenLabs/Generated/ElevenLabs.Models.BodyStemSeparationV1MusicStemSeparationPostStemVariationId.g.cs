@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum BodyStemSeparationV1MusicStemSeparationPostStemVariationId
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SixStemsV1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TwoStemsV1,
     }

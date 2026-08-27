@@ -10,12 +10,12 @@ namespace ElevenLabs
     public readonly partial struct BackupLlmConfig2 : global::System.IEquatable<BackupLlmConfig2>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminatorPreference? Preference { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BackupLLMDefault? Default { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Default))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsDefault => Default != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDefault(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.BackupLLMDefault PickDefault() => IsDefault
             ? Default!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Default' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BackupLLMDisabled? Disabled { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Disabled))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsDisabled => Disabled != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDisabled(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.BackupLLMDisabled PickDisabled() => IsDisabled
             ? Disabled!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Disabled' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BackupLLMOverride? Override { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Override))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsOverride => Override != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickOverride(
 #if NET6_0_OR_GREATER
@@ -119,23 +119,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.BackupLLMOverride PickOverride() => IsOverride
             ? Override!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Override' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator BackupLlmConfig2(global::ElevenLabs.BackupLLMDefault value) => new BackupLlmConfig2((global::ElevenLabs.BackupLLMDefault?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.BackupLLMDefault?(BackupLlmConfig2 @this) => @this.Default;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BackupLlmConfig2(global::ElevenLabs.BackupLLMDefault? value)
         {
@@ -143,22 +143,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static BackupLlmConfig2 FromDefault(global::ElevenLabs.BackupLLMDefault? value) => new BackupLlmConfig2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator BackupLlmConfig2(global::ElevenLabs.BackupLLMDisabled value) => new BackupLlmConfig2((global::ElevenLabs.BackupLLMDisabled?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.BackupLLMDisabled?(BackupLlmConfig2 @this) => @this.Disabled;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BackupLlmConfig2(global::ElevenLabs.BackupLLMDisabled? value)
         {
@@ -166,22 +166,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static BackupLlmConfig2 FromDisabled(global::ElevenLabs.BackupLLMDisabled? value) => new BackupLlmConfig2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator BackupLlmConfig2(global::ElevenLabs.BackupLLMOverride value) => new BackupLlmConfig2((global::ElevenLabs.BackupLLMOverride?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.BackupLLMOverride?(BackupLlmConfig2 @this) => @this.Override;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BackupLlmConfig2(global::ElevenLabs.BackupLLMOverride? value)
         {
@@ -189,12 +189,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static BackupLlmConfig2 FromOverride(global::ElevenLabs.BackupLLMOverride? value) => new BackupLlmConfig2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BackupLlmConfig2(
             global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminatorPreference? preference,
@@ -211,25 +211,25 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Override as object ??
             Disabled as object ??
-            Default as object 
+            Default as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Default?.ToString() ??
             Disabled?.ToString() ??
-            Override?.ToString() 
+            Override?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -237,7 +237,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.BackupLLMDefault, TResult>? @default = null,
@@ -267,7 +267,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.BackupLLMDefault>? @default = null,
@@ -297,7 +297,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.BackupLLMDefault>? @default = null,
@@ -325,7 +325,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -348,19 +348,19 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(BackupLlmConfig2 other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BackupLLMDefault?>.Default.Equals(Default, other.Default) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BackupLLMDisabled?>.Default.Equals(Disabled, other.Disabled) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BackupLLMOverride?>.Default.Equals(Override, other.Override) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BackupLLMOverride?>.Default.Equals(Override, other.Override)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(BackupLlmConfig2 obj1, BackupLlmConfig2 obj2)
         {
@@ -368,7 +368,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(BackupLlmConfig2 obj1, BackupLlmConfig2 obj2)
         {
@@ -376,7 +376,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ExternalSyncProvider
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GoogleDrive,
     }

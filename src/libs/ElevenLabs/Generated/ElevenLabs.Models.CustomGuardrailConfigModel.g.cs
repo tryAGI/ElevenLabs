@@ -10,35 +10,35 @@ namespace ElevenLabs
     public enum CustomGuardrailConfigModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClaudeHaiku45,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClaudeSonnet46,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini25Flash,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini25FlashLite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini31FlashLite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini35Flash,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt54Mini,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt54Nano,
     }

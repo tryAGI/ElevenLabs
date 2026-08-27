@@ -9,59 +9,59 @@ namespace ElevenLabs
     public enum ClipAnimationExitEffect
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Bounce,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Drop,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Fade,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Float,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GentleFloat,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pop,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SlideBounce,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SlideDown,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SlideLeft,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SlideRight,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SlideUp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Spin,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ZoomIn,
     }

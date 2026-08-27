@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct EvaluationCriteriaItem : global::System.IEquatable<EvaluationCriteriaItem>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.AgentAnalysisItemsInputEvaluationCriteriaItemDiscriminatorSource? Source { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.AttachedUserEvaluationRef? User { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(User))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsUser => User != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUser(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.AttachedUserEvaluationRef PickUser() => IsUser
             ? User!
             : throw new global::System.InvalidOperationException($"Expected union variant 'User' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.AttachedSystemEvaluationRef? System { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(System))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsSystem => System != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSystem(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.AttachedSystemEvaluationRef PickSystem() => IsSystem
             ? System!
             : throw new global::System.InvalidOperationException($"Expected union variant 'System' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator EvaluationCriteriaItem(global::ElevenLabs.AttachedUserEvaluationRef value) => new EvaluationCriteriaItem((global::ElevenLabs.AttachedUserEvaluationRef?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.AttachedUserEvaluationRef?(EvaluationCriteriaItem @this) => @this.User;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EvaluationCriteriaItem(global::ElevenLabs.AttachedUserEvaluationRef? value)
         {
@@ -106,22 +106,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static EvaluationCriteriaItem FromUser(global::ElevenLabs.AttachedUserEvaluationRef? value) => new EvaluationCriteriaItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator EvaluationCriteriaItem(global::ElevenLabs.AttachedSystemEvaluationRef value) => new EvaluationCriteriaItem((global::ElevenLabs.AttachedSystemEvaluationRef?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.AttachedSystemEvaluationRef?(EvaluationCriteriaItem @this) => @this.System;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EvaluationCriteriaItem(global::ElevenLabs.AttachedSystemEvaluationRef? value)
         {
@@ -129,12 +129,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static EvaluationCriteriaItem FromSystem(global::ElevenLabs.AttachedSystemEvaluationRef? value) => new EvaluationCriteriaItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EvaluationCriteriaItem(
             global::ElevenLabs.AgentAnalysisItemsInputEvaluationCriteriaItemDiscriminatorSource? source,
@@ -149,23 +149,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             System as object ??
-            User as object 
+            User as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             User?.ToString() ??
-            System?.ToString() 
+            System?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -173,7 +173,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.AttachedUserEvaluationRef, TResult>? user = null,
@@ -198,7 +198,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.AttachedUserEvaluationRef>? user = null,
@@ -222,7 +222,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.AttachedUserEvaluationRef>? user = null,
@@ -245,7 +245,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -266,18 +266,18 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(EvaluationCriteriaItem other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.AttachedUserEvaluationRef?>.Default.Equals(User, other.User) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.AttachedSystemEvaluationRef?>.Default.Equals(System, other.System) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.AttachedSystemEvaluationRef?>.Default.Equals(System, other.System)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(EvaluationCriteriaItem obj1, EvaluationCriteriaItem obj2)
         {
@@ -285,7 +285,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(EvaluationCriteriaItem obj1, EvaluationCriteriaItem obj2)
         {
@@ -293,7 +293,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct InputOverridesVariant14 : global::System.IEquatable<InputOverridesVariant14>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.MCPToolConfigOverrideOutputInputOverridesDiscriminatorSource? Source { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ConstantSchemaOverride? Constant { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Constant))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsConstant => Constant != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickConstant(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ConstantSchemaOverride PickConstant() => IsConstant
             ? Constant!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Constant' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DynamicVariableSchemaOverride? DynamicVariable { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DynamicVariable))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsDynamicVariable => DynamicVariable != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDynamicVariable(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DynamicVariableSchemaOverride PickDynamicVariable() => IsDynamicVariable
             ? DynamicVariable!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DynamicVariable' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.LLMSchemaOverride? Llm { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Llm))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsLlm => Llm != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickLlm(
 #if NET6_0_OR_GREATER
@@ -119,14 +119,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.LLMSchemaOverride PickLlm() => IsLlm
             ? Llm!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Llm' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.OmitSchemaOverride? Omit { get; init; }
@@ -135,7 +135,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Omit))]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         public bool IsOmit => Omit != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickOmit(
 #if NET6_0_OR_GREATER
@@ -156,23 +156,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.OmitSchemaOverride PickOmit() => IsOmit
             ? Omit!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Omit' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator InputOverridesVariant14(global::ElevenLabs.ConstantSchemaOverride value) => new InputOverridesVariant14((global::ElevenLabs.ConstantSchemaOverride?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ConstantSchemaOverride?(InputOverridesVariant14 @this) => @this.Constant;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public InputOverridesVariant14(global::ElevenLabs.ConstantSchemaOverride? value)
         {
@@ -180,22 +180,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static InputOverridesVariant14 FromConstant(global::ElevenLabs.ConstantSchemaOverride? value) => new InputOverridesVariant14(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator InputOverridesVariant14(global::ElevenLabs.DynamicVariableSchemaOverride value) => new InputOverridesVariant14((global::ElevenLabs.DynamicVariableSchemaOverride?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DynamicVariableSchemaOverride?(InputOverridesVariant14 @this) => @this.DynamicVariable;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public InputOverridesVariant14(global::ElevenLabs.DynamicVariableSchemaOverride? value)
         {
@@ -203,22 +203,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static InputOverridesVariant14 FromDynamicVariable(global::ElevenLabs.DynamicVariableSchemaOverride? value) => new InputOverridesVariant14(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator InputOverridesVariant14(global::ElevenLabs.LLMSchemaOverride value) => new InputOverridesVariant14((global::ElevenLabs.LLMSchemaOverride?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.LLMSchemaOverride?(InputOverridesVariant14 @this) => @this.Llm;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public InputOverridesVariant14(global::ElevenLabs.LLMSchemaOverride? value)
         {
@@ -226,22 +226,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static InputOverridesVariant14 FromLlm(global::ElevenLabs.LLMSchemaOverride? value) => new InputOverridesVariant14(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator InputOverridesVariant14(global::ElevenLabs.OmitSchemaOverride value) => new InputOverridesVariant14((global::ElevenLabs.OmitSchemaOverride?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.OmitSchemaOverride?(InputOverridesVariant14 @this) => @this.Omit;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public InputOverridesVariant14(global::ElevenLabs.OmitSchemaOverride? value)
         {
@@ -249,12 +249,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static InputOverridesVariant14 FromOmit(global::ElevenLabs.OmitSchemaOverride? value) => new InputOverridesVariant14(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public InputOverridesVariant14(
             global::ElevenLabs.MCPToolConfigOverrideOutputInputOverridesDiscriminatorSource? source,
@@ -273,27 +273,27 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Omit as object ??
             Llm as object ??
             DynamicVariable as object ??
-            Constant as object 
+            Constant as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Constant?.ToString() ??
             DynamicVariable?.ToString() ??
             Llm?.ToString() ??
-            Omit?.ToString() 
+            Omit?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -301,7 +301,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.ConstantSchemaOverride, TResult>? constant = null,
@@ -336,7 +336,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.ConstantSchemaOverride>? constant = null,
@@ -372,7 +372,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.ConstantSchemaOverride>? constant = null,
@@ -405,7 +405,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -430,7 +430,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(InputOverridesVariant14 other)
         {
@@ -438,12 +438,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConstantSchemaOverride?>.Default.Equals(Constant, other.Constant) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DynamicVariableSchemaOverride?>.Default.Equals(DynamicVariable, other.DynamicVariable) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.LLMSchemaOverride?>.Default.Equals(Llm, other.Llm) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.OmitSchemaOverride?>.Default.Equals(Omit, other.Omit) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.OmitSchemaOverride?>.Default.Equals(Omit, other.Omit)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(InputOverridesVariant14 obj1, InputOverridesVariant14 obj2)
         {
@@ -451,7 +451,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(InputOverridesVariant14 obj1, InputOverridesVariant14 obj2)
         {
@@ -459,7 +459,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

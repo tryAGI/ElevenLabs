@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class TransferToAgentToolConfigOutput
     {
@@ -15,7 +15,7 @@ namespace ElevenLabs
         public string? SystemToolType { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfers")]
         [global::System.Text.Json.Serialization.JsonRequired]

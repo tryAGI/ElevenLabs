@@ -4,44 +4,44 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SafetyRule
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Extremism,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ForgetModeration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         IllegalDistributionMedical,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Political,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ScamFraud,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SelfHarm,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SexualAdults,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SexualMinors,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unknown,
     }

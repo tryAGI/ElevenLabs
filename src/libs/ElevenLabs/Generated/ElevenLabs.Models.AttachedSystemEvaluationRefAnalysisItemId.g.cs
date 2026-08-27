@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum AttachedSystemEvaluationRefAnalysisItemId
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SystemEvalCriteriaFrustration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SystemEvalCriteriaSentiment,
     }

@@ -115,7 +115,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="endTime">
         /// Filter executions until this Unix timestamp (inclusive).
-        /// </param> 
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ToolExecutionResponseModel> Get15AutoPagingAsync(

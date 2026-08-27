@@ -12,11 +12,11 @@ namespace ElevenLabs
     public enum ContentFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Html,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Markdown,
     }

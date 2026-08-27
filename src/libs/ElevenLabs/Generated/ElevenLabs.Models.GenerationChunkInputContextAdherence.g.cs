@@ -10,15 +10,15 @@ namespace ElevenLabs
     public enum GenerationChunkInputContextAdherence
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         High,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Low,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Medium,
     }

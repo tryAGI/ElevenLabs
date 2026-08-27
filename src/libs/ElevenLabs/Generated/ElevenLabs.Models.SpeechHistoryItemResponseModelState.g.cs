@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum SpeechHistoryItemResponseModelState
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Created,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Deleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Processing,
     }

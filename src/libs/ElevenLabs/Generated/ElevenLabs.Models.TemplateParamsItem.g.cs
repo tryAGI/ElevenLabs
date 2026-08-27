@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct TemplateParamsItem : global::System.IEquatable<TemplateParamsItem>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePostTemplateParamDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppTemplateHeaderComponentParams? Header { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Header))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsHeader => Header != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickHeader(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WhatsAppTemplateHeaderComponentParams PickHeader() => IsHeader
             ? Header!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Header' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppTemplateBodyComponentParams? Body { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Body))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsBody => Body != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickBody(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WhatsAppTemplateBodyComponentParams PickBody() => IsBody
             ? Body!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Body' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppTemplateButtonComponentParams? Button { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Button))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsButton => Button != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickButton(
 #if NET6_0_OR_GREATER
@@ -119,23 +119,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WhatsAppTemplateButtonComponentParams PickButton() => IsButton
             ? Button!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Button' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator TemplateParamsItem(global::ElevenLabs.WhatsAppTemplateHeaderComponentParams value) => new TemplateParamsItem((global::ElevenLabs.WhatsAppTemplateHeaderComponentParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WhatsAppTemplateHeaderComponentParams?(TemplateParamsItem @this) => @this.Header;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TemplateParamsItem(global::ElevenLabs.WhatsAppTemplateHeaderComponentParams? value)
         {
@@ -143,22 +143,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static TemplateParamsItem FromHeader(global::ElevenLabs.WhatsAppTemplateHeaderComponentParams? value) => new TemplateParamsItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator TemplateParamsItem(global::ElevenLabs.WhatsAppTemplateBodyComponentParams value) => new TemplateParamsItem((global::ElevenLabs.WhatsAppTemplateBodyComponentParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WhatsAppTemplateBodyComponentParams?(TemplateParamsItem @this) => @this.Body;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TemplateParamsItem(global::ElevenLabs.WhatsAppTemplateBodyComponentParams? value)
         {
@@ -166,22 +166,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static TemplateParamsItem FromBody(global::ElevenLabs.WhatsAppTemplateBodyComponentParams? value) => new TemplateParamsItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator TemplateParamsItem(global::ElevenLabs.WhatsAppTemplateButtonComponentParams value) => new TemplateParamsItem((global::ElevenLabs.WhatsAppTemplateButtonComponentParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WhatsAppTemplateButtonComponentParams?(TemplateParamsItem @this) => @this.Button;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TemplateParamsItem(global::ElevenLabs.WhatsAppTemplateButtonComponentParams? value)
         {
@@ -189,12 +189,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static TemplateParamsItem FromButton(global::ElevenLabs.WhatsAppTemplateButtonComponentParams? value) => new TemplateParamsItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TemplateParamsItem(
             global::ElevenLabs.BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePostTemplateParamDiscriminatorType? type,
@@ -211,25 +211,25 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Button as object ??
             Body as object ??
-            Header as object 
+            Header as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Header?.ToString() ??
             Body?.ToString() ??
-            Button?.ToString() 
+            Button?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -237,7 +237,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.WhatsAppTemplateHeaderComponentParams, TResult>? header = null,
@@ -267,7 +267,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.WhatsAppTemplateHeaderComponentParams>? header = null,
@@ -297,7 +297,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.WhatsAppTemplateHeaderComponentParams>? header = null,
@@ -325,7 +325,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -348,19 +348,19 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(TemplateParamsItem other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WhatsAppTemplateHeaderComponentParams?>.Default.Equals(Header, other.Header) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WhatsAppTemplateBodyComponentParams?>.Default.Equals(Body, other.Body) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WhatsAppTemplateButtonComponentParams?>.Default.Equals(Button, other.Button) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WhatsAppTemplateButtonComponentParams?>.Default.Equals(Button, other.Button)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(TemplateParamsItem obj1, TemplateParamsItem obj2)
         {
@@ -368,7 +368,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(TemplateParamsItem obj1, TemplateParamsItem obj2)
         {
@@ -376,7 +376,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

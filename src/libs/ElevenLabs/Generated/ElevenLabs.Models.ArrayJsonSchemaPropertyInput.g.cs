@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ArrayJsonSchemaPropertyInput
     {
@@ -16,7 +16,7 @@ namespace ElevenLabs
         public global::ElevenLabs.ArrayJsonSchemaPropertyInputPropertyKind? PropertyKind { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }

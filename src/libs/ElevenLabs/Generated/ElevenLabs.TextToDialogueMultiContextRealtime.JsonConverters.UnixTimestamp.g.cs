@@ -19,7 +19,7 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime.JsonConverters
                     {
                         return global::System.DateTimeOffset.FromUnixTimeSeconds(unixTimestamp);
                     }
-                    
+
                     return global::System.DateTimeOffset.FromUnixTimeMilliseconds(unixTimestamp);
                 }
                 if (reader.TryGetInt32(out int unixTimestampInt))

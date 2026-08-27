@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum BillingPeriod
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x3MonthPeriod,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x6MonthPeriod,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AnnualPeriod,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MonthlyPeriod,
     }

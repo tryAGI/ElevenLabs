@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ProjectExtendedResponseModelAspectRatio2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x16_9,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x1_1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x4_5,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x9_16,
     }

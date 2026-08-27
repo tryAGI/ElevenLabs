@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum InteractionBudget
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x10Minutes,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x1Hour,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x5Minutes,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Realtime,
     }

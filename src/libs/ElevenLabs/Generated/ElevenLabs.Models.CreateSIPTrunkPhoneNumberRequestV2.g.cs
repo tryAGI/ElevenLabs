@@ -6,7 +6,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateSIPTrunkPhoneNumberRequestV2
     {
@@ -53,13 +53,13 @@ namespace ElevenLabs
         public string? AgentId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("inbound_trunk_config")]
         public global::ElevenLabs.InboundSIPTrunkConfigRequestModel? InboundTrunkConfig { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("outbound_trunk_config")]
         public global::ElevenLabs.OutboundSIPTrunkConfigRequestModel? OutboundTrunkConfig { get; set; }

@@ -10,7 +10,7 @@ namespace ElevenLabs
     public sealed partial class ConversationalAi2Client : global::ElevenLabs.IConversationalAi2Client, global::System.IDisposable
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public const string DefaultBaseUrl = "https://api.elevenlabs.io/";
 
@@ -37,7 +37,7 @@ namespace ElevenLabs
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::ElevenLabs.SourceGenerationContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {

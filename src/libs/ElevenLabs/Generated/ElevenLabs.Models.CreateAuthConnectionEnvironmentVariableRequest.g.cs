@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateAuthConnectionEnvironmentVariableRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"auth_connection"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]

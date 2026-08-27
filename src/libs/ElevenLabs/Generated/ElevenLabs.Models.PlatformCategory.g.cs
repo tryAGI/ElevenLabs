@@ -9,31 +9,31 @@ namespace ElevenLabs
     public enum PlatformCategory
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Asr,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Burst,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Other,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Reception,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Silence,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TextMessage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Voice,
     }

@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ChartsItem : global::System.IEquatable<ChartsItem>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetConvAIDashboardSettingsResponseModelChartDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DashboardCallSuccessChartModel? CallSuccess { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CallSuccess))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsCallSuccess => CallSuccess != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCallSuccess(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DashboardCallSuccessChartModel PickCallSuccess() => IsCallSuccess
             ? CallSuccess!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CallSuccess' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DashboardCriteriaChartModel? Criteria { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Criteria))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsCriteria => Criteria != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCriteria(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DashboardCriteriaChartModel PickCriteria() => IsCriteria
             ? Criteria!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Criteria' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DashboardDataCollectionChartModel? DataCollection { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DataCollection))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsDataCollection => DataCollection != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDataCollection(
 #if NET6_0_OR_GREATER
@@ -119,23 +119,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DashboardDataCollectionChartModel PickDataCollection() => IsDataCollection
             ? DataCollection!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DataCollection' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ChartsItem(global::ElevenLabs.DashboardCallSuccessChartModel value) => new ChartsItem((global::ElevenLabs.DashboardCallSuccessChartModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DashboardCallSuccessChartModel?(ChartsItem @this) => @this.CallSuccess;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChartsItem(global::ElevenLabs.DashboardCallSuccessChartModel? value)
         {
@@ -143,22 +143,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ChartsItem FromCallSuccess(global::ElevenLabs.DashboardCallSuccessChartModel? value) => new ChartsItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ChartsItem(global::ElevenLabs.DashboardCriteriaChartModel value) => new ChartsItem((global::ElevenLabs.DashboardCriteriaChartModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DashboardCriteriaChartModel?(ChartsItem @this) => @this.Criteria;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChartsItem(global::ElevenLabs.DashboardCriteriaChartModel? value)
         {
@@ -166,22 +166,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ChartsItem FromCriteria(global::ElevenLabs.DashboardCriteriaChartModel? value) => new ChartsItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ChartsItem(global::ElevenLabs.DashboardDataCollectionChartModel value) => new ChartsItem((global::ElevenLabs.DashboardDataCollectionChartModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DashboardDataCollectionChartModel?(ChartsItem @this) => @this.DataCollection;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChartsItem(global::ElevenLabs.DashboardDataCollectionChartModel? value)
         {
@@ -189,12 +189,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ChartsItem FromDataCollection(global::ElevenLabs.DashboardDataCollectionChartModel? value) => new ChartsItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChartsItem(
             global::ElevenLabs.GetConvAIDashboardSettingsResponseModelChartDiscriminatorType? type,
@@ -211,25 +211,25 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             DataCollection as object ??
             Criteria as object ??
-            CallSuccess as object 
+            CallSuccess as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             CallSuccess?.ToString() ??
             Criteria?.ToString() ??
-            DataCollection?.ToString() 
+            DataCollection?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -237,7 +237,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.DashboardCallSuccessChartModel, TResult>? callSuccess = null,
@@ -267,7 +267,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.DashboardCallSuccessChartModel>? callSuccess = null,
@@ -297,7 +297,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.DashboardCallSuccessChartModel>? callSuccess = null,
@@ -325,7 +325,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -348,19 +348,19 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ChartsItem other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DashboardCallSuccessChartModel?>.Default.Equals(CallSuccess, other.CallSuccess) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DashboardCriteriaChartModel?>.Default.Equals(Criteria, other.Criteria) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DashboardDataCollectionChartModel?>.Default.Equals(DataCollection, other.DataCollection) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DashboardDataCollectionChartModel?>.Default.Equals(DataCollection, other.DataCollection)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ChartsItem obj1, ChartsItem obj2)
         {
@@ -368,7 +368,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ChartsItem obj1, ChartsItem obj2)
         {
@@ -376,7 +376,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum MusicOnlyOutputFormats
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp348000128,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp348000192,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp348000240,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp348000320,
     }

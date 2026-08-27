@@ -9,19 +9,19 @@ namespace ElevenLabs
     public enum QualityPresetType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         High,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Standard,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ultra,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UltraLossless,
     }

@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum SIPMediaEncryptionEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Allowed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Disabled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Required,
     }

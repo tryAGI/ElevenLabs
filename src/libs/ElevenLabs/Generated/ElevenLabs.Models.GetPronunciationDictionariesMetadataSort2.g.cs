@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetPronunciationDictionariesMetadataSort2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreationTimeUnix,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Name,
     }

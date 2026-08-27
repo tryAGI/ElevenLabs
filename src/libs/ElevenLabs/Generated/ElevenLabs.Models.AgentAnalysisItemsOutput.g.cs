@@ -4,18 +4,18 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AgentAnalysisItemsOutput
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("evaluation_criteria")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.EvaluationCriteriaItem2>? EvaluationCriteria { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data_collection")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.DataCollectionItem2>? DataCollection { get; set; }

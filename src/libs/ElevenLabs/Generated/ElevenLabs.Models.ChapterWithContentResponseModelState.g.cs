@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum ChapterWithContentResponseModelState
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Converting,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Default,
     }

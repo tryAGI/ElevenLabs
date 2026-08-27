@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GuardrailsV1Input
     {
@@ -15,25 +15,25 @@ namespace ElevenLabs
         public string? Version { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("focus")]
         public global::ElevenLabs.FocusGuardrail? Focus { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt_injection")]
         public global::ElevenLabs.PromptInjectionGuardrail? PromptInjection { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         public global::ElevenLabs.ContentGuardrailInput? Content { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("moderation")]
         public global::ElevenLabs.ModerationGuardrailInput? Moderation { get; set; }

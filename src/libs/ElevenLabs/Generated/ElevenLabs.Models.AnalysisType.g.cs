@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum AnalysisType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DataCollection,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EvaluationCriteria,
     }

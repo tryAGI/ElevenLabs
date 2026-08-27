@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum Veo31FastRequestAspectRatio
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x16_9,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x9_16,
     }

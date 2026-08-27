@@ -9,39 +9,39 @@ namespace ElevenLabs
     public enum BackgroundSoundPresetId
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         City,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Elevator1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Elevator2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Elevator3,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Elevator4,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Office1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Office2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Restaurant,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Typing,
     }

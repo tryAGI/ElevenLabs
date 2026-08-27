@@ -11,19 +11,19 @@ namespace ElevenLabs
     public sealed partial class AlertingSettingsResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("monitor_configs")]
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AlertingMonitorConfig>? MonitorConfigs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auto_resolve_after_inactive_minutes")]
         public int? AutoResolveAfterInactiveMinutes { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("notifiers")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.NotifiersItem2>? Notifiers { get; set; }

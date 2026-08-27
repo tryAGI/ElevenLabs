@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum ConversationProduct
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Agents,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechEngine,
     }

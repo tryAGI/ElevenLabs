@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum TTSModelFamily
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Flash,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Multilingual,
         /// <summary>
@@ -21,7 +21,7 @@ namespace ElevenLabs
         /// </summary>
         Turbo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         V3Conversational,
     }

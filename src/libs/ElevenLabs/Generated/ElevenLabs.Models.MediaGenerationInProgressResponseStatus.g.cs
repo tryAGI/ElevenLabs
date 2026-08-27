@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum MediaGenerationInProgressResponseStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Generating,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pending,
     }

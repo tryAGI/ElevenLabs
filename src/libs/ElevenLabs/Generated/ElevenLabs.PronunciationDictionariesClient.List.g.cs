@@ -201,7 +201,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -549,7 +549,7 @@ namespace ElevenLabs
         /// <param name="includeArchived">
         /// Whether to include archived pronunciation dictionaries in the response.<br/>
         /// Default Value: true
-        /// </param> 
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel> ListAutoPagingAsync(

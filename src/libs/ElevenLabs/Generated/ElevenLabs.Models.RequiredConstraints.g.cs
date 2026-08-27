@@ -9,13 +9,13 @@ namespace ElevenLabs
     public sealed partial class RequiredConstraints
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("any_of")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.RequiredConstraint>? AnyOf { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("all_of")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.RequiredConstraint>? AllOf { get; set; }

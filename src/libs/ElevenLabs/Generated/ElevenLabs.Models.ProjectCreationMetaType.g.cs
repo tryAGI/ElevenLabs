@@ -4,28 +4,28 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ProjectCreationMetaType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AutoAssignVoices,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Blank,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DubVideo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GeneratePodcast,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImportSpeech,
     }

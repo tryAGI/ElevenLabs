@@ -4,28 +4,28 @@
 namespace ElevenLabs.Realtime
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ServerEventDiscriminatorMessageType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CommittedTranscript,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CommittedTranscriptWithTimestamps,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Error,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PartialTranscript,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SessionStarted,
     }

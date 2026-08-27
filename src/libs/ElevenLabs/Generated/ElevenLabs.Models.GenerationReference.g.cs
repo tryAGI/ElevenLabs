@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class GenerationReference
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"generation"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]

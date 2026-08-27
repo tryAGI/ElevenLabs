@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum BytedanceSeedream5LiteRequestResolution
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x2k,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x3k,
     }

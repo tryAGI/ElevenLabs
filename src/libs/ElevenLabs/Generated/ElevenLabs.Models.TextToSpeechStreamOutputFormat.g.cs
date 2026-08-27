@@ -10,87 +10,87 @@ namespace ElevenLabs
     public enum TextToSpeechStreamOutputFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Alaw8000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp32205032,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp32400048,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp344100128,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp344100192,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp34410032,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp34410064,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp34410096,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Opus48000128,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Opus48000192,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Opus4800032,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Opus4800064,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Opus4800096,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm16000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm22050,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm24000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm32000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm44100,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm48000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm8000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ulaw8000,
     }

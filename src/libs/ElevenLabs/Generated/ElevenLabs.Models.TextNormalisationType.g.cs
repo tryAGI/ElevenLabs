@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum TextNormalisationType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Elevenlabs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SystemPrompt,
     }

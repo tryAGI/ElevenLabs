@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum WidgetFeedbackMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         During,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         End,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
     }

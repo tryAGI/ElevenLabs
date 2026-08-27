@@ -40,7 +40,7 @@ namespace ElevenLabs
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
@@ -66,17 +66,17 @@ namespace ElevenLabs
         public AgentsWorkspaceAnalyticsClient AgentsWorkspaceAnalytics { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AssetsClient Assets { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AudioIsolationClient AudioIsolation { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AudioNativeClient AudioNative { get; }
 
@@ -86,12 +86,12 @@ namespace ElevenLabs
         public ConversationalAiClient ConversationalAi { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ConversationalAi2Client ConversationalAi2 { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DubbingClient Dubbing { get; }
 
@@ -101,22 +101,22 @@ namespace ElevenLabs
         public Dubbing2Client Dubbing2 { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EnvironmentVariablesClient EnvironmentVariables { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public FlowsClient Flows { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ForcedAlignmentClient ForcedAlignment { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public HistoryClient History { get; }
 
@@ -126,7 +126,7 @@ namespace ElevenLabs
         public ModelsClient Models { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MusicClient Music { get; }
 
@@ -146,7 +146,7 @@ namespace ElevenLabs
         public ProductionsClient Productions { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PronunciationDictionariesClient PronunciationDictionaries { get; }
 
@@ -171,12 +171,12 @@ namespace ElevenLabs
         public SingleUseTokenClient SingleUseToken { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SpeechEngineClient SpeechEngine { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SpeechToSpeechClient SpeechToSpeech { get; }
 
@@ -186,7 +186,7 @@ namespace ElevenLabs
         public SpeechToTextClient SpeechToText { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SpeechToText2Client SpeechToText2 { get; }
 
@@ -196,17 +196,17 @@ namespace ElevenLabs
         public StudioClient Studio { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TextToDialogueClient TextToDialogue { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TextToSoundEffectsClient TextToSoundEffects { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TextToSpeechClient TextToSpeech { get; }
 
@@ -216,12 +216,12 @@ namespace ElevenLabs
         public TextToVoiceClient TextToVoice { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TextToVoice2Client TextToVoice2 { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public UserClient User { get; }
 
@@ -231,7 +231,7 @@ namespace ElevenLabs
         public VoicesClient Voices { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public WebhooksClient Webhooks { get; }
 

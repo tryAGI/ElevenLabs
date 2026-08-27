@@ -4,72 +4,72 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dummy,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EndCallSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         KnowledgeBaseRagSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         KnowledgeBaseSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LanguageDetectionSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PlayDtmfError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PlayDtmfSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SkipTurnSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TestingToolResult,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TransferToAgentError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TransferToAgentSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TransferToNumberError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TransferToNumberExotelSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TransferToNumberSipSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TransferToNumberTwilioSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoicemailDetectionSuccess,
     }

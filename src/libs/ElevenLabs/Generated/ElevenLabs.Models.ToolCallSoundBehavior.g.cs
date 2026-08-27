@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum ToolCallSoundBehavior
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Always,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
     }

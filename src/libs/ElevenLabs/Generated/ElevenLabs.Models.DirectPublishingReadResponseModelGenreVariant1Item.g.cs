@@ -4,136 +4,136 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum DirectPublishingReadResponseModelGenreVariant1Item
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ActionAndAdventure,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BiographyAndMemoir,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BusinessAndEconomics,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ChildrensLiterature,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Christian_Inspirational,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dystopia,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EducationAndLearning,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FairyTalesAndFolklore,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FanFiction,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Fantasy,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GeneralFiction,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HealthAndWellness,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HistoricalFiction,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         History,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Horror,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Humor,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LiteraryClassics,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MysteryAndThriller,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Other,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Philosophy,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Poetry,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PoliticsAndGovernment,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Psychology,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Romance,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ScienceFiction,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ScienceAndNature,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SelfHelp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpiritualityAndReligion,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Technology,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Travel,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrueCrime,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         YoungAdult,
     }

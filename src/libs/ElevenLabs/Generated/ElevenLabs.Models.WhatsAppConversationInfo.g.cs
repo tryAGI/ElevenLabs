@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class WhatsAppConversationInfo
     {
@@ -16,20 +16,20 @@ namespace ElevenLabs
         public global::ElevenLabs.WhatsAppConversationInfoDirection? Direction { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_phone_number_id")]
         public string? WhatsappPhoneNumberId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string WhatsappUserId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("awaiting_first_user_message")]
         public bool? AwaitingFirstUserMessage { get; set; }

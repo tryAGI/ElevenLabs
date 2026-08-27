@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct Params3 : global::System.IEquatable<Params3>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType? SystemToolType { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.EndCallToolConfig? EndCall { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EndCall))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsEndCall => EndCall != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickEndCall(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.EndCallToolConfig PickEndCall() => IsEndCall
             ? EndCall!
             : throw new global::System.InvalidOperationException($"Expected union variant 'EndCall' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.LanguageDetectionToolConfig? LanguageDetection { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LanguageDetection))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsLanguageDetection => LanguageDetection != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickLanguageDetection(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.LanguageDetectionToolConfig PickLanguageDetection() => IsLanguageDetection
             ? LanguageDetection!
             : throw new global::System.InvalidOperationException($"Expected union variant 'LanguageDetection' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToAgentToolConfigOutput? TransferToAgent { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToAgent))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsTransferToAgent => TransferToAgent != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTransferToAgent(
 #if NET6_0_OR_GREATER
@@ -119,14 +119,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TransferToAgentToolConfigOutput PickTransferToAgent() => IsTransferToAgent
             ? TransferToAgent!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToAgent' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToNumberToolConfigOutput? TransferToNumber { get; init; }
@@ -135,7 +135,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumber))]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         public bool IsTransferToNumber => TransferToNumber != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTransferToNumber(
 #if NET6_0_OR_GREATER
@@ -156,7 +156,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TransferToNumberToolConfigOutput PickTransferToNumber() => IsTransferToNumber
             ? TransferToNumber!
@@ -179,7 +179,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SkipTurn))]
@@ -187,7 +187,7 @@ namespace ElevenLabs
         public bool IsSkipTurn => SkipTurn != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSkipTurn(
 #if NET6_0_OR_GREATER
@@ -200,7 +200,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SkipTurnToolConfig PickSkipTurn() => IsSkipTurn
             ? SkipTurn!
@@ -218,7 +218,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PlayKeypadTouchTone))]
@@ -226,7 +226,7 @@ namespace ElevenLabs
         public bool IsPlayKeypadTouchTone => PlayKeypadTouchTone != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickPlayKeypadTouchTone(
 #if NET6_0_OR_GREATER
@@ -239,7 +239,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PlayDTMFToolConfig PickPlayKeypadTouchTone() => IsPlayKeypadTouchTone
             ? PlayKeypadTouchTone!
@@ -258,7 +258,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VoicemailDetection))]
@@ -266,7 +266,7 @@ namespace ElevenLabs
         public bool IsVoicemailDetection => VoicemailDetection != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickVoicemailDetection(
 #if NET6_0_OR_GREATER
@@ -279,14 +279,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.VoicemailDetectionToolConfig PickVoicemailDetection() => IsVoicemailDetection
             ? VoicemailDetection!
             : throw new global::System.InvalidOperationException($"Expected union variant 'VoicemailDetection' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.KnowledgeBaseRagToolConfig? KnowledgeBaseRag { get; init; }
@@ -295,7 +295,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(KnowledgeBaseRag))]
@@ -303,7 +303,7 @@ namespace ElevenLabs
         public bool IsKnowledgeBaseRag => KnowledgeBaseRag != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickKnowledgeBaseRag(
 #if NET6_0_OR_GREATER
@@ -316,14 +316,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.KnowledgeBaseRagToolConfig PickKnowledgeBaseRag() => IsKnowledgeBaseRag
             ? KnowledgeBaseRag!
             : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeBaseRag' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.KnowledgeBaseToolConfig? KnowledgeBase { get; init; }
@@ -332,7 +332,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(KnowledgeBase))]
@@ -340,7 +340,7 @@ namespace ElevenLabs
         public bool IsKnowledgeBase => KnowledgeBase != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickKnowledgeBase(
 #if NET6_0_OR_GREATER
@@ -353,14 +353,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.KnowledgeBaseToolConfig PickKnowledgeBase() => IsKnowledgeBase
             ? KnowledgeBase!
             : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeBase' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.StartProcedureToolConfigOutput? StartProcedure { get; init; }
@@ -369,7 +369,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(StartProcedure))]
@@ -377,7 +377,7 @@ namespace ElevenLabs
         public bool IsStartProcedure => StartProcedure != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickStartProcedure(
 #if NET6_0_OR_GREATER
@@ -390,14 +390,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.StartProcedureToolConfigOutput PickStartProcedure() => IsStartProcedure
             ? StartProcedure!
             : throw new global::System.InvalidOperationException($"Expected union variant 'StartProcedure' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.EndProcedureToolConfigOutput? EndProcedure { get; init; }
@@ -406,7 +406,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EndProcedure))]
@@ -414,7 +414,7 @@ namespace ElevenLabs
         public bool IsEndProcedure => EndProcedure != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickEndProcedure(
 #if NET6_0_OR_GREATER
@@ -427,14 +427,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.EndProcedureToolConfigOutput PickEndProcedure() => IsEndProcedure
             ? EndProcedure!
             : throw new global::System.InvalidOperationException($"Expected union variant 'EndProcedure' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.RunSubagentToolConfigOutput? RunSubagent { get; init; }
@@ -443,7 +443,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(RunSubagent))]
@@ -451,7 +451,7 @@ namespace ElevenLabs
         public bool IsRunSubagent => RunSubagent != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickRunSubagent(
 #if NET6_0_OR_GREATER
@@ -464,23 +464,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.RunSubagentToolConfigOutput PickRunSubagent() => IsRunSubagent
             ? RunSubagent!
             : throw new global::System.InvalidOperationException($"Expected union variant 'RunSubagent' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params3(global::ElevenLabs.EndCallToolConfig value) => new Params3((global::ElevenLabs.EndCallToolConfig?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.EndCallToolConfig?(Params3 @this) => @this.EndCall;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params3(global::ElevenLabs.EndCallToolConfig? value)
         {
@@ -488,22 +488,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params3 FromEndCall(global::ElevenLabs.EndCallToolConfig? value) => new Params3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params3(global::ElevenLabs.LanguageDetectionToolConfig value) => new Params3((global::ElevenLabs.LanguageDetectionToolConfig?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.LanguageDetectionToolConfig?(Params3 @this) => @this.LanguageDetection;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params3(global::ElevenLabs.LanguageDetectionToolConfig? value)
         {
@@ -511,22 +511,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params3 FromLanguageDetection(global::ElevenLabs.LanguageDetectionToolConfig? value) => new Params3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params3(global::ElevenLabs.TransferToAgentToolConfigOutput value) => new Params3((global::ElevenLabs.TransferToAgentToolConfigOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TransferToAgentToolConfigOutput?(Params3 @this) => @this.TransferToAgent;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params3(global::ElevenLabs.TransferToAgentToolConfigOutput? value)
         {
@@ -534,22 +534,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params3 FromTransferToAgent(global::ElevenLabs.TransferToAgentToolConfigOutput? value) => new Params3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params3(global::ElevenLabs.TransferToNumberToolConfigOutput value) => new Params3((global::ElevenLabs.TransferToNumberToolConfigOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TransferToNumberToolConfigOutput?(Params3 @this) => @this.TransferToNumber;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params3(global::ElevenLabs.TransferToNumberToolConfigOutput? value)
         {
@@ -557,22 +557,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params3 FromTransferToNumber(global::ElevenLabs.TransferToNumberToolConfigOutput? value) => new Params3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params3(global::ElevenLabs.SkipTurnToolConfig value) => new Params3((global::ElevenLabs.SkipTurnToolConfig?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SkipTurnToolConfig?(Params3 @this) => @this.SkipTurn;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params3(global::ElevenLabs.SkipTurnToolConfig? value)
         {
@@ -580,22 +580,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params3 FromSkipTurn(global::ElevenLabs.SkipTurnToolConfig? value) => new Params3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params3(global::ElevenLabs.PlayDTMFToolConfig value) => new Params3((global::ElevenLabs.PlayDTMFToolConfig?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.PlayDTMFToolConfig?(Params3 @this) => @this.PlayKeypadTouchTone;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params3(global::ElevenLabs.PlayDTMFToolConfig? value)
         {
@@ -603,22 +603,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params3 FromPlayKeypadTouchTone(global::ElevenLabs.PlayDTMFToolConfig? value) => new Params3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params3(global::ElevenLabs.VoicemailDetectionToolConfig value) => new Params3((global::ElevenLabs.VoicemailDetectionToolConfig?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.VoicemailDetectionToolConfig?(Params3 @this) => @this.VoicemailDetection;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params3(global::ElevenLabs.VoicemailDetectionToolConfig? value)
         {
@@ -626,22 +626,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params3 FromVoicemailDetection(global::ElevenLabs.VoicemailDetectionToolConfig? value) => new Params3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params3(global::ElevenLabs.KnowledgeBaseRagToolConfig value) => new Params3((global::ElevenLabs.KnowledgeBaseRagToolConfig?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.KnowledgeBaseRagToolConfig?(Params3 @this) => @this.KnowledgeBaseRag;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params3(global::ElevenLabs.KnowledgeBaseRagToolConfig? value)
         {
@@ -649,22 +649,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params3 FromKnowledgeBaseRag(global::ElevenLabs.KnowledgeBaseRagToolConfig? value) => new Params3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params3(global::ElevenLabs.KnowledgeBaseToolConfig value) => new Params3((global::ElevenLabs.KnowledgeBaseToolConfig?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.KnowledgeBaseToolConfig?(Params3 @this) => @this.KnowledgeBase;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params3(global::ElevenLabs.KnowledgeBaseToolConfig? value)
         {
@@ -672,22 +672,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params3 FromKnowledgeBase(global::ElevenLabs.KnowledgeBaseToolConfig? value) => new Params3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params3(global::ElevenLabs.StartProcedureToolConfigOutput value) => new Params3((global::ElevenLabs.StartProcedureToolConfigOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.StartProcedureToolConfigOutput?(Params3 @this) => @this.StartProcedure;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params3(global::ElevenLabs.StartProcedureToolConfigOutput? value)
         {
@@ -695,22 +695,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params3 FromStartProcedure(global::ElevenLabs.StartProcedureToolConfigOutput? value) => new Params3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params3(global::ElevenLabs.EndProcedureToolConfigOutput value) => new Params3((global::ElevenLabs.EndProcedureToolConfigOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.EndProcedureToolConfigOutput?(Params3 @this) => @this.EndProcedure;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params3(global::ElevenLabs.EndProcedureToolConfigOutput? value)
         {
@@ -718,22 +718,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params3 FromEndProcedure(global::ElevenLabs.EndProcedureToolConfigOutput? value) => new Params3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params3(global::ElevenLabs.RunSubagentToolConfigOutput value) => new Params3((global::ElevenLabs.RunSubagentToolConfigOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.RunSubagentToolConfigOutput?(Params3 @this) => @this.RunSubagent;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params3(global::ElevenLabs.RunSubagentToolConfigOutput? value)
         {
@@ -741,12 +741,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params3 FromRunSubagent(global::ElevenLabs.RunSubagentToolConfigOutput? value) => new Params3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params3(
             global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType? systemToolType,
@@ -781,7 +781,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             RunSubagent as object ??
@@ -795,11 +795,11 @@ namespace ElevenLabs
             TransferToNumber as object ??
             TransferToAgent as object ??
             LanguageDetection as object ??
-            EndCall as object 
+            EndCall as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             EndCall?.ToString() ??
@@ -813,11 +813,11 @@ namespace ElevenLabs
             KnowledgeBase?.ToString() ??
             StartProcedure?.ToString() ??
             EndProcedure?.ToString() ??
-            RunSubagent?.ToString() 
+            RunSubagent?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -825,7 +825,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.EndCallToolConfig, TResult>? endCall = null,
@@ -900,7 +900,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.EndCallToolConfig>? endCall = null,
@@ -984,7 +984,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.EndCallToolConfig>? endCall = null,
@@ -1057,7 +1057,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -1098,7 +1098,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(Params3 other)
         {
@@ -1114,12 +1114,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.KnowledgeBaseToolConfig?>.Default.Equals(KnowledgeBase, other.KnowledgeBase) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.StartProcedureToolConfigOutput?>.Default.Equals(StartProcedure, other.StartProcedure) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.EndProcedureToolConfigOutput?>.Default.Equals(EndProcedure, other.EndProcedure) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.RunSubagentToolConfigOutput?>.Default.Equals(RunSubagent, other.RunSubagent) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.RunSubagentToolConfigOutput?>.Default.Equals(RunSubagent, other.RunSubagent)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(Params3 obj1, Params3 obj2)
         {
@@ -1127,7 +1127,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(Params3 obj1, Params3 obj2)
         {
@@ -1135,7 +1135,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

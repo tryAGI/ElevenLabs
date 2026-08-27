@@ -4,76 +4,76 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GuardrailType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Custom,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Guardrail,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Harassment,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HarassmentThreatening,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Hate,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HateThreatening,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MedicalAndLegal,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Profanity,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PromptInjection,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReligionOrPolitics,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SelfHarm,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SelfHarmInstructions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SelfHarmIntent,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sexual,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SexualMinors,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Violence,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ViolenceGraphic,
     }

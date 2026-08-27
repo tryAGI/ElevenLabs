@@ -4,18 +4,18 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LLMCategoryUsage
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("irreversible_generation")]
         public global::ElevenLabs.LLMUsageOutput? IrreversibleGeneration { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("initiated_generation")]
         public global::ElevenLabs.LLMUsageOutput? InitiatedGeneration { get; set; }

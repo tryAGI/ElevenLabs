@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ToolExecution2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("taskSupport")]
         public global::ElevenLabs.ToolExecutionTaskSupport2? TaskSupport { get; set; }

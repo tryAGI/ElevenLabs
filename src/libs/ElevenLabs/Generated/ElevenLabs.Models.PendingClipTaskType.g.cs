@@ -4,28 +4,28 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PendingClipTaskType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dubbing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MediaGeneration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Preprocessing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechImport,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VideoToMusic,
     }

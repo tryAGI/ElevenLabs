@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum WorkspaceWebhookEventType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AgentQa,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Flows,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechToText,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceLibraryRemovalNotice,
     }

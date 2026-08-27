@@ -68,7 +68,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="search">
         /// If specified, returns only secrets whose names start with this string.
-        /// </param> 
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig> List10AutoPagingAsync(

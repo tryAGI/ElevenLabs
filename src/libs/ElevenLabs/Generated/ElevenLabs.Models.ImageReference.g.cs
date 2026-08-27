@@ -5,12 +5,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ImageReference : global::System.IEquatable<ImageReference>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ImageReferenceDiscriminatorType? Type { get; }
 
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Generation))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsGeneration => Generation != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGeneration(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GenerationReference PickGeneration() => IsGeneration
             ? Generation!
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Asset))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsAsset => Asset != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickAsset(
 #if NET6_0_OR_GREATER
@@ -82,7 +82,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.StaticAssetReference PickAsset() => IsAsset
             ? Asset!
@@ -102,7 +102,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(InlineBase64))]
@@ -110,7 +110,7 @@ namespace ElevenLabs
         public bool IsInlineBase64 => InlineBase64 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickInlineBase64(
 #if NET6_0_OR_GREATER
@@ -123,23 +123,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.InlineImageReference PickInlineBase64() => IsInlineBase64
             ? InlineBase64!
             : throw new global::System.InvalidOperationException($"Expected union variant 'InlineBase64' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ImageReference(global::ElevenLabs.GenerationReference value) => new ImageReference((global::ElevenLabs.GenerationReference?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GenerationReference?(ImageReference @this) => @this.Generation;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageReference(global::ElevenLabs.GenerationReference? value)
         {
@@ -147,22 +147,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ImageReference FromGeneration(global::ElevenLabs.GenerationReference? value) => new ImageReference(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ImageReference(global::ElevenLabs.StaticAssetReference value) => new ImageReference((global::ElevenLabs.StaticAssetReference?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.StaticAssetReference?(ImageReference @this) => @this.Asset;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageReference(global::ElevenLabs.StaticAssetReference? value)
         {
@@ -170,22 +170,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ImageReference FromAsset(global::ElevenLabs.StaticAssetReference? value) => new ImageReference(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ImageReference(global::ElevenLabs.InlineImageReference value) => new ImageReference((global::ElevenLabs.InlineImageReference?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.InlineImageReference?(ImageReference @this) => @this.InlineBase64;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageReference(global::ElevenLabs.InlineImageReference? value)
         {
@@ -193,12 +193,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ImageReference FromInlineBase64(global::ElevenLabs.InlineImageReference? value) => new ImageReference(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageReference(
             global::ElevenLabs.ImageReferenceDiscriminatorType? type,
@@ -215,25 +215,25 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             InlineBase64 as object ??
             Asset as object ??
-            Generation as object 
+            Generation as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Generation?.ToString() ??
             Asset?.ToString() ??
-            InlineBase64?.ToString() 
+            InlineBase64?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -241,7 +241,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.GenerationReference, TResult>? generation = null,
@@ -271,7 +271,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.GenerationReference>? generation = null,
@@ -301,7 +301,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.GenerationReference>? generation = null,
@@ -329,7 +329,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -352,19 +352,19 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ImageReference other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GenerationReference?>.Default.Equals(Generation, other.Generation) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.StaticAssetReference?>.Default.Equals(Asset, other.Asset) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.InlineImageReference?>.Default.Equals(InlineBase64, other.InlineBase64) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.InlineImageReference?>.Default.Equals(InlineBase64, other.InlineBase64)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ImageReference obj1, ImageReference obj2)
         {
@@ -372,7 +372,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ImageReference obj1, ImageReference obj2)
         {
@@ -380,7 +380,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

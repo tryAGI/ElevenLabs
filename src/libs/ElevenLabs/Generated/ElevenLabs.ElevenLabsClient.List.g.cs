@@ -240,7 +240,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -599,7 +599,7 @@ namespace ElevenLabs
         /// <param name="sharingMode">
         /// Filter test visibility. Use `shared_with_me` to return only tests/folders shared with the current user that they did not create.<br/>
         /// Default Value: all
-        /// </param> 
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.UnitTestSummaryResponseModel> ListAutoPagingAsync(

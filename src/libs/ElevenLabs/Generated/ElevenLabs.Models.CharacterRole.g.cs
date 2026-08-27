@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CharacterRole
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Main,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Minor,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Narrator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Supporting,
     }

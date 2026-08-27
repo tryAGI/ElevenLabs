@@ -9,79 +9,79 @@ namespace ElevenLabs
     public enum ResponseConversationErrorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AgentConfigurationError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BlockedByUser,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CallInitializationError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CallRejected,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClientDisconnected,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EntitlementExceeded,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GuardrailTriggered,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         IntegrationError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InvalidClientRequest,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LineBusy,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LlmError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MaxDurationExceeded,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NoAnswer,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PermissionError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PostProcessingError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SafetyViolation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SystemError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ToolError,
     }

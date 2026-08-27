@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct BranchInfoVariant1 : global::System.IEquatable<BranchInfoVariant1>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReason? BranchReason { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferBranchInfoTrafficSplit? TrafficSplit { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TrafficSplit))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsTrafficSplit => TrafficSplit != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTrafficSplit(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TransferBranchInfoTrafficSplit PickTrafficSplit() => IsTrafficSplit
             ? TrafficSplit!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TrafficSplit' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferBranchInfoDefaultingToMain? DefaultingToMain { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DefaultingToMain))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsDefaultingToMain => DefaultingToMain != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDefaultingToMain(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TransferBranchInfoDefaultingToMain PickDefaultingToMain() => IsDefaultingToMain
             ? DefaultingToMain!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DefaultingToMain' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator BranchInfoVariant1(global::ElevenLabs.TransferBranchInfoTrafficSplit value) => new BranchInfoVariant1((global::ElevenLabs.TransferBranchInfoTrafficSplit?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TransferBranchInfoTrafficSplit?(BranchInfoVariant1 @this) => @this.TrafficSplit;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BranchInfoVariant1(global::ElevenLabs.TransferBranchInfoTrafficSplit? value)
         {
@@ -106,22 +106,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static BranchInfoVariant1 FromTrafficSplit(global::ElevenLabs.TransferBranchInfoTrafficSplit? value) => new BranchInfoVariant1(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator BranchInfoVariant1(global::ElevenLabs.TransferBranchInfoDefaultingToMain value) => new BranchInfoVariant1((global::ElevenLabs.TransferBranchInfoDefaultingToMain?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TransferBranchInfoDefaultingToMain?(BranchInfoVariant1 @this) => @this.DefaultingToMain;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BranchInfoVariant1(global::ElevenLabs.TransferBranchInfoDefaultingToMain? value)
         {
@@ -129,12 +129,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static BranchInfoVariant1 FromDefaultingToMain(global::ElevenLabs.TransferBranchInfoDefaultingToMain? value) => new BranchInfoVariant1(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BranchInfoVariant1(
             global::ElevenLabs.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReason? branchReason,
@@ -149,23 +149,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             DefaultingToMain as object ??
-            TrafficSplit as object 
+            TrafficSplit as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             TrafficSplit?.ToString() ??
-            DefaultingToMain?.ToString() 
+            DefaultingToMain?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -173,7 +173,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.TransferBranchInfoTrafficSplit, TResult>? trafficSplit = null,
@@ -198,7 +198,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.TransferBranchInfoTrafficSplit>? trafficSplit = null,
@@ -222,7 +222,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.TransferBranchInfoTrafficSplit>? trafficSplit = null,
@@ -245,7 +245,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -266,18 +266,18 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(BranchInfoVariant1 other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferBranchInfoTrafficSplit?>.Default.Equals(TrafficSplit, other.TrafficSplit) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferBranchInfoDefaultingToMain?>.Default.Equals(DefaultingToMain, other.DefaultingToMain) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferBranchInfoDefaultingToMain?>.Default.Equals(DefaultingToMain, other.DefaultingToMain)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(BranchInfoVariant1 obj1, BranchInfoVariant1 obj2)
         {
@@ -285,7 +285,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(BranchInfoVariant1 obj1, BranchInfoVariant1 obj2)
         {
@@ -293,7 +293,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

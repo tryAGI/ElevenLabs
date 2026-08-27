@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum WorkflowEdgeModelOutputForwardConditionVariant1DiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Expression,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Llm,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Result,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unconditional,
     }

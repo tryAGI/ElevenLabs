@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum MusicFinetuneFailureReason
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioProcessingFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CopyrightViolation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingFailed,
     }

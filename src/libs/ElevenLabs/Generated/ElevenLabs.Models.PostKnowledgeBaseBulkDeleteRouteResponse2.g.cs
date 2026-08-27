@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct PostKnowledgeBaseBulkDeleteRouteResponse2 : global::System.IEquatable<PostKnowledgeBaseBulkDeleteRouteResponse2>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PostKnowledgeBaseBulkDeleteRouteResponseDiscriminatorStatus? Status { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.KnowledgeBaseBulkDeleteSuccessfulResponseModel? Success { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Success))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsSuccess => Success != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSuccess(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.KnowledgeBaseBulkDeleteSuccessfulResponseModel PickSuccess() => IsSuccess
             ? Success!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Success' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.BatchFailureResponseModel? Failure { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Failure))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsFailure => Failure != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickFailure(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.BatchFailureResponseModel PickFailure() => IsFailure
             ? Failure!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Failure' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator PostKnowledgeBaseBulkDeleteRouteResponse2(global::ElevenLabs.KnowledgeBaseBulkDeleteSuccessfulResponseModel value) => new PostKnowledgeBaseBulkDeleteRouteResponse2((global::ElevenLabs.KnowledgeBaseBulkDeleteSuccessfulResponseModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.KnowledgeBaseBulkDeleteSuccessfulResponseModel?(PostKnowledgeBaseBulkDeleteRouteResponse2 @this) => @this.Success;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PostKnowledgeBaseBulkDeleteRouteResponse2(global::ElevenLabs.KnowledgeBaseBulkDeleteSuccessfulResponseModel? value)
         {
@@ -106,22 +106,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static PostKnowledgeBaseBulkDeleteRouteResponse2 FromSuccess(global::ElevenLabs.KnowledgeBaseBulkDeleteSuccessfulResponseModel? value) => new PostKnowledgeBaseBulkDeleteRouteResponse2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator PostKnowledgeBaseBulkDeleteRouteResponse2(global::ElevenLabs.BatchFailureResponseModel value) => new PostKnowledgeBaseBulkDeleteRouteResponse2((global::ElevenLabs.BatchFailureResponseModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.BatchFailureResponseModel?(PostKnowledgeBaseBulkDeleteRouteResponse2 @this) => @this.Failure;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PostKnowledgeBaseBulkDeleteRouteResponse2(global::ElevenLabs.BatchFailureResponseModel? value)
         {
@@ -129,12 +129,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static PostKnowledgeBaseBulkDeleteRouteResponse2 FromFailure(global::ElevenLabs.BatchFailureResponseModel? value) => new PostKnowledgeBaseBulkDeleteRouteResponse2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PostKnowledgeBaseBulkDeleteRouteResponse2(
             global::ElevenLabs.PostKnowledgeBaseBulkDeleteRouteResponseDiscriminatorStatus? status,
@@ -149,23 +149,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Failure as object ??
-            Success as object 
+            Success as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Success?.ToString() ??
-            Failure?.ToString() 
+            Failure?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -173,7 +173,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.KnowledgeBaseBulkDeleteSuccessfulResponseModel, TResult>? success = null,
@@ -198,7 +198,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.KnowledgeBaseBulkDeleteSuccessfulResponseModel>? success = null,
@@ -222,7 +222,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.KnowledgeBaseBulkDeleteSuccessfulResponseModel>? success = null,
@@ -245,7 +245,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -266,18 +266,18 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(PostKnowledgeBaseBulkDeleteRouteResponse2 other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.KnowledgeBaseBulkDeleteSuccessfulResponseModel?>.Default.Equals(Success, other.Success) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BatchFailureResponseModel?>.Default.Equals(Failure, other.Failure) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BatchFailureResponseModel?>.Default.Equals(Failure, other.Failure)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(PostKnowledgeBaseBulkDeleteRouteResponse2 obj1, PostKnowledgeBaseBulkDeleteRouteResponse2 obj2)
         {
@@ -285,7 +285,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(PostKnowledgeBaseBulkDeleteRouteResponse2 obj1, PostKnowledgeBaseBulkDeleteRouteResponse2 obj2)
         {
@@ -293,7 +293,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

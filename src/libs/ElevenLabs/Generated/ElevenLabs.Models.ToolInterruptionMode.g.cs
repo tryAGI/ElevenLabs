@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum ToolInterruptionMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Allow,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DisableDuringTool,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DisableDuringToolAndTurn,
     }

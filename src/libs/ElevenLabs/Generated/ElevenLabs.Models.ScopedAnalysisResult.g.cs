@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ScopedAnalysisResult
     {
@@ -19,7 +19,7 @@ namespace ElevenLabs
         public required global::ElevenLabs.AnalysisScope Scope { get; set; } = global::ElevenLabs.AnalysisScope.Conversation;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -32,19 +32,19 @@ namespace ElevenLabs
         public string? SourceBranchId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("evaluation_criteria_results")]
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? EvaluationCriteriaResults { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data_collection_results")]
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DataCollectionResultCommonModel>? DataCollectionResults { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("successful")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EvaluationSuccessResultJsonConverter))]
@@ -52,7 +52,7 @@ namespace ElevenLabs
         public required global::ElevenLabs.EvaluationSuccessResult Successful { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("success_score")]
         public double? SuccessScore { get; set; }

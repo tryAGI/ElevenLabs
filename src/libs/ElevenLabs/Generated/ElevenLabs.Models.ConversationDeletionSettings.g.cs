@@ -4,30 +4,30 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConversationDeletionSettings
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deletion_time_unix_secs")]
         public int? DeletionTimeUnixSecs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deleted_logs_at_time_unix_secs")]
         public int? DeletedLogsAtTimeUnixSecs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deleted_audio_at_time_unix_secs")]
         public int? DeletedAudioAtTimeUnixSecs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deleted_transcript_at_time_unix_secs")]
         public int? DeletedTranscriptAtTimeUnixSecs { get; set; }

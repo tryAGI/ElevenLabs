@@ -14,15 +14,15 @@ namespace ElevenLabs
     public enum AgentTrustContext
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         High,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Low,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unknown,
     }

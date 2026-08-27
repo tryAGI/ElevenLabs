@@ -5,7 +5,7 @@
 namespace ElevenLabs.TextToDialogueRealtime
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ServerEvent : global::System.IEquatable<ServerEvent>
     {
@@ -19,7 +19,7 @@ namespace ElevenLabs.TextToDialogueRealtime
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TextToDialogueWebsocketAudioChunk))]
@@ -27,7 +27,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         public bool IsTextToDialogueWebsocketAudioChunk => TextToDialogueWebsocketAudioChunk != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTextToDialogueWebsocketAudioChunk(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk PickTextToDialogueWebsocketAudioChunk() => IsTextToDialogueWebsocketAudioChunk
             ? TextToDialogueWebsocketAudioChunk!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TextToDialogueWebsocketAudioChunk' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinalAudioForTurn? TextToDialogueWebsocketFinalAudioForTurn { get; init; }
@@ -56,7 +56,7 @@ namespace ElevenLabs.TextToDialogueRealtime
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TextToDialogueWebsocketFinalAudioForTurn))]
@@ -64,7 +64,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         public bool IsTextToDialogueWebsocketFinalAudioForTurn => TextToDialogueWebsocketFinalAudioForTurn != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTextToDialogueWebsocketFinalAudioForTurn(
 #if NET6_0_OR_GREATER
@@ -77,14 +77,14 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinalAudioForTurn PickTextToDialogueWebsocketFinalAudioForTurn() => IsTextToDialogueWebsocketFinalAudioForTurn
             ? TextToDialogueWebsocketFinalAudioForTurn!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TextToDialogueWebsocketFinalAudioForTurn' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinal? TextToDialogueWebsocketFinal { get; init; }
@@ -93,7 +93,7 @@ namespace ElevenLabs.TextToDialogueRealtime
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TextToDialogueWebsocketFinal))]
@@ -101,7 +101,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         public bool IsTextToDialogueWebsocketFinal => TextToDialogueWebsocketFinal != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTextToDialogueWebsocketFinal(
 #if NET6_0_OR_GREATER
@@ -114,14 +114,14 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinal PickTextToDialogueWebsocketFinal() => IsTextToDialogueWebsocketFinal
             ? TextToDialogueWebsocketFinal!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TextToDialogueWebsocketFinal' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError? TextToDialogueWebsocketError { get; init; }
@@ -130,7 +130,7 @@ namespace ElevenLabs.TextToDialogueRealtime
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TextToDialogueWebsocketError))]
@@ -138,7 +138,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         public bool IsTextToDialogueWebsocketError => TextToDialogueWebsocketError != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTextToDialogueWebsocketError(
 #if NET6_0_OR_GREATER
@@ -151,23 +151,23 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError PickTextToDialogueWebsocketError() => IsTextToDialogueWebsocketError
             ? TextToDialogueWebsocketError!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TextToDialogueWebsocketError' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ServerEvent(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk value) => new ServerEvent((global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk?(ServerEvent @this) => @this.TextToDialogueWebsocketAudioChunk;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ServerEvent(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk? value)
         {
@@ -175,22 +175,22 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ServerEvent FromTextToDialogueWebsocketAudioChunk(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk? value) => new ServerEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ServerEvent(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinalAudioForTurn value) => new ServerEvent((global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinalAudioForTurn?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinalAudioForTurn?(ServerEvent @this) => @this.TextToDialogueWebsocketFinalAudioForTurn;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ServerEvent(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinalAudioForTurn? value)
         {
@@ -198,22 +198,22 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ServerEvent FromTextToDialogueWebsocketFinalAudioForTurn(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinalAudioForTurn? value) => new ServerEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ServerEvent(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinal value) => new ServerEvent((global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinal?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinal?(ServerEvent @this) => @this.TextToDialogueWebsocketFinal;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ServerEvent(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinal? value)
         {
@@ -221,22 +221,22 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ServerEvent FromTextToDialogueWebsocketFinal(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinal? value) => new ServerEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ServerEvent(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError value) => new ServerEvent((global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError?(ServerEvent @this) => @this.TextToDialogueWebsocketError;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ServerEvent(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError? value)
         {
@@ -244,12 +244,12 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ServerEvent FromTextToDialogueWebsocketError(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError? value) => new ServerEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ServerEvent(
             global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk? textToDialogueWebsocketAudioChunk,
@@ -265,27 +265,27 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             TextToDialogueWebsocketError as object ??
             TextToDialogueWebsocketFinal as object ??
             TextToDialogueWebsocketFinalAudioForTurn as object ??
-            TextToDialogueWebsocketAudioChunk as object 
+            TextToDialogueWebsocketAudioChunk as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             TextToDialogueWebsocketAudioChunk?.ToString() ??
             TextToDialogueWebsocketFinalAudioForTurn?.ToString() ??
             TextToDialogueWebsocketFinal?.ToString() ??
-            TextToDialogueWebsocketError?.ToString() 
+            TextToDialogueWebsocketError?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -293,7 +293,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk, TResult>? textToDialogueWebsocketAudioChunk = null,
@@ -328,7 +328,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk>? textToDialogueWebsocketAudioChunk = null,
@@ -364,7 +364,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk>? textToDialogueWebsocketAudioChunk = null,
@@ -397,7 +397,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -422,7 +422,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ServerEvent other)
         {
@@ -430,12 +430,12 @@ namespace ElevenLabs.TextToDialogueRealtime
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk?>.Default.Equals(TextToDialogueWebsocketAudioChunk, other.TextToDialogueWebsocketAudioChunk) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinalAudioForTurn?>.Default.Equals(TextToDialogueWebsocketFinalAudioForTurn, other.TextToDialogueWebsocketFinalAudioForTurn) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinal?>.Default.Equals(TextToDialogueWebsocketFinal, other.TextToDialogueWebsocketFinal) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError?>.Default.Equals(TextToDialogueWebsocketError, other.TextToDialogueWebsocketError) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError?>.Default.Equals(TextToDialogueWebsocketError, other.TextToDialogueWebsocketError)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ServerEvent obj1, ServerEvent obj2)
         {
@@ -443,7 +443,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ServerEvent obj1, ServerEvent obj2)
         {
@@ -451,7 +451,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

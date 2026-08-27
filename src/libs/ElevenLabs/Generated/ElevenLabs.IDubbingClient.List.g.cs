@@ -74,7 +74,7 @@ namespace ElevenLabs
         /// <param name="sortDirection">
         /// Sort by creation time (default 'DESCENDING').<br/>
         /// Default Value: DESCENDING
-        /// </param> 
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.DubbingProjectResponse> ListAutoPagingAsync(

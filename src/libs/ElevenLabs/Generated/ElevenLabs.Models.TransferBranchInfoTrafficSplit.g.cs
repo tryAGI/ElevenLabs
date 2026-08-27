@@ -4,26 +4,26 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class TransferBranchInfoTrafficSplit
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"traffic_split"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("branch_reason")]
         public string BranchReason { get; set; } = "traffic_split";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("branch_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string BranchId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("traffic_percentage")]
         [global::System.Text.Json.Serialization.JsonRequired]

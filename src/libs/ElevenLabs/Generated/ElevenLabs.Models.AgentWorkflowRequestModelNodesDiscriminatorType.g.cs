@@ -4,32 +4,32 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum AgentWorkflowRequestModelNodesDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         End,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OverrideAgent,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PhoneNumber,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StandaloneAgent,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Start,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tool,
     }

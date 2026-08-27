@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum WebhookTranscriptFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Json,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Opentelemetry,
     }

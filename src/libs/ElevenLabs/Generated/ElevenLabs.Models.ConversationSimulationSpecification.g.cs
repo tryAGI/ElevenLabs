@@ -17,7 +17,7 @@ namespace ElevenLabs
         public required global::ElevenLabs.AgentConfigAPIModelInput SimulatedUserConfig { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_mock_config")]
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ToolMockConfig>? ToolMockConfig { get; set; }
@@ -29,7 +29,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? PartialConversationHistory { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
         public object? DynamicVariables { get; set; }

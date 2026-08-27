@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum DirectPublishingReadResponseModelDisplayMode2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioOnly,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TextWithAudio,
     }

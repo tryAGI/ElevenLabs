@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PatchConvAIDashboardSettingsRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("charts")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.ChartsItem2>? Charts { get; set; }

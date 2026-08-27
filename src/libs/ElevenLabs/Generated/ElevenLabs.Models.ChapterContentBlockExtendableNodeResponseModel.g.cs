@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ChapterContentBlockExtendableNodeResponseModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"_other"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]

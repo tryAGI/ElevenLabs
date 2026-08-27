@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum GetConversationHistoriesRouteSummaryMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Exclude,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Include,
     }

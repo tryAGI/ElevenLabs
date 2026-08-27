@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CharacterAge
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MiddleAged,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Old,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Young,
     }

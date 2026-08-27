@@ -183,7 +183,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -525,7 +525,7 @@ namespace ElevenLabs
         /// <param name="pageSize">
         /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
-        /// </param> 
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel> List8AutoPagingAsync(

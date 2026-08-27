@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum CrawlType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Discovery,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sitemap,
     }

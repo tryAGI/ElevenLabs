@@ -11,7 +11,7 @@ namespace ElevenLabs
     public sealed partial class EnvironmentAuthConnectionLocator
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("env_var_label")]
         [global::System.Text.Json.Serialization.JsonRequired]

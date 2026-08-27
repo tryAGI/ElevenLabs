@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum DubbingProjectListSortDirection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ascending,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Descending,
     }

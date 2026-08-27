@@ -4,12 +4,12 @@
 namespace ElevenLabs.Realtime
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ServerEventDiscriminator
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.Realtime.JsonConverters.ServerEventDiscriminatorMessageTypeJsonConverter))]

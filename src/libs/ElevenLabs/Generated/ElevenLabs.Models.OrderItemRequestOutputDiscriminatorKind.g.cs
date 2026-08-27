@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum OrderItemRequestOutputDiscriminatorKind
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dub,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Subtitles,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Transcription,
     }

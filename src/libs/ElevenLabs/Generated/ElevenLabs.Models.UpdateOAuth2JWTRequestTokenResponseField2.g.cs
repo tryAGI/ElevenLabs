@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum UpdateOAuth2JWTRequestTokenResponseField2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AccessToken,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         IdToken,
     }

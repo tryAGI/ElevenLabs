@@ -4,86 +4,86 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SentimentAggregate
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("scored_conversation_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int ScoredConversationCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("positive_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int PositiveCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("neutral_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int NeutralCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("negative_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int NegativeCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("average_sentiment_score")]
         public double? AverageSentimentScore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("average_frustration_score")]
         public double? AverageFrustrationScore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recent_scored_conversation_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int RecentScoredConversationCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recent_positive_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int RecentPositiveCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recent_neutral_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int RecentNeutralCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recent_negative_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int RecentNegativeCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recent_average_sentiment_score")]
         public double? RecentAverageSentimentScore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recent_average_frustration_score")]
         public double? RecentAverageFrustrationScore { get; set; }

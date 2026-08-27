@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum EntryBehavior
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GenerateImmediately,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WaitForUser,
     }

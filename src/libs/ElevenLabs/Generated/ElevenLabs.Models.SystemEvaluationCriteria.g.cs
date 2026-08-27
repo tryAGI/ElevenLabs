@@ -4,19 +4,19 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SystemEvaluationCriteria
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_sentiment_score")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double UserSentimentScore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_frustration_score")]
         [global::System.Text.Json.Serialization.JsonRequired]

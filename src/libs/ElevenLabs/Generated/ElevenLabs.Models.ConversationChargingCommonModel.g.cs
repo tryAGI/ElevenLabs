@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConversationChargingCommonModel
     {
@@ -21,37 +21,37 @@ namespace ElevenLabs
         public bool? IsBurst { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tier")]
         public string? Tier { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm_usage")]
         public global::ElevenLabs.LLMCategoryUsage? LlmUsage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm_price")]
         public double? LlmPrice { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm_charge")]
         public int? LlmCharge { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_charge")]
         public int? CallCharge { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("platform_charge")]
         public int? PlatformCharge { get; set; }
@@ -63,7 +63,7 @@ namespace ElevenLabs
         public global::ElevenLabs.PlatformUsage? PlatformUsage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("platform_price")]
         public double? PlatformPrice { get; set; }
@@ -81,19 +81,19 @@ namespace ElevenLabs
         public double? FreeLlmDollarsConsumed { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tts_usage")]
         public global::ElevenLabs.ConversationTTSUsageModel? TtsUsage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("asr_usage")]
         public global::ElevenLabs.ConversationASRUsageModel? AsrUsage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("analysis")]
         public global::ElevenLabs.AnalysisCharging? Analysis { get; set; }

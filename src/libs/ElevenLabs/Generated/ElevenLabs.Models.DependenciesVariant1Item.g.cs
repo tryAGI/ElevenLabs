@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct DependenciesVariant1Item : global::System.IEquatable<DependenciesVariant1Item>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant1ItemDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DependentAvailableToolIdentifier? Available { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Available))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsAvailable => Available != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickAvailable(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DependentAvailableToolIdentifier PickAvailable() => IsAvailable
             ? Available!
@@ -62,7 +62,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Unknown))]
@@ -70,7 +70,7 @@ namespace ElevenLabs
         public bool IsUnknown => Unknown != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUnknown(
 #if NET6_0_OR_GREATER
@@ -83,23 +83,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DependentUnknownToolIdentifier PickUnknown() => IsUnknown
             ? Unknown!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Unknown' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator DependenciesVariant1Item(global::ElevenLabs.DependentAvailableToolIdentifier value) => new DependenciesVariant1Item((global::ElevenLabs.DependentAvailableToolIdentifier?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DependentAvailableToolIdentifier?(DependenciesVariant1Item @this) => @this.Available;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DependenciesVariant1Item(global::ElevenLabs.DependentAvailableToolIdentifier? value)
         {
@@ -107,22 +107,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static DependenciesVariant1Item FromAvailable(global::ElevenLabs.DependentAvailableToolIdentifier? value) => new DependenciesVariant1Item(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator DependenciesVariant1Item(global::ElevenLabs.DependentUnknownToolIdentifier value) => new DependenciesVariant1Item((global::ElevenLabs.DependentUnknownToolIdentifier?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DependentUnknownToolIdentifier?(DependenciesVariant1Item @this) => @this.Unknown;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DependenciesVariant1Item(global::ElevenLabs.DependentUnknownToolIdentifier? value)
         {
@@ -130,12 +130,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static DependenciesVariant1Item FromUnknown(global::ElevenLabs.DependentUnknownToolIdentifier? value) => new DependenciesVariant1Item(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DependenciesVariant1Item(
             global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant1ItemDiscriminatorType? type,
@@ -150,23 +150,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Unknown as object ??
-            Available as object 
+            Available as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Available?.ToString() ??
-            Unknown?.ToString() 
+            Unknown?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -174,7 +174,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.DependentAvailableToolIdentifier, TResult>? available = null,
@@ -199,7 +199,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.DependentAvailableToolIdentifier>? available = null,
@@ -223,7 +223,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.DependentAvailableToolIdentifier>? available = null,
@@ -246,7 +246,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -267,18 +267,18 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(DependenciesVariant1Item other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DependentAvailableToolIdentifier?>.Default.Equals(Available, other.Available) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DependentUnknownToolIdentifier?>.Default.Equals(Unknown, other.Unknown) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DependentUnknownToolIdentifier?>.Default.Equals(Unknown, other.Unknown)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(DependenciesVariant1Item obj1, DependenciesVariant1Item obj2)
         {
@@ -286,7 +286,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(DependenciesVariant1Item obj1, DependenciesVariant1Item obj2)
         {
@@ -294,7 +294,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

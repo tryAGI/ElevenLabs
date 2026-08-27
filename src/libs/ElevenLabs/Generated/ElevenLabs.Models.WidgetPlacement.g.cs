@@ -9,27 +9,27 @@ namespace ElevenLabs
     public enum WidgetPlacement
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Bottom,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BottomLeft,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BottomRight,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Top,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TopLeft,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TopRight,
     }

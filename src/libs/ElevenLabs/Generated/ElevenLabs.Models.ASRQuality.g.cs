@@ -9,7 +9,7 @@ namespace ElevenLabs
     public enum ASRQuality
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         High,
     }

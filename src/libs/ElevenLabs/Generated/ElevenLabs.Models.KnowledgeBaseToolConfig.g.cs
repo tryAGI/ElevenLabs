@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class KnowledgeBaseToolConfig
     {
@@ -15,7 +15,7 @@ namespace ElevenLabs
         public string? SystemToolType { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enabled_strategies")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.SearchStrategy>? EnabledStrategies { get; set; }

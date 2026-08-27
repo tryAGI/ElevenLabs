@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConversationHistoryExotelPhoneCallModel
     {
@@ -18,21 +18,21 @@ namespace ElevenLabs
         public required global::ElevenLabs.TelephonyDirection Direction { get; set; } = global::ElevenLabs.TelephonyDirection.Inbound;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string PhoneNumberId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string AgentNumber { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -45,14 +45,14 @@ namespace ElevenLabs
         public string? Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stream_sid")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string StreamSid { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_sid")]
         [global::System.Text.Json.Serialization.JsonRequired]

@@ -4,56 +4,56 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SystemToolConfigInputParamsDiscriminatorSystemToolType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EndCall,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EndProcedure,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         KnowledgeBase,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         KnowledgeBaseRag,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LanguageDetection,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PlayKeypadTouchTone,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RunSubagent,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SkipTurn,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StartProcedure,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TransferToAgent,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TransferToNumber,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoicemailDetection,
     }

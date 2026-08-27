@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum AgentTransferOpDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pop,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Push,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Replace,
     }

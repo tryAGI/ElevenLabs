@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Combined,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Separate,
     }

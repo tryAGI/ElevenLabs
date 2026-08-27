@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum BodyCreatesAudioNativeEnabledProjectV1AudioNativePostApplyTextNormalization2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApplyEnglish,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Off,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         On,
     }

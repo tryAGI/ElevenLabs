@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum PreToolSpeechMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Force,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Off,
     }

@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum StartProcedureToolErrorStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AlreadyActive,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InvalidName,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NotFound,
     }

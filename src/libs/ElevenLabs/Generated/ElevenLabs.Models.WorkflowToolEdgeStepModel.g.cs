@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class WorkflowToolEdgeStepModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("step_latency_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -22,14 +22,14 @@ namespace ElevenLabs
         public string? Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("edge_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string EdgeId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_node_id")]
         [global::System.Text.Json.Serialization.JsonRequired]

@@ -4,19 +4,19 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class TransferBranchInfoDefaultingToMain
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"defaulting_to_main"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("branch_reason")]
         public string BranchReason { get; set; } = "defaulting_to_main";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("branch_id")]
         [global::System.Text.Json.Serialization.JsonRequired]

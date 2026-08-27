@@ -5,7 +5,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ASTNodeInput : global::System.IEquatable<ASTNodeInput>
     {
@@ -19,7 +19,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(StringLiteral))]
@@ -27,7 +27,7 @@ namespace ElevenLabs
         public bool IsStringLiteral => StringLiteral != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickStringLiteral(
 #if NET6_0_OR_GREATER
@@ -40,7 +40,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTStringNodeInput PickStringLiteral() => IsStringLiteral
             ? StringLiteral!
@@ -56,7 +56,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(NumberLiteral))]
@@ -64,7 +64,7 @@ namespace ElevenLabs
         public bool IsNumberLiteral => NumberLiteral != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickNumberLiteral(
 #if NET6_0_OR_GREATER
@@ -77,7 +77,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTNumberNodeInput PickNumberLiteral() => IsNumberLiteral
             ? NumberLiteral!
@@ -93,7 +93,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(BooleanLiteral))]
@@ -101,7 +101,7 @@ namespace ElevenLabs
         public bool IsBooleanLiteral => BooleanLiteral != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickBooleanLiteral(
 #if NET6_0_OR_GREATER
@@ -114,7 +114,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTBooleanNodeInput PickBooleanLiteral() => IsBooleanLiteral
             ? BooleanLiteral!
@@ -130,7 +130,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(NullLiteral))]
@@ -138,7 +138,7 @@ namespace ElevenLabs
         public bool IsNullLiteral => NullLiteral != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickNullLiteral(
 #if NET6_0_OR_GREATER
@@ -151,7 +151,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTNullNodeInput PickNullLiteral() => IsNullLiteral
             ? NullLiteral!
@@ -167,7 +167,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Lm))]
@@ -175,7 +175,7 @@ namespace ElevenLabs
         public bool IsLm => Lm != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickLm(
 #if NET6_0_OR_GREATER
@@ -188,7 +188,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTLLMNodeInput PickLm() => IsLm
             ? Lm!.Value
@@ -204,7 +204,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DynamicVariable))]
@@ -212,7 +212,7 @@ namespace ElevenLabs
         public bool IsDynamicVariable => DynamicVariable != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDynamicVariable(
 #if NET6_0_OR_GREATER
@@ -225,7 +225,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTDynamicVariableNodeInput PickDynamicVariable() => IsDynamicVariable
             ? DynamicVariable!
@@ -241,7 +241,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(OrOperator))]
@@ -249,7 +249,7 @@ namespace ElevenLabs
         public bool IsOrOperator => OrOperator != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickOrOperator(
 #if NET6_0_OR_GREATER
@@ -262,7 +262,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTOrOperatorNodeInput PickOrOperator() => IsOrOperator
             ? OrOperator!
@@ -278,7 +278,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AndOperator))]
@@ -286,7 +286,7 @@ namespace ElevenLabs
         public bool IsAndOperator => AndOperator != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickAndOperator(
 #if NET6_0_OR_GREATER
@@ -299,7 +299,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTAndOperatorNodeInput PickAndOperator() => IsAndOperator
             ? AndOperator!
@@ -315,7 +315,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EqOperator))]
@@ -323,7 +323,7 @@ namespace ElevenLabs
         public bool IsEqOperator => EqOperator != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickEqOperator(
 #if NET6_0_OR_GREATER
@@ -336,7 +336,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTEqualsOperatorNodeInput PickEqOperator() => IsEqOperator
             ? EqOperator!
@@ -352,7 +352,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(NeqOperator))]
@@ -360,7 +360,7 @@ namespace ElevenLabs
         public bool IsNeqOperator => NeqOperator != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickNeqOperator(
 #if NET6_0_OR_GREATER
@@ -373,7 +373,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTNotEqualsOperatorNodeInput PickNeqOperator() => IsNeqOperator
             ? NeqOperator!
@@ -389,7 +389,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GtOperator))]
@@ -397,7 +397,7 @@ namespace ElevenLabs
         public bool IsGtOperator => GtOperator != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGtOperator(
 #if NET6_0_OR_GREATER
@@ -410,7 +410,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTGreaterThanOperatorNodeInput PickGtOperator() => IsGtOperator
             ? GtOperator!
@@ -426,7 +426,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LtOperator))]
@@ -434,7 +434,7 @@ namespace ElevenLabs
         public bool IsLtOperator => LtOperator != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickLtOperator(
 #if NET6_0_OR_GREATER
@@ -447,7 +447,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTLessThanOperatorNodeInput PickLtOperator() => IsLtOperator
             ? LtOperator!
@@ -463,7 +463,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GteOperator))]
@@ -471,7 +471,7 @@ namespace ElevenLabs
         public bool IsGteOperator => GteOperator != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGteOperator(
 #if NET6_0_OR_GREATER
@@ -484,7 +484,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput PickGteOperator() => IsGteOperator
             ? GteOperator!
@@ -500,7 +500,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LteOperator))]
@@ -508,7 +508,7 @@ namespace ElevenLabs
         public bool IsLteOperator => LteOperator != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickLteOperator(
 #if NET6_0_OR_GREATER
@@ -521,7 +521,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput PickLteOperator() => IsLteOperator
             ? LteOperator!
@@ -537,7 +537,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AddOperator))]
@@ -545,7 +545,7 @@ namespace ElevenLabs
         public bool IsAddOperator => AddOperator != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickAddOperator(
 #if NET6_0_OR_GREATER
@@ -558,7 +558,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTAdditionOperatorNodeInput PickAddOperator() => IsAddOperator
             ? AddOperator!
@@ -574,7 +574,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SubOperator))]
@@ -582,7 +582,7 @@ namespace ElevenLabs
         public bool IsSubOperator => SubOperator != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSubOperator(
 #if NET6_0_OR_GREATER
@@ -595,7 +595,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTSubtractionOperatorNodeInput PickSubOperator() => IsSubOperator
             ? SubOperator!
@@ -611,7 +611,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MulOperator))]
@@ -619,7 +619,7 @@ namespace ElevenLabs
         public bool IsMulOperator => MulOperator != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickMulOperator(
 #if NET6_0_OR_GREATER
@@ -632,7 +632,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTMultiplicationOperatorNodeInput PickMulOperator() => IsMulOperator
             ? MulOperator!
@@ -648,7 +648,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DivOperator))]
@@ -656,7 +656,7 @@ namespace ElevenLabs
         public bool IsDivOperator => DivOperator != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDivOperator(
 #if NET6_0_OR_GREATER
@@ -669,7 +669,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTDivisionOperatorNodeInput PickDivOperator() => IsDivOperator
             ? DivOperator!
@@ -685,7 +685,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ConditionalOperator))]
@@ -693,7 +693,7 @@ namespace ElevenLabs
         public bool IsConditionalOperator => ConditionalOperator != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickConditionalOperator(
 #if NET6_0_OR_GREATER
@@ -706,23 +706,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTConditionalOperatorNodeInput PickConditionalOperator() => IsConditionalOperator
             ? ConditionalOperator!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ConditionalOperator' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTStringNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTStringNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTStringNodeInput?(ASTNodeInput @this) => @this.StringLiteral;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTStringNodeInput? value)
         {
@@ -730,22 +730,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromStringLiteral(global::ElevenLabs.ASTStringNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTNumberNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTNumberNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTNumberNodeInput?(ASTNodeInput @this) => @this.NumberLiteral;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTNumberNodeInput? value)
         {
@@ -753,22 +753,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromNumberLiteral(global::ElevenLabs.ASTNumberNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTBooleanNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTBooleanNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTBooleanNodeInput?(ASTNodeInput @this) => @this.BooleanLiteral;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTBooleanNodeInput? value)
         {
@@ -776,22 +776,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromBooleanLiteral(global::ElevenLabs.ASTBooleanNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTNullNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTNullNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTNullNodeInput?(ASTNodeInput @this) => @this.NullLiteral;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTNullNodeInput? value)
         {
@@ -799,22 +799,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromNullLiteral(global::ElevenLabs.ASTNullNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTLLMNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTLLMNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTLLMNodeInput?(ASTNodeInput @this) => @this.Lm;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTLLMNodeInput? value)
         {
@@ -822,22 +822,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromLm(global::ElevenLabs.ASTLLMNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTDynamicVariableNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTDynamicVariableNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTDynamicVariableNodeInput?(ASTNodeInput @this) => @this.DynamicVariable;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTDynamicVariableNodeInput? value)
         {
@@ -845,22 +845,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromDynamicVariable(global::ElevenLabs.ASTDynamicVariableNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTOrOperatorNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTOrOperatorNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTOrOperatorNodeInput?(ASTNodeInput @this) => @this.OrOperator;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTOrOperatorNodeInput? value)
         {
@@ -868,22 +868,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromOrOperator(global::ElevenLabs.ASTOrOperatorNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTAndOperatorNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTAndOperatorNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTAndOperatorNodeInput?(ASTNodeInput @this) => @this.AndOperator;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTAndOperatorNodeInput? value)
         {
@@ -891,22 +891,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromAndOperator(global::ElevenLabs.ASTAndOperatorNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTEqualsOperatorNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTEqualsOperatorNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTEqualsOperatorNodeInput?(ASTNodeInput @this) => @this.EqOperator;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTEqualsOperatorNodeInput? value)
         {
@@ -914,22 +914,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromEqOperator(global::ElevenLabs.ASTEqualsOperatorNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTNotEqualsOperatorNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTNotEqualsOperatorNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTNotEqualsOperatorNodeInput?(ASTNodeInput @this) => @this.NeqOperator;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTNotEqualsOperatorNodeInput? value)
         {
@@ -937,22 +937,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromNeqOperator(global::ElevenLabs.ASTNotEqualsOperatorNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTGreaterThanOperatorNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTGreaterThanOperatorNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTGreaterThanOperatorNodeInput?(ASTNodeInput @this) => @this.GtOperator;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTGreaterThanOperatorNodeInput? value)
         {
@@ -960,22 +960,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromGtOperator(global::ElevenLabs.ASTGreaterThanOperatorNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTLessThanOperatorNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTLessThanOperatorNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTLessThanOperatorNodeInput?(ASTNodeInput @this) => @this.LtOperator;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTLessThanOperatorNodeInput? value)
         {
@@ -983,22 +983,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromLtOperator(global::ElevenLabs.ASTLessThanOperatorNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput?(ASTNodeInput @this) => @this.GteOperator;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput? value)
         {
@@ -1006,22 +1006,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromGteOperator(global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput?(ASTNodeInput @this) => @this.LteOperator;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput? value)
         {
@@ -1029,22 +1029,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromLteOperator(global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTAdditionOperatorNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTAdditionOperatorNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTAdditionOperatorNodeInput?(ASTNodeInput @this) => @this.AddOperator;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTAdditionOperatorNodeInput? value)
         {
@@ -1052,22 +1052,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromAddOperator(global::ElevenLabs.ASTAdditionOperatorNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTSubtractionOperatorNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTSubtractionOperatorNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTSubtractionOperatorNodeInput?(ASTNodeInput @this) => @this.SubOperator;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTSubtractionOperatorNodeInput? value)
         {
@@ -1075,22 +1075,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromSubOperator(global::ElevenLabs.ASTSubtractionOperatorNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTMultiplicationOperatorNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTMultiplicationOperatorNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTMultiplicationOperatorNodeInput?(ASTNodeInput @this) => @this.MulOperator;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTMultiplicationOperatorNodeInput? value)
         {
@@ -1098,22 +1098,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromMulOperator(global::ElevenLabs.ASTMultiplicationOperatorNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTDivisionOperatorNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTDivisionOperatorNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTDivisionOperatorNodeInput?(ASTNodeInput @this) => @this.DivOperator;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTDivisionOperatorNodeInput? value)
         {
@@ -1121,22 +1121,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromDivOperator(global::ElevenLabs.ASTDivisionOperatorNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTNodeInput(global::ElevenLabs.ASTConditionalOperatorNodeInput value) => new ASTNodeInput((global::ElevenLabs.ASTConditionalOperatorNodeInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTConditionalOperatorNodeInput?(ASTNodeInput @this) => @this.ConditionalOperator;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(global::ElevenLabs.ASTConditionalOperatorNodeInput? value)
         {
@@ -1144,12 +1144,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTNodeInput FromConditionalOperator(global::ElevenLabs.ASTConditionalOperatorNodeInput? value) => new ASTNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTNodeInput(
             global::ElevenLabs.ASTStringNodeInput? stringLiteral,
@@ -1195,7 +1195,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             ConditionalOperator as object ??
@@ -1216,11 +1216,11 @@ namespace ElevenLabs
             NullLiteral as object ??
             BooleanLiteral as object ??
             NumberLiteral as object ??
-            StringLiteral as object 
+            StringLiteral as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             StringLiteral?.ToString() ??
@@ -1241,11 +1241,11 @@ namespace ElevenLabs
             SubOperator?.ToString() ??
             MulOperator?.ToString() ??
             DivOperator?.ToString() ??
-            ConditionalOperator?.ToString() 
+            ConditionalOperator?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -1253,7 +1253,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.ASTStringNodeInput, TResult>? stringLiteral = null,
@@ -1363,7 +1363,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.ASTStringNodeInput>? stringLiteral = null,
@@ -1489,7 +1489,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.ASTStringNodeInput>? stringLiteral = null,
@@ -1597,7 +1597,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -1652,7 +1652,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ASTNodeInput other)
         {
@@ -1675,12 +1675,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTSubtractionOperatorNodeInput?>.Default.Equals(SubOperator, other.SubOperator) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTMultiplicationOperatorNodeInput?>.Default.Equals(MulOperator, other.MulOperator) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTDivisionOperatorNodeInput?>.Default.Equals(DivOperator, other.DivOperator) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTConditionalOperatorNodeInput?>.Default.Equals(ConditionalOperator, other.ConditionalOperator) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTConditionalOperatorNodeInput?>.Default.Equals(ConditionalOperator, other.ConditionalOperator)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ASTNodeInput obj1, ASTNodeInput obj2)
         {
@@ -1688,7 +1688,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ASTNodeInput obj1, ASTNodeInput obj2)
         {
@@ -1696,7 +1696,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {
