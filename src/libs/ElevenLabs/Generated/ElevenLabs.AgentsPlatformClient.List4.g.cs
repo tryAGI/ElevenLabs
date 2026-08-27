@@ -156,7 +156,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -489,7 +489,7 @@ namespace ElevenLabs
         /// <param name="pageSize">
         /// How many conversation tags to return. Can not exceed 100.<br/>
         /// Default Value: 100
-        /// </param> 
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ConversationTagResponseModel> List4AutoPagingAsync(

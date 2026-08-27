@@ -184,7 +184,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -526,7 +526,7 @@ namespace ElevenLabs
         /// <param name="sortDirection">
         /// Sort by creation time (default 'DESCENDING').<br/>
         /// Default Value: DESCENDING
-        /// </param> 
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.DubbingProjectResponse> ListAutoPagingAsync(

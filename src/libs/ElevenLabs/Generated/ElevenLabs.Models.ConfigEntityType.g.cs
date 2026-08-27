@@ -14,223 +14,223 @@ namespace ElevenLabs
     public enum ConfigEntityType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Age,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ContactNumber,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Date,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DateInterval,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dob,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EmailAddress,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EthnicityRace,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FinancialId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FinancialIdBankAccount,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FinancialIdBankAccountBankAccountNumber,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FinancialIdBankAccountBankRoutingNumber,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FinancialIdBankAccountSwiftBicCode,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FinancialIdFinancialIdOther,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FinancialIdPaymentCard,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FinancialIdPaymentCardPaymentCardCvv,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FinancialIdPaymentCardPaymentCardExpirationDate,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FinancialIdPaymentCardPaymentCardNumber,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Language,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Location,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LocationLocationAddress,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LocationLocationCity,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LocationLocationCoordinate,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LocationLocationCountry,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LocationLocationOther,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LocationLocationPostalCode,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LocationLocationState,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MaritalStatus,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Medical,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MedicalMedicalCondition,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MedicalMedicalMeasurement,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MedicalMedicalOther,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MedicalMedicalProcedure,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MedicalMedication,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Name,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NameNameFamily,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NameNameGiven,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NameNameOther,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Occupation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Organization,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Password,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PhysicalAttribute,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PoliticalOpinion,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReligiousBelief,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SexualOrientation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UniqueId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UniqueIdAccountNumber,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UniqueIdDeviceId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UniqueIdGovernmentIssuedId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UniqueIdHealthcareNumber,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UniqueIdHealthcareNumberHealthPlanBeneficiaryNumber,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UniqueIdHealthcareNumberMedicalRecordNumber,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UniqueIdUniqueIdOther,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UniqueIdVehicleId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Url,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Username,
     }

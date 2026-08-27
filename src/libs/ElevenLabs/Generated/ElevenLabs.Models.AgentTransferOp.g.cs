@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct AgentTransferOp : global::System.IEquatable<AgentTransferOp>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.AgentTransferOpDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.AgentTransferOpReplace? Replace { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Replace))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsReplace => Replace != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickReplace(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.AgentTransferOpReplace PickReplace() => IsReplace
             ? Replace!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Replace' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.AgentTransferOpPush? Push { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Push))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsPush => Push != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickPush(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.AgentTransferOpPush PickPush() => IsPush
             ? Push!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Push' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.AgentTransferOpPop? Pop { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Pop))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsPop => Pop != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickPop(
 #if NET6_0_OR_GREATER
@@ -119,23 +119,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.AgentTransferOpPop PickPop() => IsPop
             ? Pop!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Pop' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator AgentTransferOp(global::ElevenLabs.AgentTransferOpReplace value) => new AgentTransferOp((global::ElevenLabs.AgentTransferOpReplace?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.AgentTransferOpReplace?(AgentTransferOp @this) => @this.Replace;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AgentTransferOp(global::ElevenLabs.AgentTransferOpReplace? value)
         {
@@ -143,22 +143,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static AgentTransferOp FromReplace(global::ElevenLabs.AgentTransferOpReplace? value) => new AgentTransferOp(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator AgentTransferOp(global::ElevenLabs.AgentTransferOpPush value) => new AgentTransferOp((global::ElevenLabs.AgentTransferOpPush?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.AgentTransferOpPush?(AgentTransferOp @this) => @this.Push;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AgentTransferOp(global::ElevenLabs.AgentTransferOpPush? value)
         {
@@ -166,22 +166,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static AgentTransferOp FromPush(global::ElevenLabs.AgentTransferOpPush? value) => new AgentTransferOp(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator AgentTransferOp(global::ElevenLabs.AgentTransferOpPop value) => new AgentTransferOp((global::ElevenLabs.AgentTransferOpPop?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.AgentTransferOpPop?(AgentTransferOp @this) => @this.Pop;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AgentTransferOp(global::ElevenLabs.AgentTransferOpPop? value)
         {
@@ -189,12 +189,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static AgentTransferOp FromPop(global::ElevenLabs.AgentTransferOpPop? value) => new AgentTransferOp(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AgentTransferOp(
             global::ElevenLabs.AgentTransferOpDiscriminatorType? type,
@@ -211,25 +211,25 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Pop as object ??
             Push as object ??
-            Replace as object 
+            Replace as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Replace?.ToString() ??
             Push?.ToString() ??
-            Pop?.ToString() 
+            Pop?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -237,7 +237,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.AgentTransferOpReplace, TResult>? replace = null,
@@ -267,7 +267,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.AgentTransferOpReplace>? replace = null,
@@ -297,7 +297,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.AgentTransferOpReplace>? replace = null,
@@ -325,7 +325,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -348,19 +348,19 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(AgentTransferOp other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.AgentTransferOpReplace?>.Default.Equals(Replace, other.Replace) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.AgentTransferOpPush?>.Default.Equals(Push, other.Push) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.AgentTransferOpPop?>.Default.Equals(Pop, other.Pop) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.AgentTransferOpPop?>.Default.Equals(Pop, other.Pop)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(AgentTransferOp obj1, AgentTransferOp obj2)
         {
@@ -368,7 +368,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(AgentTransferOp obj1, AgentTransferOp obj2)
         {
@@ -376,7 +376,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

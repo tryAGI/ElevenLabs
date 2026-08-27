@@ -9,19 +9,19 @@ namespace ElevenLabs
     public enum ProjectExtendedResponseModelApplyTextNormalization
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApplyEnglish,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Off,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         On,
     }

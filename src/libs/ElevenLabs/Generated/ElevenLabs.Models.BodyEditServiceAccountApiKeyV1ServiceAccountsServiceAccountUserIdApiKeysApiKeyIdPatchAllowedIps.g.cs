@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchAllowedIps
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Clear,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NoUpdate,
     }

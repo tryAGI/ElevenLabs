@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AttachedSystemDataCollectionRef
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"system"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("source")]

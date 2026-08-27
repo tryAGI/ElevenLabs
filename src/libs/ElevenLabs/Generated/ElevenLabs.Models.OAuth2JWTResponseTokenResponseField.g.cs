@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum OAuth2JWTResponseTokenResponseField
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AccessToken,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         IdToken,
     }

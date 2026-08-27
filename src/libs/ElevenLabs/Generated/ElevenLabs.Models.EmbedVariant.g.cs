@@ -9,19 +9,19 @@ namespace ElevenLabs
     public enum EmbedVariant
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Compact,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Expandable,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Full,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tiny,
     }

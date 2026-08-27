@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct Document : global::System.IEquatable<Document>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.KnowledgeBaseContentSearchResultDocumentDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel? Url { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Url))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsUrl => Url != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUrl(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel PickUrl() => IsUrl
             ? Url!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Url' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel? File { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(File))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsFile => File != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickFile(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel PickFile() => IsFile
             ? File!
             : throw new global::System.InvalidOperationException($"Expected union variant 'File' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel? Text { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsText => Text != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickText(
 #if NET6_0_OR_GREATER
@@ -119,14 +119,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel PickText() => IsText
             ? Text!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel? Folder { get; init; }
@@ -135,7 +135,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Folder))]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         public bool IsFolder => Folder != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickFolder(
 #if NET6_0_OR_GREATER
@@ -156,23 +156,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel PickFolder() => IsFolder
             ? Folder!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Folder' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Document(global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel value) => new Document((global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel?(Document @this) => @this.Url;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Document(global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel? value)
         {
@@ -180,22 +180,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Document FromUrl(global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel? value) => new Document(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Document(global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel value) => new Document((global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel?(Document @this) => @this.File;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Document(global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel? value)
         {
@@ -203,22 +203,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Document FromFile(global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel? value) => new Document(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Document(global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel value) => new Document((global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel?(Document @this) => @this.Text;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Document(global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel? value)
         {
@@ -226,22 +226,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Document FromText(global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel? value) => new Document(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Document(global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel value) => new Document((global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel?(Document @this) => @this.Folder;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Document(global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel? value)
         {
@@ -249,12 +249,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Document FromFolder(global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel? value) => new Document(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Document(
             global::ElevenLabs.KnowledgeBaseContentSearchResultDocumentDiscriminatorType? type,
@@ -273,27 +273,27 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Folder as object ??
             Text as object ??
             File as object ??
-            Url as object 
+            Url as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Url?.ToString() ??
             File?.ToString() ??
             Text?.ToString() ??
-            Folder?.ToString() 
+            Folder?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -301,7 +301,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel, TResult>? url = null,
@@ -336,7 +336,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel>? url = null,
@@ -372,7 +372,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel>? url = null,
@@ -405,7 +405,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -430,7 +430,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(Document other)
         {
@@ -438,12 +438,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel?>.Default.Equals(Url, other.Url) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel?>.Default.Equals(File, other.File) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel?>.Default.Equals(Text, other.Text) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel?>.Default.Equals(Folder, other.Folder) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel?>.Default.Equals(Folder, other.Folder)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(Document obj1, Document obj2)
         {
@@ -451,7 +451,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(Document obj1, Document obj2)
         {
@@ -459,7 +459,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

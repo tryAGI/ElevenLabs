@@ -4,28 +4,28 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum WebhookEventType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Audio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CallInitiationFailure,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Transcript,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UnredactedAudio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UnredactedTranscript,
     }

@@ -4,76 +4,76 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Actor,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BillingGroupId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FiatChargeType,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FiatCurrency,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HashedXiApiKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Model,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ProductType,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Region,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReportingWorkspaceId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RequestQueueType,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RequestSource,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResourceId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SubresourceId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Surface,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UserId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceMultiplier,
     }

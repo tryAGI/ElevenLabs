@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum TurnMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Silence,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Turn,
     }

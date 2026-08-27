@@ -9,31 +9,31 @@ namespace ElevenLabs
     public enum MediaGenerationFailedResponseFailureReason
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ChargingFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DependencyFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InternalError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InvalidParameters,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ModelError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Moderated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Timeout,
     }

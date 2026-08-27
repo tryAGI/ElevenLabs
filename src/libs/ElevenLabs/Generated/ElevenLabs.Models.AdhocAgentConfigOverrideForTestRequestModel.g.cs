@@ -4,26 +4,26 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AdhocAgentConfigOverrideForTestRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.ConversationalConfigAPIModelInput ConversationConfig { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("platform_settings")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.AgentPlatformSettingsRequestModel PlatformSettings { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workflow")]
         public global::ElevenLabs.AgentWorkflowRequestModel? Workflow { get; set; }

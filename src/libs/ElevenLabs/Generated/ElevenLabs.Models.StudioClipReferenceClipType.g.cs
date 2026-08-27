@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum StudioClipReferenceClipType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ExternalAudio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Image,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TtsNode,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Video,
     }

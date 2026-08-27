@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum ListDubsOrderDirection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ascending,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Descending,
     }

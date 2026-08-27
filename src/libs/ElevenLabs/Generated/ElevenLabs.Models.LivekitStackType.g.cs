@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum LivekitStackType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Standard,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Static,
     }

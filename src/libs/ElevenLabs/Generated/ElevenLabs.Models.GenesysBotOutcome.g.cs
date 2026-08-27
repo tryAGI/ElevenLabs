@@ -12,11 +12,11 @@ namespace ElevenLabs
     public enum GenesysBotOutcome
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Escalate,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Success,
     }

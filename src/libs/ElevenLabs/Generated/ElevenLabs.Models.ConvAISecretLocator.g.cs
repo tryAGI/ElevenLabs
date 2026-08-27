@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ConvAISecretLocator
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("secret_id")]
         [global::System.Text.Json.Serialization.JsonRequired]

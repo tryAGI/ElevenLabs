@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum WorkflowToolResponseModelInputStepDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Edge,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MaxIterationsExceeded,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NestedTools,
     }

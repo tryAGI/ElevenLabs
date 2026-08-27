@@ -11,7 +11,7 @@ namespace ElevenLabs
     public sealed partial class ElevenLabsClient : global::ElevenLabs.IElevenLabsClient, global::System.IDisposable
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public const string DefaultBaseUrl = "https://api.elevenlabs.io/";
 
@@ -38,7 +38,7 @@ namespace ElevenLabs
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::ElevenLabs.SourceGenerationContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
@@ -84,7 +84,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AssetsClient Assets => new AssetsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -93,7 +93,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AudioIsolationClient AudioIsolation => new AudioIsolationClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -102,7 +102,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AudioNativeClient AudioNative => new AudioNativeClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -120,7 +120,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ConversationalAi2Client ConversationalAi2 => new ConversationalAi2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -129,7 +129,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DubbingClient Dubbing => new DubbingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -147,7 +147,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EnvironmentVariablesClient EnvironmentVariables => new EnvironmentVariablesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -156,7 +156,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public FlowsClient Flows => new FlowsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -165,7 +165,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ForcedAlignmentClient ForcedAlignment => new ForcedAlignmentClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -174,7 +174,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public HistoryClient History => new HistoryClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -192,7 +192,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MusicClient Music => new MusicClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -228,7 +228,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PronunciationDictionariesClient PronunciationDictionaries => new PronunciationDictionariesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -273,7 +273,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SpeechEngineClient SpeechEngine => new SpeechEngineClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -282,7 +282,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SpeechToSpeechClient SpeechToSpeech => new SpeechToSpeechClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -300,7 +300,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SpeechToText2Client SpeechToText2 => new SpeechToText2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -318,7 +318,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TextToDialogueClient TextToDialogue => new TextToDialogueClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -327,7 +327,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TextToSoundEffectsClient TextToSoundEffects => new TextToSoundEffectsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -336,7 +336,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TextToSpeechClient TextToSpeech => new TextToSpeechClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -354,7 +354,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TextToVoice2Client TextToVoice2 => new TextToVoice2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -363,7 +363,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public UserClient User => new UserClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -381,7 +381,7 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public WebhooksClient Webhooks => new WebhooksClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {

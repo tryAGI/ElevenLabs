@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum DefaultSharingGroupConfigPermissionLevel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Admin,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Editor,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Viewer,
     }

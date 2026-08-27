@@ -4,28 +4,28 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VoiceResponseModelSafetyControl2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ban,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Captcha,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EnterpriseBan,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EnterpriseCaptcha,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
     }

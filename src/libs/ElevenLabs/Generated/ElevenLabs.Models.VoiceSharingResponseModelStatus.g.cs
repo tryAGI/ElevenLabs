@@ -9,19 +9,19 @@ namespace ElevenLabs
     public enum VoiceSharingResponseModelStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Copied,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CopiedDisabled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Disabled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Enabled,
     }

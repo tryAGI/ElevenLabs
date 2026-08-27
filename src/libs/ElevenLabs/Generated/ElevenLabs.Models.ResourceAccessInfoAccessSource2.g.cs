@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ResourceAccessInfoAccessSource2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Creator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Explicit,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceAdmin,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceDefault,
     }

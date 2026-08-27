@@ -99,7 +99,7 @@ namespace ElevenLabs
         /// <param name="sortDirection">
         /// Sort direction (asc or desc)<br/>
         /// Default Value: desc
-        /// </param> 
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.MusicFinetuneResponseModel> ListAutoPagingAsync(

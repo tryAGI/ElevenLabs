@@ -9,31 +9,31 @@ namespace ElevenLabs
     public enum ReferencedToolCommonModelType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiIntegrationWebhook,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Client,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Code,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mcp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         System,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Webhook,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Workflow,
     }

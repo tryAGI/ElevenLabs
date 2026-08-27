@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SearchStrategy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Cat,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Keyword,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ls,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Semantic,
     }

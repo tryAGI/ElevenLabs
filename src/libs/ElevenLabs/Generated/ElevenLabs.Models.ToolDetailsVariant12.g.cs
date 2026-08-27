@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ToolDetailsVariant12 : global::System.IEquatable<ToolDetailsVariant12>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelOutputToolDetailsVariant1DiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails? Webhook { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Webhook))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsWebhook => Webhook != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickWebhook(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails PickWebhook() => IsWebhook
             ? Webhook!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Webhook' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? Client { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Client))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsClient => Client != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickClient(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails PickClient() => IsClient
             ? Client!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Client' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? Mcp { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Mcp))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsMcp => Mcp != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickMcp(
 #if NET6_0_OR_GREATER
@@ -119,14 +119,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails PickMcp() => IsMcp
             ? Mcp!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Mcp' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput? ApiIntegrationWebhook { get; init; }
@@ -135,7 +135,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ApiIntegrationWebhook))]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         public bool IsApiIntegrationWebhook => ApiIntegrationWebhook != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickApiIntegrationWebhook(
 #if NET6_0_OR_GREATER
@@ -156,23 +156,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput PickApiIntegrationWebhook() => IsApiIntegrationWebhook
             ? ApiIntegrationWebhook!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ApiIntegrationWebhook' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ToolDetailsVariant12(global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails value) => new ToolDetailsVariant12((global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails?(ToolDetailsVariant12 @this) => @this.Webhook;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ToolDetailsVariant12(global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails? value)
         {
@@ -180,22 +180,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ToolDetailsVariant12 FromWebhook(global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails? value) => new ToolDetailsVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ToolDetailsVariant12(global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails value) => new ToolDetailsVariant12((global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?(ToolDetailsVariant12 @this) => @this.Client;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ToolDetailsVariant12(global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? value)
         {
@@ -203,22 +203,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ToolDetailsVariant12 FromClient(global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? value) => new ToolDetailsVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ToolDetailsVariant12(global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails value) => new ToolDetailsVariant12((global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails?(ToolDetailsVariant12 @this) => @this.Mcp;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ToolDetailsVariant12(global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? value)
         {
@@ -226,22 +226,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ToolDetailsVariant12 FromMcp(global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? value) => new ToolDetailsVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ToolDetailsVariant12(global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput value) => new ToolDetailsVariant12((global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput?(ToolDetailsVariant12 @this) => @this.ApiIntegrationWebhook;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ToolDetailsVariant12(global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput? value)
         {
@@ -249,12 +249,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ToolDetailsVariant12 FromApiIntegrationWebhook(global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput? value) => new ToolDetailsVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ToolDetailsVariant12(
             global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelOutputToolDetailsVariant1DiscriminatorType? type,
@@ -273,27 +273,27 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             ApiIntegrationWebhook as object ??
             Mcp as object ??
             Client as object ??
-            Webhook as object 
+            Webhook as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Webhook?.ToString() ??
             Client?.ToString() ??
             Mcp?.ToString() ??
-            ApiIntegrationWebhook?.ToString() 
+            ApiIntegrationWebhook?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -301,7 +301,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails, TResult>? webhook = null,
@@ -336,7 +336,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails>? webhook = null,
@@ -372,7 +372,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails>? webhook = null,
@@ -405,7 +405,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -430,7 +430,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ToolDetailsVariant12 other)
         {
@@ -438,12 +438,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails?>.Default.Equals(Webhook, other.Webhook) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails?>.Default.Equals(Client, other.Client) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails?>.Default.Equals(Mcp, other.Mcp) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput?>.Default.Equals(ApiIntegrationWebhook, other.ApiIntegrationWebhook) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput?>.Default.Equals(ApiIntegrationWebhook, other.ApiIntegrationWebhook)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ToolDetailsVariant12 obj1, ToolDetailsVariant12 obj2)
         {
@@ -451,7 +451,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ToolDetailsVariant12 obj1, ToolDetailsVariant12 obj2)
         {
@@ -459,7 +459,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

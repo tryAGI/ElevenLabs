@@ -5,12 +5,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct MusicOutputFormat : global::System.IEquatable<MusicOutputFormat>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.MusicAllowedOutputFormats? AllowedFormats { get; init; }
@@ -19,7 +19,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AllowedFormats))]
@@ -27,7 +27,7 @@ namespace ElevenLabs
         public bool IsAllowedFormats => AllowedFormats != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickAllowedFormats(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.MusicAllowedOutputFormats PickAllowedFormats() => IsAllowedFormats
             ? AllowedFormats!.Value
             : throw new global::System.InvalidOperationException($"Expected union variant 'AllowedFormats' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public string? MusicOutputFormatVariant2 { get; init; }
@@ -56,7 +56,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MusicOutputFormatVariant2))]
@@ -64,7 +64,7 @@ namespace ElevenLabs
         public bool IsMusicOutputFormatVariant2 => MusicOutputFormatVariant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickMusicOutputFormatVariant2(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string PickMusicOutputFormatVariant2() => IsMusicOutputFormatVariant2
             ? MusicOutputFormatVariant2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'MusicOutputFormatVariant2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator MusicOutputFormat(global::ElevenLabs.MusicAllowedOutputFormats value) => new MusicOutputFormat((global::ElevenLabs.MusicAllowedOutputFormats?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.MusicAllowedOutputFormats?(MusicOutputFormat @this) => @this.AllowedFormats;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MusicOutputFormat(global::ElevenLabs.MusicAllowedOutputFormats? value)
         {
@@ -101,22 +101,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static MusicOutputFormat FromAllowedFormats(global::ElevenLabs.MusicAllowedOutputFormats? value) => new MusicOutputFormat(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator MusicOutputFormat(string value) => new MusicOutputFormat((string?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator string?(MusicOutputFormat @this) => @this.MusicOutputFormatVariant2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MusicOutputFormat(string? value)
         {
@@ -124,12 +124,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static MusicOutputFormat FromMusicOutputFormatVariant2(string? value) => new MusicOutputFormat(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MusicOutputFormat(
             global::ElevenLabs.MusicAllowedOutputFormats? allowedFormats,
@@ -141,23 +141,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             MusicOutputFormatVariant2 as object ??
-            AllowedFormats as object 
+            AllowedFormats as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             AllowedFormats?.ToString() ??
-            MusicOutputFormatVariant2?.ToString() 
+            MusicOutputFormatVariant2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.MusicAllowedOutputFormats?, TResult>? allowedFormats = null,
@@ -190,7 +190,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.MusicAllowedOutputFormats?>? allowedFormats = null,
@@ -214,7 +214,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.MusicAllowedOutputFormats?>? allowedFormats = null,
@@ -237,7 +237,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(MusicOutputFormat other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MusicAllowedOutputFormats?>.Default.Equals(AllowedFormats, other.AllowedFormats) &&
-                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(MusicOutputFormatVariant2, other.MusicOutputFormatVariant2) 
+                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(MusicOutputFormatVariant2, other.MusicOutputFormatVariant2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(MusicOutputFormat obj1, MusicOutputFormat obj2)
         {
@@ -277,7 +277,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(MusicOutputFormat obj1, MusicOutputFormat obj2)
         {
@@ -285,7 +285,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

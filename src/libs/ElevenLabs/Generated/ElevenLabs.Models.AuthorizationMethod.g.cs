@@ -9,51 +9,51 @@ namespace ElevenLabs
     public enum AuthorizationMethod
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudiocodesApiKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AuthorizationHeader,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AvayaApiKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GenesysApiKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Invalid,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LivekitToken,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LivekitTokenWebsite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Public,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ShareableLink,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SignedUrl,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sms,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Whatsapp,
     }

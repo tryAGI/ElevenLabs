@@ -9,31 +9,31 @@ namespace ElevenLabs
     public enum TTSOutputFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm16000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm22050,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm24000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm44100,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm48000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm8000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ulaw8000,
     }

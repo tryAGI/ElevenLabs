@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum EndProcedureToolErrorStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InvalidId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NotFound,
     }

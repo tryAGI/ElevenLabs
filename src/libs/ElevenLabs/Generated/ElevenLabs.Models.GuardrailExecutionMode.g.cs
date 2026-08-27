@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum GuardrailExecutionMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Blocking,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Streaming,
     }

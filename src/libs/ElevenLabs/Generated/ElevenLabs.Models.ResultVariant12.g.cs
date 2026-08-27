@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ResultVariant12 : global::System.IEquatable<ResultVariant12>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType? ResultType { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.EndCallToolResultModel? EndCallSuccess { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EndCallSuccess))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsEndCallSuccess => EndCallSuccess != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickEndCallSuccess(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.EndCallToolResultModel PickEndCallSuccess() => IsEndCallSuccess
             ? EndCallSuccess!
             : throw new global::System.InvalidOperationException($"Expected union variant 'EndCallSuccess' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.LanguageDetectionToolResultModel? LanguageDetectionSuccess { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LanguageDetectionSuccess))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsLanguageDetectionSuccess => LanguageDetectionSuccess != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickLanguageDetectionSuccess(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.LanguageDetectionToolResultModel PickLanguageDetectionSuccess() => IsLanguageDetectionSuccess
             ? LanguageDetectionSuccess!
             : throw new global::System.InvalidOperationException($"Expected union variant 'LanguageDetectionSuccess' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput? TransferToAgentSuccess { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToAgentSuccess))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsTransferToAgentSuccess => TransferToAgentSuccess != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTransferToAgentSuccess(
 #if NET6_0_OR_GREATER
@@ -119,14 +119,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput PickTransferToAgentSuccess() => IsTransferToAgentSuccess
             ? TransferToAgentSuccess!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToAgentSuccess' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToAgentToolResultErrorModel? TransferToAgentError { get; init; }
@@ -135,7 +135,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToAgentError))]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         public bool IsTransferToAgentError => TransferToAgentError != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTransferToAgentError(
 #if NET6_0_OR_GREATER
@@ -156,14 +156,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TransferToAgentToolResultErrorModel PickTransferToAgentError() => IsTransferToAgentError
             ? TransferToAgentError!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToAgentError' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToNumberResultTwilioSuccessModel? TransferToNumberTwilioSuccess { get; init; }
@@ -172,7 +172,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumberTwilioSuccess))]
@@ -180,7 +180,7 @@ namespace ElevenLabs
         public bool IsTransferToNumberTwilioSuccess => TransferToNumberTwilioSuccess != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTransferToNumberTwilioSuccess(
 #if NET6_0_OR_GREATER
@@ -193,14 +193,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TransferToNumberResultTwilioSuccessModel PickTransferToNumberTwilioSuccess() => IsTransferToNumberTwilioSuccess
             ? TransferToNumberTwilioSuccess!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToNumberTwilioSuccess' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToNumberResultSipSuccessModel? TransferToNumberSipSuccess { get; init; }
@@ -209,7 +209,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumberSipSuccess))]
@@ -217,7 +217,7 @@ namespace ElevenLabs
         public bool IsTransferToNumberSipSuccess => TransferToNumberSipSuccess != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTransferToNumberSipSuccess(
 #if NET6_0_OR_GREATER
@@ -230,14 +230,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TransferToNumberResultSipSuccessModel PickTransferToNumberSipSuccess() => IsTransferToNumberSipSuccess
             ? TransferToNumberSipSuccess!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToNumberSipSuccess' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToNumberResultExotelSuccessModel? TransferToNumberExotelSuccess { get; init; }
@@ -246,7 +246,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumberExotelSuccess))]
@@ -254,7 +254,7 @@ namespace ElevenLabs
         public bool IsTransferToNumberExotelSuccess => TransferToNumberExotelSuccess != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTransferToNumberExotelSuccess(
 #if NET6_0_OR_GREATER
@@ -267,14 +267,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TransferToNumberResultExotelSuccessModel PickTransferToNumberExotelSuccess() => IsTransferToNumberExotelSuccess
             ? TransferToNumberExotelSuccess!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToNumberExotelSuccess' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToNumberResultErrorModel? TransferToNumberError { get; init; }
@@ -283,7 +283,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumberError))]
@@ -291,7 +291,7 @@ namespace ElevenLabs
         public bool IsTransferToNumberError => TransferToNumberError != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTransferToNumberError(
 #if NET6_0_OR_GREATER
@@ -304,14 +304,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TransferToNumberResultErrorModel PickTransferToNumberError() => IsTransferToNumberError
             ? TransferToNumberError!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToNumberError' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SkipTurnToolResponseModel? SkipTurnSuccess { get; init; }
@@ -320,7 +320,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SkipTurnSuccess))]
@@ -328,7 +328,7 @@ namespace ElevenLabs
         public bool IsSkipTurnSuccess => SkipTurnSuccess != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSkipTurnSuccess(
 #if NET6_0_OR_GREATER
@@ -341,14 +341,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SkipTurnToolResponseModel PickSkipTurnSuccess() => IsSkipTurnSuccess
             ? SkipTurnSuccess!
             : throw new global::System.InvalidOperationException($"Expected union variant 'SkipTurnSuccess' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.PlayDTMFResultSuccessModel? PlayDtmfSuccess { get; init; }
@@ -357,7 +357,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PlayDtmfSuccess))]
@@ -365,7 +365,7 @@ namespace ElevenLabs
         public bool IsPlayDtmfSuccess => PlayDtmfSuccess != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickPlayDtmfSuccess(
 #if NET6_0_OR_GREATER
@@ -378,14 +378,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PlayDTMFResultSuccessModel PickPlayDtmfSuccess() => IsPlayDtmfSuccess
             ? PlayDtmfSuccess!
             : throw new global::System.InvalidOperationException($"Expected union variant 'PlayDtmfSuccess' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.PlayDTMFResultErrorModel? PlayDtmfError { get; init; }
@@ -394,7 +394,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PlayDtmfError))]
@@ -402,7 +402,7 @@ namespace ElevenLabs
         public bool IsPlayDtmfError => PlayDtmfError != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickPlayDtmfError(
 #if NET6_0_OR_GREATER
@@ -415,14 +415,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PlayDTMFResultErrorModel PickPlayDtmfError() => IsPlayDtmfError
             ? PlayDtmfError!
             : throw new global::System.InvalidOperationException($"Expected union variant 'PlayDtmfError' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.VoiceMailDetectionResultSuccessModel? VoicemailDetectionSuccess { get; init; }
@@ -431,7 +431,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VoicemailDetectionSuccess))]
@@ -439,7 +439,7 @@ namespace ElevenLabs
         public bool IsVoicemailDetectionSuccess => VoicemailDetectionSuccess != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickVoicemailDetectionSuccess(
 #if NET6_0_OR_GREATER
@@ -452,14 +452,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.VoiceMailDetectionResultSuccessModel PickVoicemailDetectionSuccess() => IsVoicemailDetectionSuccess
             ? VoicemailDetectionSuccess!
             : throw new global::System.InvalidOperationException($"Expected union variant 'VoicemailDetectionSuccess' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TestToolResultModel? TestingToolResult { get; init; }
@@ -468,7 +468,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TestingToolResult))]
@@ -476,7 +476,7 @@ namespace ElevenLabs
         public bool IsTestingToolResult => TestingToolResult != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTestingToolResult(
 #if NET6_0_OR_GREATER
@@ -489,14 +489,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TestToolResultModel PickTestingToolResult() => IsTestingToolResult
             ? TestingToolResult!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TestingToolResult' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.KnowledgeBaseRagToolResultModel? KnowledgeBaseRagSuccess { get; init; }
@@ -505,7 +505,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(KnowledgeBaseRagSuccess))]
@@ -513,7 +513,7 @@ namespace ElevenLabs
         public bool IsKnowledgeBaseRagSuccess => KnowledgeBaseRagSuccess != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickKnowledgeBaseRagSuccess(
 #if NET6_0_OR_GREATER
@@ -526,14 +526,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.KnowledgeBaseRagToolResultModel PickKnowledgeBaseRagSuccess() => IsKnowledgeBaseRagSuccess
             ? KnowledgeBaseRagSuccess!
             : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeBaseRagSuccess' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.KnowledgeBaseToolResultModel? KnowledgeBaseSuccess { get; init; }
@@ -542,7 +542,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(KnowledgeBaseSuccess))]
@@ -550,7 +550,7 @@ namespace ElevenLabs
         public bool IsKnowledgeBaseSuccess => KnowledgeBaseSuccess != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickKnowledgeBaseSuccess(
 #if NET6_0_OR_GREATER
@@ -563,14 +563,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.KnowledgeBaseToolResultModel PickKnowledgeBaseSuccess() => IsKnowledgeBaseSuccess
             ? KnowledgeBaseSuccess!
             : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeBaseSuccess' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DummyToolResultModel? Dummy { get; init; }
@@ -579,7 +579,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Dummy))]
@@ -587,7 +587,7 @@ namespace ElevenLabs
         public bool IsDummy => Dummy != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDummy(
 #if NET6_0_OR_GREATER
@@ -600,23 +600,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DummyToolResultModel PickDummy() => IsDummy
             ? Dummy!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Dummy' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.EndCallToolResultModel value) => new ResultVariant12((global::ElevenLabs.EndCallToolResultModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.EndCallToolResultModel?(ResultVariant12 @this) => @this.EndCallSuccess;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.EndCallToolResultModel? value)
         {
@@ -624,22 +624,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromEndCallSuccess(global::ElevenLabs.EndCallToolResultModel? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.LanguageDetectionToolResultModel value) => new ResultVariant12((global::ElevenLabs.LanguageDetectionToolResultModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.LanguageDetectionToolResultModel?(ResultVariant12 @this) => @this.LanguageDetectionSuccess;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.LanguageDetectionToolResultModel? value)
         {
@@ -647,22 +647,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromLanguageDetectionSuccess(global::ElevenLabs.LanguageDetectionToolResultModel? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput value) => new ResultVariant12((global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput?(ResultVariant12 @this) => @this.TransferToAgentSuccess;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput? value)
         {
@@ -670,22 +670,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromTransferToAgentSuccess(global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.TransferToAgentToolResultErrorModel value) => new ResultVariant12((global::ElevenLabs.TransferToAgentToolResultErrorModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TransferToAgentToolResultErrorModel?(ResultVariant12 @this) => @this.TransferToAgentError;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.TransferToAgentToolResultErrorModel? value)
         {
@@ -693,22 +693,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromTransferToAgentError(global::ElevenLabs.TransferToAgentToolResultErrorModel? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.TransferToNumberResultTwilioSuccessModel value) => new ResultVariant12((global::ElevenLabs.TransferToNumberResultTwilioSuccessModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TransferToNumberResultTwilioSuccessModel?(ResultVariant12 @this) => @this.TransferToNumberTwilioSuccess;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.TransferToNumberResultTwilioSuccessModel? value)
         {
@@ -716,22 +716,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromTransferToNumberTwilioSuccess(global::ElevenLabs.TransferToNumberResultTwilioSuccessModel? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.TransferToNumberResultSipSuccessModel value) => new ResultVariant12((global::ElevenLabs.TransferToNumberResultSipSuccessModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TransferToNumberResultSipSuccessModel?(ResultVariant12 @this) => @this.TransferToNumberSipSuccess;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.TransferToNumberResultSipSuccessModel? value)
         {
@@ -739,22 +739,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromTransferToNumberSipSuccess(global::ElevenLabs.TransferToNumberResultSipSuccessModel? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.TransferToNumberResultExotelSuccessModel value) => new ResultVariant12((global::ElevenLabs.TransferToNumberResultExotelSuccessModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TransferToNumberResultExotelSuccessModel?(ResultVariant12 @this) => @this.TransferToNumberExotelSuccess;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.TransferToNumberResultExotelSuccessModel? value)
         {
@@ -762,22 +762,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromTransferToNumberExotelSuccess(global::ElevenLabs.TransferToNumberResultExotelSuccessModel? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.TransferToNumberResultErrorModel value) => new ResultVariant12((global::ElevenLabs.TransferToNumberResultErrorModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TransferToNumberResultErrorModel?(ResultVariant12 @this) => @this.TransferToNumberError;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.TransferToNumberResultErrorModel? value)
         {
@@ -785,22 +785,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromTransferToNumberError(global::ElevenLabs.TransferToNumberResultErrorModel? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.SkipTurnToolResponseModel value) => new ResultVariant12((global::ElevenLabs.SkipTurnToolResponseModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SkipTurnToolResponseModel?(ResultVariant12 @this) => @this.SkipTurnSuccess;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.SkipTurnToolResponseModel? value)
         {
@@ -808,22 +808,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromSkipTurnSuccess(global::ElevenLabs.SkipTurnToolResponseModel? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.PlayDTMFResultSuccessModel value) => new ResultVariant12((global::ElevenLabs.PlayDTMFResultSuccessModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.PlayDTMFResultSuccessModel?(ResultVariant12 @this) => @this.PlayDtmfSuccess;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.PlayDTMFResultSuccessModel? value)
         {
@@ -831,22 +831,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromPlayDtmfSuccess(global::ElevenLabs.PlayDTMFResultSuccessModel? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.PlayDTMFResultErrorModel value) => new ResultVariant12((global::ElevenLabs.PlayDTMFResultErrorModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.PlayDTMFResultErrorModel?(ResultVariant12 @this) => @this.PlayDtmfError;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.PlayDTMFResultErrorModel? value)
         {
@@ -854,22 +854,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromPlayDtmfError(global::ElevenLabs.PlayDTMFResultErrorModel? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.VoiceMailDetectionResultSuccessModel value) => new ResultVariant12((global::ElevenLabs.VoiceMailDetectionResultSuccessModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.VoiceMailDetectionResultSuccessModel?(ResultVariant12 @this) => @this.VoicemailDetectionSuccess;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.VoiceMailDetectionResultSuccessModel? value)
         {
@@ -877,22 +877,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromVoicemailDetectionSuccess(global::ElevenLabs.VoiceMailDetectionResultSuccessModel? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.TestToolResultModel value) => new ResultVariant12((global::ElevenLabs.TestToolResultModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TestToolResultModel?(ResultVariant12 @this) => @this.TestingToolResult;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.TestToolResultModel? value)
         {
@@ -900,22 +900,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromTestingToolResult(global::ElevenLabs.TestToolResultModel? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.KnowledgeBaseRagToolResultModel value) => new ResultVariant12((global::ElevenLabs.KnowledgeBaseRagToolResultModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.KnowledgeBaseRagToolResultModel?(ResultVariant12 @this) => @this.KnowledgeBaseRagSuccess;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.KnowledgeBaseRagToolResultModel? value)
         {
@@ -923,22 +923,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromKnowledgeBaseRagSuccess(global::ElevenLabs.KnowledgeBaseRagToolResultModel? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.KnowledgeBaseToolResultModel value) => new ResultVariant12((global::ElevenLabs.KnowledgeBaseToolResultModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.KnowledgeBaseToolResultModel?(ResultVariant12 @this) => @this.KnowledgeBaseSuccess;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.KnowledgeBaseToolResultModel? value)
         {
@@ -946,22 +946,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromKnowledgeBaseSuccess(global::ElevenLabs.KnowledgeBaseToolResultModel? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultVariant12(global::ElevenLabs.DummyToolResultModel value) => new ResultVariant12((global::ElevenLabs.DummyToolResultModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DummyToolResultModel?(ResultVariant12 @this) => @this.Dummy;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(global::ElevenLabs.DummyToolResultModel? value)
         {
@@ -969,12 +969,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultVariant12 FromDummy(global::ElevenLabs.DummyToolResultModel? value) => new ResultVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultVariant12(
             global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType? resultType,
@@ -1017,7 +1017,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Dummy as object ??
@@ -1035,11 +1035,11 @@ namespace ElevenLabs
             TransferToAgentError as object ??
             TransferToAgentSuccess as object ??
             LanguageDetectionSuccess as object ??
-            EndCallSuccess as object 
+            EndCallSuccess as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             EndCallSuccess?.ToString() ??
@@ -1057,11 +1057,11 @@ namespace ElevenLabs
             TestingToolResult?.ToString() ??
             KnowledgeBaseRagSuccess?.ToString() ??
             KnowledgeBaseSuccess?.ToString() ??
-            Dummy?.ToString() 
+            Dummy?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -1069,7 +1069,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.EndCallToolResultModel, TResult>? endCallSuccess = null,
@@ -1164,7 +1164,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.EndCallToolResultModel>? endCallSuccess = null,
@@ -1272,7 +1272,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.EndCallToolResultModel>? endCallSuccess = null,
@@ -1365,7 +1365,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -1414,7 +1414,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ResultVariant12 other)
         {
@@ -1434,12 +1434,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TestToolResultModel?>.Default.Equals(TestingToolResult, other.TestingToolResult) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.KnowledgeBaseRagToolResultModel?>.Default.Equals(KnowledgeBaseRagSuccess, other.KnowledgeBaseRagSuccess) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.KnowledgeBaseToolResultModel?>.Default.Equals(KnowledgeBaseSuccess, other.KnowledgeBaseSuccess) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DummyToolResultModel?>.Default.Equals(Dummy, other.Dummy) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DummyToolResultModel?>.Default.Equals(Dummy, other.Dummy)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ResultVariant12 obj1, ResultVariant12 obj2)
         {
@@ -1447,7 +1447,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ResultVariant12 obj1, ResultVariant12 obj2)
         {
@@ -1455,7 +1455,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

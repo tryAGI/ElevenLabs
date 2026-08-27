@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AgentDeploymentRequestItem
     {
@@ -16,7 +16,7 @@ namespace ElevenLabs
         public required string BranchId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deployment_strategy")]
         [global::System.Text.Json.Serialization.JsonRequired]

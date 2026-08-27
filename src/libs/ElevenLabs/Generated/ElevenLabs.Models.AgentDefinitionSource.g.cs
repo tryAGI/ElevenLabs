@@ -9,23 +9,23 @@ namespace ElevenLabs
     public enum AgentDefinitionSource
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Api,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Cli,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Template,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ui,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unknown,
     }

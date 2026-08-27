@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ConflictSection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConversationConfig,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PlatformSettings,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Procedures,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Workflow,
     }

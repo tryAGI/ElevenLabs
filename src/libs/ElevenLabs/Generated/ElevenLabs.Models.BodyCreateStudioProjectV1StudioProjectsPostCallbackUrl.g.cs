@@ -56,7 +56,7 @@ namespace ElevenLabs
     ///         error_details: "Error details if conversion failed"<br/>
     ///       }<br/>
     ///     }<br/>
-    ///     
+    ///
     /// </summary>
     public sealed partial class BodyCreateStudioProjectV1StudioProjectsPostCallbackUrl
     {

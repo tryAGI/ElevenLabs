@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum MusicGenerationMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ambience,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Loop,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Track,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VideoToMusic,
     }

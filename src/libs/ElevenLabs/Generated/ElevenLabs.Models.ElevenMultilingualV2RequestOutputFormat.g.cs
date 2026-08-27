@@ -10,31 +10,31 @@ namespace ElevenLabs
     public enum ElevenMultilingualV2RequestOutputFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp32205032,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp32400048,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp344100128,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp344100192,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp34410032,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp34410064,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp34410096,
     }

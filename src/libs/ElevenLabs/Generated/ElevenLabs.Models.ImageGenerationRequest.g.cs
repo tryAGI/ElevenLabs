@@ -5,12 +5,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ImageGenerationRequest : global::System.IEquatable<ImageGenerationRequest>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ImageGenerationRequestDiscriminatorModelId? ModelId { get; }
 
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GptImage1))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsGptImage1 => GptImage1 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGptImage1(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GPTImage1Request PickGptImage1() => IsGptImage1
             ? GptImage1!
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GptImage15))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsGptImage15 => GptImage15 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGptImage15(
 #if NET6_0_OR_GREATER
@@ -82,7 +82,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GPTImage15Request PickGptImage15() => IsGptImage15
             ? GptImage15!
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GptImage2))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsGptImage2 => GptImage2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGptImage2(
 #if NET6_0_OR_GREATER
@@ -119,7 +119,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GPTImage2Request PickGptImage2() => IsGptImage2
             ? GptImage2!
@@ -135,7 +135,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Gemini25FlashImage))]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         public bool IsGemini25FlashImage => Gemini25FlashImage != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGemini25FlashImage(
 #if NET6_0_OR_GREATER
@@ -156,7 +156,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.Gemini25FlashImageRequest PickGemini25FlashImage() => IsGemini25FlashImage
             ? Gemini25FlashImage!
@@ -172,7 +172,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Gemini3ProImage))]
@@ -180,7 +180,7 @@ namespace ElevenLabs
         public bool IsGemini3ProImage => Gemini3ProImage != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGemini3ProImage(
 #if NET6_0_OR_GREATER
@@ -193,7 +193,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.Gemini3ProImageRequest PickGemini3ProImage() => IsGemini3ProImage
             ? Gemini3ProImage!
@@ -209,7 +209,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Gemini31FlashImage))]
@@ -217,7 +217,7 @@ namespace ElevenLabs
         public bool IsGemini31FlashImage => Gemini31FlashImage != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGemini31FlashImage(
 #if NET6_0_OR_GREATER
@@ -230,7 +230,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.Gemini31FlashImageRequest PickGemini31FlashImage() => IsGemini31FlashImage
             ? Gemini31FlashImage!
@@ -246,7 +246,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Gemini31FlashLiteImage))]
@@ -254,7 +254,7 @@ namespace ElevenLabs
         public bool IsGemini31FlashLiteImage => Gemini31FlashLiteImage != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGemini31FlashLiteImage(
 #if NET6_0_OR_GREATER
@@ -267,7 +267,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.Gemini31FlashLiteImageRequest PickGemini31FlashLiteImage() => IsGemini31FlashLiteImage
             ? Gemini31FlashLiteImage!
@@ -285,7 +285,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(BytedanceSeedream5Lite))]
@@ -293,7 +293,7 @@ namespace ElevenLabs
         public bool IsBytedanceSeedream5Lite => BytedanceSeedream5Lite != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickBytedanceSeedream5Lite(
 #if NET6_0_OR_GREATER
@@ -306,7 +306,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.BytedanceSeedream5LiteRequest PickBytedanceSeedream5Lite() => IsBytedanceSeedream5Lite
             ? BytedanceSeedream5Lite!
@@ -324,7 +324,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(BytedanceSeedream5Pro))]
@@ -332,7 +332,7 @@ namespace ElevenLabs
         public bool IsBytedanceSeedream5Pro => BytedanceSeedream5Pro != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickBytedanceSeedream5Pro(
 #if NET6_0_OR_GREATER
@@ -345,23 +345,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.BytedanceSeedream5ProRequest PickBytedanceSeedream5Pro() => IsBytedanceSeedream5Pro
             ? BytedanceSeedream5Pro!
             : throw new global::System.InvalidOperationException($"Expected union variant 'BytedanceSeedream5Pro' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ImageGenerationRequest(global::ElevenLabs.GPTImage1Request value) => new ImageGenerationRequest((global::ElevenLabs.GPTImage1Request?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GPTImage1Request?(ImageGenerationRequest @this) => @this.GptImage1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageGenerationRequest(global::ElevenLabs.GPTImage1Request? value)
         {
@@ -369,22 +369,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ImageGenerationRequest FromGptImage1(global::ElevenLabs.GPTImage1Request? value) => new ImageGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ImageGenerationRequest(global::ElevenLabs.GPTImage15Request value) => new ImageGenerationRequest((global::ElevenLabs.GPTImage15Request?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GPTImage15Request?(ImageGenerationRequest @this) => @this.GptImage15;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageGenerationRequest(global::ElevenLabs.GPTImage15Request? value)
         {
@@ -392,22 +392,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ImageGenerationRequest FromGptImage15(global::ElevenLabs.GPTImage15Request? value) => new ImageGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ImageGenerationRequest(global::ElevenLabs.GPTImage2Request value) => new ImageGenerationRequest((global::ElevenLabs.GPTImage2Request?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GPTImage2Request?(ImageGenerationRequest @this) => @this.GptImage2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageGenerationRequest(global::ElevenLabs.GPTImage2Request? value)
         {
@@ -415,22 +415,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ImageGenerationRequest FromGptImage2(global::ElevenLabs.GPTImage2Request? value) => new ImageGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ImageGenerationRequest(global::ElevenLabs.Gemini25FlashImageRequest value) => new ImageGenerationRequest((global::ElevenLabs.Gemini25FlashImageRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.Gemini25FlashImageRequest?(ImageGenerationRequest @this) => @this.Gemini25FlashImage;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageGenerationRequest(global::ElevenLabs.Gemini25FlashImageRequest? value)
         {
@@ -438,22 +438,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ImageGenerationRequest FromGemini25FlashImage(global::ElevenLabs.Gemini25FlashImageRequest? value) => new ImageGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ImageGenerationRequest(global::ElevenLabs.Gemini3ProImageRequest value) => new ImageGenerationRequest((global::ElevenLabs.Gemini3ProImageRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.Gemini3ProImageRequest?(ImageGenerationRequest @this) => @this.Gemini3ProImage;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageGenerationRequest(global::ElevenLabs.Gemini3ProImageRequest? value)
         {
@@ -461,22 +461,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ImageGenerationRequest FromGemini3ProImage(global::ElevenLabs.Gemini3ProImageRequest? value) => new ImageGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ImageGenerationRequest(global::ElevenLabs.Gemini31FlashImageRequest value) => new ImageGenerationRequest((global::ElevenLabs.Gemini31FlashImageRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.Gemini31FlashImageRequest?(ImageGenerationRequest @this) => @this.Gemini31FlashImage;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageGenerationRequest(global::ElevenLabs.Gemini31FlashImageRequest? value)
         {
@@ -484,22 +484,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ImageGenerationRequest FromGemini31FlashImage(global::ElevenLabs.Gemini31FlashImageRequest? value) => new ImageGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ImageGenerationRequest(global::ElevenLabs.Gemini31FlashLiteImageRequest value) => new ImageGenerationRequest((global::ElevenLabs.Gemini31FlashLiteImageRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.Gemini31FlashLiteImageRequest?(ImageGenerationRequest @this) => @this.Gemini31FlashLiteImage;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageGenerationRequest(global::ElevenLabs.Gemini31FlashLiteImageRequest? value)
         {
@@ -507,22 +507,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ImageGenerationRequest FromGemini31FlashLiteImage(global::ElevenLabs.Gemini31FlashLiteImageRequest? value) => new ImageGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ImageGenerationRequest(global::ElevenLabs.BytedanceSeedream5LiteRequest value) => new ImageGenerationRequest((global::ElevenLabs.BytedanceSeedream5LiteRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.BytedanceSeedream5LiteRequest?(ImageGenerationRequest @this) => @this.BytedanceSeedream5Lite;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageGenerationRequest(global::ElevenLabs.BytedanceSeedream5LiteRequest? value)
         {
@@ -530,22 +530,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ImageGenerationRequest FromBytedanceSeedream5Lite(global::ElevenLabs.BytedanceSeedream5LiteRequest? value) => new ImageGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ImageGenerationRequest(global::ElevenLabs.BytedanceSeedream5ProRequest value) => new ImageGenerationRequest((global::ElevenLabs.BytedanceSeedream5ProRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.BytedanceSeedream5ProRequest?(ImageGenerationRequest @this) => @this.BytedanceSeedream5Pro;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageGenerationRequest(global::ElevenLabs.BytedanceSeedream5ProRequest? value)
         {
@@ -553,12 +553,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ImageGenerationRequest FromBytedanceSeedream5Pro(global::ElevenLabs.BytedanceSeedream5ProRequest? value) => new ImageGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageGenerationRequest(
             global::ElevenLabs.ImageGenerationRequestDiscriminatorModelId? modelId,
@@ -587,7 +587,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             BytedanceSeedream5Pro as object ??
@@ -598,11 +598,11 @@ namespace ElevenLabs
             Gemini25FlashImage as object ??
             GptImage2 as object ??
             GptImage15 as object ??
-            GptImage1 as object 
+            GptImage1 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             GptImage1?.ToString() ??
@@ -613,11 +613,11 @@ namespace ElevenLabs
             Gemini31FlashImage?.ToString() ??
             Gemini31FlashLiteImage?.ToString() ??
             BytedanceSeedream5Lite?.ToString() ??
-            BytedanceSeedream5Pro?.ToString() 
+            BytedanceSeedream5Pro?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -625,7 +625,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.GPTImage1Request, TResult>? gptImage1 = null,
@@ -685,7 +685,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.GPTImage1Request>? gptImage1 = null,
@@ -751,7 +751,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.GPTImage1Request>? gptImage1 = null,
@@ -809,7 +809,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -844,7 +844,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ImageGenerationRequest other)
         {
@@ -857,12 +857,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.Gemini31FlashImageRequest?>.Default.Equals(Gemini31FlashImage, other.Gemini31FlashImage) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.Gemini31FlashLiteImageRequest?>.Default.Equals(Gemini31FlashLiteImage, other.Gemini31FlashLiteImage) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BytedanceSeedream5LiteRequest?>.Default.Equals(BytedanceSeedream5Lite, other.BytedanceSeedream5Lite) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BytedanceSeedream5ProRequest?>.Default.Equals(BytedanceSeedream5Pro, other.BytedanceSeedream5Pro) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BytedanceSeedream5ProRequest?>.Default.Equals(BytedanceSeedream5Pro, other.BytedanceSeedream5Pro)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ImageGenerationRequest obj1, ImageGenerationRequest obj2)
         {
@@ -870,7 +870,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ImageGenerationRequest obj1, ImageGenerationRequest obj2)
         {
@@ -878,7 +878,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

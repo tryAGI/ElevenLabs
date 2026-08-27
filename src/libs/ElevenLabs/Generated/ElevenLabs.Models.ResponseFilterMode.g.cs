@@ -10,15 +10,15 @@ namespace ElevenLabs
     public enum ResponseFilterMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         All,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Allow,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HideAll,
     }

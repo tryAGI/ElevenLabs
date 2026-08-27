@@ -4,66 +4,66 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConversationUserResponseModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string UserId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_contact_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int LastContactUnixSecs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("first_contact_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int FirstContactUnixSecs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int ConversationCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_contact_agent_id")]
         public string? LastContactAgentId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_contact_conversation_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string LastContactConversationId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_contact_agent_name")]
         public string? LastContactAgentName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sentiment")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.SentimentAggregate Sentiment { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("most_frustrated_conversations")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.FrustratedConversationRef>? MostFrustratedConversations { get; set; }

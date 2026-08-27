@@ -4,28 +4,28 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VoiceResponseModelRecordingQuality2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Bad,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Good,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ok,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Poor,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Studio,
     }

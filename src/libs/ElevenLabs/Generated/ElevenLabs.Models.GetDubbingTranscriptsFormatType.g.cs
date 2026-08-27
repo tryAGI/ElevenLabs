@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum GetDubbingTranscriptsFormatType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Json,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Srt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Webvtt,
     }

@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RegexParameterEvaluationStrategy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"regex"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]

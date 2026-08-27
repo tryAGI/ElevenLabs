@@ -4,40 +4,40 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum WebhookUsageType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AgentQaEvaluations,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvAIAgentSettings,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvAIAlerting,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvAISettings,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dubbing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Flows,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechToText,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceLibraryRemovalNotices,
     }

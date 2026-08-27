@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum WhatsAppConversationInfoDirection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Inbound,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Outbound,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unknown,
     }

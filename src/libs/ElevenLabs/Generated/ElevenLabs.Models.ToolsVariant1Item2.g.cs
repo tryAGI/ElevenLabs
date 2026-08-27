@@ -10,7 +10,7 @@ namespace ElevenLabs
     public readonly partial struct ToolsVariant1Item2 : global::System.IEquatable<ToolsVariant1Item2>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PromptAgentAPIModelWorkflowOverrideOutputToolsVariant1ItemDiscriminatorType? Type { get; }
 
@@ -25,7 +25,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Webhook))]
@@ -33,7 +33,7 @@ namespace ElevenLabs
         public bool IsWebhook => Webhook != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickWebhook(
 #if NET6_0_OR_GREATER
@@ -46,7 +46,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WebhookToolConfigOutput PickWebhook() => IsWebhook
             ? Webhook!
@@ -63,7 +63,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Client))]
@@ -71,7 +71,7 @@ namespace ElevenLabs
         public bool IsClient => Client != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickClient(
 #if NET6_0_OR_GREATER
@@ -84,7 +84,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ClientToolConfigOutput PickClient() => IsClient
             ? Client!
@@ -100,7 +100,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(System))]
@@ -108,7 +108,7 @@ namespace ElevenLabs
         public bool IsSystem => System != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSystem(
 #if NET6_0_OR_GREATER
@@ -121,7 +121,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SystemToolConfigOutput PickSystem() => IsSystem
             ? System!
@@ -137,7 +137,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Mcp))]
@@ -145,7 +145,7 @@ namespace ElevenLabs
         public bool IsMcp => Mcp != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickMcp(
 #if NET6_0_OR_GREATER
@@ -158,14 +158,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.MCPToolConfigOutput PickMcp() => IsMcp
             ? Mcp!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Mcp' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput? ApiIntegrationWebhook { get; init; }
@@ -174,7 +174,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ApiIntegrationWebhook))]
@@ -182,7 +182,7 @@ namespace ElevenLabs
         public bool IsApiIntegrationWebhook => ApiIntegrationWebhook != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickApiIntegrationWebhook(
 #if NET6_0_OR_GREATER
@@ -195,7 +195,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput PickApiIntegrationWebhook() => IsApiIntegrationWebhook
             ? ApiIntegrationWebhook!
@@ -211,7 +211,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Smb))]
@@ -219,7 +219,7 @@ namespace ElevenLabs
         public bool IsSmb => Smb != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSmb(
 #if NET6_0_OR_GREATER
@@ -232,23 +232,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SMBToolConfig PickSmb() => IsSmb
             ? Smb!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Smb' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ToolsVariant1Item2(global::ElevenLabs.WebhookToolConfigOutput value) => new ToolsVariant1Item2((global::ElevenLabs.WebhookToolConfigOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WebhookToolConfigOutput?(ToolsVariant1Item2 @this) => @this.Webhook;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ToolsVariant1Item2(global::ElevenLabs.WebhookToolConfigOutput? value)
         {
@@ -256,22 +256,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ToolsVariant1Item2 FromWebhook(global::ElevenLabs.WebhookToolConfigOutput? value) => new ToolsVariant1Item2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ToolsVariant1Item2(global::ElevenLabs.ClientToolConfigOutput value) => new ToolsVariant1Item2((global::ElevenLabs.ClientToolConfigOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ClientToolConfigOutput?(ToolsVariant1Item2 @this) => @this.Client;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ToolsVariant1Item2(global::ElevenLabs.ClientToolConfigOutput? value)
         {
@@ -279,22 +279,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ToolsVariant1Item2 FromClient(global::ElevenLabs.ClientToolConfigOutput? value) => new ToolsVariant1Item2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ToolsVariant1Item2(global::ElevenLabs.SystemToolConfigOutput value) => new ToolsVariant1Item2((global::ElevenLabs.SystemToolConfigOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SystemToolConfigOutput?(ToolsVariant1Item2 @this) => @this.System;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ToolsVariant1Item2(global::ElevenLabs.SystemToolConfigOutput? value)
         {
@@ -302,22 +302,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ToolsVariant1Item2 FromSystem(global::ElevenLabs.SystemToolConfigOutput? value) => new ToolsVariant1Item2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ToolsVariant1Item2(global::ElevenLabs.MCPToolConfigOutput value) => new ToolsVariant1Item2((global::ElevenLabs.MCPToolConfigOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.MCPToolConfigOutput?(ToolsVariant1Item2 @this) => @this.Mcp;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ToolsVariant1Item2(global::ElevenLabs.MCPToolConfigOutput? value)
         {
@@ -325,22 +325,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ToolsVariant1Item2 FromMcp(global::ElevenLabs.MCPToolConfigOutput? value) => new ToolsVariant1Item2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ToolsVariant1Item2(global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput value) => new ToolsVariant1Item2((global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput?(ToolsVariant1Item2 @this) => @this.ApiIntegrationWebhook;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ToolsVariant1Item2(global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput? value)
         {
@@ -348,22 +348,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ToolsVariant1Item2 FromApiIntegrationWebhook(global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput? value) => new ToolsVariant1Item2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ToolsVariant1Item2(global::ElevenLabs.SMBToolConfig value) => new ToolsVariant1Item2((global::ElevenLabs.SMBToolConfig?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SMBToolConfig?(ToolsVariant1Item2 @this) => @this.Smb;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ToolsVariant1Item2(global::ElevenLabs.SMBToolConfig? value)
         {
@@ -371,12 +371,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ToolsVariant1Item2 FromSmb(global::ElevenLabs.SMBToolConfig? value) => new ToolsVariant1Item2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ToolsVariant1Item2(
             global::ElevenLabs.PromptAgentAPIModelWorkflowOverrideOutputToolsVariant1ItemDiscriminatorType? type,
@@ -399,7 +399,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Smb as object ??
@@ -407,11 +407,11 @@ namespace ElevenLabs
             Mcp as object ??
             System as object ??
             Client as object ??
-            Webhook as object 
+            Webhook as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Webhook?.ToString() ??
@@ -419,11 +419,11 @@ namespace ElevenLabs
             System?.ToString() ??
             Mcp?.ToString() ??
             ApiIntegrationWebhook?.ToString() ??
-            Smb?.ToString() 
+            Smb?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -431,7 +431,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.WebhookToolConfigOutput, TResult>? webhook = null,
@@ -476,7 +476,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.WebhookToolConfigOutput>? webhook = null,
@@ -524,7 +524,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.WebhookToolConfigOutput>? webhook = null,
@@ -567,7 +567,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -596,7 +596,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ToolsVariant1Item2 other)
         {
@@ -606,12 +606,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SystemToolConfigOutput?>.Default.Equals(System, other.System) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MCPToolConfigOutput?>.Default.Equals(Mcp, other.Mcp) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput?>.Default.Equals(ApiIntegrationWebhook, other.ApiIntegrationWebhook) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SMBToolConfig?>.Default.Equals(Smb, other.Smb) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SMBToolConfig?>.Default.Equals(Smb, other.Smb)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ToolsVariant1Item2 obj1, ToolsVariant1Item2 obj2)
         {
@@ -619,7 +619,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ToolsVariant1Item2 obj1, ToolsVariant1Item2 obj2)
         {
@@ -627,7 +627,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

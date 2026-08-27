@@ -4,44 +4,44 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CaptionStyleWordAnimationModelExitType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Fade,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pop,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Scale,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ScaleDown,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Slam,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SlideDown,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SlideIn,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SlideUp,
     }

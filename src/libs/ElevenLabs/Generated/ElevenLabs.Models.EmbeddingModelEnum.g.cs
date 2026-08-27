@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum EmbeddingModelEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         E5Mistral7bInstruct,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MultilingualE5LargeInstruct,
     }

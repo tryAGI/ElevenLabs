@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LLMParameterEvaluationStrategy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"llm"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]

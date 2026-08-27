@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum LanguagesResponseDiscriminatorKind
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pair,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Single,
     }

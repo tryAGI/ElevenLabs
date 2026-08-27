@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConvAIStoredSecretDependencies
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -23,7 +23,7 @@ namespace ElevenLabs
         public bool? ToolsHasMore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agents")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -37,7 +37,7 @@ namespace ElevenLabs
         public bool? AgentsHasMore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_numbers")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>? PhoneNumbers { get; set; }
@@ -50,13 +50,13 @@ namespace ElevenLabs
         public bool? PhoneNumbersHasMore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_servers")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.McpServersItem2>? McpServers { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("others")]
         [global::System.Text.Json.Serialization.JsonRequired]

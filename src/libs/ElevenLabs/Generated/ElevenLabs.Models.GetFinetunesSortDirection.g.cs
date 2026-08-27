@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum GetFinetunesSortDirection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Asc,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Desc,
     }

@@ -286,7 +286,7 @@ namespace ElevenLabs.Realtime
         public event global::System.EventHandler<AutoSDKWebSocketMessageEventArgs<global::ElevenLabs.Realtime.ErrorPayload>>? ErrorReceived;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; } = global::ElevenLabs.Realtime.RealtimeSourceGenerationContext.Default;

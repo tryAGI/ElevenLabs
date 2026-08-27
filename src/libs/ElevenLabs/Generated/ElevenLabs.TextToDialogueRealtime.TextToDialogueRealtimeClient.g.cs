@@ -297,7 +297,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         public event global::System.EventHandler<AutoSDKWebSocketMessageEventArgs<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError>>? ErrorReceived;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; } = global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContext.Default;

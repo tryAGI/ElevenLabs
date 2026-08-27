@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum MediaCodec
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         G7228000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcma8000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcmu8000,
     }

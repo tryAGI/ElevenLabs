@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum GetConversationHistoryRouteFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Json,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Opentelemetry,
     }

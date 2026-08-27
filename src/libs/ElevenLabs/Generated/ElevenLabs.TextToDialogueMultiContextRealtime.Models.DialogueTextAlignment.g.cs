@@ -9,19 +9,19 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime
     public sealed partial class DialogueTextAlignment
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chars")]
         public global::System.Collections.Generic.IList<string>? Chars { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("char_start_times_ms")]
         public global::System.Collections.Generic.IList<int>? CharStartTimesMs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("char_durations_ms")]
         public global::System.Collections.Generic.IList<int>? CharDurationsMs { get; set; }

@@ -5,12 +5,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct VideoGenerationRequest : global::System.IEquatable<VideoGenerationRequest>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.VideoGenerationRequestDiscriminatorModelId? ModelId { get; }
 
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreatifyAurora))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsCreatifyAurora => CreatifyAurora != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreatifyAurora(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreatifyAuroraRequest PickCreatifyAurora() => IsCreatifyAurora
             ? CreatifyAurora!
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Veo31Generate001))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsVeo31Generate001 => Veo31Generate001 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickVeo31Generate001(
 #if NET6_0_OR_GREATER
@@ -82,7 +82,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.Veo31Request PickVeo31Generate001() => IsVeo31Generate001
             ? Veo31Generate001!
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Veo31FastGenerate001))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsVeo31FastGenerate001 => Veo31FastGenerate001 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickVeo31FastGenerate001(
 #if NET6_0_OR_GREATER
@@ -119,7 +119,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.Veo31FastRequest PickVeo31FastGenerate001() => IsVeo31FastGenerate001
             ? Veo31FastGenerate001!
@@ -137,7 +137,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(BytedanceSeedanceV2))]
@@ -145,7 +145,7 @@ namespace ElevenLabs
         public bool IsBytedanceSeedanceV2 => BytedanceSeedanceV2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickBytedanceSeedanceV2(
 #if NET6_0_OR_GREATER
@@ -158,7 +158,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.BytedanceSeedance2Request PickBytedanceSeedanceV2() => IsBytedanceSeedanceV2
             ? BytedanceSeedanceV2!
@@ -176,7 +176,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(BytedanceSeedanceV2Fast))]
@@ -184,7 +184,7 @@ namespace ElevenLabs
         public bool IsBytedanceSeedanceV2Fast => BytedanceSeedanceV2Fast != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickBytedanceSeedanceV2Fast(
 #if NET6_0_OR_GREATER
@@ -197,7 +197,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.BytedanceSeedance2FastRequest PickBytedanceSeedanceV2Fast() => IsBytedanceSeedanceV2Fast
             ? BytedanceSeedanceV2Fast!
@@ -215,7 +215,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(BytedanceSeedanceV2Mini))]
@@ -223,7 +223,7 @@ namespace ElevenLabs
         public bool IsBytedanceSeedanceV2Mini => BytedanceSeedanceV2Mini != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickBytedanceSeedanceV2Mini(
 #if NET6_0_OR_GREATER
@@ -236,7 +236,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.BytedanceSeedance2MiniRequest PickBytedanceSeedanceV2Mini() => IsBytedanceSeedanceV2Mini
             ? BytedanceSeedanceV2Mini!
@@ -257,7 +257,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(BytedanceSeedanceV25))]
@@ -265,7 +265,7 @@ namespace ElevenLabs
         public bool IsBytedanceSeedanceV25 => BytedanceSeedanceV25 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickBytedanceSeedanceV25(
 #if NET6_0_OR_GREATER
@@ -278,23 +278,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.BytedanceSeedance25Request PickBytedanceSeedanceV25() => IsBytedanceSeedanceV25
             ? BytedanceSeedanceV25!
             : throw new global::System.InvalidOperationException($"Expected union variant 'BytedanceSeedanceV25' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoGenerationRequest(global::ElevenLabs.CreatifyAuroraRequest value) => new VideoGenerationRequest((global::ElevenLabs.CreatifyAuroraRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreatifyAuroraRequest?(VideoGenerationRequest @this) => @this.CreatifyAurora;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoGenerationRequest(global::ElevenLabs.CreatifyAuroraRequest? value)
         {
@@ -302,22 +302,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoGenerationRequest FromCreatifyAurora(global::ElevenLabs.CreatifyAuroraRequest? value) => new VideoGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoGenerationRequest(global::ElevenLabs.Veo31Request value) => new VideoGenerationRequest((global::ElevenLabs.Veo31Request?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.Veo31Request?(VideoGenerationRequest @this) => @this.Veo31Generate001;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoGenerationRequest(global::ElevenLabs.Veo31Request? value)
         {
@@ -325,22 +325,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoGenerationRequest FromVeo31Generate001(global::ElevenLabs.Veo31Request? value) => new VideoGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoGenerationRequest(global::ElevenLabs.Veo31FastRequest value) => new VideoGenerationRequest((global::ElevenLabs.Veo31FastRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.Veo31FastRequest?(VideoGenerationRequest @this) => @this.Veo31FastGenerate001;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoGenerationRequest(global::ElevenLabs.Veo31FastRequest? value)
         {
@@ -348,22 +348,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoGenerationRequest FromVeo31FastGenerate001(global::ElevenLabs.Veo31FastRequest? value) => new VideoGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoGenerationRequest(global::ElevenLabs.BytedanceSeedance2Request value) => new VideoGenerationRequest((global::ElevenLabs.BytedanceSeedance2Request?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.BytedanceSeedance2Request?(VideoGenerationRequest @this) => @this.BytedanceSeedanceV2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoGenerationRequest(global::ElevenLabs.BytedanceSeedance2Request? value)
         {
@@ -371,22 +371,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoGenerationRequest FromBytedanceSeedanceV2(global::ElevenLabs.BytedanceSeedance2Request? value) => new VideoGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoGenerationRequest(global::ElevenLabs.BytedanceSeedance2FastRequest value) => new VideoGenerationRequest((global::ElevenLabs.BytedanceSeedance2FastRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.BytedanceSeedance2FastRequest?(VideoGenerationRequest @this) => @this.BytedanceSeedanceV2Fast;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoGenerationRequest(global::ElevenLabs.BytedanceSeedance2FastRequest? value)
         {
@@ -394,22 +394,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoGenerationRequest FromBytedanceSeedanceV2Fast(global::ElevenLabs.BytedanceSeedance2FastRequest? value) => new VideoGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoGenerationRequest(global::ElevenLabs.BytedanceSeedance2MiniRequest value) => new VideoGenerationRequest((global::ElevenLabs.BytedanceSeedance2MiniRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.BytedanceSeedance2MiniRequest?(VideoGenerationRequest @this) => @this.BytedanceSeedanceV2Mini;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoGenerationRequest(global::ElevenLabs.BytedanceSeedance2MiniRequest? value)
         {
@@ -417,22 +417,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoGenerationRequest FromBytedanceSeedanceV2Mini(global::ElevenLabs.BytedanceSeedance2MiniRequest? value) => new VideoGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoGenerationRequest(global::ElevenLabs.BytedanceSeedance25Request value) => new VideoGenerationRequest((global::ElevenLabs.BytedanceSeedance25Request?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.BytedanceSeedance25Request?(VideoGenerationRequest @this) => @this.BytedanceSeedanceV25;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoGenerationRequest(global::ElevenLabs.BytedanceSeedance25Request? value)
         {
@@ -440,12 +440,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoGenerationRequest FromBytedanceSeedanceV25(global::ElevenLabs.BytedanceSeedance25Request? value) => new VideoGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoGenerationRequest(
             global::ElevenLabs.VideoGenerationRequestDiscriminatorModelId? modelId,
@@ -470,7 +470,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             BytedanceSeedanceV25 as object ??
@@ -479,11 +479,11 @@ namespace ElevenLabs
             BytedanceSeedanceV2 as object ??
             Veo31FastGenerate001 as object ??
             Veo31Generate001 as object ??
-            CreatifyAurora as object 
+            CreatifyAurora as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             CreatifyAurora?.ToString() ??
@@ -492,11 +492,11 @@ namespace ElevenLabs
             BytedanceSeedanceV2?.ToString() ??
             BytedanceSeedanceV2Fast?.ToString() ??
             BytedanceSeedanceV2Mini?.ToString() ??
-            BytedanceSeedanceV25?.ToString() 
+            BytedanceSeedanceV25?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -504,7 +504,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.CreatifyAuroraRequest, TResult>? creatifyAurora = null,
@@ -554,7 +554,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.CreatifyAuroraRequest>? creatifyAurora = null,
@@ -608,7 +608,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.CreatifyAuroraRequest>? creatifyAurora = null,
@@ -656,7 +656,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -687,7 +687,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(VideoGenerationRequest other)
         {
@@ -698,12 +698,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BytedanceSeedance2Request?>.Default.Equals(BytedanceSeedanceV2, other.BytedanceSeedanceV2) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BytedanceSeedance2FastRequest?>.Default.Equals(BytedanceSeedanceV2Fast, other.BytedanceSeedanceV2Fast) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BytedanceSeedance2MiniRequest?>.Default.Equals(BytedanceSeedanceV2Mini, other.BytedanceSeedanceV2Mini) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BytedanceSeedance25Request?>.Default.Equals(BytedanceSeedanceV25, other.BytedanceSeedanceV25) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BytedanceSeedance25Request?>.Default.Equals(BytedanceSeedanceV25, other.BytedanceSeedanceV25)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(VideoGenerationRequest obj1, VideoGenerationRequest obj2)
         {
@@ -711,7 +711,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(VideoGenerationRequest obj1, VideoGenerationRequest obj2)
         {
@@ -719,7 +719,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

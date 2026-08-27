@@ -70,7 +70,7 @@ namespace ElevenLabs
         ///             One or more video files sent via FormData array (multipart/form-data). They will be combined into one codec in order.<br/>
         ///             A maximum of 10 videos is allowed, where the total size of the combined video is limited to 200MB.<br/>
         ///             In total, the video can be up to 600 seconds long. Note that combining multiple videos may increase the request duration significantly. If possible, combine the videos beforehand.<br/>
-        ///             
+        ///
         /// </param>
         /// <param name="description">
         /// Optional text description of the music you want. A maximum of 1000 characters is allowed.

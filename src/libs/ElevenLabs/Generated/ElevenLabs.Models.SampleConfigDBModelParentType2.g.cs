@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SampleConfigDBModelParentType2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Collection,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Read,
     }

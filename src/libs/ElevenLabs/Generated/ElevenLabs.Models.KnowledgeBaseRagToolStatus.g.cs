@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum KnowledgeBaseRagToolStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NoDocuments,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NoResults,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Success,
     }

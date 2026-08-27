@@ -10,15 +10,15 @@ namespace ElevenLabs
     public enum BodySpeechToTextV1SpeechToTextPostTimestampsGranularity
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Character,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Word,
     }

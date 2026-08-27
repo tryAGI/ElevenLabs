@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct TransferDestination : global::System.IEquatable<TransferDestination>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PhoneNumberTransferTransferDestinationDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.PhoneNumberTransferDestination? Phone { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Phone))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsPhone => Phone != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickPhone(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PhoneNumberTransferDestination PickPhone() => IsPhone
             ? Phone!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Phone' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SIPUriTransferDestination? SipUri { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SipUri))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsSipUri => SipUri != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSipUri(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SIPUriTransferDestination PickSipUri() => IsSipUri
             ? SipUri!
             : throw new global::System.InvalidOperationException($"Expected union variant 'SipUri' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination? PhoneDynamicVariable { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PhoneDynamicVariable))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsPhoneDynamicVariable => PhoneDynamicVariable != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickPhoneDynamicVariable(
 #if NET6_0_OR_GREATER
@@ -119,14 +119,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination PickPhoneDynamicVariable() => IsPhoneDynamicVariable
             ? PhoneDynamicVariable!
             : throw new global::System.InvalidOperationException($"Expected union variant 'PhoneDynamicVariable' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SIPUriDynamicVariableTransferDestination? SipUriDynamicVariable { get; init; }
@@ -135,7 +135,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SipUriDynamicVariable))]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         public bool IsSipUriDynamicVariable => SipUriDynamicVariable != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSipUriDynamicVariable(
 #if NET6_0_OR_GREATER
@@ -156,23 +156,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SIPUriDynamicVariableTransferDestination PickSipUriDynamicVariable() => IsSipUriDynamicVariable
             ? SipUriDynamicVariable!
             : throw new global::System.InvalidOperationException($"Expected union variant 'SipUriDynamicVariable' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator TransferDestination(global::ElevenLabs.PhoneNumberTransferDestination value) => new TransferDestination((global::ElevenLabs.PhoneNumberTransferDestination?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.PhoneNumberTransferDestination?(TransferDestination @this) => @this.Phone;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TransferDestination(global::ElevenLabs.PhoneNumberTransferDestination? value)
         {
@@ -180,22 +180,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static TransferDestination FromPhone(global::ElevenLabs.PhoneNumberTransferDestination? value) => new TransferDestination(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator TransferDestination(global::ElevenLabs.SIPUriTransferDestination value) => new TransferDestination((global::ElevenLabs.SIPUriTransferDestination?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SIPUriTransferDestination?(TransferDestination @this) => @this.SipUri;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TransferDestination(global::ElevenLabs.SIPUriTransferDestination? value)
         {
@@ -203,22 +203,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static TransferDestination FromSipUri(global::ElevenLabs.SIPUriTransferDestination? value) => new TransferDestination(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator TransferDestination(global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination value) => new TransferDestination((global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination?(TransferDestination @this) => @this.PhoneDynamicVariable;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TransferDestination(global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination? value)
         {
@@ -226,22 +226,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static TransferDestination FromPhoneDynamicVariable(global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination? value) => new TransferDestination(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator TransferDestination(global::ElevenLabs.SIPUriDynamicVariableTransferDestination value) => new TransferDestination((global::ElevenLabs.SIPUriDynamicVariableTransferDestination?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SIPUriDynamicVariableTransferDestination?(TransferDestination @this) => @this.SipUriDynamicVariable;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TransferDestination(global::ElevenLabs.SIPUriDynamicVariableTransferDestination? value)
         {
@@ -249,12 +249,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static TransferDestination FromSipUriDynamicVariable(global::ElevenLabs.SIPUriDynamicVariableTransferDestination? value) => new TransferDestination(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TransferDestination(
             global::ElevenLabs.PhoneNumberTransferTransferDestinationDiscriminatorType? type,
@@ -273,27 +273,27 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             SipUriDynamicVariable as object ??
             PhoneDynamicVariable as object ??
             SipUri as object ??
-            Phone as object 
+            Phone as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Phone?.ToString() ??
             SipUri?.ToString() ??
             PhoneDynamicVariable?.ToString() ??
-            SipUriDynamicVariable?.ToString() 
+            SipUriDynamicVariable?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -301,7 +301,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.PhoneNumberTransferDestination, TResult>? phone = null,
@@ -336,7 +336,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.PhoneNumberTransferDestination>? phone = null,
@@ -372,7 +372,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.PhoneNumberTransferDestination>? phone = null,
@@ -405,7 +405,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -430,7 +430,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(TransferDestination other)
         {
@@ -438,12 +438,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PhoneNumberTransferDestination?>.Default.Equals(Phone, other.Phone) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SIPUriTransferDestination?>.Default.Equals(SipUri, other.SipUri) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination?>.Default.Equals(PhoneDynamicVariable, other.PhoneDynamicVariable) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SIPUriDynamicVariableTransferDestination?>.Default.Equals(SipUriDynamicVariable, other.SipUriDynamicVariable) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SIPUriDynamicVariableTransferDestination?>.Default.Equals(SipUriDynamicVariable, other.SipUriDynamicVariable)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(TransferDestination obj1, TransferDestination obj2)
         {
@@ -451,7 +451,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(TransferDestination obj1, TransferDestination obj2)
         {
@@ -459,7 +459,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

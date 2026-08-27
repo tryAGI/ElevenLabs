@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct StepsItem2 : global::System.IEquatable<StepsItem2>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WorkflowToolResponseModelOutputStepDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WorkflowToolEdgeStepModel? Edge { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Edge))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsEdge => Edge != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickEdge(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WorkflowToolEdgeStepModel PickEdge() => IsEdge
             ? Edge!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Edge' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput? NestedTools { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(NestedTools))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsNestedTools => NestedTools != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickNestedTools(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput PickNestedTools() => IsNestedTools
             ? NestedTools!
             : throw new global::System.InvalidOperationException($"Expected union variant 'NestedTools' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel? MaxIterationsExceeded { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MaxIterationsExceeded))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsMaxIterationsExceeded => MaxIterationsExceeded != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickMaxIterationsExceeded(
 #if NET6_0_OR_GREATER
@@ -119,23 +119,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel PickMaxIterationsExceeded() => IsMaxIterationsExceeded
             ? MaxIterationsExceeded!
             : throw new global::System.InvalidOperationException($"Expected union variant 'MaxIterationsExceeded' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator StepsItem2(global::ElevenLabs.WorkflowToolEdgeStepModel value) => new StepsItem2((global::ElevenLabs.WorkflowToolEdgeStepModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WorkflowToolEdgeStepModel?(StepsItem2 @this) => @this.Edge;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StepsItem2(global::ElevenLabs.WorkflowToolEdgeStepModel? value)
         {
@@ -143,22 +143,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static StepsItem2 FromEdge(global::ElevenLabs.WorkflowToolEdgeStepModel? value) => new StepsItem2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator StepsItem2(global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput value) => new StepsItem2((global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput?(StepsItem2 @this) => @this.NestedTools;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StepsItem2(global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput? value)
         {
@@ -166,22 +166,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static StepsItem2 FromNestedTools(global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput? value) => new StepsItem2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator StepsItem2(global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel value) => new StepsItem2((global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel?(StepsItem2 @this) => @this.MaxIterationsExceeded;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StepsItem2(global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel? value)
         {
@@ -189,12 +189,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static StepsItem2 FromMaxIterationsExceeded(global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel? value) => new StepsItem2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StepsItem2(
             global::ElevenLabs.WorkflowToolResponseModelOutputStepDiscriminatorType? type,
@@ -211,25 +211,25 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             MaxIterationsExceeded as object ??
             NestedTools as object ??
-            Edge as object 
+            Edge as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Edge?.ToString() ??
             NestedTools?.ToString() ??
-            MaxIterationsExceeded?.ToString() 
+            MaxIterationsExceeded?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -237,7 +237,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.WorkflowToolEdgeStepModel, TResult>? edge = null,
@@ -267,7 +267,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.WorkflowToolEdgeStepModel>? edge = null,
@@ -297,7 +297,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.WorkflowToolEdgeStepModel>? edge = null,
@@ -325,7 +325,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -348,19 +348,19 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(StepsItem2 other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowToolEdgeStepModel?>.Default.Equals(Edge, other.Edge) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput?>.Default.Equals(NestedTools, other.NestedTools) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel?>.Default.Equals(MaxIterationsExceeded, other.MaxIterationsExceeded) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel?>.Default.Equals(MaxIterationsExceeded, other.MaxIterationsExceeded)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(StepsItem2 obj1, StepsItem2 obj2)
         {
@@ -368,7 +368,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(StepsItem2 obj1, StepsItem2 obj2)
         {
@@ -376,7 +376,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -5,12 +5,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct TextToSpeechGenerationRequest : global::System.IEquatable<TextToSpeechGenerationRequest>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TextToSpeechGenerationRequestDiscriminatorModelId? ModelId { get; }
 
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ElevenFlashV25))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsElevenFlashV25 => ElevenFlashV25 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickElevenFlashV25(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ElevenFlashV25Request PickElevenFlashV25() => IsElevenFlashV25
             ? ElevenFlashV25!
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ElevenMultilingualV2))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsElevenMultilingualV2 => ElevenMultilingualV2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickElevenMultilingualV2(
 #if NET6_0_OR_GREATER
@@ -82,7 +82,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ElevenMultilingualV2Request PickElevenMultilingualV2() => IsElevenMultilingualV2
             ? ElevenMultilingualV2!
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ElevenV3))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsElevenV3 => ElevenV3 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickElevenV3(
 #if NET6_0_OR_GREATER
@@ -119,23 +119,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ElevenV3Request PickElevenV3() => IsElevenV3
             ? ElevenV3!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ElevenV3' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator TextToSpeechGenerationRequest(global::ElevenLabs.ElevenFlashV25Request value) => new TextToSpeechGenerationRequest((global::ElevenLabs.ElevenFlashV25Request?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ElevenFlashV25Request?(TextToSpeechGenerationRequest @this) => @this.ElevenFlashV25;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TextToSpeechGenerationRequest(global::ElevenLabs.ElevenFlashV25Request? value)
         {
@@ -143,22 +143,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static TextToSpeechGenerationRequest FromElevenFlashV25(global::ElevenLabs.ElevenFlashV25Request? value) => new TextToSpeechGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator TextToSpeechGenerationRequest(global::ElevenLabs.ElevenMultilingualV2Request value) => new TextToSpeechGenerationRequest((global::ElevenLabs.ElevenMultilingualV2Request?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ElevenMultilingualV2Request?(TextToSpeechGenerationRequest @this) => @this.ElevenMultilingualV2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TextToSpeechGenerationRequest(global::ElevenLabs.ElevenMultilingualV2Request? value)
         {
@@ -166,22 +166,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static TextToSpeechGenerationRequest FromElevenMultilingualV2(global::ElevenLabs.ElevenMultilingualV2Request? value) => new TextToSpeechGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator TextToSpeechGenerationRequest(global::ElevenLabs.ElevenV3Request value) => new TextToSpeechGenerationRequest((global::ElevenLabs.ElevenV3Request?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ElevenV3Request?(TextToSpeechGenerationRequest @this) => @this.ElevenV3;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TextToSpeechGenerationRequest(global::ElevenLabs.ElevenV3Request? value)
         {
@@ -189,12 +189,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static TextToSpeechGenerationRequest FromElevenV3(global::ElevenLabs.ElevenV3Request? value) => new TextToSpeechGenerationRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TextToSpeechGenerationRequest(
             global::ElevenLabs.TextToSpeechGenerationRequestDiscriminatorModelId? modelId,
@@ -211,25 +211,25 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             ElevenV3 as object ??
             ElevenMultilingualV2 as object ??
-            ElevenFlashV25 as object 
+            ElevenFlashV25 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             ElevenFlashV25?.ToString() ??
             ElevenMultilingualV2?.ToString() ??
-            ElevenV3?.ToString() 
+            ElevenV3?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -237,7 +237,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.ElevenFlashV25Request, TResult>? elevenFlashV25 = null,
@@ -267,7 +267,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.ElevenFlashV25Request>? elevenFlashV25 = null,
@@ -297,7 +297,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.ElevenFlashV25Request>? elevenFlashV25 = null,
@@ -325,7 +325,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -348,19 +348,19 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(TextToSpeechGenerationRequest other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ElevenFlashV25Request?>.Default.Equals(ElevenFlashV25, other.ElevenFlashV25) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ElevenMultilingualV2Request?>.Default.Equals(ElevenMultilingualV2, other.ElevenMultilingualV2) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ElevenV3Request?>.Default.Equals(ElevenV3, other.ElevenV3) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ElevenV3Request?>.Default.Equals(ElevenV3, other.ElevenV3)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(TextToSpeechGenerationRequest obj1, TextToSpeechGenerationRequest obj2)
         {
@@ -368,7 +368,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(TextToSpeechGenerationRequest obj1, TextToSpeechGenerationRequest obj2)
         {
@@ -376,7 +376,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

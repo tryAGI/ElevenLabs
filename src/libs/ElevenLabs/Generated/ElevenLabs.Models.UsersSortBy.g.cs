@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum UsersSortBy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AverageSentimentScore,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConversationCount,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LastContactUnixSecs,
     }

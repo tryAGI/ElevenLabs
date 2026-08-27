@@ -10,7 +10,7 @@ namespace ElevenLabs
     public readonly partial struct CreateAuthConnectionResponse : global::System.IEquatable<CreateAuthConnectionResponse>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType? AuthType { get; }
 
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Oauth2ClientCredentials))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsOauth2ClientCredentials => Oauth2ClientCredentials != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickOauth2ClientCredentials(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.OAuth2ClientCredsResponse PickOauth2ClientCredentials() => IsOauth2ClientCredentials
             ? Oauth2ClientCredentials!
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(RefreshTokenAuth))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsRefreshTokenAuth => RefreshTokenAuth != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickRefreshTokenAuth(
 #if NET6_0_OR_GREATER
@@ -82,7 +82,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.RefreshTokenAuthResponse PickRefreshTokenAuth() => IsRefreshTokenAuth
             ? RefreshTokenAuth!
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(BasicAuth))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsBasicAuth => BasicAuth != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickBasicAuth(
 #if NET6_0_OR_GREATER
@@ -119,7 +119,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.BasicAuthResponse PickBasicAuth() => IsBasicAuth
             ? BasicAuth!
@@ -135,7 +135,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(BearerAuth))]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         public bool IsBearerAuth => BearerAuth != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickBearerAuth(
 #if NET6_0_OR_GREATER
@@ -156,7 +156,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.BearerAuthResponse PickBearerAuth() => IsBearerAuth
             ? BearerAuth!
@@ -172,7 +172,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Oauth2Jwt))]
@@ -180,7 +180,7 @@ namespace ElevenLabs
         public bool IsOauth2Jwt => Oauth2Jwt != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickOauth2Jwt(
 #if NET6_0_OR_GREATER
@@ -193,7 +193,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.OAuth2JWTResponse PickOauth2Jwt() => IsOauth2Jwt
             ? Oauth2Jwt!
@@ -209,7 +209,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PrivateKeyJwt))]
@@ -217,7 +217,7 @@ namespace ElevenLabs
         public bool IsPrivateKeyJwt => PrivateKeyJwt != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickPrivateKeyJwt(
 #if NET6_0_OR_GREATER
@@ -230,7 +230,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PrivateKeyJWTResponse PickPrivateKeyJwt() => IsPrivateKeyJwt
             ? PrivateKeyJwt!
@@ -246,7 +246,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Mtls))]
@@ -254,7 +254,7 @@ namespace ElevenLabs
         public bool IsMtls => Mtls != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickMtls(
 #if NET6_0_OR_GREATER
@@ -267,7 +267,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.MTLSAuthResponse PickMtls() => IsMtls
             ? Mtls!
@@ -283,7 +283,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CustomHeaderAuth))]
@@ -291,7 +291,7 @@ namespace ElevenLabs
         public bool IsCustomHeaderAuth => CustomHeaderAuth != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCustomHeaderAuth(
 #if NET6_0_OR_GREATER
@@ -304,7 +304,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CustomHeaderAuthResponse PickCustomHeaderAuth() => IsCustomHeaderAuth
             ? CustomHeaderAuth!
@@ -320,7 +320,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ApiIntegrationOauth2AuthCode))]
@@ -328,7 +328,7 @@ namespace ElevenLabs
         public bool IsApiIntegrationOauth2AuthCode => ApiIntegrationOauth2AuthCode != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickApiIntegrationOauth2AuthCode(
 #if NET6_0_OR_GREATER
@@ -341,7 +341,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse PickApiIntegrationOauth2AuthCode() => IsApiIntegrationOauth2AuthCode
             ? ApiIntegrationOauth2AuthCode!
@@ -357,7 +357,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ApiIntegrationOauth2CustomApp))]
@@ -365,7 +365,7 @@ namespace ElevenLabs
         public bool IsApiIntegrationOauth2CustomApp => ApiIntegrationOauth2CustomApp != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickApiIntegrationOauth2CustomApp(
 #if NET6_0_OR_GREATER
@@ -378,14 +378,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse PickApiIntegrationOauth2CustomApp() => IsApiIntegrationOauth2CustomApp
             ? ApiIntegrationOauth2CustomApp!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ApiIntegrationOauth2CustomApp' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppAuthResponse? WhatsappAuth { get; init; }
@@ -394,7 +394,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(WhatsappAuth))]
@@ -402,7 +402,7 @@ namespace ElevenLabs
         public bool IsWhatsappAuth => WhatsappAuth != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickWhatsappAuth(
 #if NET6_0_OR_GREATER
@@ -415,7 +415,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WhatsAppAuthResponse PickWhatsappAuth() => IsWhatsappAuth
             ? WhatsappAuth!
@@ -431,7 +431,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SlackBotAuth))]
@@ -439,7 +439,7 @@ namespace ElevenLabs
         public bool IsSlackBotAuth => SlackBotAuth != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSlackBotAuth(
 #if NET6_0_OR_GREATER
@@ -452,14 +452,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SlackBotAuthResponse PickSlackBotAuth() => IsSlackBotAuth
             ? SlackBotAuth!
             : throw new global::System.InvalidOperationException($"Expected union variant 'SlackBotAuth' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UrlSecretAuthResponse? UrlSecret { get; init; }
@@ -468,7 +468,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UrlSecret))]
@@ -476,7 +476,7 @@ namespace ElevenLabs
         public bool IsUrlSecret => UrlSecret != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUrlSecret(
 #if NET6_0_OR_GREATER
@@ -489,23 +489,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UrlSecretAuthResponse PickUrlSecret() => IsUrlSecret
             ? UrlSecret!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UrlSecret' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.OAuth2ClientCredsResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.OAuth2ClientCredsResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.OAuth2ClientCredsResponse?(CreateAuthConnectionResponse @this) => @this.Oauth2ClientCredentials;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateAuthConnectionResponse(global::ElevenLabs.OAuth2ClientCredsResponse? value)
         {
@@ -513,22 +513,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateAuthConnectionResponse FromOauth2ClientCredentials(global::ElevenLabs.OAuth2ClientCredsResponse? value) => new CreateAuthConnectionResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.RefreshTokenAuthResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.RefreshTokenAuthResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.RefreshTokenAuthResponse?(CreateAuthConnectionResponse @this) => @this.RefreshTokenAuth;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateAuthConnectionResponse(global::ElevenLabs.RefreshTokenAuthResponse? value)
         {
@@ -536,22 +536,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateAuthConnectionResponse FromRefreshTokenAuth(global::ElevenLabs.RefreshTokenAuthResponse? value) => new CreateAuthConnectionResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.BasicAuthResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.BasicAuthResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.BasicAuthResponse?(CreateAuthConnectionResponse @this) => @this.BasicAuth;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateAuthConnectionResponse(global::ElevenLabs.BasicAuthResponse? value)
         {
@@ -559,22 +559,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateAuthConnectionResponse FromBasicAuth(global::ElevenLabs.BasicAuthResponse? value) => new CreateAuthConnectionResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.BearerAuthResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.BearerAuthResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.BearerAuthResponse?(CreateAuthConnectionResponse @this) => @this.BearerAuth;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateAuthConnectionResponse(global::ElevenLabs.BearerAuthResponse? value)
         {
@@ -582,22 +582,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateAuthConnectionResponse FromBearerAuth(global::ElevenLabs.BearerAuthResponse? value) => new CreateAuthConnectionResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.OAuth2JWTResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.OAuth2JWTResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.OAuth2JWTResponse?(CreateAuthConnectionResponse @this) => @this.Oauth2Jwt;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateAuthConnectionResponse(global::ElevenLabs.OAuth2JWTResponse? value)
         {
@@ -605,22 +605,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateAuthConnectionResponse FromOauth2Jwt(global::ElevenLabs.OAuth2JWTResponse? value) => new CreateAuthConnectionResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.PrivateKeyJWTResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.PrivateKeyJWTResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.PrivateKeyJWTResponse?(CreateAuthConnectionResponse @this) => @this.PrivateKeyJwt;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateAuthConnectionResponse(global::ElevenLabs.PrivateKeyJWTResponse? value)
         {
@@ -628,22 +628,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateAuthConnectionResponse FromPrivateKeyJwt(global::ElevenLabs.PrivateKeyJWTResponse? value) => new CreateAuthConnectionResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.MTLSAuthResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.MTLSAuthResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.MTLSAuthResponse?(CreateAuthConnectionResponse @this) => @this.Mtls;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateAuthConnectionResponse(global::ElevenLabs.MTLSAuthResponse? value)
         {
@@ -651,22 +651,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateAuthConnectionResponse FromMtls(global::ElevenLabs.MTLSAuthResponse? value) => new CreateAuthConnectionResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.CustomHeaderAuthResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.CustomHeaderAuthResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CustomHeaderAuthResponse?(CreateAuthConnectionResponse @this) => @this.CustomHeaderAuth;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateAuthConnectionResponse(global::ElevenLabs.CustomHeaderAuthResponse? value)
         {
@@ -674,22 +674,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateAuthConnectionResponse FromCustomHeaderAuth(global::ElevenLabs.CustomHeaderAuthResponse? value) => new CreateAuthConnectionResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse?(CreateAuthConnectionResponse @this) => @this.ApiIntegrationOauth2AuthCode;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateAuthConnectionResponse(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse? value)
         {
@@ -697,22 +697,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateAuthConnectionResponse FromApiIntegrationOauth2AuthCode(global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse? value) => new CreateAuthConnectionResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse?(CreateAuthConnectionResponse @this) => @this.ApiIntegrationOauth2CustomApp;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateAuthConnectionResponse(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse? value)
         {
@@ -720,22 +720,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateAuthConnectionResponse FromApiIntegrationOauth2CustomApp(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse? value) => new CreateAuthConnectionResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.WhatsAppAuthResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.WhatsAppAuthResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WhatsAppAuthResponse?(CreateAuthConnectionResponse @this) => @this.WhatsappAuth;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateAuthConnectionResponse(global::ElevenLabs.WhatsAppAuthResponse? value)
         {
@@ -743,22 +743,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateAuthConnectionResponse FromWhatsappAuth(global::ElevenLabs.WhatsAppAuthResponse? value) => new CreateAuthConnectionResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.SlackBotAuthResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.SlackBotAuthResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SlackBotAuthResponse?(CreateAuthConnectionResponse @this) => @this.SlackBotAuth;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateAuthConnectionResponse(global::ElevenLabs.SlackBotAuthResponse? value)
         {
@@ -766,22 +766,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateAuthConnectionResponse FromSlackBotAuth(global::ElevenLabs.SlackBotAuthResponse? value) => new CreateAuthConnectionResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateAuthConnectionResponse(global::ElevenLabs.UrlSecretAuthResponse value) => new CreateAuthConnectionResponse((global::ElevenLabs.UrlSecretAuthResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UrlSecretAuthResponse?(CreateAuthConnectionResponse @this) => @this.UrlSecret;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateAuthConnectionResponse(global::ElevenLabs.UrlSecretAuthResponse? value)
         {
@@ -789,12 +789,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateAuthConnectionResponse FromUrlSecret(global::ElevenLabs.UrlSecretAuthResponse? value) => new CreateAuthConnectionResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateAuthConnectionResponse(
             global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType? authType,
@@ -831,7 +831,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             UrlSecret as object ??
@@ -846,11 +846,11 @@ namespace ElevenLabs
             BearerAuth as object ??
             BasicAuth as object ??
             RefreshTokenAuth as object ??
-            Oauth2ClientCredentials as object 
+            Oauth2ClientCredentials as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Oauth2ClientCredentials?.ToString() ??
@@ -865,11 +865,11 @@ namespace ElevenLabs
             ApiIntegrationOauth2CustomApp?.ToString() ??
             WhatsappAuth?.ToString() ??
             SlackBotAuth?.ToString() ??
-            UrlSecret?.ToString() 
+            UrlSecret?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -877,7 +877,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.OAuth2ClientCredsResponse, TResult>? oauth2ClientCredentials = null,
@@ -957,7 +957,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.OAuth2ClientCredsResponse>? oauth2ClientCredentials = null,
@@ -1047,7 +1047,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.OAuth2ClientCredsResponse>? oauth2ClientCredentials = null,
@@ -1125,7 +1125,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -1168,7 +1168,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(CreateAuthConnectionResponse other)
         {
@@ -1185,12 +1185,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse?>.Default.Equals(ApiIntegrationOauth2CustomApp, other.ApiIntegrationOauth2CustomApp) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WhatsAppAuthResponse?>.Default.Equals(WhatsappAuth, other.WhatsappAuth) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SlackBotAuthResponse?>.Default.Equals(SlackBotAuth, other.SlackBotAuth) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.UrlSecretAuthResponse?>.Default.Equals(UrlSecret, other.UrlSecret) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.UrlSecretAuthResponse?>.Default.Equals(UrlSecret, other.UrlSecret)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(CreateAuthConnectionResponse obj1, CreateAuthConnectionResponse obj2)
         {
@@ -1198,7 +1198,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(CreateAuthConnectionResponse obj1, CreateAuthConnectionResponse obj2)
         {
@@ -1206,7 +1206,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

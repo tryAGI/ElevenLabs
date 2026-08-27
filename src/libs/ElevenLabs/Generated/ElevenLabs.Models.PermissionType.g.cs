@@ -4,204 +4,204 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PermissionType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AddVoiceFromVoiceLibrary,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioIsolation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioNativeRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioNativeWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AuditLogRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConversationPrivacyManage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CopyResourcesCrossWorkspace,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateInstantVoiceClone,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateProfessionalVoiceClone,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateUserApiKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DubbingRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DubbingWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Flows,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ForcedAlignment,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GroupMembersManage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImageVideoGeneration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ModelsRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ModelsWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MusicGeneration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ProjectsRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ProjectsWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PronunciationDictionariesRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PronunciationDictionariesWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PublishVoiceToVoiceLibrary,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ServiceAccountWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ShareVoiceExternally,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SoundGeneration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechHistoryRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechHistoryWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechToSpeech,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechToText,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SynthidDetector,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Templates,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TermsOfServiceAccept,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TextToSpeech,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UserRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UserWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceGeneration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoicesRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoicesWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WebhooksWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceAnalyticsFullRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceMembersInvite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceMembersRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceMembersRemove,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceWrite,
     }

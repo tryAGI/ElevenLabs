@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class OAuth2JWTResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -22,7 +22,7 @@ namespace ElevenLabs
         public string? AuthType { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -98,14 +98,14 @@ namespace ElevenLabs
         public global::ElevenLabs.OAuth2JWTResponseTokenResponseField? TokenResponseField { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("used_by")]
         public global::ElevenLabs.AuthConnectionDependencies? UsedBy { get; set; }
@@ -123,13 +123,13 @@ namespace ElevenLabs
         public global::ElevenLabs.AuthConnectionStatus? Status { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status_detail")]
         public string? StatusDetail { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status_updated_at")]
         public string? StatusUpdatedAt { get; set; }

@@ -9,23 +9,23 @@ namespace ElevenLabs
     public enum VoiceSharingResponseModelReviewStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Allowed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AllowedWithChanges,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Declined,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NotRequested,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pending,
     }

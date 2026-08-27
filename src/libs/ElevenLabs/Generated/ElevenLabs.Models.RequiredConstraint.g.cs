@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class RequiredConstraint
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("required")]
         [global::System.Text.Json.Serialization.JsonRequired]

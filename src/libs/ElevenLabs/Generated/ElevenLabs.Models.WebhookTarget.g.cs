@@ -5,12 +5,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct WebhookTarget : global::System.IEquatable<WebhookTarget>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WebhookTargetDiscriminatorType? Type { get; }
 
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(All))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsAll => All != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickAll(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WebhookTargetAll PickAll() => IsAll
             ? All!
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Ids))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsIds => Ids != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickIds(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WebhookTargetIds PickIds() => IsIds
             ? Ids!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Ids' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator WebhookTarget(global::ElevenLabs.WebhookTargetAll value) => new WebhookTarget((global::ElevenLabs.WebhookTargetAll?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WebhookTargetAll?(WebhookTarget @this) => @this.All;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public WebhookTarget(global::ElevenLabs.WebhookTargetAll? value)
         {
@@ -106,22 +106,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static WebhookTarget FromAll(global::ElevenLabs.WebhookTargetAll? value) => new WebhookTarget(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator WebhookTarget(global::ElevenLabs.WebhookTargetIds value) => new WebhookTarget((global::ElevenLabs.WebhookTargetIds?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WebhookTargetIds?(WebhookTarget @this) => @this.Ids;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public WebhookTarget(global::ElevenLabs.WebhookTargetIds? value)
         {
@@ -129,12 +129,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static WebhookTarget FromIds(global::ElevenLabs.WebhookTargetIds? value) => new WebhookTarget(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public WebhookTarget(
             global::ElevenLabs.WebhookTargetDiscriminatorType? type,
@@ -149,23 +149,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Ids as object ??
-            All as object 
+            All as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             All?.ToString() ??
-            Ids?.ToString() 
+            Ids?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -173,7 +173,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.WebhookTargetAll, TResult>? all = null,
@@ -198,7 +198,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.WebhookTargetAll>? all = null,
@@ -222,7 +222,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.WebhookTargetAll>? all = null,
@@ -245,7 +245,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -266,18 +266,18 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(WebhookTarget other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WebhookTargetAll?>.Default.Equals(All, other.All) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WebhookTargetIds?>.Default.Equals(Ids, other.Ids) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WebhookTargetIds?>.Default.Equals(Ids, other.Ids)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(WebhookTarget obj1, WebhookTarget obj2)
         {
@@ -285,7 +285,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(WebhookTarget obj1, WebhookTarget obj2)
         {
@@ -293,7 +293,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

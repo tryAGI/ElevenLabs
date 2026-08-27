@@ -4,344 +4,344 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SMBToolConfigParamsDiscriminatorSmbToolType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CancelCalendarEvent,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CancelGroupSessionForAll,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CancelGroupSessionRegistration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CancelOrder,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CheckServiceAvailability,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateAgentProcedure,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateAgentRule,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateAsset,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateClient,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateClientAppointment,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateClientInteraction,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateHoliday,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateLocation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateOrder,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateProduct,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateService,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateStaff,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateTransferRule,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteAgentProcedure,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteAgentRule,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteAsset,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteCalendarEvent,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteClient,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteClientInteraction,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteGroupSession,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteHoliday,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteLocation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteProduct,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteService,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteStaff,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteTransferRule,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GetAnalyticsSummary,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GetAppointmentByConfirmationNumber,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GetBookingPageSettings,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GetBookingSlugStatus,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GetClientAppointments,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GetClientByPhone,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GetClientOrders,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GetOrderByConfirmationNumber,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GetSchedule,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LeaveMessage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListAgentProcedures,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListAgentReferences,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListAgentRules,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListAssets,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListCalendarEvents,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListClientInteractions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListClients,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListCustomerFacingAgents,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListGroupSessions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListHolidays,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListLocations,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListProducts,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListServices,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListStaff,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListTransferRules,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OptInSmsReminder,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OptOutSmsReminder,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RegisterForGroupSession,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReportKnowledgeGap,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RestoreCalendarEvent,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ScheduleGroupSession,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SearchClients,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SetBookingSlug,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SubmitBusinessInfo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TriggerUserVerification,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateAgentProcedure,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateAgentRule,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateAsset,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateBookingPageAppearance,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateBookingPageSettings,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateBusinessInfo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateCalendarEvent,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateClient,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateCustomerFacingConfig,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateGroupSessionSeats,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateHoliday,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateLocation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateOrder,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateProduct,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateService,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateStaff,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateTransferRule,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ValidateUserVerificationCode,
     }

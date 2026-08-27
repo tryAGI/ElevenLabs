@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class AsyncConversationMetadata
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("delivery_status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AsyncConversationMetadataDeliveryStatusJsonConverter))]
@@ -17,34 +17,34 @@ namespace ElevenLabs
         public required global::ElevenLabs.AsyncConversationMetadataDeliveryStatus DeliveryStatus { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("delivery_timestamp")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int DeliveryTimestamp { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("delivery_error")]
         public string? DeliveryError { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_system")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ExternalSystem { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ExternalId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_link")]
         public string? ExternalLink { get; set; }
@@ -56,13 +56,13 @@ namespace ElevenLabs
         public int? RetryCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_retry_timestamp")]
         public int? LastRetryTimestamp { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_processed_external_message_id")]
         public string? LastProcessedExternalMessageId { get; set; }

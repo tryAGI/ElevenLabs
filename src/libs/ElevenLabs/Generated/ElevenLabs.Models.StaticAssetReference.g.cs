@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class StaticAssetReference
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"asset"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]

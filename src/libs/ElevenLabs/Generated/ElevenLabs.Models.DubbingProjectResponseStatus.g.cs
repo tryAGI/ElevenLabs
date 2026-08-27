@@ -21,7 +21,7 @@ namespace ElevenLabs
         /// </summary>
         Processing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Queued,
         /// <summary>

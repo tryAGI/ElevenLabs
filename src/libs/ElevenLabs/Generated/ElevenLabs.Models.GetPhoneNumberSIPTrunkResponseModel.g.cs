@@ -61,7 +61,7 @@ namespace ElevenLabs
         public string? Provider { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider_config")]
         [global::System.Obsolete("This property marked as deprecated.")]

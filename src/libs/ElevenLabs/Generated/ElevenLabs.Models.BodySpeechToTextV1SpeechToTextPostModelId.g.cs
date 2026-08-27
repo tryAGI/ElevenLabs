@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum BodySpeechToTextV1SpeechToTextPostModelId
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ScribeV1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ScribeV2,
     }

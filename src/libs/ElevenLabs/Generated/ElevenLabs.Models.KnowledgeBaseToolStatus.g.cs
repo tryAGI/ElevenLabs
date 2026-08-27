@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum KnowledgeBaseToolStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NoMatchingDocuments,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NoResults,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Success,
     }

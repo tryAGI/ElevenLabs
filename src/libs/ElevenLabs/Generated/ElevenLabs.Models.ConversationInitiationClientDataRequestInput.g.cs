@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConversationInitiationClientDataRequestInput
     {
@@ -16,7 +16,7 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationConfigClientOverrideInput? ConversationConfigOverride { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_llm_extra_body")]
         public object? CustomLlmExtraBody { get; set; }
@@ -58,7 +58,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? ProcedureIds { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
         public object? DynamicVariables { get; set; }

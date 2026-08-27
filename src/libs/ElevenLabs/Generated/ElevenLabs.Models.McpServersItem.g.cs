@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct McpServersItem : global::System.IEquatable<McpServersItem>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.AuthConnectionDependenciesMcpServerDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DependentAvailableMCPServerIdentifier? Available { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Available))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsAvailable => Available != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickAvailable(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DependentAvailableMCPServerIdentifier PickAvailable() => IsAvailable
             ? Available!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Available' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DependentUnknownMCPServerIdentifier? Unknown { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Unknown))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsUnknown => Unknown != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUnknown(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DependentUnknownMCPServerIdentifier PickUnknown() => IsUnknown
             ? Unknown!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Unknown' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator McpServersItem(global::ElevenLabs.DependentAvailableMCPServerIdentifier value) => new McpServersItem((global::ElevenLabs.DependentAvailableMCPServerIdentifier?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DependentAvailableMCPServerIdentifier?(McpServersItem @this) => @this.Available;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public McpServersItem(global::ElevenLabs.DependentAvailableMCPServerIdentifier? value)
         {
@@ -106,22 +106,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static McpServersItem FromAvailable(global::ElevenLabs.DependentAvailableMCPServerIdentifier? value) => new McpServersItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator McpServersItem(global::ElevenLabs.DependentUnknownMCPServerIdentifier value) => new McpServersItem((global::ElevenLabs.DependentUnknownMCPServerIdentifier?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DependentUnknownMCPServerIdentifier?(McpServersItem @this) => @this.Unknown;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public McpServersItem(global::ElevenLabs.DependentUnknownMCPServerIdentifier? value)
         {
@@ -129,12 +129,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static McpServersItem FromUnknown(global::ElevenLabs.DependentUnknownMCPServerIdentifier? value) => new McpServersItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public McpServersItem(
             global::ElevenLabs.AuthConnectionDependenciesMcpServerDiscriminatorType? type,
@@ -149,23 +149,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Unknown as object ??
-            Available as object 
+            Available as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Available?.ToString() ??
-            Unknown?.ToString() 
+            Unknown?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -173,7 +173,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.DependentAvailableMCPServerIdentifier, TResult>? available = null,
@@ -198,7 +198,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.DependentAvailableMCPServerIdentifier>? available = null,
@@ -222,7 +222,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.DependentAvailableMCPServerIdentifier>? available = null,
@@ -245,7 +245,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -266,18 +266,18 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(McpServersItem other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DependentAvailableMCPServerIdentifier?>.Default.Equals(Available, other.Available) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DependentUnknownMCPServerIdentifier?>.Default.Equals(Unknown, other.Unknown) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DependentUnknownMCPServerIdentifier?>.Default.Equals(Unknown, other.Unknown)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(McpServersItem obj1, McpServersItem obj2)
         {
@@ -285,7 +285,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(McpServersItem obj1, McpServersItem obj2)
         {
@@ -293,7 +293,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

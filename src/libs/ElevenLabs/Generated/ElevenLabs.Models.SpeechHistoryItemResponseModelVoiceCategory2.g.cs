@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SpeechHistoryItemResponseModelVoiceCategory2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Cloned,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Generated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Premade,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Professional,
     }

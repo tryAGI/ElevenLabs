@@ -6,26 +6,26 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChapterContentBlockTtsNodeResponseModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"tts_node"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         public string Type { get; set; } = "tts_node";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_voice_ref_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ProjectVoiceRefId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]

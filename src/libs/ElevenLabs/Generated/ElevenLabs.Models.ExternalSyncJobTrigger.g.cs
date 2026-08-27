@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ExternalSyncJobTrigger
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OnConnect,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OnDemand,
     }

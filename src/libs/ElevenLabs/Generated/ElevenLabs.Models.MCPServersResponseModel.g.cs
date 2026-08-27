@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class MCPServersResponseModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_servers")]
         [global::System.Text.Json.Serialization.JsonRequired]

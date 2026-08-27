@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CreateEnvironmentVariableRequestDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AuthConnection,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Secret,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         String,
     }

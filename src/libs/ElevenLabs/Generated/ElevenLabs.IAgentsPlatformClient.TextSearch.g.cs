@@ -387,7 +387,7 @@ namespace ElevenLabs
         /// <param name="sortBy">
         /// Sort order for search results. 'search_score' sorts by search score, 'created_at' sorts by conversation start time.<br/>
         /// Default Value: search_score
-        /// </param> 
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.MessagesSearchResult> TextSearchAutoPagingAsync(

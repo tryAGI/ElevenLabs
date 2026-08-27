@@ -310,14 +310,14 @@ namespace ElevenLabs
         public bool? ShowResizeButton { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Language { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supported_language_overrides")]
         public global::System.Collections.Generic.IList<string>? SupportedLanguageOverrides { get; set; }
@@ -343,7 +343,7 @@ namespace ElevenLabs
         public bool? SupportsTextOnly { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("first_message")]
         public string? FirstMessage { get; set; }

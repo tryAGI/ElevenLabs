@@ -4,30 +4,30 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LLMInputOutputTokensUsage
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         public global::ElevenLabs.LLMTokensCategoryUsage? Input { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_cache_read")]
         public global::ElevenLabs.LLMTokensCategoryUsage? InputCacheRead { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_cache_write")]
         public global::ElevenLabs.LLMTokensCategoryUsage? InputCacheWrite { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_total")]
         public global::ElevenLabs.LLMTokensCategoryUsage? OutputTotal { get; set; }

@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum IntegrationType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         McpIntegration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         McpServer,
     }

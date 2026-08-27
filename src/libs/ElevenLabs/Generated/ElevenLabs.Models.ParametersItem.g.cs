@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ParametersItem : global::System.IEquatable<ParametersItem>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WhatsAppTemplateHeaderComponentParamsParameterDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppTemplateTextParam? Text { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsText => Text != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickText(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WhatsAppTemplateTextParam PickText() => IsText
             ? Text!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppTemplateImageParam? Image { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Image))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsImage => Image != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickImage(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WhatsAppTemplateImageParam PickImage() => IsImage
             ? Image!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Image' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppTemplateDocumentParam? Document { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Document))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsDocument => Document != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDocument(
 #if NET6_0_OR_GREATER
@@ -119,14 +119,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WhatsAppTemplateDocumentParam PickDocument() => IsDocument
             ? Document!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Document' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.WhatsAppTemplateLocationParam? Location { get; init; }
@@ -135,7 +135,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Location))]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         public bool IsLocation => Location != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickLocation(
 #if NET6_0_OR_GREATER
@@ -156,23 +156,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.WhatsAppTemplateLocationParam PickLocation() => IsLocation
             ? Location!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Location' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ParametersItem(global::ElevenLabs.WhatsAppTemplateTextParam value) => new ParametersItem((global::ElevenLabs.WhatsAppTemplateTextParam?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WhatsAppTemplateTextParam?(ParametersItem @this) => @this.Text;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ParametersItem(global::ElevenLabs.WhatsAppTemplateTextParam? value)
         {
@@ -180,22 +180,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ParametersItem FromText(global::ElevenLabs.WhatsAppTemplateTextParam? value) => new ParametersItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ParametersItem(global::ElevenLabs.WhatsAppTemplateImageParam value) => new ParametersItem((global::ElevenLabs.WhatsAppTemplateImageParam?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WhatsAppTemplateImageParam?(ParametersItem @this) => @this.Image;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ParametersItem(global::ElevenLabs.WhatsAppTemplateImageParam? value)
         {
@@ -203,22 +203,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ParametersItem FromImage(global::ElevenLabs.WhatsAppTemplateImageParam? value) => new ParametersItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ParametersItem(global::ElevenLabs.WhatsAppTemplateDocumentParam value) => new ParametersItem((global::ElevenLabs.WhatsAppTemplateDocumentParam?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WhatsAppTemplateDocumentParam?(ParametersItem @this) => @this.Document;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ParametersItem(global::ElevenLabs.WhatsAppTemplateDocumentParam? value)
         {
@@ -226,22 +226,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ParametersItem FromDocument(global::ElevenLabs.WhatsAppTemplateDocumentParam? value) => new ParametersItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ParametersItem(global::ElevenLabs.WhatsAppTemplateLocationParam value) => new ParametersItem((global::ElevenLabs.WhatsAppTemplateLocationParam?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.WhatsAppTemplateLocationParam?(ParametersItem @this) => @this.Location;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ParametersItem(global::ElevenLabs.WhatsAppTemplateLocationParam? value)
         {
@@ -249,12 +249,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ParametersItem FromLocation(global::ElevenLabs.WhatsAppTemplateLocationParam? value) => new ParametersItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ParametersItem(
             global::ElevenLabs.WhatsAppTemplateHeaderComponentParamsParameterDiscriminatorType? type,
@@ -273,27 +273,27 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Location as object ??
             Document as object ??
             Image as object ??
-            Text as object 
+            Text as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Text?.ToString() ??
             Image?.ToString() ??
             Document?.ToString() ??
-            Location?.ToString() 
+            Location?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -301,7 +301,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.WhatsAppTemplateTextParam, TResult>? text = null,
@@ -336,7 +336,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.WhatsAppTemplateTextParam>? text = null,
@@ -372,7 +372,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.WhatsAppTemplateTextParam>? text = null,
@@ -405,7 +405,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -430,7 +430,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ParametersItem other)
         {
@@ -438,12 +438,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WhatsAppTemplateTextParam?>.Default.Equals(Text, other.Text) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WhatsAppTemplateImageParam?>.Default.Equals(Image, other.Image) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WhatsAppTemplateDocumentParam?>.Default.Equals(Document, other.Document) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WhatsAppTemplateLocationParam?>.Default.Equals(Location, other.Location) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WhatsAppTemplateLocationParam?>.Default.Equals(Location, other.Location)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ParametersItem obj1, ParametersItem obj2)
         {
@@ -451,7 +451,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ParametersItem obj1, ParametersItem obj2)
         {
@@ -459,7 +459,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

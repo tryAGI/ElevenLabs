@@ -10,111 +10,111 @@ namespace ElevenLabs
     public enum ConversationInitiationSource
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AndroidSdk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Audiocodes,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Avaya,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Exotel,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FlutterSdk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FreshdeskIntegration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Genesys,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GenesysBotConnector,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         IntercomIntegration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JsSdk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NodeJsSdk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PythonSdk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReactNativeSdk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReactSdk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SalesforceIntegration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SipTrunk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SlackIntegration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SubagentTool,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SwiftSdk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TelegramIntegration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TemplatePreview,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Twilio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TwilioSms,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unknown,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Whatsapp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Widget,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ZendeskIntegration,
     }

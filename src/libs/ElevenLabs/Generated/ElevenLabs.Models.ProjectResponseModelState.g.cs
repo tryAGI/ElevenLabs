@@ -9,19 +9,19 @@ namespace ElevenLabs
     public enum ProjectResponseModelState
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Converting,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Creating,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Default,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InQueue,
     }

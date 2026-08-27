@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CaptionStyleModelTextStyle2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Italic,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Normal,
     }

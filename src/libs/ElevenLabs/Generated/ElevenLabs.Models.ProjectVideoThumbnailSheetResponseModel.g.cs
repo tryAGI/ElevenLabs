@@ -4,26 +4,26 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ProjectVideoThumbnailSheetResponseModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_thumbnail_index")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int StartThumbnailIndex { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("thumbnail_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int ThumbnailCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("signed_cloud_url")]
         [global::System.Text.Json.Serialization.JsonRequired]

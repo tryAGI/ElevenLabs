@@ -4,48 +4,48 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ContentConfig
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sexual")]
         public global::ElevenLabs.ContentThresholdGuardrail? Sexual { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("violence")]
         public global::ElevenLabs.ContentThresholdGuardrail? Violence { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("harassment")]
         public global::ElevenLabs.ContentThresholdGuardrail? Harassment { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("self_harm")]
         public global::ElevenLabs.ContentThresholdGuardrail? SelfHarm { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("profanity")]
         public global::ElevenLabs.ContentThresholdGuardrail? Profanity { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("religion_or_politics")]
         public global::ElevenLabs.ContentThresholdGuardrail? ReligionOrPolitics { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("medical_and_legal_information")]
         public global::ElevenLabs.ContentThresholdGuardrail? MedicalAndLegalInformation { get; set; }

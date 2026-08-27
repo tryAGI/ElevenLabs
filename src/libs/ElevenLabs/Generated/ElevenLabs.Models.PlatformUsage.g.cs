@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class PlatformUsage
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("category_usage")]
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.PlatformCategoryUsage>? CategoryUsage { get; set; }

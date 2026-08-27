@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum MCPToolConfigOverrideOutputInputOverridesDiscriminatorSource
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Constant,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DynamicVariable,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Llm,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Omit,
     }

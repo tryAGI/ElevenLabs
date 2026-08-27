@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum WidgetConfigOutputSyntaxHighlightTheme2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dark,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Light,
     }

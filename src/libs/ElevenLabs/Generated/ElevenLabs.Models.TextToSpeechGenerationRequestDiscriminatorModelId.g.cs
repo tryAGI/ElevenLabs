@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum TextToSpeechGenerationRequestDiscriminatorModelId
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ElevenFlashV25,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ElevenMultilingualV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ElevenV3,
     }

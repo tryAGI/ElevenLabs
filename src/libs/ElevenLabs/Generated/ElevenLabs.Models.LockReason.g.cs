@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum LockReason
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ExposedPublicly,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SelfDisabled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SubscriptionDowngrade,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrialEnded,
     }

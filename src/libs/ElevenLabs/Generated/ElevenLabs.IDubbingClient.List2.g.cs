@@ -71,7 +71,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="status">
         /// Filter to targets in this status (queued, processing, completed, stale, failed).
-        /// </param> 
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.DubbingLanguageResponse> List2AutoPagingAsync(

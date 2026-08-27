@@ -4,7 +4,7 @@
 namespace ElevenLabs.TextToDialogueRealtime
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class TextToDialogueWebsocketFinal
     {

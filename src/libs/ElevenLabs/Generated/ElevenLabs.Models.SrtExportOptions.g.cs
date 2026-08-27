@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SrtExportOptions
     {
@@ -27,7 +27,7 @@ namespace ElevenLabs
         public bool? IncludeTimestamps { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"srt"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("format")]

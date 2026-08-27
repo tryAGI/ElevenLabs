@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ExactParameterEvaluationStrategy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"exact"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]

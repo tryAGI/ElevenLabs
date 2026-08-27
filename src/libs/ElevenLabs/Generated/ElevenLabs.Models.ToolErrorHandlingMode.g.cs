@@ -10,19 +10,19 @@ namespace ElevenLabs
     public enum ToolErrorHandlingMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Hide,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Passthrough,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Summarized,
     }

@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct TriggerAction : global::System.IEquatable<TriggerAction>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.EndCallTriggerAction? EndCall { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EndCall))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsEndCall => EndCall != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickEndCall(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.EndCallTriggerAction PickEndCall() => IsEndCall
             ? EndCall!
             : throw new global::System.InvalidOperationException($"Expected union variant 'EndCall' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.RetryTriggerAction? Retry { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Retry))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsRetry => Retry != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickRetry(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.RetryTriggerAction PickRetry() => IsRetry
             ? Retry!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Retry' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator TriggerAction(global::ElevenLabs.EndCallTriggerAction value) => new TriggerAction((global::ElevenLabs.EndCallTriggerAction?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.EndCallTriggerAction?(TriggerAction @this) => @this.EndCall;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TriggerAction(global::ElevenLabs.EndCallTriggerAction? value)
         {
@@ -106,22 +106,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static TriggerAction FromEndCall(global::ElevenLabs.EndCallTriggerAction? value) => new TriggerAction(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator TriggerAction(global::ElevenLabs.RetryTriggerAction value) => new TriggerAction((global::ElevenLabs.RetryTriggerAction?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.RetryTriggerAction?(TriggerAction @this) => @this.Retry;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TriggerAction(global::ElevenLabs.RetryTriggerAction? value)
         {
@@ -129,12 +129,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static TriggerAction FromRetry(global::ElevenLabs.RetryTriggerAction? value) => new TriggerAction(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TriggerAction(
             global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminatorType? type,
@@ -149,23 +149,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Retry as object ??
-            EndCall as object 
+            EndCall as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             EndCall?.ToString() ??
-            Retry?.ToString() 
+            Retry?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -173,7 +173,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.EndCallTriggerAction, TResult>? endCall = null,
@@ -198,7 +198,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.EndCallTriggerAction>? endCall = null,
@@ -222,7 +222,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.EndCallTriggerAction>? endCall = null,
@@ -245,7 +245,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -266,18 +266,18 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(TriggerAction other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.EndCallTriggerAction?>.Default.Equals(EndCall, other.EndCall) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.RetryTriggerAction?>.Default.Equals(Retry, other.Retry) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.RetryTriggerAction?>.Default.Equals(Retry, other.Retry)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(TriggerAction obj1, TriggerAction obj2)
         {
@@ -285,7 +285,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(TriggerAction obj1, TriggerAction obj2)
         {
@@ -293,7 +293,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConversationSentimentAnalysis
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overall_label")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ConversationSentimentAnalysisOverallLabelJsonConverter))]
@@ -17,35 +17,35 @@ namespace ElevenLabs
         public required global::ElevenLabs.ConversationSentimentAnalysisOverallLabel OverallLabel { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overall_sentiment_score")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double OverallSentimentScore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overall_frustration_score")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double OverallFrustrationScore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_user_sentiment_score")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double MinUserSentimentScore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_user_frustration_score")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double MaxUserFrustrationScore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_scored_user_turns")]
         [global::System.Text.Json.Serialization.JsonRequired]

@@ -4,84 +4,84 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ASTNodeInputDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AddOperator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AndOperator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BooleanLiteral,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConditionalOperator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DivOperator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DynamicVariable,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EqOperator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GtOperator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GteOperator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Llm,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LtOperator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LteOperator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MulOperator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NeqOperator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NullLiteral,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NumberLiteral,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OrOperator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StringLiteral,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SubOperator,
     }

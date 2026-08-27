@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CaptionStyleModelTextBlendMode2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Difference,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Multiply,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Normal,
     }

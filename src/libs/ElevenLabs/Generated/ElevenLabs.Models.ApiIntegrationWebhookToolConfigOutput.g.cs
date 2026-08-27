@@ -6,7 +6,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ApiIntegrationWebhookToolConfigOutput
     {
@@ -18,7 +18,7 @@ namespace ElevenLabs
         public string Type { get; set; } = "api_integration_webhook";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -137,14 +137,14 @@ namespace ElevenLabs
         public required string ToolVersion { get; set; } = "1.0.0";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_integration_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ApiIntegrationId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_integration_connection_id")]
         [global::System.Text.Json.Serialization.JsonRequired]

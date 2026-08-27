@@ -5,12 +5,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct CustomSipHeadersItem : global::System.IEquatable<CustomSipHeadersItem>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PhoneNumberTransferCustomSipHeaderDiscriminatorType? Type { get; }
 
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Dynamic1))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsDynamic1 => Dynamic1 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDynamic1(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CustomSIPHeader PickDynamic1() => IsDynamic1
             ? Dynamic1!
@@ -63,7 +63,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Dynamic2))]
@@ -71,7 +71,7 @@ namespace ElevenLabs
         public bool IsDynamic2 => Dynamic2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDynamic2(
 #if NET6_0_OR_GREATER
@@ -84,23 +84,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CustomSIPHeaderWithDynamicVariable PickDynamic2() => IsDynamic2
             ? Dynamic2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Dynamic2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CustomSipHeadersItem(global::ElevenLabs.CustomSIPHeader value) => new CustomSipHeadersItem((global::ElevenLabs.CustomSIPHeader?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CustomSIPHeader?(CustomSipHeadersItem @this) => @this.Dynamic1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CustomSipHeadersItem(global::ElevenLabs.CustomSIPHeader? value)
         {
@@ -108,22 +108,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CustomSipHeadersItem FromDynamic1(global::ElevenLabs.CustomSIPHeader? value) => new CustomSipHeadersItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CustomSipHeadersItem(global::ElevenLabs.CustomSIPHeaderWithDynamicVariable value) => new CustomSipHeadersItem((global::ElevenLabs.CustomSIPHeaderWithDynamicVariable?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CustomSIPHeaderWithDynamicVariable?(CustomSipHeadersItem @this) => @this.Dynamic2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CustomSipHeadersItem(global::ElevenLabs.CustomSIPHeaderWithDynamicVariable? value)
         {
@@ -131,12 +131,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CustomSipHeadersItem FromDynamic2(global::ElevenLabs.CustomSIPHeaderWithDynamicVariable? value) => new CustomSipHeadersItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CustomSipHeadersItem(
             global::ElevenLabs.PhoneNumberTransferCustomSipHeaderDiscriminatorType? type,
@@ -151,23 +151,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Dynamic2 as object ??
-            Dynamic1 as object 
+            Dynamic1 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Dynamic1?.ToString() ??
-            Dynamic2?.ToString() 
+            Dynamic2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -175,7 +175,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.CustomSIPHeader, TResult>? dynamic1 = null,
@@ -200,7 +200,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.CustomSIPHeader>? dynamic1 = null,
@@ -224,7 +224,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.CustomSIPHeader>? dynamic1 = null,
@@ -247,7 +247,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -268,18 +268,18 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(CustomSipHeadersItem other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CustomSIPHeader?>.Default.Equals(Dynamic1, other.Dynamic1) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CustomSIPHeaderWithDynamicVariable?>.Default.Equals(Dynamic2, other.Dynamic2) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CustomSIPHeaderWithDynamicVariable?>.Default.Equals(Dynamic2, other.Dynamic2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(CustomSipHeadersItem obj1, CustomSipHeadersItem obj2)
         {
@@ -287,7 +287,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(CustomSipHeadersItem obj1, CustomSipHeadersItem obj2)
         {
@@ -295,7 +295,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

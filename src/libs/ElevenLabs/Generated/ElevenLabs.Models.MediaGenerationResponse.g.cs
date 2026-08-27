@@ -5,12 +5,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct MediaGenerationResponse : global::System.IEquatable<MediaGenerationResponse>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.MediaGenerationResponseDiscriminatorStatus? Status { get; }
 
@@ -25,7 +25,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Generating))]
@@ -33,7 +33,7 @@ namespace ElevenLabs
         public bool IsGenerating => Generating != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGenerating(
 #if NET6_0_OR_GREATER
@@ -46,7 +46,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.MediaGenerationInProgressResponse PickGenerating() => IsGenerating
             ? Generating!
@@ -63,7 +63,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Completed))]
@@ -71,7 +71,7 @@ namespace ElevenLabs
         public bool IsCompleted => Completed != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCompleted(
 #if NET6_0_OR_GREATER
@@ -84,7 +84,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.MediaGenerationCompletedResponse PickCompleted() => IsCompleted
             ? Completed!
@@ -101,7 +101,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Failed))]
@@ -109,7 +109,7 @@ namespace ElevenLabs
         public bool IsFailed => Failed != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickFailed(
 #if NET6_0_OR_GREATER
@@ -122,23 +122,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.MediaGenerationFailedResponse PickFailed() => IsFailed
             ? Failed!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Failed' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator MediaGenerationResponse(global::ElevenLabs.MediaGenerationInProgressResponse value) => new MediaGenerationResponse((global::ElevenLabs.MediaGenerationInProgressResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.MediaGenerationInProgressResponse?(MediaGenerationResponse @this) => @this.Generating;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MediaGenerationResponse(global::ElevenLabs.MediaGenerationInProgressResponse? value)
         {
@@ -146,22 +146,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static MediaGenerationResponse FromGenerating(global::ElevenLabs.MediaGenerationInProgressResponse? value) => new MediaGenerationResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator MediaGenerationResponse(global::ElevenLabs.MediaGenerationCompletedResponse value) => new MediaGenerationResponse((global::ElevenLabs.MediaGenerationCompletedResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.MediaGenerationCompletedResponse?(MediaGenerationResponse @this) => @this.Completed;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MediaGenerationResponse(global::ElevenLabs.MediaGenerationCompletedResponse? value)
         {
@@ -169,22 +169,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static MediaGenerationResponse FromCompleted(global::ElevenLabs.MediaGenerationCompletedResponse? value) => new MediaGenerationResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator MediaGenerationResponse(global::ElevenLabs.MediaGenerationFailedResponse value) => new MediaGenerationResponse((global::ElevenLabs.MediaGenerationFailedResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.MediaGenerationFailedResponse?(MediaGenerationResponse @this) => @this.Failed;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MediaGenerationResponse(global::ElevenLabs.MediaGenerationFailedResponse? value)
         {
@@ -192,12 +192,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static MediaGenerationResponse FromFailed(global::ElevenLabs.MediaGenerationFailedResponse? value) => new MediaGenerationResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MediaGenerationResponse(
             global::ElevenLabs.MediaGenerationResponseDiscriminatorStatus? status,
@@ -214,25 +214,25 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Failed as object ??
             Completed as object ??
-            Generating as object 
+            Generating as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Generating?.ToString() ??
             Completed?.ToString() ??
-            Failed?.ToString() 
+            Failed?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -240,7 +240,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.MediaGenerationInProgressResponse, TResult>? generating = null,
@@ -270,7 +270,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.MediaGenerationInProgressResponse>? generating = null,
@@ -300,7 +300,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.MediaGenerationInProgressResponse>? generating = null,
@@ -328,7 +328,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -351,19 +351,19 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(MediaGenerationResponse other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MediaGenerationInProgressResponse?>.Default.Equals(Generating, other.Generating) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MediaGenerationCompletedResponse?>.Default.Equals(Completed, other.Completed) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MediaGenerationFailedResponse?>.Default.Equals(Failed, other.Failed) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MediaGenerationFailedResponse?>.Default.Equals(Failed, other.Failed)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(MediaGenerationResponse obj1, MediaGenerationResponse obj2)
         {
@@ -371,7 +371,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(MediaGenerationResponse obj1, MediaGenerationResponse obj2)
         {
@@ -379,7 +379,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum DirectPublishingReadResponseModelPayoutType2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EngagementBased,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FixedPayout,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
     }

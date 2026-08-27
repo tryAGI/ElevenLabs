@@ -27,13 +27,13 @@ namespace ElevenLabs
         public int? Runs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("price_per_feature")]
         public global::System.Collections.Generic.Dictionary<string, double>? PricePerFeature { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("charge_per_feature")]
         public global::System.Collections.Generic.Dictionary<string, int>? ChargePerFeature { get; set; }

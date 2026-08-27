@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ModerationGuardrailInput
     {
@@ -16,7 +16,7 @@ namespace ElevenLabs
         public global::ElevenLabs.GuardrailExecutionMode? ExecutionMode { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
         public global::ElevenLabs.ModerationConfig? Config { get; set; }

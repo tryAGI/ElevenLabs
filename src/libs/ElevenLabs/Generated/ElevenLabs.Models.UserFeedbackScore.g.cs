@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum UserFeedbackScore
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dislike,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Like,
     }

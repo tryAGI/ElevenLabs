@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum GetFinetunesSort
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreatedAt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Name,
     }

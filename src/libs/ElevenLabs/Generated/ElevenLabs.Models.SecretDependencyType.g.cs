@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SecretDependencyType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConversationInitiationWebhook,
     }

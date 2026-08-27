@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConversationHistorySIPTrunkingPhoneCallModel
     {
@@ -18,48 +18,48 @@ namespace ElevenLabs
         public required global::ElevenLabs.TelephonyDirection Direction { get; set; } = global::ElevenLabs.TelephonyDirection.Inbound;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string PhoneNumberId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string AgentNumber { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ExternalNumber { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"sip_trunking"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         public string Type { get; set; } = "sip_trunking";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_id")]
         public string? CallId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_sid")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string CallSid { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sip_header_dynamic_variables")]
         public global::System.Collections.Generic.Dictionary<string, string>? SipHeaderDynamicVariables { get; set; }

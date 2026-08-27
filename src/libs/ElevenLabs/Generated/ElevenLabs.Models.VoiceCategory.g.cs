@@ -4,28 +4,28 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VoiceCategory
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Cloned,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Famous,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Generated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Premade,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Professional,
     }

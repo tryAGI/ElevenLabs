@@ -137,7 +137,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="sortBy">
         /// The field to sort the results by
-        /// </param> 
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentSummaryResponseModel> ListAutoPagingAsync(

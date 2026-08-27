@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct UpdateDocumentRouteResponse : global::System.IEquatable<UpdateDocumentRouteResponse>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateDocumentRouteResponseDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetKnowledgeBaseURLResponseModel? Url { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Url))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsUrl => Url != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUrl(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetKnowledgeBaseURLResponseModel PickUrl() => IsUrl
             ? Url!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Url' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetKnowledgeBaseFileResponseModel? File { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(File))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsFile => File != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickFile(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetKnowledgeBaseFileResponseModel PickFile() => IsFile
             ? File!
             : throw new global::System.InvalidOperationException($"Expected union variant 'File' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetKnowledgeBaseTextResponseModel? Text { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsText => Text != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickText(
 #if NET6_0_OR_GREATER
@@ -119,14 +119,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetKnowledgeBaseTextResponseModel PickText() => IsText
             ? Text!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetKnowledgeBaseFolderResponseModel? Folder { get; init; }
@@ -135,7 +135,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Folder))]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         public bool IsFolder => Folder != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickFolder(
 #if NET6_0_OR_GREATER
@@ -156,23 +156,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetKnowledgeBaseFolderResponseModel PickFolder() => IsFolder
             ? Folder!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Folder' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator UpdateDocumentRouteResponse(global::ElevenLabs.GetKnowledgeBaseURLResponseModel value) => new UpdateDocumentRouteResponse((global::ElevenLabs.GetKnowledgeBaseURLResponseModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetKnowledgeBaseURLResponseModel?(UpdateDocumentRouteResponse @this) => @this.Url;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public UpdateDocumentRouteResponse(global::ElevenLabs.GetKnowledgeBaseURLResponseModel? value)
         {
@@ -180,22 +180,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static UpdateDocumentRouteResponse FromUrl(global::ElevenLabs.GetKnowledgeBaseURLResponseModel? value) => new UpdateDocumentRouteResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator UpdateDocumentRouteResponse(global::ElevenLabs.GetKnowledgeBaseFileResponseModel value) => new UpdateDocumentRouteResponse((global::ElevenLabs.GetKnowledgeBaseFileResponseModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetKnowledgeBaseFileResponseModel?(UpdateDocumentRouteResponse @this) => @this.File;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public UpdateDocumentRouteResponse(global::ElevenLabs.GetKnowledgeBaseFileResponseModel? value)
         {
@@ -203,22 +203,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static UpdateDocumentRouteResponse FromFile(global::ElevenLabs.GetKnowledgeBaseFileResponseModel? value) => new UpdateDocumentRouteResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator UpdateDocumentRouteResponse(global::ElevenLabs.GetKnowledgeBaseTextResponseModel value) => new UpdateDocumentRouteResponse((global::ElevenLabs.GetKnowledgeBaseTextResponseModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetKnowledgeBaseTextResponseModel?(UpdateDocumentRouteResponse @this) => @this.Text;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public UpdateDocumentRouteResponse(global::ElevenLabs.GetKnowledgeBaseTextResponseModel? value)
         {
@@ -226,22 +226,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static UpdateDocumentRouteResponse FromText(global::ElevenLabs.GetKnowledgeBaseTextResponseModel? value) => new UpdateDocumentRouteResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator UpdateDocumentRouteResponse(global::ElevenLabs.GetKnowledgeBaseFolderResponseModel value) => new UpdateDocumentRouteResponse((global::ElevenLabs.GetKnowledgeBaseFolderResponseModel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetKnowledgeBaseFolderResponseModel?(UpdateDocumentRouteResponse @this) => @this.Folder;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public UpdateDocumentRouteResponse(global::ElevenLabs.GetKnowledgeBaseFolderResponseModel? value)
         {
@@ -249,12 +249,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static UpdateDocumentRouteResponse FromFolder(global::ElevenLabs.GetKnowledgeBaseFolderResponseModel? value) => new UpdateDocumentRouteResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public UpdateDocumentRouteResponse(
             global::ElevenLabs.UpdateDocumentRouteResponseDiscriminatorType? type,
@@ -273,27 +273,27 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Folder as object ??
             Text as object ??
             File as object ??
-            Url as object 
+            Url as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Url?.ToString() ??
             File?.ToString() ??
             Text?.ToString() ??
-            Folder?.ToString() 
+            Folder?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -301,7 +301,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.GetKnowledgeBaseURLResponseModel, TResult>? url = null,
@@ -336,7 +336,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.GetKnowledgeBaseURLResponseModel>? url = null,
@@ -372,7 +372,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.GetKnowledgeBaseURLResponseModel>? url = null,
@@ -405,7 +405,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -430,7 +430,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(UpdateDocumentRouteResponse other)
         {
@@ -438,12 +438,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseURLResponseModel?>.Default.Equals(Url, other.Url) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseFileResponseModel?>.Default.Equals(File, other.File) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseTextResponseModel?>.Default.Equals(Text, other.Text) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseFolderResponseModel?>.Default.Equals(Folder, other.Folder) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetKnowledgeBaseFolderResponseModel?>.Default.Equals(Folder, other.Folder)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(UpdateDocumentRouteResponse obj1, UpdateDocumentRouteResponse obj2)
         {
@@ -451,7 +451,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(UpdateDocumentRouteResponse obj1, UpdateDocumentRouteResponse obj2)
         {
@@ -459,7 +459,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

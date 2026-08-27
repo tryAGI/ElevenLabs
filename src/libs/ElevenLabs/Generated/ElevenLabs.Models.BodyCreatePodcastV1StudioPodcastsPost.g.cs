@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodyCreatePodcastV1StudioPodcastsPost
     {
@@ -137,7 +137,7 @@ namespace ElevenLabs
         ///         error_details: "Error details if conversion failed"<br/>
         ///       }<br/>
         ///     }<br/>
-        ///     
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
         public string? CallbackUrl { get; set; }
@@ -147,7 +147,7 @@ namespace ElevenLabs
         ///     When set to 'auto', the system will automatically decide whether to apply text normalization<br/>
         ///     (e.g., spelling out numbers). With 'on', text normalization will always be applied, while<br/>
         ///     with 'off', it will be skipped. 'apply_english' is the same as 'on' but will assume that text is in English.<br/>
-        ///     
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("apply_text_normalization")]
         public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2? ApplyTextNormalization { get; set; }
@@ -253,14 +253,14 @@ namespace ElevenLabs
         ///         error_details: "Error details if conversion failed"<br/>
         ///       }<br/>
         ///     }<br/>
-        ///     
+        ///
         /// </param>
         /// <param name="applyTextNormalization">
         ///     This parameter controls text normalization with four modes: 'auto', 'on', 'apply_english' and 'off'.<br/>
         ///     When set to 'auto', the system will automatically decide whether to apply text normalization<br/>
         ///     (e.g., spelling out numbers). With 'on', text normalization will always be applied, while<br/>
         ///     with 'off', it will be skipped. 'apply_english' is the same as 'on' but will assume that text is in English.<br/>
-        ///     
+        ///
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

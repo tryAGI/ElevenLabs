@@ -10,15 +10,15 @@ namespace ElevenLabs
     public enum GPTImage15RequestAspectRatio
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x1_1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x2_3,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x3_2,
     }

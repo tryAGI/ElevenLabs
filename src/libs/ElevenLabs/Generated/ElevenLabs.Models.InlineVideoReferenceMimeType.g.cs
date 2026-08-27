@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum InlineVideoReferenceMimeType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VideoMp4,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VideoQuicktime,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VideoWebm,
     }

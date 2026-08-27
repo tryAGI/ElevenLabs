@@ -9,27 +9,27 @@ namespace ElevenLabs
     public enum LibraryVoiceResponseModelCategory
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Cloned,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Famous,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Generated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HighQuality,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Premade,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Professional,
     }

@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum TelephonyProvider
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Exotel,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SipTrunk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Twilio,
     }

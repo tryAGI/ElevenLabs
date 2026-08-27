@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ConversationHistoryMultivoiceMessageModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parts")]
         [global::System.Text.Json.Serialization.JsonRequired]

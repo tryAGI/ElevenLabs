@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum ListDubsOrderBy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreatedAt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Name,
     }

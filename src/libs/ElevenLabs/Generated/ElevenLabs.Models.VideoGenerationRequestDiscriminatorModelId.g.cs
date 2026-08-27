@@ -4,36 +4,36 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VideoGenerationRequestDiscriminatorModelId
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BytedanceSeedanceV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BytedanceSeedanceV2Fast,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BytedanceSeedanceV2Mini,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BytedanceSeedanceV25,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreatifyAurora,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Veo31FastGenerate001,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Veo31Generate001,
     }

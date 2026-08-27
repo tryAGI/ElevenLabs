@@ -9,7 +9,7 @@ namespace ElevenLabs.Realtime
     public enum InputAudioChunkPayloadMessageType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InputAudioChunk,
     }

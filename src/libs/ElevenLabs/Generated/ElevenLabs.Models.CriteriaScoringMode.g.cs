@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum CriteriaScoringMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Binary,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NumericUniform,
     }

@@ -13,15 +13,15 @@ namespace ElevenLabs
     public enum BodyCreatePodcastV1StudioPodcastsPostDurationScale
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Default,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Long,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Short,
     }

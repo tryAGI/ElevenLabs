@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum MergePreviewResponseModelPhoneNumberDiscriminatorProvider
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Exotel,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SipTrunk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Twilio,
     }

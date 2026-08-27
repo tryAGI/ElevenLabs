@@ -5,12 +5,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct Params : global::System.IEquatable<Params>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType? SmbToolType { get; }
 
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SearchClients))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsSearchClients => SearchClients != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSearchClients(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SearchClientsParams PickSearchClients() => IsSearchClients
             ? SearchClients!
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListClients))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsListClients => ListClients != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListClients(
 #if NET6_0_OR_GREATER
@@ -82,7 +82,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListClientsParams PickListClients() => IsListClients
             ? ListClients!
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetClientByPhone))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsGetClientByPhone => GetClientByPhone != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetClientByPhone(
 #if NET6_0_OR_GREATER
@@ -119,7 +119,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetClientByPhoneParams PickGetClientByPhone() => IsGetClientByPhone
             ? GetClientByPhone!
@@ -135,7 +135,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateClient))]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         public bool IsCreateClient => CreateClient != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateClient(
 #if NET6_0_OR_GREATER
@@ -156,7 +156,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateClientParams PickCreateClient() => IsCreateClient
             ? CreateClient!
@@ -172,7 +172,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateClient))]
@@ -180,7 +180,7 @@ namespace ElevenLabs
         public bool IsUpdateClient => UpdateClient != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateClient(
 #if NET6_0_OR_GREATER
@@ -193,7 +193,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateClientParams PickUpdateClient() => IsUpdateClient
             ? UpdateClient!
@@ -209,7 +209,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteClient))]
@@ -217,7 +217,7 @@ namespace ElevenLabs
         public bool IsDeleteClient => DeleteClient != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteClient(
 #if NET6_0_OR_GREATER
@@ -230,14 +230,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteClientParams PickDeleteClient() => IsDeleteClient
             ? DeleteClient!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteClient' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListStaffParams? ListStaff { get; init; }
@@ -246,7 +246,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListStaff))]
@@ -254,7 +254,7 @@ namespace ElevenLabs
         public bool IsListStaff => ListStaff != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListStaff(
 #if NET6_0_OR_GREATER
@@ -267,7 +267,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListStaffParams PickListStaff() => IsListStaff
             ? ListStaff!
@@ -283,7 +283,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateStaff))]
@@ -291,7 +291,7 @@ namespace ElevenLabs
         public bool IsCreateStaff => CreateStaff != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateStaff(
 #if NET6_0_OR_GREATER
@@ -304,7 +304,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateStaffParams PickCreateStaff() => IsCreateStaff
             ? CreateStaff!
@@ -320,7 +320,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateStaff))]
@@ -328,7 +328,7 @@ namespace ElevenLabs
         public bool IsUpdateStaff => UpdateStaff != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateStaff(
 #if NET6_0_OR_GREATER
@@ -341,7 +341,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateStaffParams PickUpdateStaff() => IsUpdateStaff
             ? UpdateStaff!
@@ -357,7 +357,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteStaff))]
@@ -365,7 +365,7 @@ namespace ElevenLabs
         public bool IsDeleteStaff => DeleteStaff != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteStaff(
 #if NET6_0_OR_GREATER
@@ -378,14 +378,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteStaffParams PickDeleteStaff() => IsDeleteStaff
             ? DeleteStaff!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteStaff' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListAssetsParams? ListAssets { get; init; }
@@ -394,7 +394,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListAssets))]
@@ -402,7 +402,7 @@ namespace ElevenLabs
         public bool IsListAssets => ListAssets != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListAssets(
 #if NET6_0_OR_GREATER
@@ -415,14 +415,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListAssetsParams PickListAssets() => IsListAssets
             ? ListAssets!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListAssets' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateAssetParams? CreateAsset { get; init; }
@@ -431,7 +431,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateAsset))]
@@ -439,7 +439,7 @@ namespace ElevenLabs
         public bool IsCreateAsset => CreateAsset != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateAsset(
 #if NET6_0_OR_GREATER
@@ -452,14 +452,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateAssetParams PickCreateAsset() => IsCreateAsset
             ? CreateAsset!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateAsset' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateAssetParams? UpdateAsset { get; init; }
@@ -468,7 +468,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateAsset))]
@@ -476,7 +476,7 @@ namespace ElevenLabs
         public bool IsUpdateAsset => UpdateAsset != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateAsset(
 #if NET6_0_OR_GREATER
@@ -489,14 +489,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateAssetParams PickUpdateAsset() => IsUpdateAsset
             ? UpdateAsset!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateAsset' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteAssetParams? DeleteAsset { get; init; }
@@ -505,7 +505,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteAsset))]
@@ -513,7 +513,7 @@ namespace ElevenLabs
         public bool IsDeleteAsset => DeleteAsset != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteAsset(
 #if NET6_0_OR_GREATER
@@ -526,14 +526,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteAssetParams PickDeleteAsset() => IsDeleteAsset
             ? DeleteAsset!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteAsset' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListServicesParams? ListServices { get; init; }
@@ -542,7 +542,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListServices))]
@@ -550,7 +550,7 @@ namespace ElevenLabs
         public bool IsListServices => ListServices != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListServices(
 #if NET6_0_OR_GREATER
@@ -563,7 +563,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListServicesParams PickListServices() => IsListServices
             ? ListServices!
@@ -579,7 +579,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateService))]
@@ -587,7 +587,7 @@ namespace ElevenLabs
         public bool IsCreateService => CreateService != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateService(
 #if NET6_0_OR_GREATER
@@ -600,7 +600,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateServiceParams PickCreateService() => IsCreateService
             ? CreateService!
@@ -616,7 +616,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateService))]
@@ -624,7 +624,7 @@ namespace ElevenLabs
         public bool IsUpdateService => UpdateService != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateService(
 #if NET6_0_OR_GREATER
@@ -637,7 +637,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateServiceParams PickUpdateService() => IsUpdateService
             ? UpdateService!
@@ -653,7 +653,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteService))]
@@ -661,7 +661,7 @@ namespace ElevenLabs
         public bool IsDeleteService => DeleteService != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteService(
 #if NET6_0_OR_GREATER
@@ -674,14 +674,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteServiceParams PickDeleteService() => IsDeleteService
             ? DeleteService!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteService' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListProductsParams? ListProducts { get; init; }
@@ -690,7 +690,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListProducts))]
@@ -698,7 +698,7 @@ namespace ElevenLabs
         public bool IsListProducts => ListProducts != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListProducts(
 #if NET6_0_OR_GREATER
@@ -711,14 +711,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListProductsParams PickListProducts() => IsListProducts
             ? ListProducts!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListProducts' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateProductParams? CreateProduct { get; init; }
@@ -727,7 +727,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateProduct))]
@@ -735,7 +735,7 @@ namespace ElevenLabs
         public bool IsCreateProduct => CreateProduct != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateProduct(
 #if NET6_0_OR_GREATER
@@ -748,14 +748,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateProductParams PickCreateProduct() => IsCreateProduct
             ? CreateProduct!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateProduct' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateProductParams? UpdateProduct { get; init; }
@@ -764,7 +764,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateProduct))]
@@ -772,7 +772,7 @@ namespace ElevenLabs
         public bool IsUpdateProduct => UpdateProduct != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateProduct(
 #if NET6_0_OR_GREATER
@@ -785,14 +785,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateProductParams PickUpdateProduct() => IsUpdateProduct
             ? UpdateProduct!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateProduct' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteProductParams? DeleteProduct { get; init; }
@@ -801,7 +801,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteProduct))]
@@ -809,7 +809,7 @@ namespace ElevenLabs
         public bool IsDeleteProduct => DeleteProduct != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteProduct(
 #if NET6_0_OR_GREATER
@@ -822,14 +822,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteProductParams PickDeleteProduct() => IsDeleteProduct
             ? DeleteProduct!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteProduct' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CheckServiceAvailabilityParams? CheckServiceAvailability { get; init; }
@@ -838,7 +838,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CheckServiceAvailability))]
@@ -846,7 +846,7 @@ namespace ElevenLabs
         public bool IsCheckServiceAvailability => CheckServiceAvailability != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCheckServiceAvailability(
 #if NET6_0_OR_GREATER
@@ -859,14 +859,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CheckServiceAvailabilityParams PickCheckServiceAvailability() => IsCheckServiceAvailability
             ? CheckServiceAvailability!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CheckServiceAvailability' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateClientAppointmentParams? CreateClientAppointment { get; init; }
@@ -875,7 +875,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateClientAppointment))]
@@ -883,7 +883,7 @@ namespace ElevenLabs
         public bool IsCreateClientAppointment => CreateClientAppointment != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateClientAppointment(
 #if NET6_0_OR_GREATER
@@ -896,14 +896,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateClientAppointmentParams PickCreateClientAppointment() => IsCreateClientAppointment
             ? CreateClientAppointment!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateClientAppointment' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetClientAppointmentsParams? GetClientAppointments { get; init; }
@@ -912,7 +912,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetClientAppointments))]
@@ -920,7 +920,7 @@ namespace ElevenLabs
         public bool IsGetClientAppointments => GetClientAppointments != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetClientAppointments(
 #if NET6_0_OR_GREATER
@@ -933,7 +933,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetClientAppointmentsParams PickGetClientAppointments() => IsGetClientAppointments
             ? GetClientAppointments!
@@ -953,7 +953,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetAppointmentByConfirmationNumber))]
@@ -961,7 +961,7 @@ namespace ElevenLabs
         public bool IsGetAppointmentByConfirmationNumber => GetAppointmentByConfirmationNumber != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetAppointmentByConfirmationNumber(
 #if NET6_0_OR_GREATER
@@ -974,14 +974,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetAppointmentByConfirmationNumberParams PickGetAppointmentByConfirmationNumber() => IsGetAppointmentByConfirmationNumber
             ? GetAppointmentByConfirmationNumber!
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetAppointmentByConfirmationNumber' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateOrderParams? CreateOrder { get; init; }
@@ -990,7 +990,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateOrder))]
@@ -998,7 +998,7 @@ namespace ElevenLabs
         public bool IsCreateOrder => CreateOrder != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateOrder(
 #if NET6_0_OR_GREATER
@@ -1011,14 +1011,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateOrderParams PickCreateOrder() => IsCreateOrder
             ? CreateOrder!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateOrder' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetOrderByConfirmationNumberParams? GetOrderByConfirmationNumber { get; init; }
@@ -1027,7 +1027,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetOrderByConfirmationNumber))]
@@ -1035,7 +1035,7 @@ namespace ElevenLabs
         public bool IsGetOrderByConfirmationNumber => GetOrderByConfirmationNumber != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetOrderByConfirmationNumber(
 #if NET6_0_OR_GREATER
@@ -1048,14 +1048,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetOrderByConfirmationNumberParams PickGetOrderByConfirmationNumber() => IsGetOrderByConfirmationNumber
             ? GetOrderByConfirmationNumber!
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetOrderByConfirmationNumber' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetClientOrdersParams? GetClientOrders { get; init; }
@@ -1064,7 +1064,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetClientOrders))]
@@ -1072,7 +1072,7 @@ namespace ElevenLabs
         public bool IsGetClientOrders => GetClientOrders != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetClientOrders(
 #if NET6_0_OR_GREATER
@@ -1085,14 +1085,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetClientOrdersParams PickGetClientOrders() => IsGetClientOrders
             ? GetClientOrders!
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetClientOrders' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateOrderParams? UpdateOrder { get; init; }
@@ -1101,7 +1101,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateOrder))]
@@ -1109,7 +1109,7 @@ namespace ElevenLabs
         public bool IsUpdateOrder => UpdateOrder != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateOrder(
 #if NET6_0_OR_GREATER
@@ -1122,14 +1122,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateOrderParams PickUpdateOrder() => IsUpdateOrder
             ? UpdateOrder!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateOrder' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CancelOrderParams? CancelOrder { get; init; }
@@ -1138,7 +1138,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CancelOrder))]
@@ -1146,7 +1146,7 @@ namespace ElevenLabs
         public bool IsCancelOrder => CancelOrder != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCancelOrder(
 #if NET6_0_OR_GREATER
@@ -1159,7 +1159,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CancelOrderParams PickCancelOrder() => IsCancelOrder
             ? CancelOrder!
@@ -1178,7 +1178,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListGroupSessions))]
@@ -1186,7 +1186,7 @@ namespace ElevenLabs
         public bool IsListGroupSessions => ListGroupSessions != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListGroupSessions(
 #if NET6_0_OR_GREATER
@@ -1199,7 +1199,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListGroupSessionsParams PickListGroupSessions() => IsListGroupSessions
             ? ListGroupSessions!
@@ -1219,7 +1219,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ScheduleGroupSession))]
@@ -1227,7 +1227,7 @@ namespace ElevenLabs
         public bool IsScheduleGroupSession => ScheduleGroupSession != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickScheduleGroupSession(
 #if NET6_0_OR_GREATER
@@ -1240,7 +1240,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ScheduleGroupSessionParams PickScheduleGroupSession() => IsScheduleGroupSession
             ? ScheduleGroupSession!
@@ -1256,7 +1256,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(RegisterForGroupSession))]
@@ -1264,7 +1264,7 @@ namespace ElevenLabs
         public bool IsRegisterForGroupSession => RegisterForGroupSession != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickRegisterForGroupSession(
 #if NET6_0_OR_GREATER
@@ -1277,7 +1277,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.RegisterForGroupSessionParams PickRegisterForGroupSession() => IsRegisterForGroupSession
             ? RegisterForGroupSession!
@@ -1293,7 +1293,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CancelGroupSessionRegistration))]
@@ -1301,7 +1301,7 @@ namespace ElevenLabs
         public bool IsCancelGroupSessionRegistration => CancelGroupSessionRegistration != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCancelGroupSessionRegistration(
 #if NET6_0_OR_GREATER
@@ -1314,7 +1314,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CancelGroupSessionRegistrationParams PickCancelGroupSessionRegistration() => IsCancelGroupSessionRegistration
             ? CancelGroupSessionRegistration!
@@ -1330,7 +1330,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateGroupSessionSeats))]
@@ -1338,7 +1338,7 @@ namespace ElevenLabs
         public bool IsUpdateGroupSessionSeats => UpdateGroupSessionSeats != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateGroupSessionSeats(
 #if NET6_0_OR_GREATER
@@ -1351,7 +1351,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateGroupSessionSeatsParams PickUpdateGroupSessionSeats() => IsUpdateGroupSessionSeats
             ? UpdateGroupSessionSeats!
@@ -1369,7 +1369,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CancelGroupSessionForAll))]
@@ -1377,7 +1377,7 @@ namespace ElevenLabs
         public bool IsCancelGroupSessionForAll => CancelGroupSessionForAll != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCancelGroupSessionForAll(
 #if NET6_0_OR_GREATER
@@ -1390,7 +1390,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CancelGroupSessionForAllParams PickCancelGroupSessionForAll() => IsCancelGroupSessionForAll
             ? CancelGroupSessionForAll!
@@ -1412,7 +1412,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteGroupSession))]
@@ -1420,7 +1420,7 @@ namespace ElevenLabs
         public bool IsDeleteGroupSession => DeleteGroupSession != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteGroupSession(
 #if NET6_0_OR_GREATER
@@ -1433,14 +1433,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteGroupSessionParams PickDeleteGroupSession() => IsDeleteGroupSession
             ? DeleteGroupSession!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteGroupSession' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListCalendarEventsParams? ListCalendarEvents { get; init; }
@@ -1449,7 +1449,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListCalendarEvents))]
@@ -1457,7 +1457,7 @@ namespace ElevenLabs
         public bool IsListCalendarEvents => ListCalendarEvents != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListCalendarEvents(
 #if NET6_0_OR_GREATER
@@ -1470,14 +1470,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListCalendarEventsParams PickListCalendarEvents() => IsListCalendarEvents
             ? ListCalendarEvents!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListCalendarEvents' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateCalendarEventParams? UpdateCalendarEvent { get; init; }
@@ -1486,7 +1486,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateCalendarEvent))]
@@ -1494,7 +1494,7 @@ namespace ElevenLabs
         public bool IsUpdateCalendarEvent => UpdateCalendarEvent != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateCalendarEvent(
 #if NET6_0_OR_GREATER
@@ -1507,14 +1507,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateCalendarEventParams PickUpdateCalendarEvent() => IsUpdateCalendarEvent
             ? UpdateCalendarEvent!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateCalendarEvent' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CancelCalendarEventParams? CancelCalendarEvent { get; init; }
@@ -1523,7 +1523,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CancelCalendarEvent))]
@@ -1531,7 +1531,7 @@ namespace ElevenLabs
         public bool IsCancelCalendarEvent => CancelCalendarEvent != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCancelCalendarEvent(
 #if NET6_0_OR_GREATER
@@ -1544,14 +1544,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CancelCalendarEventParams PickCancelCalendarEvent() => IsCancelCalendarEvent
             ? CancelCalendarEvent!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CancelCalendarEvent' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.RestoreCalendarEventParams? RestoreCalendarEvent { get; init; }
@@ -1560,7 +1560,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(RestoreCalendarEvent))]
@@ -1568,7 +1568,7 @@ namespace ElevenLabs
         public bool IsRestoreCalendarEvent => RestoreCalendarEvent != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickRestoreCalendarEvent(
 #if NET6_0_OR_GREATER
@@ -1581,7 +1581,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.RestoreCalendarEventParams PickRestoreCalendarEvent() => IsRestoreCalendarEvent
             ? RestoreCalendarEvent!
@@ -1600,7 +1600,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteCalendarEvent))]
@@ -1608,7 +1608,7 @@ namespace ElevenLabs
         public bool IsDeleteCalendarEvent => DeleteCalendarEvent != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteCalendarEvent(
 #if NET6_0_OR_GREATER
@@ -1621,7 +1621,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteCalendarEventParams PickDeleteCalendarEvent() => IsDeleteCalendarEvent
             ? DeleteCalendarEvent!
@@ -1641,7 +1641,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListCustomerFacingAgents))]
@@ -1649,7 +1649,7 @@ namespace ElevenLabs
         public bool IsListCustomerFacingAgents => ListCustomerFacingAgents != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListCustomerFacingAgents(
 #if NET6_0_OR_GREATER
@@ -1662,14 +1662,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListCustomerFacingAgentsParams PickListCustomerFacingAgents() => IsListCustomerFacingAgents
             ? ListCustomerFacingAgents!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListCustomerFacingAgents' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListAgentRulesParams? ListAgentRules { get; init; }
@@ -1678,7 +1678,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListAgentRules))]
@@ -1686,7 +1686,7 @@ namespace ElevenLabs
         public bool IsListAgentRules => ListAgentRules != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListAgentRules(
 #if NET6_0_OR_GREATER
@@ -1699,14 +1699,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListAgentRulesParams PickListAgentRules() => IsListAgentRules
             ? ListAgentRules!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListAgentRules' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateAgentRuleParams? CreateAgentRule { get; init; }
@@ -1715,7 +1715,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateAgentRule))]
@@ -1723,7 +1723,7 @@ namespace ElevenLabs
         public bool IsCreateAgentRule => CreateAgentRule != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateAgentRule(
 #if NET6_0_OR_GREATER
@@ -1736,14 +1736,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateAgentRuleParams PickCreateAgentRule() => IsCreateAgentRule
             ? CreateAgentRule!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateAgentRule' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateAgentRuleParams? UpdateAgentRule { get; init; }
@@ -1752,7 +1752,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateAgentRule))]
@@ -1760,7 +1760,7 @@ namespace ElevenLabs
         public bool IsUpdateAgentRule => UpdateAgentRule != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateAgentRule(
 #if NET6_0_OR_GREATER
@@ -1773,14 +1773,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateAgentRuleParams PickUpdateAgentRule() => IsUpdateAgentRule
             ? UpdateAgentRule!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateAgentRule' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteAgentRuleParams? DeleteAgentRule { get; init; }
@@ -1789,7 +1789,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteAgentRule))]
@@ -1797,7 +1797,7 @@ namespace ElevenLabs
         public bool IsDeleteAgentRule => DeleteAgentRule != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteAgentRule(
 #if NET6_0_OR_GREATER
@@ -1810,14 +1810,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteAgentRuleParams PickDeleteAgentRule() => IsDeleteAgentRule
             ? DeleteAgentRule!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteAgentRule' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListTransferRulesParams? ListTransferRules { get; init; }
@@ -1826,7 +1826,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListTransferRules))]
@@ -1834,7 +1834,7 @@ namespace ElevenLabs
         public bool IsListTransferRules => ListTransferRules != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListTransferRules(
 #if NET6_0_OR_GREATER
@@ -1847,14 +1847,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListTransferRulesParams PickListTransferRules() => IsListTransferRules
             ? ListTransferRules!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListTransferRules' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateTransferRuleParams? CreateTransferRule { get; init; }
@@ -1863,7 +1863,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateTransferRule))]
@@ -1871,7 +1871,7 @@ namespace ElevenLabs
         public bool IsCreateTransferRule => CreateTransferRule != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateTransferRule(
 #if NET6_0_OR_GREATER
@@ -1884,14 +1884,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateTransferRuleParams PickCreateTransferRule() => IsCreateTransferRule
             ? CreateTransferRule!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateTransferRule' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateTransferRuleParams? UpdateTransferRule { get; init; }
@@ -1900,7 +1900,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateTransferRule))]
@@ -1908,7 +1908,7 @@ namespace ElevenLabs
         public bool IsUpdateTransferRule => UpdateTransferRule != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateTransferRule(
 #if NET6_0_OR_GREATER
@@ -1921,14 +1921,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateTransferRuleParams PickUpdateTransferRule() => IsUpdateTransferRule
             ? UpdateTransferRule!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateTransferRule' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteTransferRuleParams? DeleteTransferRule { get; init; }
@@ -1937,7 +1937,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteTransferRule))]
@@ -1945,7 +1945,7 @@ namespace ElevenLabs
         public bool IsDeleteTransferRule => DeleteTransferRule != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteTransferRule(
 #if NET6_0_OR_GREATER
@@ -1958,14 +1958,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteTransferRuleParams PickDeleteTransferRule() => IsDeleteTransferRule
             ? DeleteTransferRule!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteTransferRule' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListAgentProceduresParams? ListAgentProcedures { get; init; }
@@ -1974,7 +1974,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListAgentProcedures))]
@@ -1982,7 +1982,7 @@ namespace ElevenLabs
         public bool IsListAgentProcedures => ListAgentProcedures != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListAgentProcedures(
 #if NET6_0_OR_GREATER
@@ -1995,14 +1995,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListAgentProceduresParams PickListAgentProcedures() => IsListAgentProcedures
             ? ListAgentProcedures!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListAgentProcedures' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListAgentReferencesParams? ListAgentReferences { get; init; }
@@ -2011,7 +2011,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListAgentReferences))]
@@ -2019,7 +2019,7 @@ namespace ElevenLabs
         public bool IsListAgentReferences => ListAgentReferences != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListAgentReferences(
 #if NET6_0_OR_GREATER
@@ -2032,14 +2032,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListAgentReferencesParams PickListAgentReferences() => IsListAgentReferences
             ? ListAgentReferences!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListAgentReferences' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateAgentProcedureParams? CreateAgentProcedure { get; init; }
@@ -2048,7 +2048,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateAgentProcedure))]
@@ -2056,7 +2056,7 @@ namespace ElevenLabs
         public bool IsCreateAgentProcedure => CreateAgentProcedure != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateAgentProcedure(
 #if NET6_0_OR_GREATER
@@ -2069,14 +2069,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateAgentProcedureParams PickCreateAgentProcedure() => IsCreateAgentProcedure
             ? CreateAgentProcedure!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateAgentProcedure' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateAgentProcedureParams? UpdateAgentProcedure { get; init; }
@@ -2085,7 +2085,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateAgentProcedure))]
@@ -2093,7 +2093,7 @@ namespace ElevenLabs
         public bool IsUpdateAgentProcedure => UpdateAgentProcedure != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateAgentProcedure(
 #if NET6_0_OR_GREATER
@@ -2106,14 +2106,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateAgentProcedureParams PickUpdateAgentProcedure() => IsUpdateAgentProcedure
             ? UpdateAgentProcedure!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateAgentProcedure' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteAgentProcedureParams? DeleteAgentProcedure { get; init; }
@@ -2122,7 +2122,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteAgentProcedure))]
@@ -2130,7 +2130,7 @@ namespace ElevenLabs
         public bool IsDeleteAgentProcedure => DeleteAgentProcedure != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteAgentProcedure(
 #if NET6_0_OR_GREATER
@@ -2143,14 +2143,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteAgentProcedureParams PickDeleteAgentProcedure() => IsDeleteAgentProcedure
             ? DeleteAgentProcedure!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteAgentProcedure' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListHolidaysParams? ListHolidays { get; init; }
@@ -2159,7 +2159,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListHolidays))]
@@ -2167,7 +2167,7 @@ namespace ElevenLabs
         public bool IsListHolidays => ListHolidays != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListHolidays(
 #if NET6_0_OR_GREATER
@@ -2180,14 +2180,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListHolidaysParams PickListHolidays() => IsListHolidays
             ? ListHolidays!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListHolidays' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateHolidayParams? CreateHoliday { get; init; }
@@ -2196,7 +2196,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateHoliday))]
@@ -2204,7 +2204,7 @@ namespace ElevenLabs
         public bool IsCreateHoliday => CreateHoliday != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateHoliday(
 #if NET6_0_OR_GREATER
@@ -2217,14 +2217,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateHolidayParams PickCreateHoliday() => IsCreateHoliday
             ? CreateHoliday!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateHoliday' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateHolidayParams? UpdateHoliday { get; init; }
@@ -2233,7 +2233,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateHoliday))]
@@ -2241,7 +2241,7 @@ namespace ElevenLabs
         public bool IsUpdateHoliday => UpdateHoliday != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateHoliday(
 #if NET6_0_OR_GREATER
@@ -2254,14 +2254,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateHolidayParams PickUpdateHoliday() => IsUpdateHoliday
             ? UpdateHoliday!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateHoliday' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteHolidayParams? DeleteHoliday { get; init; }
@@ -2270,7 +2270,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteHoliday))]
@@ -2278,7 +2278,7 @@ namespace ElevenLabs
         public bool IsDeleteHoliday => DeleteHoliday != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteHoliday(
 #if NET6_0_OR_GREATER
@@ -2291,14 +2291,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteHolidayParams PickDeleteHoliday() => IsDeleteHoliday
             ? DeleteHoliday!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteHoliday' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetScheduleParams? GetSchedule { get; init; }
@@ -2307,7 +2307,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetSchedule))]
@@ -2315,7 +2315,7 @@ namespace ElevenLabs
         public bool IsGetSchedule => GetSchedule != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetSchedule(
 #if NET6_0_OR_GREATER
@@ -2328,7 +2328,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetScheduleParams PickGetSchedule() => IsGetSchedule
             ? GetSchedule!
@@ -2344,7 +2344,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SubmitBusinessInfo))]
@@ -2352,7 +2352,7 @@ namespace ElevenLabs
         public bool IsSubmitBusinessInfo => SubmitBusinessInfo != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSubmitBusinessInfo(
 #if NET6_0_OR_GREATER
@@ -2365,14 +2365,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SubmitBusinessInfoParams PickSubmitBusinessInfo() => IsSubmitBusinessInfo
             ? SubmitBusinessInfo!
             : throw new global::System.InvalidOperationException($"Expected union variant 'SubmitBusinessInfo' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateBusinessInfoParams? UpdateBusinessInfo { get; init; }
@@ -2381,7 +2381,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateBusinessInfo))]
@@ -2389,7 +2389,7 @@ namespace ElevenLabs
         public bool IsUpdateBusinessInfo => UpdateBusinessInfo != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateBusinessInfo(
 #if NET6_0_OR_GREATER
@@ -2402,14 +2402,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateBusinessInfoParams PickUpdateBusinessInfo() => IsUpdateBusinessInfo
             ? UpdateBusinessInfo!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateBusinessInfo' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateCustomerFacingConfigParams? UpdateCustomerFacingConfig { get; init; }
@@ -2418,7 +2418,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateCustomerFacingConfig))]
@@ -2426,7 +2426,7 @@ namespace ElevenLabs
         public bool IsUpdateCustomerFacingConfig => UpdateCustomerFacingConfig != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateCustomerFacingConfig(
 #if NET6_0_OR_GREATER
@@ -2439,7 +2439,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateCustomerFacingConfigParams PickUpdateCustomerFacingConfig() => IsUpdateCustomerFacingConfig
             ? UpdateCustomerFacingConfig!
@@ -2455,7 +2455,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetAnalyticsSummary))]
@@ -2463,7 +2463,7 @@ namespace ElevenLabs
         public bool IsGetAnalyticsSummary => GetAnalyticsSummary != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetAnalyticsSummary(
 #if NET6_0_OR_GREATER
@@ -2476,14 +2476,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetAnalyticsSummaryParams PickGetAnalyticsSummary() => IsGetAnalyticsSummary
             ? GetAnalyticsSummary!
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetAnalyticsSummary' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetBookingPageSettingsParams? GetBookingPageSettings { get; init; }
@@ -2492,7 +2492,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetBookingPageSettings))]
@@ -2500,7 +2500,7 @@ namespace ElevenLabs
         public bool IsGetBookingPageSettings => GetBookingPageSettings != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetBookingPageSettings(
 #if NET6_0_OR_GREATER
@@ -2513,14 +2513,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetBookingPageSettingsParams PickGetBookingPageSettings() => IsGetBookingPageSettings
             ? GetBookingPageSettings!
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetBookingPageSettings' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateBookingPageSettingsParams? UpdateBookingPageSettings { get; init; }
@@ -2529,7 +2529,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateBookingPageSettings))]
@@ -2537,7 +2537,7 @@ namespace ElevenLabs
         public bool IsUpdateBookingPageSettings => UpdateBookingPageSettings != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateBookingPageSettings(
 #if NET6_0_OR_GREATER
@@ -2550,14 +2550,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateBookingPageSettingsParams PickUpdateBookingPageSettings() => IsUpdateBookingPageSettings
             ? UpdateBookingPageSettings!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateBookingPageSettings' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateBookingPageAppearanceParams? UpdateBookingPageAppearance { get; init; }
@@ -2566,7 +2566,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateBookingPageAppearance))]
@@ -2574,7 +2574,7 @@ namespace ElevenLabs
         public bool IsUpdateBookingPageAppearance => UpdateBookingPageAppearance != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateBookingPageAppearance(
 #if NET6_0_OR_GREATER
@@ -2587,14 +2587,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateBookingPageAppearanceParams PickUpdateBookingPageAppearance() => IsUpdateBookingPageAppearance
             ? UpdateBookingPageAppearance!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateBookingPageAppearance' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetBookingSlugStatusParams? GetBookingSlugStatus { get; init; }
@@ -2603,7 +2603,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetBookingSlugStatus))]
@@ -2611,7 +2611,7 @@ namespace ElevenLabs
         public bool IsGetBookingSlugStatus => GetBookingSlugStatus != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetBookingSlugStatus(
 #if NET6_0_OR_GREATER
@@ -2624,14 +2624,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetBookingSlugStatusParams PickGetBookingSlugStatus() => IsGetBookingSlugStatus
             ? GetBookingSlugStatus!
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetBookingSlugStatus' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SetBookingSlugParams? SetBookingSlug { get; init; }
@@ -2640,7 +2640,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SetBookingSlug))]
@@ -2648,7 +2648,7 @@ namespace ElevenLabs
         public bool IsSetBookingSlug => SetBookingSlug != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSetBookingSlug(
 #if NET6_0_OR_GREATER
@@ -2661,14 +2661,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SetBookingSlugParams PickSetBookingSlug() => IsSetBookingSlug
             ? SetBookingSlug!
             : throw new global::System.InvalidOperationException($"Expected union variant 'SetBookingSlug' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListClientInteractionsParams? ListClientInteractions { get; init; }
@@ -2677,7 +2677,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListClientInteractions))]
@@ -2685,7 +2685,7 @@ namespace ElevenLabs
         public bool IsListClientInteractions => ListClientInteractions != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListClientInteractions(
 #if NET6_0_OR_GREATER
@@ -2698,14 +2698,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListClientInteractionsParams PickListClientInteractions() => IsListClientInteractions
             ? ListClientInteractions!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListClientInteractions' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateClientInteractionParams? CreateClientInteraction { get; init; }
@@ -2714,7 +2714,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateClientInteraction))]
@@ -2722,7 +2722,7 @@ namespace ElevenLabs
         public bool IsCreateClientInteraction => CreateClientInteraction != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateClientInteraction(
 #if NET6_0_OR_GREATER
@@ -2735,14 +2735,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateClientInteractionParams PickCreateClientInteraction() => IsCreateClientInteraction
             ? CreateClientInteraction!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateClientInteraction' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteClientInteractionParams? DeleteClientInteraction { get; init; }
@@ -2751,7 +2751,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteClientInteraction))]
@@ -2759,7 +2759,7 @@ namespace ElevenLabs
         public bool IsDeleteClientInteraction => DeleteClientInteraction != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteClientInteraction(
 #if NET6_0_OR_GREATER
@@ -2772,7 +2772,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteClientInteractionParams PickDeleteClientInteraction() => IsDeleteClientInteraction
             ? DeleteClientInteraction!
@@ -2788,7 +2788,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListLocations))]
@@ -2796,7 +2796,7 @@ namespace ElevenLabs
         public bool IsListLocations => ListLocations != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListLocations(
 #if NET6_0_OR_GREATER
@@ -2809,14 +2809,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListLocationsParams PickListLocations() => IsListLocations
             ? ListLocations!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListLocations' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateLocationParams? CreateLocation { get; init; }
@@ -2825,7 +2825,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateLocation))]
@@ -2833,7 +2833,7 @@ namespace ElevenLabs
         public bool IsCreateLocation => CreateLocation != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateLocation(
 #if NET6_0_OR_GREATER
@@ -2846,14 +2846,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateLocationParams PickCreateLocation() => IsCreateLocation
             ? CreateLocation!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateLocation' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateLocationParams? UpdateLocation { get; init; }
@@ -2862,7 +2862,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateLocation))]
@@ -2870,7 +2870,7 @@ namespace ElevenLabs
         public bool IsUpdateLocation => UpdateLocation != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateLocation(
 #if NET6_0_OR_GREATER
@@ -2883,14 +2883,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateLocationParams PickUpdateLocation() => IsUpdateLocation
             ? UpdateLocation!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateLocation' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteLocationParams? DeleteLocation { get; init; }
@@ -2899,7 +2899,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteLocation))]
@@ -2907,7 +2907,7 @@ namespace ElevenLabs
         public bool IsDeleteLocation => DeleteLocation != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteLocation(
 #if NET6_0_OR_GREATER
@@ -2920,14 +2920,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteLocationParams PickDeleteLocation() => IsDeleteLocation
             ? DeleteLocation!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteLocation' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.LeaveMessageParams? LeaveMessage { get; init; }
@@ -2936,7 +2936,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LeaveMessage))]
@@ -2944,7 +2944,7 @@ namespace ElevenLabs
         public bool IsLeaveMessage => LeaveMessage != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickLeaveMessage(
 #if NET6_0_OR_GREATER
@@ -2957,14 +2957,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.LeaveMessageParams PickLeaveMessage() => IsLeaveMessage
             ? LeaveMessage!
             : throw new global::System.InvalidOperationException($"Expected union variant 'LeaveMessage' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ReportKnowledgeGapParams? ReportKnowledgeGap { get; init; }
@@ -2973,7 +2973,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ReportKnowledgeGap))]
@@ -2981,7 +2981,7 @@ namespace ElevenLabs
         public bool IsReportKnowledgeGap => ReportKnowledgeGap != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickReportKnowledgeGap(
 #if NET6_0_OR_GREATER
@@ -2994,14 +2994,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ReportKnowledgeGapParams PickReportKnowledgeGap() => IsReportKnowledgeGap
             ? ReportKnowledgeGap!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ReportKnowledgeGap' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.OptInSmsReminderParams? OptInSmsReminder { get; init; }
@@ -3010,7 +3010,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(OptInSmsReminder))]
@@ -3018,7 +3018,7 @@ namespace ElevenLabs
         public bool IsOptInSmsReminder => OptInSmsReminder != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickOptInSmsReminder(
 #if NET6_0_OR_GREATER
@@ -3031,14 +3031,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.OptInSmsReminderParams PickOptInSmsReminder() => IsOptInSmsReminder
             ? OptInSmsReminder!
             : throw new global::System.InvalidOperationException($"Expected union variant 'OptInSmsReminder' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.OptOutSmsReminderParams? OptOutSmsReminder { get; init; }
@@ -3047,7 +3047,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(OptOutSmsReminder))]
@@ -3055,7 +3055,7 @@ namespace ElevenLabs
         public bool IsOptOutSmsReminder => OptOutSmsReminder != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickOptOutSmsReminder(
 #if NET6_0_OR_GREATER
@@ -3068,14 +3068,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.OptOutSmsReminderParams PickOptOutSmsReminder() => IsOptOutSmsReminder
             ? OptOutSmsReminder!
             : throw new global::System.InvalidOperationException($"Expected union variant 'OptOutSmsReminder' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TriggerUserVerificationParams? TriggerUserVerification { get; init; }
@@ -3084,7 +3084,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TriggerUserVerification))]
@@ -3092,7 +3092,7 @@ namespace ElevenLabs
         public bool IsTriggerUserVerification => TriggerUserVerification != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTriggerUserVerification(
 #if NET6_0_OR_GREATER
@@ -3105,14 +3105,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TriggerUserVerificationParams PickTriggerUserVerification() => IsTriggerUserVerification
             ? TriggerUserVerification!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TriggerUserVerification' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ValidateUserVerificationCodeParams? ValidateUserVerificationCode { get; init; }
@@ -3121,7 +3121,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ValidateUserVerificationCode))]
@@ -3129,7 +3129,7 @@ namespace ElevenLabs
         public bool IsValidateUserVerificationCode => ValidateUserVerificationCode != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickValidateUserVerificationCode(
 #if NET6_0_OR_GREATER
@@ -3142,23 +3142,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ValidateUserVerificationCodeParams PickValidateUserVerificationCode() => IsValidateUserVerificationCode
             ? ValidateUserVerificationCode!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ValidateUserVerificationCode' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.SearchClientsParams value) => new Params((global::ElevenLabs.SearchClientsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SearchClientsParams?(Params @this) => @this.SearchClients;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.SearchClientsParams? value)
         {
@@ -3166,22 +3166,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromSearchClients(global::ElevenLabs.SearchClientsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListClientsParams value) => new Params((global::ElevenLabs.ListClientsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListClientsParams?(Params @this) => @this.ListClients;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListClientsParams? value)
         {
@@ -3189,22 +3189,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListClients(global::ElevenLabs.ListClientsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetClientByPhoneParams value) => new Params((global::ElevenLabs.GetClientByPhoneParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetClientByPhoneParams?(Params @this) => @this.GetClientByPhone;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetClientByPhoneParams? value)
         {
@@ -3212,22 +3212,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetClientByPhone(global::ElevenLabs.GetClientByPhoneParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateClientParams value) => new Params((global::ElevenLabs.CreateClientParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateClientParams?(Params @this) => @this.CreateClient;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateClientParams? value)
         {
@@ -3235,22 +3235,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateClient(global::ElevenLabs.CreateClientParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateClientParams value) => new Params((global::ElevenLabs.UpdateClientParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateClientParams?(Params @this) => @this.UpdateClient;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateClientParams? value)
         {
@@ -3258,22 +3258,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateClient(global::ElevenLabs.UpdateClientParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteClientParams value) => new Params((global::ElevenLabs.DeleteClientParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteClientParams?(Params @this) => @this.DeleteClient;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteClientParams? value)
         {
@@ -3281,22 +3281,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteClient(global::ElevenLabs.DeleteClientParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListStaffParams value) => new Params((global::ElevenLabs.ListStaffParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListStaffParams?(Params @this) => @this.ListStaff;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListStaffParams? value)
         {
@@ -3304,22 +3304,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListStaff(global::ElevenLabs.ListStaffParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateStaffParams value) => new Params((global::ElevenLabs.CreateStaffParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateStaffParams?(Params @this) => @this.CreateStaff;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateStaffParams? value)
         {
@@ -3327,22 +3327,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateStaff(global::ElevenLabs.CreateStaffParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateStaffParams value) => new Params((global::ElevenLabs.UpdateStaffParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateStaffParams?(Params @this) => @this.UpdateStaff;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateStaffParams? value)
         {
@@ -3350,22 +3350,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateStaff(global::ElevenLabs.UpdateStaffParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteStaffParams value) => new Params((global::ElevenLabs.DeleteStaffParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteStaffParams?(Params @this) => @this.DeleteStaff;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteStaffParams? value)
         {
@@ -3373,22 +3373,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteStaff(global::ElevenLabs.DeleteStaffParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListAssetsParams value) => new Params((global::ElevenLabs.ListAssetsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListAssetsParams?(Params @this) => @this.ListAssets;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListAssetsParams? value)
         {
@@ -3396,22 +3396,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListAssets(global::ElevenLabs.ListAssetsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateAssetParams value) => new Params((global::ElevenLabs.CreateAssetParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateAssetParams?(Params @this) => @this.CreateAsset;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateAssetParams? value)
         {
@@ -3419,22 +3419,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateAsset(global::ElevenLabs.CreateAssetParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateAssetParams value) => new Params((global::ElevenLabs.UpdateAssetParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateAssetParams?(Params @this) => @this.UpdateAsset;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateAssetParams? value)
         {
@@ -3442,22 +3442,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateAsset(global::ElevenLabs.UpdateAssetParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteAssetParams value) => new Params((global::ElevenLabs.DeleteAssetParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteAssetParams?(Params @this) => @this.DeleteAsset;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteAssetParams? value)
         {
@@ -3465,22 +3465,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteAsset(global::ElevenLabs.DeleteAssetParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListServicesParams value) => new Params((global::ElevenLabs.ListServicesParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListServicesParams?(Params @this) => @this.ListServices;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListServicesParams? value)
         {
@@ -3488,22 +3488,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListServices(global::ElevenLabs.ListServicesParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateServiceParams value) => new Params((global::ElevenLabs.CreateServiceParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateServiceParams?(Params @this) => @this.CreateService;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateServiceParams? value)
         {
@@ -3511,22 +3511,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateService(global::ElevenLabs.CreateServiceParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateServiceParams value) => new Params((global::ElevenLabs.UpdateServiceParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateServiceParams?(Params @this) => @this.UpdateService;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateServiceParams? value)
         {
@@ -3534,22 +3534,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateService(global::ElevenLabs.UpdateServiceParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteServiceParams value) => new Params((global::ElevenLabs.DeleteServiceParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteServiceParams?(Params @this) => @this.DeleteService;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteServiceParams? value)
         {
@@ -3557,22 +3557,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteService(global::ElevenLabs.DeleteServiceParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListProductsParams value) => new Params((global::ElevenLabs.ListProductsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListProductsParams?(Params @this) => @this.ListProducts;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListProductsParams? value)
         {
@@ -3580,22 +3580,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListProducts(global::ElevenLabs.ListProductsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateProductParams value) => new Params((global::ElevenLabs.CreateProductParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateProductParams?(Params @this) => @this.CreateProduct;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateProductParams? value)
         {
@@ -3603,22 +3603,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateProduct(global::ElevenLabs.CreateProductParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateProductParams value) => new Params((global::ElevenLabs.UpdateProductParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateProductParams?(Params @this) => @this.UpdateProduct;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateProductParams? value)
         {
@@ -3626,22 +3626,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateProduct(global::ElevenLabs.UpdateProductParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteProductParams value) => new Params((global::ElevenLabs.DeleteProductParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteProductParams?(Params @this) => @this.DeleteProduct;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteProductParams? value)
         {
@@ -3649,22 +3649,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteProduct(global::ElevenLabs.DeleteProductParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CheckServiceAvailabilityParams value) => new Params((global::ElevenLabs.CheckServiceAvailabilityParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CheckServiceAvailabilityParams?(Params @this) => @this.CheckServiceAvailability;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CheckServiceAvailabilityParams? value)
         {
@@ -3672,22 +3672,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCheckServiceAvailability(global::ElevenLabs.CheckServiceAvailabilityParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateClientAppointmentParams value) => new Params((global::ElevenLabs.CreateClientAppointmentParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateClientAppointmentParams?(Params @this) => @this.CreateClientAppointment;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateClientAppointmentParams? value)
         {
@@ -3695,22 +3695,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateClientAppointment(global::ElevenLabs.CreateClientAppointmentParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetClientAppointmentsParams value) => new Params((global::ElevenLabs.GetClientAppointmentsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetClientAppointmentsParams?(Params @this) => @this.GetClientAppointments;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetClientAppointmentsParams? value)
         {
@@ -3718,22 +3718,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetClientAppointments(global::ElevenLabs.GetClientAppointmentsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetAppointmentByConfirmationNumberParams value) => new Params((global::ElevenLabs.GetAppointmentByConfirmationNumberParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetAppointmentByConfirmationNumberParams?(Params @this) => @this.GetAppointmentByConfirmationNumber;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetAppointmentByConfirmationNumberParams? value)
         {
@@ -3741,22 +3741,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetAppointmentByConfirmationNumber(global::ElevenLabs.GetAppointmentByConfirmationNumberParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateOrderParams value) => new Params((global::ElevenLabs.CreateOrderParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateOrderParams?(Params @this) => @this.CreateOrder;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateOrderParams? value)
         {
@@ -3764,22 +3764,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateOrder(global::ElevenLabs.CreateOrderParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetOrderByConfirmationNumberParams value) => new Params((global::ElevenLabs.GetOrderByConfirmationNumberParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetOrderByConfirmationNumberParams?(Params @this) => @this.GetOrderByConfirmationNumber;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetOrderByConfirmationNumberParams? value)
         {
@@ -3787,22 +3787,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetOrderByConfirmationNumber(global::ElevenLabs.GetOrderByConfirmationNumberParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetClientOrdersParams value) => new Params((global::ElevenLabs.GetClientOrdersParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetClientOrdersParams?(Params @this) => @this.GetClientOrders;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetClientOrdersParams? value)
         {
@@ -3810,22 +3810,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetClientOrders(global::ElevenLabs.GetClientOrdersParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateOrderParams value) => new Params((global::ElevenLabs.UpdateOrderParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateOrderParams?(Params @this) => @this.UpdateOrder;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateOrderParams? value)
         {
@@ -3833,22 +3833,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateOrder(global::ElevenLabs.UpdateOrderParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CancelOrderParams value) => new Params((global::ElevenLabs.CancelOrderParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CancelOrderParams?(Params @this) => @this.CancelOrder;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CancelOrderParams? value)
         {
@@ -3856,22 +3856,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCancelOrder(global::ElevenLabs.CancelOrderParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListGroupSessionsParams value) => new Params((global::ElevenLabs.ListGroupSessionsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListGroupSessionsParams?(Params @this) => @this.ListGroupSessions;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListGroupSessionsParams? value)
         {
@@ -3879,22 +3879,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListGroupSessions(global::ElevenLabs.ListGroupSessionsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ScheduleGroupSessionParams value) => new Params((global::ElevenLabs.ScheduleGroupSessionParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ScheduleGroupSessionParams?(Params @this) => @this.ScheduleGroupSession;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ScheduleGroupSessionParams? value)
         {
@@ -3902,22 +3902,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromScheduleGroupSession(global::ElevenLabs.ScheduleGroupSessionParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.RegisterForGroupSessionParams value) => new Params((global::ElevenLabs.RegisterForGroupSessionParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.RegisterForGroupSessionParams?(Params @this) => @this.RegisterForGroupSession;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.RegisterForGroupSessionParams? value)
         {
@@ -3925,22 +3925,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromRegisterForGroupSession(global::ElevenLabs.RegisterForGroupSessionParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CancelGroupSessionRegistrationParams value) => new Params((global::ElevenLabs.CancelGroupSessionRegistrationParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CancelGroupSessionRegistrationParams?(Params @this) => @this.CancelGroupSessionRegistration;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CancelGroupSessionRegistrationParams? value)
         {
@@ -3948,22 +3948,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCancelGroupSessionRegistration(global::ElevenLabs.CancelGroupSessionRegistrationParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateGroupSessionSeatsParams value) => new Params((global::ElevenLabs.UpdateGroupSessionSeatsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateGroupSessionSeatsParams?(Params @this) => @this.UpdateGroupSessionSeats;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateGroupSessionSeatsParams? value)
         {
@@ -3971,22 +3971,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateGroupSessionSeats(global::ElevenLabs.UpdateGroupSessionSeatsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CancelGroupSessionForAllParams value) => new Params((global::ElevenLabs.CancelGroupSessionForAllParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CancelGroupSessionForAllParams?(Params @this) => @this.CancelGroupSessionForAll;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CancelGroupSessionForAllParams? value)
         {
@@ -3994,22 +3994,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCancelGroupSessionForAll(global::ElevenLabs.CancelGroupSessionForAllParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteGroupSessionParams value) => new Params((global::ElevenLabs.DeleteGroupSessionParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteGroupSessionParams?(Params @this) => @this.DeleteGroupSession;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteGroupSessionParams? value)
         {
@@ -4017,22 +4017,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteGroupSession(global::ElevenLabs.DeleteGroupSessionParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListCalendarEventsParams value) => new Params((global::ElevenLabs.ListCalendarEventsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListCalendarEventsParams?(Params @this) => @this.ListCalendarEvents;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListCalendarEventsParams? value)
         {
@@ -4040,22 +4040,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListCalendarEvents(global::ElevenLabs.ListCalendarEventsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateCalendarEventParams value) => new Params((global::ElevenLabs.UpdateCalendarEventParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateCalendarEventParams?(Params @this) => @this.UpdateCalendarEvent;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateCalendarEventParams? value)
         {
@@ -4063,22 +4063,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateCalendarEvent(global::ElevenLabs.UpdateCalendarEventParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CancelCalendarEventParams value) => new Params((global::ElevenLabs.CancelCalendarEventParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CancelCalendarEventParams?(Params @this) => @this.CancelCalendarEvent;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CancelCalendarEventParams? value)
         {
@@ -4086,22 +4086,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCancelCalendarEvent(global::ElevenLabs.CancelCalendarEventParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.RestoreCalendarEventParams value) => new Params((global::ElevenLabs.RestoreCalendarEventParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.RestoreCalendarEventParams?(Params @this) => @this.RestoreCalendarEvent;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.RestoreCalendarEventParams? value)
         {
@@ -4109,22 +4109,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromRestoreCalendarEvent(global::ElevenLabs.RestoreCalendarEventParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteCalendarEventParams value) => new Params((global::ElevenLabs.DeleteCalendarEventParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteCalendarEventParams?(Params @this) => @this.DeleteCalendarEvent;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteCalendarEventParams? value)
         {
@@ -4132,22 +4132,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteCalendarEvent(global::ElevenLabs.DeleteCalendarEventParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListCustomerFacingAgentsParams value) => new Params((global::ElevenLabs.ListCustomerFacingAgentsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListCustomerFacingAgentsParams?(Params @this) => @this.ListCustomerFacingAgents;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListCustomerFacingAgentsParams? value)
         {
@@ -4155,22 +4155,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListCustomerFacingAgents(global::ElevenLabs.ListCustomerFacingAgentsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListAgentRulesParams value) => new Params((global::ElevenLabs.ListAgentRulesParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListAgentRulesParams?(Params @this) => @this.ListAgentRules;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListAgentRulesParams? value)
         {
@@ -4178,22 +4178,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListAgentRules(global::ElevenLabs.ListAgentRulesParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateAgentRuleParams value) => new Params((global::ElevenLabs.CreateAgentRuleParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateAgentRuleParams?(Params @this) => @this.CreateAgentRule;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateAgentRuleParams? value)
         {
@@ -4201,22 +4201,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateAgentRule(global::ElevenLabs.CreateAgentRuleParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateAgentRuleParams value) => new Params((global::ElevenLabs.UpdateAgentRuleParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateAgentRuleParams?(Params @this) => @this.UpdateAgentRule;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateAgentRuleParams? value)
         {
@@ -4224,22 +4224,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateAgentRule(global::ElevenLabs.UpdateAgentRuleParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteAgentRuleParams value) => new Params((global::ElevenLabs.DeleteAgentRuleParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteAgentRuleParams?(Params @this) => @this.DeleteAgentRule;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteAgentRuleParams? value)
         {
@@ -4247,22 +4247,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteAgentRule(global::ElevenLabs.DeleteAgentRuleParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListTransferRulesParams value) => new Params((global::ElevenLabs.ListTransferRulesParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListTransferRulesParams?(Params @this) => @this.ListTransferRules;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListTransferRulesParams? value)
         {
@@ -4270,22 +4270,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListTransferRules(global::ElevenLabs.ListTransferRulesParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateTransferRuleParams value) => new Params((global::ElevenLabs.CreateTransferRuleParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateTransferRuleParams?(Params @this) => @this.CreateTransferRule;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateTransferRuleParams? value)
         {
@@ -4293,22 +4293,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateTransferRule(global::ElevenLabs.CreateTransferRuleParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateTransferRuleParams value) => new Params((global::ElevenLabs.UpdateTransferRuleParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateTransferRuleParams?(Params @this) => @this.UpdateTransferRule;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateTransferRuleParams? value)
         {
@@ -4316,22 +4316,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateTransferRule(global::ElevenLabs.UpdateTransferRuleParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteTransferRuleParams value) => new Params((global::ElevenLabs.DeleteTransferRuleParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteTransferRuleParams?(Params @this) => @this.DeleteTransferRule;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteTransferRuleParams? value)
         {
@@ -4339,22 +4339,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteTransferRule(global::ElevenLabs.DeleteTransferRuleParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListAgentProceduresParams value) => new Params((global::ElevenLabs.ListAgentProceduresParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListAgentProceduresParams?(Params @this) => @this.ListAgentProcedures;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListAgentProceduresParams? value)
         {
@@ -4362,22 +4362,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListAgentProcedures(global::ElevenLabs.ListAgentProceduresParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListAgentReferencesParams value) => new Params((global::ElevenLabs.ListAgentReferencesParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListAgentReferencesParams?(Params @this) => @this.ListAgentReferences;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListAgentReferencesParams? value)
         {
@@ -4385,22 +4385,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListAgentReferences(global::ElevenLabs.ListAgentReferencesParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateAgentProcedureParams value) => new Params((global::ElevenLabs.CreateAgentProcedureParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateAgentProcedureParams?(Params @this) => @this.CreateAgentProcedure;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateAgentProcedureParams? value)
         {
@@ -4408,22 +4408,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateAgentProcedure(global::ElevenLabs.CreateAgentProcedureParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateAgentProcedureParams value) => new Params((global::ElevenLabs.UpdateAgentProcedureParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateAgentProcedureParams?(Params @this) => @this.UpdateAgentProcedure;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateAgentProcedureParams? value)
         {
@@ -4431,22 +4431,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateAgentProcedure(global::ElevenLabs.UpdateAgentProcedureParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteAgentProcedureParams value) => new Params((global::ElevenLabs.DeleteAgentProcedureParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteAgentProcedureParams?(Params @this) => @this.DeleteAgentProcedure;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteAgentProcedureParams? value)
         {
@@ -4454,22 +4454,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteAgentProcedure(global::ElevenLabs.DeleteAgentProcedureParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListHolidaysParams value) => new Params((global::ElevenLabs.ListHolidaysParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListHolidaysParams?(Params @this) => @this.ListHolidays;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListHolidaysParams? value)
         {
@@ -4477,22 +4477,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListHolidays(global::ElevenLabs.ListHolidaysParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateHolidayParams value) => new Params((global::ElevenLabs.CreateHolidayParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateHolidayParams?(Params @this) => @this.CreateHoliday;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateHolidayParams? value)
         {
@@ -4500,22 +4500,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateHoliday(global::ElevenLabs.CreateHolidayParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateHolidayParams value) => new Params((global::ElevenLabs.UpdateHolidayParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateHolidayParams?(Params @this) => @this.UpdateHoliday;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateHolidayParams? value)
         {
@@ -4523,22 +4523,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateHoliday(global::ElevenLabs.UpdateHolidayParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteHolidayParams value) => new Params((global::ElevenLabs.DeleteHolidayParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteHolidayParams?(Params @this) => @this.DeleteHoliday;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteHolidayParams? value)
         {
@@ -4546,22 +4546,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteHoliday(global::ElevenLabs.DeleteHolidayParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetScheduleParams value) => new Params((global::ElevenLabs.GetScheduleParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetScheduleParams?(Params @this) => @this.GetSchedule;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetScheduleParams? value)
         {
@@ -4569,22 +4569,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetSchedule(global::ElevenLabs.GetScheduleParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.SubmitBusinessInfoParams value) => new Params((global::ElevenLabs.SubmitBusinessInfoParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SubmitBusinessInfoParams?(Params @this) => @this.SubmitBusinessInfo;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.SubmitBusinessInfoParams? value)
         {
@@ -4592,22 +4592,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromSubmitBusinessInfo(global::ElevenLabs.SubmitBusinessInfoParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateBusinessInfoParams value) => new Params((global::ElevenLabs.UpdateBusinessInfoParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateBusinessInfoParams?(Params @this) => @this.UpdateBusinessInfo;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateBusinessInfoParams? value)
         {
@@ -4615,22 +4615,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateBusinessInfo(global::ElevenLabs.UpdateBusinessInfoParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateCustomerFacingConfigParams value) => new Params((global::ElevenLabs.UpdateCustomerFacingConfigParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateCustomerFacingConfigParams?(Params @this) => @this.UpdateCustomerFacingConfig;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateCustomerFacingConfigParams? value)
         {
@@ -4638,22 +4638,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateCustomerFacingConfig(global::ElevenLabs.UpdateCustomerFacingConfigParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetAnalyticsSummaryParams value) => new Params((global::ElevenLabs.GetAnalyticsSummaryParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetAnalyticsSummaryParams?(Params @this) => @this.GetAnalyticsSummary;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetAnalyticsSummaryParams? value)
         {
@@ -4661,22 +4661,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetAnalyticsSummary(global::ElevenLabs.GetAnalyticsSummaryParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetBookingPageSettingsParams value) => new Params((global::ElevenLabs.GetBookingPageSettingsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetBookingPageSettingsParams?(Params @this) => @this.GetBookingPageSettings;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetBookingPageSettingsParams? value)
         {
@@ -4684,22 +4684,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetBookingPageSettings(global::ElevenLabs.GetBookingPageSettingsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateBookingPageSettingsParams value) => new Params((global::ElevenLabs.UpdateBookingPageSettingsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateBookingPageSettingsParams?(Params @this) => @this.UpdateBookingPageSettings;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateBookingPageSettingsParams? value)
         {
@@ -4707,22 +4707,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateBookingPageSettings(global::ElevenLabs.UpdateBookingPageSettingsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateBookingPageAppearanceParams value) => new Params((global::ElevenLabs.UpdateBookingPageAppearanceParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateBookingPageAppearanceParams?(Params @this) => @this.UpdateBookingPageAppearance;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateBookingPageAppearanceParams? value)
         {
@@ -4730,22 +4730,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateBookingPageAppearance(global::ElevenLabs.UpdateBookingPageAppearanceParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetBookingSlugStatusParams value) => new Params((global::ElevenLabs.GetBookingSlugStatusParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetBookingSlugStatusParams?(Params @this) => @this.GetBookingSlugStatus;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetBookingSlugStatusParams? value)
         {
@@ -4753,22 +4753,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetBookingSlugStatus(global::ElevenLabs.GetBookingSlugStatusParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.SetBookingSlugParams value) => new Params((global::ElevenLabs.SetBookingSlugParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SetBookingSlugParams?(Params @this) => @this.SetBookingSlug;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.SetBookingSlugParams? value)
         {
@@ -4776,22 +4776,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromSetBookingSlug(global::ElevenLabs.SetBookingSlugParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListClientInteractionsParams value) => new Params((global::ElevenLabs.ListClientInteractionsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListClientInteractionsParams?(Params @this) => @this.ListClientInteractions;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListClientInteractionsParams? value)
         {
@@ -4799,22 +4799,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListClientInteractions(global::ElevenLabs.ListClientInteractionsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateClientInteractionParams value) => new Params((global::ElevenLabs.CreateClientInteractionParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateClientInteractionParams?(Params @this) => @this.CreateClientInteraction;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateClientInteractionParams? value)
         {
@@ -4822,22 +4822,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateClientInteraction(global::ElevenLabs.CreateClientInteractionParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteClientInteractionParams value) => new Params((global::ElevenLabs.DeleteClientInteractionParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteClientInteractionParams?(Params @this) => @this.DeleteClientInteraction;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteClientInteractionParams? value)
         {
@@ -4845,22 +4845,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteClientInteraction(global::ElevenLabs.DeleteClientInteractionParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListLocationsParams value) => new Params((global::ElevenLabs.ListLocationsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListLocationsParams?(Params @this) => @this.ListLocations;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListLocationsParams? value)
         {
@@ -4868,22 +4868,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListLocations(global::ElevenLabs.ListLocationsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateLocationParams value) => new Params((global::ElevenLabs.CreateLocationParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateLocationParams?(Params @this) => @this.CreateLocation;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateLocationParams? value)
         {
@@ -4891,22 +4891,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateLocation(global::ElevenLabs.CreateLocationParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateLocationParams value) => new Params((global::ElevenLabs.UpdateLocationParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateLocationParams?(Params @this) => @this.UpdateLocation;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateLocationParams? value)
         {
@@ -4914,22 +4914,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateLocation(global::ElevenLabs.UpdateLocationParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteLocationParams value) => new Params((global::ElevenLabs.DeleteLocationParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteLocationParams?(Params @this) => @this.DeleteLocation;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteLocationParams? value)
         {
@@ -4937,22 +4937,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteLocation(global::ElevenLabs.DeleteLocationParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.LeaveMessageParams value) => new Params((global::ElevenLabs.LeaveMessageParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.LeaveMessageParams?(Params @this) => @this.LeaveMessage;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.LeaveMessageParams? value)
         {
@@ -4960,22 +4960,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromLeaveMessage(global::ElevenLabs.LeaveMessageParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ReportKnowledgeGapParams value) => new Params((global::ElevenLabs.ReportKnowledgeGapParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ReportKnowledgeGapParams?(Params @this) => @this.ReportKnowledgeGap;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ReportKnowledgeGapParams? value)
         {
@@ -4983,22 +4983,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromReportKnowledgeGap(global::ElevenLabs.ReportKnowledgeGapParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.OptInSmsReminderParams value) => new Params((global::ElevenLabs.OptInSmsReminderParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.OptInSmsReminderParams?(Params @this) => @this.OptInSmsReminder;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.OptInSmsReminderParams? value)
         {
@@ -5006,22 +5006,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromOptInSmsReminder(global::ElevenLabs.OptInSmsReminderParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.OptOutSmsReminderParams value) => new Params((global::ElevenLabs.OptOutSmsReminderParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.OptOutSmsReminderParams?(Params @this) => @this.OptOutSmsReminder;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.OptOutSmsReminderParams? value)
         {
@@ -5029,22 +5029,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromOptOutSmsReminder(global::ElevenLabs.OptOutSmsReminderParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.TriggerUserVerificationParams value) => new Params((global::ElevenLabs.TriggerUserVerificationParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TriggerUserVerificationParams?(Params @this) => @this.TriggerUserVerification;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.TriggerUserVerificationParams? value)
         {
@@ -5052,22 +5052,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromTriggerUserVerification(global::ElevenLabs.TriggerUserVerificationParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ValidateUserVerificationCodeParams value) => new Params((global::ElevenLabs.ValidateUserVerificationCodeParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ValidateUserVerificationCodeParams?(Params @this) => @this.ValidateUserVerificationCode;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ValidateUserVerificationCodeParams? value)
         {
@@ -5075,12 +5075,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromValidateUserVerificationCode(global::ElevenLabs.ValidateUserVerificationCodeParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(
             global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType? smbToolType,
@@ -5259,7 +5259,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             ValidateUserVerificationCode as object ??
@@ -5345,11 +5345,11 @@ namespace ElevenLabs
             CreateClient as object ??
             GetClientByPhone as object ??
             ListClients as object ??
-            SearchClients as object 
+            SearchClients as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             SearchClients?.ToString() ??
@@ -5435,11 +5435,11 @@ namespace ElevenLabs
             OptInSmsReminder?.ToString() ??
             OptOutSmsReminder?.ToString() ??
             TriggerUserVerification?.ToString() ??
-            ValidateUserVerificationCode?.ToString() 
+            ValidateUserVerificationCode?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -5447,7 +5447,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.SearchClientsParams, TResult>? searchClients = null,
@@ -5882,7 +5882,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.SearchClientsParams>? searchClients = null,
@@ -6398,7 +6398,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.SearchClientsParams>? searchClients = null,
@@ -6831,7 +6831,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -7016,7 +7016,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(Params other)
         {
@@ -7104,12 +7104,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.OptInSmsReminderParams?>.Default.Equals(OptInSmsReminder, other.OptInSmsReminder) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.OptOutSmsReminderParams?>.Default.Equals(OptOutSmsReminder, other.OptOutSmsReminder) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TriggerUserVerificationParams?>.Default.Equals(TriggerUserVerification, other.TriggerUserVerification) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ValidateUserVerificationCodeParams?>.Default.Equals(ValidateUserVerificationCode, other.ValidateUserVerificationCode) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ValidateUserVerificationCodeParams?>.Default.Equals(ValidateUserVerificationCode, other.ValidateUserVerificationCode)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(Params obj1, Params obj2)
         {
@@ -7117,7 +7117,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(Params obj1, Params obj2)
         {
@@ -7125,7 +7125,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -9,67 +9,67 @@ namespace ElevenLabs
     public enum BreakdownTypes
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AllApiKeys,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiKeys,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Groups,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HasApiKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Model,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ProductType,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Region,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReportingWorkspaceId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RequestQueue,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RequestSource,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Resource,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SubresourceId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         User,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Voice,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceMultiplier,
     }

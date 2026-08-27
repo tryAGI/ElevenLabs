@@ -4,7 +4,7 @@
 namespace ElevenLabs.TextToDialogueMultiContextRealtime
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class TextToDialogueWebsocketError
     {

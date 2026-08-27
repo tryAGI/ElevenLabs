@@ -6,7 +6,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PhoneNumberTransfer
     {
@@ -17,7 +17,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem>? CustomSipHeaders { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_destination")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferDestinationJsonConverter))]
@@ -51,14 +51,14 @@ namespace ElevenLabs
         public global::ElevenLabs.PostDialDigitsVariant1? PostDialDigits { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number")]
         [global::System.Obsolete("This property marked as deprecated.")]
         public string? PhoneNumber { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("condition")]
         [global::System.Text.Json.Serialization.JsonRequired]

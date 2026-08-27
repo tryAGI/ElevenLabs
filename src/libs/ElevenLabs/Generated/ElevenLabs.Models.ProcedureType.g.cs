@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum ProcedureType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Deterministic,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FreeForm,
     }

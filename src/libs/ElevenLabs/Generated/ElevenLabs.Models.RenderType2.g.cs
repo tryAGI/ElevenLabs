@@ -4,40 +4,40 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum RenderType2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Aac,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Aaf,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClipsZip,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp3,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp4,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TracksZip,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wav,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Zip,
     }

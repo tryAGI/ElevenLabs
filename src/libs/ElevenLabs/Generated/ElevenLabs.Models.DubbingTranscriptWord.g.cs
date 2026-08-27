@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DubbingTranscriptWord
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         public string? Text { get; set; }
@@ -33,7 +33,7 @@ namespace ElevenLabs
         public double? EndS { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("characters")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingTranscriptCharacter>? Characters { get; set; }

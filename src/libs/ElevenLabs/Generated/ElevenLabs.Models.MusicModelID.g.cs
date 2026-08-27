@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         MusicV1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MusicV2,
     }

@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum ObjectJsonSchemaPropertyInputPropertyKind
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Array,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Object,
     }

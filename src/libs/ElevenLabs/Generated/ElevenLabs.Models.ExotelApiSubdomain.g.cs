@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ExotelApiSubdomain
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiExotelCom,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiInExotelCom,
     }

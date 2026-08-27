@@ -4,19 +4,19 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AgentFailureResponseExample
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Response { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"failure"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]

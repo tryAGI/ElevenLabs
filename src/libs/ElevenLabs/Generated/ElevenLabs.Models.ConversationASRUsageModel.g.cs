@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ConversationASRUsageModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("asr_model")]
         public string? AsrModel { get; set; }

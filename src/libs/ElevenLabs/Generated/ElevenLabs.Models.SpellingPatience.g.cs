@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum SpellingPatience
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Off,
     }

@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RagRetrievalInfo
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunks")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,21 +25,21 @@ namespace ElevenLabs
         public required global::ElevenLabs.EmbeddingModelEnum EmbeddingModel { get; set; } = global::ElevenLabs.EmbeddingModelEnum.E5Mistral7bInstruct;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retrieval_query")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string RetrievalQuery { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rag_latency_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double RagLatencySecs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("used_chunk_ids")]
         public global::System.Collections.Generic.IList<string>? UsedChunkIds { get; set; }

@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum AlertingWebhookMethod
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Post,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Put,
     }
