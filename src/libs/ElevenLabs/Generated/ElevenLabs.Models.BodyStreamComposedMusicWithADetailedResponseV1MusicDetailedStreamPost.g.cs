@@ -103,6 +103,13 @@ namespace ElevenLabs
         public bool? WithTimestamps { get; set; }
 
         /// <summary>
+        /// Whether to return the visual waveform of the generated song.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("with_waveform_visual")]
+        public bool? WithWaveformVisual { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -156,6 +163,10 @@ namespace ElevenLabs
         /// Whether to return the timestamps of the words in the generated song.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withWaveformVisual">
+        /// Whether to return the visual waveform of the generated song.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -172,7 +183,8 @@ namespace ElevenLabs
             double? finetuneStrength,
             bool? usePhoneticNames,
             bool? storeForInpainting,
-            bool? withTimestamps)
+            bool? withTimestamps,
+            bool? withWaveformVisual)
         {
             this.Prompt = prompt;
             this.GenerationMode = generationMode;
@@ -187,6 +199,7 @@ namespace ElevenLabs
             this.UsePhoneticNames = usePhoneticNames;
             this.StoreForInpainting = storeForInpainting;
             this.WithTimestamps = withTimestamps;
+            this.WithWaveformVisual = withWaveformVisual;
         }
 
         /// <summary>

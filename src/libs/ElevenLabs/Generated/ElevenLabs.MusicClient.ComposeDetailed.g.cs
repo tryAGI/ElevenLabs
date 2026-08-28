@@ -906,6 +906,10 @@ namespace ElevenLabs
         /// Whether to return the timestamps of the words in the generated song.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withWaveformVisual">
+        /// Whether to return the visual waveform of the generated song.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
@@ -932,6 +936,7 @@ namespace ElevenLabs
             bool? respectSectionsDurations = default,
             bool? storeForInpainting = default,
             bool? withTimestamps = default,
+            bool? withWaveformVisual = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix? modelStylePrefix = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -953,6 +958,7 @@ namespace ElevenLabs
                 RespectSectionsDurations = respectSectionsDurations,
                 StoreForInpainting = storeForInpainting,
                 WithTimestamps = withTimestamps,
+                WithWaveformVisual = withWaveformVisual,
                 SignWithC2pa = signWithC2pa,
                 ModelStylePrefix = modelStylePrefix,
             };

@@ -511,7 +511,7 @@ namespace ElevenLabs
         /// 'high' - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side.<br/>
         /// 'ultra' - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side.<br/>
         /// 'ultra_lossless' - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format.<br/>
-        /// Default Value: standard
+        /// If not provided, defaults to the highest quality preset available on your subscription tier.
         /// </param>
         /// <param name="durationScale">
         /// Duration of the generated podcast. Must be one of:<br/>

@@ -66,10 +66,9 @@ namespace ElevenLabs
         /// 'high' - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side.<br/>
         /// 'ultra' - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side.<br/>
         /// 'ultra_lossless' - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format.<br/>
-        /// Default Value: standard
+        /// If not provided, defaults to the highest quality preset available on your subscription tier.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_preset")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.QualityPresetTypeJsonConverter))]
         public global::ElevenLabs.QualityPresetType? QualityPreset { get; set; }
 
         /// <summary>
@@ -305,7 +304,7 @@ namespace ElevenLabs
         /// 'high' - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side.<br/>
         /// 'ultra' - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side.<br/>
         /// 'ultra_lossless' - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format.<br/>
-        /// Default Value: standard
+        /// If not provided, defaults to the highest quality preset available on your subscription tier.
         /// </param>
         /// <param name="title">
         /// An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.
