@@ -31,7 +31,7 @@ namespace ElevenLabs
             ref int? pageSize,
             ref string? label,
             ref string? environment,
-            global::ElevenLabs.ListEnvironmentVariablesType2? type);
+            ref global::ElevenLabs.ListEnvironmentVariablesType2? type);
         partial void PrepareList17Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -133,7 +133,7 @@ namespace ElevenLabs
                 pageSize: ref pageSize,
                 label: ref label,
                 environment: ref environment,
-                type: type);
+                type: ref type);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(

@@ -82983,7 +82983,8 @@
           "done",
           "cancelling",
           "cancelled",
-          "expired"
+          "expired",
+          "merged"
         ],
         "title": "OrderState"
       },

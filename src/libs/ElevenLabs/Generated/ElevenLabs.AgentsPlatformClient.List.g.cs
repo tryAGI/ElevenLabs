@@ -36,7 +36,7 @@ namespace ElevenLabs
             ref string? createdByUserId,
             global::System.Collections.Generic.IList<string>? tags,
             ref global::ElevenLabs.SortDirection? sortDirection,
-            global::ElevenLabs.AgentSortBy? sortBy,
+            ref global::ElevenLabs.AgentSortBy? sortBy,
             ref string? cursor);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -188,7 +188,7 @@ namespace ElevenLabs
                 createdByUserId: ref createdByUserId,
                 tags: tags,
                 sortDirection: ref sortDirection,
-                sortBy: sortBy,
+                sortBy: ref sortBy,
                 cursor: ref cursor);
 
 

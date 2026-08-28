@@ -35,7 +35,7 @@ namespace ElevenLabs
             ref string? createdByUserId,
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types,
             ref global::ElevenLabs.SortDirection? sortDirection,
-            global::ElevenLabs.ToolSortBy? sortBy,
+            ref global::ElevenLabs.ToolSortBy? sortBy,
             ref string? cursor);
         partial void PrepareList9Request(
             global::System.Net.Http.HttpClient httpClient,
@@ -172,7 +172,7 @@ namespace ElevenLabs
                 createdByUserId: ref createdByUserId,
                 types: types,
                 sortDirection: ref sortDirection,
-                sortBy: sortBy,
+                sortBy: ref sortBy,
                 cursor: ref cursor);
 
 

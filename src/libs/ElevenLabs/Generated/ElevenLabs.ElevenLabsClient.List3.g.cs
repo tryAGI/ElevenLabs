@@ -30,11 +30,11 @@ namespace ElevenLabs
             ref string agentId,
             ref int? pageSize,
             ref string? conversationId,
-            global::ElevenLabs.AgentConversationTicketStatus? status,
+            ref global::ElevenLabs.AgentConversationTicketStatus? status,
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources,
             ref string? ownerUserId,
             ref string? assigneeUserId,
-            global::ElevenLabs.AgentConversationTicketIssueType? issueType,
+            ref global::ElevenLabs.AgentConversationTicketIssueType? issueType,
             ref string? label,
             ref string? cursor);
         partial void PrepareList3Request(
@@ -183,11 +183,11 @@ namespace ElevenLabs
                 agentId: ref agentId,
                 pageSize: ref pageSize,
                 conversationId: ref conversationId,
-                status: status,
+                status: ref status,
                 sources: sources,
                 ownerUserId: ref ownerUserId,
                 assigneeUserId: ref assigneeUserId,
-                issueType: issueType,
+                issueType: ref issueType,
                 label: ref label,
                 cursor: ref cursor);
 

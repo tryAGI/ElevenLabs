@@ -33,9 +33,9 @@ namespace ElevenLabs
             ref string? modelId,
             int? dateBeforeUnix,
             int? dateAfterUnix,
-            global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection,
+            ref global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection,
             ref string? search,
-            global::ElevenLabs.GetSpeechHistorySource2? source);
+            ref global::ElevenLabs.GetSpeechHistorySource2? source);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -181,9 +181,9 @@ namespace ElevenLabs
                 modelId: ref modelId,
                 dateBeforeUnix: dateBeforeUnix,
                 dateAfterUnix: dateAfterUnix,
-                sortDirection: sortDirection,
+                sortDirection: ref sortDirection,
                 search: ref search,
-                source: source);
+                source: ref source);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(

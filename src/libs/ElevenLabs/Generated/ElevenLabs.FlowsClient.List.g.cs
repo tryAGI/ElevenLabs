@@ -29,7 +29,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
             ref int? pageSize,
-            global::ElevenLabs.ListVideoGenerationsStatus2? status,
+            ref global::ElevenLabs.ListVideoGenerationsStatus2? status,
             ref string? modelId);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -120,7 +120,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 cursor: ref cursor,
                 pageSize: ref pageSize,
-                status: status,
+                status: ref status,
                 modelId: ref modelId);
 
 
