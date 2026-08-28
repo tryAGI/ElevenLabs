@@ -29,8 +29,8 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
             ref int? pageSize,
-            global::ElevenLabs.FinetuneVisibility? visibility,
-            global::ElevenLabs.FinetuneCreatedBy? createdBy,
+            ref global::ElevenLabs.FinetuneVisibility? visibility,
+            ref global::ElevenLabs.FinetuneCreatedBy? createdBy,
             ref global::ElevenLabs.GetFinetunesSort? sort,
             ref global::ElevenLabs.GetFinetunesSortDirection? sortDirection);
         partial void PrepareListRequest(
@@ -146,8 +146,8 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 cursor: ref cursor,
                 pageSize: ref pageSize,
-                visibility: visibility,
-                createdBy: createdBy,
+                visibility: ref visibility,
+                createdBy: ref createdBy,
                 sort: ref sort,
                 sortDirection: ref sortDirection);
 

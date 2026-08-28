@@ -38,7 +38,7 @@ namespace ElevenLabs
             ref string? ancestorFolderId,
             ref bool? foldersFirst,
             ref global::ElevenLabs.SortDirection? sortDirection,
-            global::ElevenLabs.KnowledgeBaseSortBy? sortBy,
+            ref global::ElevenLabs.KnowledgeBaseSortBy? sortBy,
             ref string? cursor);
         partial void PrepareList7Request(
             global::System.Net.Http.HttpClient httpClient,
@@ -212,7 +212,7 @@ namespace ElevenLabs
                 ancestorFolderId: ref ancestorFolderId,
                 foldersFirst: ref foldersFirst,
                 sortDirection: ref sortDirection,
-                sortBy: sortBy,
+                sortBy: ref sortBy,
                 cursor: ref cursor);
 
 

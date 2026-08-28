@@ -30,7 +30,7 @@ namespace ElevenLabs
             ref int? pageSize,
             ref string? search,
             ref global::ElevenLabs.SortDirection? sortDirection,
-            global::ElevenLabs.AgentSortBy? sortBy,
+            ref global::ElevenLabs.AgentSortBy? sortBy,
             ref string? cursor);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -134,7 +134,7 @@ namespace ElevenLabs
                 pageSize: ref pageSize,
                 search: ref search,
                 sortDirection: ref sortDirection,
-                sortBy: sortBy,
+                sortBy: ref sortBy,
                 cursor: ref cursor);
 
 

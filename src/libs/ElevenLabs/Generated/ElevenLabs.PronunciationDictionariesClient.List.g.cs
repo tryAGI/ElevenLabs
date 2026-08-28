@@ -29,7 +29,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
             ref int? pageSize,
-            global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort,
+            ref global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort,
             ref string? sortDirection,
             ref bool? includeArchived);
         partial void PrepareListRequest(
@@ -137,7 +137,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 cursor: ref cursor,
                 pageSize: ref pageSize,
-                sort: sort,
+                sort: ref sort,
                 sortDirection: ref sortDirection,
                 includeArchived: ref includeArchived);
 

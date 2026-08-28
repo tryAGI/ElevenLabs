@@ -27,7 +27,7 @@ namespace ElevenLabs
             };
         partial void PrepareList5Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.TelephonyProvider? provider,
+            ref global::ElevenLabs.TelephonyProvider? provider,
             ref string? agentId,
             ref string? branchId);
         partial void PrepareList5Request(
@@ -105,7 +105,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareList5Arguments(
                 httpClient: HttpClient,
-                provider: provider,
+                provider: ref provider,
                 agentId: ref agentId,
                 branchId: ref branchId);
 

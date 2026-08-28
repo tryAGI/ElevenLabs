@@ -31,6 +31,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Merged,
+        /// <summary>
+        ///
+        /// </summary>
         Open,
         /// <summary>
         ///
@@ -63,6 +67,7 @@ namespace ElevenLabs
                 OrderState.Cancelling => "cancelling",
                 OrderState.Done => "done",
                 OrderState.Expired => "expired",
+                OrderState.Merged => "merged",
                 OrderState.Open => "open",
                 OrderState.Paid => "paid",
                 OrderState.Rejected => "rejected",
@@ -82,6 +87,7 @@ namespace ElevenLabs
                 "cancelling" => OrderState.Cancelling,
                 "done" => OrderState.Done,
                 "expired" => OrderState.Expired,
+                "merged" => OrderState.Merged,
                 "open" => OrderState.Open,
                 "paid" => OrderState.Paid,
                 "rejected" => OrderState.Rejected,
