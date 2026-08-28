@@ -44595,6 +44595,24 @@
         ],
         "title": "BatchCallWhatsAppParams"
       },
+      "BatchCallingCampaignInformation": {
+        "properties": {
+          "campaign_id": {
+            "type": "string",
+            "title": "Campaign Id"
+          },
+          "campaign_lead_id": {
+            "type": "string",
+            "title": "Campaign Lead Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "campaign_id",
+          "campaign_lead_id"
+        ],
+        "title": "BatchCallingCampaignInformation"
+      },
       "BatchFailureResponseModel": {
         "properties": {
           "status": {
@@ -57440,6 +57458,16 @@
           "batch_call_recipient_id": {
             "type": "string",
             "title": "Batch Call Recipient Id"
+          },
+          "campaign": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BatchCallingCampaignInformation"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
