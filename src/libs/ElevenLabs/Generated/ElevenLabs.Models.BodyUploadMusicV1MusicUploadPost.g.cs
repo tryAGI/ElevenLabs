@@ -38,6 +38,13 @@ namespace ElevenLabs
         public bool? WithTimestamps { get; set; }
 
         /// <summary>
+        /// Whether to return the visual waveform of the uploaded song.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("with_waveform_visual")]
+        public bool? WithWaveformVisual { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -60,6 +67,10 @@ namespace ElevenLabs
         /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withWaveformVisual">
+        /// Whether to return the visual waveform of the uploaded song.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -67,12 +78,14 @@ namespace ElevenLabs
             byte[] file,
             string filename,
             global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.MusicModelID?>? extractCompositionPlan,
-            bool? withTimestamps)
+            bool? withTimestamps,
+            bool? withWaveformVisual)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.ExtractCompositionPlan = extractCompositionPlan;
             this.WithTimestamps = withTimestamps;
+            this.WithWaveformVisual = withWaveformVisual;
         }
 
         /// <summary>

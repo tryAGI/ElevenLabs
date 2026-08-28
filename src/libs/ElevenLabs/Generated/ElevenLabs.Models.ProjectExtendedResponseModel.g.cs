@@ -237,14 +237,12 @@ namespace ElevenLabs
         public global::ElevenLabs.StudioAgentSettingsModel? AgentSettings { get; set; }
 
         /// <summary>
-        /// The quality preset level of the project.<br/>
-        /// Default Value: standard
+        /// The quality preset level of the project.
         /// </summary>
-        /// <default>global::ElevenLabs.QualityPresetType.Standard</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("quality_preset")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.QualityPresetTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.QualityPresetType QualityPreset { get; set; } = global::ElevenLabs.QualityPresetType.Standard;
+        public required global::ElevenLabs.QualityPresetType QualityPreset { get; set; }
 
         /// <summary>
         /// List of chapters of the project and their metadata.
@@ -371,8 +369,7 @@ namespace ElevenLabs
         /// Whether quality check is enabled on the project when bulk converting.
         /// </param>
         /// <param name="qualityPreset">
-        /// The quality preset level of the project.<br/>
-        /// Default Value: standard
+        /// The quality preset level of the project.
         /// </param>
         /// <param name="chapters">
         /// List of chapters of the project and their metadata.

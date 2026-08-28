@@ -441,6 +441,10 @@ namespace ElevenLabs
         /// Whether to return the timestamps of the words in the generated song.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withWaveformVisual">
+        /// Whether to return the visual waveform of the generated song.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -459,6 +463,7 @@ namespace ElevenLabs
             bool? usePhoneticNames = default,
             bool? storeForInpainting = default,
             bool? withTimestamps = default,
+            bool? withWaveformVisual = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             [global::System.Runtime.CompilerServices.EnumeratorCancellation] global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -477,6 +482,7 @@ namespace ElevenLabs
                 UsePhoneticNames = usePhoneticNames,
                 StoreForInpainting = storeForInpainting,
                 WithTimestamps = withTimestamps,
+                WithWaveformVisual = withWaveformVisual,
             };
 
             var __enumerable = ComposeDetailedStreamAsync(

@@ -197,6 +197,14 @@ namespace ElevenLabs
                                     name: "\"with_timestamps\"");
 
                             }
+                            if (request.WithWaveformVisual != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.WithWaveformVisual, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"with_waveform_visual\"");
+
+                            }
 
                             __httpRequest.Content = __httpRequestContent;
 
@@ -541,6 +549,10 @@ namespace ElevenLabs
         /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withWaveformVisual">
+        /// Whether to return the visual waveform of the uploaded song.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -549,6 +561,7 @@ namespace ElevenLabs
             string filename,
             global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.MusicModelID?>? extractCompositionPlan = default,
             bool? withTimestamps = default,
+            bool? withWaveformVisual = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -558,6 +571,7 @@ namespace ElevenLabs
                 Filename = filename,
                 ExtractCompositionPlan = extractCompositionPlan,
                 WithTimestamps = withTimestamps,
+                WithWaveformVisual = withWaveformVisual,
             };
 
             return await UploadAsync(
@@ -584,6 +598,10 @@ namespace ElevenLabs
         /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withWaveformVisual">
+        /// Whether to return the visual waveform of the uploaded song.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -592,6 +610,7 @@ namespace ElevenLabs
             string filename,
             global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.MusicModelID?>? extractCompositionPlan = default,
             bool? withTimestamps = default,
+            bool? withWaveformVisual = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -603,6 +622,7 @@ namespace ElevenLabs
                 Filename = filename,
                 ExtractCompositionPlan = extractCompositionPlan,
                 WithTimestamps = withTimestamps,
+                WithWaveformVisual = withWaveformVisual,
             };
             PrepareArguments(
                 client: HttpClient);
@@ -719,6 +739,14 @@ namespace ElevenLabs
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.WithTimestamps, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"with_timestamps\"");
+
+                            }
+                            if (request.WithWaveformVisual != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.WithWaveformVisual, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"with_waveform_visual\"");
 
                             }
 
@@ -1057,6 +1085,10 @@ namespace ElevenLabs
         /// Whether to transcribe the uploaded song and return word-level timestamps. If True, the response will include words_timestamps but will increase the latency.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withWaveformVisual">
+        /// Whether to return the visual waveform of the uploaded song.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -1065,6 +1097,7 @@ namespace ElevenLabs
             string filename,
             global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.MusicModelID?>? extractCompositionPlan = default,
             bool? withTimestamps = default,
+            bool? withWaveformVisual = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -1076,6 +1109,7 @@ namespace ElevenLabs
                 Filename = filename,
                 ExtractCompositionPlan = extractCompositionPlan,
                 WithTimestamps = withTimestamps,
+                WithWaveformVisual = withWaveformVisual,
             };
             PrepareArguments(
                 client: HttpClient);
@@ -1192,6 +1226,14 @@ namespace ElevenLabs
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.WithTimestamps, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"with_timestamps\"");
+
+                            }
+                            if (request.WithWaveformVisual != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.WithWaveformVisual, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"with_waveform_visual\"");
 
                             }
 

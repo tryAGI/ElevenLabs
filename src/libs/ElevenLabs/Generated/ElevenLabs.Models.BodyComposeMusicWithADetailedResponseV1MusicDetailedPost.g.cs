@@ -110,6 +110,13 @@ namespace ElevenLabs
         public bool? WithTimestamps { get; set; }
 
         /// <summary>
+        /// Whether to return the visual waveform of the generated song.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("with_waveform_visual")]
+        public bool? WithWaveformVisual { get; set; }
+
+        /// <summary>
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
         /// </summary>
@@ -181,6 +188,10 @@ namespace ElevenLabs
         /// Whether to return the timestamps of the words in the generated song.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withWaveformVisual">
+        /// Whether to return the visual waveform of the generated song.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
@@ -206,6 +217,7 @@ namespace ElevenLabs
             bool? respectSectionsDurations,
             bool? storeForInpainting,
             bool? withTimestamps,
+            bool? withWaveformVisual,
             bool? signWithC2pa,
             global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix? modelStylePrefix)
         {
@@ -223,6 +235,7 @@ namespace ElevenLabs
             this.RespectSectionsDurations = respectSectionsDurations;
             this.StoreForInpainting = storeForInpainting;
             this.WithTimestamps = withTimestamps;
+            this.WithWaveformVisual = withWaveformVisual;
             this.SignWithC2pa = signWithC2pa;
             this.ModelStylePrefix = modelStylePrefix;
         }

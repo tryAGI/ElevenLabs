@@ -33,6 +33,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.WordTimestamp>? WordsTimestamps { get; set; }
 
         /// <summary>
+        /// A low-resolution waveform of the generated song, for showing a preview of it. Holds 4 values per second of audio, from -1000 to 1000. Stereo is mixed down to a single channel. Only present if `with_waveform_visual` was True in the request body.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("waveform_visual")]
+        public global::System.Collections.Generic.IList<int>? WaveformVisual { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -51,17 +57,22 @@ namespace ElevenLabs
         /// <param name="wordsTimestamps">
         /// The timestamps of the words in the generated song
         /// </param>
+        /// <param name="waveformVisual">
+        /// A low-resolution waveform of the generated song, for showing a preview of it. Holds 4 values per second of audio, from -1000 to 1000. Stereo is mixed down to a single channel. Only present if `with_waveform_visual` was True in the request body.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public DetailedMusicResponse(
             global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan> compositionPlan,
             global::ElevenLabs.SongMetadata songMetadata,
-            global::System.Collections.Generic.IList<global::ElevenLabs.WordTimestamp>? wordsTimestamps)
+            global::System.Collections.Generic.IList<global::ElevenLabs.WordTimestamp>? wordsTimestamps,
+            global::System.Collections.Generic.IList<int>? waveformVisual)
         {
             this.CompositionPlan = compositionPlan;
             this.SongMetadata = songMetadata ?? throw new global::System.ArgumentNullException(nameof(songMetadata));
             this.WordsTimestamps = wordsTimestamps;
+            this.WaveformVisual = waveformVisual;
         }
 
         /// <summary>
