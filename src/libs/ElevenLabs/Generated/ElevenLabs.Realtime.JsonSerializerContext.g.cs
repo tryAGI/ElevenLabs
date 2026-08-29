@@ -48,6 +48,7 @@ namespace ElevenLabs.Realtime
             typeof(global::ElevenLabs.Realtime.JsonConverters.ServerEventJsonConverter),
         })]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.JsonSerializerContextTypes))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.InputAudioChunkPayload))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.InputAudioChunkPayloadMessageType), TypeInfoPropertyName = "InputAudioChunkPayloadMessageType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
