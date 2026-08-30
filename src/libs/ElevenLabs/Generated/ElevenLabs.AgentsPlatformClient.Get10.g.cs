@@ -27,11 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareGet10Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? agentId);
+            ref string? agentId,
+            global::System.Collections.Generic.IList<string>? agentIds);
         partial void PrepareGet10Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? agentId);
+            string? agentId,
+            global::System.Collections.Generic.IList<string>? agentIds);
         partial void ProcessGet10Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -48,16 +50,21 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// The id of an agent to restrict the analytics to.
         /// </param>
+        /// <param name="agentIds">
+        /// Restrict analytics to the union of the given agents. Takes precedence over `agent_id` when both are supplied.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetLiveCountResponse> Get10Async(
             string? agentId = default,
+            global::System.Collections.Generic.IList<string>? agentIds = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get10AsResponseAsync(
                 agentId: agentId,
+                agentIds: agentIds,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -71,11 +78,15 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// The id of an agent to restrict the analytics to.
         /// </param>
+        /// <param name="agentIds">
+        /// Restrict analytics to the union of the given agents. Takes precedence over `agent_id` when both are supplied.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetLiveCountResponse>> Get10AsResponseAsync(
             string? agentId = default,
+            global::System.Collections.Generic.IList<string>? agentIds = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -83,7 +94,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet10Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId);
+                agentId: ref agentId,
+                agentIds: agentIds);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -113,6 +125,7 @@ namespace ElevenLabs
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("agent_id", agentId)
+                                .AddOptionalParameter("agent_ids", agentIds?.ToString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -141,7 +154,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -154,7 +167,8 @@ namespace ElevenLabs
                 PrepareGet10Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId);
+                    agentId: agentId,
+                    agentIds: agentIds);
 
                 return __httpRequest;
             }

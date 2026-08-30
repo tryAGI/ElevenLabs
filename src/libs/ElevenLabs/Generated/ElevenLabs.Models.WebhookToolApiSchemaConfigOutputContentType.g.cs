@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum WebhookToolApiSchemaConfigOutputContentType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApplicationJson,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApplicationXWwwFormUrlencoded,
     }

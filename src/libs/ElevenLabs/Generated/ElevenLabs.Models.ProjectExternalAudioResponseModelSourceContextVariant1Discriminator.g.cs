@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ProjectExternalAudioResponseModelSourceContextVariant1Discriminator
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectExternalAudioResponseModelSourceContextVariant1DiscriminatorSourceTypeJsonConverter))]

@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ProjectExternalAudioResponseModelSourceContextVariant1DiscriminatorSourceType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MusicExploreSong,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sfx,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Song,
     }

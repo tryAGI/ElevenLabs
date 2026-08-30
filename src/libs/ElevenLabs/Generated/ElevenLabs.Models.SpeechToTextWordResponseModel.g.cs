@@ -56,6 +56,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextCharacterResponseModel>? Characters { get; set; }
 
         /// <summary>
+        /// The channel this word was spoken on (for multichannel audio). Null for single-channel transcriptions.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("channel_index")]
+        public int? ChannelIndex { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -85,6 +91,9 @@ namespace ElevenLabs
         /// <param name="characters">
         /// The characters that make up the word and their timing information.
         /// </param>
+        /// <param name="channelIndex">
+        /// The channel this word was spoken on (for multichannel audio). Null for single-channel transcriptions.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -95,7 +104,8 @@ namespace ElevenLabs
             double? start,
             double? end,
             string? speakerId,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextCharacterResponseModel>? characters)
+            global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextCharacterResponseModel>? characters,
+            int? channelIndex)
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.Start = start;
@@ -104,6 +114,7 @@ namespace ElevenLabs
             this.SpeakerId = speakerId;
             this.Logprob = logprob;
             this.Characters = characters;
+            this.ChannelIndex = channelIndex;
         }
 
         /// <summary>

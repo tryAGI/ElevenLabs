@@ -9,7 +9,7 @@ namespace ElevenLabs.Realtime
     public enum ErrorPayloadMessageType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Error,
     }

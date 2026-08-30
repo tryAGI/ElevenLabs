@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Other,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PcmS16le16,
     }

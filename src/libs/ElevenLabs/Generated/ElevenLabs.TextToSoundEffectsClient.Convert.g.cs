@@ -156,7 +156,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -527,7 +527,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -886,7 +886,7 @@ namespace ElevenLabs
             bool? loop = default,
             double? durationSeconds = default,
             double? promptInfluence = default,
-            string? modelId = default,
+            global::ElevenLabs.SFXModelId? modelId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

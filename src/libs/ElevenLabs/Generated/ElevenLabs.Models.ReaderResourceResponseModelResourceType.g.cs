@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum ReaderResourceResponseModelResourceType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Collection,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Read,
     }

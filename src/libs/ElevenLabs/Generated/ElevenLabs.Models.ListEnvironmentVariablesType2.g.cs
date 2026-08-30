@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ListEnvironmentVariablesType2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AuthConnection,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Secret,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         String,
     }

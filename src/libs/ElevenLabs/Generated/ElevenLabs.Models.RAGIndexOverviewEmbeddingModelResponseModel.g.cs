@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RAGIndexOverviewEmbeddingModelResponseModel
     {
@@ -18,7 +18,7 @@ namespace ElevenLabs
         public required global::ElevenLabs.EmbeddingModelEnum Model { get; set; } = global::ElevenLabs.EmbeddingModelEnum.E5Mistral7bInstruct;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("used_bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SongSourceContext
     {
@@ -15,50 +15,56 @@ namespace ElevenLabs
         public string? SourceType { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("song_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string SongId { get; set; }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("chat_id")]
+        public string? ChatId { get; set; }
+
+        /// <summary>
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("genres")]
         public global::System.Collections.Generic.IList<string>? Genres { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("languages")]
         public global::System.Collections.Generic.IList<string>? Languages { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_explicit")]
         public bool? IsExplicit { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("bpm")]
         public int? Bpm { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("generation_settings")]
         public object? GenerationSettings { get; set; }
@@ -76,6 +82,7 @@ namespace ElevenLabs
         /// <param name="sourceType">
         /// Default Value: song
         /// </param>
+        /// <param name="chatId"></param>
         /// <param name="title"></param>
         /// <param name="description"></param>
         /// <param name="genres"></param>
@@ -89,6 +96,7 @@ namespace ElevenLabs
         public SongSourceContext(
             string songId,
             string? sourceType,
+            string? chatId,
             string? title,
             string? description,
             global::System.Collections.Generic.IList<string>? genres,
@@ -99,6 +107,7 @@ namespace ElevenLabs
         {
             this.SourceType = sourceType;
             this.SongId = songId ?? throw new global::System.ArgumentNullException(nameof(songId));
+            this.ChatId = chatId;
             this.Title = title;
             this.Description = description;
             this.Genres = genres;

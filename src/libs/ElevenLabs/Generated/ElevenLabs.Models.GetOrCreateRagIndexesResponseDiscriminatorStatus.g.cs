@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetOrCreateRagIndexesResponseDiscriminatorStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failure,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Success,
     }

@@ -30,10 +30,17 @@ namespace ElevenLabs
         public global::ElevenLabs.PreToolSpeechMode? PreToolSpeech { get; set; }
 
         /// <summary>
-        /// If set, overrides the server's disable_interruptions setting for this tool
+        /// DEPRECATED: use `interruption_mode` instead. If set, overrides the server's disable_interruptions setting for this tool.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("disable_interruptions")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? DisableInterruptions { get; set; }
+
+        /// <summary>
+        /// If set, overrides the server's interruption_mode setting for this tool.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("interruption_mode")]
+        public global::ElevenLabs.ToolInterruptionMode? InterruptionMode { get; set; }
 
         /// <summary>
         /// Predefined tool call sound type to play during tool execution for all tools from this MCP server
@@ -64,6 +71,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_headers")]
         public object? RequestHeaders { get; set; }
+
+        /// <summary>
+        /// Entries sent in the MCP `_meta` field of tools/call requests. Values may be JSON scalars, or references to a workspace secret, dynamic variable, or environment variable resolved per call.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("request_meta")]
+        public object? RequestMeta { get; set; }
 
         /// <summary>
         /// Whether to disable HTTP compression for this MCP server
@@ -99,8 +112,8 @@ namespace ElevenLabs
         /// <param name="preToolSpeech">
         /// If set, overrides the server's pre_tool_speech setting for this tool.
         /// </param>
-        /// <param name="disableInterruptions">
-        /// If set, overrides the server's disable_interruptions setting for this tool
+        /// <param name="interruptionMode">
+        /// If set, overrides the server's interruption_mode setting for this tool.
         /// </param>
         /// <param name="toolCallSound">
         /// Predefined tool call sound type to play during tool execution for all tools from this MCP server
@@ -117,6 +130,9 @@ namespace ElevenLabs
         /// <param name="requestHeaders">
         /// The headers to include in requests to the MCP server
         /// </param>
+        /// <param name="requestMeta">
+        /// Entries sent in the MCP `_meta` field of tools/call requests. Values may be JSON scalars, or references to a workspace secret, dynamic variable, or environment variable resolved per call.
+        /// </param>
         /// <param name="disableCompression">
         /// Whether to disable HTTP compression for this MCP server
         /// </param>
@@ -132,24 +148,26 @@ namespace ElevenLabs
         public MCPServerConfigUpdateRequestModel(
             global::ElevenLabs.MCPApprovalPolicy? approvalPolicy,
             global::ElevenLabs.PreToolSpeechMode? preToolSpeech,
-            bool? disableInterruptions,
+            global::ElevenLabs.ToolInterruptionMode? interruptionMode,
             global::ElevenLabs.ToolCallSoundType? toolCallSound,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
             global::ElevenLabs.ToolExecutionMode? executionMode,
             int? responseTimeoutSecs,
             object? requestHeaders,
+            object? requestMeta,
             bool? disableCompression,
             global::ElevenLabs.ConvAISecretLocator? secretToken,
             global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection)
         {
             this.ApprovalPolicy = approvalPolicy;
             this.PreToolSpeech = preToolSpeech;
-            this.DisableInterruptions = disableInterruptions;
+            this.InterruptionMode = interruptionMode;
             this.ToolCallSound = toolCallSound;
             this.ToolCallSoundBehavior = toolCallSoundBehavior;
             this.ExecutionMode = executionMode;
             this.ResponseTimeoutSecs = responseTimeoutSecs;
             this.RequestHeaders = requestHeaders;
+            this.RequestMeta = requestMeta;
             this.DisableCompression = disableCompression;
             this.SecretToken = secretToken;
             this.AuthConnection = authConnection;

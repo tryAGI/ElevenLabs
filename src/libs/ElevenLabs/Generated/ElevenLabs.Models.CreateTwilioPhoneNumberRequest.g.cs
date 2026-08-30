@@ -6,7 +6,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateTwilioPhoneNumberRequest
     {
@@ -47,6 +47,12 @@ namespace ElevenLabs
         public string? Provider { get; set; }
 
         /// <summary>
+        /// Agent ID to assign the phone number to
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
+        public string? AgentId { get; set; }
+
+        /// <summary>
         /// Twilio Account SID
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sid")]
@@ -65,6 +71,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("region_config")]
         public global::ElevenLabs.RegionConfigRequest? RegionConfig { get; set; }
+
+        /// <summary>
+        /// Route inbound SMS to ElevenLabs. On by default; set to false to skip SMS configuration for numbers that don't support it.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_sms")]
+        public bool? EnableSms { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -90,8 +103,15 @@ namespace ElevenLabs
         /// <param name="provider">
         /// Default Value: twilio
         /// </param>
+        /// <param name="agentId">
+        /// Agent ID to assign the phone number to
+        /// </param>
         /// <param name="regionConfig">
         /// Twilio Additional Region Configuration
+        /// </param>
+        /// <param name="enableSms">
+        /// Route inbound SMS to ElevenLabs. On by default; set to false to skip SMS configuration for numbers that don't support it.<br/>
+        /// Default Value: true
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -102,14 +122,18 @@ namespace ElevenLabs
             string sid,
             string token,
             string? provider,
-            global::ElevenLabs.RegionConfigRequest? regionConfig)
+            string? agentId,
+            global::ElevenLabs.RegionConfigRequest? regionConfig,
+            bool? enableSms)
         {
             this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.Provider = provider;
+            this.AgentId = agentId;
             this.Sid = sid ?? throw new global::System.ArgumentNullException(nameof(sid));
             this.Token = token ?? throw new global::System.ArgumentNullException(nameof(token));
             this.RegionConfig = regionConfig;
+            this.EnableSms = enableSms;
         }
 
         /// <summary>

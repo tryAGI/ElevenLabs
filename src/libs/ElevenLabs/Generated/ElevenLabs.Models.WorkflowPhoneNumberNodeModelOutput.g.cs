@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class WorkflowPhoneNumberNodeModelOutput
     {
@@ -16,7 +16,7 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem3> CustomSipHeaders { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_destination")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferDestination3JsonConverter))]
@@ -31,6 +31,20 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferTypeEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.TransferTypeEnum TransferType { get; set; } = global::ElevenLabs.TransferTypeEnum.Conference;
+
+        /// <summary>
+        /// When True, a ringing tone is played on the original call leg while a SIP REFER transfer completes. The tone is carried over RTP to the SIP peer executing the REFER, so disable this if the receiving system (e.g. an SBC or contact center) should not hear it. When disabled the caller hears silence until the transfer completes. SIP REFER transfers only.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sip_refer_play_dialtone")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool SipReferPlayDialtone { get; set; }
+
+        /// <summary>
+        /// User-to-User Information (RFC 7433) to attach to SIP REFER transfers. Carries call context such as CRM identifiers or escalation reason across the transfer boundary.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("uui")]
+        public global::ElevenLabs.UUITransferConfig? Uui { get; set; }
 
         /// <summary>
         /// DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause. Only supported for Twilio transfers.
@@ -75,11 +89,18 @@ namespace ElevenLabs
         /// <param name="transferType">
         /// Default Value: conference
         /// </param>
+        /// <param name="sipReferPlayDialtone">
+        /// When True, a ringing tone is played on the original call leg while a SIP REFER transfer completes. The tone is carried over RTP to the SIP peer executing the REFER, so disable this if the receiving system (e.g. an SBC or contact center) should not hear it. When disabled the caller hears silence until the transfer completes. SIP REFER transfers only.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="position">
         /// Position of the node in the workflow.
         /// </param>
         /// <param name="edgeOrder">
         /// The ids of outgoing edges in the order they should be evaluated.
+        /// </param>
+        /// <param name="uui">
+        /// User-to-User Information (RFC 7433) to attach to SIP REFER transfers. Carries call context such as CRM identifiers or escalation reason across the transfer boundary.
         /// </param>
         /// <param name="postDialDigits">
         /// DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause. Only supported for Twilio transfers.
@@ -94,14 +115,18 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem3> customSipHeaders,
             global::ElevenLabs.TransferDestination3 transferDestination,
             global::ElevenLabs.TransferTypeEnum transferType,
+            bool sipReferPlayDialtone,
             global::ElevenLabs.PositionOutput position,
             global::System.Collections.Generic.IList<string> edgeOrder,
+            global::ElevenLabs.UUITransferConfig? uui,
             global::ElevenLabs.PostDialDigitsVariant13? postDialDigits,
             string type = "phone_number")
         {
             this.CustomSipHeaders = customSipHeaders ?? throw new global::System.ArgumentNullException(nameof(customSipHeaders));
             this.TransferDestination = transferDestination;
             this.TransferType = transferType;
+            this.SipReferPlayDialtone = sipReferPlayDialtone;
+            this.Uui = uui;
             this.PostDialDigits = postDialDigits;
             this.Type = type;
             this.Position = position ?? throw new global::System.ArgumentNullException(nameof(position));

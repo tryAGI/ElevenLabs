@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"asr":{"keywords":[],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"},"call_limits":{"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000},"conversation":{"client_events":["audio","interruption","agent_response","user_transcript"],"max_duration_seconds":600},"language":"en","metadata":{"created_at_unix_secs":1714000000,"created_from":"api","last_updated_from":"api","updated_at_unix_secs":1714000000},"name":"My Speech Engine","overrides":{"first_message":false},"privacy":{"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false},"speech_engine":{"request_headers":{},"ws_url":"wss://example.com/transcript"},"speech_engine_id":"seng_3701k3ttaq12ewp8b7qv5rfyszkz","tags":["production","v1"],"tts":{"agent_output_audio_format":"pcm_16000","model_id":"eleven_flash_v2","optimize_streaming_latency":3,"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"mode":"turn","silence_end_call_timeout":-1,"turn_eagerness":"normal","turn_timeout":7.0}}
+    /// Example: {"asr":{"keywords":[],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"},"call_limits":{"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000},"conversation":{"client_events":["audio","interruption","agent_response","user_transcript"],"max_duration_seconds":600},"language":"en","metadata":{"created_at_unix_secs":1714000000,"created_from":"api","last_updated_from":"api","updated_at_unix_secs":1714000000},"name":"My Speech Engine","overrides":{"first_message":false},"privacy":{"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false},"speech_engine":{"request_headers":{},"ws_url":"wss://example.com/transcript"},"speech_engine_id":"seng_3701k3ttaq12ewp8b7qv5rfyszkz","tags":["production","v1"],"tts":{"agent_output_audio_format":"pcm_16000","model_id":"eleven_flash_v2","optimize_streaming_latency":3,"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"mode":"turn","silence_end_call_timeout":-1,"turn_eagerness":"normal","turn_timeout":7.0},"vad":{"background_voice_detection":false}}
     /// </summary>
     public sealed partial class SpeechEngineResponse
     {
@@ -31,9 +31,9 @@ namespace ElevenLabs
 
         /// <summary>
         /// Automatic speech recognition configuration<br/>
-        /// Example: {"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"}
+        /// Example: {"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"}
         /// </summary>
-        /// <example>{"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"}</example>
+        /// <example>{"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("asr")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.ASRConversationalConfig Asr { get; set; }
@@ -49,12 +49,21 @@ namespace ElevenLabs
 
         /// <summary>
         /// Turn detection configuration<br/>
-        /// Example: {"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0}
+        /// Example: {"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"merge_with_default_ignore_terms":false,"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}
         /// </summary>
-        /// <example>{"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0}</example>
+        /// <example>{"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"merge_with_default_ignore_terms":false,"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("turn")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.BaseTurnConfig Turn { get; set; }
+
+        /// <summary>
+        /// Configuration for voice activity detection<br/>
+        /// Example: {"background_voice_detection":false}
+        /// </summary>
+        /// <example>{"background_voice_detection":false}</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("vad")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.VADConfig Vad { get; set; }
 
         /// <summary>
         /// Conversation-level settings including client events and duration limits<br/>
@@ -137,7 +146,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="asr">
         /// Automatic speech recognition configuration<br/>
-        /// Example: {"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"}
+        /// Example: {"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"}
         /// </param>
         /// <param name="tts">
         /// Text-to-speech output configuration<br/>
@@ -145,7 +154,11 @@ namespace ElevenLabs
         /// </param>
         /// <param name="turn">
         /// Turn detection configuration<br/>
-        /// Example: {"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0}
+        /// Example: {"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"merge_with_default_ignore_terms":false,"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}
+        /// </param>
+        /// <param name="vad">
+        /// Configuration for voice activity detection<br/>
+        /// Example: {"background_voice_detection":false}
         /// </param>
         /// <param name="conversation">
         /// Conversation-level settings including client events and duration limits<br/>
@@ -184,6 +197,7 @@ namespace ElevenLabs
             global::ElevenLabs.ASRConversationalConfig asr,
             global::ElevenLabs.TTSConversationalConfigOutput tts,
             global::ElevenLabs.BaseTurnConfig turn,
+            global::ElevenLabs.VADConfig vad,
             global::ElevenLabs.ConversationConfigOutput conversation,
             global::ElevenLabs.PrivacyConfigOutput privacy,
             global::ElevenLabs.AgentCallLimits callLimits,
@@ -199,6 +213,7 @@ namespace ElevenLabs
             this.Asr = asr ?? throw new global::System.ArgumentNullException(nameof(asr));
             this.Tts = tts ?? throw new global::System.ArgumentNullException(nameof(tts));
             this.Turn = turn ?? throw new global::System.ArgumentNullException(nameof(turn));
+            this.Vad = vad ?? throw new global::System.ArgumentNullException(nameof(vad));
             this.Conversation = conversation ?? throw new global::System.ArgumentNullException(nameof(conversation));
             this.Privacy = privacy ?? throw new global::System.ArgumentNullException(nameof(privacy));
             this.CallLimits = callLimits ?? throw new global::System.ArgumentNullException(nameof(callLimits));

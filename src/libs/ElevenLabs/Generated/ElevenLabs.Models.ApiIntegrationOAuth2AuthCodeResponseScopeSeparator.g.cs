@@ -9,7 +9,7 @@ namespace ElevenLabs
     public enum ApiIntegrationOAuth2AuthCodeResponseScopeSeparator
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x_,
     }

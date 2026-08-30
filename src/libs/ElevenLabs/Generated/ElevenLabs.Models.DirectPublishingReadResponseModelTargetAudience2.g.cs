@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum DirectPublishingReadResponseModelTargetAudience2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Adult,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AllAges,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Children,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         YoungAdult,
     }

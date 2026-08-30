@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateSecretEnvironmentVariableRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"secret"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]

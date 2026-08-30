@@ -4,140 +4,156 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum WorkspaceGroupPermission
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AddVoiceFromVoiceLibrary,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AiSpeechClassifier,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioNative,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AuditLogRead,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        ConversationPrivacyManage,
+        /// <summary>
+        ///
         /// </summary>
         ConversationalAi,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConversationalAiRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CopyResourcesCrossWorkspace,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateInstantVoiceClone,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateProfessionalVoiceClone,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateUserApiKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dubbing,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Flows,
+        /// <summary>
+        ///
         /// </summary>
         GroupMembersManage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImageVideoGeneration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Music,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Projects,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PublishStudioProject,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PublishVoiceToVoiceLibrary,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ServiceAccountsManage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ShareVoiceExternally,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SoundEffects,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechToSpeech,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechToText,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        SynthidDetector,
+        /// <summary>
+        ///
+        /// </summary>
+        Templates,
+        /// <summary>
+        ///
         /// </summary>
         TermsOfServiceAccept,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TextToSpeech,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ViewFiatBalance,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceDesign,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceIsolator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceLab,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceoverStudio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WebhooksManage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceAnalyticsFullRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceMembersInvite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceMembersRemove,
     }
@@ -158,6 +174,7 @@ namespace ElevenLabs
                 WorkspaceGroupPermission.AiSpeechClassifier => "ai_speech_classifier",
                 WorkspaceGroupPermission.AudioNative => "audio_native",
                 WorkspaceGroupPermission.AuditLogRead => "audit_log_read",
+                WorkspaceGroupPermission.ConversationPrivacyManage => "conversation_privacy_manage",
                 WorkspaceGroupPermission.ConversationalAi => "conversational_ai",
                 WorkspaceGroupPermission.ConversationalAiRead => "conversational_ai_read",
                 WorkspaceGroupPermission.CopyResourcesCrossWorkspace => "copy_resources_cross_workspace",
@@ -165,6 +182,7 @@ namespace ElevenLabs
                 WorkspaceGroupPermission.CreateProfessionalVoiceClone => "create_professional_voice_clone",
                 WorkspaceGroupPermission.CreateUserApiKey => "create_user_api_key",
                 WorkspaceGroupPermission.Dubbing => "dubbing",
+                WorkspaceGroupPermission.Flows => "flows",
                 WorkspaceGroupPermission.GroupMembersManage => "group_members_manage",
                 WorkspaceGroupPermission.ImageVideoGeneration => "image_video_generation",
                 WorkspaceGroupPermission.Music => "music",
@@ -176,6 +194,8 @@ namespace ElevenLabs
                 WorkspaceGroupPermission.SoundEffects => "sound_effects",
                 WorkspaceGroupPermission.SpeechToSpeech => "speech_to_speech",
                 WorkspaceGroupPermission.SpeechToText => "speech_to_text",
+                WorkspaceGroupPermission.SynthidDetector => "synthid_detector",
+                WorkspaceGroupPermission.Templates => "templates",
                 WorkspaceGroupPermission.TermsOfServiceAccept => "terms_of_service_accept",
                 WorkspaceGroupPermission.TextToSpeech => "text_to_speech",
                 WorkspaceGroupPermission.ViewFiatBalance => "view_fiat_balance",
@@ -201,6 +221,7 @@ namespace ElevenLabs
                 "ai_speech_classifier" => WorkspaceGroupPermission.AiSpeechClassifier,
                 "audio_native" => WorkspaceGroupPermission.AudioNative,
                 "audit_log_read" => WorkspaceGroupPermission.AuditLogRead,
+                "conversation_privacy_manage" => WorkspaceGroupPermission.ConversationPrivacyManage,
                 "conversational_ai" => WorkspaceGroupPermission.ConversationalAi,
                 "conversational_ai_read" => WorkspaceGroupPermission.ConversationalAiRead,
                 "copy_resources_cross_workspace" => WorkspaceGroupPermission.CopyResourcesCrossWorkspace,
@@ -208,6 +229,7 @@ namespace ElevenLabs
                 "create_professional_voice_clone" => WorkspaceGroupPermission.CreateProfessionalVoiceClone,
                 "create_user_api_key" => WorkspaceGroupPermission.CreateUserApiKey,
                 "dubbing" => WorkspaceGroupPermission.Dubbing,
+                "flows" => WorkspaceGroupPermission.Flows,
                 "group_members_manage" => WorkspaceGroupPermission.GroupMembersManage,
                 "image_video_generation" => WorkspaceGroupPermission.ImageVideoGeneration,
                 "music" => WorkspaceGroupPermission.Music,
@@ -219,6 +241,8 @@ namespace ElevenLabs
                 "sound_effects" => WorkspaceGroupPermission.SoundEffects,
                 "speech_to_speech" => WorkspaceGroupPermission.SpeechToSpeech,
                 "speech_to_text" => WorkspaceGroupPermission.SpeechToText,
+                "synthid_detector" => WorkspaceGroupPermission.SynthidDetector,
+                "templates" => WorkspaceGroupPermission.Templates,
                 "terms_of_service_accept" => WorkspaceGroupPermission.TermsOfServiceAccept,
                 "text_to_speech" => WorkspaceGroupPermission.TextToSpeech,
                 "view_fiat_balance" => WorkspaceGroupPermission.ViewFiatBalance,

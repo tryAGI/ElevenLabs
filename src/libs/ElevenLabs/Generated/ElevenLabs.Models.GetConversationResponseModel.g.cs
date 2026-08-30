@@ -4,25 +4,31 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Example: {"agent_id":"agent_3701k3ttaq12ewp8b7qv5rfyszkz","agent_name":"My agent","conversation_id":"conv_7401k5m9x2p8ec3rqv6dtnhb0fzw","environment":"production","has_audio":true,"has_auxiliary_audio":true,"has_response_audio":true,"has_user_audio":true,"metadata":{"call_duration_secs":10,"start_time_unix_secs":1714423232},"status":"processing","tag_ids":[],"transcript":[{"message":"Hello, how are you?","role":"user","time_in_call_secs":10}],"version_id":"agtvrsn_5xM3yVvZQKV0EfqQpLr2"}
     /// </summary>
     public sealed partial class GetConversationResponseModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string AgentId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_name")]
         public string? AgentName { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: agent
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conversation_product")]
+        public string? ConversationProduct { get; set; }
+
+        /// <summary>
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.GetConversationResponseModelStatusJsonConverter))]
@@ -30,13 +36,13 @@ namespace ElevenLabs
         public required global::ElevenLabs.GetConversationResponseModelStatus Status { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("branch_id")]
         public string? BranchId { get; set; }
@@ -48,26 +54,26 @@ namespace ElevenLabs
         public string? VersionId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.ConversationHistoryMetadataCommonModel Metadata { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("analysis")]
         public global::ElevenLabs.ConversationHistoryAnalysisCommonModel? Analysis { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("visited_agents")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.VisitedAgentRef>? VisitedAgents { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_client_data")]
         public global::ElevenLabs.ConversationInitiationClientDataRequestOutput? ConversationInitiationClientData { get; set; }
@@ -79,35 +85,42 @@ namespace ElevenLabs
         public string? Environment { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ConversationId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_audio")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool HasAudio { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_user_audio")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool HasUserAudio { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_response_audio")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool HasResponseAudio { get; set; }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_auxiliary_audio")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool HasAuxiliaryAudio { get; set; }
+
+        /// <summary>
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -141,8 +154,12 @@ namespace ElevenLabs
         /// <param name="hasAudio"></param>
         /// <param name="hasUserAudio"></param>
         /// <param name="hasResponseAudio"></param>
+        /// <param name="hasAuxiliaryAudio"></param>
         /// <param name="transcript"></param>
         /// <param name="agentName"></param>
+        /// <param name="conversationProduct">
+        /// Default Value: agent
+        /// </param>
         /// <param name="userId"></param>
         /// <param name="branchId"></param>
         /// <param name="versionId">
@@ -171,8 +188,10 @@ namespace ElevenLabs
             bool hasAudio,
             bool hasUserAudio,
             bool hasResponseAudio,
+            bool hasAuxiliaryAudio,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptResponseModel> transcript,
             string? agentName,
+            string? conversationProduct,
             string? userId,
             string? branchId,
             string? versionId,
@@ -185,6 +204,7 @@ namespace ElevenLabs
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.AgentName = agentName;
+            this.ConversationProduct = conversationProduct;
             this.Status = status;
             this.UserId = userId;
             this.BranchId = branchId;
@@ -198,6 +218,7 @@ namespace ElevenLabs
             this.HasAudio = hasAudio;
             this.HasUserAudio = hasUserAudio;
             this.HasResponseAudio = hasResponseAudio;
+            this.HasAuxiliaryAudio = hasAuxiliaryAudio;
             this.Transcript = transcript ?? throw new global::System.ArgumentNullException(nameof(transcript));
             this.TagIds = tagIds;
             this.OtlpTraces = otlpTraces;

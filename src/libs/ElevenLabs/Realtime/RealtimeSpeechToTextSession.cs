@@ -29,6 +29,20 @@ public class RealtimeSpeechToTextSession : IAsyncDisposable
     }
 
     /// <summary>
+    /// WebSocket close status reported by the close handshake.
+    /// This is null while the socket is still open, including when callers stop reading
+    /// after a final transcript before a close frame has been observed.
+    /// </summary>
+    public WebSocketCloseStatus? CloseStatus => _webSocket.CloseStatus;
+
+    /// <summary>
+    /// WebSocket close status description reported by the close handshake.
+    /// This is null while the socket is still open, including when callers stop reading
+    /// after a final transcript before a close frame has been observed.
+    /// </summary>
+    public string? CloseStatusDescription => _webSocket.CloseStatusDescription;
+
+    /// <summary>
     /// Sends a PCM audio chunk as raw bytes.
     /// </summary>
     public virtual Task SendAudioChunkAsync(

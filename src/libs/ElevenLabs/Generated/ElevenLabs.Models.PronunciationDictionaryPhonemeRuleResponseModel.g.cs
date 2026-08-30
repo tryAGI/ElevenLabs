@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PronunciationDictionaryPhonemeRuleResponseModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("string_to_replace")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -30,21 +30,21 @@ namespace ElevenLabs
         public bool? WordBoundaries { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"phoneme"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         public string Type { get; set; } = "phoneme";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phoneme")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Phoneme { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alphabet")]
         [global::System.Text.Json.Serialization.JsonRequired]

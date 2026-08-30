@@ -4,18 +4,22 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum OrderItemRequestInputDiscriminatorKind
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dub,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Subtitles,
+        /// <summary>
+        ///
+        /// </summary>
+        Transcription,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace ElevenLabs
             {
                 OrderItemRequestInputDiscriminatorKind.Dub => "dub",
                 OrderItemRequestInputDiscriminatorKind.Subtitles => "subtitles",
+                OrderItemRequestInputDiscriminatorKind.Transcription => "transcription",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace ElevenLabs
             {
                 "dub" => OrderItemRequestInputDiscriminatorKind.Dub,
                 "subtitles" => OrderItemRequestInputDiscriminatorKind.Subtitles,
+                "transcription" => OrderItemRequestInputDiscriminatorKind.Transcription,
                 _ => null,
             };
         }

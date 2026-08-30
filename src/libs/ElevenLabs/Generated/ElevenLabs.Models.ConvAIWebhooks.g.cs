@@ -6,18 +6,18 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConvAIWebhooks
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("post_call_webhook_id")]
         public string? PostCallWebhookId { get; set; }
 
         /// <summary>
-        /// List of event types to send via webhook. Options: transcript, audio, call_initiation_failure.
+        /// List of event types to send via webhook. Options: transcript, audio, call_initiation_failure, unredacted_transcript, unredacted_audio.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("events")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.WebhookEventType>? Events { get; set; }
@@ -48,7 +48,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="postCallWebhookId"></param>
         /// <param name="events">
-        /// List of event types to send via webhook. Options: transcript, audio, call_initiation_failure.
+        /// List of event types to send via webhook. Options: transcript, audio, call_initiation_failure, unredacted_transcript, unredacted_audio.
         /// </param>
         /// <param name="transcriptFormat">
         /// Format for transcript webhooks.<br/>

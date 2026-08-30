@@ -9,163 +9,179 @@ namespace ElevenLabs
     public enum WorkspaceResourceType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Assets,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AvatarVideoGenerations,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Avatars,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ContentGenerations,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        ContentSkills,
+        /// <summary>
+        ///
         /// </summary>
         ContentTemplates,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiAgentBranches,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiAgentDrafts,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        ConvaiAgentExperiments,
+        /// <summary>
+        ///
         /// </summary>
         ConvaiAgentResponseTests,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiAgentVersions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiAgentVersionsDeployments,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiAgents,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        ConvaiAnalysisItems,
+        /// <summary>
+        ///
         /// </summary>
         ConvaiApiIntegrationConnections,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiApiIntegrationTriggerConnections,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiBatchCalls,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiCoachingProposals,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiCrawlJobs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiCrawlTasks,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        ConvaiKbExternalSyncJobs,
+        /// <summary>
+        ///
         /// </summary>
         ConvaiKnowledgeBaseDocuments,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiMcpServers,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiMemoryEntries,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiPhoneNumbers,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiSecrets,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiSettings,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiTemplates,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiTestSuiteInvocations,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiTools,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiWhatsappAccounts,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dashboard,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DashboardConfiguration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dubbing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Project,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PronunciationDictionary,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResourceCollection,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResourceLocators,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Songs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StudioProjects,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TranscriptionTasks,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Voice,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceCollection,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceAuthConnections,
     }
@@ -186,19 +202,23 @@ namespace ElevenLabs
                 WorkspaceResourceType.AvatarVideoGenerations => "avatar_video_generations",
                 WorkspaceResourceType.Avatars => "avatars",
                 WorkspaceResourceType.ContentGenerations => "content_generations",
+                WorkspaceResourceType.ContentSkills => "content_skills",
                 WorkspaceResourceType.ContentTemplates => "content_templates",
                 WorkspaceResourceType.ConvaiAgentBranches => "convai_agent_branches",
                 WorkspaceResourceType.ConvaiAgentDrafts => "convai_agent_drafts",
+                WorkspaceResourceType.ConvaiAgentExperiments => "convai_agent_experiments",
                 WorkspaceResourceType.ConvaiAgentResponseTests => "convai_agent_response_tests",
                 WorkspaceResourceType.ConvaiAgentVersions => "convai_agent_versions",
                 WorkspaceResourceType.ConvaiAgentVersionsDeployments => "convai_agent_versions_deployments",
                 WorkspaceResourceType.ConvaiAgents => "convai_agents",
+                WorkspaceResourceType.ConvaiAnalysisItems => "convai_analysis_items",
                 WorkspaceResourceType.ConvaiApiIntegrationConnections => "convai_api_integration_connections",
                 WorkspaceResourceType.ConvaiApiIntegrationTriggerConnections => "convai_api_integration_trigger_connections",
                 WorkspaceResourceType.ConvaiBatchCalls => "convai_batch_calls",
                 WorkspaceResourceType.ConvaiCoachingProposals => "convai_coaching_proposals",
                 WorkspaceResourceType.ConvaiCrawlJobs => "convai_crawl_jobs",
                 WorkspaceResourceType.ConvaiCrawlTasks => "convai_crawl_tasks",
+                WorkspaceResourceType.ConvaiKbExternalSyncJobs => "convai_kb_external_sync_jobs",
                 WorkspaceResourceType.ConvaiKnowledgeBaseDocuments => "convai_knowledge_base_documents",
                 WorkspaceResourceType.ConvaiMcpServers => "convai_mcp_servers",
                 WorkspaceResourceType.ConvaiMemoryEntries => "convai_memory_entries",
@@ -236,19 +256,23 @@ namespace ElevenLabs
                 "avatar_video_generations" => WorkspaceResourceType.AvatarVideoGenerations,
                 "avatars" => WorkspaceResourceType.Avatars,
                 "content_generations" => WorkspaceResourceType.ContentGenerations,
+                "content_skills" => WorkspaceResourceType.ContentSkills,
                 "content_templates" => WorkspaceResourceType.ContentTemplates,
                 "convai_agent_branches" => WorkspaceResourceType.ConvaiAgentBranches,
                 "convai_agent_drafts" => WorkspaceResourceType.ConvaiAgentDrafts,
+                "convai_agent_experiments" => WorkspaceResourceType.ConvaiAgentExperiments,
                 "convai_agent_response_tests" => WorkspaceResourceType.ConvaiAgentResponseTests,
                 "convai_agent_versions" => WorkspaceResourceType.ConvaiAgentVersions,
                 "convai_agent_versions_deployments" => WorkspaceResourceType.ConvaiAgentVersionsDeployments,
                 "convai_agents" => WorkspaceResourceType.ConvaiAgents,
+                "convai_analysis_items" => WorkspaceResourceType.ConvaiAnalysisItems,
                 "convai_api_integration_connections" => WorkspaceResourceType.ConvaiApiIntegrationConnections,
                 "convai_api_integration_trigger_connections" => WorkspaceResourceType.ConvaiApiIntegrationTriggerConnections,
                 "convai_batch_calls" => WorkspaceResourceType.ConvaiBatchCalls,
                 "convai_coaching_proposals" => WorkspaceResourceType.ConvaiCoachingProposals,
                 "convai_crawl_jobs" => WorkspaceResourceType.ConvaiCrawlJobs,
                 "convai_crawl_tasks" => WorkspaceResourceType.ConvaiCrawlTasks,
+                "convai_kb_external_sync_jobs" => WorkspaceResourceType.ConvaiKbExternalSyncJobs,
                 "convai_knowledge_base_documents" => WorkspaceResourceType.ConvaiKnowledgeBaseDocuments,
                 "convai_mcp_servers" => WorkspaceResourceType.ConvaiMcpServers,
                 "convai_memory_entries" => WorkspaceResourceType.ConvaiMemoryEntries,

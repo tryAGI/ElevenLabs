@@ -4,360 +4,396 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Default Value: gemini-2.5-flash
+    ///
     /// </summary>
     public enum Llm
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Claude35Sonnet,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Claude35SonnetV1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Claude35SonnetV2_20241022,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Claude35Sonnet_20240620,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Claude37Sonnet,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Claude37Sonnet_20250219,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Claude3Haiku,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Claude3Haiku_20240307,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClaudeHaiku45,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClaudeHaiku45_20251001,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClaudeOpus47,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        ClaudeOpus48,
+        /// <summary>
+        ///
         /// </summary>
         ClaudeSonnet4,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClaudeSonnet45,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClaudeSonnet45_20250929,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClaudeSonnet46,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClaudeSonnet4_20250514,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        ClaudeSonnet5,
+        /// <summary>
+        ///
         /// </summary>
         CustomLlm,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini15Flash,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini15Flash001,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini15Flash002,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini15Pro,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini15Pro001,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini15Pro002,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini20Flash,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini20Flash001,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini20FlashLite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini20FlashLite001,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini25Flash,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini25FlashLite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini25FlashLitePreview0617,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini25FlashLitePreview092025,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini25FlashPreview0417,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini25FlashPreview0520,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini25FlashPreview092025,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini3FlashPreview,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini3ProPreview,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini31FlashLite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini31FlashLitePreview,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini31ProPreview,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Gemini35Flash,
+        /// <summary>
+        ///
+        /// </summary>
+        Gemini35FlashLite,
+        /// <summary>
+        ///
+        /// </summary>
+        Gemini36Flash,
+        /// <summary>
+        ///
+        /// </summary>
+        Gemini37Flash,
+        /// <summary>
+        ///
         /// </summary>
         Glm45AirFp8,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt35Turbo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt35Turbo0125,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt35Turbo1106,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt4,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt40314,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt40613,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt4Turbo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt4Turbo20240409,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt41,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt4120250414,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt41Mini,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt41Mini20250414,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt41Nano,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt41Nano20250414,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt4o,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt4o20240513,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt4o20240806,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt4o20241120,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt4oMini,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt4oMini20240718,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt5,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt520250807,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt5Mini,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt5Mini20250807,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt5Nano,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt5Nano20250807,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt51,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt5120251113,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt52,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt5220251211,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt52ChatLatest,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt54,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt5420260305,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt54Mini,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt54Mini20260317,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt54Nano,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt54Nano20260317,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt55,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gpt5520260423,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Gpt56Luna,
+        /// <summary>
+        ///
+        /// </summary>
+        Gpt56Sol,
+        /// <summary>
+        ///
+        /// </summary>
+        Gpt56Terra,
+        /// <summary>
+        ///
         /// </summary>
         GptOss120b,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GptOss20b,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GrokBeta,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Qwen330bA3b,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Qwen34b,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Qwen35397bA17b,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Qwen3635bA3b,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WattTool70b,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WattTool8b,
     }
@@ -385,11 +421,13 @@ namespace ElevenLabs
                 Llm.ClaudeHaiku45 => "claude-haiku-4-5",
                 Llm.ClaudeHaiku45_20251001 => "claude-haiku-4-5@20251001",
                 Llm.ClaudeOpus47 => "claude-opus-4-7",
+                Llm.ClaudeOpus48 => "claude-opus-4-8",
                 Llm.ClaudeSonnet4 => "claude-sonnet-4",
                 Llm.ClaudeSonnet45 => "claude-sonnet-4-5",
                 Llm.ClaudeSonnet45_20250929 => "claude-sonnet-4-5@20250929",
                 Llm.ClaudeSonnet46 => "claude-sonnet-4-6",
                 Llm.ClaudeSonnet4_20250514 => "claude-sonnet-4@20250514",
+                Llm.ClaudeSonnet5 => "claude-sonnet-5",
                 Llm.CustomLlm => "custom-llm",
                 Llm.Gemini15Flash => "gemini-1.5-flash",
                 Llm.Gemini15Flash001 => "gemini-1.5-flash-001",
@@ -413,6 +451,10 @@ namespace ElevenLabs
                 Llm.Gemini31FlashLite => "gemini-3.1-flash-lite",
                 Llm.Gemini31FlashLitePreview => "gemini-3.1-flash-lite-preview",
                 Llm.Gemini31ProPreview => "gemini-3.1-pro-preview",
+                Llm.Gemini35Flash => "gemini-3.5-flash",
+                Llm.Gemini35FlashLite => "gemini-3.5-flash-lite",
+                Llm.Gemini36Flash => "gemini-3.6-flash",
+                Llm.Gemini37Flash => "gemini-3.7-flash",
                 Llm.Glm45AirFp8 => "glm-45-air-fp8",
                 Llm.Gpt35Turbo => "gpt-3.5-turbo",
                 Llm.Gpt35Turbo0125 => "gpt-3.5-turbo-0125",
@@ -453,6 +495,9 @@ namespace ElevenLabs
                 Llm.Gpt54Nano20260317 => "gpt-5.4-nano-2026-03-17",
                 Llm.Gpt55 => "gpt-5.5",
                 Llm.Gpt5520260423 => "gpt-5.5-2026-04-23",
+                Llm.Gpt56Luna => "gpt-5.6-luna",
+                Llm.Gpt56Sol => "gpt-5.6-sol",
+                Llm.Gpt56Terra => "gpt-5.6-terra",
                 Llm.GptOss120b => "gpt-oss-120b",
                 Llm.GptOss20b => "gpt-oss-20b",
                 Llm.GrokBeta => "grok-beta",
@@ -483,11 +528,13 @@ namespace ElevenLabs
                 "claude-haiku-4-5" => Llm.ClaudeHaiku45,
                 "claude-haiku-4-5@20251001" => Llm.ClaudeHaiku45_20251001,
                 "claude-opus-4-7" => Llm.ClaudeOpus47,
+                "claude-opus-4-8" => Llm.ClaudeOpus48,
                 "claude-sonnet-4" => Llm.ClaudeSonnet4,
                 "claude-sonnet-4-5" => Llm.ClaudeSonnet45,
                 "claude-sonnet-4-5@20250929" => Llm.ClaudeSonnet45_20250929,
                 "claude-sonnet-4-6" => Llm.ClaudeSonnet46,
                 "claude-sonnet-4@20250514" => Llm.ClaudeSonnet4_20250514,
+                "claude-sonnet-5" => Llm.ClaudeSonnet5,
                 "custom-llm" => Llm.CustomLlm,
                 "gemini-1.5-flash" => Llm.Gemini15Flash,
                 "gemini-1.5-flash-001" => Llm.Gemini15Flash001,
@@ -511,6 +558,10 @@ namespace ElevenLabs
                 "gemini-3.1-flash-lite" => Llm.Gemini31FlashLite,
                 "gemini-3.1-flash-lite-preview" => Llm.Gemini31FlashLitePreview,
                 "gemini-3.1-pro-preview" => Llm.Gemini31ProPreview,
+                "gemini-3.5-flash" => Llm.Gemini35Flash,
+                "gemini-3.5-flash-lite" => Llm.Gemini35FlashLite,
+                "gemini-3.6-flash" => Llm.Gemini36Flash,
+                "gemini-3.7-flash" => Llm.Gemini37Flash,
                 "glm-45-air-fp8" => Llm.Glm45AirFp8,
                 "gpt-3.5-turbo" => Llm.Gpt35Turbo,
                 "gpt-3.5-turbo-0125" => Llm.Gpt35Turbo0125,
@@ -551,6 +602,9 @@ namespace ElevenLabs
                 "gpt-5.4-nano-2026-03-17" => Llm.Gpt54Nano20260317,
                 "gpt-5.5" => Llm.Gpt55,
                 "gpt-5.5-2026-04-23" => Llm.Gpt5520260423,
+                "gpt-5.6-luna" => Llm.Gpt56Luna,
+                "gpt-5.6-sol" => Llm.Gpt56Sol,
+                "gpt-5.6-terra" => Llm.Gpt56Terra,
                 "gpt-oss-120b" => Llm.GptOss120b,
                 "gpt-oss-20b" => Llm.GptOss20b,
                 "grok-beta" => Llm.GrokBeta,

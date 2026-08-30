@@ -4,42 +4,42 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetKnowledgeBaseURLResponseModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel Metadata { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supported_usages")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::ElevenLabs.DocumentUsageModeEnum> SupportedUsages { get; set; }
 
         /// <summary>
-        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// Example: {"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </summary>
-        /// <example>{"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
+        /// <example>{"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; }
@@ -57,28 +57,38 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? FolderPath { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"url"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         public string Type { get; set; } = "url";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Url { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("extracted_inner_html")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ExtractedInnerHtml { get; set; }
 
         /// <summary>
-        /// 
+        /// Canonical representation of a knowledge base document's stored content.<br/>
+        /// HTML is the legacy default; documents created before this field existed are<br/>
+        /// interpreted as HTML.<br/>
+        /// Default Value: html
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("content_format")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ContentFormatJsonConverter))]
+        public global::ElevenLabs.ContentFormat? ContentFormat { get; set; }
+
+        /// <summary>
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auto_sync_info")]
         public global::ElevenLabs.AutoSyncInfo? AutoSyncInfo { get; set; }
@@ -97,7 +107,7 @@ namespace ElevenLabs
         /// <param name="metadata"></param>
         /// <param name="supportedUsages"></param>
         /// <param name="accessInfo">
-        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// Example: {"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </param>
         /// <param name="url"></param>
         /// <param name="extractedInnerHtml"></param>
@@ -106,6 +116,12 @@ namespace ElevenLabs
         /// </param>
         /// <param name="folderPath">
         /// The folder path segments leading to this entity, from root to parent folder.
+        /// </param>
+        /// <param name="contentFormat">
+        /// Canonical representation of a knowledge base document's stored content.<br/>
+        /// HTML is the legacy default; documents created before this field existed are<br/>
+        /// interpreted as HTML.<br/>
+        /// Default Value: html
         /// </param>
         /// <param name="autoSyncInfo"></param>
         /// <param name="type"></param>
@@ -122,6 +138,7 @@ namespace ElevenLabs
             string extractedInnerHtml,
             string? folderParentId,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? folderPath,
+            global::ElevenLabs.ContentFormat? contentFormat,
             global::ElevenLabs.AutoSyncInfo? autoSyncInfo,
             string type = "url")
         {
@@ -135,6 +152,7 @@ namespace ElevenLabs
             this.Type = type;
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.ExtractedInnerHtml = extractedInnerHtml ?? throw new global::System.ArgumentNullException(nameof(extractedInnerHtml));
+            this.ContentFormat = contentFormat;
             this.AutoSyncInfo = autoSyncInfo;
         }
 

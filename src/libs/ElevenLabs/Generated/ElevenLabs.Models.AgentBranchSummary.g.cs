@@ -4,54 +4,54 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AgentBranchSummary
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string AgentId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Description { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int CreatedAt { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_committed_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int LastCommittedAt { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_archived")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -91,6 +91,31 @@ namespace ElevenLabs
         public bool? DraftExists { get; set; }
 
         /// <summary>
+        /// Number of calls in the last 7 days<br/>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("calls_7d")]
+        public int? Calls7d { get; set; }
+
+        /// <summary>
+        /// Number of commits on this branch not yet on main, relative to their common ancestor. Null if it could not be computed (e.g. no common ancestor, or the branch history exceeds the comparison budget).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("commits_ahead")]
+        public int? CommitsAhead { get; set; }
+
+        /// <summary>
+        /// Number of commits on main not yet incorporated into this branch, relative to their common ancestor. Null if it could not be computed (e.g. no common ancestor, or the branch history exceeds the comparison budget).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("commits_behind")]
+        public int? CommitsBehind { get; set; }
+
+        /// <summary>
+        /// ID of the branch this branch's tip version was merged into, if any
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("merged_into_branch_id")]
+        public string? MergedIntoBranchId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -123,6 +148,19 @@ namespace ElevenLabs
         /// Whether a draft exists for the branch<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="calls7d">
+        /// Number of calls in the last 7 days<br/>
+        /// Default Value: 0
+        /// </param>
+        /// <param name="commitsAhead">
+        /// Number of commits on this branch not yet on main, relative to their common ancestor. Null if it could not be computed (e.g. no common ancestor, or the branch history exceeds the comparison budget).
+        /// </param>
+        /// <param name="commitsBehind">
+        /// Number of commits on main not yet incorporated into this branch, relative to their common ancestor. Null if it could not be computed (e.g. no common ancestor, or the branch history exceeds the comparison budget).
+        /// </param>
+        /// <param name="mergedIntoBranchId">
+        /// ID of the branch this branch's tip version was merged into, if any
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -138,7 +176,11 @@ namespace ElevenLabs
             global::ElevenLabs.ResourceAccessInfo? accessInfo,
             double? currentLivePercentage,
             string? parentBranchId,
-            bool? draftExists)
+            bool? draftExists,
+            int? calls7d,
+            int? commitsAhead,
+            int? commitsBehind,
+            string? mergedIntoBranchId)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -152,6 +194,10 @@ namespace ElevenLabs
             this.CurrentLivePercentage = currentLivePercentage;
             this.ParentBranchId = parentBranchId;
             this.DraftExists = draftExists;
+            this.Calls7d = calls7d;
+            this.CommitsAhead = commitsAhead;
+            this.CommitsBehind = commitsBehind;
+            this.MergedIntoBranchId = mergedIntoBranchId;
         }
 
         /// <summary>

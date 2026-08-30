@@ -4,47 +4,47 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetWhatsAppAccountResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("business_account_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string BusinessAccountId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string PhoneNumberId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("business_account_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string BusinessAccountName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string PhoneNumberName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string PhoneNumber { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assigned_agent_id")]
         public string? AssignedAgentId { get; set; }
@@ -62,7 +62,13 @@ namespace ElevenLabs
         public bool? EnableAudioMessageResponse { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_typing_indicator")]
+        public bool? EnableTypingIndicator { get; set; }
+
+        /// <summary>
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assigned_agent_name")]
         public string? AssignedAgentName { get; set; }
@@ -94,6 +100,9 @@ namespace ElevenLabs
         /// <param name="enableAudioMessageResponse">
         /// Default Value: true
         /// </param>
+        /// <param name="enableTypingIndicator">
+        /// Default Value: true
+        /// </param>
         /// <param name="assignedAgentName"></param>
         /// <param name="isTokenExpired">
         /// Default Value: false
@@ -110,6 +119,7 @@ namespace ElevenLabs
             string? assignedAgentId,
             bool? enableMessaging,
             bool? enableAudioMessageResponse,
+            bool? enableTypingIndicator,
             string? assignedAgentName,
             bool? isTokenExpired)
         {
@@ -121,6 +131,7 @@ namespace ElevenLabs
             this.AssignedAgentId = assignedAgentId;
             this.EnableMessaging = enableMessaging;
             this.EnableAudioMessageResponse = enableAudioMessageResponse;
+            this.EnableTypingIndicator = enableTypingIndicator;
             this.AssignedAgentName = assignedAgentName;
             this.IsTokenExpired = isTokenExpired;
         }

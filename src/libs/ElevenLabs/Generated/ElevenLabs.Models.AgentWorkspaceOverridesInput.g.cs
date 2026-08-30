@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AgentWorkspaceOverridesInput
     {
@@ -15,7 +15,7 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationInitiationClientDataWebhook? ConversationInitiationClientDataWebhook { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("webhooks")]
         public global::ElevenLabs.ConvAIWebhooks? Webhooks { get; set; }

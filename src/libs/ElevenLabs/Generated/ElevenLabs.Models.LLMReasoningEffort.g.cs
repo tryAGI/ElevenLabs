@@ -4,32 +4,36 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum LLMReasoningEffort
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         High,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Low,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Max,
+        /// <summary>
+        ///
         /// </summary>
         Medium,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Minimal,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Xhigh,
     }
@@ -48,6 +52,7 @@ namespace ElevenLabs
             {
                 LLMReasoningEffort.High => "high",
                 LLMReasoningEffort.Low => "low",
+                LLMReasoningEffort.Max => "max",
                 LLMReasoningEffort.Medium => "medium",
                 LLMReasoningEffort.Minimal => "minimal",
                 LLMReasoningEffort.None => "none",
@@ -64,6 +69,7 @@ namespace ElevenLabs
             {
                 "high" => LLMReasoningEffort.High,
                 "low" => LLMReasoningEffort.Low,
+                "max" => LLMReasoningEffort.Max,
                 "medium" => LLMReasoningEffort.Medium,
                 "minimal" => LLMReasoningEffort.Minimal,
                 "none" => LLMReasoningEffort.None,

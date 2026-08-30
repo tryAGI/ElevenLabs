@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class CreateMTLSAuthRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -22,34 +22,34 @@ namespace ElevenLabs
         public string? AuthType { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Provider { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("client_certificate")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ClientCertificate { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("client_key")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ClientKey { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ca_certificate")]
         public string? CaCertificate { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("key_passphrase")]
         public string? KeyPassphrase { get; set; }

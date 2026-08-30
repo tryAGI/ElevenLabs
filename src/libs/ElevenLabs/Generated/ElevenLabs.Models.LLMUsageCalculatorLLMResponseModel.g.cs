@@ -4,21 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LLMUsageCalculatorLLMResponseModel
     {
         /// <summary>
-        /// Default Value: gemini-2.5-flash
+        ///
         /// </summary>
-        /// <default>global::ElevenLabs.Llm.Gemini25Flash</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LlmJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.Llm Llm { get; set; } = global::ElevenLabs.Llm.Gemini25Flash;
+        public required global::ElevenLabs.Llm Llm { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("price_per_minute")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -33,9 +32,7 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="LLMUsageCalculatorLLMResponseModel" /> class.
         /// </summary>
-        /// <param name="llm">
-        /// Default Value: gemini-2.5-flash
-        /// </param>
+        /// <param name="llm"></param>
         /// <param name="pricePerMinute"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -6,42 +6,42 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetKnowledgeBaseSummaryFileResponseModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel Metadata { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supported_usages")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::ElevenLabs.DocumentUsageModeEnum> SupportedUsages { get; set; }
 
         /// <summary>
-        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// Example: {"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </summary>
-        /// <example>{"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
+        /// <example>{"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; }
@@ -66,11 +66,35 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem> DependentAgents { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"file"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         public string Type { get; set; } = "file";
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("external_sync_info")]
+        public global::ElevenLabs.ExternalFileSyncInfo? ExternalSyncInfo { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auto_sync_info")]
+        public global::ElevenLabs.AutoSyncInfo? AutoSyncInfo { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("refresh_status")]
+        public global::ElevenLabs.FileRefreshStatus? RefreshStatus { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_frozen")]
+        public bool? IsFrozen { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -86,7 +110,7 @@ namespace ElevenLabs
         /// <param name="metadata"></param>
         /// <param name="supportedUsages"></param>
         /// <param name="accessInfo">
-        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// Example: {"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </param>
         /// <param name="dependentAgents">
         /// This field is deprecated and will be removed in the future, use the separate endpoint to get dependent agents instead.
@@ -96,6 +120,12 @@ namespace ElevenLabs
         /// </param>
         /// <param name="folderPath">
         /// The folder path segments leading to this entity, from root to parent folder.
+        /// </param>
+        /// <param name="externalSyncInfo"></param>
+        /// <param name="autoSyncInfo"></param>
+        /// <param name="refreshStatus"></param>
+        /// <param name="isFrozen">
+        /// Default Value: false
         /// </param>
         /// <param name="type"></param>
 #if NET7_0_OR_GREATER
@@ -110,6 +140,10 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem> dependentAgents,
             string? folderParentId,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentSummaryResponseModel>? folderPath,
+            global::ElevenLabs.ExternalFileSyncInfo? externalSyncInfo,
+            global::ElevenLabs.AutoSyncInfo? autoSyncInfo,
+            global::ElevenLabs.FileRefreshStatus? refreshStatus,
+            bool? isFrozen,
             string type = "file")
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -121,6 +155,10 @@ namespace ElevenLabs
             this.FolderPath = folderPath;
             this.DependentAgents = dependentAgents ?? throw new global::System.ArgumentNullException(nameof(dependentAgents));
             this.Type = type;
+            this.ExternalSyncInfo = externalSyncInfo;
+            this.AutoSyncInfo = autoSyncInfo;
+            this.RefreshStatus = refreshStatus;
+            this.IsFrozen = isFrozen;
         }
 
         /// <summary>

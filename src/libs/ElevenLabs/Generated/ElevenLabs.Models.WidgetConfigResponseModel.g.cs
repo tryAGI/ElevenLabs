@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"file_input_config":{"enabled":false,"max_files_per_conversation":10},"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}
+    /// Example: {"file_input_config":{"enabled":false,"max_files_in_memory":10,"max_files_per_conversation":10},"first_message":"Hello! How can I help you today?","language":"en","language_presets":{},"supported_language_overrides":["es","fr"],"supports_text_only":true,"text_only":false,"use_rtc":false}
     /// </summary>
     public sealed partial class WidgetConfigResponseModel
     {
@@ -216,14 +216,14 @@ namespace ElevenLabs
 
         /// <summary>
         /// Whether to enable mic muting<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mic_muting_enabled")]
         public bool? MicMutingEnabled { get; set; }
 
         /// <summary>
         /// Whether the widget should show the conversation transcript as it goes on<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript_enabled")]
         public bool? TranscriptEnabled { get; set; }
@@ -303,14 +303,21 @@ namespace ElevenLabs
         public global::ElevenLabs.WidgetStyles? Styles { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether to show the resize button<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("show_resize_button")]
+        public bool? ShowResizeButton { get; set; }
+
+        /// <summary>
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Language { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supported_language_overrides")]
         public global::System.Collections.Generic.IList<string>? SupportedLanguageOverrides { get; set; }
@@ -336,7 +343,7 @@ namespace ElevenLabs
         public bool? SupportsTextOnly { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("first_message")]
         public string? FirstMessage { get; set; }
@@ -473,11 +480,11 @@ namespace ElevenLabs
         /// </param>
         /// <param name="micMutingEnabled">
         /// Whether to enable mic muting<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="transcriptEnabled">
         /// Whether the widget should show the conversation transcript as it goes on<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="textInputEnabled">
         /// Whether the user should be able to send text messages<br/>
@@ -519,6 +526,10 @@ namespace ElevenLabs
         /// </param>
         /// <param name="styles">
         /// Styles for the widget
+        /// </param>
+        /// <param name="showResizeButton">
+        /// Whether to show the resize button<br/>
+        /// Default Value: true
         /// </param>
         /// <param name="supportedLanguageOverrides"></param>
         /// <param name="languagePresets">
@@ -588,6 +599,7 @@ namespace ElevenLabs
             global::ElevenLabs.WidgetConfigResponseModelSyntaxHighlightTheme2? syntaxHighlightTheme,
             global::ElevenLabs.WidgetTextContents? textContents,
             global::ElevenLabs.WidgetStyles? styles,
+            bool? showResizeButton,
             global::System.Collections.Generic.IList<string>? supportedLanguageOverrides,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePresetResponse>? languagePresets,
             bool? textOnly,
@@ -640,6 +652,7 @@ namespace ElevenLabs
             this.SyntaxHighlightTheme = syntaxHighlightTheme;
             this.TextContents = textContents;
             this.Styles = styles;
+            this.ShowResizeButton = showResizeButton;
             this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
             this.SupportedLanguageOverrides = supportedLanguageOverrides;
             this.LanguagePresets = languagePresets;

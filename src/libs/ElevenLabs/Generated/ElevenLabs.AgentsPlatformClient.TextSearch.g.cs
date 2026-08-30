@@ -29,7 +29,10 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string textQuery,
             ref string? agentId,
-            global::ElevenLabs.EvaluationSuccessResult? callSuccessful,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds,
+            global::System.Collections.Generic.IList<string>? triggeredProcedureIds,
+            ref global::ElevenLabs.EvaluationResultFilter? callSuccessful,
             int? callStartBeforeUnix,
             int? callStartAfterUnix,
             int? callDurationMinSecs,
@@ -43,12 +46,18 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful,
             global::System.Collections.Generic.IList<string>? toolNamesErrored,
+            ref bool? includeInvalidToolCalls,
             global::System.Collections.Generic.IList<string>? mainLanguages,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses,
+            global::System.Collections.Generic.IList<string>? terminationReasons,
             ref int? pageSize,
             ref global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode,
-            global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
+            ref global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             bool? textOnly,
+            ref global::ElevenLabs.ConversationProduct? conversationProductType,
             ref string? branchId,
+            ref string? versionId,
+            global::System.Collections.Generic.IList<string>? topicIds,
             ref global::ElevenLabs.MessageSearchSortBy? sortBy,
             ref string? cursor);
         partial void PrepareTextSearchRequest(
@@ -56,7 +65,10 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string textQuery,
             string? agentId,
-            global::ElevenLabs.EvaluationSuccessResult? callSuccessful,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds,
+            global::System.Collections.Generic.IList<string>? triggeredProcedureIds,
+            global::ElevenLabs.EvaluationResultFilter? callSuccessful,
             int? callStartBeforeUnix,
             int? callStartAfterUnix,
             int? callDurationMinSecs,
@@ -70,12 +82,18 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful,
             global::System.Collections.Generic.IList<string>? toolNamesErrored,
+            bool? includeInvalidToolCalls,
             global::System.Collections.Generic.IList<string>? mainLanguages,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses,
+            global::System.Collections.Generic.IList<string>? terminationReasons,
             int? pageSize,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
             bool? textOnly,
+            global::ElevenLabs.ConversationProduct? conversationProductType,
             string? branchId,
+            string? versionId,
+            global::System.Collections.Generic.IList<string>? topicIds,
             global::ElevenLabs.MessageSearchSortBy? sortBy,
             string? cursor);
         partial void ProcessTextSearchResponse(
@@ -97,6 +115,15 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
+        /// <param name="visitedAgentIds">
+        /// Filter conversations where any of these agents participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="visitedAgentBranchIds">
+        /// Filter conversations where any of these agent branches participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="triggeredProcedureIds">
+        /// Filter conversations where any of these procedures were triggered. Can not exceed 50 values.
+        /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
         /// </param>
@@ -139,8 +166,18 @@ namespace ElevenLabs
         /// <param name="toolNamesErrored">
         /// Filter conversations by tool names that had errored calls.
         /// </param>
+        /// <param name="includeInvalidToolCalls">
+        /// Also match tool calls that never ran.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
+        /// </param>
+        /// <param name="excludeStatuses">
+        /// Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.
+        /// </param>
+        /// <param name="terminationReasons">
+        /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
         /// </param>
         /// <param name="pageSize">
         /// Number of results per page. Max 50.<br/>
@@ -152,8 +189,17 @@ namespace ElevenLabs
         /// </param>
         /// <param name="conversationInitiationSource"></param>
         /// <param name="textOnly"></param>
+        /// <param name="conversationProductType">
+        /// Restrict results to a single conversation product surface.
+        /// </param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
+        /// </param>
+        /// <param name="versionId">
+        /// Filter conversations by version ID.
+        /// </param>
+        /// <param name="topicIds">
+        /// Filter conversations by topic IDs assigned during topic discovery.
         /// </param>
         /// <param name="sortBy">
         /// Sort order for search results. 'search_score' sorts by search score, 'created_at' sorts by conversation start time.<br/>
@@ -168,7 +214,10 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MessagesSearchResponse> TextSearchAsync(
             string textQuery,
             string? agentId = default,
-            global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds = default,
+            global::System.Collections.Generic.IList<string>? triggeredProcedureIds = default,
+            global::ElevenLabs.EvaluationResultFilter? callSuccessful = default,
             int? callStartBeforeUnix = default,
             int? callStartAfterUnix = default,
             int? callDurationMinSecs = default,
@@ -182,12 +231,18 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
+            bool? includeInvalidToolCalls = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
+            global::System.Collections.Generic.IList<string>? terminationReasons = default,
             int? pageSize = default,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
+            global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
+            string? versionId = default,
+            global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -196,6 +251,9 @@ namespace ElevenLabs
             var __response = await TextSearchAsResponseAsync(
                 textQuery: textQuery,
                 agentId: agentId,
+                visitedAgentIds: visitedAgentIds,
+                visitedAgentBranchIds: visitedAgentBranchIds,
+                triggeredProcedureIds: triggeredProcedureIds,
                 callSuccessful: callSuccessful,
                 callStartBeforeUnix: callStartBeforeUnix,
                 callStartAfterUnix: callStartAfterUnix,
@@ -210,12 +268,18 @@ namespace ElevenLabs
                 toolNames: toolNames,
                 toolNamesSuccessful: toolNamesSuccessful,
                 toolNamesErrored: toolNamesErrored,
+                includeInvalidToolCalls: includeInvalidToolCalls,
                 mainLanguages: mainLanguages,
+                excludeStatuses: excludeStatuses,
+                terminationReasons: terminationReasons,
                 pageSize: pageSize,
                 summaryMode: summaryMode,
                 conversationInitiationSource: conversationInitiationSource,
                 textOnly: textOnly,
+                conversationProductType: conversationProductType,
                 branchId: branchId,
+                versionId: versionId,
+                topicIds: topicIds,
                 sortBy: sortBy,
                 cursor: cursor,
                 requestOptions: requestOptions,
@@ -234,6 +298,15 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
+        /// <param name="visitedAgentIds">
+        /// Filter conversations where any of these agents participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="visitedAgentBranchIds">
+        /// Filter conversations where any of these agent branches participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="triggeredProcedureIds">
+        /// Filter conversations where any of these procedures were triggered. Can not exceed 50 values.
+        /// </param>
         /// <param name="callSuccessful">
         /// The result of the success evaluation
         /// </param>
@@ -276,8 +349,18 @@ namespace ElevenLabs
         /// <param name="toolNamesErrored">
         /// Filter conversations by tool names that had errored calls.
         /// </param>
+        /// <param name="includeInvalidToolCalls">
+        /// Also match tool calls that never ran.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
+        /// </param>
+        /// <param name="excludeStatuses">
+        /// Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.
+        /// </param>
+        /// <param name="terminationReasons">
+        /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
         /// </param>
         /// <param name="pageSize">
         /// Number of results per page. Max 50.<br/>
@@ -289,8 +372,17 @@ namespace ElevenLabs
         /// </param>
         /// <param name="conversationInitiationSource"></param>
         /// <param name="textOnly"></param>
+        /// <param name="conversationProductType">
+        /// Restrict results to a single conversation product surface.
+        /// </param>
         /// <param name="branchId">
         /// Filter conversations by branch ID.
+        /// </param>
+        /// <param name="versionId">
+        /// Filter conversations by version ID.
+        /// </param>
+        /// <param name="topicIds">
+        /// Filter conversations by topic IDs assigned during topic discovery.
         /// </param>
         /// <param name="sortBy">
         /// Sort order for search results. 'search_score' sorts by search score, 'created_at' sorts by conversation start time.<br/>
@@ -305,7 +397,10 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MessagesSearchResponse>> TextSearchAsResponseAsync(
             string textQuery,
             string? agentId = default,
-            global::ElevenLabs.EvaluationSuccessResult? callSuccessful = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds = default,
+            global::System.Collections.Generic.IList<string>? triggeredProcedureIds = default,
+            global::ElevenLabs.EvaluationResultFilter? callSuccessful = default,
             int? callStartBeforeUnix = default,
             int? callStartAfterUnix = default,
             int? callDurationMinSecs = default,
@@ -319,12 +414,18 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
+            bool? includeInvalidToolCalls = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
+            global::System.Collections.Generic.IList<string>? terminationReasons = default,
             int? pageSize = default,
             global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
             global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
             bool? textOnly = default,
+            global::ElevenLabs.ConversationProduct? conversationProductType = default,
             string? branchId = default,
+            string? versionId = default,
+            global::System.Collections.Generic.IList<string>? topicIds = default,
             global::ElevenLabs.MessageSearchSortBy? sortBy = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -336,7 +437,10 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 textQuery: ref textQuery,
                 agentId: ref agentId,
-                callSuccessful: callSuccessful,
+                visitedAgentIds: visitedAgentIds,
+                visitedAgentBranchIds: visitedAgentBranchIds,
+                triggeredProcedureIds: triggeredProcedureIds,
+                callSuccessful: ref callSuccessful,
                 callStartBeforeUnix: callStartBeforeUnix,
                 callStartAfterUnix: callStartAfterUnix,
                 callDurationMinSecs: callDurationMinSecs,
@@ -350,12 +454,18 @@ namespace ElevenLabs
                 toolNames: toolNames,
                 toolNamesSuccessful: toolNamesSuccessful,
                 toolNamesErrored: toolNamesErrored,
+                includeInvalidToolCalls: ref includeInvalidToolCalls,
                 mainLanguages: mainLanguages,
+                excludeStatuses: excludeStatuses,
+                terminationReasons: terminationReasons,
                 pageSize: ref pageSize,
                 summaryMode: ref summaryMode,
-                conversationInitiationSource: conversationInitiationSource,
+                conversationInitiationSource: ref conversationInitiationSource,
                 textOnly: textOnly,
+                conversationProductType: ref conversationProductType,
                 branchId: ref branchId,
+                versionId: ref versionId,
+                topicIds: topicIds,
                 sortBy: ref sortBy,
                 cursor: ref cursor);
 
@@ -388,6 +498,9 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddRequiredParameter("text_query", textQuery)
                                 .AddOptionalParameter("agent_id", agentId)
+                                .AddOptionalParameter("visited_agent_ids", visitedAgentIds?.ToString())
+                                .AddOptionalParameter("visited_agent_branch_ids", visitedAgentBranchIds?.ToString())
+                                .AddOptionalParameter("triggered_procedure_ids", triggeredProcedureIds?.ToString())
                                 .AddOptionalParameter("call_successful", callSuccessful?.ToString())
                                 .AddOptionalParameter("call_start_before_unix", callStartBeforeUnix?.ToString())
                                 .AddOptionalParameter("call_start_after_unix", callStartAfterUnix?.ToString())
@@ -402,12 +515,18 @@ namespace ElevenLabs
                                 .AddOptionalParameter("tool_names", toolNames?.ToString())
                                 .AddOptionalParameter("tool_names_successful", toolNamesSuccessful?.ToString())
                                 .AddOptionalParameter("tool_names_errored", toolNamesErrored?.ToString())
+                                .AddOptionalParameter("include_invalid_tool_calls", includeInvalidToolCalls?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("main_languages", mainLanguages?.ToString())
+                                .AddOptionalParameter("exclude_statuses", excludeStatuses?.ToString())
+                                .AddOptionalParameter("termination_reasons", terminationReasons?.ToString())
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("summary_mode", summaryMode?.ToValueString())
                                 .AddOptionalParameter("conversation_initiation_source", conversationInitiationSource?.ToString())
                                 .AddOptionalParameter("text_only", textOnly?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("conversation_product_type", conversationProductType?.ToString())
                                 .AddOptionalParameter("branch_id", branchId)
+                                .AddOptionalParameter("version_id", versionId)
+                                .AddOptionalParameter("topic_ids", topicIds?.ToString())
                                 .AddOptionalParameter("sort_by", sortBy?.ToValueString())
                                 .AddOptionalParameter("cursor", cursor)
                                 ;
@@ -438,7 +557,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -453,6 +572,9 @@ namespace ElevenLabs
                     httpRequestMessage: __httpRequest,
                     textQuery: textQuery!,
                     agentId: agentId,
+                    visitedAgentIds: visitedAgentIds,
+                    visitedAgentBranchIds: visitedAgentBranchIds,
+                    triggeredProcedureIds: triggeredProcedureIds,
                     callSuccessful: callSuccessful,
                     callStartBeforeUnix: callStartBeforeUnix,
                     callStartAfterUnix: callStartAfterUnix,
@@ -467,12 +589,18 @@ namespace ElevenLabs
                     toolNames: toolNames,
                     toolNamesSuccessful: toolNamesSuccessful,
                     toolNamesErrored: toolNamesErrored,
+                    includeInvalidToolCalls: includeInvalidToolCalls,
                     mainLanguages: mainLanguages,
+                    excludeStatuses: excludeStatuses,
+                    terminationReasons: terminationReasons,
                     pageSize: pageSize,
                     summaryMode: summaryMode,
                     conversationInitiationSource: conversationInitiationSource,
                     textOnly: textOnly,
+                    conversationProductType: conversationProductType,
                     branchId: branchId,
+                    versionId: versionId,
+                    topicIds: topicIds,
                     sortBy: sortBy,
                     cursor: cursor);
 
@@ -786,5 +914,186 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps TextSearchAsync as an IAsyncEnumerable&lt;global::ElevenLabs.MessagesSearchResult&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="textQuery">
+        /// The search query text for full-text and fuzzy matching
+        /// </param>
+        /// <param name="agentId">
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
+        /// </param>
+        /// <param name="visitedAgentIds">
+        /// Filter conversations where any of these agents participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="visitedAgentBranchIds">
+        /// Filter conversations where any of these agent branches participated. Can not exceed 50 values.
+        /// </param>
+        /// <param name="triggeredProcedureIds">
+        /// Filter conversations where any of these procedures were triggered. Can not exceed 50 values.
+        /// </param>
+        /// <param name="callSuccessful">
+        /// The result of the success evaluation
+        /// </param>
+        /// <param name="callStartBeforeUnix">
+        /// Unix timestamp (in seconds) to filter conversations up to this start date.
+        /// </param>
+        /// <param name="callStartAfterUnix">
+        /// Unix timestamp (in seconds) to filter conversations after to this start date.
+        /// </param>
+        /// <param name="callDurationMinSecs">
+        /// Minimum call duration in seconds.
+        /// </param>
+        /// <param name="callDurationMaxSecs">
+        /// Maximum call duration in seconds.
+        /// </param>
+        /// <param name="ratingMax">
+        /// Maximum overall rating (1-5).
+        /// </param>
+        /// <param name="ratingMin">
+        /// Minimum overall rating (1-5).
+        /// </param>
+        /// <param name="hasFeedbackComment">
+        /// Filter conversations with user feedback comments.
+        /// </param>
+        /// <param name="userId">
+        /// Filter conversations by the user ID who initiated them.
+        /// </param>
+        /// <param name="evaluationParams">
+        /// Evaluation filters. Repeat param. Format: criteria_id:result. Example: eval=value_framing:success
+        /// </param>
+        /// <param name="dataCollectionParams">
+        /// Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values.
+        /// </param>
+        /// <param name="toolNames">
+        /// Filter conversations by tool names used during the call.
+        /// </param>
+        /// <param name="toolNamesSuccessful">
+        /// Filter conversations by tool names that had successful calls.
+        /// </param>
+        /// <param name="toolNamesErrored">
+        /// Filter conversations by tool names that had errored calls.
+        /// </param>
+        /// <param name="includeInvalidToolCalls">
+        /// Also match tool calls that never ran.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="mainLanguages">
+        /// Filter conversations by detected main language (language code).
+        /// </param>
+        /// <param name="excludeStatuses">
+        /// Exclude conversations with the given statuses. Useful for hiding in-progress / processing conversations from list views.
+        /// </param>
+        /// <param name="terminationReasons">
+        /// Filter conversations by their stored termination_reason (metadata.termination_reason). Repeat param to match any of several.
+        /// </param>
+        /// <param name="pageSize">
+        /// Number of results per page. Max 50.<br/>
+        /// Default Value: 20
+        /// </param>
+        /// <param name="summaryMode">
+        /// Whether to include transcript summaries in the response.<br/>
+        /// Default Value: exclude
+        /// </param>
+        /// <param name="conversationInitiationSource"></param>
+        /// <param name="textOnly"></param>
+        /// <param name="conversationProductType">
+        /// Restrict results to a single conversation product surface.
+        /// </param>
+        /// <param name="branchId">
+        /// Filter conversations by branch ID.
+        /// </param>
+        /// <param name="versionId">
+        /// Filter conversations by version ID.
+        /// </param>
+        /// <param name="topicIds">
+        /// Filter conversations by topic IDs assigned during topic discovery.
+        /// </param>
+        /// <param name="sortBy">
+        /// Sort order for search results. 'search_score' sorts by search score, 'created_at' sorts by conversation start time.<br/>
+        /// Default Value: search_score
+        /// </param>
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.MessagesSearchResult> TextSearchAutoPagingAsync(
+            string textQuery,             string? agentId = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentIds = default,
+            global::System.Collections.Generic.IList<string>? visitedAgentBranchIds = default,
+            global::System.Collections.Generic.IList<string>? triggeredProcedureIds = default,
+            global::ElevenLabs.EvaluationResultFilter? callSuccessful = default,
+            int? callStartBeforeUnix = default,
+            int? callStartAfterUnix = default,
+            int? callDurationMinSecs = default,
+            int? callDurationMaxSecs = default,
+            int? ratingMax = default,
+            int? ratingMin = default,
+            bool? hasFeedbackComment = default,
+            string? userId = default,
+            global::System.Collections.Generic.IList<string>? evaluationParams = default,
+            global::System.Collections.Generic.IList<string>? dataCollectionParams = default,
+            global::System.Collections.Generic.IList<string>? toolNames = default,
+            global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
+            global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
+            bool? includeInvalidToolCalls = default,
+            global::System.Collections.Generic.IList<string>? mainLanguages = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? excludeStatuses = default,
+            global::System.Collections.Generic.IList<string>? terminationReasons = default,
+            int? pageSize = default,
+            global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? summaryMode = default,
+            global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource = default,
+            bool? textOnly = default,
+            global::ElevenLabs.ConversationProduct? conversationProductType = default,
+            string? branchId = default,
+            string? versionId = default,
+            global::System.Collections.Generic.IList<string>? topicIds = default,
+            global::ElevenLabs.MessageSearchSortBy? sortBy = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.MessagesSearchResponse, global::ElevenLabs.MessagesSearchResult>(
+                fetchPage: (__cursor, __ct) => TextSearchAsync(
+                    textQuery: textQuery,
+                    agentId: agentId,
+                    visitedAgentIds: visitedAgentIds,
+                    visitedAgentBranchIds: visitedAgentBranchIds,
+                    triggeredProcedureIds: triggeredProcedureIds,
+                    callSuccessful: callSuccessful,
+                    callStartBeforeUnix: callStartBeforeUnix,
+                    callStartAfterUnix: callStartAfterUnix,
+                    callDurationMinSecs: callDurationMinSecs,
+                    callDurationMaxSecs: callDurationMaxSecs,
+                    ratingMax: ratingMax,
+                    ratingMin: ratingMin,
+                    hasFeedbackComment: hasFeedbackComment,
+                    userId: userId,
+                    evaluationParams: evaluationParams,
+                    dataCollectionParams: dataCollectionParams,
+                    toolNames: toolNames,
+                    toolNamesSuccessful: toolNamesSuccessful,
+                    toolNamesErrored: toolNamesErrored,
+                    includeInvalidToolCalls: includeInvalidToolCalls,
+                    mainLanguages: mainLanguages,
+                    excludeStatuses: excludeStatuses,
+                    terminationReasons: terminationReasons,
+                    pageSize: pageSize,
+                    summaryMode: summaryMode,
+                    conversationInitiationSource: conversationInitiationSource,
+                    textOnly: textOnly,
+                    conversationProductType: conversationProductType,
+                    branchId: branchId,
+                    versionId: versionId,
+                    topicIds: topicIds,
+                    sortBy: sortBy,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.MessagesSearchResult>?)__response.Results,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

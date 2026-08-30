@@ -4,36 +4,40 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum WorkspaceAnalyticsQueryResponseModelColumnType
     {
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Array,
+        /// <summary>
+        ///
         /// </summary>
         Bool,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DateTime,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Float,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Int,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Json,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Map,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         String,
     }
@@ -50,6 +54,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                WorkspaceAnalyticsQueryResponseModelColumnType.Array => "Array",
                 WorkspaceAnalyticsQueryResponseModelColumnType.Bool => "Bool",
                 WorkspaceAnalyticsQueryResponseModelColumnType.DateTime => "DateTime",
                 WorkspaceAnalyticsQueryResponseModelColumnType.Float => "Float",
@@ -67,6 +72,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "Array" => WorkspaceAnalyticsQueryResponseModelColumnType.Array,
                 "Bool" => WorkspaceAnalyticsQueryResponseModelColumnType.Bool,
                 "DateTime" => WorkspaceAnalyticsQueryResponseModelColumnType.DateTime,
                 "Float" => WorkspaceAnalyticsQueryResponseModelColumnType.Float,

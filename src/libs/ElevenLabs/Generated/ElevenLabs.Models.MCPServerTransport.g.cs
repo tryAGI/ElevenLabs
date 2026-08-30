@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum MCPServerTransport
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sse,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StreamableHttp,
     }

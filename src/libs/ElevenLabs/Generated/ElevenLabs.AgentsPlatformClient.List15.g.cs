@@ -29,13 +29,15 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
             ref bool? includeArchived,
-            ref int? limit);
+            ref int? limit,
+            ref bool? includeCommitStatus);
         partial void PrepareList15Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
             bool? includeArchived,
-            int? limit);
+            int? limit,
+            bool? includeCommitStatus);
         partial void ProcessList15Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -60,6 +62,10 @@ namespace ElevenLabs
         /// How many results at most should be returned<br/>
         /// Default Value: 100
         /// </param>
+        /// <param name="includeCommitStatus">
+        /// Whether to compute how far each branch has diverged from main (commits_ahead/commits_behind). This walks the version DAG of every branch, so it is slow on agents with long histories and is off by default, leaving those fields null.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -67,6 +73,7 @@ namespace ElevenLabs
             string agentId,
             bool? includeArchived = default,
             int? limit = default,
+            bool? includeCommitStatus = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -74,6 +81,7 @@ namespace ElevenLabs
                 agentId: agentId,
                 includeArchived: includeArchived,
                 limit: limit,
+                includeCommitStatus: includeCommitStatus,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -95,6 +103,10 @@ namespace ElevenLabs
         /// How many results at most should be returned<br/>
         /// Default Value: 100
         /// </param>
+        /// <param name="includeCommitStatus">
+        /// Whether to compute how far each branch has diverged from main (commits_ahead/commits_behind). This walks the version DAG of every branch, so it is slow on agents with long histories and is off by default, leaving those fields null.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -102,6 +114,7 @@ namespace ElevenLabs
             string agentId,
             bool? includeArchived = default,
             int? limit = default,
+            bool? includeCommitStatus = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -111,7 +124,8 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 agentId: ref agentId,
                 includeArchived: ref includeArchived,
-                limit: ref limit);
+                limit: ref limit,
+                includeCommitStatus: ref includeCommitStatus);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -142,6 +156,7 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddOptionalParameter("include_archived", includeArchived?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("limit", limit?.ToString())
+                                .AddOptionalParameter("include_commit_status", includeCommitStatus?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -170,7 +185,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -185,7 +200,8 @@ namespace ElevenLabs
                     httpRequestMessage: __httpRequest,
                     agentId: agentId!,
                     includeArchived: includeArchived,
-                    limit: limit);
+                    limit: limit,
+                    includeCommitStatus: includeCommitStatus);
 
                 return __httpRequest;
             }

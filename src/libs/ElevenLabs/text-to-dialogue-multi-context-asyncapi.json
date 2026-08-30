@@ -1,0 +1,388 @@
+{
+  "asyncapi": "3.0.0",
+  "info": {
+    "title": "ElevenLabs Realtime Multi-Context Text to Dialogue",
+    "version": "1.0.0",
+    "description": "Stream expressive dialogue audio for multiple independent streams (contexts) multiplexed over a single WebSocket connection.\n\nEach context, identified by a client-chosen `context_id`, behaves like an independent [Text to Dialogue WebSocket](/docs/api-reference/text-to-dialogue/ttd-websocket) session: it registers its own voices and settings, buffers its own text, and produces its own audio stream. This is useful for scenarios requiring concurrent or interleaved dialogue generations, such as conversational AI applications that need to handle interruptions.\n\nThe connection uses Eleven v3 dialogue models only (`model_id` must start with `eleven_v3`). The default model is `eleven_v3_conversational`.\n\n## Context setup\n- Every message **must** include a `context_id`. A message containing only `close_socket` is the exception.\n- The first message for a new `context_id` creates that context and **must** include `voices` (voice IDs to register for the context). Optional `voice_settings` and `pronunciation_dictionary_locators` are only accepted on this first message.\n- For `eleven_v3_conversational`, only **one** voice ID may be registered per context. For `eleven_v3`, you may register up to **10** voices per context.\n- A connection can hold at most **5** simultaneous contexts; close a context to free a slot.\n\n## Streaming text\n- Send `inputs`: an array of `{ \"text\", \"voice_id\", \"new_turn\"? }`. Each `voice_id` must be registered for that context. Text for the same turn is buffered per context until the server has enough context, then partial audio chunks tagged with the `context_id` are emitted.\n- Set `new_turn` to `true` (or switch `voice_id`) to finalize the current prosody segment and start a new speaker turn.\n\n## Control messages\n- `flush`: force generation of the context's buffered text.\n- `close_context`: flush the context's remaining audio, emit its `is_final` message, and close it. Other contexts stay open.\n- `close_socket`: flush and close **all** contexts, then close the connection.\n- `keep_alive`: reset the context's **20 second** inactivity timeout (no generation). A context idle for longer is automatically flushed and closed (its `is_final` message is sent); other contexts are unaffected.\n\nProtocol errors \u2014 a missing `context_id`, an unregistered voice, messaging a context that is closing, or exceeding the context limit \u2014 send an error payload and close the whole connection.\n\n## Authentication\nAuthentication is connection-level, not per context: use the `xi-api-key` or `Authorization` header, `single_use_token` query parameter, or include `xi_api_key`, `authorization`, or `single_use_token` in the first message of the connection. Anonymous sessions are rejected.\n\nFor a single dialogue stream per connection, see the [Text to Dialogue WebSocket](/docs/api-reference/text-to-dialogue/ttd-websocket). For non-streaming dialogue over HTTP, see [Create dialogue](/docs/api-reference/text-to-dialogue/convert) and [Stream dialogue](/docs/api-reference/text-to-dialogue/stream).\n"
+  },
+  "servers": {
+    "production": {
+      "host": "api.elevenlabs.io",
+      "pathname": "/v1/text-to-dialogue/multi-stream-input",
+      "protocol": "wss",
+      "description": "ElevenLabs production WebSocket server"
+    }
+  },
+  "channels": {
+    "dialogueMulti": {
+      "address": "/v1/text-to-dialogue/multi-stream-input",
+      "messages": {
+        "clientMessageMulti": {
+          "$ref": "#/components/messages/ClientMessageMulti"
+        },
+        "audioChunkMulti": {
+          "$ref": "#/components/messages/AudioChunkMulti"
+        },
+        "finalAudioForTurnMulti": {
+          "$ref": "#/components/messages/FinalAudioForTurnMulti"
+        },
+        "finalMulti": {
+          "$ref": "#/components/messages/FinalMulti"
+        },
+        "error": {
+          "$ref": "#/components/messages/Error"
+        }
+      }
+    }
+  },
+  "operations": {
+    "sendDialogueMessageMulti": {
+      "action": "send",
+      "channel": {
+        "$ref": "#/channels/dialogueMulti"
+      },
+      "summary": "Send dialogue text or a control message for one or all contexts.",
+      "messages": [
+        {
+          "$ref": "#/channels/dialogueMulti/messages/clientMessageMulti"
+        }
+      ]
+    },
+    "receiveAudioChunkMulti": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/dialogueMulti"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/dialogueMulti/messages/audioChunkMulti"
+        }
+      ]
+    },
+    "receiveFinalAudioForTurnMulti": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/dialogueMulti"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/dialogueMulti/messages/finalAudioForTurnMulti"
+        }
+      ]
+    },
+    "receiveFinalMulti": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/dialogueMulti"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/dialogueMulti/messages/finalMulti"
+        }
+      ]
+    },
+    "receiveError": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/dialogueMulti"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/dialogueMulti/messages/error"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "DialogueTextAlignment": {
+        "type": "object",
+        "properties": {
+          "chars": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "char_start_times_ms": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "char_durations_ms": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        },
+        "description": "Character-level alignment data (field names use snake_case in JSON).",
+        "title": "DialogueTextAlignment"
+      },
+      "TextToDialogueWebsocketAudioChunkMulti": {
+        "type": "object",
+        "properties": {
+          "audio": {
+            "type": "string",
+            "description": "Base64-encoded audio bytes for the selected `output_format`."
+          },
+          "alignment": {
+            "$ref": "#/components/schemas/DialogueTextAlignment",
+            "nullable": true,
+            "description": "Present when sync_alignment is true and timing data is available."
+          },
+          "normalized_alignment": {
+            "$ref": "#/components/schemas/DialogueTextAlignment",
+            "nullable": true,
+            "description": "Reserved for future use; currently unused by the server."
+          },
+          "context_id": {
+            "type": "string",
+            "description": "The context this audio chunk belongs to."
+          }
+        },
+        "description": "Server chunk containing encoded audio for a specific context and optional alignment metadata.",
+        "title": "TextToDialogueWebsocketAudioChunkMulti",
+        "required": [
+          "audio",
+          "context_id"
+        ]
+      },
+      "TextToDialogueWebsocketFinalAudioForTurnMulti": {
+        "type": "object",
+        "properties": {
+          "is_final_audio_for_turn": {
+            "type": "boolean",
+            "description": "Indicates that the final audio for a given turn of this context has been sent."
+          },
+          "context_id": {
+            "type": "string",
+            "description": "The context whose turn has finished."
+          }
+        },
+        "title": "TextToDialogueWebsocketFinalAudioForTurnMulti",
+        "required": [
+          "is_final_audio_for_turn",
+          "context_id"
+        ]
+      },
+      "TextToDialogueWebsocketFinalMulti": {
+        "type": "object",
+        "properties": {
+          "is_final": {
+            "type": "boolean",
+            "description": "Marks the end of this context's closing flush sequence."
+          },
+          "context_id": {
+            "type": "string",
+            "description": "The context that has been finalized."
+          }
+        },
+        "required": [
+          "is_final",
+          "context_id"
+        ],
+        "title": "TextToDialogueWebsocketFinalMulti"
+      },
+      "TextToDialogueWebsocketError": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Human-readable error description."
+          },
+          "error": {
+            "type": "string",
+            "description": "Machine-readable error identifier (for example `authentication_required`)."
+          },
+          "code": {
+            "type": "integer",
+            "description": "WebSocket close code that will follow this payload."
+          },
+          "param": {
+            "type": "string",
+            "nullable": true,
+            "description": "Field name related to the error, when applicable."
+          }
+        },
+        "required": [
+          "message",
+          "error",
+          "code"
+        ],
+        "title": "TextToDialogueWebsocketError"
+      },
+      "TextToDialogueWebsocketVoiceInput": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Text appended for this voice. Buffered with prior text until the server triggers generation."
+          },
+          "voice_id": {
+            "type": "string",
+            "description": "Must be one of the IDs from the initial `voices` array."
+          },
+          "new_turn": {
+            "type": "boolean",
+            "default": false,
+            "description": "When `true`, the server finalizes the current pending segment (as if the speaker finished their turn) before applying this input."
+          }
+        },
+        "required": [
+          "text",
+          "voice_id"
+        ],
+        "title": "TextToDialogueWebsocketVoiceInput"
+      },
+      "TextToDialogueWebsocketVoiceSettings": {
+        "type": "object",
+        "properties": {
+          "stability": {
+            "type": "number",
+            "format": "double",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0.5,
+            "description": "Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion."
+          }
+        },
+        "description": "Voice settings for dialogue generation. Only `stability` is supported for `eleven_v3` dialogue models.",
+        "title": "TextToDialogueWebsocketVoiceSettings"
+      },
+      "PronunciationDictionaryLocator": {
+        "type": "object",
+        "properties": {
+          "pronunciation_dictionary_id": {
+            "type": "string",
+            "description": "The unique identifier of the pronunciation dictionary"
+          },
+          "version_id": {
+            "type": "string",
+            "description": "The version identifier of the pronunciation dictionary"
+          }
+        },
+        "required": [
+          "pronunciation_dictionary_id",
+          "version_id"
+        ],
+        "description": "Identifies a specific pronunciation dictionary to use",
+        "title": "PronunciationDictionaryLocator"
+      },
+      "TextToDialogueWebsocketClientMessageMulti": {
+        "type": "object",
+        "properties": {
+          "context_id": {
+            "type": "string",
+            "description": "Identifier for an independent dialogue stream within the socket. The first message with a new `context_id` creates that context. Required on every message except one containing only `close_socket`."
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TextToDialogueWebsocketVoiceInput"
+            },
+            "description": "Dialogue lines to append to this context for synthesis. Each `voice_id` must be registered for this context."
+          },
+          "flush": {
+            "type": "boolean",
+            "default": false,
+            "description": "Force generation of this context's buffered text without closing it."
+          },
+          "close_context": {
+            "type": "boolean",
+            "default": false,
+            "description": "Flush this context's remaining audio, emit its `is_final` message, and close it. Other contexts stay open."
+          },
+          "close_socket": {
+            "type": "boolean",
+            "default": false,
+            "description": "Flush all contexts, emit their remaining audio and `is_final` messages, and close the WebSocket."
+          },
+          "keep_alive": {
+            "type": "boolean",
+            "default": false,
+            "description": "Resets this context's 20s inactivity timer; performs no synthesis."
+          },
+          "xi_api_key": {
+            "type": "string",
+            "description": "API key for the first message of the connection if not provided via the `xi-api-key` header."
+          },
+          "authorization": {
+            "type": "string",
+            "description": "Bearer token for the first message of the connection if not provided via the `Authorization` header."
+          },
+          "single_use_token": {
+            "type": "string",
+            "description": "Single-use token for the first message of the connection if not provided via the `single_use_token` query parameter."
+          },
+          "voices": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Voice IDs to load for this context (first message for the context only, required on that message)."
+          },
+          "voice_settings": {
+            "$ref": "#/components/schemas/TextToDialogueWebsocketVoiceSettings",
+            "description": "Optional voice settings for this context (first message for the context only)."
+          },
+          "pronunciation_dictionary_locators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PronunciationDictionaryLocator"
+            },
+            "description": "Optional pronunciation dictionaries for this context (first message for the context only)."
+          }
+        },
+        "description": "All fields are optional unless noted for a context's **first** message.\n\n**Every message**\n- `context_id` is required, except on a message containing only `close_socket`.\n\n**First message for a context**\n- `voices`: non-empty array of voice IDs (maximum 10 per context for `eleven_v3`; exactly 1 for `eleven_v3_conversational`).\n- Credentials if not supplied via `xi-api-key` / `Authorization` headers or `single_use_token` query parameter (accepted on the first message of the connection only).\n\n**Subsequent messages for a context**\n- Do not resend `voices`, `voice_settings`, `pronunciation_dictionary_locators`, or credential fields.\n",
+        "title": "TextToDialogueWebsocketClientMessageMulti"
+      }
+    },
+    "messages": {
+      "ClientMessageMulti": {
+        "name": "ClientMessageMulti",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/TextToDialogueWebsocketClientMessageMulti"
+        }
+      },
+      "AudioChunkMulti": {
+        "name": "AudioChunkMulti",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/TextToDialogueWebsocketAudioChunkMulti"
+        }
+      },
+      "FinalAudioForTurnMulti": {
+        "name": "FinalAudioForTurnMulti",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/TextToDialogueWebsocketFinalAudioForTurnMulti"
+        }
+      },
+      "FinalMulti": {
+        "name": "FinalMulti",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/TextToDialogueWebsocketFinalMulti"
+        }
+      },
+      "Error": {
+        "name": "Error",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/TextToDialogueWebsocketError"
+        }
+      }
+    },
+    "securitySchemes": {
+      "apiKey": {
+        "type": "httpApiKey",
+        "name": "xi-api-key",
+        "in": "header",
+        "description": "ElevenLabs API key"
+      }
+    }
+  }
+}

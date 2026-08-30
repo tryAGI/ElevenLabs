@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum SeatType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceAdmin,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceLiteMember,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceMember,
     }

@@ -151,14 +151,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(orderId ?? string.Empty),
-                                name: "\"order_id\"");
-
                             __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(request.DeclaredLanguage ?? string.Empty),
                                 name: "\"declared_language\"");

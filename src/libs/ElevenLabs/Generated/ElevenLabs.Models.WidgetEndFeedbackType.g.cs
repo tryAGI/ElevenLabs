@@ -9,7 +9,7 @@ namespace ElevenLabs
     public enum WidgetEndFeedbackType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rating,
     }

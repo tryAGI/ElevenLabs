@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class UpdateToolCallUnitTestRequest
     {
@@ -21,10 +21,22 @@ namespace ElevenLabs
         public object? DynamicVariables { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chat_history")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? ChatHistory { get; set; }
+
+        /// <summary>
+        /// Simulate the test as if the conversation originated from this channel.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_source")]
+        public global::ElevenLabs.ConversationInitiationSource? ConversationInitiationSource { get; set; }
+
+        /// <summary>
+        /// The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("environment")]
+        public string? Environment { get; set; }
 
         /// <summary>
         /// Default Value: tool
@@ -45,7 +57,7 @@ namespace ElevenLabs
         public bool? CheckAnyToolMatches { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -74,6 +86,12 @@ namespace ElevenLabs
         /// Dynamic variables to replace in the agent config during testing
         /// </param>
         /// <param name="chatHistory"></param>
+        /// <param name="conversationInitiationSource">
+        /// Simulate the test as if the conversation originated from this channel.
+        /// </param>
+        /// <param name="environment">
+        /// The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set.
+        /// </param>
         /// <param name="type">
         /// Default Value: tool
         /// </param>
@@ -94,6 +112,8 @@ namespace ElevenLabs
             global::ElevenLabs.TestFromConversationMetadataInput? fromConversationMetadata,
             object? dynamicVariables,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? chatHistory,
+            global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
+            string? environment,
             string? type,
             global::ElevenLabs.UnitTestToolCallEvaluationModelInput? toolCallParameters,
             bool? checkAnyToolMatches,
@@ -102,6 +122,8 @@ namespace ElevenLabs
             this.FromConversationMetadata = fromConversationMetadata;
             this.DynamicVariables = dynamicVariables;
             this.ChatHistory = chatHistory;
+            this.ConversationInitiationSource = conversationInitiationSource;
+            this.Environment = environment;
             this.Type = type;
             this.ToolCallParameters = toolCallParameters;
             this.CheckAnyToolMatches = checkAnyToolMatches;

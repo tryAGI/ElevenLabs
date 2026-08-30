@@ -4,68 +4,75 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ProjectVoiceResponseModel
     {
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("project_voice_ref_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string ProjectVoiceRefId { get; set; }
+
+        /// <summary>
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string VoiceId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alias")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Alias { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stability")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double Stability { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("similarity_boost")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double SimilarityBoost { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("style")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double Style { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_pinned")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool IsPinned { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("use_speaker_boost")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool UseSpeakerBoost { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_gain")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double VolumeGain { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speed")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -80,6 +87,7 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectVoiceResponseModel" /> class.
         /// </summary>
+        /// <param name="projectVoiceRefId"></param>
         /// <param name="voiceId"></param>
         /// <param name="alias"></param>
         /// <param name="stability"></param>
@@ -93,6 +101,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ProjectVoiceResponseModel(
+            string projectVoiceRefId,
             string voiceId,
             string alias,
             double stability,
@@ -103,6 +112,7 @@ namespace ElevenLabs
             double volumeGain,
             double speed)
         {
+            this.ProjectVoiceRefId = projectVoiceRefId ?? throw new global::System.ArgumentNullException(nameof(projectVoiceRefId));
             this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
             this.Alias = alias ?? throw new global::System.ArgumentNullException(nameof(alias));
             this.Stability = stability;

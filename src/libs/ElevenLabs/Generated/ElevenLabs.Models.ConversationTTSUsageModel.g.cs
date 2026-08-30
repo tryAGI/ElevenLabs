@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ConversationTTSUsageModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("primary_tts_model")]
         public string? PrimaryTtsModel { get; set; }
@@ -27,7 +27,7 @@ namespace ElevenLabs
         public int? TotalCharacters { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("per_voice_usage")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationVoiceUsageModel>? PerVoiceUsage { get; set; }

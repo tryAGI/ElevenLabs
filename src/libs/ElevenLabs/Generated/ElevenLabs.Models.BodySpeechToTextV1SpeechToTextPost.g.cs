@@ -6,7 +6,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodySpeechToTextV1SpeechToTextPost
     {
@@ -19,13 +19,13 @@ namespace ElevenLabs
         public required global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostModelId ModelId { get; set; }
 
         /// <summary>
-        /// The file to transcribe (100ms minimum audio length). All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
+        /// The file to transcribe (100ms minimum audio length). All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 5.0GB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         public byte[]? File { get; set; }
 
         /// <summary>
-        /// The file to transcribe (100ms minimum audio length). All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
+        /// The file to transcribe (100ms minimum audio length). All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 5.0GB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
         public string? Filename { get; set; }
@@ -85,7 +85,7 @@ namespace ElevenLabs
         public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? FileFormat { get; set; }
 
         /// <summary>
-        /// The HTTPS URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be accessible via HTTPS and the file size must be less than 2GB. Any valid HTTPS URL is accepted, including URLs from cloud storage providers (AWS S3, Google Cloud Storage, Cloudflare R2, etc.), CDNs, or any other HTTPS source. URLs can be pre-signed or include authentication tokens in query parameters.
+        /// [Deprecated] This parameter is deprecated and will be removed in the future. Use 'source_url' instead.The HTTPS URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be accessible via HTTPS and the file size must be less than 2GB. Any valid HTTPS URL is accepted, including URLs from cloud storage providers (AWS S3, Google Cloud Storage, Cloudflare R2, etc.), CDNs, or any other HTTPS source. URLs can be pre-signed or include authentication tokens in query parameters.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cloud_storage_url")]
         [global::System.Obsolete("This property marked as deprecated.")]
@@ -123,11 +123,19 @@ namespace ElevenLabs
         public int? Seed { get; set; }
 
         /// <summary>
-        /// Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel will be transcribed independently and the results will be combined. Each word in the response will include a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported. Each channel is billed independently at the full audio duration, so cost scales linearly with the number of channels.<br/>
+        /// Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel is transcribed independently. By default a separate transcript is returned per channel; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Each word in the response includes a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported. Each channel is billed independently at the full audio duration, so cost scales linearly with the number of channels.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("use_multi_channel")]
         public bool? UseMultiChannel { get; set; }
+
+        /// <summary>
+        /// Controls the response shape when use_multi_channel is enabled. 'separate' (default) returns one transcript per channel under 'transcripts'. 'combined' merges all channels into a single transcript whose words are sorted by start time, each carrying a 'channel_index' - matching the single-channel response shape. 'combined' requires timestamps (timestamps_granularity must not be 'none') and does not support entity detection or redaction.<br/>
+        /// Default Value: separate
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("multichannel_output_style")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyleJsonConverter))]
+        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle? MultichannelOutputStyle { get; set; }
 
         /// <summary>
         /// Optional metadata to be included in the webhook response. This should be a JSON string representing an object with a maximum depth of 2 levels and maximum size of 16KB. Useful for tracking internal IDs, job references, or other contextual information.
@@ -149,6 +157,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("no_verbatim")]
         public bool? NoVerbatim { get; set; }
+
+        /// <summary>
+        /// Whether to use the speaker library for identifying known speakers during diarization. When enabled and diarize is true, detected speakers will be matched against registered speakers in the workspace's speaker library.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("use_speaker_library")]
+        public bool? UseSpeakerLibrary { get; set; }
 
         /// <summary>
         /// Whether to detect speaker roles (agent vs customer). Requires diarize=true. Cannot be used with use_multi_channel=true. When enabled, speaker_id values will be 'agent' and 'customer' instead of 'speaker_0', 'speaker_1', etc. Usage incurs an additional 10% surcharge on base transcription cost.<br/>
@@ -191,10 +206,10 @@ namespace ElevenLabs
         /// The ID of the model to use for transcription.
         /// </param>
         /// <param name="file">
-        /// The file to transcribe (100ms minimum audio length). All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
+        /// The file to transcribe (100ms minimum audio length). All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 5.0GB.
         /// </param>
         /// <param name="filename">
-        /// The file to transcribe (100ms minimum audio length). All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
+        /// The file to transcribe (100ms minimum audio length). All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 5.0GB.
         /// </param>
         /// <param name="languageCode">
         /// An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.
@@ -241,8 +256,12 @@ namespace ElevenLabs
         /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be an integer between 0 and 2147483647.
         /// </param>
         /// <param name="useMultiChannel">
-        /// Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel will be transcribed independently and the results will be combined. Each word in the response will include a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported. Each channel is billed independently at the full audio duration, so cost scales linearly with the number of channels.<br/>
+        /// Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel is transcribed independently. By default a separate transcript is returned per channel; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Each word in the response includes a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported. Each channel is billed independently at the full audio duration, so cost scales linearly with the number of channels.<br/>
         /// Default Value: false
+        /// </param>
+        /// <param name="multichannelOutputStyle">
+        /// Controls the response shape when use_multi_channel is enabled. 'separate' (default) returns one transcript per channel under 'transcripts'. 'combined' merges all channels into a single transcript whose words are sorted by start time, each carrying a 'channel_index' - matching the single-channel response shape. 'combined' requires timestamps (timestamps_granularity must not be 'none') and does not support entity detection or redaction.<br/>
+        /// Default Value: separate
         /// </param>
         /// <param name="webhookMetadata">
         /// Optional metadata to be included in the webhook response. This should be a JSON string representing an object with a maximum depth of 2 levels and maximum size of 16KB. Useful for tracking internal IDs, job references, or other contextual information.
@@ -252,6 +271,10 @@ namespace ElevenLabs
         /// </param>
         /// <param name="noVerbatim">
         /// If true, the transcription will not have any filler words, false starts and non-speech sounds. Only supported with scribe_v2 model.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="useSpeakerLibrary">
+        /// Whether to use the speaker library for identifying known speakers during diarization. When enabled and diarize is true, detected speakers will be matched against registered speakers in the workspace's speaker library.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="detectSpeakerRoles">
@@ -290,9 +313,11 @@ namespace ElevenLabs
             double? temperature,
             int? seed,
             bool? useMultiChannel,
+            global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle? multichannelOutputStyle,
             global::ElevenLabs.AnyOf<string, object, object>? webhookMetadata,
             global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityDetection,
             bool? noVerbatim,
+            bool? useSpeakerLibrary,
             bool? detectSpeakerRoles,
             global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityRedaction,
             string? entityRedactionMode,
@@ -315,9 +340,11 @@ namespace ElevenLabs
             this.Temperature = temperature;
             this.Seed = seed;
             this.UseMultiChannel = useMultiChannel;
+            this.MultichannelOutputStyle = multichannelOutputStyle;
             this.WebhookMetadata = webhookMetadata;
             this.EntityDetection = entityDetection;
             this.NoVerbatim = noVerbatim;
+            this.UseSpeakerLibrary = useSpeakerLibrary;
             this.DetectSpeakerRoles = detectSpeakerRoles;
             this.EntityRedaction = entityRedaction;
             this.EntityRedactionMode = entityRedactionMode;

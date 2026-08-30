@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ResourceMetadataResponseModelAnonymousAccessLevelOverride2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Admin,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Commenter,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Editor,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Viewer,
     }

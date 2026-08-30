@@ -4,22 +4,26 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum MCPToolConfigInputInputOverridesDiscriminatorSource
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Constant,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DynamicVariable,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Llm,
+        /// <summary>
+        ///
+        /// </summary>
+        Omit,
     }
 
     /// <summary>
@@ -37,6 +41,7 @@ namespace ElevenLabs
                 MCPToolConfigInputInputOverridesDiscriminatorSource.Constant => "constant",
                 MCPToolConfigInputInputOverridesDiscriminatorSource.DynamicVariable => "dynamic_variable",
                 MCPToolConfigInputInputOverridesDiscriminatorSource.Llm => "llm",
+                MCPToolConfigInputInputOverridesDiscriminatorSource.Omit => "omit",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -50,6 +55,7 @@ namespace ElevenLabs
                 "constant" => MCPToolConfigInputInputOverridesDiscriminatorSource.Constant,
                 "dynamic_variable" => MCPToolConfigInputInputOverridesDiscriminatorSource.DynamicVariable,
                 "llm" => MCPToolConfigInputInputOverridesDiscriminatorSource.Llm,
+                "omit" => MCPToolConfigInputInputOverridesDiscriminatorSource.Omit,
                 _ => null,
             };
         }

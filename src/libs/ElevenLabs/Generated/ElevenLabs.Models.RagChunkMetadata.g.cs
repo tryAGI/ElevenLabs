@@ -4,26 +4,26 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RagChunkMetadata
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("document_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string DocumentId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunk_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ChunkId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("vector_distance")]
         [global::System.Text.Json.Serialization.JsonRequired]

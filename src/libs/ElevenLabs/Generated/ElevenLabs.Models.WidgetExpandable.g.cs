@@ -9,19 +9,19 @@ namespace ElevenLabs
     public enum WidgetExpandable
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Always,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Desktop,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mobile,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Never,
     }

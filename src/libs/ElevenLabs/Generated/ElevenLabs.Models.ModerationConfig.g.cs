@@ -4,72 +4,72 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ModerationConfig
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sexual")]
         public global::ElevenLabs.ThresholdGuardrail? Sexual { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("violence")]
         public global::ElevenLabs.ThresholdGuardrail? Violence { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("violence_graphic")]
         public global::ElevenLabs.ThresholdGuardrail? ViolenceGraphic { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("harassment")]
         public global::ElevenLabs.ThresholdGuardrail? Harassment { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("harassment_threatening")]
         public global::ElevenLabs.ThresholdGuardrail? HarassmentThreatening { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hate")]
         public global::ElevenLabs.ThresholdGuardrail? Hate { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hate_threatening")]
         public global::ElevenLabs.ThresholdGuardrail? HateThreatening { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("self_harm_instructions")]
         public global::ElevenLabs.ThresholdGuardrail? SelfHarmInstructions { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("self_harm")]
         public global::ElevenLabs.ThresholdGuardrail? SelfHarm { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("self_harm_intent")]
         public global::ElevenLabs.ThresholdGuardrail? SelfHarmIntent { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sexual_minors")]
         public global::ElevenLabs.ThresholdGuardrail? SexualMinors { get; set; }

@@ -151,14 +151,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(voiceId ?? string.Empty),
-                                name: "\"voice_id\"");
-
                             for (var __iFiles = 0; __iFiles < request.Files.Count; __iFiles++)
                             {
                                 var __contentFiles = new global::System.Net.Http.ByteArrayContent(request.Files[__iFiles]);
@@ -640,14 +636,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(voiceId ?? string.Empty),
-                                name: "\"voice_id\"");
-
                             for (var __iFiles = 0; __iFiles < files.Count; __iFiles++)
                             {
                                 var __fileNameFiles = filesFileNames != null &&
@@ -1116,14 +1108,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(voiceId ?? string.Empty),
-                                name: "\"voice_id\"");
-
                             for (var __iFiles = 0; __iFiles < files.Count; __iFiles++)
                             {
                                 var __fileNameFiles = filesFileNames != null &&

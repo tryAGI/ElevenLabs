@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum MCPToolApprovalPolicy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AutoApproved,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RequiresApproval,
     }

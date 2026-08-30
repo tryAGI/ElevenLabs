@@ -4,42 +4,42 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetKnowledgeBaseFolderResponseModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel Metadata { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supported_usages")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::ElevenLabs.DocumentUsageModeEnum> SupportedUsages { get; set; }
 
         /// <summary>
-        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// Example: {"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </summary>
-        /// <example>{"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
+        /// <example>{"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; }
@@ -57,24 +57,49 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? FolderPath { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"folder"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         public string Type { get; set; } = "folder";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("children_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int ChildrenCount { get; set; }
 
         /// <summary>
-        /// 
+        /// Number of non-folder documents anywhere in this folder's subtree (recursive). Counting stops past 1000;
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_count")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int DocumentCount { get; set; }
+
+        /// <summary>
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auto_sync_info")]
         public global::ElevenLabs.AutoSyncInfo? AutoSyncInfo { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("external_sync_info")]
+        public global::ElevenLabs.ExternalFolderSyncInfo? ExternalSyncInfo { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_frozen")]
+        public bool? IsFrozen { get; set; }
+
+        /// <summary>
+        /// Most recent (in-flight or terminal) external sync job for this folder, if any. Used by clients to render sync progress.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("active_sync_job")]
+        public global::ElevenLabs.KbExternalSyncJob? ActiveSyncJob { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -90,9 +115,12 @@ namespace ElevenLabs
         /// <param name="metadata"></param>
         /// <param name="supportedUsages"></param>
         /// <param name="accessInfo">
-        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// Example: {"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </param>
         /// <param name="childrenCount"></param>
+        /// <param name="documentCount">
+        /// Number of non-folder documents anywhere in this folder's subtree (recursive). Counting stops past 1000;
+        /// </param>
         /// <param name="folderParentId">
         /// The ID of the parent folder, or null if the document is at the root level.
         /// </param>
@@ -100,6 +128,13 @@ namespace ElevenLabs
         /// The folder path segments leading to this entity, from root to parent folder.
         /// </param>
         /// <param name="autoSyncInfo"></param>
+        /// <param name="externalSyncInfo"></param>
+        /// <param name="isFrozen">
+        /// Default Value: false
+        /// </param>
+        /// <param name="activeSyncJob">
+        /// Most recent (in-flight or terminal) external sync job for this folder, if any. Used by clients to render sync progress.
+        /// </param>
         /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -111,9 +146,13 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.DocumentUsageModeEnum> supportedUsages,
             global::ElevenLabs.ResourceAccessInfo accessInfo,
             int childrenCount,
+            int documentCount,
             string? folderParentId,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? folderPath,
             global::ElevenLabs.AutoSyncInfo? autoSyncInfo,
+            global::ElevenLabs.ExternalFolderSyncInfo? externalSyncInfo,
+            bool? isFrozen,
+            global::ElevenLabs.KbExternalSyncJob? activeSyncJob,
             string type = "folder")
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -125,7 +164,11 @@ namespace ElevenLabs
             this.FolderPath = folderPath;
             this.Type = type;
             this.ChildrenCount = childrenCount;
+            this.DocumentCount = documentCount;
             this.AutoSyncInfo = autoSyncInfo;
+            this.ExternalSyncInfo = externalSyncInfo;
+            this.IsFrozen = isFrozen;
+            this.ActiveSyncJob = activeSyncJob;
         }
 
         /// <summary>

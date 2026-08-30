@@ -20,7 +20,7 @@ namespace ElevenLabs.JsonConverters
                     {
                         return global::ElevenLabs.WorkflowToolResponseModelInputStepDiscriminatorTypeExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

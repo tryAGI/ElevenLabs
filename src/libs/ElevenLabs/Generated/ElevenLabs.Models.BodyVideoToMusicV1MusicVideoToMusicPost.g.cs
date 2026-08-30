@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodyVideoToMusicV1MusicVideoToMusicPost
     {
@@ -12,7 +12,7 @@ namespace ElevenLabs
         ///             One or more video files sent via FormData array (multipart/form-data). They will be combined into one codec in order.<br/>
         ///             A maximum of 10 videos is allowed, where the total size of the combined video is limited to 200MB.<br/>
         ///             In total, the video can be up to 600 seconds long. Note that combining multiple videos may increase the request duration significantly. If possible, combine the videos beforehand.<br/>
-        ///             
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("videos")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -36,8 +36,8 @@ namespace ElevenLabs
         /// Default Value: music_v1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyVideoToMusicV1MusicVideoToMusicPostModelIdJsonConverter))]
-        public global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? ModelId { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MusicModelIDJsonConverter))]
+        public global::ElevenLabs.MusicModelID? ModelId { get; set; }
 
         /// <summary>
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
@@ -59,7 +59,7 @@ namespace ElevenLabs
         ///             One or more video files sent via FormData array (multipart/form-data). They will be combined into one codec in order.<br/>
         ///             A maximum of 10 videos is allowed, where the total size of the combined video is limited to 200MB.<br/>
         ///             In total, the video can be up to 600 seconds long. Note that combining multiple videos may increase the request duration significantly. If possible, combine the videos beforehand.<br/>
-        ///             
+        ///
         /// </param>
         /// <param name="description">
         /// Optional text description of the music you want. A maximum of 1000 characters is allowed.
@@ -83,7 +83,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<byte[]> videos,
             string? description,
             global::System.Collections.Generic.IList<string>? tags,
-            global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? modelId,
+            global::ElevenLabs.MusicModelID? modelId,
             bool? signWithC2pa)
         {
             this.Videos = videos ?? throw new global::System.ArgumentNullException(nameof(videos));

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodyGenerateCompositionPlanV1MusicPlanPost
     {
@@ -25,15 +25,16 @@ namespace ElevenLabs
         /// An optional composition plan to use as a source for the new composition plan.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_composition_plan")]
-        public global::ElevenLabs.MusicPrompt? SourceCompositionPlan { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan, object>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan, object>? SourceCompositionPlan { get; set; }
 
         /// <summary>
         /// The model to use for the generation.<br/>
         /// Default Value: music_v1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyGenerateCompositionPlanV1MusicPlanPostModelIdJsonConverter))]
-        public global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPostModelId? ModelId { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MusicModelIDJsonConverter))]
+        public global::ElevenLabs.MusicModelID? ModelId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -63,8 +64,8 @@ namespace ElevenLabs
         public BodyGenerateCompositionPlanV1MusicPlanPost(
             string prompt,
             int? musicLengthMs,
-            global::ElevenLabs.MusicPrompt? sourceCompositionPlan,
-            global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPostModelId? modelId)
+            global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan, object>? sourceCompositionPlan,
+            global::ElevenLabs.MusicModelID? modelId)
         {
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.MusicLengthMs = musicLengthMs;

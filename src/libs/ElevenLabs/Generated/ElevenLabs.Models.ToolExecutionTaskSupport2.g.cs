@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ToolExecutionTaskSupport2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Forbidden,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Optional,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Required,
     }

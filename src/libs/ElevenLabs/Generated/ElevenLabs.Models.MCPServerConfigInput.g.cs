@@ -6,7 +6,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class MCPServerConfigInput
     {
@@ -54,6 +54,12 @@ namespace ElevenLabs
         public object? RequestHeaders { get; set; }
 
         /// <summary>
+        /// Entries sent in the MCP `_meta` field of tools/call requests. Values may be JSON scalars, or references to a workspace secret, dynamic variable, or environment variable resolved per call.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("request_meta")]
+        public object? RequestMeta { get; set; }
+
+        /// <summary>
         /// Optional auth connection to use for authentication with this MCP server
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_connection")]
@@ -61,14 +67,14 @@ namespace ElevenLabs
         public global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? AuthConnection { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
@@ -90,11 +96,20 @@ namespace ElevenLabs
         public global::ElevenLabs.PreToolSpeechMode? PreToolSpeech { get; set; }
 
         /// <summary>
-        /// If true, the user will not be able to interrupt the agent while any tool from this MCP server is running.<br/>
+        /// DEPRECATED: use `interruption_mode` instead. If true, the user will not be able to interrupt the agent while any tool from this MCP server is running.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("disable_interruptions")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? DisableInterruptions { get; set; }
+
+        /// <summary>
+        /// Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it. Applies to every tool from this MCP server unless overridden per tool.<br/>
+        /// Default Value: allow
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("interruption_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ToolInterruptionModeJsonConverter))]
+        public global::ElevenLabs.ToolInterruptionMode? InterruptionMode { get; set; }
 
         /// <summary>
         /// Predefined tool call sound type to play during tool execution for all tools from this MCP server
@@ -168,6 +183,9 @@ namespace ElevenLabs
         /// <param name="requestHeaders">
         /// The headers included in the request
         /// </param>
+        /// <param name="requestMeta">
+        /// Entries sent in the MCP `_meta` field of tools/call requests. Values may be JSON scalars, or references to a workspace secret, dynamic variable, or environment variable resolved per call.
+        /// </param>
         /// <param name="authConnection">
         /// Optional auth connection to use for authentication with this MCP server
         /// </param>
@@ -176,9 +194,9 @@ namespace ElevenLabs
         /// Controls whether the agent speaks before this tool is called. 'auto' (default) decides based on recent tool latency, 'force' always asks the agent to speak, 'off' fully opts out regardless of latency. Applies to every tool from this MCP server unless overridden per tool.<br/>
         /// Default Value: auto
         /// </param>
-        /// <param name="disableInterruptions">
-        /// If true, the user will not be able to interrupt the agent while any tool from this MCP server is running.<br/>
-        /// Default Value: false
+        /// <param name="interruptionMode">
+        /// Controls whether the user can interrupt the agent around this tool call. 'allow' (default) lets the user interrupt at any time, 'disable_during_tool' suppresses interruptions only while the tool is running, 'disable_during_tool_and_turn' suppresses interruptions while the tool runs and for the agent response that follows it. Applies to every tool from this MCP server unless overridden per tool.<br/>
+        /// Default Value: allow
         /// </param>
         /// <param name="toolCallSound">
         /// Predefined tool call sound type to play during tool execution for all tools from this MCP server
@@ -213,10 +231,11 @@ namespace ElevenLabs
             global::ElevenLabs.MCPServerTransport? transport,
             global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIUserSecretDBModel, object>? secretToken,
             object? requestHeaders,
+            object? requestMeta,
             global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection,
             string? description,
             global::ElevenLabs.PreToolSpeechMode? preToolSpeech,
-            bool? disableInterruptions,
+            global::ElevenLabs.ToolInterruptionMode? interruptionMode,
             global::ElevenLabs.ToolCallSoundType? toolCallSound,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
             global::ElevenLabs.ToolExecutionMode? executionMode,
@@ -230,11 +249,12 @@ namespace ElevenLabs
             this.Url = url;
             this.SecretToken = secretToken;
             this.RequestHeaders = requestHeaders;
+            this.RequestMeta = requestMeta;
             this.AuthConnection = authConnection;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description;
             this.PreToolSpeech = preToolSpeech;
-            this.DisableInterruptions = disableInterruptions;
+            this.InterruptionMode = interruptionMode;
             this.ToolCallSound = toolCallSound;
             this.ToolCallSoundBehavior = toolCallSoundBehavior;
             this.ExecutionMode = executionMode;

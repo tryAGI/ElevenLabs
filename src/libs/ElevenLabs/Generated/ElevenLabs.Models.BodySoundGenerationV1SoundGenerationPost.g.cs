@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodySoundGenerationV1SoundGenerationPost
     {
@@ -40,7 +40,8 @@ namespace ElevenLabs
         /// Default Value: eleven_text_to_sound_v2
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
-        public string? ModelId { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SFXModelIdJsonConverter))]
+        public global::ElevenLabs.SFXModelId? ModelId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -77,7 +78,7 @@ namespace ElevenLabs
             bool? loop,
             double? durationSeconds,
             double? promptInfluence,
-            string? modelId)
+            global::ElevenLabs.SFXModelId? modelId)
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.Loop = loop;

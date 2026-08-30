@@ -4,188 +4,204 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PermissionType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AddVoiceFromVoiceLibrary,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioIsolation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioNativeRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioNativeWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AuditLogRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConvaiWrite,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        ConversationPrivacyManage,
+        /// <summary>
+        ///
         /// </summary>
         CopyResourcesCrossWorkspace,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateInstantVoiceClone,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateProfessionalVoiceClone,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateUserApiKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DubbingRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DubbingWrite,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Flows,
+        /// <summary>
+        ///
         /// </summary>
         ForcedAlignment,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GroupMembersManage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImageVideoGeneration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ModelsRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ModelsWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MusicGeneration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ProjectsRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ProjectsWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PronunciationDictionariesRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PronunciationDictionariesWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PublishVoiceToVoiceLibrary,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ServiceAccountWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ShareVoiceExternally,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SoundGeneration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechHistoryRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechHistoryWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechToSpeech,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SpeechToText,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        SynthidDetector,
+        /// <summary>
+        ///
+        /// </summary>
+        Templates,
+        /// <summary>
+        ///
         /// </summary>
         TermsOfServiceAccept,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TextToSpeech,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UserRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UserWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoiceGeneration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoicesRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoicesWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WebhooksWrite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceAnalyticsFullRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceMembersInvite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceMembersRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceMembersRemove,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceRead,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WorkspaceWrite,
     }
@@ -209,12 +225,14 @@ namespace ElevenLabs
                 PermissionType.AuditLogRead => "audit_log_read",
                 PermissionType.ConvaiRead => "convai_read",
                 PermissionType.ConvaiWrite => "convai_write",
+                PermissionType.ConversationPrivacyManage => "conversation_privacy_manage",
                 PermissionType.CopyResourcesCrossWorkspace => "copy_resources_cross_workspace",
                 PermissionType.CreateInstantVoiceClone => "create_instant_voice_clone",
                 PermissionType.CreateProfessionalVoiceClone => "create_professional_voice_clone",
                 PermissionType.CreateUserApiKey => "create_user_api_key",
                 PermissionType.DubbingRead => "dubbing_read",
                 PermissionType.DubbingWrite => "dubbing_write",
+                PermissionType.Flows => "flows",
                 PermissionType.ForcedAlignment => "forced_alignment",
                 PermissionType.GroupMembersManage => "group_members_manage",
                 PermissionType.ImageVideoGeneration => "image_video_generation",
@@ -233,6 +251,8 @@ namespace ElevenLabs
                 PermissionType.SpeechHistoryWrite => "speech_history_write",
                 PermissionType.SpeechToSpeech => "speech_to_speech",
                 PermissionType.SpeechToText => "speech_to_text",
+                PermissionType.SynthidDetector => "synthid_detector",
+                PermissionType.Templates => "templates",
                 PermissionType.TermsOfServiceAccept => "terms_of_service_accept",
                 PermissionType.TextToSpeech => "text_to_speech",
                 PermissionType.UserRead => "user_read",
@@ -264,12 +284,14 @@ namespace ElevenLabs
                 "audit_log_read" => PermissionType.AuditLogRead,
                 "convai_read" => PermissionType.ConvaiRead,
                 "convai_write" => PermissionType.ConvaiWrite,
+                "conversation_privacy_manage" => PermissionType.ConversationPrivacyManage,
                 "copy_resources_cross_workspace" => PermissionType.CopyResourcesCrossWorkspace,
                 "create_instant_voice_clone" => PermissionType.CreateInstantVoiceClone,
                 "create_professional_voice_clone" => PermissionType.CreateProfessionalVoiceClone,
                 "create_user_api_key" => PermissionType.CreateUserApiKey,
                 "dubbing_read" => PermissionType.DubbingRead,
                 "dubbing_write" => PermissionType.DubbingWrite,
+                "flows" => PermissionType.Flows,
                 "forced_alignment" => PermissionType.ForcedAlignment,
                 "group_members_manage" => PermissionType.GroupMembersManage,
                 "image_video_generation" => PermissionType.ImageVideoGeneration,
@@ -288,6 +310,8 @@ namespace ElevenLabs
                 "speech_history_write" => PermissionType.SpeechHistoryWrite,
                 "speech_to_speech" => PermissionType.SpeechToSpeech,
                 "speech_to_text" => PermissionType.SpeechToText,
+                "synthid_detector" => PermissionType.SynthidDetector,
+                "templates" => PermissionType.Templates,
                 "terms_of_service_accept" => PermissionType.TermsOfServiceAccept,
                 "text_to_speech" => PermissionType.TextToSpeech,
                 "user_read" => PermissionType.UserRead,

@@ -4,44 +4,56 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SystemToolConfigOutputParamsDiscriminatorSystemToolType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EndCall,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        EndProcedure,
+        /// <summary>
+        ///
+        /// </summary>
+        KnowledgeBase,
+        /// <summary>
+        ///
         /// </summary>
         KnowledgeBaseRag,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LanguageDetection,
         /// <summary>
-        /// 
-        /// </summary>
-        LoadProcedure,
-        /// <summary>
-        /// 
+        ///
         /// </summary>
         PlayKeypadTouchTone,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        RunSubagent,
+        /// <summary>
+        ///
         /// </summary>
         SkipTurn,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        StartProcedure,
+        /// <summary>
+        ///
         /// </summary>
         TransferToAgent,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TransferToNumber,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoicemailDetection,
     }
@@ -59,11 +71,14 @@ namespace ElevenLabs
             return value switch
             {
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.EndCall => "end_call",
+                SystemToolConfigOutputParamsDiscriminatorSystemToolType.EndProcedure => "end_procedure",
+                SystemToolConfigOutputParamsDiscriminatorSystemToolType.KnowledgeBase => "knowledge_base",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.KnowledgeBaseRag => "knowledge_base_rag",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.LanguageDetection => "language_detection",
-                SystemToolConfigOutputParamsDiscriminatorSystemToolType.LoadProcedure => "load_procedure",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.PlayKeypadTouchTone => "play_keypad_touch_tone",
+                SystemToolConfigOutputParamsDiscriminatorSystemToolType.RunSubagent => "run_subagent",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.SkipTurn => "skip_turn",
+                SystemToolConfigOutputParamsDiscriminatorSystemToolType.StartProcedure => "start_procedure",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.TransferToAgent => "transfer_to_agent",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.TransferToNumber => "transfer_to_number",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.VoicemailDetection => "voicemail_detection",
@@ -78,11 +93,14 @@ namespace ElevenLabs
             return value switch
             {
                 "end_call" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.EndCall,
+                "end_procedure" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.EndProcedure,
+                "knowledge_base" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.KnowledgeBase,
                 "knowledge_base_rag" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.KnowledgeBaseRag,
                 "language_detection" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.LanguageDetection,
-                "load_procedure" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.LoadProcedure,
                 "play_keypad_touch_tone" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.PlayKeypadTouchTone,
+                "run_subagent" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.RunSubagent,
                 "skip_turn" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.SkipTurn,
+                "start_procedure" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.StartProcedure,
                 "transfer_to_agent" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.TransferToAgent,
                 "transfer_to_number" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.TransferToNumber,
                 "voicemail_detection" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.VoicemailDetection,

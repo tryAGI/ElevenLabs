@@ -20,7 +20,7 @@ namespace ElevenLabs.JsonConverters
                     {
                         return global::ElevenLabs.VoiceResponseModelLabellingStatus2Extensions.ToEnum(stringValue) ?? default;
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

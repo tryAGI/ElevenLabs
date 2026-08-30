@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum ToolExecutionMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Async,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Immediate,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PostToolSpeech,
     }

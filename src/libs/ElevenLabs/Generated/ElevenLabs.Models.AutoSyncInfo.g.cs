@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AutoSyncInfo
     {
         /// <summary>
-        /// Maximum number of days between automatic syncs<br/>
+        /// Minimum frequency (in days) at which the document is refreshed. The actual interval may be shorter, never longer.<br/>
         /// Default Value: 7
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("minimum_frequency_days")]
@@ -45,7 +45,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="AutoSyncInfo" /> class.
         /// </summary>
         /// <param name="minimumFrequencyDays">
-        /// Maximum number of days between automatic syncs<br/>
+        /// Minimum frequency (in days) at which the document is refreshed. The actual interval may be shorter, never longer.<br/>
         /// Default Value: 7
         /// </param>
         /// <param name="autoRemove">

@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class ConvAIDynamicVariable
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("variable_name")]
         [global::System.Text.Json.Serialization.JsonRequired]

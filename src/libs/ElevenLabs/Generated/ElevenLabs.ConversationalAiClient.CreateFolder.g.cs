@@ -139,7 +139,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -488,6 +488,9 @@ namespace ElevenLabs
         /// Whether to automatically remove the document if the URL becomes unavailable. Only applicable when auto-sync is enabled.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="minimumFrequencyDays">
+        /// Minimum frequency (in days) at which the underlying eligible documents are refreshed. The actual interval may be shorter, never longer. Defaults to 7, tightened to the parent folder's frequency if that is stricter. Only applicable when auto-sync is enabled.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -496,6 +499,7 @@ namespace ElevenLabs
             string? parentFolderId = default,
             bool? enableAutoSync = default,
             bool? autoRemove = default,
+            int? minimumFrequencyDays = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -505,6 +509,7 @@ namespace ElevenLabs
                 ParentFolderId = parentFolderId,
                 EnableAutoSync = enableAutoSync,
                 AutoRemove = autoRemove,
+                MinimumFrequencyDays = minimumFrequencyDays,
             };
 
             return await CreateFolderAsync(

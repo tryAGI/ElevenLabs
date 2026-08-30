@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum TransferTypeEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Blind,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Conference,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SipRefer,
     }

@@ -28,6 +28,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetPhoneNumberTwilioResponseModel)}");
                 twilio = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.GetPhoneNumberExotelResponseModel? exotel = default;
+            if (discriminator?.Provider == global::ElevenLabs.UpdatePhoneNumberRouteResponseDiscriminatorProvider.Exotel)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetPhoneNumberExotelResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetPhoneNumberExotelResponseModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetPhoneNumberExotelResponseModel)}");
+                exotel = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? sipTrunk = default;
             if (discriminator?.Provider == global::ElevenLabs.UpdatePhoneNumberRouteResponseDiscriminatorProvider.SipTrunk)
             {
@@ -39,6 +46,8 @@ namespace ElevenLabs.JsonConverters
             var __value = new global::ElevenLabs.UpdatePhoneNumberRouteResponse(
                 discriminator?.Provider,
                 twilio,
+
+                exotel,
 
                 sipTrunk
                 );
@@ -60,6 +69,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetPhoneNumberTwilioResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetPhoneNumberTwilioResponseModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetPhoneNumberTwilioResponseModel).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Twilio!, typeInfo);
+            }
+            else if (value.IsExotel)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetPhoneNumberExotelResponseModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetPhoneNumberExotelResponseModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetPhoneNumberExotelResponseModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Exotel!, typeInfo);
             }
             else if (value.IsSipTrunk)
             {

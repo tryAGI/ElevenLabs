@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConversationChargingCommonModel
     {
@@ -21,34 +21,52 @@ namespace ElevenLabs
         public bool? IsBurst { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tier")]
         public string? Tier { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm_usage")]
         public global::ElevenLabs.LLMCategoryUsage? LlmUsage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm_price")]
         public double? LlmPrice { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm_charge")]
         public int? LlmCharge { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_charge")]
         public int? CallCharge { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("platform_charge")]
+        public int? PlatformCharge { get; set; }
+
+        /// <summary>
+        /// Per-category breakdown of ``platform_charge`` (the analogue of ``llm_usage``).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("platform_usage")]
+        public global::ElevenLabs.PlatformUsage? PlatformUsage { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("platform_price")]
+        public double? PlatformPrice { get; set; }
 
         /// <summary>
         /// Default Value: 0F
@@ -63,16 +81,22 @@ namespace ElevenLabs
         public double? FreeLlmDollarsConsumed { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tts_usage")]
         public global::ElevenLabs.ConversationTTSUsageModel? TtsUsage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("asr_usage")]
         public global::ElevenLabs.ConversationASRUsageModel? AsrUsage { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("analysis")]
+        public global::ElevenLabs.AnalysisCharging? Analysis { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -94,6 +118,11 @@ namespace ElevenLabs
         /// <param name="llmPrice"></param>
         /// <param name="llmCharge"></param>
         /// <param name="callCharge"></param>
+        /// <param name="platformCharge"></param>
+        /// <param name="platformUsage">
+        /// Per-category breakdown of ``platform_charge`` (the analogue of ``llm_usage``).
+        /// </param>
+        /// <param name="platformPrice"></param>
         /// <param name="freeMinutesConsumed">
         /// Default Value: 0F
         /// </param>
@@ -102,6 +131,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="ttsUsage"></param>
         /// <param name="asrUsage"></param>
+        /// <param name="analysis"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -113,10 +143,14 @@ namespace ElevenLabs
             double? llmPrice,
             int? llmCharge,
             int? callCharge,
+            int? platformCharge,
+            global::ElevenLabs.PlatformUsage? platformUsage,
+            double? platformPrice,
             double? freeMinutesConsumed,
             double? freeLlmDollarsConsumed,
             global::ElevenLabs.ConversationTTSUsageModel? ttsUsage,
-            global::ElevenLabs.ConversationASRUsageModel? asrUsage)
+            global::ElevenLabs.ConversationASRUsageModel? asrUsage,
+            global::ElevenLabs.AnalysisCharging? analysis)
         {
             this.DevDiscount = devDiscount;
             this.IsBurst = isBurst;
@@ -125,10 +159,14 @@ namespace ElevenLabs
             this.LlmPrice = llmPrice;
             this.LlmCharge = llmCharge;
             this.CallCharge = callCharge;
+            this.PlatformCharge = platformCharge;
+            this.PlatformUsage = platformUsage;
+            this.PlatformPrice = platformPrice;
             this.FreeMinutesConsumed = freeMinutesConsumed;
             this.FreeLlmDollarsConsumed = freeLlmDollarsConsumed;
             this.TtsUsage = ttsUsage;
             this.AsrUsage = asrUsage;
+            this.Analysis = analysis;
         }
 
         /// <summary>

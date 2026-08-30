@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ExportOptions : global::System.IEquatable<ExportOptions>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ExportOptionsDiscriminatorFormat? Format { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SegmentedJsonExportOptions? SegmentedJson { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SegmentedJson))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsSegmentedJson => SegmentedJson != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSegmentedJson(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SegmentedJsonExportOptions PickSegmentedJson() => IsSegmentedJson
             ? SegmentedJson!
             : throw new global::System.InvalidOperationException($"Expected union variant 'SegmentedJson' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DocxExportOptions? Docx { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Docx))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsDocx => Docx != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDocx(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DocxExportOptions PickDocx() => IsDocx
             ? Docx!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Docx' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.PdfExportOptions? Pdf { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Pdf))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsPdf => Pdf != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickPdf(
 #if NET6_0_OR_GREATER
@@ -119,14 +119,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PdfExportOptions PickPdf() => IsPdf
             ? Pdf!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Pdf' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.TxtExportOptions? Txt { get; init; }
@@ -135,7 +135,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Txt))]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         public bool IsTxt => Txt != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTxt(
 #if NET6_0_OR_GREATER
@@ -156,14 +156,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.TxtExportOptions PickTxt() => IsTxt
             ? Txt!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Txt' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.HtmlExportOptions? Html { get; init; }
@@ -172,7 +172,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Html))]
@@ -180,7 +180,7 @@ namespace ElevenLabs
         public bool IsHtml => Html != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickHtml(
 #if NET6_0_OR_GREATER
@@ -193,14 +193,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.HtmlExportOptions PickHtml() => IsHtml
             ? Html!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Html' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SrtExportOptions? Srt { get; init; }
@@ -209,7 +209,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Srt))]
@@ -217,7 +217,7 @@ namespace ElevenLabs
         public bool IsSrt => Srt != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSrt(
 #if NET6_0_OR_GREATER
@@ -230,23 +230,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SrtExportOptions PickSrt() => IsSrt
             ? Srt!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Srt' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ExportOptions(global::ElevenLabs.SegmentedJsonExportOptions value) => new ExportOptions((global::ElevenLabs.SegmentedJsonExportOptions?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SegmentedJsonExportOptions?(ExportOptions @this) => @this.SegmentedJson;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ExportOptions(global::ElevenLabs.SegmentedJsonExportOptions? value)
         {
@@ -254,22 +254,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ExportOptions FromSegmentedJson(global::ElevenLabs.SegmentedJsonExportOptions? value) => new ExportOptions(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ExportOptions(global::ElevenLabs.DocxExportOptions value) => new ExportOptions((global::ElevenLabs.DocxExportOptions?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DocxExportOptions?(ExportOptions @this) => @this.Docx;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ExportOptions(global::ElevenLabs.DocxExportOptions? value)
         {
@@ -277,22 +277,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ExportOptions FromDocx(global::ElevenLabs.DocxExportOptions? value) => new ExportOptions(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ExportOptions(global::ElevenLabs.PdfExportOptions value) => new ExportOptions((global::ElevenLabs.PdfExportOptions?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.PdfExportOptions?(ExportOptions @this) => @this.Pdf;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ExportOptions(global::ElevenLabs.PdfExportOptions? value)
         {
@@ -300,22 +300,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ExportOptions FromPdf(global::ElevenLabs.PdfExportOptions? value) => new ExportOptions(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ExportOptions(global::ElevenLabs.TxtExportOptions value) => new ExportOptions((global::ElevenLabs.TxtExportOptions?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.TxtExportOptions?(ExportOptions @this) => @this.Txt;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ExportOptions(global::ElevenLabs.TxtExportOptions? value)
         {
@@ -323,22 +323,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ExportOptions FromTxt(global::ElevenLabs.TxtExportOptions? value) => new ExportOptions(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ExportOptions(global::ElevenLabs.HtmlExportOptions value) => new ExportOptions((global::ElevenLabs.HtmlExportOptions?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.HtmlExportOptions?(ExportOptions @this) => @this.Html;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ExportOptions(global::ElevenLabs.HtmlExportOptions? value)
         {
@@ -346,22 +346,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ExportOptions FromHtml(global::ElevenLabs.HtmlExportOptions? value) => new ExportOptions(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ExportOptions(global::ElevenLabs.SrtExportOptions value) => new ExportOptions((global::ElevenLabs.SrtExportOptions?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SrtExportOptions?(ExportOptions @this) => @this.Srt;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ExportOptions(global::ElevenLabs.SrtExportOptions? value)
         {
@@ -369,12 +369,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ExportOptions FromSrt(global::ElevenLabs.SrtExportOptions? value) => new ExportOptions(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ExportOptions(
             global::ElevenLabs.ExportOptionsDiscriminatorFormat? format,
@@ -397,7 +397,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Srt as object ??
@@ -405,11 +405,11 @@ namespace ElevenLabs
             Txt as object ??
             Pdf as object ??
             Docx as object ??
-            SegmentedJson as object 
+            SegmentedJson as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             SegmentedJson?.ToString() ??
@@ -417,11 +417,11 @@ namespace ElevenLabs
             Pdf?.ToString() ??
             Txt?.ToString() ??
             Html?.ToString() ??
-            Srt?.ToString() 
+            Srt?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -429,7 +429,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.SegmentedJsonExportOptions, TResult>? segmentedJson = null,
@@ -474,7 +474,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.SegmentedJsonExportOptions>? segmentedJson = null,
@@ -522,7 +522,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.SegmentedJsonExportOptions>? segmentedJson = null,
@@ -565,7 +565,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -594,7 +594,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ExportOptions other)
         {
@@ -604,12 +604,12 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PdfExportOptions?>.Default.Equals(Pdf, other.Pdf) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TxtExportOptions?>.Default.Equals(Txt, other.Txt) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.HtmlExportOptions?>.Default.Equals(Html, other.Html) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SrtExportOptions?>.Default.Equals(Srt, other.Srt) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SrtExportOptions?>.Default.Equals(Srt, other.Srt)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ExportOptions obj1, ExportOptions obj2)
         {
@@ -617,7 +617,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ExportOptions obj1, ExportOptions obj2)
         {
@@ -625,7 +625,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

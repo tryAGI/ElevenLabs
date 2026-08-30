@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BackupLLMOverride
     {
@@ -15,7 +15,7 @@ namespace ElevenLabs
         public string? Preference { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("order")]
         [global::System.Text.Json.Serialization.JsonRequired]

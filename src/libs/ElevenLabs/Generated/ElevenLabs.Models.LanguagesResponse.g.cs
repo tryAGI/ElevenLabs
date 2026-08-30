@@ -5,12 +5,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct LanguagesResponse : global::System.IEquatable<LanguagesResponse>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.LanguagesResponseDiscriminatorKind? Kind { get; }
 
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Pair))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsPair => Pair != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickPair(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PairedLanguagesResponse PickPair() => IsPair
             ? Pair!
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Single))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsSingle => Single != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSingle(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SingleLanguagesResponse PickSingle() => IsSingle
             ? Single!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Single' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator LanguagesResponse(global::ElevenLabs.PairedLanguagesResponse value) => new LanguagesResponse((global::ElevenLabs.PairedLanguagesResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.PairedLanguagesResponse?(LanguagesResponse @this) => @this.Pair;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public LanguagesResponse(global::ElevenLabs.PairedLanguagesResponse? value)
         {
@@ -106,22 +106,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static LanguagesResponse FromPair(global::ElevenLabs.PairedLanguagesResponse? value) => new LanguagesResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator LanguagesResponse(global::ElevenLabs.SingleLanguagesResponse value) => new LanguagesResponse((global::ElevenLabs.SingleLanguagesResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SingleLanguagesResponse?(LanguagesResponse @this) => @this.Single;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public LanguagesResponse(global::ElevenLabs.SingleLanguagesResponse? value)
         {
@@ -129,12 +129,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static LanguagesResponse FromSingle(global::ElevenLabs.SingleLanguagesResponse? value) => new LanguagesResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public LanguagesResponse(
             global::ElevenLabs.LanguagesResponseDiscriminatorKind? kind,
@@ -149,23 +149,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Single as object ??
-            Pair as object 
+            Pair as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Pair?.ToString() ??
-            Single?.ToString() 
+            Single?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -173,7 +173,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.PairedLanguagesResponse, TResult>? pair = null,
@@ -198,7 +198,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.PairedLanguagesResponse>? pair = null,
@@ -222,7 +222,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.PairedLanguagesResponse>? pair = null,
@@ -245,7 +245,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -266,18 +266,18 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(LanguagesResponse other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PairedLanguagesResponse?>.Default.Equals(Pair, other.Pair) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SingleLanguagesResponse?>.Default.Equals(Single, other.Single) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SingleLanguagesResponse?>.Default.Equals(Single, other.Single)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(LanguagesResponse obj1, LanguagesResponse obj2)
         {
@@ -285,7 +285,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(LanguagesResponse obj1, LanguagesResponse obj2)
         {
@@ -293,7 +293,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

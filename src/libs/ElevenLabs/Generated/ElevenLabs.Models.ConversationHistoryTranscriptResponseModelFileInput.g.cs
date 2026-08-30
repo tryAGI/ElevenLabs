@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Deprecated: the first attachment on this turn. Use `file_inputs` to see every attachment.
     /// </summary>
     public sealed partial class ConversationHistoryTranscriptResponseModelFileInput
     {

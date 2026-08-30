@@ -4,68 +4,74 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class WorkspaceGroupResponseModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("members")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> Members { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("permissions")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceGroupPermission>? Permissions { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("group_usage_limit")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string, object>))]
         public global::ElevenLabs.AnyOf<int?, string, object>? GroupUsageLimit { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("group_pvc_limit")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string, object>))]
         public global::ElevenLabs.AnyOf<int?, string, object>? GroupPvcLimit { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_count")]
         public int? CharacterCount { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("scim_external_id")]
-        public string? ScimExternalId { get; set; }
 
         /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_scim_synced")]
         public bool? IsScimSynced { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("scim_group")]
+        public global::ElevenLabs.ScimGroupResponseModel? ScimGroup { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("scim_frozen")]
+        public bool? ScimFrozen { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -83,8 +89,11 @@ namespace ElevenLabs
         /// <param name="groupUsageLimit"></param>
         /// <param name="groupPvcLimit"></param>
         /// <param name="characterCount"></param>
-        /// <param name="scimExternalId"></param>
         /// <param name="isScimSynced">
+        /// Default Value: false
+        /// </param>
+        /// <param name="scimGroup"></param>
+        /// <param name="scimFrozen">
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER
@@ -98,8 +107,9 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<int?, string, object>? groupUsageLimit,
             global::ElevenLabs.AnyOf<int?, string, object>? groupPvcLimit,
             int? characterCount,
-            string? scimExternalId,
-            bool? isScimSynced)
+            bool? isScimSynced,
+            global::ElevenLabs.ScimGroupResponseModel? scimGroup,
+            bool? scimFrozen)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -108,8 +118,9 @@ namespace ElevenLabs
             this.GroupUsageLimit = groupUsageLimit;
             this.GroupPvcLimit = groupPvcLimit;
             this.CharacterCount = characterCount;
-            this.ScimExternalId = scimExternalId;
             this.IsScimSynced = isScimSynced;
+            this.ScimGroup = scimGroup;
+            this.ScimFrozen = scimFrozen;
         }
 
         /// <summary>

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"anonymous_access_level_override":"viewer","creator_user_id":"5zavrE1kZXv2lFw9BKgEkf0B5Wqo","resource_id":"4ZUqyldxf71HqUbcP2Lc","resource_name":"My Custom Voice","resource_type":"voice","role_to_group_ids":{"admin":["5zavrE1kZXv2lFw9BKgEkf0B5Wqo"],"editor":["8ruQDGM2R4w1mFbHI5aROCUjIpJZ"],"viewer":[]},"share_options":[{"id":"i2YYI6huwBmcgYydAXARmQJc3pmX","name":"user@example.com","type":"user"},{"id":"x1AfvYKAmiqxCnbvZeNXHqqthJaC","name":"mygroup","type":"group"}]}
+    /// Example: {"anonymous_access_level_override":"viewer","creator_user_id":"5zavrE1kZXv2lFw9BKgEkf0B5Wqo","resource_id":"4ZUqyldxf71HqUbcP2Lc","resource_name":"My Custom Voice","resource_type":"voice","role_to_group_ids":{"admin":["5zavrE1kZXv2lFw9BKgEkf0B5Wqo"],"editor":["8ruQDGM2R4w1mFbHI5aROCUjIpJZ"],"role_01jd7yq2k8f0abcd1234wxyz":["9mQrTx4vNb2wKpLs6ZyE1cHgUdFa"],"viewer":[]},"share_options":[{"id":"i2YYI6huwBmcgYydAXARmQJc3pmX","name":"user@example.com","type":"user"},{"id":"x1AfvYKAmiqxCnbvZeNXHqqthJaC","name":"mygroup","type":"group"}]}
     /// </summary>
     public sealed partial class ResourceMetadataResponseModel
     {
@@ -42,7 +42,7 @@ namespace ElevenLabs
         public global::ElevenLabs.ResourceMetadataResponseModelAnonymousAccessLevelOverride2? AnonymousAccessLevelOverride { get; set; }
 
         /// <summary>
-        /// A mapping of roles to group IDs. When the resource is shared with a user, the group id is the user's id.
+        /// A mapping of grant slots to group IDs. Keys are the preset access roles plus workspace custom-role ids ('role_...'). When the resource is shared with a user, the group id is the user's id.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role_to_group_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -71,7 +71,7 @@ namespace ElevenLabs
         /// The type of the resource.
         /// </param>
         /// <param name="roleToGroupIds">
-        /// A mapping of roles to group IDs. When the resource is shared with a user, the group id is the user's id.
+        /// A mapping of grant slots to group IDs. Keys are the preset access roles plus workspace custom-role ids ('role_...'). When the resource is shared with a user, the group id is the user's id.
         /// </param>
         /// <param name="shareOptions">
         /// List of options for sharing the resource further in the workspace. These are users who don't have access to the resource yet.

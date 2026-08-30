@@ -4,22 +4,26 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Constant,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DynamicVariable,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Llm,
+        /// <summary>
+        ///
+        /// </summary>
+        Omit,
     }
 
     /// <summary>
@@ -37,6 +41,7 @@ namespace ElevenLabs
                 ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource.Constant => "constant",
                 ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource.DynamicVariable => "dynamic_variable",
                 ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource.Llm => "llm",
+                ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource.Omit => "omit",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -50,6 +55,7 @@ namespace ElevenLabs
                 "constant" => ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource.Constant,
                 "dynamic_variable" => ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource.DynamicVariable,
                 "llm" => ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource.Llm,
+                "omit" => ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource.Omit,
                 _ => null,
             };
         }

@@ -45,7 +45,7 @@ namespace ElevenLabs
         public global::ElevenLabs.TTSOutputFormat? AgentOutputAudioFormat { get; set; }
 
         /// <summary>
-        /// The optimization for streaming latency
+        /// Deprecated: this field is a no-op and is ignored.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("optimize_streaming_latency")]
         public int? OptimizeStreamingLatency { get; set; }
@@ -81,6 +81,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? PronunciationDictionaryLocators { get; set; }
 
         /// <summary>
+        /// Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_phoneme_tags")]
+        public bool? EnablePhonemeTags { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -108,7 +114,7 @@ namespace ElevenLabs
         /// The audio format to use for TTS
         /// </param>
         /// <param name="optimizeStreamingLatency">
-        /// The optimization for streaming latency
+        /// Deprecated: this field is a no-op and is ignored.
         /// </param>
         /// <param name="stability">
         /// The stability of generated speech
@@ -125,6 +131,9 @@ namespace ElevenLabs
         /// <param name="pronunciationDictionaryLocators">
         /// The pronunciation dictionary locators
         /// </param>
+        /// <param name="enablePhonemeTags">
+        /// Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -140,7 +149,8 @@ namespace ElevenLabs
             double? speed,
             double? similarityBoost,
             global::ElevenLabs.TextNormalisationType? textNormalisationType,
-            global::System.Collections.Generic.IList<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? pronunciationDictionaryLocators)
+            global::System.Collections.Generic.IList<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? pronunciationDictionaryLocators,
+            bool? enablePhonemeTags)
         {
             this.ModelId = modelId;
             this.VoiceId = voiceId;
@@ -154,6 +164,7 @@ namespace ElevenLabs
             this.SimilarityBoost = similarityBoost;
             this.TextNormalisationType = textNormalisationType;
             this.PronunciationDictionaryLocators = pronunciationDictionaryLocators;
+            this.EnablePhonemeTags = enablePhonemeTags;
         }
 
         /// <summary>

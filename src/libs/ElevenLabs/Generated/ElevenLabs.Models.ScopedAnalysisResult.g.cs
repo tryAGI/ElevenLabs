@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ScopedAnalysisResult
     {
@@ -19,7 +19,7 @@ namespace ElevenLabs
         public required global::ElevenLabs.AnalysisScope Scope { get; set; } = global::ElevenLabs.AnalysisScope.Conversation;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -32,24 +32,30 @@ namespace ElevenLabs
         public string? SourceBranchId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("evaluation_criteria_results")]
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? EvaluationCriteriaResults { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data_collection_results")]
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DataCollectionResultCommonModel>? DataCollectionResults { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("successful")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EvaluationSuccessResultJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.EvaluationSuccessResult Successful { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("success_score")]
+        public double? SuccessScore { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -71,6 +77,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="evaluationCriteriaResults"></param>
         /// <param name="dataCollectionResults"></param>
+        /// <param name="successScore"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -80,7 +87,8 @@ namespace ElevenLabs
             global::ElevenLabs.EvaluationSuccessResult successful,
             string? sourceBranchId,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? evaluationCriteriaResults,
-            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DataCollectionResultCommonModel>? dataCollectionResults)
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DataCollectionResultCommonModel>? dataCollectionResults,
+            double? successScore)
         {
             this.Scope = scope;
             this.SourceAgentId = sourceAgentId ?? throw new global::System.ArgumentNullException(nameof(sourceAgentId));
@@ -88,6 +96,7 @@ namespace ElevenLabs
             this.EvaluationCriteriaResults = evaluationCriteriaResults;
             this.DataCollectionResults = dataCollectionResults;
             this.Successful = successful;
+            this.SuccessScore = successScore;
         }
 
         /// <summary>

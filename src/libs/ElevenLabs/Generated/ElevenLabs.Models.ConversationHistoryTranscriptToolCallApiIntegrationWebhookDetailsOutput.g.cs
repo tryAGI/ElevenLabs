@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput
     {
@@ -16,28 +16,28 @@ namespace ElevenLabs
         public string Type { get; set; } = "api_integration_webhook";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("integration_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string IntegrationId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("credential_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string CredentialId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("integration_connection_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string IntegrationConnectionId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("webhook_details")]
         [global::System.Text.Json.Serialization.JsonRequired]

@@ -4,15 +4,36 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class WorkflowOverrideAgentNodeModelOutput
     {
         /// <summary>
-        /// Configuration overrides applied while the subagent is conducting the conversation.<br/>
-        /// Example: {"agent":{"disable_first_message_interruptions":false,"dynamic_variables":{"dynamic_variable_placeholders":{"user_name":"John Doe"}},"first_message":"Hello, how can I help you today?","language":"en","prompt":{"knowledge_base":[],"llm":"gemini-2.0-flash-001","max_tokens":-1,"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","temperature":0.0,"tool_ids":[],"tools":[]}},"asr":{"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"},"conversation":{"client_events":["audio","interruption"],"max_duration_seconds":600},"tts":{"agent_output_audio_format":"pcm_16000","model_id":"eleven_turbo_v2","optimize_streaming_latency":3,"pronunciation_dictionary_locators":[],"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0,"use_llm_generated_message":false},"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0},"vad":{"background_voice_detection":false}}
+        /// Default Value: override_agent
         /// </summary>
-        /// <example>{"agent":{"disable_first_message_interruptions":false,"dynamic_variables":{"dynamic_variable_placeholders":{"user_name":"John Doe"}},"first_message":"Hello, how can I help you today?","language":"en","prompt":{"knowledge_base":[],"llm":"gemini-2.0-flash-001","max_tokens":-1,"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","temperature":0.0,"tool_ids":[],"tools":[]}},"asr":{"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"},"conversation":{"client_events":["audio","interruption"],"max_duration_seconds":600},"tts":{"agent_output_audio_format":"pcm_16000","model_id":"eleven_turbo_v2","optimize_streaming_latency":3,"pronunciation_dictionary_locators":[],"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0,"use_llm_generated_message":false},"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0},"vad":{"background_voice_detection":false}}</example>
+        /// <default>"override_agent"</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        public string Type { get; set; } = "override_agent";
+
+        /// <summary>
+        /// Position of the node in the workflow.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("position")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.PositionOutput Position { get; set; }
+
+        /// <summary>
+        /// The ids of outgoing edges in the order they should be evaluated.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("edge_order")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<string> EdgeOrder { get; set; }
+
+        /// <summary>
+        /// Configuration overrides applied while the subagent is conducting the conversation.<br/>
+        /// Example: {"agent":{"disable_first_message_interruptions":false,"dynamic_variables":{"dynamic_variable_placeholders":{"user_name":"John Doe"}},"first_message":"Hello, how can I help you today?","language":"en","prompt":{"knowledge_base":[],"llm":"gemini-2.0-flash-001","max_tokens":-1,"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","temperature":0.0,"tool_ids":[],"tools":[]}},"asr":{"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"},"conversation":{"client_events":["audio","interruption"],"max_duration_seconds":600},"tts":{"agent_output_audio_format":"pcm_16000","model_id":"eleven_turbo_v2","optimize_streaming_latency":3,"pronunciation_dictionary_locators":[],"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"merge_with_default_ignore_terms":false,"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0,"use_llm_generated_message":false},"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_model":"turn_v3","turn_timeout":7.0},"vad":{"background_voice_detection":false}}
+        /// </summary>
+        /// <example>{"agent":{"disable_first_message_interruptions":false,"dynamic_variables":{"dynamic_variable_placeholders":{"user_name":"John Doe"}},"first_message":"Hello, how can I help you today?","language":"en","prompt":{"knowledge_base":[],"llm":"gemini-2.0-flash-001","max_tokens":-1,"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","temperature":0.0,"tool_ids":[],"tools":[]}},"asr":{"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"},"conversation":{"client_events":["audio","interruption"],"max_duration_seconds":600},"tts":{"agent_output_audio_format":"pcm_16000","model_id":"eleven_turbo_v2","optimize_streaming_latency":3,"pronunciation_dictionary_locators":[],"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"merge_with_default_ignore_terms":false,"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0,"use_llm_generated_message":false},"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_model":"turn_v3","turn_timeout":7.0},"vad":{"background_voice_detection":false}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.ConversationalConfigAPIModelWorkflowOverrideOutput ConversationConfig { get; set; }
@@ -39,32 +60,21 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<string> AdditionalToolIds { get; set; }
 
         /// <summary>
-        /// Default Value: override_agent
-        /// </summary>
-        /// <default>"override_agent"</default>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        public string Type { get; set; } = "override_agent";
-
-        /// <summary>
-        /// Position of the node in the workflow.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("position")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.PositionOutput Position { get; set; }
-
-        /// <summary>
-        /// The ids of outgoing edges in the order they should be evaluated.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("edge_order")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> EdgeOrder { get; set; }
-
-        /// <summary>
         /// Human-readable label for the node used throughout the UI.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("label")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Label { get; set; }
+
+        /// <summary>
+        /// Dictates whether this node should immediately generate a response upon entry or wait for the user input. When set to "auto", the behavior will be decided based on the type of the preceding node: "wait_for_user" after the "say" and "start" nodes and "generate_immediately" otherwise.<br/>
+        /// Default Value: auto
+        /// </summary>
+        /// <default>global::ElevenLabs.EntryBehavior.Auto</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("entry_behavior")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EntryBehaviorJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.EntryBehavior EntryBehavior { get; set; } = global::ElevenLabs.EntryBehavior.Auto;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -75,9 +85,15 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkflowOverrideAgentNodeModelOutput" /> class.
         /// </summary>
+        /// <param name="position">
+        /// Position of the node in the workflow.
+        /// </param>
+        /// <param name="edgeOrder">
+        /// The ids of outgoing edges in the order they should be evaluated.
+        /// </param>
         /// <param name="conversationConfig">
         /// Configuration overrides applied while the subagent is conducting the conversation.<br/>
-        /// Example: {"agent":{"disable_first_message_interruptions":false,"dynamic_variables":{"dynamic_variable_placeholders":{"user_name":"John Doe"}},"first_message":"Hello, how can I help you today?","language":"en","prompt":{"knowledge_base":[],"llm":"gemini-2.0-flash-001","max_tokens":-1,"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","temperature":0.0,"tool_ids":[],"tools":[]}},"asr":{"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"},"conversation":{"client_events":["audio","interruption"],"max_duration_seconds":600},"tts":{"agent_output_audio_format":"pcm_16000","model_id":"eleven_turbo_v2","optimize_streaming_latency":3,"pronunciation_dictionary_locators":[],"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0,"use_llm_generated_message":false},"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0},"vad":{"background_voice_detection":false}}
+        /// Example: {"agent":{"disable_first_message_interruptions":false,"dynamic_variables":{"dynamic_variable_placeholders":{"user_name":"John Doe"}},"first_message":"Hello, how can I help you today?","language":"en","prompt":{"knowledge_base":[],"llm":"gemini-2.0-flash-001","max_tokens":-1,"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","temperature":0.0,"tool_ids":[],"tools":[]}},"asr":{"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"},"conversation":{"client_events":["audio","interruption"],"max_duration_seconds":600},"tts":{"agent_output_audio_format":"pcm_16000","model_id":"eleven_turbo_v2","optimize_streaming_latency":3,"pronunciation_dictionary_locators":[],"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"merge_with_default_ignore_terms":false,"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0,"use_llm_generated_message":false},"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_model":"turn_v3","turn_timeout":7.0},"vad":{"background_voice_detection":false}}
         /// </param>
         /// <param name="additionalPrompt">
         /// Specific goal for this subagent. It will be added to the system prompt and can be used to further refine the agent's behavior in this specific context.
@@ -88,14 +104,12 @@ namespace ElevenLabs
         /// <param name="additionalToolIds">
         /// IDs of additional tools that the subagent has access to. These will be used in addition to the main agent's tools.
         /// </param>
-        /// <param name="position">
-        /// Position of the node in the workflow.
-        /// </param>
-        /// <param name="edgeOrder">
-        /// The ids of outgoing edges in the order they should be evaluated.
-        /// </param>
         /// <param name="label">
         /// Human-readable label for the node used throughout the UI.
+        /// </param>
+        /// <param name="entryBehavior">
+        /// Dictates whether this node should immediately generate a response upon entry or wait for the user input. When set to "auto", the behavior will be decided based on the type of the preceding node: "wait_for_user" after the "say" and "start" nodes and "generate_immediately" otherwise.<br/>
+        /// Default Value: auto
         /// </param>
         /// <param name="type">
         /// Default Value: override_agent
@@ -104,23 +118,25 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public WorkflowOverrideAgentNodeModelOutput(
+            global::ElevenLabs.PositionOutput position,
+            global::System.Collections.Generic.IList<string> edgeOrder,
             global::ElevenLabs.ConversationalConfigAPIModelWorkflowOverrideOutput conversationConfig,
             string additionalPrompt,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator> additionalKnowledgeBase,
             global::System.Collections.Generic.IList<string> additionalToolIds,
-            global::ElevenLabs.PositionOutput position,
-            global::System.Collections.Generic.IList<string> edgeOrder,
             string label,
+            global::ElevenLabs.EntryBehavior entryBehavior,
             string type = "override_agent")
         {
+            this.Type = type;
+            this.Position = position ?? throw new global::System.ArgumentNullException(nameof(position));
+            this.EdgeOrder = edgeOrder ?? throw new global::System.ArgumentNullException(nameof(edgeOrder));
             this.ConversationConfig = conversationConfig ?? throw new global::System.ArgumentNullException(nameof(conversationConfig));
             this.AdditionalPrompt = additionalPrompt ?? throw new global::System.ArgumentNullException(nameof(additionalPrompt));
             this.AdditionalKnowledgeBase = additionalKnowledgeBase ?? throw new global::System.ArgumentNullException(nameof(additionalKnowledgeBase));
             this.AdditionalToolIds = additionalToolIds ?? throw new global::System.ArgumentNullException(nameof(additionalToolIds));
-            this.Type = type;
-            this.Position = position ?? throw new global::System.ArgumentNullException(nameof(position));
-            this.EdgeOrder = edgeOrder ?? throw new global::System.ArgumentNullException(nameof(edgeOrder));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
+            this.EntryBehavior = entryBehavior;
         }
 
         /// <summary>

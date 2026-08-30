@@ -30,7 +30,7 @@ namespace ElevenLabs
         public int? TotalCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_sort_id")]
         public string? LastSortId { get; set; }

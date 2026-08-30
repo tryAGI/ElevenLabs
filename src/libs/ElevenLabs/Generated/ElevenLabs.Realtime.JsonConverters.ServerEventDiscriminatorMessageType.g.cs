@@ -18,9 +18,9 @@ namespace ElevenLabs.Realtime.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.Realtime.ServerEventDiscriminatorMessageTypeExtensions.ToEnum(stringValue) ?? default;
+                        return global::ElevenLabs.Realtime.ServerEventDiscriminatorMessageTypeExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown discriminator value '{stringValue}' for global::ElevenLabs.Realtime.ServerEventDiscriminatorMessageType.");
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

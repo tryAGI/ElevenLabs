@@ -9,39 +9,39 @@ namespace ElevenLabs
     public enum TwilioEdgeLocation
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ashburn,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dublin,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Frankfurt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Roaming,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SaoPaulo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Singapore,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sydney,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tokyo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Umatilla,
     }

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"characters_converted":500,"characters_unconverted":1000,"credits_needed_to_convert":1000,"paragraphs_converted":20,"paragraphs_unconverted":10,"voice_statistics":[{"characters_converted":300,"characters_unconverted":600,"voice_id":"voice123"},{"characters_converted":200,"characters_unconverted":400,"voice_id":"voice456"}]}
+    /// Example: {"characters_converted":500,"characters_unconverted":1000,"credits_needed_to_convert":1000,"paragraphs_converted":20,"paragraphs_unconverted":10,"voice_statistics":[{"characters_converted":300,"characters_unconverted":600,"project_voice_ref_id":"voice123","voice_id":"voice123"},{"characters_converted":200,"characters_unconverted":400,"project_voice_ref_id":"voice456","voice_id":"voice456"}]}
     /// </summary>
     public sealed partial class ChapterStatisticsResponseModel
     {

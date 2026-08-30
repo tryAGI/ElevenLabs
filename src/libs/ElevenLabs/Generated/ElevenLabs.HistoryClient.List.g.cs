@@ -33,9 +33,9 @@ namespace ElevenLabs
             ref string? modelId,
             int? dateBeforeUnix,
             int? dateAfterUnix,
-            global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection,
+            ref global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection,
             ref string? search,
-            global::ElevenLabs.GetSpeechHistorySource2? source);
+            ref global::ElevenLabs.GetSpeechHistorySource2? source);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -59,7 +59,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// List Generated Items<br/>
-        /// Returns a list of your generated audio.
+        /// Returns a list of your generated audio (e.g. text to speech, speech to speech, Studio, dubbing). Music and SFX generations are not included and cannot currently be retrieved via the API.
         /// </summary>
         /// <param name="pageSize">
         /// How many history items to return at maximum. Can not exceed 1000, defaults to 100.<br/>
@@ -124,7 +124,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// List Generated Items<br/>
-        /// Returns a list of your generated audio.
+        /// Returns a list of your generated audio (e.g. text to speech, speech to speech, Studio, dubbing). Music and SFX generations are not included and cannot currently be retrieved via the API.
         /// </summary>
         /// <param name="pageSize">
         /// How many history items to return at maximum. Can not exceed 1000, defaults to 100.<br/>
@@ -181,9 +181,9 @@ namespace ElevenLabs
                 modelId: ref modelId,
                 dateBeforeUnix: dateBeforeUnix,
                 dateAfterUnix: dateAfterUnix,
-                sortDirection: sortDirection,
+                sortDirection: ref sortDirection,
                 search: ref search,
-                source: source);
+                source: ref source);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -249,7 +249,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

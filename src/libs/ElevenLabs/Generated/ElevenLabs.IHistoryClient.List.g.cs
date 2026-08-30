@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// List Generated Items<br/>
-        /// Returns a list of your generated audio.
+        /// Returns a list of your generated audio (e.g. text to speech, speech to speech, Studio, dubbing). Music and SFX generations are not included and cannot currently be retrieved via the API.
         /// </summary>
         /// <param name="pageSize">
         /// How many history items to return at maximum. Can not exceed 1000, defaults to 100.<br/>
@@ -54,7 +54,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Generated Items<br/>
-        /// Returns a list of your generated audio.
+        /// Returns a list of your generated audio (e.g. text to speech, speech to speech, Studio, dubbing). Music and SFX generations are not included and cannot currently be retrieved via the API.
         /// </summary>
         /// <param name="pageSize">
         /// How many history items to return at maximum. Can not exceed 1000, defaults to 100.<br/>

@@ -10,15 +10,15 @@ namespace ElevenLabs
     public enum ListDubsFilterByCreator
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         All,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Others,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Personal,
     }

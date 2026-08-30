@@ -4,10 +4,42 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ArrayJsonSchemaPropertyInput
     {
+        /// <summary>
+        /// Default Value: array
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("property_kind")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ArrayJsonSchemaPropertyInputPropertyKindJsonConverter))]
+        public global::ElevenLabs.ArrayJsonSchemaPropertyInputPropertyKind? PropertyKind { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string? Description { get; set; }
+
+        /// <summary>
+        /// When set, the entire parameter is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided value), constant_value, and is_omitted.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variable")]
+        public string? DynamicVariable { get; set; }
+
+        /// <summary>
+        /// When set, the entire array uses this constant value at runtime. Mutually exclusive with description (LLM-provided array), dynamic_variable, and is_omitted.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("constant_value")]
+        public global::System.Collections.Generic.IList<object>? ConstantValue { get; set; }
+
+        /// <summary>
+        /// If true, this parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, and constant_value.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_omitted")]
+        public bool? IsOmitted { get; set; }
+
         /// <summary>
         /// Default Value: array
         /// </summary>
@@ -15,30 +47,12 @@ namespace ElevenLabs
         public string? Type { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
-        public string? Description { get; set; }
-
-        /// <summary>
         /// Schema for array elements.<br/>
-        /// Default Value: {"type":"string","description":"Array element","is_system_provided":false,"dynamic_variable":"","constant_value":""}
+        /// Default Value: {"type":"string","description":"Array element","is_system_provided":false,"dynamic_variable":"","allowed_values_dynamic_variable":"","constant_value":"","is_omitted":false}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("items")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.OneOfJsonConverter<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput>))]
         public global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput>? Items { get; set; }
-
-        /// <summary>
-        /// When set, the entire array is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided array) and constant_value.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variable")]
-        public string? DynamicVariable { get; set; }
-
-        /// <summary>
-        /// When set, the entire array uses this constant value at runtime. Mutually exclusive with description (LLM-provided array) and dynamic_variable.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("constant_value")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, bool?>>? ConstantValue { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -49,35 +63,46 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ArrayJsonSchemaPropertyInput" /> class.
         /// </summary>
-        /// <param name="type">
+        /// <param name="propertyKind">
         /// Default Value: array
         /// </param>
         /// <param name="description"></param>
-        /// <param name="items">
-        /// Schema for array elements.<br/>
-        /// Default Value: {"type":"string","description":"Array element","is_system_provided":false,"dynamic_variable":"","constant_value":""}
-        /// </param>
         /// <param name="dynamicVariable">
-        /// When set, the entire array is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided array) and constant_value.
+        /// When set, the entire parameter is populated from this dynamic variable at runtime. Mutually exclusive with description (LLM-provided value), constant_value, and is_omitted.
         /// </param>
         /// <param name="constantValue">
-        /// When set, the entire array uses this constant value at runtime. Mutually exclusive with description (LLM-provided array) and dynamic_variable.
+        /// When set, the entire array uses this constant value at runtime. Mutually exclusive with description (LLM-provided array), dynamic_variable, and is_omitted.
+        /// </param>
+        /// <param name="isOmitted">
+        /// If true, this parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, and constant_value.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="type">
+        /// Default Value: array
+        /// </param>
+        /// <param name="items">
+        /// Schema for array elements.<br/>
+        /// Default Value: {"type":"string","description":"Array element","is_system_provided":false,"dynamic_variable":"","allowed_values_dynamic_variable":"","constant_value":"","is_omitted":false}
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ArrayJsonSchemaPropertyInput(
-            string? type,
+            global::ElevenLabs.ArrayJsonSchemaPropertyInputPropertyKind? propertyKind,
             string? description,
-            global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput>? items,
             string? dynamicVariable,
-            global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, bool?>>? constantValue)
+            global::System.Collections.Generic.IList<object>? constantValue,
+            bool? isOmitted,
+            string? type,
+            global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput>? items)
         {
-            this.Type = type;
+            this.PropertyKind = propertyKind;
             this.Description = description;
-            this.Items = items;
             this.DynamicVariable = dynamicVariable;
             this.ConstantValue = constantValue;
+            this.IsOmitted = isOmitted;
+            this.Type = type;
+            this.Items = items;
         }
 
         /// <summary>

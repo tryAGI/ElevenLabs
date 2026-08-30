@@ -59,7 +59,7 @@ namespace ElevenLabs
         ///     An optional content to initialize the Studio project with. If this is set, 'from_url' and 'from_document' must be null. If neither 'from_url', 'from_document', 'from_content' are provided we will initialize the Studio project as blank.<br/>
         ///     Example:<br/>
         ///     [{"name": "Chapter A", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "A", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "B", "type": "tts_node"}]}, {"sub_type": "h1", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "C", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "D", "type": "tts_node"}]}]}, {"name": "Chapter B", "blocks": [{"sub_type": "p", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "E", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "F", "type": "tts_node"}]}, {"sub_type": "h2", "nodes": [{"voice_id": "6lCwbsX1yVjD49QmpkT0", "text": "G", "type": "tts_node"}, {"voice_id": "6lCwbsX1yVjD49QmpkT1", "text": "H", "type": "tts_node"}]}]}]<br/>
-        ///     
+        ///
         /// </param>
         /// <param name="qualityPreset">
         /// Output quality of the generated audio. Must be one of:<br/>
@@ -67,7 +67,7 @@ namespace ElevenLabs
         /// 'high' - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side.<br/>
         /// 'ultra' - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side.<br/>
         /// 'ultra_lossless' - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format.<br/>
-        /// Default Value: standard
+        /// If not provided, defaults to the highest quality preset available on your subscription tier.
         /// </param>
         /// <param name="title">
         /// An optional name of the author of the Studio project, this will be added as metadata to the mp3 file on Studio project or chapter download.
@@ -164,7 +164,7 @@ namespace ElevenLabs
         ///         error_details: "Error details if conversion failed"<br/>
         ///       }<br/>
         ///     }<br/>
-        ///     
+        ///
         /// </param>
         /// <param name="fiction">
         /// An optional specification of whether the content of this Studio project is fiction.
@@ -174,7 +174,7 @@ namespace ElevenLabs
         ///     When set to 'auto', the system will automatically decide whether to apply text normalization<br/>
         ///     (e.g., spelling out numbers). With 'on', text normalization will always be applied, while<br/>
         ///     with 'off', it will be skipped. 'apply_english' is the same as 'on' but will assume that text is in English.<br/>
-        ///     
+        ///
         /// </param>
         /// <param name="autoConvert">
         /// Whether to auto convert the Studio project to audio or not.<br/>
@@ -191,7 +191,7 @@ namespace ElevenLabs
         ///     Optional voice settings overrides for the project, encoded as a list of JSON strings.<br/>
         ///     Example:<br/>
         ///     ["{\"voice_id\": \"21m00Tcm4TlvDq8ikWAM\", \"stability\": 0.7, \"similarity_boost\": 0.8, \"style\": 0.5, \"speed\": 1.0, \"use_speaker_boost\": true}"]<br/>
-        ///     
+        ///
         /// </param>
         /// <param name="createPublishingRead">
         /// If true, creates a corresponding read for direct publishing in draft state<br/>

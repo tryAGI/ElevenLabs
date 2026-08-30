@@ -4,23 +4,29 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConversationHistoryBatchCallModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("batch_call_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string BatchCallId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("batch_call_recipient_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string BatchCallRecipientId { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("campaign")]
+        public global::ElevenLabs.BatchCallingCampaignInformation? Campaign { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -33,15 +39,18 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="batchCallId"></param>
         /// <param name="batchCallRecipientId"></param>
+        /// <param name="campaign"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConversationHistoryBatchCallModel(
             string batchCallId,
-            string batchCallRecipientId)
+            string batchCallRecipientId,
+            global::ElevenLabs.BatchCallingCampaignInformation? campaign)
         {
             this.BatchCallId = batchCallId ?? throw new global::System.ArgumentNullException(nameof(batchCallId));
             this.BatchCallRecipientId = batchCallRecipientId ?? throw new global::System.ArgumentNullException(nameof(batchCallRecipientId));
+            this.Campaign = campaign;
         }
 
         /// <summary>

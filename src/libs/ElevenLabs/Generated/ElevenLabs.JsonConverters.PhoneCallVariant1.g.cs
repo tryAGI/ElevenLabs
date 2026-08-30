@@ -28,6 +28,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel)}");
                 twilio = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.ConversationHistoryExotelPhoneCallModel? exotel = default;
+            if (discriminator?.Type == global::ElevenLabs.ConversationHistoryMetadataCommonModelPhoneCallVariant1DiscriminatorType.Exotel)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ConversationHistoryExotelPhoneCallModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ConversationHistoryExotelPhoneCallModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ConversationHistoryExotelPhoneCallModel)}");
+                exotel = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel? sipTrunking = default;
             if (discriminator?.Type == global::ElevenLabs.ConversationHistoryMetadataCommonModelPhoneCallVariant1DiscriminatorType.SipTrunking)
             {
@@ -39,6 +46,8 @@ namespace ElevenLabs.JsonConverters
             var __value = new global::ElevenLabs.PhoneCallVariant1(
                 discriminator?.Type,
                 twilio,
+
+                exotel,
 
                 sipTrunking
                 );
@@ -60,6 +69,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Twilio!, typeInfo);
+            }
+            else if (value.IsExotel)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ConversationHistoryExotelPhoneCallModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ConversationHistoryExotelPhoneCallModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ConversationHistoryExotelPhoneCallModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Exotel!, typeInfo);
             }
             else if (value.IsSipTrunking)
             {

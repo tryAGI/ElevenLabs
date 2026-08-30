@@ -4,16 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ConversationHistoryMetadataCommonModelPhoneCallVariant1DiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Exotel,
+        /// <summary>
+        ///
         /// </summary>
         SipTrunking,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Twilio,
     }
@@ -30,6 +34,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ConversationHistoryMetadataCommonModelPhoneCallVariant1DiscriminatorType.Exotel => "exotel",
                 ConversationHistoryMetadataCommonModelPhoneCallVariant1DiscriminatorType.SipTrunking => "sip_trunking",
                 ConversationHistoryMetadataCommonModelPhoneCallVariant1DiscriminatorType.Twilio => "twilio",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -42,6 +47,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "exotel" => ConversationHistoryMetadataCommonModelPhoneCallVariant1DiscriminatorType.Exotel,
                 "sip_trunking" => ConversationHistoryMetadataCommonModelPhoneCallVariant1DiscriminatorType.SipTrunking,
                 "twilio" => ConversationHistoryMetadataCommonModelPhoneCallVariant1DiscriminatorType.Twilio,
                 _ => null,

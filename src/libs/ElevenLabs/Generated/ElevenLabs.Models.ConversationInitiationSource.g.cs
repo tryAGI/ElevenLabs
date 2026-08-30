@@ -10,91 +10,111 @@ namespace ElevenLabs
     public enum ConversationInitiationSource
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AndroidSdk,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Audiocodes,
+        /// <summary>
+        ///
+        /// </summary>
+        Avaya,
+        /// <summary>
+        ///
+        /// </summary>
+        Exotel,
+        /// <summary>
+        ///
         /// </summary>
         FlutterSdk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FreshdeskIntegration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Genesys,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GenesysBotConnector,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         IntercomIntegration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JsSdk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NodeJsSdk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PythonSdk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReactNativeSdk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReactSdk,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        SalesforceIntegration,
+        /// <summary>
+        ///
         /// </summary>
         SipTrunk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SlackIntegration,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        SubagentTool,
+        /// <summary>
+        ///
         /// </summary>
         SwiftSdk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TelegramIntegration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TemplatePreview,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Twilio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TwilioSms,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unknown,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Whatsapp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Widget,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ZendeskIntegration,
     }
@@ -112,6 +132,9 @@ namespace ElevenLabs
             return value switch
             {
                 ConversationInitiationSource.AndroidSdk => "android_sdk",
+                ConversationInitiationSource.Audiocodes => "audiocodes",
+                ConversationInitiationSource.Avaya => "avaya",
+                ConversationInitiationSource.Exotel => "exotel",
                 ConversationInitiationSource.FlutterSdk => "flutter_sdk",
                 ConversationInitiationSource.FreshdeskIntegration => "freshdesk_integration",
                 ConversationInitiationSource.Genesys => "genesys",
@@ -122,8 +145,10 @@ namespace ElevenLabs
                 ConversationInitiationSource.PythonSdk => "python_sdk",
                 ConversationInitiationSource.ReactNativeSdk => "react_native_sdk",
                 ConversationInitiationSource.ReactSdk => "react_sdk",
+                ConversationInitiationSource.SalesforceIntegration => "salesforce_integration",
                 ConversationInitiationSource.SipTrunk => "sip_trunk",
                 ConversationInitiationSource.SlackIntegration => "slack_integration",
+                ConversationInitiationSource.SubagentTool => "subagent_tool",
                 ConversationInitiationSource.SwiftSdk => "swift_sdk",
                 ConversationInitiationSource.TelegramIntegration => "telegram_integration",
                 ConversationInitiationSource.TemplatePreview => "template_preview",
@@ -144,6 +169,9 @@ namespace ElevenLabs
             return value switch
             {
                 "android_sdk" => ConversationInitiationSource.AndroidSdk,
+                "audiocodes" => ConversationInitiationSource.Audiocodes,
+                "avaya" => ConversationInitiationSource.Avaya,
+                "exotel" => ConversationInitiationSource.Exotel,
                 "flutter_sdk" => ConversationInitiationSource.FlutterSdk,
                 "freshdesk_integration" => ConversationInitiationSource.FreshdeskIntegration,
                 "genesys" => ConversationInitiationSource.Genesys,
@@ -154,8 +182,10 @@ namespace ElevenLabs
                 "python_sdk" => ConversationInitiationSource.PythonSdk,
                 "react_native_sdk" => ConversationInitiationSource.ReactNativeSdk,
                 "react_sdk" => ConversationInitiationSource.ReactSdk,
+                "salesforce_integration" => ConversationInitiationSource.SalesforceIntegration,
                 "sip_trunk" => ConversationInitiationSource.SipTrunk,
                 "slack_integration" => ConversationInitiationSource.SlackIntegration,
+                "subagent_tool" => ConversationInitiationSource.SubagentTool,
                 "swift_sdk" => ConversationInitiationSource.SwiftSdk,
                 "telegram_integration" => ConversationInitiationSource.TelegramIntegration,
                 "template_preview" => ConversationInitiationSource.TemplatePreview,

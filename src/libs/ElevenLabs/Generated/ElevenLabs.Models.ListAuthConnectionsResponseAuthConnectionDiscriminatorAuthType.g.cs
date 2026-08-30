@@ -4,52 +4,60 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiIntegrationOauth2AuthCode,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiIntegrationOauth2CustomApp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BasicAuth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BearerAuth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CustomHeaderAuth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mtls,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Oauth2ClientCredentials,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Oauth2Jwt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PrivateKeyJwt,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        RefreshTokenAuth,
+        /// <summary>
+        ///
         /// </summary>
         SlackBotAuth,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        UrlSecret,
+        /// <summary>
+        ///
         /// </summary>
         WhatsappAuth,
     }
@@ -75,7 +83,9 @@ namespace ElevenLabs
                 ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.Oauth2ClientCredentials => "oauth2_client_credentials",
                 ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.Oauth2Jwt => "oauth2_jwt",
                 ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.PrivateKeyJwt => "private_key_jwt",
+                ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.RefreshTokenAuth => "refresh_token_auth",
                 ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.SlackBotAuth => "slack_bot_auth",
+                ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.UrlSecret => "url_secret",
                 ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.WhatsappAuth => "whatsapp_auth",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -96,7 +106,9 @@ namespace ElevenLabs
                 "oauth2_client_credentials" => ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.Oauth2ClientCredentials,
                 "oauth2_jwt" => ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.Oauth2Jwt,
                 "private_key_jwt" => ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.PrivateKeyJwt,
+                "refresh_token_auth" => ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.RefreshTokenAuth,
                 "slack_bot_auth" => ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.SlackBotAuth,
+                "url_secret" => ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.UrlSecret,
                 "whatsapp_auth" => ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType.WhatsappAuth,
                 _ => null,
             };

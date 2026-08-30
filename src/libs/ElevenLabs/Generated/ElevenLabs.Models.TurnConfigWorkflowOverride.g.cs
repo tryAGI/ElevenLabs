@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0,"use_llm_generated_message":false},"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0}
+    /// Example: {"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"merge_with_default_ignore_terms":false,"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"soft_timeout_config":{"message":"Hhmmmm...yeah.","timeout_seconds":-1.0,"use_llm_generated_message":false},"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_model":"turn_v3","turn_timeout":7.0}
     /// </summary>
     public sealed partial class TurnConfigWorkflowOverride
     {
@@ -57,6 +57,36 @@ namespace ElevenLabs
         public bool? RetranscribeOnTurnTimeout { get; set; }
 
         /// <summary>
+        /// Version of the turn detection model to use.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("turn_model")]
+        public global::ElevenLabs.TurnModel? TurnModel { get; set; }
+
+        /// <summary>
+        /// List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("interruption_ignore_terms")]
+        public global::System.Collections.Generic.IList<string>? InterruptionIgnoreTerms { get; set; }
+
+        /// <summary>
+        /// Language codes for which preset ignore-term categories have been activated. Stored explicitly so display is not inferred from term overlap.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("interruption_ignore_term_languages")]
+        public global::System.Collections.Generic.IList<string>? InterruptionIgnoreTermLanguages { get; set; }
+
+        /// <summary>
+        /// When enabled, the curated default terms for interruption_ignore_term_languages are used in addition to interruption_ignore_terms.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("merge_with_default_ignore_terms")]
+        public bool? MergeWithDefaultIgnoreTerms { get; set; }
+
+        /// <summary>
+        /// When interruptions are disabled, still transcribe what the user says so it can carry into the next turn. When off, user speech during a non-interruptible turn is ignored and won't trigger a turn.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transcribe_on_disabled_interruptions")]
+        public bool? TranscribeOnDisabledInterruptions { get; set; }
+
+        /// <summary>
         /// Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("soft_timeout_config")]
@@ -95,6 +125,21 @@ namespace ElevenLabs
         /// <param name="retranscribeOnTurnTimeout">
         /// When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.
         /// </param>
+        /// <param name="turnModel">
+        /// Version of the turn detection model to use.
+        /// </param>
+        /// <param name="interruptionIgnoreTerms">
+        /// List of terms that should not trigger an interruption when spoken by the user (e.g. 'gotcha', 'understood'). Uses case-insensitive exact matching.
+        /// </param>
+        /// <param name="interruptionIgnoreTermLanguages">
+        /// Language codes for which preset ignore-term categories have been activated. Stored explicitly so display is not inferred from term overlap.
+        /// </param>
+        /// <param name="mergeWithDefaultIgnoreTerms">
+        /// When enabled, the curated default terms for interruption_ignore_term_languages are used in addition to interruption_ignore_terms.
+        /// </param>
+        /// <param name="transcribeOnDisabledInterruptions">
+        /// When interruptions are disabled, still transcribe what the user says so it can carry into the next turn. When off, user speech during a non-interruptible turn is ignored and won't trigger a turn.
+        /// </param>
         /// <param name="softTimeoutConfig">
         /// Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses.
         /// </param>
@@ -110,6 +155,11 @@ namespace ElevenLabs
             global::ElevenLabs.SpellingPatience? spellingPatience,
             bool? speculativeTurn,
             bool? retranscribeOnTurnTimeout,
+            global::ElevenLabs.TurnModel? turnModel,
+            global::System.Collections.Generic.IList<string>? interruptionIgnoreTerms,
+            global::System.Collections.Generic.IList<string>? interruptionIgnoreTermLanguages,
+            bool? mergeWithDefaultIgnoreTerms,
+            bool? transcribeOnDisabledInterruptions,
             global::ElevenLabs.SoftTimeoutConfigWorkflowOverride? softTimeoutConfig)
         {
             this.TurnTimeout = turnTimeout;
@@ -120,6 +170,11 @@ namespace ElevenLabs
             this.SpellingPatience = spellingPatience;
             this.SpeculativeTurn = speculativeTurn;
             this.RetranscribeOnTurnTimeout = retranscribeOnTurnTimeout;
+            this.TurnModel = turnModel;
+            this.InterruptionIgnoreTerms = interruptionIgnoreTerms;
+            this.InterruptionIgnoreTermLanguages = interruptionIgnoreTermLanguages;
+            this.MergeWithDefaultIgnoreTerms = mergeWithDefaultIgnoreTerms;
+            this.TranscribeOnDisabledInterruptions = transcribeOnDisabledInterruptions;
             this.SoftTimeoutConfig = softTimeoutConfig;
         }
 

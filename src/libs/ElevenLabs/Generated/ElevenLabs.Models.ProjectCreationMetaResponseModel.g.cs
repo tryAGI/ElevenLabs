@@ -27,9 +27,9 @@ namespace ElevenLabs
         /// The type of the project creation action.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectCreationMetaResponseModelTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ProjectCreationMetaTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ProjectCreationMetaResponseModelType Type { get; set; }
+        public required global::ElevenLabs.ProjectCreationMetaType Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -55,7 +55,7 @@ namespace ElevenLabs
         public ProjectCreationMetaResponseModel(
             double creationProgress,
             global::ElevenLabs.ProjectCreationMetaResponseModelStatus status,
-            global::ElevenLabs.ProjectCreationMetaResponseModelType type)
+            global::ElevenLabs.ProjectCreationMetaType type)
         {
             this.CreationProgress = creationProgress;
             this.Status = status;

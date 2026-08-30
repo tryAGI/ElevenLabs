@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct PostDialDigitsVariant1 : global::System.IEquatable<PostDialDigitsVariant1>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PhoneNumberTransferPostDialDigitsVariant1DiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.PostDialDigitsStatic? Static { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Static))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsStatic => Static != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickStatic(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PostDialDigitsStatic PickStatic() => IsStatic
             ? Static!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Static' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.PostDialDigitsDynamicVariable? Dynamic { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Dynamic))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsDynamic => Dynamic != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDynamic(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.PostDialDigitsDynamicVariable PickDynamic() => IsDynamic
             ? Dynamic!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Dynamic' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator PostDialDigitsVariant1(global::ElevenLabs.PostDialDigitsStatic value) => new PostDialDigitsVariant1((global::ElevenLabs.PostDialDigitsStatic?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.PostDialDigitsStatic?(PostDialDigitsVariant1 @this) => @this.Static;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PostDialDigitsVariant1(global::ElevenLabs.PostDialDigitsStatic? value)
         {
@@ -106,22 +106,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static PostDialDigitsVariant1 FromStatic(global::ElevenLabs.PostDialDigitsStatic? value) => new PostDialDigitsVariant1(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator PostDialDigitsVariant1(global::ElevenLabs.PostDialDigitsDynamicVariable value) => new PostDialDigitsVariant1((global::ElevenLabs.PostDialDigitsDynamicVariable?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.PostDialDigitsDynamicVariable?(PostDialDigitsVariant1 @this) => @this.Dynamic;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PostDialDigitsVariant1(global::ElevenLabs.PostDialDigitsDynamicVariable? value)
         {
@@ -129,12 +129,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static PostDialDigitsVariant1 FromDynamic(global::ElevenLabs.PostDialDigitsDynamicVariable? value) => new PostDialDigitsVariant1(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PostDialDigitsVariant1(
             global::ElevenLabs.PhoneNumberTransferPostDialDigitsVariant1DiscriminatorType? type,
@@ -149,23 +149,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Dynamic as object ??
-            Static as object 
+            Static as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Static?.ToString() ??
-            Dynamic?.ToString() 
+            Dynamic?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -173,7 +173,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.PostDialDigitsStatic, TResult>? @static = null,
@@ -198,7 +198,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.PostDialDigitsStatic>? @static = null,
@@ -222,7 +222,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.PostDialDigitsStatic>? @static = null,
@@ -245,7 +245,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -266,18 +266,18 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(PostDialDigitsVariant1 other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PostDialDigitsStatic?>.Default.Equals(Static, other.Static) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PostDialDigitsDynamicVariable?>.Default.Equals(Dynamic, other.Dynamic) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PostDialDigitsDynamicVariable?>.Default.Equals(Dynamic, other.Dynamic)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(PostDialDigitsVariant1 obj1, PostDialDigitsVariant1 obj2)
         {
@@ -285,7 +285,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(PostDialDigitsVariant1 obj1, PostDialDigitsVariant1 obj2)
         {
@@ -293,7 +293,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

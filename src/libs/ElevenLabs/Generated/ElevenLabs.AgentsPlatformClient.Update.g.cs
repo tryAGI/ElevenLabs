@@ -1,6 +1,8 @@
 
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial class AgentsPlatformClient
@@ -55,7 +57,7 @@ namespace ElevenLabs
         /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="enableVersioningIfNotEnabled">
-        /// Enable versioning for the agent, if not already enabled<br/>
+        /// Deprecated: all agents are versioned. This parameter is ignored.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="branchId">
@@ -94,7 +96,7 @@ namespace ElevenLabs
         /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="enableVersioningIfNotEnabled">
-        /// Enable versioning for the agent, if not already enabled<br/>
+        /// Deprecated: all agents are versioned. This parameter is ignored.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="branchId">
@@ -181,7 +183,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -523,7 +525,7 @@ namespace ElevenLabs
         /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="enableVersioningIfNotEnabled">
-        /// Enable versioning for the agent, if not already enabled<br/>
+        /// Deprecated: all agents are versioned. This parameter is ignored.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="branchId">
@@ -548,6 +550,9 @@ namespace ElevenLabs
         /// <param name="versionDescription">
         /// Description for this version when publishing changes (only applicable for versioned agents)
         /// </param>
+        /// <param name="procedures">
+        /// Procedure versions to publish, keyed by procedure_id. When provided, this map replaces the procedures from the current draft or branch tip. When omitted or null, unpublished procedure edits are used if present; otherwise, the branch tip's procedures are retained. Pass an empty object to remove all procedures.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -561,6 +566,7 @@ namespace ElevenLabs
             string? name = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             string? versionDescription = default,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureVersionRef>? procedures = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -572,6 +578,7 @@ namespace ElevenLabs
                 Name = name,
                 Tags = tags,
                 VersionDescription = versionDescription,
+                Procedures = procedures,
             };
 
             return await UpdateAsync(

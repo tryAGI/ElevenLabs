@@ -9,7 +9,7 @@ namespace ElevenLabs.Realtime
     public enum SessionStartedPayloadMessageType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SessionStarted,
     }

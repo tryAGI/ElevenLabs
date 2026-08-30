@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ToolUsageStatsResponseModel
     {
@@ -16,7 +16,7 @@ namespace ElevenLabs
         public int? TotalCalls { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("avg_latency_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]

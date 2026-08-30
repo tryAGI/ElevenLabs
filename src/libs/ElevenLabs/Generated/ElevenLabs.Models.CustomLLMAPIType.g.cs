@@ -9,13 +9,17 @@ namespace ElevenLabs
     public enum CustomLLMAPIType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ChatCompletions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Responses,
+        /// <summary>
+        ///
+        /// </summary>
+        Websocket,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace ElevenLabs
             {
                 CustomLLMAPIType.ChatCompletions => "chat_completions",
                 CustomLLMAPIType.Responses => "responses",
+                CustomLLMAPIType.Websocket => "websocket",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace ElevenLabs
             {
                 "chat_completions" => CustomLLMAPIType.ChatCompletions,
                 "responses" => CustomLLMAPIType.Responses,
+                "websocket" => CustomLLMAPIType.Websocket,
                 _ => null,
             };
         }

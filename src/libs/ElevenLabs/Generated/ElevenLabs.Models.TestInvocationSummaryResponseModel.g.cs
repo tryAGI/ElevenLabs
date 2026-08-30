@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class TestInvocationSummaryResponseModel
     {
@@ -63,7 +63,7 @@ namespace ElevenLabs
         public required int PendingCount { get; set; }
 
         /// <summary>
-        /// Title of the test invocation - either the single test name or count of tests
+        /// Title of the test invocation - the folder name for folder runs, otherwise the single test name or count of tests
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -74,6 +74,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
         public global::ElevenLabs.ResourceAccessInfo? AccessInfo { get; set; }
+
+        /// <summary>
+        /// Number of times each test was repeated in this invocation<br/>
+        /// Default Value: 1
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("repeat_count")]
+        public int? RepeatCount { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -103,7 +110,7 @@ namespace ElevenLabs
         /// Number of test runs that are pending
         /// </param>
         /// <param name="title">
-        /// Title of the test invocation - either the single test name or count of tests
+        /// Title of the test invocation - the folder name for folder runs, otherwise the single test name or count of tests
         /// </param>
         /// <param name="agentId">
         /// The ID of the agent this test invocation belongs to
@@ -113,6 +120,10 @@ namespace ElevenLabs
         /// </param>
         /// <param name="accessInfo">
         /// The access information of the test invocation
+        /// </param>
+        /// <param name="repeatCount">
+        /// Number of times each test was repeated in this invocation<br/>
+        /// Default Value: 1
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -127,7 +138,8 @@ namespace ElevenLabs
             string title,
             string? agentId,
             string? branchId,
-            global::ElevenLabs.ResourceAccessInfo? accessInfo)
+            global::ElevenLabs.ResourceAccessInfo? accessInfo,
+            int? repeatCount)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.AgentId = agentId;
@@ -139,6 +151,7 @@ namespace ElevenLabs
             this.PendingCount = pendingCount;
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.AccessInfo = accessInfo;
+            this.RepeatCount = repeatCount;
         }
 
         /// <summary>

@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ChapterContentBlockInputModelSubType2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         H1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         H2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         H3,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         P,
     }

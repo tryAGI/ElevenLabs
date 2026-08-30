@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetSecretDependenciesResponseModelDependenciesVariant2ItemDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Available,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unknown,
     }

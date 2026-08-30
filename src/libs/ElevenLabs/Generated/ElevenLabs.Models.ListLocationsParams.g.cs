@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Params + Reception-proxied ``run()`` for list_locations.
     /// </summary>
     public sealed partial class ListLocationsParams
     {

@@ -4,52 +4,52 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ColumnUnit
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Credits,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Duration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Eur,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Inr,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Min,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ms,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pln,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rating,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ratio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         S,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Usd,
     }

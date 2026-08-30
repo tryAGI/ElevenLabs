@@ -34,6 +34,7 @@ namespace ElevenLabs
             ref string? search,
             ref int? pageSize,
             ref global::ElevenLabs.UsersSortBy? sortBy,
+            ref global::ElevenLabs.SortDirection? sortDirection,
             ref string? cursor);
         partial void PrepareList3Request(
             global::System.Net.Http.HttpClient httpClient,
@@ -45,6 +46,7 @@ namespace ElevenLabs
             string? search,
             int? pageSize,
             global::ElevenLabs.UsersSortBy? sortBy,
+            global::ElevenLabs.SortDirection? sortDirection,
             string? cursor);
         partial void ProcessList3Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -82,6 +84,10 @@ namespace ElevenLabs
         /// The field to sort the results by. Defaults to last_contact_unix_secs.<br/>
         /// Default Value: last_contact_unix_secs
         /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: desc
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -96,6 +102,7 @@ namespace ElevenLabs
             string? search = default,
             int? pageSize = default,
             global::ElevenLabs.UsersSortBy? sortBy = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -108,6 +115,7 @@ namespace ElevenLabs
                 search: search,
                 pageSize: pageSize,
                 sortBy: sortBy,
+                sortDirection: sortDirection,
                 cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -142,6 +150,10 @@ namespace ElevenLabs
         /// The field to sort the results by. Defaults to last_contact_unix_secs.<br/>
         /// Default Value: last_contact_unix_secs
         /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: desc
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -156,6 +168,7 @@ namespace ElevenLabs
             string? search = default,
             int? pageSize = default,
             global::ElevenLabs.UsersSortBy? sortBy = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -171,6 +184,7 @@ namespace ElevenLabs
                 search: ref search,
                 pageSize: ref pageSize,
                 sortBy: ref sortBy,
+                sortDirection: ref sortDirection,
                 cursor: ref cursor);
 
 
@@ -207,6 +221,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("sort_by", sortBy?.ToValueString())
+                                .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
                                 .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -236,7 +251,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -256,6 +271,7 @@ namespace ElevenLabs
                     search: search,
                     pageSize: pageSize,
                     sortBy: sortBy,
+                    sortDirection: sortDirection,
                     cursor: cursor);
 
                 return __httpRequest;
@@ -568,5 +584,70 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps List3Async as an IAsyncEnumerable&lt;global::ElevenLabs.ConversationUserResponseModel&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="agentId">
+        /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
+        /// </param>
+        /// <param name="branchId">
+        /// Filter conversations by branch ID.
+        /// </param>
+        /// <param name="callStartBeforeUnix">
+        /// Unix timestamp (in seconds) to filter conversations up to this start date.
+        /// </param>
+        /// <param name="callStartAfterUnix">
+        /// Unix timestamp (in seconds) to filter conversations after to this start date.
+        /// </param>
+        /// <param name="search">
+        /// Search/filter by user ID (exact match).
+        /// </param>
+        /// <param name="pageSize">
+        /// How many users to return at maximum. Defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="sortBy">
+        /// The field to sort the results by. Defaults to last_contact_unix_secs.<br/>
+        /// Default Value: last_contact_unix_secs
+        /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: desc
+        /// </param>
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ConversationUserResponseModel> List3AutoPagingAsync(
+              string? agentId = default,
+            string? branchId = default,
+            int? callStartBeforeUnix = default,
+            int? callStartAfterUnix = default,
+            string? search = default,
+            int? pageSize = default,
+            global::ElevenLabs.UsersSortBy? sortBy = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetConversationUsersPageResponseModel, global::ElevenLabs.ConversationUserResponseModel>(
+                fetchPage: (__cursor, __ct) => List3Async(
+                    agentId: agentId,
+                    branchId: branchId,
+                    callStartBeforeUnix: callStartBeforeUnix,
+                    callStartAfterUnix: callStartAfterUnix,
+                    search: search,
+                    pageSize: pageSize,
+                    sortBy: sortBy,
+                    sortDirection: sortDirection,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.ConversationUserResponseModel>?)__response.Users,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

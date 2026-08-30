@@ -151,14 +151,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(agentId ?? string.Empty),
-                                name: "\"agent_id\"");
-
                             var __contentAvatarFile = new global::System.Net.Http.ByteArrayContent(request.AvatarFile ?? global::System.Array.Empty<byte>());
                             __contentAvatarFile.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
                                 request.AvatarFilename is null
@@ -649,14 +645,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(agentId ?? string.Empty),
-                                name: "\"agent_id\"");
-
                             var __contentAvatarFile = new global::System.Net.Http.StreamContent(avatarFile);
                             __contentAvatarFile.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
                                 request.AvatarFilename is null
@@ -1103,14 +1095,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(agentId ?? string.Empty),
-                                name: "\"agent_id\"");
-
                             var __contentAvatarFile = new global::System.Net.Http.StreamContent(avatarFile);
                             __contentAvatarFile.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
                                 request.AvatarFilename is null

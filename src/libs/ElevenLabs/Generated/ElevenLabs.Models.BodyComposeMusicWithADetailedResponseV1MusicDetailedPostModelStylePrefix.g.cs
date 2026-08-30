@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Music,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sfx,
     }

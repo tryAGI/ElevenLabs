@@ -4,36 +4,36 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConversationHistoryAnalysisCommonModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("evaluation_criteria_results")]
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? EvaluationCriteriaResults { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data_collection_results")]
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DataCollectionResultCommonModel>? DataCollectionResults { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("evaluation_criteria_results_list")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? EvaluationCriteriaResultsList { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data_collection_results_list")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.DataCollectionResultCommonModel>? DataCollectionResultsList { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_successful")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.EvaluationSuccessResultJsonConverter))]
@@ -41,20 +41,26 @@ namespace ElevenLabs
         public required global::ElevenLabs.EvaluationSuccessResult CallSuccessful { get; set; }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("call_success_score")]
+        public double? CallSuccessScore { get; set; }
+
+        /// <summary>
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript_summary")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string TranscriptSummary { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_summary_title")]
         public string? CallSummaryTitle { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("scoped")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.ScopedAnalysisResult>? Scoped { get; set; }
@@ -74,6 +80,7 @@ namespace ElevenLabs
         /// <param name="dataCollectionResults"></param>
         /// <param name="evaluationCriteriaResultsList"></param>
         /// <param name="dataCollectionResultsList"></param>
+        /// <param name="callSuccessScore"></param>
         /// <param name="callSummaryTitle"></param>
         /// <param name="scoped"></param>
 #if NET7_0_OR_GREATER
@@ -86,6 +93,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DataCollectionResultCommonModel>? dataCollectionResults,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? evaluationCriteriaResultsList,
             global::System.Collections.Generic.IList<global::ElevenLabs.DataCollectionResultCommonModel>? dataCollectionResultsList,
+            double? callSuccessScore,
             string? callSummaryTitle,
             global::System.Collections.Generic.IList<global::ElevenLabs.ScopedAnalysisResult>? scoped)
         {
@@ -94,6 +102,7 @@ namespace ElevenLabs
             this.EvaluationCriteriaResultsList = evaluationCriteriaResultsList;
             this.DataCollectionResultsList = dataCollectionResultsList;
             this.CallSuccessful = callSuccessful;
+            this.CallSuccessScore = callSuccessScore;
             this.TranscriptSummary = transcriptSummary ?? throw new global::System.ArgumentNullException(nameof(transcriptSummary));
             this.CallSummaryTitle = callSummaryTitle;
             this.Scoped = scoped;

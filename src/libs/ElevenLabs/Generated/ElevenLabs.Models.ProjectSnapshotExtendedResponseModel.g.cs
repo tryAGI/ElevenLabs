@@ -49,7 +49,7 @@ namespace ElevenLabs
         public object? ZipUpload { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_alignments")]
         [global::System.Text.Json.Serialization.JsonRequired]

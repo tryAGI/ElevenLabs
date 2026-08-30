@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum Currency
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Eur,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Inr,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pln,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Usd,
     }

@@ -5,12 +5,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ASTLLMNodeInput : global::System.IEquatable<ASTLLMNodeInput>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ASTLLMNodeInputASTLLMNode? ASTLLMNode1 { get; init; }
@@ -19,7 +19,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ASTLLMNode1))]
@@ -27,7 +27,7 @@ namespace ElevenLabs
         public bool IsASTLLMNode1 => ASTLLMNode1 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickASTLLMNode1(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTLLMNodeInputASTLLMNode PickASTLLMNode1() => IsASTLLMNode1
             ? ASTLLMNode1!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ASTLLMNode1' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ASTLLMNodeInputASTLLMNode2? ASTLLMNode2 { get; init; }
@@ -56,7 +56,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ASTLLMNode2))]
@@ -64,7 +64,7 @@ namespace ElevenLabs
         public bool IsASTLLMNode2 => ASTLLMNode2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickASTLLMNode2(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ASTLLMNodeInputASTLLMNode2 PickASTLLMNode2() => IsASTLLMNode2
             ? ASTLLMNode2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ASTLLMNode2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTLLMNodeInput(global::ElevenLabs.ASTLLMNodeInputASTLLMNode value) => new ASTLLMNodeInput((global::ElevenLabs.ASTLLMNodeInputASTLLMNode?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTLLMNodeInputASTLLMNode?(ASTLLMNodeInput @this) => @this.ASTLLMNode1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTLLMNodeInput(global::ElevenLabs.ASTLLMNodeInputASTLLMNode? value)
         {
@@ -101,22 +101,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTLLMNodeInput FromASTLLMNode1(global::ElevenLabs.ASTLLMNodeInputASTLLMNode? value) => new ASTLLMNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ASTLLMNodeInput(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2 value) => new ASTLLMNodeInput((global::ElevenLabs.ASTLLMNodeInputASTLLMNode2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ASTLLMNodeInputASTLLMNode2?(ASTLLMNodeInput @this) => @this.ASTLLMNode2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTLLMNodeInput(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2? value)
         {
@@ -124,12 +124,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ASTLLMNodeInput FromASTLLMNode2(global::ElevenLabs.ASTLLMNodeInputASTLLMNode2? value) => new ASTLLMNodeInput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ASTLLMNodeInput(
             global::ElevenLabs.ASTLLMNodeInputASTLLMNode? aSTLLMNode1,
@@ -141,23 +141,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             ASTLLMNode2 as object ??
-            ASTLLMNode1 as object 
+            ASTLLMNode1 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             ASTLLMNode1?.ToString() ??
-            ASTLLMNode2?.ToString() 
+            ASTLLMNode2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.ASTLLMNodeInputASTLLMNode, TResult>? aSTLLMNode1 = null,
@@ -190,7 +190,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.ASTLLMNodeInputASTLLMNode>? aSTLLMNode1 = null,
@@ -214,7 +214,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.ASTLLMNodeInputASTLLMNode>? aSTLLMNode1 = null,
@@ -237,7 +237,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ASTLLMNodeInput other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTLLMNodeInputASTLLMNode?>.Default.Equals(ASTLLMNode1, other.ASTLLMNode1) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTLLMNodeInputASTLLMNode2?>.Default.Equals(ASTLLMNode2, other.ASTLLMNode2) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ASTLLMNodeInputASTLLMNode2?>.Default.Equals(ASTLLMNode2, other.ASTLLMNode2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ASTLLMNodeInput obj1, ASTLLMNodeInput obj2)
         {
@@ -277,7 +277,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ASTLLMNodeInput obj1, ASTLLMNodeInput obj2)
         {
@@ -285,7 +285,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -79,6 +79,7 @@ public sealed partial class SpeechToText2Client
         AddQuery(query, "audio_format", options.AudioFormat.ToApiValue());
         AddQuery(query, "commit_strategy", options.CommitStrategy.ToApiValue());
         AddQuery(query, "language_code", options.LanguageCode);
+        AddQuery(query, "keyterms", options.Keyterms);
 
         if (options.IncludeTimestamps)
         {
@@ -137,6 +138,19 @@ public sealed partial class SpeechToText2Client
         }
 
         query.Add($"{name}={Uri.EscapeDataString(value)}");
+    }
+
+    private static void AddQuery(List<string> query, string name, IEnumerable<string>? values)
+    {
+        if (values is null)
+        {
+            return;
+        }
+
+        foreach (var value in values)
+        {
+            AddQuery(query, name, value);
+        }
     }
 
     private static string CombinePaths(string basePath, string relativePath)

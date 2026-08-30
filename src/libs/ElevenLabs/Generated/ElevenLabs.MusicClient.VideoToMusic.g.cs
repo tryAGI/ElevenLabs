@@ -156,18 +156,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            if (outputFormat != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((outputFormat).HasValue ? (outputFormat).GetValueOrDefault().ToValueString() : string.Empty),
-                                    name: "\"output_format\"");
-
-                            }
                             for (var __iVideos = 0; __iVideos < request.Videos.Count; __iVideos++)
                             {
                                 var __contentVideos = new global::System.Net.Http.ByteArrayContent(request.Videos[__iVideos]);
@@ -194,7 +186,7 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Tags, x => x))}]"),
+                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Tags!, x => x))}]"),
                                     name: "\"tags\"");
 
                             }
@@ -408,7 +400,7 @@ namespace ElevenLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 403)
                             {
                                 string? __content_403 = null;
@@ -440,7 +432,7 @@ namespace ElevenLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 422)
                             {
                                 string? __content_422 = null;
@@ -607,18 +599,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            if (outputFormat != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((outputFormat).HasValue ? (outputFormat).GetValueOrDefault().ToValueString() : string.Empty),
-                                    name: "\"output_format\"");
-
-                            }
                             for (var __iVideos = 0; __iVideos < request.Videos.Count; __iVideos++)
                             {
                                 var __contentVideos = new global::System.Net.Http.ByteArrayContent(request.Videos[__iVideos]);
@@ -645,7 +629,7 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Tags, x => x))}]"),
+                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Tags!, x => x))}]"),
                                     name: "\"tags\"");
 
                             }
@@ -859,7 +843,7 @@ namespace ElevenLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 403)
                             {
                                 string? __content_403 = null;
@@ -891,7 +875,7 @@ namespace ElevenLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 422)
                             {
                                 string? __content_422 = null;
@@ -1023,7 +1007,7 @@ namespace ElevenLabs
         ///             One or more video files sent via FormData array (multipart/form-data). They will be combined into one codec in order.<br/>
         ///             A maximum of 10 videos is allowed, where the total size of the combined video is limited to 200MB.<br/>
         ///             In total, the video can be up to 600 seconds long. Note that combining multiple videos may increase the request duration significantly. If possible, combine the videos beforehand.<br/>
-        ///             
+        ///
         /// </param>
         /// <param name="description">
         /// Optional text description of the music you want. A maximum of 1000 characters is allowed.
@@ -1048,7 +1032,7 @@ namespace ElevenLabs
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
-            global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? modelId = default,
+            global::ElevenLabs.MusicModelID? modelId = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -1109,7 +1093,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IReadOnlyList<string>? videosFileNames = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
-            global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? modelId = default,
+            global::ElevenLabs.MusicModelID? modelId = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -1187,18 +1171,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            if (outputFormat != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((outputFormat).HasValue ? (outputFormat).GetValueOrDefault().ToValueString() : string.Empty),
-                                    name: "\"output_format\"");
-
-                            }
                             for (var __iVideos = 0; __iVideos < videos.Count; __iVideos++)
                             {
                                 var __fileNameVideos = videosFileNames != null &&
@@ -1257,7 +1233,7 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Tags, x => x))}]"),
+                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Tags!, x => x))}]"),
                                     name: "\"tags\"");
 
                             }
@@ -1471,7 +1447,7 @@ namespace ElevenLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 403)
                             {
                                 string? __content_403 = null;
@@ -1503,7 +1479,7 @@ namespace ElevenLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 422)
                             {
                                 string? __content_422 = null;
@@ -1655,7 +1631,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IReadOnlyList<string>? videosFileNames = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
-            global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? modelId = default,
+            global::ElevenLabs.MusicModelID? modelId = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -1733,18 +1709,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            if (outputFormat != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((outputFormat).HasValue ? (outputFormat).GetValueOrDefault().ToValueString() : string.Empty),
-                                    name: "\"output_format\"");
-
-                            }
                             for (var __iVideos = 0; __iVideos < videos.Count; __iVideos++)
                             {
                                 var __fileNameVideos = videosFileNames != null &&
@@ -1803,7 +1771,7 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Tags, x => x))}]"),
+                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Tags!, x => x))}]"),
                                     name: "\"tags\"");
 
                             }
@@ -2017,7 +1985,7 @@ namespace ElevenLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 403)
                             {
                                 string? __content_403 = null;
@@ -2049,7 +2017,7 @@ namespace ElevenLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 422)
                             {
                                 string? __content_422 = null;
@@ -2172,7 +2140,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IReadOnlyList<string>? videosFileNames = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
-            global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPostModelId? modelId = default,
+            global::ElevenLabs.MusicModelID? modelId = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -2250,18 +2218,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            if (outputFormat != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((outputFormat).HasValue ? (outputFormat).GetValueOrDefault().ToValueString() : string.Empty),
-                                    name: "\"output_format\"");
-
-                            }
                             for (var __iVideos = 0; __iVideos < videos.Count; __iVideos++)
                             {
                                 var __fileNameVideos = videosFileNames != null &&
@@ -2320,7 +2280,7 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Tags, x => x))}]"),
+                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Tags!, x => x))}]"),
                                     name: "\"tags\"");
 
                             }
@@ -2534,7 +2494,7 @@ namespace ElevenLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 403)
                             {
                                 string? __content_403 = null;
@@ -2566,7 +2526,7 @@ namespace ElevenLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 422)
                             {
                                 string? __content_422 = null;

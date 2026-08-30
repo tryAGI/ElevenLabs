@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum BodyDubAVideoOrAnAudioFileV1DubbingPostMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Automatic,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Manual,
     }

@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dynamic,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Static,
     }

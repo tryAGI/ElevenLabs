@@ -4,60 +4,72 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType
     {
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Dummy,
+        /// <summary>
+        ///
         /// </summary>
         EndCallSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         KnowledgeBaseRagSuccess,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        KnowledgeBaseSuccess,
+        /// <summary>
+        ///
         /// </summary>
         LanguageDetectionSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PlayDtmfError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PlayDtmfSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SkipTurnSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TestingToolResult,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TransferToAgentError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TransferToAgentSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TransferToNumberError,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        TransferToNumberExotelSuccess,
+        /// <summary>
+        ///
         /// </summary>
         TransferToNumberSipSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TransferToNumberTwilioSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VoicemailDetectionSuccess,
     }
@@ -74,8 +86,10 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.Dummy => "dummy",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.EndCallSuccess => "end_call_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.KnowledgeBaseRagSuccess => "knowledge_base_rag_success",
+                ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.KnowledgeBaseSuccess => "knowledge_base_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.LanguageDetectionSuccess => "language_detection_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.PlayDtmfError => "play_dtmf_error",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.PlayDtmfSuccess => "play_dtmf_success",
@@ -84,6 +98,7 @@ namespace ElevenLabs
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToAgentError => "transfer_to_agent_error",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToAgentSuccess => "transfer_to_agent_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberError => "transfer_to_number_error",
+                ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberExotelSuccess => "transfer_to_number_exotel_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberSipSuccess => "transfer_to_number_sip_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberTwilioSuccess => "transfer_to_number_twilio_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.VoicemailDetectionSuccess => "voicemail_detection_success",
@@ -97,8 +112,10 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "dummy" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.Dummy,
                 "end_call_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.EndCallSuccess,
                 "knowledge_base_rag_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.KnowledgeBaseRagSuccess,
+                "knowledge_base_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.KnowledgeBaseSuccess,
                 "language_detection_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.LanguageDetectionSuccess,
                 "play_dtmf_error" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.PlayDtmfError,
                 "play_dtmf_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.PlayDtmfSuccess,
@@ -107,6 +124,7 @@ namespace ElevenLabs
                 "transfer_to_agent_error" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToAgentError,
                 "transfer_to_agent_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToAgentSuccess,
                 "transfer_to_number_error" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberError,
+                "transfer_to_number_exotel_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberExotelSuccess,
                 "transfer_to_number_sip_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberSipSuccess,
                 "transfer_to_number_twilio_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberTwilioSuccess,
                 "voicemail_detection_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.VoicemailDetectionSuccess,

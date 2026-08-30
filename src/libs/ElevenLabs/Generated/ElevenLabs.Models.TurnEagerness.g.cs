@@ -10,15 +10,15 @@ namespace ElevenLabs
     public enum TurnEagerness
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Eager,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Normal,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Patient,
     }

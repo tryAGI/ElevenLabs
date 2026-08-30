@@ -4,25 +4,25 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BatchCallWhatsAppParams
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_phone_number_id")]
         public string? WhatsappPhoneNumberId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_call_permission_request_template_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string WhatsappCallPermissionRequestTemplateName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp_call_permission_request_template_language_code")]
         [global::System.Text.Json.Serialization.JsonRequired]

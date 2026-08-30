@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Optional source to extract the section from. Used for inpainting. Only available to enterprise clients with access to the inpainting feature.
+    /// Optional source to extract the section from. Used for inpainting.
     /// </summary>
     public sealed partial class SongSectionSourceFrom
     {

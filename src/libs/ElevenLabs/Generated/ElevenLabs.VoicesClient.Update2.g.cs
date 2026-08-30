@@ -151,14 +151,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(voiceId ?? string.Empty),
-                                name: "\"voice_id\"");
-
                             __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(request.Name ?? string.Empty),
                                 name: "\"name\"");

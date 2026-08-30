@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BatchFailureResponseModel
     {
@@ -16,21 +16,21 @@ namespace ElevenLabs
         public string Status { get; set; } = "failure";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error_code")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int ErrorCode { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error_status")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ErrorStatus { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error_message")]
         [global::System.Text.Json.Serialization.JsonRequired]

@@ -4,33 +4,33 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodyHandleAnOutboundCallViaTwilioV1ConvaiTwilioOutboundCallPost
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string AgentId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_phone_number_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string AgentPhoneNumberId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("to_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ToNumber { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_client_data")]
         public global::ElevenLabs.ConversationInitiationClientDataRequestInput? ConversationInitiationClientData { get; set; }
@@ -42,7 +42,7 @@ namespace ElevenLabs
         public bool? CallRecordingEnabled { get; set; }
 
         /// <summary>
-        /// Default Value: {"ringing_timeout_secs":60}
+        /// Default Value: {"ringing_timeout_secs":60,"twilio_call_recording_enabled":false}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("telephony_call_config")]
         public global::ElevenLabs.TelephonyCallConfig? TelephonyCallConfig { get; set; }
@@ -64,7 +64,7 @@ namespace ElevenLabs
         /// Whether let Twilio record the call.
         /// </param>
         /// <param name="telephonyCallConfig">
-        /// Default Value: {"ringing_timeout_secs":60}
+        /// Default Value: {"ringing_timeout_secs":60,"twilio_call_recording_enabled":false}
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

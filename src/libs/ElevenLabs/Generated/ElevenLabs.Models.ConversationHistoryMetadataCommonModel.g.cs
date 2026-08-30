@@ -4,44 +4,44 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConversationHistoryMetadataCommonModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_time_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int StartTimeUnixSecs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("accepted_time_unix_secs")]
         public int? AcceptedTimeUnixSecs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("call_duration_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int CallDurationSecs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cost")]
         public int? Cost { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deletion_settings")]
         public global::ElevenLabs.ConversationDeletionSettings? DeletionSettings { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("feedback")]
         public global::ElevenLabs.ConversationHistoryFeedbackCommonModel? Feedback { get; set; }
@@ -54,49 +54,49 @@ namespace ElevenLabs
         public global::ElevenLabs.AuthorizationMethod? AuthorizationMethod { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("charging")]
         public global::ElevenLabs.ConversationChargingCommonModel? Charging { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_call")]
         public global::ElevenLabs.PhoneCallVariant1? PhoneCall { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("batch_call")]
         public global::ElevenLabs.ConversationHistoryBatchCallModel? BatchCall { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("termination_reason")]
         public string? TerminationReason { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public global::ElevenLabs.ConversationHistoryErrorCommonModel? Error { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("warnings")]
         public global::System.Collections.Generic.IList<string>? Warnings { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("main_language")]
         public string? MainLanguage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rag_usage")]
         public global::ElevenLabs.ConversationHistoryRagUsageCommonModel? RagUsage { get; set; }
@@ -108,19 +108,19 @@ namespace ElevenLabs
         public bool? TextOnly { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("features_usage")]
         public global::ElevenLabs.FeaturesUsageCommonModel? FeaturesUsage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("eleven_assistant")]
         public global::ElevenLabs.ConversationHistoryElevenAssistantCommonModel? ElevenAssistant { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("initiator_id")]
         public string? InitiatorId { get; set; }
@@ -134,31 +134,31 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationInitiationSource? ConversationInitiationSource { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_source_version")]
         public string? ConversationInitiationSourceVersion { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("timezone")]
         public string? Timezone { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("async_metadata")]
         public global::ElevenLabs.AsyncConversationMetadata? AsyncMetadata { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("whatsapp")]
         public global::ElevenLabs.WhatsAppConversationInfo? Whatsapp { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sms")]
         public global::ElevenLabs.SMSConversationInfo? Sms { get; set; }
@@ -178,10 +178,17 @@ namespace ElevenLabs
         public global::ElevenLabs.AgentDefinitionSource? AgentLastUpdatedFrom { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_rewards")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationVoiceRewardModel>? VoiceRewards { get; set; }
+
+        /// <summary>
+        /// Total fiat cost of the conversation in USD, i.e. the sum of the LLM price and the non-LLM platform price (the fiat analogue of ``cost``). ``None`` when neither is set (e.g. conversations that predate fiat cost tracking).<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cost_fiat")]
+        public double? CostFiat { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -231,6 +238,10 @@ namespace ElevenLabs
         /// Default Value: unknown
         /// </param>
         /// <param name="voiceRewards"></param>
+        /// <param name="costFiat">
+        /// Total fiat cost of the conversation in USD, i.e. the sum of the LLM price and the non-LLM platform price (the fiat analogue of ``cost``). ``None`` when neither is set (e.g. conversations that predate fiat cost tracking).<br/>
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -262,7 +273,8 @@ namespace ElevenLabs
             global::ElevenLabs.SMSConversationInfo? sms,
             global::ElevenLabs.AgentDefinitionSource? agentCreatedFrom,
             global::ElevenLabs.AgentDefinitionSource? agentLastUpdatedFrom,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationVoiceRewardModel>? voiceRewards)
+            global::System.Collections.Generic.IList<global::ElevenLabs.ConversationVoiceRewardModel>? voiceRewards,
+            double? costFiat)
         {
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.AcceptedTimeUnixSecs = acceptedTimeUnixSecs;
@@ -292,6 +304,7 @@ namespace ElevenLabs
             this.AgentCreatedFrom = agentCreatedFrom;
             this.AgentLastUpdatedFrom = agentLastUpdatedFrom;
             this.VoiceRewards = voiceRewards;
+            this.CostFiat = costFiat;
         }
 
         /// <summary>

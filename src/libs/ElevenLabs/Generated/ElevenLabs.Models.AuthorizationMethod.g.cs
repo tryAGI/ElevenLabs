@@ -9,43 +9,51 @@ namespace ElevenLabs
     public enum AuthorizationMethod
     {
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        AudiocodesApiKey,
+        /// <summary>
+        ///
         /// </summary>
         AuthorizationHeader,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        AvayaApiKey,
+        /// <summary>
+        ///
         /// </summary>
         GenesysApiKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Invalid,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LivekitToken,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LivekitTokenWebsite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Public,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ShareableLink,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SignedUrl,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sms,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Whatsapp,
     }
@@ -62,7 +70,9 @@ namespace ElevenLabs
         {
             return value switch
             {
+                AuthorizationMethod.AudiocodesApiKey => "audiocodes_api_key",
                 AuthorizationMethod.AuthorizationHeader => "authorization_header",
+                AuthorizationMethod.AvayaApiKey => "avaya_api_key",
                 AuthorizationMethod.GenesysApiKey => "genesys_api_key",
                 AuthorizationMethod.Invalid => "invalid",
                 AuthorizationMethod.LivekitToken => "livekit_token",
@@ -82,7 +92,9 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "audiocodes_api_key" => AuthorizationMethod.AudiocodesApiKey,
                 "authorization_header" => AuthorizationMethod.AuthorizationHeader,
+                "avaya_api_key" => AuthorizationMethod.AvayaApiKey,
                 "genesys_api_key" => AuthorizationMethod.GenesysApiKey,
                 "invalid" => AuthorizationMethod.Invalid,
                 "livekit_token" => AuthorizationMethod.LivekitToken,

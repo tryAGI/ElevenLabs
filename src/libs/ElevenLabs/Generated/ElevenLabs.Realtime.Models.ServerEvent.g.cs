@@ -5,12 +5,12 @@
 namespace ElevenLabs.Realtime
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ServerEvent : global::System.IEquatable<ServerEvent>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.Realtime.ServerEventDiscriminatorMessageType? MessageType { get; }
 
@@ -24,7 +24,7 @@ namespace ElevenLabs.Realtime
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SessionStarted))]
@@ -32,7 +32,7 @@ namespace ElevenLabs.Realtime
         public bool IsSessionStarted => SessionStarted != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSessionStarted(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.Realtime.SessionStartedPayload PickSessionStarted() => IsSessionStarted
             ? SessionStarted!
@@ -61,7 +61,7 @@ namespace ElevenLabs.Realtime
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PartialTranscript))]
@@ -69,7 +69,7 @@ namespace ElevenLabs.Realtime
         public bool IsPartialTranscript => PartialTranscript != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickPartialTranscript(
 #if NET6_0_OR_GREATER
@@ -82,7 +82,7 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.Realtime.PartialTranscriptPayload PickPartialTranscript() => IsPartialTranscript
             ? PartialTranscript!
@@ -98,7 +98,7 @@ namespace ElevenLabs.Realtime
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CommittedTranscript))]
@@ -106,7 +106,7 @@ namespace ElevenLabs.Realtime
         public bool IsCommittedTranscript => CommittedTranscript != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCommittedTranscript(
 #if NET6_0_OR_GREATER
@@ -119,7 +119,7 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.Realtime.CommittedTranscriptPayload PickCommittedTranscript() => IsCommittedTranscript
             ? CommittedTranscript!
@@ -135,7 +135,7 @@ namespace ElevenLabs.Realtime
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CommittedTranscriptWithTimestamps))]
@@ -143,7 +143,7 @@ namespace ElevenLabs.Realtime
         public bool IsCommittedTranscriptWithTimestamps => CommittedTranscriptWithTimestamps != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCommittedTranscriptWithTimestamps(
 #if NET6_0_OR_GREATER
@@ -156,7 +156,7 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload PickCommittedTranscriptWithTimestamps() => IsCommittedTranscriptWithTimestamps
             ? CommittedTranscriptWithTimestamps!
@@ -172,7 +172,7 @@ namespace ElevenLabs.Realtime
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Error))]
@@ -180,7 +180,7 @@ namespace ElevenLabs.Realtime
         public bool IsError => Error != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickError(
 #if NET6_0_OR_GREATER
@@ -193,23 +193,23 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.Realtime.ErrorPayload PickError() => IsError
             ? Error!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Error' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ServerEvent(global::ElevenLabs.Realtime.SessionStartedPayload value) => new ServerEvent((global::ElevenLabs.Realtime.SessionStartedPayload?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.Realtime.SessionStartedPayload?(ServerEvent @this) => @this.SessionStarted;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ServerEvent(global::ElevenLabs.Realtime.SessionStartedPayload? value)
         {
@@ -217,22 +217,22 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ServerEvent FromSessionStarted(global::ElevenLabs.Realtime.SessionStartedPayload? value) => new ServerEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ServerEvent(global::ElevenLabs.Realtime.PartialTranscriptPayload value) => new ServerEvent((global::ElevenLabs.Realtime.PartialTranscriptPayload?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.Realtime.PartialTranscriptPayload?(ServerEvent @this) => @this.PartialTranscript;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ServerEvent(global::ElevenLabs.Realtime.PartialTranscriptPayload? value)
         {
@@ -240,22 +240,22 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ServerEvent FromPartialTranscript(global::ElevenLabs.Realtime.PartialTranscriptPayload? value) => new ServerEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ServerEvent(global::ElevenLabs.Realtime.CommittedTranscriptPayload value) => new ServerEvent((global::ElevenLabs.Realtime.CommittedTranscriptPayload?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.Realtime.CommittedTranscriptPayload?(ServerEvent @this) => @this.CommittedTranscript;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ServerEvent(global::ElevenLabs.Realtime.CommittedTranscriptPayload? value)
         {
@@ -263,22 +263,22 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ServerEvent FromCommittedTranscript(global::ElevenLabs.Realtime.CommittedTranscriptPayload? value) => new ServerEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ServerEvent(global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload value) => new ServerEvent((global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload?(ServerEvent @this) => @this.CommittedTranscriptWithTimestamps;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ServerEvent(global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload? value)
         {
@@ -286,22 +286,22 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ServerEvent FromCommittedTranscriptWithTimestamps(global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload? value) => new ServerEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ServerEvent(global::ElevenLabs.Realtime.ErrorPayload value) => new ServerEvent((global::ElevenLabs.Realtime.ErrorPayload?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.Realtime.ErrorPayload?(ServerEvent @this) => @this.Error;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ServerEvent(global::ElevenLabs.Realtime.ErrorPayload? value)
         {
@@ -309,12 +309,12 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ServerEvent FromError(global::ElevenLabs.Realtime.ErrorPayload? value) => new ServerEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ServerEvent(
             global::ElevenLabs.Realtime.ServerEventDiscriminatorMessageType? messageType,
@@ -335,29 +335,29 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Error as object ??
             CommittedTranscriptWithTimestamps as object ??
             CommittedTranscript as object ??
             PartialTranscript as object ??
-            SessionStarted as object 
+            SessionStarted as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             SessionStarted?.ToString() ??
             PartialTranscript?.ToString() ??
             CommittedTranscript?.ToString() ??
             CommittedTranscriptWithTimestamps?.ToString() ??
-            Error?.ToString() 
+            Error?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -365,7 +365,7 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.Realtime.SessionStartedPayload, TResult>? sessionStarted = null,
@@ -405,7 +405,7 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.Realtime.SessionStartedPayload>? sessionStarted = null,
@@ -447,7 +447,7 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.Realtime.SessionStartedPayload>? sessionStarted = null,
@@ -485,7 +485,7 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -512,7 +512,7 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ServerEvent other)
         {
@@ -521,12 +521,12 @@ namespace ElevenLabs.Realtime
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.Realtime.PartialTranscriptPayload?>.Default.Equals(PartialTranscript, other.PartialTranscript) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.Realtime.CommittedTranscriptPayload?>.Default.Equals(CommittedTranscript, other.CommittedTranscript) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload?>.Default.Equals(CommittedTranscriptWithTimestamps, other.CommittedTranscriptWithTimestamps) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.Realtime.ErrorPayload?>.Default.Equals(Error, other.Error) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.Realtime.ErrorPayload?>.Default.Equals(Error, other.Error)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ServerEvent obj1, ServerEvent obj2)
         {
@@ -534,7 +534,7 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ServerEvent obj1, ServerEvent obj2)
         {
@@ -542,7 +542,7 @@ namespace ElevenLabs.Realtime
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -4,32 +4,48 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum OrderState
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Accepted,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Cancelled,
+        /// <summary>
+        ///
+        /// </summary>
+        Cancelling,
+        /// <summary>
+        ///
         /// </summary>
         Done,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Expired,
+        /// <summary>
+        ///
+        /// </summary>
+        Merged,
+        /// <summary>
+        ///
         /// </summary>
         Open,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Paid,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rejected,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Submitted,
     }
@@ -47,7 +63,11 @@ namespace ElevenLabs
             return value switch
             {
                 OrderState.Accepted => "accepted",
+                OrderState.Cancelled => "cancelled",
+                OrderState.Cancelling => "cancelling",
                 OrderState.Done => "done",
+                OrderState.Expired => "expired",
+                OrderState.Merged => "merged",
                 OrderState.Open => "open",
                 OrderState.Paid => "paid",
                 OrderState.Rejected => "rejected",
@@ -63,7 +83,11 @@ namespace ElevenLabs
             return value switch
             {
                 "accepted" => OrderState.Accepted,
+                "cancelled" => OrderState.Cancelled,
+                "cancelling" => OrderState.Cancelling,
                 "done" => OrderState.Done,
+                "expired" => OrderState.Expired,
+                "merged" => OrderState.Merged,
                 "open" => OrderState.Open,
                 "paid" => OrderState.Paid,
                 "rejected" => OrderState.Rejected,

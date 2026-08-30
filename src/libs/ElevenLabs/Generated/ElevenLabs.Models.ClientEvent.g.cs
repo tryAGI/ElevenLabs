@@ -4,104 +4,108 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ClientEvent
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AgentChatResponsePart,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AgentResponse,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AgentResponseComplete,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AgentResponseCorrection,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AgentResponseMetadata,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AgentToolRequest,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AgentToolResponse,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AgentToolResponseFullPayload,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AsrInitiationMetadata,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Audio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClientError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClientToolCall,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        ContextUsage,
+        /// <summary>
+        ///
         /// </summary>
         ConversationInitiationMetadata,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DtmfRequest,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GuardrailTriggered,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InternalTentativeAgentResponse,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InternalTurnProbability,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Interruption,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         McpConnectionStatus,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         McpToolCall,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ping,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TentativeUserTranscript,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UserTranscript,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VadScore,
     }
@@ -130,6 +134,7 @@ namespace ElevenLabs
                 ClientEvent.Audio => "audio",
                 ClientEvent.ClientError => "client_error",
                 ClientEvent.ClientToolCall => "client_tool_call",
+                ClientEvent.ContextUsage => "context_usage",
                 ClientEvent.ConversationInitiationMetadata => "conversation_initiation_metadata",
                 ClientEvent.DtmfRequest => "dtmf_request",
                 ClientEvent.GuardrailTriggered => "guardrail_triggered",
@@ -164,6 +169,7 @@ namespace ElevenLabs
                 "audio" => ClientEvent.Audio,
                 "client_error" => ClientEvent.ClientError,
                 "client_tool_call" => ClientEvent.ClientToolCall,
+                "context_usage" => ClientEvent.ContextUsage,
                 "conversation_initiation_metadata" => ClientEvent.ConversationInitiationMetadata,
                 "dtmf_request" => ClientEvent.DtmfRequest,
                 "guardrail_triggered" => ClientEvent.GuardrailTriggered,

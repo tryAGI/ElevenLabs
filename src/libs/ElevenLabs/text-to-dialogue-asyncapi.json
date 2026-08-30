@@ -1,0 +1,364 @@
+{
+  "asyncapi": "3.0.0",
+  "info": {
+    "title": "ElevenLabs Realtime Text to Dialogue",
+    "version": "1.0.0",
+    "description": "Stream expressive dialogue audio over a WebSocket by sending incremental text segments per registered voice.\n\nThe connection uses Eleven v3 dialogue models only (`model_id` must start with `eleven_v3`). The default model is `eleven_v3_conversational`.\n\n## Session setup\n- After connecting, the first JSON message **must** include `voices` (voice IDs to register for the session) and credentials if not already sent via headers or query string.\n- Optional `voice_settings` and `pronunciation_dictionary_locators` are only accepted on the first message.\n- For `eleven_v3_conversational`, only **one** voice ID may be registered. For `eleven_v3`, you may register up to **10** voices.\n\n## Streaming text\n- Send `inputs`: an array of `{ \"text\", \"voice_id\", \"new_turn\"? }`. Text for the same turn is buffered until the server has enough context (at least ~40 characters and 8 words), then partial audio chunks are emitted.\n- Set `new_turn` to `true` (or switch `voice_id`) to finalize the current prosody segment and start a new speaker turn.\n\n## Control messages\n- `flush`: force generation of any buffered text without closing the socket.\n- `close_socket`: flush remaining audio, send a final message, and close the connection.\n- `keep_alive`: reset the **20 second** receive timeout (no generation).\n\n## Authentication\nUse the `xi-api-key` or `Authorization` header, `single_use_token` query parameter, or include `xi_api_key`, `authorization`, or `single_use_token` in the first message body (same pattern as [Text to Speech WebSocket](/docs/api-reference/text-to-speech/v-1-text-to-speech-voice-id-stream-input)). Anonymous sessions are rejected.\n\nFor non-streaming dialogue over HTTP, see [Create dialogue](/docs/api-reference/text-to-dialogue/convert) and [Stream dialogue](/docs/api-reference/text-to-dialogue/stream).\n"
+  },
+  "servers": {
+    "production": {
+      "host": "api.elevenlabs.io",
+      "pathname": "/v1/text-to-dialogue/stream-input",
+      "protocol": "wss",
+      "description": "ElevenLabs production WebSocket server"
+    }
+  },
+  "channels": {
+    "dialogue": {
+      "address": "/v1/text-to-dialogue/stream-input",
+      "messages": {
+        "clientMessage": {
+          "$ref": "#/components/messages/ClientMessage"
+        },
+        "audioChunk": {
+          "$ref": "#/components/messages/AudioChunk"
+        },
+        "finalAudioForTurn": {
+          "$ref": "#/components/messages/FinalAudioForTurn"
+        },
+        "final": {
+          "$ref": "#/components/messages/Final"
+        },
+        "error": {
+          "$ref": "#/components/messages/Error"
+        }
+      }
+    }
+  },
+  "operations": {
+    "sendDialogueMessage": {
+      "action": "send",
+      "channel": {
+        "$ref": "#/channels/dialogue"
+      },
+      "summary": "Send dialogue text or a control message.",
+      "messages": [
+        {
+          "$ref": "#/channels/dialogue/messages/clientMessage"
+        }
+      ]
+    },
+    "receiveAudioChunk": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/dialogue"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/dialogue/messages/audioChunk"
+        }
+      ]
+    },
+    "receiveFinalAudioForTurn": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/dialogue"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/dialogue/messages/finalAudioForTurn"
+        }
+      ]
+    },
+    "receiveFinal": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/dialogue"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/dialogue/messages/final"
+        }
+      ]
+    },
+    "receiveError": {
+      "action": "receive",
+      "channel": {
+        "$ref": "#/channels/dialogue"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/dialogue/messages/error"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "DialogueTextAlignment": {
+        "type": "object",
+        "properties": {
+          "chars": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "char_start_times_ms": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "char_durations_ms": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        },
+        "description": "Character-level alignment data (field names use snake_case in JSON).",
+        "title": "DialogueTextAlignment"
+      },
+      "TextToDialogueWebsocketAudioChunk": {
+        "type": "object",
+        "properties": {
+          "audio": {
+            "type": "string",
+            "description": "Base64-encoded audio bytes for the selected `output_format`."
+          },
+          "alignment": {
+            "$ref": "#/components/schemas/DialogueTextAlignment",
+            "nullable": true,
+            "description": "Present when sync_alignment is true and timing data is available."
+          },
+          "normalized_alignment": {
+            "$ref": "#/components/schemas/DialogueTextAlignment",
+            "nullable": true,
+            "description": "Reserved for future use; currently unused by the server."
+          }
+        },
+        "description": "Server chunk containing encoded audio and optional alignment metadata.",
+        "title": "TextToDialogueWebsocketAudioChunk",
+        "required": [
+          "audio"
+        ]
+      },
+      "TextToDialogueWebsocketFinalAudioForTurn": {
+        "type": "object",
+        "properties": {
+          "is_final_audio_for_turn": {
+            "type": "boolean",
+            "description": "Indicates that the final audio for a given turn has been sent."
+          }
+        },
+        "title": "TextToDialogueWebsocketFinalAudioForTurn",
+        "required": [
+          "is_final_audio_for_turn"
+        ]
+      },
+      "TextToDialogueWebsocketFinal": {
+        "type": "object",
+        "properties": {
+          "is_final": {
+            "type": "boolean",
+            "description": "Marks the end of the closing flush sequence."
+          }
+        },
+        "required": [
+          "is_final"
+        ],
+        "title": "TextToDialogueWebsocketFinal"
+      },
+      "TextToDialogueWebsocketError": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Human-readable error description."
+          },
+          "error": {
+            "type": "string",
+            "description": "Machine-readable error identifier (for example `authentication_required`)."
+          },
+          "code": {
+            "type": "integer",
+            "description": "WebSocket close code that will follow this payload."
+          },
+          "param": {
+            "type": "string",
+            "nullable": true,
+            "description": "Field name related to the error, when applicable."
+          }
+        },
+        "required": [
+          "message",
+          "error",
+          "code"
+        ],
+        "title": "TextToDialogueWebsocketError"
+      },
+      "TextToDialogueWebsocketVoiceInput": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Text appended for this voice. Buffered with prior text until the server triggers generation."
+          },
+          "voice_id": {
+            "type": "string",
+            "description": "Must be one of the IDs from the initial `voices` array."
+          },
+          "new_turn": {
+            "type": "boolean",
+            "default": false,
+            "description": "When `true`, the server finalizes the current pending segment (as if the speaker finished their turn) before applying this input."
+          }
+        },
+        "required": [
+          "text",
+          "voice_id"
+        ],
+        "title": "TextToDialogueWebsocketVoiceInput"
+      },
+      "TextToDialogueWebsocketVoiceSettings": {
+        "type": "object",
+        "properties": {
+          "stability": {
+            "type": "number",
+            "format": "double",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0.5,
+            "description": "Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion."
+          }
+        },
+        "description": "Voice settings for dialogue generation. Only `stability` is supported for `eleven_v3` dialogue models.",
+        "title": "TextToDialogueWebsocketVoiceSettings"
+      },
+      "PronunciationDictionaryLocator": {
+        "type": "object",
+        "properties": {
+          "pronunciation_dictionary_id": {
+            "type": "string",
+            "description": "The unique identifier of the pronunciation dictionary"
+          },
+          "version_id": {
+            "type": "string",
+            "description": "The version identifier of the pronunciation dictionary"
+          }
+        },
+        "required": [
+          "pronunciation_dictionary_id",
+          "version_id"
+        ],
+        "description": "Identifies a specific pronunciation dictionary to use",
+        "title": "PronunciationDictionaryLocator"
+      },
+      "TextToDialogueWebsocketClientMessage": {
+        "type": "object",
+        "properties": {
+          "inputs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TextToDialogueWebsocketVoiceInput"
+            },
+            "description": "Dialogue lines to append for synthesis."
+          },
+          "flush": {
+            "type": "boolean",
+            "default": false,
+            "description": "Force generation of buffered text without closing the connection."
+          },
+          "close_socket": {
+            "type": "boolean",
+            "default": false,
+            "description": "Flush buffers, emit remaining audio, send `is_final`, and close the WebSocket."
+          },
+          "keep_alive": {
+            "type": "boolean",
+            "default": false,
+            "description": "Resets the 20s inactivity timer; performs no synthesis."
+          },
+          "xi_api_key": {
+            "type": "string",
+            "description": "API key for the first message if not provided via the `xi-api-key` header."
+          },
+          "authorization": {
+            "type": "string",
+            "description": "Bearer token for the first message if not provided via the `Authorization` header."
+          },
+          "single_use_token": {
+            "type": "string",
+            "description": "Single-use token for the first message if not provided via the `single_use_token` query parameter."
+          },
+          "voices": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Voice IDs to load for the session (first message only, required on first message)."
+          },
+          "voice_settings": {
+            "$ref": "#/components/schemas/TextToDialogueWebsocketVoiceSettings",
+            "description": "Optional voice settings (first message only)."
+          },
+          "pronunciation_dictionary_locators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PronunciationDictionaryLocator"
+            },
+            "description": "Optional pronunciation dictionaries (first message only)."
+          }
+        },
+        "description": "All fields are optional unless noted for the **first** message.\n\n**First message requirements**\n- `voices`: non-empty array of voice IDs (maximum 10 for `eleven_v3`; exactly 1 for `eleven_v3_conversational`).\n- Credentials if not supplied via `xi-api-key` / `Authorization` headers or `single_use_token` query parameter.\n\n**Subsequent messages**\n- Do not resend `voices`, `pronunciation_dictionary_locators`, or credential fields.\n",
+        "title": "TextToDialogueWebsocketClientMessage"
+      }
+    },
+    "messages": {
+      "ClientMessage": {
+        "name": "ClientMessage",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/TextToDialogueWebsocketClientMessage"
+        }
+      },
+      "AudioChunk": {
+        "name": "AudioChunk",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/TextToDialogueWebsocketAudioChunk"
+        }
+      },
+      "FinalAudioForTurn": {
+        "name": "FinalAudioForTurn",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/TextToDialogueWebsocketFinalAudioForTurn"
+        }
+      },
+      "Final": {
+        "name": "Final",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/TextToDialogueWebsocketFinal"
+        }
+      },
+      "Error": {
+        "name": "Error",
+        "contentType": "application/json",
+        "payload": {
+          "$ref": "#/components/schemas/TextToDialogueWebsocketError"
+        }
+      }
+    },
+    "securitySchemes": {
+      "apiKey": {
+        "type": "httpApiKey",
+        "name": "xi-api-key",
+        "in": "header",
+        "description": "ElevenLabs API key"
+      }
+    }
+  }
+}

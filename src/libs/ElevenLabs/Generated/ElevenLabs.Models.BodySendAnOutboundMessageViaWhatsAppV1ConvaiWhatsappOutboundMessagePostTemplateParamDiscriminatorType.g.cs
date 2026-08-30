@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePostTemplateParamDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Body,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Button,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Header,
     }

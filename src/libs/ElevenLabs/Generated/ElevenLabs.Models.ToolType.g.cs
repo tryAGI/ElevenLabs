@@ -4,44 +4,40 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ToolType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiIntegrationMcp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiIntegrationWebhook,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Client,
         /// <summary>
-        /// 
-        /// </summary>
-        Code,
-        /// <summary>
-        /// 
+        ///
         /// </summary>
         Mcp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Smb,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         System,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Webhook,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Workflow,
     }
@@ -61,7 +57,6 @@ namespace ElevenLabs
                 ToolType.ApiIntegrationMcp => "api_integration_mcp",
                 ToolType.ApiIntegrationWebhook => "api_integration_webhook",
                 ToolType.Client => "client",
-                ToolType.Code => "code",
                 ToolType.Mcp => "mcp",
                 ToolType.Smb => "smb",
                 ToolType.System => "system",
@@ -80,7 +75,6 @@ namespace ElevenLabs
                 "api_integration_mcp" => ToolType.ApiIntegrationMcp,
                 "api_integration_webhook" => ToolType.ApiIntegrationWebhook,
                 "client" => ToolType.Client,
-                "code" => ToolType.Code,
                 "mcp" => ToolType.Mcp,
                 "smb" => ToolType.Smb,
                 "system" => ToolType.System,

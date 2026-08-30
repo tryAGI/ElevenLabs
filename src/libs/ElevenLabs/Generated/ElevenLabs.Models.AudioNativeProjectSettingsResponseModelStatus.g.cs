@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum AudioNativeProjectSettingsResponseModelStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Processing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ready,
     }

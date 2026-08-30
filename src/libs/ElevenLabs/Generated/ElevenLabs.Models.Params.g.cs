@@ -5,12 +5,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct Params : global::System.IEquatable<Params>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType? SmbToolType { get; }
 
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SearchClients))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsSearchClients => SearchClients != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSearchClients(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SearchClientsParams PickSearchClients() => IsSearchClients
             ? SearchClients!
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListClients))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsListClients => ListClients != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListClients(
 #if NET6_0_OR_GREATER
@@ -82,7 +82,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListClientsParams PickListClients() => IsListClients
             ? ListClients!
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetClientByPhone))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsGetClientByPhone => GetClientByPhone != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetClientByPhone(
 #if NET6_0_OR_GREATER
@@ -119,7 +119,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetClientByPhoneParams PickGetClientByPhone() => IsGetClientByPhone
             ? GetClientByPhone!
@@ -135,7 +135,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateClient))]
@@ -143,7 +143,7 @@ namespace ElevenLabs
         public bool IsCreateClient => CreateClient != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateClient(
 #if NET6_0_OR_GREATER
@@ -156,7 +156,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateClientParams PickCreateClient() => IsCreateClient
             ? CreateClient!
@@ -172,7 +172,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateClient))]
@@ -180,7 +180,7 @@ namespace ElevenLabs
         public bool IsUpdateClient => UpdateClient != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateClient(
 #if NET6_0_OR_GREATER
@@ -193,14 +193,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateClientParams PickUpdateClient() => IsUpdateClient
             ? UpdateClient!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateClient' but the value was {ToString()}.");
 
         /// <summary>
-        /// Delete an existing client from the system.
+        /// Delete a client, cascading deletion of all their appointments first.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteClientParams? DeleteClient { get; init; }
@@ -209,7 +209,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteClient))]
@@ -217,7 +217,7 @@ namespace ElevenLabs
         public bool IsDeleteClient => DeleteClient != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteClient(
 #if NET6_0_OR_GREATER
@@ -230,14 +230,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteClientParams PickDeleteClient() => IsDeleteClient
             ? DeleteClient!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteClient' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListStaffParams? ListStaff { get; init; }
@@ -246,7 +246,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListStaff))]
@@ -254,7 +254,7 @@ namespace ElevenLabs
         public bool IsListStaff => ListStaff != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListStaff(
 #if NET6_0_OR_GREATER
@@ -267,7 +267,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListStaffParams PickListStaff() => IsListStaff
             ? ListStaff!
@@ -283,7 +283,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateStaff))]
@@ -291,7 +291,7 @@ namespace ElevenLabs
         public bool IsCreateStaff => CreateStaff != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateStaff(
 #if NET6_0_OR_GREATER
@@ -304,7 +304,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateStaffParams PickCreateStaff() => IsCreateStaff
             ? CreateStaff!
@@ -320,7 +320,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateStaff))]
@@ -328,7 +328,7 @@ namespace ElevenLabs
         public bool IsUpdateStaff => UpdateStaff != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateStaff(
 #if NET6_0_OR_GREATER
@@ -341,7 +341,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateStaffParams PickUpdateStaff() => IsUpdateStaff
             ? UpdateStaff!
@@ -357,7 +357,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteStaff))]
@@ -365,7 +365,7 @@ namespace ElevenLabs
         public bool IsDeleteStaff => DeleteStaff != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteStaff(
 #if NET6_0_OR_GREATER
@@ -378,14 +378,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteStaffParams PickDeleteStaff() => IsDeleteStaff
             ? DeleteStaff!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteStaff' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListAssetsParams? ListAssets { get; init; }
@@ -394,7 +394,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListAssets))]
@@ -402,7 +402,7 @@ namespace ElevenLabs
         public bool IsListAssets => ListAssets != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListAssets(
 #if NET6_0_OR_GREATER
@@ -415,14 +415,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListAssetsParams PickListAssets() => IsListAssets
             ? ListAssets!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListAssets' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateAssetParams? CreateAsset { get; init; }
@@ -431,7 +431,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateAsset))]
@@ -439,7 +439,7 @@ namespace ElevenLabs
         public bool IsCreateAsset => CreateAsset != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateAsset(
 #if NET6_0_OR_GREATER
@@ -452,14 +452,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateAssetParams PickCreateAsset() => IsCreateAsset
             ? CreateAsset!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateAsset' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateAssetParams? UpdateAsset { get; init; }
@@ -468,7 +468,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateAsset))]
@@ -476,7 +476,7 @@ namespace ElevenLabs
         public bool IsUpdateAsset => UpdateAsset != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateAsset(
 #if NET6_0_OR_GREATER
@@ -489,14 +489,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateAssetParams PickUpdateAsset() => IsUpdateAsset
             ? UpdateAsset!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateAsset' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteAssetParams? DeleteAsset { get; init; }
@@ -505,7 +505,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteAsset))]
@@ -513,7 +513,7 @@ namespace ElevenLabs
         public bool IsDeleteAsset => DeleteAsset != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteAsset(
 #if NET6_0_OR_GREATER
@@ -526,14 +526,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteAssetParams PickDeleteAsset() => IsDeleteAsset
             ? DeleteAsset!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteAsset' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListServicesParams? ListServices { get; init; }
@@ -542,7 +542,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListServices))]
@@ -550,7 +550,7 @@ namespace ElevenLabs
         public bool IsListServices => ListServices != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListServices(
 #if NET6_0_OR_GREATER
@@ -563,7 +563,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListServicesParams PickListServices() => IsListServices
             ? ListServices!
@@ -579,7 +579,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateService))]
@@ -587,7 +587,7 @@ namespace ElevenLabs
         public bool IsCreateService => CreateService != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateService(
 #if NET6_0_OR_GREATER
@@ -600,7 +600,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateServiceParams PickCreateService() => IsCreateService
             ? CreateService!
@@ -616,7 +616,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateService))]
@@ -624,7 +624,7 @@ namespace ElevenLabs
         public bool IsUpdateService => UpdateService != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateService(
 #if NET6_0_OR_GREATER
@@ -637,7 +637,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateServiceParams PickUpdateService() => IsUpdateService
             ? UpdateService!
@@ -653,7 +653,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteService))]
@@ -661,7 +661,7 @@ namespace ElevenLabs
         public bool IsDeleteService => DeleteService != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteService(
 #if NET6_0_OR_GREATER
@@ -674,14 +674,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteServiceParams PickDeleteService() => IsDeleteService
             ? DeleteService!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteService' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListProductsParams? ListProducts { get; init; }
@@ -690,7 +690,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListProducts))]
@@ -698,7 +698,7 @@ namespace ElevenLabs
         public bool IsListProducts => ListProducts != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListProducts(
 #if NET6_0_OR_GREATER
@@ -711,14 +711,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListProductsParams PickListProducts() => IsListProducts
             ? ListProducts!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListProducts' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateProductParams? CreateProduct { get; init; }
@@ -727,7 +727,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateProduct))]
@@ -735,7 +735,7 @@ namespace ElevenLabs
         public bool IsCreateProduct => CreateProduct != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateProduct(
 #if NET6_0_OR_GREATER
@@ -748,14 +748,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateProductParams PickCreateProduct() => IsCreateProduct
             ? CreateProduct!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateProduct' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateProductParams? UpdateProduct { get; init; }
@@ -764,7 +764,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateProduct))]
@@ -772,7 +772,7 @@ namespace ElevenLabs
         public bool IsUpdateProduct => UpdateProduct != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateProduct(
 #if NET6_0_OR_GREATER
@@ -785,14 +785,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateProductParams PickUpdateProduct() => IsUpdateProduct
             ? UpdateProduct!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateProduct' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteProductParams? DeleteProduct { get; init; }
@@ -801,7 +801,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteProduct))]
@@ -809,7 +809,7 @@ namespace ElevenLabs
         public bool IsDeleteProduct => DeleteProduct != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteProduct(
 #if NET6_0_OR_GREATER
@@ -822,14 +822,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteProductParams PickDeleteProduct() => IsDeleteProduct
             ? DeleteProduct!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteProduct' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CheckServiceAvailabilityParams? CheckServiceAvailability { get; init; }
@@ -838,7 +838,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CheckServiceAvailability))]
@@ -846,7 +846,7 @@ namespace ElevenLabs
         public bool IsCheckServiceAvailability => CheckServiceAvailability != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCheckServiceAvailability(
 #if NET6_0_OR_GREATER
@@ -859,14 +859,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CheckServiceAvailabilityParams PickCheckServiceAvailability() => IsCheckServiceAvailability
             ? CheckServiceAvailability!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CheckServiceAvailability' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateClientAppointmentParams? CreateClientAppointment { get; init; }
@@ -875,7 +875,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateClientAppointment))]
@@ -883,7 +883,7 @@ namespace ElevenLabs
         public bool IsCreateClientAppointment => CreateClientAppointment != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateClientAppointment(
 #if NET6_0_OR_GREATER
@@ -896,14 +896,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateClientAppointmentParams PickCreateClientAppointment() => IsCreateClientAppointment
             ? CreateClientAppointment!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateClientAppointment' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetClientAppointmentsParams? GetClientAppointments { get; init; }
@@ -912,7 +912,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetClientAppointments))]
@@ -920,7 +920,7 @@ namespace ElevenLabs
         public bool IsGetClientAppointments => GetClientAppointments != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetClientAppointments(
 #if NET6_0_OR_GREATER
@@ -933,7 +933,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetClientAppointmentsParams PickGetClientAppointments() => IsGetClientAppointments
             ? GetClientAppointments!
@@ -953,7 +953,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetAppointmentByConfirmationNumber))]
@@ -961,7 +961,7 @@ namespace ElevenLabs
         public bool IsGetAppointmentByConfirmationNumber => GetAppointmentByConfirmationNumber != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetAppointmentByConfirmationNumber(
 #if NET6_0_OR_GREATER
@@ -974,11 +974,196 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetAppointmentByConfirmationNumberParams PickGetAppointmentByConfirmationNumber() => IsGetAppointmentByConfirmationNumber
             ? GetAppointmentByConfirmationNumber!
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetAppointmentByConfirmationNumber' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.CreateOrderParams? CreateOrder { get; init; }
+#else
+        public global::ElevenLabs.CreateOrderParams? CreateOrder { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateOrder))]
+#endif
+        public bool IsCreateOrder => CreateOrder != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickCreateOrder(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateOrderParams? value)
+        {
+            value = CreateOrder;
+            return IsCreateOrder;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.CreateOrderParams PickCreateOrder() => IsCreateOrder
+            ? CreateOrder!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CreateOrder' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.GetOrderByConfirmationNumberParams? GetOrderByConfirmationNumber { get; init; }
+#else
+        public global::ElevenLabs.GetOrderByConfirmationNumberParams? GetOrderByConfirmationNumber { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetOrderByConfirmationNumber))]
+#endif
+        public bool IsGetOrderByConfirmationNumber => GetOrderByConfirmationNumber != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickGetOrderByConfirmationNumber(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetOrderByConfirmationNumberParams? value)
+        {
+            value = GetOrderByConfirmationNumber;
+            return IsGetOrderByConfirmationNumber;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.GetOrderByConfirmationNumberParams PickGetOrderByConfirmationNumber() => IsGetOrderByConfirmationNumber
+            ? GetOrderByConfirmationNumber!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'GetOrderByConfirmationNumber' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.GetClientOrdersParams? GetClientOrders { get; init; }
+#else
+        public global::ElevenLabs.GetClientOrdersParams? GetClientOrders { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetClientOrders))]
+#endif
+        public bool IsGetClientOrders => GetClientOrders != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickGetClientOrders(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GetClientOrdersParams? value)
+        {
+            value = GetClientOrders;
+            return IsGetClientOrders;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.GetClientOrdersParams PickGetClientOrders() => IsGetClientOrders
+            ? GetClientOrders!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'GetClientOrders' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.UpdateOrderParams? UpdateOrder { get; init; }
+#else
+        public global::ElevenLabs.UpdateOrderParams? UpdateOrder { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateOrder))]
+#endif
+        public bool IsUpdateOrder => UpdateOrder != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickUpdateOrder(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateOrderParams? value)
+        {
+            value = UpdateOrder;
+            return IsUpdateOrder;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.UpdateOrderParams PickUpdateOrder() => IsUpdateOrder
+            ? UpdateOrder!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateOrder' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.CancelOrderParams? CancelOrder { get; init; }
+#else
+        public global::ElevenLabs.CancelOrderParams? CancelOrder { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CancelOrder))]
+#endif
+        public bool IsCancelOrder => CancelOrder != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickCancelOrder(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CancelOrderParams? value)
+        {
+            value = CancelOrder;
+            return IsCancelOrder;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.CancelOrderParams PickCancelOrder() => IsCancelOrder
+            ? CancelOrder!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CancelOrder' but the value was {ToString()}.");
 
         /// <summary>
         /// List scheduled group sessions for a group service in a date range.<br/>
@@ -993,7 +1178,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListGroupSessions))]
@@ -1001,7 +1186,7 @@ namespace ElevenLabs
         public bool IsListGroupSessions => ListGroupSessions != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListGroupSessions(
 #if NET6_0_OR_GREATER
@@ -1014,7 +1199,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListGroupSessionsParams PickListGroupSessions() => IsListGroupSessions
             ? ListGroupSessions!
@@ -1034,7 +1219,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ScheduleGroupSession))]
@@ -1042,7 +1227,7 @@ namespace ElevenLabs
         public bool IsScheduleGroupSession => ScheduleGroupSession != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickScheduleGroupSession(
 #if NET6_0_OR_GREATER
@@ -1055,7 +1240,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ScheduleGroupSessionParams PickScheduleGroupSession() => IsScheduleGroupSession
             ? ScheduleGroupSession!
@@ -1071,7 +1256,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(RegisterForGroupSession))]
@@ -1079,7 +1264,7 @@ namespace ElevenLabs
         public bool IsRegisterForGroupSession => RegisterForGroupSession != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickRegisterForGroupSession(
 #if NET6_0_OR_GREATER
@@ -1092,7 +1277,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.RegisterForGroupSessionParams PickRegisterForGroupSession() => IsRegisterForGroupSession
             ? RegisterForGroupSession!
@@ -1108,7 +1293,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CancelGroupSessionRegistration))]
@@ -1116,7 +1301,7 @@ namespace ElevenLabs
         public bool IsCancelGroupSessionRegistration => CancelGroupSessionRegistration != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCancelGroupSessionRegistration(
 #if NET6_0_OR_GREATER
@@ -1129,7 +1314,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CancelGroupSessionRegistrationParams PickCancelGroupSessionRegistration() => IsCancelGroupSessionRegistration
             ? CancelGroupSessionRegistration!
@@ -1145,7 +1330,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateGroupSessionSeats))]
@@ -1153,7 +1338,7 @@ namespace ElevenLabs
         public bool IsUpdateGroupSessionSeats => UpdateGroupSessionSeats != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateGroupSessionSeats(
 #if NET6_0_OR_GREATER
@@ -1166,7 +1351,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateGroupSessionSeatsParams PickUpdateGroupSessionSeats() => IsUpdateGroupSessionSeats
             ? UpdateGroupSessionSeats!
@@ -1184,7 +1369,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CancelGroupSessionForAll))]
@@ -1192,7 +1377,7 @@ namespace ElevenLabs
         public bool IsCancelGroupSessionForAll => CancelGroupSessionForAll != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCancelGroupSessionForAll(
 #if NET6_0_OR_GREATER
@@ -1205,7 +1390,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CancelGroupSessionForAllParams PickCancelGroupSessionForAll() => IsCancelGroupSessionForAll
             ? CancelGroupSessionForAll!
@@ -1227,7 +1412,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteGroupSession))]
@@ -1235,7 +1420,7 @@ namespace ElevenLabs
         public bool IsDeleteGroupSession => DeleteGroupSession != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteGroupSession(
 #if NET6_0_OR_GREATER
@@ -1248,14 +1433,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteGroupSessionParams PickDeleteGroupSession() => IsDeleteGroupSession
             ? DeleteGroupSession!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteGroupSession' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListCalendarEventsParams? ListCalendarEvents { get; init; }
@@ -1264,7 +1449,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListCalendarEvents))]
@@ -1272,7 +1457,7 @@ namespace ElevenLabs
         public bool IsListCalendarEvents => ListCalendarEvents != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListCalendarEvents(
 #if NET6_0_OR_GREATER
@@ -1285,14 +1470,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListCalendarEventsParams PickListCalendarEvents() => IsListCalendarEvents
             ? ListCalendarEvents!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListCalendarEvents' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateCalendarEventParams? UpdateCalendarEvent { get; init; }
@@ -1301,7 +1486,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateCalendarEvent))]
@@ -1309,7 +1494,7 @@ namespace ElevenLabs
         public bool IsUpdateCalendarEvent => UpdateCalendarEvent != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateCalendarEvent(
 #if NET6_0_OR_GREATER
@@ -1322,14 +1507,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateCalendarEventParams PickUpdateCalendarEvent() => IsUpdateCalendarEvent
             ? UpdateCalendarEvent!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateCalendarEvent' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CancelCalendarEventParams? CancelCalendarEvent { get; init; }
@@ -1338,7 +1523,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CancelCalendarEvent))]
@@ -1346,7 +1531,7 @@ namespace ElevenLabs
         public bool IsCancelCalendarEvent => CancelCalendarEvent != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCancelCalendarEvent(
 #if NET6_0_OR_GREATER
@@ -1359,11 +1544,48 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CancelCalendarEventParams PickCancelCalendarEvent() => IsCancelCalendarEvent
             ? CancelCalendarEvent!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CancelCalendarEvent' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.RestoreCalendarEventParams? RestoreCalendarEvent { get; init; }
+#else
+        public global::ElevenLabs.RestoreCalendarEventParams? RestoreCalendarEvent { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(RestoreCalendarEvent))]
+#endif
+        public bool IsRestoreCalendarEvent => RestoreCalendarEvent != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickRestoreCalendarEvent(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.RestoreCalendarEventParams? value)
+        {
+            value = RestoreCalendarEvent;
+            return IsRestoreCalendarEvent;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.RestoreCalendarEventParams PickRestoreCalendarEvent() => IsRestoreCalendarEvent
+            ? RestoreCalendarEvent!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'RestoreCalendarEvent' but the value was {ToString()}.");
 
         /// <summary>
         /// Permanently remove a previously-cancelled calendar event.<br/>
@@ -1378,7 +1600,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteCalendarEvent))]
@@ -1386,7 +1608,7 @@ namespace ElevenLabs
         public bool IsDeleteCalendarEvent => DeleteCalendarEvent != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteCalendarEvent(
 #if NET6_0_OR_GREATER
@@ -1399,7 +1621,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteCalendarEventParams PickDeleteCalendarEvent() => IsDeleteCalendarEvent
             ? DeleteCalendarEvent!
@@ -1419,7 +1641,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListCustomerFacingAgents))]
@@ -1427,7 +1649,7 @@ namespace ElevenLabs
         public bool IsListCustomerFacingAgents => ListCustomerFacingAgents != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListCustomerFacingAgents(
 #if NET6_0_OR_GREATER
@@ -1440,14 +1662,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListCustomerFacingAgentsParams PickListCustomerFacingAgents() => IsListCustomerFacingAgents
             ? ListCustomerFacingAgents!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListCustomerFacingAgents' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListAgentRulesParams? ListAgentRules { get; init; }
@@ -1456,7 +1678,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListAgentRules))]
@@ -1464,7 +1686,7 @@ namespace ElevenLabs
         public bool IsListAgentRules => ListAgentRules != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListAgentRules(
 #if NET6_0_OR_GREATER
@@ -1477,14 +1699,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListAgentRulesParams PickListAgentRules() => IsListAgentRules
             ? ListAgentRules!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListAgentRules' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateAgentRuleParams? CreateAgentRule { get; init; }
@@ -1493,7 +1715,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateAgentRule))]
@@ -1501,7 +1723,7 @@ namespace ElevenLabs
         public bool IsCreateAgentRule => CreateAgentRule != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateAgentRule(
 #if NET6_0_OR_GREATER
@@ -1514,14 +1736,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateAgentRuleParams PickCreateAgentRule() => IsCreateAgentRule
             ? CreateAgentRule!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateAgentRule' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateAgentRuleParams? UpdateAgentRule { get; init; }
@@ -1530,7 +1752,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateAgentRule))]
@@ -1538,7 +1760,7 @@ namespace ElevenLabs
         public bool IsUpdateAgentRule => UpdateAgentRule != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateAgentRule(
 #if NET6_0_OR_GREATER
@@ -1551,14 +1773,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateAgentRuleParams PickUpdateAgentRule() => IsUpdateAgentRule
             ? UpdateAgentRule!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateAgentRule' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteAgentRuleParams? DeleteAgentRule { get; init; }
@@ -1567,7 +1789,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteAgentRule))]
@@ -1575,7 +1797,7 @@ namespace ElevenLabs
         public bool IsDeleteAgentRule => DeleteAgentRule != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteAgentRule(
 #if NET6_0_OR_GREATER
@@ -1588,14 +1810,347 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteAgentRuleParams PickDeleteAgentRule() => IsDeleteAgentRule
             ? DeleteAgentRule!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteAgentRule' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ListTransferRulesParams? ListTransferRules { get; init; }
+#else
+        public global::ElevenLabs.ListTransferRulesParams? ListTransferRules { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListTransferRules))]
+#endif
+        public bool IsListTransferRules => ListTransferRules != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickListTransferRules(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ListTransferRulesParams? value)
+        {
+            value = ListTransferRules;
+            return IsListTransferRules;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.ListTransferRulesParams PickListTransferRules() => IsListTransferRules
+            ? ListTransferRules!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ListTransferRules' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.CreateTransferRuleParams? CreateTransferRule { get; init; }
+#else
+        public global::ElevenLabs.CreateTransferRuleParams? CreateTransferRule { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateTransferRule))]
+#endif
+        public bool IsCreateTransferRule => CreateTransferRule != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickCreateTransferRule(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateTransferRuleParams? value)
+        {
+            value = CreateTransferRule;
+            return IsCreateTransferRule;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.CreateTransferRuleParams PickCreateTransferRule() => IsCreateTransferRule
+            ? CreateTransferRule!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CreateTransferRule' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.UpdateTransferRuleParams? UpdateTransferRule { get; init; }
+#else
+        public global::ElevenLabs.UpdateTransferRuleParams? UpdateTransferRule { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateTransferRule))]
+#endif
+        public bool IsUpdateTransferRule => UpdateTransferRule != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickUpdateTransferRule(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateTransferRuleParams? value)
+        {
+            value = UpdateTransferRule;
+            return IsUpdateTransferRule;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.UpdateTransferRuleParams PickUpdateTransferRule() => IsUpdateTransferRule
+            ? UpdateTransferRule!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateTransferRule' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.DeleteTransferRuleParams? DeleteTransferRule { get; init; }
+#else
+        public global::ElevenLabs.DeleteTransferRuleParams? DeleteTransferRule { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteTransferRule))]
+#endif
+        public bool IsDeleteTransferRule => DeleteTransferRule != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickDeleteTransferRule(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DeleteTransferRuleParams? value)
+        {
+            value = DeleteTransferRule;
+            return IsDeleteTransferRule;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.DeleteTransferRuleParams PickDeleteTransferRule() => IsDeleteTransferRule
+            ? DeleteTransferRule!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteTransferRule' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ListAgentProceduresParams? ListAgentProcedures { get; init; }
+#else
+        public global::ElevenLabs.ListAgentProceduresParams? ListAgentProcedures { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListAgentProcedures))]
+#endif
+        public bool IsListAgentProcedures => ListAgentProcedures != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickListAgentProcedures(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ListAgentProceduresParams? value)
+        {
+            value = ListAgentProcedures;
+            return IsListAgentProcedures;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.ListAgentProceduresParams PickListAgentProcedures() => IsListAgentProcedures
+            ? ListAgentProcedures!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ListAgentProcedures' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ListAgentReferencesParams? ListAgentReferences { get; init; }
+#else
+        public global::ElevenLabs.ListAgentReferencesParams? ListAgentReferences { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListAgentReferences))]
+#endif
+        public bool IsListAgentReferences => ListAgentReferences != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickListAgentReferences(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ListAgentReferencesParams? value)
+        {
+            value = ListAgentReferences;
+            return IsListAgentReferences;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.ListAgentReferencesParams PickListAgentReferences() => IsListAgentReferences
+            ? ListAgentReferences!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ListAgentReferences' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.CreateAgentProcedureParams? CreateAgentProcedure { get; init; }
+#else
+        public global::ElevenLabs.CreateAgentProcedureParams? CreateAgentProcedure { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateAgentProcedure))]
+#endif
+        public bool IsCreateAgentProcedure => CreateAgentProcedure != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickCreateAgentProcedure(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreateAgentProcedureParams? value)
+        {
+            value = CreateAgentProcedure;
+            return IsCreateAgentProcedure;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.CreateAgentProcedureParams PickCreateAgentProcedure() => IsCreateAgentProcedure
+            ? CreateAgentProcedure!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CreateAgentProcedure' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.UpdateAgentProcedureParams? UpdateAgentProcedure { get; init; }
+#else
+        public global::ElevenLabs.UpdateAgentProcedureParams? UpdateAgentProcedure { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateAgentProcedure))]
+#endif
+        public bool IsUpdateAgentProcedure => UpdateAgentProcedure != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickUpdateAgentProcedure(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateAgentProcedureParams? value)
+        {
+            value = UpdateAgentProcedure;
+            return IsUpdateAgentProcedure;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.UpdateAgentProcedureParams PickUpdateAgentProcedure() => IsUpdateAgentProcedure
+            ? UpdateAgentProcedure!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateAgentProcedure' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.DeleteAgentProcedureParams? DeleteAgentProcedure { get; init; }
+#else
+        public global::ElevenLabs.DeleteAgentProcedureParams? DeleteAgentProcedure { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteAgentProcedure))]
+#endif
+        public bool IsDeleteAgentProcedure => DeleteAgentProcedure != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickDeleteAgentProcedure(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.DeleteAgentProcedureParams? value)
+        {
+            value = DeleteAgentProcedure;
+            return IsDeleteAgentProcedure;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.DeleteAgentProcedureParams PickDeleteAgentProcedure() => IsDeleteAgentProcedure
+            ? DeleteAgentProcedure!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteAgentProcedure' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListHolidaysParams? ListHolidays { get; init; }
@@ -1604,7 +2159,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListHolidays))]
@@ -1612,7 +2167,7 @@ namespace ElevenLabs
         public bool IsListHolidays => ListHolidays != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListHolidays(
 #if NET6_0_OR_GREATER
@@ -1625,14 +2180,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListHolidaysParams PickListHolidays() => IsListHolidays
             ? ListHolidays!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListHolidays' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateHolidayParams? CreateHoliday { get; init; }
@@ -1641,7 +2196,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateHoliday))]
@@ -1649,7 +2204,7 @@ namespace ElevenLabs
         public bool IsCreateHoliday => CreateHoliday != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateHoliday(
 #if NET6_0_OR_GREATER
@@ -1662,14 +2217,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateHolidayParams PickCreateHoliday() => IsCreateHoliday
             ? CreateHoliday!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateHoliday' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateHolidayParams? UpdateHoliday { get; init; }
@@ -1678,7 +2233,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateHoliday))]
@@ -1686,7 +2241,7 @@ namespace ElevenLabs
         public bool IsUpdateHoliday => UpdateHoliday != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateHoliday(
 #if NET6_0_OR_GREATER
@@ -1699,14 +2254,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateHolidayParams PickUpdateHoliday() => IsUpdateHoliday
             ? UpdateHoliday!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateHoliday' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteHolidayParams? DeleteHoliday { get; init; }
@@ -1715,7 +2270,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteHoliday))]
@@ -1723,7 +2278,7 @@ namespace ElevenLabs
         public bool IsDeleteHoliday => DeleteHoliday != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteHoliday(
 #if NET6_0_OR_GREATER
@@ -1736,14 +2291,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteHolidayParams PickDeleteHoliday() => IsDeleteHoliday
             ? DeleteHoliday!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteHoliday' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetScheduleParams? GetSchedule { get; init; }
@@ -1752,7 +2307,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetSchedule))]
@@ -1760,7 +2315,7 @@ namespace ElevenLabs
         public bool IsGetSchedule => GetSchedule != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetSchedule(
 #if NET6_0_OR_GREATER
@@ -1773,14 +2328,51 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetScheduleParams PickGetSchedule() => IsGetSchedule
             ? GetSchedule!
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetSchedule' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        /// Finalize the onboarding interview: create a text knowledge source and mark done.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.SubmitBusinessInfoParams? SubmitBusinessInfo { get; init; }
+#else
+        public global::ElevenLabs.SubmitBusinessInfoParams? SubmitBusinessInfo { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SubmitBusinessInfo))]
+#endif
+        public bool IsSubmitBusinessInfo => SubmitBusinessInfo != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickSubmitBusinessInfo(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.SubmitBusinessInfoParams? value)
+        {
+            value = SubmitBusinessInfo;
+            return IsSubmitBusinessInfo;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.SubmitBusinessInfoParams PickSubmitBusinessInfo() => IsSubmitBusinessInfo
+            ? SubmitBusinessInfo!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SubmitBusinessInfo' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateBusinessInfoParams? UpdateBusinessInfo { get; init; }
@@ -1789,7 +2381,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateBusinessInfo))]
@@ -1797,7 +2389,7 @@ namespace ElevenLabs
         public bool IsUpdateBusinessInfo => UpdateBusinessInfo != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateBusinessInfo(
 #if NET6_0_OR_GREATER
@@ -1810,14 +2402,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateBusinessInfoParams PickUpdateBusinessInfo() => IsUpdateBusinessInfo
             ? UpdateBusinessInfo!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateBusinessInfo' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateCustomerFacingConfigParams? UpdateCustomerFacingConfig { get; init; }
@@ -1826,7 +2418,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateCustomerFacingConfig))]
@@ -1834,7 +2426,7 @@ namespace ElevenLabs
         public bool IsUpdateCustomerFacingConfig => UpdateCustomerFacingConfig != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateCustomerFacingConfig(
 #if NET6_0_OR_GREATER
@@ -1847,7 +2439,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateCustomerFacingConfigParams PickUpdateCustomerFacingConfig() => IsUpdateCustomerFacingConfig
             ? UpdateCustomerFacingConfig!
@@ -1863,7 +2455,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetAnalyticsSummary))]
@@ -1871,7 +2463,7 @@ namespace ElevenLabs
         public bool IsGetAnalyticsSummary => GetAnalyticsSummary != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetAnalyticsSummary(
 #if NET6_0_OR_GREATER
@@ -1884,14 +2476,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetAnalyticsSummaryParams PickGetAnalyticsSummary() => IsGetAnalyticsSummary
             ? GetAnalyticsSummary!
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetAnalyticsSummary' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetBookingPageSettingsParams? GetBookingPageSettings { get; init; }
@@ -1900,7 +2492,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetBookingPageSettings))]
@@ -1908,7 +2500,7 @@ namespace ElevenLabs
         public bool IsGetBookingPageSettings => GetBookingPageSettings != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetBookingPageSettings(
 #if NET6_0_OR_GREATER
@@ -1921,14 +2513,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetBookingPageSettingsParams PickGetBookingPageSettings() => IsGetBookingPageSettings
             ? GetBookingPageSettings!
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetBookingPageSettings' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateBookingPageSettingsParams? UpdateBookingPageSettings { get; init; }
@@ -1937,7 +2529,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateBookingPageSettings))]
@@ -1945,7 +2537,7 @@ namespace ElevenLabs
         public bool IsUpdateBookingPageSettings => UpdateBookingPageSettings != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateBookingPageSettings(
 #if NET6_0_OR_GREATER
@@ -1958,14 +2550,51 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateBookingPageSettingsParams PickUpdateBookingPageSettings() => IsUpdateBookingPageSettings
             ? UpdateBookingPageSettings!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateBookingPageSettings' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.UpdateBookingPageAppearanceParams? UpdateBookingPageAppearance { get; init; }
+#else
+        public global::ElevenLabs.UpdateBookingPageAppearanceParams? UpdateBookingPageAppearance { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateBookingPageAppearance))]
+#endif
+        public bool IsUpdateBookingPageAppearance => UpdateBookingPageAppearance != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickUpdateBookingPageAppearance(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.UpdateBookingPageAppearanceParams? value)
+        {
+            value = UpdateBookingPageAppearance;
+            return IsUpdateBookingPageAppearance;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.UpdateBookingPageAppearanceParams PickUpdateBookingPageAppearance() => IsUpdateBookingPageAppearance
+            ? UpdateBookingPageAppearance!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateBookingPageAppearance' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetBookingSlugStatusParams? GetBookingSlugStatus { get; init; }
@@ -1974,7 +2603,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GetBookingSlugStatus))]
@@ -1982,7 +2611,7 @@ namespace ElevenLabs
         public bool IsGetBookingSlugStatus => GetBookingSlugStatus != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGetBookingSlugStatus(
 #if NET6_0_OR_GREATER
@@ -1995,14 +2624,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetBookingSlugStatusParams PickGetBookingSlugStatus() => IsGetBookingSlugStatus
             ? GetBookingSlugStatus!
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetBookingSlugStatus' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SetBookingSlugParams? SetBookingSlug { get; init; }
@@ -2011,7 +2640,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SetBookingSlug))]
@@ -2019,7 +2648,7 @@ namespace ElevenLabs
         public bool IsSetBookingSlug => SetBookingSlug != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSetBookingSlug(
 #if NET6_0_OR_GREATER
@@ -2032,14 +2661,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.SetBookingSlugParams PickSetBookingSlug() => IsSetBookingSlug
             ? SetBookingSlug!
             : throw new global::System.InvalidOperationException($"Expected union variant 'SetBookingSlug' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListClientInteractionsParams? ListClientInteractions { get; init; }
@@ -2048,7 +2677,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListClientInteractions))]
@@ -2056,7 +2685,7 @@ namespace ElevenLabs
         public bool IsListClientInteractions => ListClientInteractions != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListClientInteractions(
 #if NET6_0_OR_GREATER
@@ -2069,14 +2698,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListClientInteractionsParams PickListClientInteractions() => IsListClientInteractions
             ? ListClientInteractions!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListClientInteractions' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateClientInteractionParams? CreateClientInteraction { get; init; }
@@ -2085,7 +2714,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateClientInteraction))]
@@ -2093,7 +2722,7 @@ namespace ElevenLabs
         public bool IsCreateClientInteraction => CreateClientInteraction != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateClientInteraction(
 #if NET6_0_OR_GREATER
@@ -2106,14 +2735,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateClientInteractionParams PickCreateClientInteraction() => IsCreateClientInteraction
             ? CreateClientInteraction!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateClientInteraction' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteClientInteractionParams? DeleteClientInteraction { get; init; }
@@ -2122,7 +2751,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteClientInteraction))]
@@ -2130,7 +2759,7 @@ namespace ElevenLabs
         public bool IsDeleteClientInteraction => DeleteClientInteraction != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteClientInteraction(
 #if NET6_0_OR_GREATER
@@ -2143,14 +2772,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteClientInteractionParams PickDeleteClientInteraction() => IsDeleteClientInteraction
             ? DeleteClientInteraction!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteClientInteraction' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        /// Params + Reception-proxied ``run()`` for list_locations.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ListLocationsParams? ListLocations { get; init; }
@@ -2159,7 +2788,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ListLocations))]
@@ -2167,7 +2796,7 @@ namespace ElevenLabs
         public bool IsListLocations => ListLocations != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickListLocations(
 #if NET6_0_OR_GREATER
@@ -2180,14 +2809,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ListLocationsParams PickListLocations() => IsListLocations
             ? ListLocations!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListLocations' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateLocationParams? CreateLocation { get; init; }
@@ -2196,7 +2825,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateLocation))]
@@ -2204,7 +2833,7 @@ namespace ElevenLabs
         public bool IsCreateLocation => CreateLocation != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateLocation(
 #if NET6_0_OR_GREATER
@@ -2217,14 +2846,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateLocationParams PickCreateLocation() => IsCreateLocation
             ? CreateLocation!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateLocation' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.UpdateLocationParams? UpdateLocation { get; init; }
@@ -2233,7 +2862,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateLocation))]
@@ -2241,7 +2870,7 @@ namespace ElevenLabs
         public bool IsUpdateLocation => UpdateLocation != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUpdateLocation(
 #if NET6_0_OR_GREATER
@@ -2254,14 +2883,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.UpdateLocationParams PickUpdateLocation() => IsUpdateLocation
             ? UpdateLocation!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateLocation' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DeleteLocationParams? DeleteLocation { get; init; }
@@ -2270,7 +2899,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DeleteLocation))]
@@ -2278,7 +2907,7 @@ namespace ElevenLabs
         public bool IsDeleteLocation => DeleteLocation != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDeleteLocation(
 #if NET6_0_OR_GREATER
@@ -2291,14 +2920,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DeleteLocationParams PickDeleteLocation() => IsDeleteLocation
             ? DeleteLocation!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteLocation' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.LeaveMessageParams? LeaveMessage { get; init; }
@@ -2307,7 +2936,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LeaveMessage))]
@@ -2315,7 +2944,7 @@ namespace ElevenLabs
         public bool IsLeaveMessage => LeaveMessage != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickLeaveMessage(
 #if NET6_0_OR_GREATER
@@ -2328,14 +2957,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.LeaveMessageParams PickLeaveMessage() => IsLeaveMessage
             ? LeaveMessage!
             : throw new global::System.InvalidOperationException($"Expected union variant 'LeaveMessage' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.ReportKnowledgeGapParams? ReportKnowledgeGap { get; init; }
@@ -2344,7 +2973,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ReportKnowledgeGap))]
@@ -2352,7 +2981,7 @@ namespace ElevenLabs
         public bool IsReportKnowledgeGap => ReportKnowledgeGap != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickReportKnowledgeGap(
 #if NET6_0_OR_GREATER
@@ -2365,23 +2994,171 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.ReportKnowledgeGapParams PickReportKnowledgeGap() => IsReportKnowledgeGap
             ? ReportKnowledgeGap!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ReportKnowledgeGap' but the value was {ToString()}.");
+
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.OptInSmsReminderParams? OptInSmsReminder { get; init; }
+#else
+        public global::ElevenLabs.OptInSmsReminderParams? OptInSmsReminder { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(OptInSmsReminder))]
+#endif
+        public bool IsOptInSmsReminder => OptInSmsReminder != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickOptInSmsReminder(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.OptInSmsReminderParams? value)
+        {
+            value = OptInSmsReminder;
+            return IsOptInSmsReminder;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.OptInSmsReminderParams PickOptInSmsReminder() => IsOptInSmsReminder
+            ? OptInSmsReminder!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'OptInSmsReminder' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.OptOutSmsReminderParams? OptOutSmsReminder { get; init; }
+#else
+        public global::ElevenLabs.OptOutSmsReminderParams? OptOutSmsReminder { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(OptOutSmsReminder))]
+#endif
+        public bool IsOptOutSmsReminder => OptOutSmsReminder != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickOptOutSmsReminder(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.OptOutSmsReminderParams? value)
+        {
+            value = OptOutSmsReminder;
+            return IsOptOutSmsReminder;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.OptOutSmsReminderParams PickOptOutSmsReminder() => IsOptOutSmsReminder
+            ? OptOutSmsReminder!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'OptOutSmsReminder' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.TriggerUserVerificationParams? TriggerUserVerification { get; init; }
+#else
+        public global::ElevenLabs.TriggerUserVerificationParams? TriggerUserVerification { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TriggerUserVerification))]
+#endif
+        public bool IsTriggerUserVerification => TriggerUserVerification != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickTriggerUserVerification(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.TriggerUserVerificationParams? value)
+        {
+            value = TriggerUserVerification;
+            return IsTriggerUserVerification;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.TriggerUserVerificationParams PickTriggerUserVerification() => IsTriggerUserVerification
+            ? TriggerUserVerification!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'TriggerUserVerification' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.ValidateUserVerificationCodeParams? ValidateUserVerificationCode { get; init; }
+#else
+        public global::ElevenLabs.ValidateUserVerificationCodeParams? ValidateUserVerificationCode { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ValidateUserVerificationCode))]
+#endif
+        public bool IsValidateUserVerificationCode => ValidateUserVerificationCode != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickValidateUserVerificationCode(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.ValidateUserVerificationCodeParams? value)
+        {
+            value = ValidateUserVerificationCode;
+            return IsValidateUserVerificationCode;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.ValidateUserVerificationCodeParams PickValidateUserVerificationCode() => IsValidateUserVerificationCode
+            ? ValidateUserVerificationCode!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ValidateUserVerificationCode' but the value was {ToString()}.");
+        /// <summary>
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.SearchClientsParams value) => new Params((global::ElevenLabs.SearchClientsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SearchClientsParams?(Params @this) => @this.SearchClients;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.SearchClientsParams? value)
         {
@@ -2389,22 +3166,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromSearchClients(global::ElevenLabs.SearchClientsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListClientsParams value) => new Params((global::ElevenLabs.ListClientsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListClientsParams?(Params @this) => @this.ListClients;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListClientsParams? value)
         {
@@ -2412,22 +3189,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListClients(global::ElevenLabs.ListClientsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetClientByPhoneParams value) => new Params((global::ElevenLabs.GetClientByPhoneParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetClientByPhoneParams?(Params @this) => @this.GetClientByPhone;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetClientByPhoneParams? value)
         {
@@ -2435,22 +3212,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetClientByPhone(global::ElevenLabs.GetClientByPhoneParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateClientParams value) => new Params((global::ElevenLabs.CreateClientParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateClientParams?(Params @this) => @this.CreateClient;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateClientParams? value)
         {
@@ -2458,22 +3235,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateClient(global::ElevenLabs.CreateClientParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateClientParams value) => new Params((global::ElevenLabs.UpdateClientParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateClientParams?(Params @this) => @this.UpdateClient;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateClientParams? value)
         {
@@ -2481,22 +3258,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateClient(global::ElevenLabs.UpdateClientParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteClientParams value) => new Params((global::ElevenLabs.DeleteClientParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteClientParams?(Params @this) => @this.DeleteClient;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteClientParams? value)
         {
@@ -2504,22 +3281,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteClient(global::ElevenLabs.DeleteClientParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListStaffParams value) => new Params((global::ElevenLabs.ListStaffParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListStaffParams?(Params @this) => @this.ListStaff;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListStaffParams? value)
         {
@@ -2527,22 +3304,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListStaff(global::ElevenLabs.ListStaffParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateStaffParams value) => new Params((global::ElevenLabs.CreateStaffParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateStaffParams?(Params @this) => @this.CreateStaff;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateStaffParams? value)
         {
@@ -2550,22 +3327,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateStaff(global::ElevenLabs.CreateStaffParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateStaffParams value) => new Params((global::ElevenLabs.UpdateStaffParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateStaffParams?(Params @this) => @this.UpdateStaff;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateStaffParams? value)
         {
@@ -2573,22 +3350,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateStaff(global::ElevenLabs.UpdateStaffParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteStaffParams value) => new Params((global::ElevenLabs.DeleteStaffParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteStaffParams?(Params @this) => @this.DeleteStaff;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteStaffParams? value)
         {
@@ -2596,22 +3373,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteStaff(global::ElevenLabs.DeleteStaffParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListAssetsParams value) => new Params((global::ElevenLabs.ListAssetsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListAssetsParams?(Params @this) => @this.ListAssets;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListAssetsParams? value)
         {
@@ -2619,22 +3396,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListAssets(global::ElevenLabs.ListAssetsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateAssetParams value) => new Params((global::ElevenLabs.CreateAssetParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateAssetParams?(Params @this) => @this.CreateAsset;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateAssetParams? value)
         {
@@ -2642,22 +3419,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateAsset(global::ElevenLabs.CreateAssetParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateAssetParams value) => new Params((global::ElevenLabs.UpdateAssetParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateAssetParams?(Params @this) => @this.UpdateAsset;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateAssetParams? value)
         {
@@ -2665,22 +3442,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateAsset(global::ElevenLabs.UpdateAssetParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteAssetParams value) => new Params((global::ElevenLabs.DeleteAssetParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteAssetParams?(Params @this) => @this.DeleteAsset;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteAssetParams? value)
         {
@@ -2688,22 +3465,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteAsset(global::ElevenLabs.DeleteAssetParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListServicesParams value) => new Params((global::ElevenLabs.ListServicesParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListServicesParams?(Params @this) => @this.ListServices;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListServicesParams? value)
         {
@@ -2711,22 +3488,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListServices(global::ElevenLabs.ListServicesParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateServiceParams value) => new Params((global::ElevenLabs.CreateServiceParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateServiceParams?(Params @this) => @this.CreateService;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateServiceParams? value)
         {
@@ -2734,22 +3511,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateService(global::ElevenLabs.CreateServiceParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateServiceParams value) => new Params((global::ElevenLabs.UpdateServiceParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateServiceParams?(Params @this) => @this.UpdateService;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateServiceParams? value)
         {
@@ -2757,22 +3534,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateService(global::ElevenLabs.UpdateServiceParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteServiceParams value) => new Params((global::ElevenLabs.DeleteServiceParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteServiceParams?(Params @this) => @this.DeleteService;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteServiceParams? value)
         {
@@ -2780,22 +3557,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteService(global::ElevenLabs.DeleteServiceParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListProductsParams value) => new Params((global::ElevenLabs.ListProductsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListProductsParams?(Params @this) => @this.ListProducts;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListProductsParams? value)
         {
@@ -2803,22 +3580,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListProducts(global::ElevenLabs.ListProductsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateProductParams value) => new Params((global::ElevenLabs.CreateProductParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateProductParams?(Params @this) => @this.CreateProduct;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateProductParams? value)
         {
@@ -2826,22 +3603,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateProduct(global::ElevenLabs.CreateProductParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateProductParams value) => new Params((global::ElevenLabs.UpdateProductParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateProductParams?(Params @this) => @this.UpdateProduct;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateProductParams? value)
         {
@@ -2849,22 +3626,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateProduct(global::ElevenLabs.UpdateProductParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteProductParams value) => new Params((global::ElevenLabs.DeleteProductParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteProductParams?(Params @this) => @this.DeleteProduct;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteProductParams? value)
         {
@@ -2872,22 +3649,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteProduct(global::ElevenLabs.DeleteProductParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CheckServiceAvailabilityParams value) => new Params((global::ElevenLabs.CheckServiceAvailabilityParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CheckServiceAvailabilityParams?(Params @this) => @this.CheckServiceAvailability;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CheckServiceAvailabilityParams? value)
         {
@@ -2895,22 +3672,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCheckServiceAvailability(global::ElevenLabs.CheckServiceAvailabilityParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateClientAppointmentParams value) => new Params((global::ElevenLabs.CreateClientAppointmentParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateClientAppointmentParams?(Params @this) => @this.CreateClientAppointment;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateClientAppointmentParams? value)
         {
@@ -2918,22 +3695,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateClientAppointment(global::ElevenLabs.CreateClientAppointmentParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetClientAppointmentsParams value) => new Params((global::ElevenLabs.GetClientAppointmentsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetClientAppointmentsParams?(Params @this) => @this.GetClientAppointments;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetClientAppointmentsParams? value)
         {
@@ -2941,22 +3718,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetClientAppointments(global::ElevenLabs.GetClientAppointmentsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetAppointmentByConfirmationNumberParams value) => new Params((global::ElevenLabs.GetAppointmentByConfirmationNumberParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetAppointmentByConfirmationNumberParams?(Params @this) => @this.GetAppointmentByConfirmationNumber;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetAppointmentByConfirmationNumberParams? value)
         {
@@ -2964,22 +3741,137 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetAppointmentByConfirmationNumber(global::ElevenLabs.GetAppointmentByConfirmationNumberParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.CreateOrderParams value) => new Params((global::ElevenLabs.CreateOrderParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.CreateOrderParams?(Params @this) => @this.CreateOrder;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.CreateOrderParams? value)
+        {
+            CreateOrder = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromCreateOrder(global::ElevenLabs.CreateOrderParams? value) => new Params(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.GetOrderByConfirmationNumberParams value) => new Params((global::ElevenLabs.GetOrderByConfirmationNumberParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.GetOrderByConfirmationNumberParams?(Params @this) => @this.GetOrderByConfirmationNumber;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.GetOrderByConfirmationNumberParams? value)
+        {
+            GetOrderByConfirmationNumber = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromGetOrderByConfirmationNumber(global::ElevenLabs.GetOrderByConfirmationNumberParams? value) => new Params(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.GetClientOrdersParams value) => new Params((global::ElevenLabs.GetClientOrdersParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.GetClientOrdersParams?(Params @this) => @this.GetClientOrders;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.GetClientOrdersParams? value)
+        {
+            GetClientOrders = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromGetClientOrders(global::ElevenLabs.GetClientOrdersParams? value) => new Params(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.UpdateOrderParams value) => new Params((global::ElevenLabs.UpdateOrderParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.UpdateOrderParams?(Params @this) => @this.UpdateOrder;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.UpdateOrderParams? value)
+        {
+            UpdateOrder = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromUpdateOrder(global::ElevenLabs.UpdateOrderParams? value) => new Params(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.CancelOrderParams value) => new Params((global::ElevenLabs.CancelOrderParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.CancelOrderParams?(Params @this) => @this.CancelOrder;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.CancelOrderParams? value)
+        {
+            CancelOrder = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromCancelOrder(global::ElevenLabs.CancelOrderParams? value) => new Params(value);
+
+        /// <summary>
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListGroupSessionsParams value) => new Params((global::ElevenLabs.ListGroupSessionsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListGroupSessionsParams?(Params @this) => @this.ListGroupSessions;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListGroupSessionsParams? value)
         {
@@ -2987,22 +3879,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListGroupSessions(global::ElevenLabs.ListGroupSessionsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ScheduleGroupSessionParams value) => new Params((global::ElevenLabs.ScheduleGroupSessionParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ScheduleGroupSessionParams?(Params @this) => @this.ScheduleGroupSession;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ScheduleGroupSessionParams? value)
         {
@@ -3010,22 +3902,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromScheduleGroupSession(global::ElevenLabs.ScheduleGroupSessionParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.RegisterForGroupSessionParams value) => new Params((global::ElevenLabs.RegisterForGroupSessionParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.RegisterForGroupSessionParams?(Params @this) => @this.RegisterForGroupSession;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.RegisterForGroupSessionParams? value)
         {
@@ -3033,22 +3925,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromRegisterForGroupSession(global::ElevenLabs.RegisterForGroupSessionParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CancelGroupSessionRegistrationParams value) => new Params((global::ElevenLabs.CancelGroupSessionRegistrationParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CancelGroupSessionRegistrationParams?(Params @this) => @this.CancelGroupSessionRegistration;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CancelGroupSessionRegistrationParams? value)
         {
@@ -3056,22 +3948,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCancelGroupSessionRegistration(global::ElevenLabs.CancelGroupSessionRegistrationParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateGroupSessionSeatsParams value) => new Params((global::ElevenLabs.UpdateGroupSessionSeatsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateGroupSessionSeatsParams?(Params @this) => @this.UpdateGroupSessionSeats;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateGroupSessionSeatsParams? value)
         {
@@ -3079,22 +3971,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateGroupSessionSeats(global::ElevenLabs.UpdateGroupSessionSeatsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CancelGroupSessionForAllParams value) => new Params((global::ElevenLabs.CancelGroupSessionForAllParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CancelGroupSessionForAllParams?(Params @this) => @this.CancelGroupSessionForAll;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CancelGroupSessionForAllParams? value)
         {
@@ -3102,22 +3994,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCancelGroupSessionForAll(global::ElevenLabs.CancelGroupSessionForAllParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteGroupSessionParams value) => new Params((global::ElevenLabs.DeleteGroupSessionParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteGroupSessionParams?(Params @this) => @this.DeleteGroupSession;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteGroupSessionParams? value)
         {
@@ -3125,22 +4017,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteGroupSession(global::ElevenLabs.DeleteGroupSessionParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListCalendarEventsParams value) => new Params((global::ElevenLabs.ListCalendarEventsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListCalendarEventsParams?(Params @this) => @this.ListCalendarEvents;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListCalendarEventsParams? value)
         {
@@ -3148,22 +4040,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListCalendarEvents(global::ElevenLabs.ListCalendarEventsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateCalendarEventParams value) => new Params((global::ElevenLabs.UpdateCalendarEventParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateCalendarEventParams?(Params @this) => @this.UpdateCalendarEvent;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateCalendarEventParams? value)
         {
@@ -3171,22 +4063,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateCalendarEvent(global::ElevenLabs.UpdateCalendarEventParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CancelCalendarEventParams value) => new Params((global::ElevenLabs.CancelCalendarEventParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CancelCalendarEventParams?(Params @this) => @this.CancelCalendarEvent;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CancelCalendarEventParams? value)
         {
@@ -3194,22 +4086,45 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCancelCalendarEvent(global::ElevenLabs.CancelCalendarEventParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.RestoreCalendarEventParams value) => new Params((global::ElevenLabs.RestoreCalendarEventParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.RestoreCalendarEventParams?(Params @this) => @this.RestoreCalendarEvent;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.RestoreCalendarEventParams? value)
+        {
+            RestoreCalendarEvent = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromRestoreCalendarEvent(global::ElevenLabs.RestoreCalendarEventParams? value) => new Params(value);
+
+        /// <summary>
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteCalendarEventParams value) => new Params((global::ElevenLabs.DeleteCalendarEventParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteCalendarEventParams?(Params @this) => @this.DeleteCalendarEvent;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteCalendarEventParams? value)
         {
@@ -3217,22 +4132,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteCalendarEvent(global::ElevenLabs.DeleteCalendarEventParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListCustomerFacingAgentsParams value) => new Params((global::ElevenLabs.ListCustomerFacingAgentsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListCustomerFacingAgentsParams?(Params @this) => @this.ListCustomerFacingAgents;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListCustomerFacingAgentsParams? value)
         {
@@ -3240,22 +4155,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListCustomerFacingAgents(global::ElevenLabs.ListCustomerFacingAgentsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListAgentRulesParams value) => new Params((global::ElevenLabs.ListAgentRulesParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListAgentRulesParams?(Params @this) => @this.ListAgentRules;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListAgentRulesParams? value)
         {
@@ -3263,22 +4178,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListAgentRules(global::ElevenLabs.ListAgentRulesParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateAgentRuleParams value) => new Params((global::ElevenLabs.CreateAgentRuleParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateAgentRuleParams?(Params @this) => @this.CreateAgentRule;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateAgentRuleParams? value)
         {
@@ -3286,22 +4201,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateAgentRule(global::ElevenLabs.CreateAgentRuleParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateAgentRuleParams value) => new Params((global::ElevenLabs.UpdateAgentRuleParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateAgentRuleParams?(Params @this) => @this.UpdateAgentRule;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateAgentRuleParams? value)
         {
@@ -3309,22 +4224,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateAgentRule(global::ElevenLabs.UpdateAgentRuleParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteAgentRuleParams value) => new Params((global::ElevenLabs.DeleteAgentRuleParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteAgentRuleParams?(Params @this) => @this.DeleteAgentRule;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteAgentRuleParams? value)
         {
@@ -3332,22 +4247,229 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteAgentRule(global::ElevenLabs.DeleteAgentRuleParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.ListTransferRulesParams value) => new Params((global::ElevenLabs.ListTransferRulesParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ListTransferRulesParams?(Params @this) => @this.ListTransferRules;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.ListTransferRulesParams? value)
+        {
+            ListTransferRules = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromListTransferRules(global::ElevenLabs.ListTransferRulesParams? value) => new Params(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.CreateTransferRuleParams value) => new Params((global::ElevenLabs.CreateTransferRuleParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.CreateTransferRuleParams?(Params @this) => @this.CreateTransferRule;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.CreateTransferRuleParams? value)
+        {
+            CreateTransferRule = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromCreateTransferRule(global::ElevenLabs.CreateTransferRuleParams? value) => new Params(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.UpdateTransferRuleParams value) => new Params((global::ElevenLabs.UpdateTransferRuleParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.UpdateTransferRuleParams?(Params @this) => @this.UpdateTransferRule;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.UpdateTransferRuleParams? value)
+        {
+            UpdateTransferRule = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromUpdateTransferRule(global::ElevenLabs.UpdateTransferRuleParams? value) => new Params(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.DeleteTransferRuleParams value) => new Params((global::ElevenLabs.DeleteTransferRuleParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.DeleteTransferRuleParams?(Params @this) => @this.DeleteTransferRule;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.DeleteTransferRuleParams? value)
+        {
+            DeleteTransferRule = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromDeleteTransferRule(global::ElevenLabs.DeleteTransferRuleParams? value) => new Params(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.ListAgentProceduresParams value) => new Params((global::ElevenLabs.ListAgentProceduresParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ListAgentProceduresParams?(Params @this) => @this.ListAgentProcedures;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.ListAgentProceduresParams? value)
+        {
+            ListAgentProcedures = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromListAgentProcedures(global::ElevenLabs.ListAgentProceduresParams? value) => new Params(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.ListAgentReferencesParams value) => new Params((global::ElevenLabs.ListAgentReferencesParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ListAgentReferencesParams?(Params @this) => @this.ListAgentReferences;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.ListAgentReferencesParams? value)
+        {
+            ListAgentReferences = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromListAgentReferences(global::ElevenLabs.ListAgentReferencesParams? value) => new Params(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.CreateAgentProcedureParams value) => new Params((global::ElevenLabs.CreateAgentProcedureParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.CreateAgentProcedureParams?(Params @this) => @this.CreateAgentProcedure;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.CreateAgentProcedureParams? value)
+        {
+            CreateAgentProcedure = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromCreateAgentProcedure(global::ElevenLabs.CreateAgentProcedureParams? value) => new Params(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.UpdateAgentProcedureParams value) => new Params((global::ElevenLabs.UpdateAgentProcedureParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.UpdateAgentProcedureParams?(Params @this) => @this.UpdateAgentProcedure;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.UpdateAgentProcedureParams? value)
+        {
+            UpdateAgentProcedure = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromUpdateAgentProcedure(global::ElevenLabs.UpdateAgentProcedureParams? value) => new Params(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.DeleteAgentProcedureParams value) => new Params((global::ElevenLabs.DeleteAgentProcedureParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.DeleteAgentProcedureParams?(Params @this) => @this.DeleteAgentProcedure;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.DeleteAgentProcedureParams? value)
+        {
+            DeleteAgentProcedure = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromDeleteAgentProcedure(global::ElevenLabs.DeleteAgentProcedureParams? value) => new Params(value);
+
+        /// <summary>
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListHolidaysParams value) => new Params((global::ElevenLabs.ListHolidaysParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListHolidaysParams?(Params @this) => @this.ListHolidays;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListHolidaysParams? value)
         {
@@ -3355,22 +4477,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListHolidays(global::ElevenLabs.ListHolidaysParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateHolidayParams value) => new Params((global::ElevenLabs.CreateHolidayParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateHolidayParams?(Params @this) => @this.CreateHoliday;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateHolidayParams? value)
         {
@@ -3378,22 +4500,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateHoliday(global::ElevenLabs.CreateHolidayParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateHolidayParams value) => new Params((global::ElevenLabs.UpdateHolidayParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateHolidayParams?(Params @this) => @this.UpdateHoliday;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateHolidayParams? value)
         {
@@ -3401,22 +4523,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateHoliday(global::ElevenLabs.UpdateHolidayParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteHolidayParams value) => new Params((global::ElevenLabs.DeleteHolidayParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteHolidayParams?(Params @this) => @this.DeleteHoliday;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteHolidayParams? value)
         {
@@ -3424,22 +4546,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteHoliday(global::ElevenLabs.DeleteHolidayParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetScheduleParams value) => new Params((global::ElevenLabs.GetScheduleParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetScheduleParams?(Params @this) => @this.GetSchedule;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetScheduleParams? value)
         {
@@ -3447,22 +4569,45 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetSchedule(global::ElevenLabs.GetScheduleParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.SubmitBusinessInfoParams value) => new Params((global::ElevenLabs.SubmitBusinessInfoParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.SubmitBusinessInfoParams?(Params @this) => @this.SubmitBusinessInfo;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.SubmitBusinessInfoParams? value)
+        {
+            SubmitBusinessInfo = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromSubmitBusinessInfo(global::ElevenLabs.SubmitBusinessInfoParams? value) => new Params(value);
+
+        /// <summary>
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateBusinessInfoParams value) => new Params((global::ElevenLabs.UpdateBusinessInfoParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateBusinessInfoParams?(Params @this) => @this.UpdateBusinessInfo;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateBusinessInfoParams? value)
         {
@@ -3470,22 +4615,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateBusinessInfo(global::ElevenLabs.UpdateBusinessInfoParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateCustomerFacingConfigParams value) => new Params((global::ElevenLabs.UpdateCustomerFacingConfigParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateCustomerFacingConfigParams?(Params @this) => @this.UpdateCustomerFacingConfig;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateCustomerFacingConfigParams? value)
         {
@@ -3493,22 +4638,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateCustomerFacingConfig(global::ElevenLabs.UpdateCustomerFacingConfigParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetAnalyticsSummaryParams value) => new Params((global::ElevenLabs.GetAnalyticsSummaryParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetAnalyticsSummaryParams?(Params @this) => @this.GetAnalyticsSummary;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetAnalyticsSummaryParams? value)
         {
@@ -3516,22 +4661,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetAnalyticsSummary(global::ElevenLabs.GetAnalyticsSummaryParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetBookingPageSettingsParams value) => new Params((global::ElevenLabs.GetBookingPageSettingsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetBookingPageSettingsParams?(Params @this) => @this.GetBookingPageSettings;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetBookingPageSettingsParams? value)
         {
@@ -3539,22 +4684,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetBookingPageSettings(global::ElevenLabs.GetBookingPageSettingsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateBookingPageSettingsParams value) => new Params((global::ElevenLabs.UpdateBookingPageSettingsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateBookingPageSettingsParams?(Params @this) => @this.UpdateBookingPageSettings;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateBookingPageSettingsParams? value)
         {
@@ -3562,22 +4707,45 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateBookingPageSettings(global::ElevenLabs.UpdateBookingPageSettingsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.UpdateBookingPageAppearanceParams value) => new Params((global::ElevenLabs.UpdateBookingPageAppearanceParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.UpdateBookingPageAppearanceParams?(Params @this) => @this.UpdateBookingPageAppearance;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.UpdateBookingPageAppearanceParams? value)
+        {
+            UpdateBookingPageAppearance = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromUpdateBookingPageAppearance(global::ElevenLabs.UpdateBookingPageAppearanceParams? value) => new Params(value);
+
+        /// <summary>
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.GetBookingSlugStatusParams value) => new Params((global::ElevenLabs.GetBookingSlugStatusParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.GetBookingSlugStatusParams?(Params @this) => @this.GetBookingSlugStatus;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.GetBookingSlugStatusParams? value)
         {
@@ -3585,22 +4753,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromGetBookingSlugStatus(global::ElevenLabs.GetBookingSlugStatusParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.SetBookingSlugParams value) => new Params((global::ElevenLabs.SetBookingSlugParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.SetBookingSlugParams?(Params @this) => @this.SetBookingSlug;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.SetBookingSlugParams? value)
         {
@@ -3608,22 +4776,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromSetBookingSlug(global::ElevenLabs.SetBookingSlugParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListClientInteractionsParams value) => new Params((global::ElevenLabs.ListClientInteractionsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListClientInteractionsParams?(Params @this) => @this.ListClientInteractions;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListClientInteractionsParams? value)
         {
@@ -3631,22 +4799,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListClientInteractions(global::ElevenLabs.ListClientInteractionsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateClientInteractionParams value) => new Params((global::ElevenLabs.CreateClientInteractionParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateClientInteractionParams?(Params @this) => @this.CreateClientInteraction;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateClientInteractionParams? value)
         {
@@ -3654,22 +4822,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateClientInteraction(global::ElevenLabs.CreateClientInteractionParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteClientInteractionParams value) => new Params((global::ElevenLabs.DeleteClientInteractionParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteClientInteractionParams?(Params @this) => @this.DeleteClientInteraction;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteClientInteractionParams? value)
         {
@@ -3677,22 +4845,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteClientInteraction(global::ElevenLabs.DeleteClientInteractionParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ListLocationsParams value) => new Params((global::ElevenLabs.ListLocationsParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ListLocationsParams?(Params @this) => @this.ListLocations;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ListLocationsParams? value)
         {
@@ -3700,22 +4868,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromListLocations(global::ElevenLabs.ListLocationsParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.CreateLocationParams value) => new Params((global::ElevenLabs.CreateLocationParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateLocationParams?(Params @this) => @this.CreateLocation;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.CreateLocationParams? value)
         {
@@ -3723,22 +4891,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromCreateLocation(global::ElevenLabs.CreateLocationParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.UpdateLocationParams value) => new Params((global::ElevenLabs.UpdateLocationParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.UpdateLocationParams?(Params @this) => @this.UpdateLocation;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.UpdateLocationParams? value)
         {
@@ -3746,22 +4914,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromUpdateLocation(global::ElevenLabs.UpdateLocationParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.DeleteLocationParams value) => new Params((global::ElevenLabs.DeleteLocationParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DeleteLocationParams?(Params @this) => @this.DeleteLocation;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.DeleteLocationParams? value)
         {
@@ -3769,22 +4937,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromDeleteLocation(global::ElevenLabs.DeleteLocationParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.LeaveMessageParams value) => new Params((global::ElevenLabs.LeaveMessageParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.LeaveMessageParams?(Params @this) => @this.LeaveMessage;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.LeaveMessageParams? value)
         {
@@ -3792,22 +4960,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromLeaveMessage(global::ElevenLabs.LeaveMessageParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Params(global::ElevenLabs.ReportKnowledgeGapParams value) => new Params((global::ElevenLabs.ReportKnowledgeGapParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.ReportKnowledgeGapParams?(Params @this) => @this.ReportKnowledgeGap;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Params(global::ElevenLabs.ReportKnowledgeGapParams? value)
         {
@@ -3815,12 +4983,104 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Params FromReportKnowledgeGap(global::ElevenLabs.ReportKnowledgeGapParams? value) => new Params(value);
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.OptInSmsReminderParams value) => new Params((global::ElevenLabs.OptInSmsReminderParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.OptInSmsReminderParams?(Params @this) => @this.OptInSmsReminder;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.OptInSmsReminderParams? value)
+        {
+            OptInSmsReminder = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromOptInSmsReminder(global::ElevenLabs.OptInSmsReminderParams? value) => new Params(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.OptOutSmsReminderParams value) => new Params((global::ElevenLabs.OptOutSmsReminderParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.OptOutSmsReminderParams?(Params @this) => @this.OptOutSmsReminder;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.OptOutSmsReminderParams? value)
+        {
+            OptOutSmsReminder = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromOptOutSmsReminder(global::ElevenLabs.OptOutSmsReminderParams? value) => new Params(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.TriggerUserVerificationParams value) => new Params((global::ElevenLabs.TriggerUserVerificationParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.TriggerUserVerificationParams?(Params @this) => @this.TriggerUserVerification;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.TriggerUserVerificationParams? value)
+        {
+            TriggerUserVerification = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromTriggerUserVerification(global::ElevenLabs.TriggerUserVerificationParams? value) => new Params(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Params(global::ElevenLabs.ValidateUserVerificationCodeParams value) => new Params((global::ElevenLabs.ValidateUserVerificationCodeParams?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.ValidateUserVerificationCodeParams?(Params @this) => @this.ValidateUserVerificationCode;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Params(global::ElevenLabs.ValidateUserVerificationCodeParams? value)
+        {
+            ValidateUserVerificationCode = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Params FromValidateUserVerificationCode(global::ElevenLabs.ValidateUserVerificationCodeParams? value) => new Params(value);
+
+        /// <summary>
+        ///
         /// </summary>
         public Params(
             global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType? smbToolType,
@@ -3850,6 +5110,11 @@ namespace ElevenLabs
             global::ElevenLabs.CreateClientAppointmentParams? createClientAppointment,
             global::ElevenLabs.GetClientAppointmentsParams? getClientAppointments,
             global::ElevenLabs.GetAppointmentByConfirmationNumberParams? getAppointmentByConfirmationNumber,
+            global::ElevenLabs.CreateOrderParams? createOrder,
+            global::ElevenLabs.GetOrderByConfirmationNumberParams? getOrderByConfirmationNumber,
+            global::ElevenLabs.GetClientOrdersParams? getClientOrders,
+            global::ElevenLabs.UpdateOrderParams? updateOrder,
+            global::ElevenLabs.CancelOrderParams? cancelOrder,
             global::ElevenLabs.ListGroupSessionsParams? listGroupSessions,
             global::ElevenLabs.ScheduleGroupSessionParams? scheduleGroupSession,
             global::ElevenLabs.RegisterForGroupSessionParams? registerForGroupSession,
@@ -3860,22 +5125,34 @@ namespace ElevenLabs
             global::ElevenLabs.ListCalendarEventsParams? listCalendarEvents,
             global::ElevenLabs.UpdateCalendarEventParams? updateCalendarEvent,
             global::ElevenLabs.CancelCalendarEventParams? cancelCalendarEvent,
+            global::ElevenLabs.RestoreCalendarEventParams? restoreCalendarEvent,
             global::ElevenLabs.DeleteCalendarEventParams? deleteCalendarEvent,
             global::ElevenLabs.ListCustomerFacingAgentsParams? listCustomerFacingAgents,
             global::ElevenLabs.ListAgentRulesParams? listAgentRules,
             global::ElevenLabs.CreateAgentRuleParams? createAgentRule,
             global::ElevenLabs.UpdateAgentRuleParams? updateAgentRule,
             global::ElevenLabs.DeleteAgentRuleParams? deleteAgentRule,
+            global::ElevenLabs.ListTransferRulesParams? listTransferRules,
+            global::ElevenLabs.CreateTransferRuleParams? createTransferRule,
+            global::ElevenLabs.UpdateTransferRuleParams? updateTransferRule,
+            global::ElevenLabs.DeleteTransferRuleParams? deleteTransferRule,
+            global::ElevenLabs.ListAgentProceduresParams? listAgentProcedures,
+            global::ElevenLabs.ListAgentReferencesParams? listAgentReferences,
+            global::ElevenLabs.CreateAgentProcedureParams? createAgentProcedure,
+            global::ElevenLabs.UpdateAgentProcedureParams? updateAgentProcedure,
+            global::ElevenLabs.DeleteAgentProcedureParams? deleteAgentProcedure,
             global::ElevenLabs.ListHolidaysParams? listHolidays,
             global::ElevenLabs.CreateHolidayParams? createHoliday,
             global::ElevenLabs.UpdateHolidayParams? updateHoliday,
             global::ElevenLabs.DeleteHolidayParams? deleteHoliday,
             global::ElevenLabs.GetScheduleParams? getSchedule,
+            global::ElevenLabs.SubmitBusinessInfoParams? submitBusinessInfo,
             global::ElevenLabs.UpdateBusinessInfoParams? updateBusinessInfo,
             global::ElevenLabs.UpdateCustomerFacingConfigParams? updateCustomerFacingConfig,
             global::ElevenLabs.GetAnalyticsSummaryParams? getAnalyticsSummary,
             global::ElevenLabs.GetBookingPageSettingsParams? getBookingPageSettings,
             global::ElevenLabs.UpdateBookingPageSettingsParams? updateBookingPageSettings,
+            global::ElevenLabs.UpdateBookingPageAppearanceParams? updateBookingPageAppearance,
             global::ElevenLabs.GetBookingSlugStatusParams? getBookingSlugStatus,
             global::ElevenLabs.SetBookingSlugParams? setBookingSlug,
             global::ElevenLabs.ListClientInteractionsParams? listClientInteractions,
@@ -3886,7 +5163,11 @@ namespace ElevenLabs
             global::ElevenLabs.UpdateLocationParams? updateLocation,
             global::ElevenLabs.DeleteLocationParams? deleteLocation,
             global::ElevenLabs.LeaveMessageParams? leaveMessage,
-            global::ElevenLabs.ReportKnowledgeGapParams? reportKnowledgeGap
+            global::ElevenLabs.ReportKnowledgeGapParams? reportKnowledgeGap,
+            global::ElevenLabs.OptInSmsReminderParams? optInSmsReminder,
+            global::ElevenLabs.OptOutSmsReminderParams? optOutSmsReminder,
+            global::ElevenLabs.TriggerUserVerificationParams? triggerUserVerification,
+            global::ElevenLabs.ValidateUserVerificationCodeParams? validateUserVerificationCode
             )
         {
             SmbToolType = smbToolType;
@@ -3917,6 +5198,11 @@ namespace ElevenLabs
             CreateClientAppointment = createClientAppointment;
             GetClientAppointments = getClientAppointments;
             GetAppointmentByConfirmationNumber = getAppointmentByConfirmationNumber;
+            CreateOrder = createOrder;
+            GetOrderByConfirmationNumber = getOrderByConfirmationNumber;
+            GetClientOrders = getClientOrders;
+            UpdateOrder = updateOrder;
+            CancelOrder = cancelOrder;
             ListGroupSessions = listGroupSessions;
             ScheduleGroupSession = scheduleGroupSession;
             RegisterForGroupSession = registerForGroupSession;
@@ -3927,22 +5213,34 @@ namespace ElevenLabs
             ListCalendarEvents = listCalendarEvents;
             UpdateCalendarEvent = updateCalendarEvent;
             CancelCalendarEvent = cancelCalendarEvent;
+            RestoreCalendarEvent = restoreCalendarEvent;
             DeleteCalendarEvent = deleteCalendarEvent;
             ListCustomerFacingAgents = listCustomerFacingAgents;
             ListAgentRules = listAgentRules;
             CreateAgentRule = createAgentRule;
             UpdateAgentRule = updateAgentRule;
             DeleteAgentRule = deleteAgentRule;
+            ListTransferRules = listTransferRules;
+            CreateTransferRule = createTransferRule;
+            UpdateTransferRule = updateTransferRule;
+            DeleteTransferRule = deleteTransferRule;
+            ListAgentProcedures = listAgentProcedures;
+            ListAgentReferences = listAgentReferences;
+            CreateAgentProcedure = createAgentProcedure;
+            UpdateAgentProcedure = updateAgentProcedure;
+            DeleteAgentProcedure = deleteAgentProcedure;
             ListHolidays = listHolidays;
             CreateHoliday = createHoliday;
             UpdateHoliday = updateHoliday;
             DeleteHoliday = deleteHoliday;
             GetSchedule = getSchedule;
+            SubmitBusinessInfo = submitBusinessInfo;
             UpdateBusinessInfo = updateBusinessInfo;
             UpdateCustomerFacingConfig = updateCustomerFacingConfig;
             GetAnalyticsSummary = getAnalyticsSummary;
             GetBookingPageSettings = getBookingPageSettings;
             UpdateBookingPageSettings = updateBookingPageSettings;
+            UpdateBookingPageAppearance = updateBookingPageAppearance;
             GetBookingSlugStatus = getBookingSlugStatus;
             SetBookingSlug = setBookingSlug;
             ListClientInteractions = listClientInteractions;
@@ -3954,12 +5252,20 @@ namespace ElevenLabs
             DeleteLocation = deleteLocation;
             LeaveMessage = leaveMessage;
             ReportKnowledgeGap = reportKnowledgeGap;
+            OptInSmsReminder = optInSmsReminder;
+            OptOutSmsReminder = optOutSmsReminder;
+            TriggerUserVerification = triggerUserVerification;
+            ValidateUserVerificationCode = validateUserVerificationCode;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
+            ValidateUserVerificationCode as object ??
+            TriggerUserVerification as object ??
+            OptOutSmsReminder as object ??
+            OptInSmsReminder as object ??
             ReportKnowledgeGap as object ??
             LeaveMessage as object ??
             DeleteLocation as object ??
@@ -3971,22 +5277,34 @@ namespace ElevenLabs
             ListClientInteractions as object ??
             SetBookingSlug as object ??
             GetBookingSlugStatus as object ??
+            UpdateBookingPageAppearance as object ??
             UpdateBookingPageSettings as object ??
             GetBookingPageSettings as object ??
             GetAnalyticsSummary as object ??
             UpdateCustomerFacingConfig as object ??
             UpdateBusinessInfo as object ??
+            SubmitBusinessInfo as object ??
             GetSchedule as object ??
             DeleteHoliday as object ??
             UpdateHoliday as object ??
             CreateHoliday as object ??
             ListHolidays as object ??
+            DeleteAgentProcedure as object ??
+            UpdateAgentProcedure as object ??
+            CreateAgentProcedure as object ??
+            ListAgentReferences as object ??
+            ListAgentProcedures as object ??
+            DeleteTransferRule as object ??
+            UpdateTransferRule as object ??
+            CreateTransferRule as object ??
+            ListTransferRules as object ??
             DeleteAgentRule as object ??
             UpdateAgentRule as object ??
             CreateAgentRule as object ??
             ListAgentRules as object ??
             ListCustomerFacingAgents as object ??
             DeleteCalendarEvent as object ??
+            RestoreCalendarEvent as object ??
             CancelCalendarEvent as object ??
             UpdateCalendarEvent as object ??
             ListCalendarEvents as object ??
@@ -3997,6 +5315,11 @@ namespace ElevenLabs
             RegisterForGroupSession as object ??
             ScheduleGroupSession as object ??
             ListGroupSessions as object ??
+            CancelOrder as object ??
+            UpdateOrder as object ??
+            GetClientOrders as object ??
+            GetOrderByConfirmationNumber as object ??
+            CreateOrder as object ??
             GetAppointmentByConfirmationNumber as object ??
             GetClientAppointments as object ??
             CreateClientAppointment as object ??
@@ -4022,11 +5345,11 @@ namespace ElevenLabs
             CreateClient as object ??
             GetClientByPhone as object ??
             ListClients as object ??
-            SearchClients as object 
+            SearchClients as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             SearchClients?.ToString() ??
@@ -4055,6 +5378,11 @@ namespace ElevenLabs
             CreateClientAppointment?.ToString() ??
             GetClientAppointments?.ToString() ??
             GetAppointmentByConfirmationNumber?.ToString() ??
+            CreateOrder?.ToString() ??
+            GetOrderByConfirmationNumber?.ToString() ??
+            GetClientOrders?.ToString() ??
+            UpdateOrder?.ToString() ??
+            CancelOrder?.ToString() ??
             ListGroupSessions?.ToString() ??
             ScheduleGroupSession?.ToString() ??
             RegisterForGroupSession?.ToString() ??
@@ -4065,22 +5393,34 @@ namespace ElevenLabs
             ListCalendarEvents?.ToString() ??
             UpdateCalendarEvent?.ToString() ??
             CancelCalendarEvent?.ToString() ??
+            RestoreCalendarEvent?.ToString() ??
             DeleteCalendarEvent?.ToString() ??
             ListCustomerFacingAgents?.ToString() ??
             ListAgentRules?.ToString() ??
             CreateAgentRule?.ToString() ??
             UpdateAgentRule?.ToString() ??
             DeleteAgentRule?.ToString() ??
+            ListTransferRules?.ToString() ??
+            CreateTransferRule?.ToString() ??
+            UpdateTransferRule?.ToString() ??
+            DeleteTransferRule?.ToString() ??
+            ListAgentProcedures?.ToString() ??
+            ListAgentReferences?.ToString() ??
+            CreateAgentProcedure?.ToString() ??
+            UpdateAgentProcedure?.ToString() ??
+            DeleteAgentProcedure?.ToString() ??
             ListHolidays?.ToString() ??
             CreateHoliday?.ToString() ??
             UpdateHoliday?.ToString() ??
             DeleteHoliday?.ToString() ??
             GetSchedule?.ToString() ??
+            SubmitBusinessInfo?.ToString() ??
             UpdateBusinessInfo?.ToString() ??
             UpdateCustomerFacingConfig?.ToString() ??
             GetAnalyticsSummary?.ToString() ??
             GetBookingPageSettings?.ToString() ??
             UpdateBookingPageSettings?.ToString() ??
+            UpdateBookingPageAppearance?.ToString() ??
             GetBookingSlugStatus?.ToString() ??
             SetBookingSlug?.ToString() ??
             ListClientInteractions?.ToString() ??
@@ -4091,19 +5431,23 @@ namespace ElevenLabs
             UpdateLocation?.ToString() ??
             DeleteLocation?.ToString() ??
             LeaveMessage?.ToString() ??
-            ReportKnowledgeGap?.ToString() 
+            ReportKnowledgeGap?.ToString() ??
+            OptInSmsReminder?.ToString() ??
+            OptOutSmsReminder?.ToString() ??
+            TriggerUserVerification?.ToString() ??
+            ValidateUserVerificationCode?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
-            return IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && IsLeaveMessage && !IsReportKnowledgeGap || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && IsReportKnowledgeGap;
+            return IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && IsOptOutSmsReminder && !IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && IsTriggerUserVerification && !IsValidateUserVerificationCode || !IsSearchClients && !IsListClients && !IsGetClientByPhone && !IsCreateClient && !IsUpdateClient && !IsDeleteClient && !IsListStaff && !IsCreateStaff && !IsUpdateStaff && !IsDeleteStaff && !IsListAssets && !IsCreateAsset && !IsUpdateAsset && !IsDeleteAsset && !IsListServices && !IsCreateService && !IsUpdateService && !IsDeleteService && !IsListProducts && !IsCreateProduct && !IsUpdateProduct && !IsDeleteProduct && !IsCheckServiceAvailability && !IsCreateClientAppointment && !IsGetClientAppointments && !IsGetAppointmentByConfirmationNumber && !IsCreateOrder && !IsGetOrderByConfirmationNumber && !IsGetClientOrders && !IsUpdateOrder && !IsCancelOrder && !IsListGroupSessions && !IsScheduleGroupSession && !IsRegisterForGroupSession && !IsCancelGroupSessionRegistration && !IsUpdateGroupSessionSeats && !IsCancelGroupSessionForAll && !IsDeleteGroupSession && !IsListCalendarEvents && !IsUpdateCalendarEvent && !IsCancelCalendarEvent && !IsRestoreCalendarEvent && !IsDeleteCalendarEvent && !IsListCustomerFacingAgents && !IsListAgentRules && !IsCreateAgentRule && !IsUpdateAgentRule && !IsDeleteAgentRule && !IsListTransferRules && !IsCreateTransferRule && !IsUpdateTransferRule && !IsDeleteTransferRule && !IsListAgentProcedures && !IsListAgentReferences && !IsCreateAgentProcedure && !IsUpdateAgentProcedure && !IsDeleteAgentProcedure && !IsListHolidays && !IsCreateHoliday && !IsUpdateHoliday && !IsDeleteHoliday && !IsGetSchedule && !IsSubmitBusinessInfo && !IsUpdateBusinessInfo && !IsUpdateCustomerFacingConfig && !IsGetAnalyticsSummary && !IsGetBookingPageSettings && !IsUpdateBookingPageSettings && !IsUpdateBookingPageAppearance && !IsGetBookingSlugStatus && !IsSetBookingSlug && !IsListClientInteractions && !IsCreateClientInteraction && !IsDeleteClientInteraction && !IsListLocations && !IsCreateLocation && !IsUpdateLocation && !IsDeleteLocation && !IsLeaveMessage && !IsReportKnowledgeGap && !IsOptInSmsReminder && !IsOptOutSmsReminder && !IsTriggerUserVerification && IsValidateUserVerificationCode;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.SearchClientsParams, TResult>? searchClients = null,
@@ -4132,6 +5476,11 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.CreateClientAppointmentParams, TResult>? createClientAppointment = null,
             global::System.Func<global::ElevenLabs.GetClientAppointmentsParams, TResult>? getClientAppointments = null,
             global::System.Func<global::ElevenLabs.GetAppointmentByConfirmationNumberParams, TResult>? getAppointmentByConfirmationNumber = null,
+            global::System.Func<global::ElevenLabs.CreateOrderParams, TResult>? createOrder = null,
+            global::System.Func<global::ElevenLabs.GetOrderByConfirmationNumberParams, TResult>? getOrderByConfirmationNumber = null,
+            global::System.Func<global::ElevenLabs.GetClientOrdersParams, TResult>? getClientOrders = null,
+            global::System.Func<global::ElevenLabs.UpdateOrderParams, TResult>? updateOrder = null,
+            global::System.Func<global::ElevenLabs.CancelOrderParams, TResult>? cancelOrder = null,
             global::System.Func<global::ElevenLabs.ListGroupSessionsParams, TResult>? listGroupSessions = null,
             global::System.Func<global::ElevenLabs.ScheduleGroupSessionParams, TResult>? scheduleGroupSession = null,
             global::System.Func<global::ElevenLabs.RegisterForGroupSessionParams, TResult>? registerForGroupSession = null,
@@ -4142,22 +5491,34 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.ListCalendarEventsParams, TResult>? listCalendarEvents = null,
             global::System.Func<global::ElevenLabs.UpdateCalendarEventParams, TResult>? updateCalendarEvent = null,
             global::System.Func<global::ElevenLabs.CancelCalendarEventParams, TResult>? cancelCalendarEvent = null,
+            global::System.Func<global::ElevenLabs.RestoreCalendarEventParams, TResult>? restoreCalendarEvent = null,
             global::System.Func<global::ElevenLabs.DeleteCalendarEventParams, TResult>? deleteCalendarEvent = null,
             global::System.Func<global::ElevenLabs.ListCustomerFacingAgentsParams, TResult>? listCustomerFacingAgents = null,
             global::System.Func<global::ElevenLabs.ListAgentRulesParams, TResult>? listAgentRules = null,
             global::System.Func<global::ElevenLabs.CreateAgentRuleParams, TResult>? createAgentRule = null,
             global::System.Func<global::ElevenLabs.UpdateAgentRuleParams, TResult>? updateAgentRule = null,
             global::System.Func<global::ElevenLabs.DeleteAgentRuleParams, TResult>? deleteAgentRule = null,
+            global::System.Func<global::ElevenLabs.ListTransferRulesParams, TResult>? listTransferRules = null,
+            global::System.Func<global::ElevenLabs.CreateTransferRuleParams, TResult>? createTransferRule = null,
+            global::System.Func<global::ElevenLabs.UpdateTransferRuleParams, TResult>? updateTransferRule = null,
+            global::System.Func<global::ElevenLabs.DeleteTransferRuleParams, TResult>? deleteTransferRule = null,
+            global::System.Func<global::ElevenLabs.ListAgentProceduresParams, TResult>? listAgentProcedures = null,
+            global::System.Func<global::ElevenLabs.ListAgentReferencesParams, TResult>? listAgentReferences = null,
+            global::System.Func<global::ElevenLabs.CreateAgentProcedureParams, TResult>? createAgentProcedure = null,
+            global::System.Func<global::ElevenLabs.UpdateAgentProcedureParams, TResult>? updateAgentProcedure = null,
+            global::System.Func<global::ElevenLabs.DeleteAgentProcedureParams, TResult>? deleteAgentProcedure = null,
             global::System.Func<global::ElevenLabs.ListHolidaysParams, TResult>? listHolidays = null,
             global::System.Func<global::ElevenLabs.CreateHolidayParams, TResult>? createHoliday = null,
             global::System.Func<global::ElevenLabs.UpdateHolidayParams, TResult>? updateHoliday = null,
             global::System.Func<global::ElevenLabs.DeleteHolidayParams, TResult>? deleteHoliday = null,
             global::System.Func<global::ElevenLabs.GetScheduleParams, TResult>? getSchedule = null,
+            global::System.Func<global::ElevenLabs.SubmitBusinessInfoParams, TResult>? submitBusinessInfo = null,
             global::System.Func<global::ElevenLabs.UpdateBusinessInfoParams, TResult>? updateBusinessInfo = null,
             global::System.Func<global::ElevenLabs.UpdateCustomerFacingConfigParams, TResult>? updateCustomerFacingConfig = null,
             global::System.Func<global::ElevenLabs.GetAnalyticsSummaryParams, TResult>? getAnalyticsSummary = null,
             global::System.Func<global::ElevenLabs.GetBookingPageSettingsParams, TResult>? getBookingPageSettings = null,
             global::System.Func<global::ElevenLabs.UpdateBookingPageSettingsParams, TResult>? updateBookingPageSettings = null,
+            global::System.Func<global::ElevenLabs.UpdateBookingPageAppearanceParams, TResult>? updateBookingPageAppearance = null,
             global::System.Func<global::ElevenLabs.GetBookingSlugStatusParams, TResult>? getBookingSlugStatus = null,
             global::System.Func<global::ElevenLabs.SetBookingSlugParams, TResult>? setBookingSlug = null,
             global::System.Func<global::ElevenLabs.ListClientInteractionsParams, TResult>? listClientInteractions = null,
@@ -4169,6 +5530,10 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.DeleteLocationParams, TResult>? deleteLocation = null,
             global::System.Func<global::ElevenLabs.LeaveMessageParams, TResult>? leaveMessage = null,
             global::System.Func<global::ElevenLabs.ReportKnowledgeGapParams, TResult>? reportKnowledgeGap = null,
+            global::System.Func<global::ElevenLabs.OptInSmsReminderParams, TResult>? optInSmsReminder = null,
+            global::System.Func<global::ElevenLabs.OptOutSmsReminderParams, TResult>? optOutSmsReminder = null,
+            global::System.Func<global::ElevenLabs.TriggerUserVerificationParams, TResult>? triggerUserVerification = null,
+            global::System.Func<global::ElevenLabs.ValidateUserVerificationCodeParams, TResult>? validateUserVerificationCode = null,
             bool validate = true)
         {
             if (validate)
@@ -4280,6 +5645,26 @@ namespace ElevenLabs
             {
                 return getAppointmentByConfirmationNumber(GetAppointmentByConfirmationNumber!);
             }
+            else if (IsCreateOrder && createOrder != null)
+            {
+                return createOrder(CreateOrder!);
+            }
+            else if (IsGetOrderByConfirmationNumber && getOrderByConfirmationNumber != null)
+            {
+                return getOrderByConfirmationNumber(GetOrderByConfirmationNumber!);
+            }
+            else if (IsGetClientOrders && getClientOrders != null)
+            {
+                return getClientOrders(GetClientOrders!);
+            }
+            else if (IsUpdateOrder && updateOrder != null)
+            {
+                return updateOrder(UpdateOrder!);
+            }
+            else if (IsCancelOrder && cancelOrder != null)
+            {
+                return cancelOrder(CancelOrder!);
+            }
             else if (IsListGroupSessions && listGroupSessions != null)
             {
                 return listGroupSessions(ListGroupSessions!);
@@ -4320,6 +5705,10 @@ namespace ElevenLabs
             {
                 return cancelCalendarEvent(CancelCalendarEvent!);
             }
+            else if (IsRestoreCalendarEvent && restoreCalendarEvent != null)
+            {
+                return restoreCalendarEvent(RestoreCalendarEvent!);
+            }
             else if (IsDeleteCalendarEvent && deleteCalendarEvent != null)
             {
                 return deleteCalendarEvent(DeleteCalendarEvent!);
@@ -4344,6 +5733,42 @@ namespace ElevenLabs
             {
                 return deleteAgentRule(DeleteAgentRule!);
             }
+            else if (IsListTransferRules && listTransferRules != null)
+            {
+                return listTransferRules(ListTransferRules!);
+            }
+            else if (IsCreateTransferRule && createTransferRule != null)
+            {
+                return createTransferRule(CreateTransferRule!);
+            }
+            else if (IsUpdateTransferRule && updateTransferRule != null)
+            {
+                return updateTransferRule(UpdateTransferRule!);
+            }
+            else if (IsDeleteTransferRule && deleteTransferRule != null)
+            {
+                return deleteTransferRule(DeleteTransferRule!);
+            }
+            else if (IsListAgentProcedures && listAgentProcedures != null)
+            {
+                return listAgentProcedures(ListAgentProcedures!);
+            }
+            else if (IsListAgentReferences && listAgentReferences != null)
+            {
+                return listAgentReferences(ListAgentReferences!);
+            }
+            else if (IsCreateAgentProcedure && createAgentProcedure != null)
+            {
+                return createAgentProcedure(CreateAgentProcedure!);
+            }
+            else if (IsUpdateAgentProcedure && updateAgentProcedure != null)
+            {
+                return updateAgentProcedure(UpdateAgentProcedure!);
+            }
+            else if (IsDeleteAgentProcedure && deleteAgentProcedure != null)
+            {
+                return deleteAgentProcedure(DeleteAgentProcedure!);
+            }
             else if (IsListHolidays && listHolidays != null)
             {
                 return listHolidays(ListHolidays!);
@@ -4364,6 +5789,10 @@ namespace ElevenLabs
             {
                 return getSchedule(GetSchedule!);
             }
+            else if (IsSubmitBusinessInfo && submitBusinessInfo != null)
+            {
+                return submitBusinessInfo(SubmitBusinessInfo!);
+            }
             else if (IsUpdateBusinessInfo && updateBusinessInfo != null)
             {
                 return updateBusinessInfo(UpdateBusinessInfo!);
@@ -4383,6 +5812,10 @@ namespace ElevenLabs
             else if (IsUpdateBookingPageSettings && updateBookingPageSettings != null)
             {
                 return updateBookingPageSettings(UpdateBookingPageSettings!);
+            }
+            else if (IsUpdateBookingPageAppearance && updateBookingPageAppearance != null)
+            {
+                return updateBookingPageAppearance(UpdateBookingPageAppearance!);
             }
             else if (IsGetBookingSlugStatus && getBookingSlugStatus != null)
             {
@@ -4428,12 +5861,28 @@ namespace ElevenLabs
             {
                 return reportKnowledgeGap(ReportKnowledgeGap!);
             }
+            else if (IsOptInSmsReminder && optInSmsReminder != null)
+            {
+                return optInSmsReminder(OptInSmsReminder!);
+            }
+            else if (IsOptOutSmsReminder && optOutSmsReminder != null)
+            {
+                return optOutSmsReminder(OptOutSmsReminder!);
+            }
+            else if (IsTriggerUserVerification && triggerUserVerification != null)
+            {
+                return triggerUserVerification(TriggerUserVerification!);
+            }
+            else if (IsValidateUserVerificationCode && validateUserVerificationCode != null)
+            {
+                return validateUserVerificationCode(ValidateUserVerificationCode!);
+            }
 
             return default(TResult);
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.SearchClientsParams>? searchClients = null,
@@ -4488,6 +5937,16 @@ namespace ElevenLabs
 
             global::System.Action<global::ElevenLabs.GetAppointmentByConfirmationNumberParams>? getAppointmentByConfirmationNumber = null,
 
+            global::System.Action<global::ElevenLabs.CreateOrderParams>? createOrder = null,
+
+            global::System.Action<global::ElevenLabs.GetOrderByConfirmationNumberParams>? getOrderByConfirmationNumber = null,
+
+            global::System.Action<global::ElevenLabs.GetClientOrdersParams>? getClientOrders = null,
+
+            global::System.Action<global::ElevenLabs.UpdateOrderParams>? updateOrder = null,
+
+            global::System.Action<global::ElevenLabs.CancelOrderParams>? cancelOrder = null,
+
             global::System.Action<global::ElevenLabs.ListGroupSessionsParams>? listGroupSessions = null,
 
             global::System.Action<global::ElevenLabs.ScheduleGroupSessionParams>? scheduleGroupSession = null,
@@ -4508,6 +5967,8 @@ namespace ElevenLabs
 
             global::System.Action<global::ElevenLabs.CancelCalendarEventParams>? cancelCalendarEvent = null,
 
+            global::System.Action<global::ElevenLabs.RestoreCalendarEventParams>? restoreCalendarEvent = null,
+
             global::System.Action<global::ElevenLabs.DeleteCalendarEventParams>? deleteCalendarEvent = null,
 
             global::System.Action<global::ElevenLabs.ListCustomerFacingAgentsParams>? listCustomerFacingAgents = null,
@@ -4520,6 +5981,24 @@ namespace ElevenLabs
 
             global::System.Action<global::ElevenLabs.DeleteAgentRuleParams>? deleteAgentRule = null,
 
+            global::System.Action<global::ElevenLabs.ListTransferRulesParams>? listTransferRules = null,
+
+            global::System.Action<global::ElevenLabs.CreateTransferRuleParams>? createTransferRule = null,
+
+            global::System.Action<global::ElevenLabs.UpdateTransferRuleParams>? updateTransferRule = null,
+
+            global::System.Action<global::ElevenLabs.DeleteTransferRuleParams>? deleteTransferRule = null,
+
+            global::System.Action<global::ElevenLabs.ListAgentProceduresParams>? listAgentProcedures = null,
+
+            global::System.Action<global::ElevenLabs.ListAgentReferencesParams>? listAgentReferences = null,
+
+            global::System.Action<global::ElevenLabs.CreateAgentProcedureParams>? createAgentProcedure = null,
+
+            global::System.Action<global::ElevenLabs.UpdateAgentProcedureParams>? updateAgentProcedure = null,
+
+            global::System.Action<global::ElevenLabs.DeleteAgentProcedureParams>? deleteAgentProcedure = null,
+
             global::System.Action<global::ElevenLabs.ListHolidaysParams>? listHolidays = null,
 
             global::System.Action<global::ElevenLabs.CreateHolidayParams>? createHoliday = null,
@@ -4530,6 +6009,8 @@ namespace ElevenLabs
 
             global::System.Action<global::ElevenLabs.GetScheduleParams>? getSchedule = null,
 
+            global::System.Action<global::ElevenLabs.SubmitBusinessInfoParams>? submitBusinessInfo = null,
+
             global::System.Action<global::ElevenLabs.UpdateBusinessInfoParams>? updateBusinessInfo = null,
 
             global::System.Action<global::ElevenLabs.UpdateCustomerFacingConfigParams>? updateCustomerFacingConfig = null,
@@ -4539,6 +6020,8 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.GetBookingPageSettingsParams>? getBookingPageSettings = null,
 
             global::System.Action<global::ElevenLabs.UpdateBookingPageSettingsParams>? updateBookingPageSettings = null,
+
+            global::System.Action<global::ElevenLabs.UpdateBookingPageAppearanceParams>? updateBookingPageAppearance = null,
 
             global::System.Action<global::ElevenLabs.GetBookingSlugStatusParams>? getBookingSlugStatus = null,
 
@@ -4561,6 +6044,14 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.LeaveMessageParams>? leaveMessage = null,
 
             global::System.Action<global::ElevenLabs.ReportKnowledgeGapParams>? reportKnowledgeGap = null,
+
+            global::System.Action<global::ElevenLabs.OptInSmsReminderParams>? optInSmsReminder = null,
+
+            global::System.Action<global::ElevenLabs.OptOutSmsReminderParams>? optOutSmsReminder = null,
+
+            global::System.Action<global::ElevenLabs.TriggerUserVerificationParams>? triggerUserVerification = null,
+
+            global::System.Action<global::ElevenLabs.ValidateUserVerificationCodeParams>? validateUserVerificationCode = null,
             bool validate = true)
         {
             if (validate)
@@ -4672,6 +6163,26 @@ namespace ElevenLabs
             {
                 getAppointmentByConfirmationNumber?.Invoke(GetAppointmentByConfirmationNumber!);
             }
+            else if (IsCreateOrder)
+            {
+                createOrder?.Invoke(CreateOrder!);
+            }
+            else if (IsGetOrderByConfirmationNumber)
+            {
+                getOrderByConfirmationNumber?.Invoke(GetOrderByConfirmationNumber!);
+            }
+            else if (IsGetClientOrders)
+            {
+                getClientOrders?.Invoke(GetClientOrders!);
+            }
+            else if (IsUpdateOrder)
+            {
+                updateOrder?.Invoke(UpdateOrder!);
+            }
+            else if (IsCancelOrder)
+            {
+                cancelOrder?.Invoke(CancelOrder!);
+            }
             else if (IsListGroupSessions)
             {
                 listGroupSessions?.Invoke(ListGroupSessions!);
@@ -4712,6 +6223,10 @@ namespace ElevenLabs
             {
                 cancelCalendarEvent?.Invoke(CancelCalendarEvent!);
             }
+            else if (IsRestoreCalendarEvent)
+            {
+                restoreCalendarEvent?.Invoke(RestoreCalendarEvent!);
+            }
             else if (IsDeleteCalendarEvent)
             {
                 deleteCalendarEvent?.Invoke(DeleteCalendarEvent!);
@@ -4736,6 +6251,42 @@ namespace ElevenLabs
             {
                 deleteAgentRule?.Invoke(DeleteAgentRule!);
             }
+            else if (IsListTransferRules)
+            {
+                listTransferRules?.Invoke(ListTransferRules!);
+            }
+            else if (IsCreateTransferRule)
+            {
+                createTransferRule?.Invoke(CreateTransferRule!);
+            }
+            else if (IsUpdateTransferRule)
+            {
+                updateTransferRule?.Invoke(UpdateTransferRule!);
+            }
+            else if (IsDeleteTransferRule)
+            {
+                deleteTransferRule?.Invoke(DeleteTransferRule!);
+            }
+            else if (IsListAgentProcedures)
+            {
+                listAgentProcedures?.Invoke(ListAgentProcedures!);
+            }
+            else if (IsListAgentReferences)
+            {
+                listAgentReferences?.Invoke(ListAgentReferences!);
+            }
+            else if (IsCreateAgentProcedure)
+            {
+                createAgentProcedure?.Invoke(CreateAgentProcedure!);
+            }
+            else if (IsUpdateAgentProcedure)
+            {
+                updateAgentProcedure?.Invoke(UpdateAgentProcedure!);
+            }
+            else if (IsDeleteAgentProcedure)
+            {
+                deleteAgentProcedure?.Invoke(DeleteAgentProcedure!);
+            }
             else if (IsListHolidays)
             {
                 listHolidays?.Invoke(ListHolidays!);
@@ -4756,6 +6307,10 @@ namespace ElevenLabs
             {
                 getSchedule?.Invoke(GetSchedule!);
             }
+            else if (IsSubmitBusinessInfo)
+            {
+                submitBusinessInfo?.Invoke(SubmitBusinessInfo!);
+            }
             else if (IsUpdateBusinessInfo)
             {
                 updateBusinessInfo?.Invoke(UpdateBusinessInfo!);
@@ -4775,6 +6330,10 @@ namespace ElevenLabs
             else if (IsUpdateBookingPageSettings)
             {
                 updateBookingPageSettings?.Invoke(UpdateBookingPageSettings!);
+            }
+            else if (IsUpdateBookingPageAppearance)
+            {
+                updateBookingPageAppearance?.Invoke(UpdateBookingPageAppearance!);
             }
             else if (IsGetBookingSlugStatus)
             {
@@ -4820,10 +6379,26 @@ namespace ElevenLabs
             {
                 reportKnowledgeGap?.Invoke(ReportKnowledgeGap!);
             }
+            else if (IsOptInSmsReminder)
+            {
+                optInSmsReminder?.Invoke(OptInSmsReminder!);
+            }
+            else if (IsOptOutSmsReminder)
+            {
+                optOutSmsReminder?.Invoke(OptOutSmsReminder!);
+            }
+            else if (IsTriggerUserVerification)
+            {
+                triggerUserVerification?.Invoke(TriggerUserVerification!);
+            }
+            else if (IsValidateUserVerificationCode)
+            {
+                validateUserVerificationCode?.Invoke(ValidateUserVerificationCode!);
+            }
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.SearchClientsParams>? searchClients = null,
@@ -4852,6 +6427,11 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.CreateClientAppointmentParams>? createClientAppointment = null,
             global::System.Action<global::ElevenLabs.GetClientAppointmentsParams>? getClientAppointments = null,
             global::System.Action<global::ElevenLabs.GetAppointmentByConfirmationNumberParams>? getAppointmentByConfirmationNumber = null,
+            global::System.Action<global::ElevenLabs.CreateOrderParams>? createOrder = null,
+            global::System.Action<global::ElevenLabs.GetOrderByConfirmationNumberParams>? getOrderByConfirmationNumber = null,
+            global::System.Action<global::ElevenLabs.GetClientOrdersParams>? getClientOrders = null,
+            global::System.Action<global::ElevenLabs.UpdateOrderParams>? updateOrder = null,
+            global::System.Action<global::ElevenLabs.CancelOrderParams>? cancelOrder = null,
             global::System.Action<global::ElevenLabs.ListGroupSessionsParams>? listGroupSessions = null,
             global::System.Action<global::ElevenLabs.ScheduleGroupSessionParams>? scheduleGroupSession = null,
             global::System.Action<global::ElevenLabs.RegisterForGroupSessionParams>? registerForGroupSession = null,
@@ -4862,22 +6442,34 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.ListCalendarEventsParams>? listCalendarEvents = null,
             global::System.Action<global::ElevenLabs.UpdateCalendarEventParams>? updateCalendarEvent = null,
             global::System.Action<global::ElevenLabs.CancelCalendarEventParams>? cancelCalendarEvent = null,
+            global::System.Action<global::ElevenLabs.RestoreCalendarEventParams>? restoreCalendarEvent = null,
             global::System.Action<global::ElevenLabs.DeleteCalendarEventParams>? deleteCalendarEvent = null,
             global::System.Action<global::ElevenLabs.ListCustomerFacingAgentsParams>? listCustomerFacingAgents = null,
             global::System.Action<global::ElevenLabs.ListAgentRulesParams>? listAgentRules = null,
             global::System.Action<global::ElevenLabs.CreateAgentRuleParams>? createAgentRule = null,
             global::System.Action<global::ElevenLabs.UpdateAgentRuleParams>? updateAgentRule = null,
             global::System.Action<global::ElevenLabs.DeleteAgentRuleParams>? deleteAgentRule = null,
+            global::System.Action<global::ElevenLabs.ListTransferRulesParams>? listTransferRules = null,
+            global::System.Action<global::ElevenLabs.CreateTransferRuleParams>? createTransferRule = null,
+            global::System.Action<global::ElevenLabs.UpdateTransferRuleParams>? updateTransferRule = null,
+            global::System.Action<global::ElevenLabs.DeleteTransferRuleParams>? deleteTransferRule = null,
+            global::System.Action<global::ElevenLabs.ListAgentProceduresParams>? listAgentProcedures = null,
+            global::System.Action<global::ElevenLabs.ListAgentReferencesParams>? listAgentReferences = null,
+            global::System.Action<global::ElevenLabs.CreateAgentProcedureParams>? createAgentProcedure = null,
+            global::System.Action<global::ElevenLabs.UpdateAgentProcedureParams>? updateAgentProcedure = null,
+            global::System.Action<global::ElevenLabs.DeleteAgentProcedureParams>? deleteAgentProcedure = null,
             global::System.Action<global::ElevenLabs.ListHolidaysParams>? listHolidays = null,
             global::System.Action<global::ElevenLabs.CreateHolidayParams>? createHoliday = null,
             global::System.Action<global::ElevenLabs.UpdateHolidayParams>? updateHoliday = null,
             global::System.Action<global::ElevenLabs.DeleteHolidayParams>? deleteHoliday = null,
             global::System.Action<global::ElevenLabs.GetScheduleParams>? getSchedule = null,
+            global::System.Action<global::ElevenLabs.SubmitBusinessInfoParams>? submitBusinessInfo = null,
             global::System.Action<global::ElevenLabs.UpdateBusinessInfoParams>? updateBusinessInfo = null,
             global::System.Action<global::ElevenLabs.UpdateCustomerFacingConfigParams>? updateCustomerFacingConfig = null,
             global::System.Action<global::ElevenLabs.GetAnalyticsSummaryParams>? getAnalyticsSummary = null,
             global::System.Action<global::ElevenLabs.GetBookingPageSettingsParams>? getBookingPageSettings = null,
             global::System.Action<global::ElevenLabs.UpdateBookingPageSettingsParams>? updateBookingPageSettings = null,
+            global::System.Action<global::ElevenLabs.UpdateBookingPageAppearanceParams>? updateBookingPageAppearance = null,
             global::System.Action<global::ElevenLabs.GetBookingSlugStatusParams>? getBookingSlugStatus = null,
             global::System.Action<global::ElevenLabs.SetBookingSlugParams>? setBookingSlug = null,
             global::System.Action<global::ElevenLabs.ListClientInteractionsParams>? listClientInteractions = null,
@@ -4889,6 +6481,10 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.DeleteLocationParams>? deleteLocation = null,
             global::System.Action<global::ElevenLabs.LeaveMessageParams>? leaveMessage = null,
             global::System.Action<global::ElevenLabs.ReportKnowledgeGapParams>? reportKnowledgeGap = null,
+            global::System.Action<global::ElevenLabs.OptInSmsReminderParams>? optInSmsReminder = null,
+            global::System.Action<global::ElevenLabs.OptOutSmsReminderParams>? optOutSmsReminder = null,
+            global::System.Action<global::ElevenLabs.TriggerUserVerificationParams>? triggerUserVerification = null,
+            global::System.Action<global::ElevenLabs.ValidateUserVerificationCodeParams>? validateUserVerificationCode = null,
             bool validate = true)
         {
             if (validate)
@@ -5000,6 +6596,26 @@ namespace ElevenLabs
             {
                 getAppointmentByConfirmationNumber?.Invoke(GetAppointmentByConfirmationNumber!);
             }
+            else if (IsCreateOrder)
+            {
+                createOrder?.Invoke(CreateOrder!);
+            }
+            else if (IsGetOrderByConfirmationNumber)
+            {
+                getOrderByConfirmationNumber?.Invoke(GetOrderByConfirmationNumber!);
+            }
+            else if (IsGetClientOrders)
+            {
+                getClientOrders?.Invoke(GetClientOrders!);
+            }
+            else if (IsUpdateOrder)
+            {
+                updateOrder?.Invoke(UpdateOrder!);
+            }
+            else if (IsCancelOrder)
+            {
+                cancelOrder?.Invoke(CancelOrder!);
+            }
             else if (IsListGroupSessions)
             {
                 listGroupSessions?.Invoke(ListGroupSessions!);
@@ -5040,6 +6656,10 @@ namespace ElevenLabs
             {
                 cancelCalendarEvent?.Invoke(CancelCalendarEvent!);
             }
+            else if (IsRestoreCalendarEvent)
+            {
+                restoreCalendarEvent?.Invoke(RestoreCalendarEvent!);
+            }
             else if (IsDeleteCalendarEvent)
             {
                 deleteCalendarEvent?.Invoke(DeleteCalendarEvent!);
@@ -5064,6 +6684,42 @@ namespace ElevenLabs
             {
                 deleteAgentRule?.Invoke(DeleteAgentRule!);
             }
+            else if (IsListTransferRules)
+            {
+                listTransferRules?.Invoke(ListTransferRules!);
+            }
+            else if (IsCreateTransferRule)
+            {
+                createTransferRule?.Invoke(CreateTransferRule!);
+            }
+            else if (IsUpdateTransferRule)
+            {
+                updateTransferRule?.Invoke(UpdateTransferRule!);
+            }
+            else if (IsDeleteTransferRule)
+            {
+                deleteTransferRule?.Invoke(DeleteTransferRule!);
+            }
+            else if (IsListAgentProcedures)
+            {
+                listAgentProcedures?.Invoke(ListAgentProcedures!);
+            }
+            else if (IsListAgentReferences)
+            {
+                listAgentReferences?.Invoke(ListAgentReferences!);
+            }
+            else if (IsCreateAgentProcedure)
+            {
+                createAgentProcedure?.Invoke(CreateAgentProcedure!);
+            }
+            else if (IsUpdateAgentProcedure)
+            {
+                updateAgentProcedure?.Invoke(UpdateAgentProcedure!);
+            }
+            else if (IsDeleteAgentProcedure)
+            {
+                deleteAgentProcedure?.Invoke(DeleteAgentProcedure!);
+            }
             else if (IsListHolidays)
             {
                 listHolidays?.Invoke(ListHolidays!);
@@ -5084,6 +6740,10 @@ namespace ElevenLabs
             {
                 getSchedule?.Invoke(GetSchedule!);
             }
+            else if (IsSubmitBusinessInfo)
+            {
+                submitBusinessInfo?.Invoke(SubmitBusinessInfo!);
+            }
             else if (IsUpdateBusinessInfo)
             {
                 updateBusinessInfo?.Invoke(UpdateBusinessInfo!);
@@ -5103,6 +6763,10 @@ namespace ElevenLabs
             else if (IsUpdateBookingPageSettings)
             {
                 updateBookingPageSettings?.Invoke(UpdateBookingPageSettings!);
+            }
+            else if (IsUpdateBookingPageAppearance)
+            {
+                updateBookingPageAppearance?.Invoke(UpdateBookingPageAppearance!);
             }
             else if (IsGetBookingSlugStatus)
             {
@@ -5148,10 +6812,26 @@ namespace ElevenLabs
             {
                 reportKnowledgeGap?.Invoke(ReportKnowledgeGap!);
             }
+            else if (IsOptInSmsReminder)
+            {
+                optInSmsReminder?.Invoke(OptInSmsReminder!);
+            }
+            else if (IsOptOutSmsReminder)
+            {
+                optOutSmsReminder?.Invoke(OptOutSmsReminder!);
+            }
+            else if (IsTriggerUserVerification)
+            {
+                triggerUserVerification?.Invoke(TriggerUserVerification!);
+            }
+            else if (IsValidateUserVerificationCode)
+            {
+                validateUserVerificationCode?.Invoke(ValidateUserVerificationCode!);
+            }
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -5209,6 +6889,16 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.GetClientAppointmentsParams),
                 GetAppointmentByConfirmationNumber,
                 typeof(global::ElevenLabs.GetAppointmentByConfirmationNumberParams),
+                CreateOrder,
+                typeof(global::ElevenLabs.CreateOrderParams),
+                GetOrderByConfirmationNumber,
+                typeof(global::ElevenLabs.GetOrderByConfirmationNumberParams),
+                GetClientOrders,
+                typeof(global::ElevenLabs.GetClientOrdersParams),
+                UpdateOrder,
+                typeof(global::ElevenLabs.UpdateOrderParams),
+                CancelOrder,
+                typeof(global::ElevenLabs.CancelOrderParams),
                 ListGroupSessions,
                 typeof(global::ElevenLabs.ListGroupSessionsParams),
                 ScheduleGroupSession,
@@ -5229,6 +6919,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.UpdateCalendarEventParams),
                 CancelCalendarEvent,
                 typeof(global::ElevenLabs.CancelCalendarEventParams),
+                RestoreCalendarEvent,
+                typeof(global::ElevenLabs.RestoreCalendarEventParams),
                 DeleteCalendarEvent,
                 typeof(global::ElevenLabs.DeleteCalendarEventParams),
                 ListCustomerFacingAgents,
@@ -5241,6 +6933,24 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.UpdateAgentRuleParams),
                 DeleteAgentRule,
                 typeof(global::ElevenLabs.DeleteAgentRuleParams),
+                ListTransferRules,
+                typeof(global::ElevenLabs.ListTransferRulesParams),
+                CreateTransferRule,
+                typeof(global::ElevenLabs.CreateTransferRuleParams),
+                UpdateTransferRule,
+                typeof(global::ElevenLabs.UpdateTransferRuleParams),
+                DeleteTransferRule,
+                typeof(global::ElevenLabs.DeleteTransferRuleParams),
+                ListAgentProcedures,
+                typeof(global::ElevenLabs.ListAgentProceduresParams),
+                ListAgentReferences,
+                typeof(global::ElevenLabs.ListAgentReferencesParams),
+                CreateAgentProcedure,
+                typeof(global::ElevenLabs.CreateAgentProcedureParams),
+                UpdateAgentProcedure,
+                typeof(global::ElevenLabs.UpdateAgentProcedureParams),
+                DeleteAgentProcedure,
+                typeof(global::ElevenLabs.DeleteAgentProcedureParams),
                 ListHolidays,
                 typeof(global::ElevenLabs.ListHolidaysParams),
                 CreateHoliday,
@@ -5251,6 +6961,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.DeleteHolidayParams),
                 GetSchedule,
                 typeof(global::ElevenLabs.GetScheduleParams),
+                SubmitBusinessInfo,
+                typeof(global::ElevenLabs.SubmitBusinessInfoParams),
                 UpdateBusinessInfo,
                 typeof(global::ElevenLabs.UpdateBusinessInfoParams),
                 UpdateCustomerFacingConfig,
@@ -5261,6 +6973,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.GetBookingPageSettingsParams),
                 UpdateBookingPageSettings,
                 typeof(global::ElevenLabs.UpdateBookingPageSettingsParams),
+                UpdateBookingPageAppearance,
+                typeof(global::ElevenLabs.UpdateBookingPageAppearanceParams),
                 GetBookingSlugStatus,
                 typeof(global::ElevenLabs.GetBookingSlugStatusParams),
                 SetBookingSlug,
@@ -5283,6 +6997,14 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.LeaveMessageParams),
                 ReportKnowledgeGap,
                 typeof(global::ElevenLabs.ReportKnowledgeGapParams),
+                OptInSmsReminder,
+                typeof(global::ElevenLabs.OptInSmsReminderParams),
+                OptOutSmsReminder,
+                typeof(global::ElevenLabs.OptOutSmsReminderParams),
+                TriggerUserVerification,
+                typeof(global::ElevenLabs.TriggerUserVerificationParams),
+                ValidateUserVerificationCode,
+                typeof(global::ElevenLabs.ValidateUserVerificationCodeParams),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -5294,7 +7016,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(Params other)
         {
@@ -5325,6 +7047,11 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CreateClientAppointmentParams?>.Default.Equals(CreateClientAppointment, other.CreateClientAppointment) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetClientAppointmentsParams?>.Default.Equals(GetClientAppointments, other.GetClientAppointments) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetAppointmentByConfirmationNumberParams?>.Default.Equals(GetAppointmentByConfirmationNumber, other.GetAppointmentByConfirmationNumber) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CreateOrderParams?>.Default.Equals(CreateOrder, other.CreateOrder) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetOrderByConfirmationNumberParams?>.Default.Equals(GetOrderByConfirmationNumber, other.GetOrderByConfirmationNumber) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetClientOrdersParams?>.Default.Equals(GetClientOrders, other.GetClientOrders) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.UpdateOrderParams?>.Default.Equals(UpdateOrder, other.UpdateOrder) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CancelOrderParams?>.Default.Equals(CancelOrder, other.CancelOrder) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ListGroupSessionsParams?>.Default.Equals(ListGroupSessions, other.ListGroupSessions) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ScheduleGroupSessionParams?>.Default.Equals(ScheduleGroupSession, other.ScheduleGroupSession) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.RegisterForGroupSessionParams?>.Default.Equals(RegisterForGroupSession, other.RegisterForGroupSession) &&
@@ -5335,22 +7062,34 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ListCalendarEventsParams?>.Default.Equals(ListCalendarEvents, other.ListCalendarEvents) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.UpdateCalendarEventParams?>.Default.Equals(UpdateCalendarEvent, other.UpdateCalendarEvent) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CancelCalendarEventParams?>.Default.Equals(CancelCalendarEvent, other.CancelCalendarEvent) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.RestoreCalendarEventParams?>.Default.Equals(RestoreCalendarEvent, other.RestoreCalendarEvent) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DeleteCalendarEventParams?>.Default.Equals(DeleteCalendarEvent, other.DeleteCalendarEvent) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ListCustomerFacingAgentsParams?>.Default.Equals(ListCustomerFacingAgents, other.ListCustomerFacingAgents) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ListAgentRulesParams?>.Default.Equals(ListAgentRules, other.ListAgentRules) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CreateAgentRuleParams?>.Default.Equals(CreateAgentRule, other.CreateAgentRule) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.UpdateAgentRuleParams?>.Default.Equals(UpdateAgentRule, other.UpdateAgentRule) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DeleteAgentRuleParams?>.Default.Equals(DeleteAgentRule, other.DeleteAgentRule) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ListTransferRulesParams?>.Default.Equals(ListTransferRules, other.ListTransferRules) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CreateTransferRuleParams?>.Default.Equals(CreateTransferRule, other.CreateTransferRule) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.UpdateTransferRuleParams?>.Default.Equals(UpdateTransferRule, other.UpdateTransferRule) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DeleteTransferRuleParams?>.Default.Equals(DeleteTransferRule, other.DeleteTransferRule) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ListAgentProceduresParams?>.Default.Equals(ListAgentProcedures, other.ListAgentProcedures) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ListAgentReferencesParams?>.Default.Equals(ListAgentReferences, other.ListAgentReferences) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CreateAgentProcedureParams?>.Default.Equals(CreateAgentProcedure, other.CreateAgentProcedure) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.UpdateAgentProcedureParams?>.Default.Equals(UpdateAgentProcedure, other.UpdateAgentProcedure) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DeleteAgentProcedureParams?>.Default.Equals(DeleteAgentProcedure, other.DeleteAgentProcedure) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ListHolidaysParams?>.Default.Equals(ListHolidays, other.ListHolidays) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CreateHolidayParams?>.Default.Equals(CreateHoliday, other.CreateHoliday) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.UpdateHolidayParams?>.Default.Equals(UpdateHoliday, other.UpdateHoliday) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DeleteHolidayParams?>.Default.Equals(DeleteHoliday, other.DeleteHoliday) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetScheduleParams?>.Default.Equals(GetSchedule, other.GetSchedule) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SubmitBusinessInfoParams?>.Default.Equals(SubmitBusinessInfo, other.SubmitBusinessInfo) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.UpdateBusinessInfoParams?>.Default.Equals(UpdateBusinessInfo, other.UpdateBusinessInfo) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.UpdateCustomerFacingConfigParams?>.Default.Equals(UpdateCustomerFacingConfig, other.UpdateCustomerFacingConfig) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetAnalyticsSummaryParams?>.Default.Equals(GetAnalyticsSummary, other.GetAnalyticsSummary) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetBookingPageSettingsParams?>.Default.Equals(GetBookingPageSettings, other.GetBookingPageSettings) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.UpdateBookingPageSettingsParams?>.Default.Equals(UpdateBookingPageSettings, other.UpdateBookingPageSettings) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.UpdateBookingPageAppearanceParams?>.Default.Equals(UpdateBookingPageAppearance, other.UpdateBookingPageAppearance) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetBookingSlugStatusParams?>.Default.Equals(GetBookingSlugStatus, other.GetBookingSlugStatus) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SetBookingSlugParams?>.Default.Equals(SetBookingSlug, other.SetBookingSlug) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ListClientInteractionsParams?>.Default.Equals(ListClientInteractions, other.ListClientInteractions) &&
@@ -5361,12 +7100,16 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.UpdateLocationParams?>.Default.Equals(UpdateLocation, other.UpdateLocation) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DeleteLocationParams?>.Default.Equals(DeleteLocation, other.DeleteLocation) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.LeaveMessageParams?>.Default.Equals(LeaveMessage, other.LeaveMessage) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ReportKnowledgeGapParams?>.Default.Equals(ReportKnowledgeGap, other.ReportKnowledgeGap) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ReportKnowledgeGapParams?>.Default.Equals(ReportKnowledgeGap, other.ReportKnowledgeGap) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.OptInSmsReminderParams?>.Default.Equals(OptInSmsReminder, other.OptInSmsReminder) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.OptOutSmsReminderParams?>.Default.Equals(OptOutSmsReminder, other.OptOutSmsReminder) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TriggerUserVerificationParams?>.Default.Equals(TriggerUserVerification, other.TriggerUserVerification) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.ValidateUserVerificationCodeParams?>.Default.Equals(ValidateUserVerificationCode, other.ValidateUserVerificationCode)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(Params obj1, Params obj2)
         {
@@ -5374,7 +7117,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(Params obj1, Params obj2)
         {
@@ -5382,7 +7125,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

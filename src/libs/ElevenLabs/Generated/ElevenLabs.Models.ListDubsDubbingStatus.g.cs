@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum ListDubsDubbingStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dubbed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dubbing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
     }

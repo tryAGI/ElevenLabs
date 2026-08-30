@@ -9,7 +9,7 @@ namespace ElevenLabs.Realtime
     public enum CommittedTranscriptWithTimestampsPayloadMessageType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CommittedTranscriptWithTimestamps,
     }

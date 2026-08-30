@@ -4,16 +4,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Version of the turn detection model to use.
+    /// Version of the turn detection model to use.<br/>
+    /// Default Value: turn_v3
     /// </summary>
     public enum TurnModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TurnV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TurnV3,
     }

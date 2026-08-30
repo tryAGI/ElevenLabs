@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AgentPlatformSettingsRequestModel
     {
@@ -35,10 +35,16 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnalysisScope>? DataCollectionScopes { get; set; }
 
         /// <summary>
-        /// Additional overrides for the agent during conversation initiation<br/>
-        /// Example: {"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true,"enable_starting_workflow_node_id_from_client":true}
+        /// Evaluation + data-collection items attached by reference. None means the agent has not been migrated onto analysis items yet (distinct from an empty, migrated set); reads fall back to the legacy evaluation/data_collection fields in that case.
         /// </summary>
-        /// <example>{"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true,"enable_starting_workflow_node_id_from_client":true}</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("analysis_items")]
+        public global::ElevenLabs.AgentAnalysisItemsInput? AnalysisItems { get; set; }
+
+        /// <summary>
+        /// Additional overrides for the agent during conversation initiation<br/>
+        /// Example: {"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true,"enable_procedure_ids_from_client":true,"enable_starting_workflow_node_id_from_client":true}
+        /// </summary>
+        /// <example>{"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true,"enable_procedure_ids_from_client":true,"enable_starting_workflow_node_id_from_client":true}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("overrides")]
         public global::ElevenLabs.ConversationInitiationClientDataConfigInput? Overrides { get; set; }
 
@@ -74,6 +80,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("summary_language")]
         public string? SummaryLanguage { get; set; }
+
+        /// <summary>
+        /// When enabled, a conversation transcript is automatically translated to the viewer's application language when they open the transcript page. If not set or false, transcripts are shown in their original language unless the viewer manually selects a translation.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auto_translate_transcript_to_app_language")]
+        public bool? AutoTranslateTranscriptToAppLanguage { get; set; }
 
         /// <summary>
         /// Settings for authentication<br/>
@@ -116,10 +128,22 @@ namespace ElevenLabs
         public global::ElevenLabs.Llm? AnalysisLlm { get; set; }
 
         /// <summary>
-        /// 
+        /// Per-agent topic discovery configuration
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("topic_discovery")]
+        public global::ElevenLabs.TopicDiscoverySettings? TopicDiscovery { get; set; }
+
+        /// <summary>
+        /// Per-agent post-call sentiment analysis configuration
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sentiment_analysis")]
+        public global::ElevenLabs.SentimentAnalysisSettings? SentimentAnalysis { get; set; }
+
+        /// <summary>
+        /// Agent-level alerting configuration overriding workspace settings.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alerting")]
-        public global::ElevenLabs.AgentAlertingSettings? Alerting { get; set; }
+        public global::ElevenLabs.AlertingSettings? Alerting { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -143,9 +167,12 @@ namespace ElevenLabs
         /// <param name="dataCollectionScopes">
         /// Scope per data collection item ID. Missing keys default to conversation scope.
         /// </param>
+        /// <param name="analysisItems">
+        /// Evaluation + data-collection items attached by reference. None means the agent has not been migrated onto analysis items yet (distinct from an empty, migrated set); reads fall back to the legacy evaluation/data_collection fields in that case.
+        /// </param>
         /// <param name="overrides">
         /// Additional overrides for the agent during conversation initiation<br/>
-        /// Example: {"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true,"enable_starting_workflow_node_id_from_client":true}
+        /// Example: {"custom_llm_extra_body":true,"enable_conversation_initiation_client_data_from_webhook":true,"enable_procedure_ids_from_client":true,"enable_starting_workflow_node_id_from_client":true}
         /// </param>
         /// <param name="workspaceOverrides">
         /// Workspace overrides for the agent
@@ -163,6 +190,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="summaryLanguage">
         /// Language for all conversation analysis outputs (summaries, titles, evaluation rationales, data collection rationales). If not set, the language will be inferred from the conversation. Must be one of the supported conversation languages.
+        /// </param>
+        /// <param name="autoTranslateTranscriptToAppLanguage">
+        /// When enabled, a conversation transcript is automatically translated to the viewer's application language when they open the transcript page. If not set or false, transcripts are shown in their original language unless the viewer manually selects a translation.
         /// </param>
         /// <param name="auth">
         /// Settings for authentication<br/>
@@ -184,7 +214,15 @@ namespace ElevenLabs
         /// Default LLM model for post-call analysis (evaluation and data collection)<br/>
         /// Default Value: gemini-2.5-flash
         /// </param>
-        /// <param name="alerting"></param>
+        /// <param name="topicDiscovery">
+        /// Per-agent topic discovery configuration
+        /// </param>
+        /// <param name="sentimentAnalysis">
+        /// Per-agent post-call sentiment analysis configuration
+        /// </param>
+        /// <param name="alerting">
+        /// Agent-level alerting configuration overriding workspace settings.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -193,34 +231,42 @@ namespace ElevenLabs
             global::ElevenLabs.WidgetConfigInput? widget,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnalysisProperty>? dataCollection,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AnalysisScope>? dataCollectionScopes,
+            global::ElevenLabs.AgentAnalysisItemsInput? analysisItems,
             global::ElevenLabs.ConversationInitiationClientDataConfigInput? overrides,
             global::ElevenLabs.AgentWorkspaceOverridesInput? workspaceOverrides,
             global::ElevenLabs.AgentTestingSettings? testing,
             bool? archived,
             global::ElevenLabs.GuardrailsV1Input? guardrails,
             string? summaryLanguage,
+            bool? autoTranslateTranscriptToAppLanguage,
             global::ElevenLabs.AuthSettings? auth,
             global::ElevenLabs.AgentCallLimits? callLimits,
             global::ElevenLabs.PrivacyConfigInput? privacy,
             global::ElevenLabs.AgentTrustContext? trustContext,
             global::ElevenLabs.Llm? analysisLlm,
-            global::ElevenLabs.AgentAlertingSettings? alerting)
+            global::ElevenLabs.TopicDiscoverySettings? topicDiscovery,
+            global::ElevenLabs.SentimentAnalysisSettings? sentimentAnalysis,
+            global::ElevenLabs.AlertingSettings? alerting)
         {
             this.Evaluation = evaluation;
             this.Widget = widget;
             this.DataCollection = dataCollection;
             this.DataCollectionScopes = dataCollectionScopes;
+            this.AnalysisItems = analysisItems;
             this.Overrides = overrides;
             this.WorkspaceOverrides = workspaceOverrides;
             this.Testing = testing;
             this.Archived = archived;
             this.Guardrails = guardrails;
             this.SummaryLanguage = summaryLanguage;
+            this.AutoTranslateTranscriptToAppLanguage = autoTranslateTranscriptToAppLanguage;
             this.Auth = auth;
             this.CallLimits = callLimits;
             this.Privacy = privacy;
             this.TrustContext = trustContext;
             this.AnalysisLlm = analysisLlm;
+            this.TopicDiscovery = topicDiscovery;
+            this.SentimentAnalysis = sentimentAnalysis;
             this.Alerting = alerting;
         }
 

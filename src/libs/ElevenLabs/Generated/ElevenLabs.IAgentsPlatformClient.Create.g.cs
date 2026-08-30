@@ -1,5 +1,7 @@
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial interface IAgentsPlatformClient
@@ -9,7 +11,7 @@ namespace ElevenLabs
         /// Create an agent from a config object
         /// </summary>
         /// <param name="enableVersioning">
-        /// Enable versioning for the agent<br/>
+        /// Deprecated: all agents are versioned. This parameter is ignored.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="request"></param>
@@ -27,7 +29,7 @@ namespace ElevenLabs
         /// Create an agent from a config object
         /// </summary>
         /// <param name="enableVersioning">
-        /// Enable versioning for the agent<br/>
+        /// Deprecated: all agents are versioned. This parameter is ignored.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="request"></param>
@@ -45,7 +47,7 @@ namespace ElevenLabs
         /// Create an agent from a config object
         /// </summary>
         /// <param name="enableVersioning">
-        /// Enable versioning for the agent<br/>
+        /// Deprecated: all agents are versioned. This parameter is ignored.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="conversationConfig">

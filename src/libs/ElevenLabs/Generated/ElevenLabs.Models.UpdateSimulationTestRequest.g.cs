@@ -1,10 +1,12 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class UpdateSimulationTestRequest
     {
@@ -21,10 +23,22 @@ namespace ElevenLabs
         public object? DynamicVariables { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chat_history")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? ChatHistory { get; set; }
+
+        /// <summary>
+        /// Simulate the test as if the conversation originated from this channel.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conversation_initiation_source")]
+        public global::ElevenLabs.ConversationInitiationSource? ConversationInitiationSource { get; set; }
+
+        /// <summary>
+        /// The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("environment")]
+        public string? Environment { get; set; }
 
         /// <summary>
         /// Default Value: simulation
@@ -33,10 +47,17 @@ namespace ElevenLabs
         public string? Type { get; set; }
 
         /// <summary>
-        /// A prompt that evaluates whether the agent's response is successful. Should return True or False.
+        /// Deprecated legacy single success criterion. Use success_conditions instead. At least one of success_condition or success_conditions is required.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("success_condition")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public string? SuccessCondition { get; set; }
+
+        /// <summary>
+        /// List of prompts that evaluate whether the simulation was successful. If provided, all criteria are evaluated and merged into a final result. Capped at the maximum number of evaluation criteria.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("success_conditions")]
+        public global::System.Collections.Generic.IList<string>? SuccessConditions { get; set; }
 
         /// <summary>
         /// Description of the simulation scenario and user persona for simulation tests.
@@ -64,19 +85,27 @@ namespace ElevenLabs
         public global::ElevenLabs.SimulationToolMockBehaviorConfig? ToolMockConfig { get; set; }
 
         /// <summary>
-        /// LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6.
+        /// Test-specific response mocks, keyed by tool ID. Applied ahead of the tool's shared mocks and only within this test. Only take effect for tools that are mocked (see tool_mock_config).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_mock_overrides")]
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>>? ToolMockOverrides { get; set; }
+
+        /// <summary>
+        /// LLM model to use for evaluating simulation results.<br/>
+        /// Default Value: claude-sonnet-4-6
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("evaluation_model")]
         public global::ElevenLabs.Llm? EvaluationModel { get; set; }
 
         /// <summary>
-        /// LLM model for the simulated user. Defaults to Claude Sonnet 4.6.
+        /// LLM model for the simulated user.<br/>
+        /// Default Value: claude-sonnet-4-6
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("simulated_user_model")]
         public global::ElevenLabs.Llm? SimulatedUserModel { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -105,11 +134,17 @@ namespace ElevenLabs
         /// Dynamic variables to replace in the agent config during testing
         /// </param>
         /// <param name="chatHistory"></param>
+        /// <param name="conversationInitiationSource">
+        /// Simulate the test as if the conversation originated from this channel.
+        /// </param>
+        /// <param name="environment">
+        /// The environment to resolve environment-specific variable values against when running this test (URL, headers, auth connections). If not provided, defaults to 'production'. For simulation tests, simulation_environment takes precedence when set.
+        /// </param>
         /// <param name="type">
         /// Default Value: simulation
         /// </param>
-        /// <param name="successCondition">
-        /// A prompt that evaluates whether the agent's response is successful. Should return True or False.
+        /// <param name="successConditions">
+        /// List of prompts that evaluate whether the simulation was successful. If provided, all criteria are evaluated and merged into a final result. Capped at the maximum number of evaluation criteria.
         /// </param>
         /// <param name="simulationScenario">
         /// Description of the simulation scenario and user persona for simulation tests.
@@ -124,11 +159,16 @@ namespace ElevenLabs
         /// <param name="toolMockConfig">
         /// Configuration for which tools to mock and fallback behavior.
         /// </param>
+        /// <param name="toolMockOverrides">
+        /// Test-specific response mocks, keyed by tool ID. Applied ahead of the tool's shared mocks and only within this test. Only take effect for tools that are mocked (see tool_mock_config).
+        /// </param>
         /// <param name="evaluationModel">
-        /// LLM model to use for evaluating simulation results. Defaults to Claude Sonnet 4.6.
+        /// LLM model to use for evaluating simulation results.<br/>
+        /// Default Value: claude-sonnet-4-6
         /// </param>
         /// <param name="simulatedUserModel">
-        /// LLM model for the simulated user. Defaults to Claude Sonnet 4.6.
+        /// LLM model for the simulated user.<br/>
+        /// Default Value: claude-sonnet-4-6
         /// </param>
         /// <param name="parentFolderId">
         /// The ID of the parent folder. If not provided, the test will be moved to the root level.
@@ -141,12 +181,15 @@ namespace ElevenLabs
             global::ElevenLabs.TestFromConversationMetadataInput? fromConversationMetadata,
             object? dynamicVariables,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? chatHistory,
+            global::ElevenLabs.ConversationInitiationSource? conversationInitiationSource,
+            string? environment,
             string? type,
-            string? successCondition,
+            global::System.Collections.Generic.IList<string>? successConditions,
             string? simulationScenario,
             int? simulationMaxTurns,
             string? simulationEnvironment,
             global::ElevenLabs.SimulationToolMockBehaviorConfig? toolMockConfig,
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>>? toolMockOverrides,
             global::ElevenLabs.Llm? evaluationModel,
             global::ElevenLabs.Llm? simulatedUserModel,
             string? parentFolderId)
@@ -154,12 +197,15 @@ namespace ElevenLabs
             this.FromConversationMetadata = fromConversationMetadata;
             this.DynamicVariables = dynamicVariables;
             this.ChatHistory = chatHistory;
+            this.ConversationInitiationSource = conversationInitiationSource;
+            this.Environment = environment;
             this.Type = type;
-            this.SuccessCondition = successCondition;
+            this.SuccessConditions = successConditions;
             this.SimulationScenario = simulationScenario;
             this.SimulationMaxTurns = simulationMaxTurns;
             this.SimulationEnvironment = simulationEnvironment;
             this.ToolMockConfig = toolMockConfig;
+            this.ToolMockOverrides = toolMockOverrides;
             this.EvaluationModel = evaluationModel;
             this.SimulatedUserModel = simulatedUserModel;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));

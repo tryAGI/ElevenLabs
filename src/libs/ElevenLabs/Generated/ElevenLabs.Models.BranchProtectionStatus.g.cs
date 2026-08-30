@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum BranchProtectionStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AdminPermsRequired,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WriterPermsRequired,
     }

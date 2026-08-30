@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Default Value: standard
+    ///
     /// </summary>
     public enum QualityPresetType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         High,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Standard,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ultra,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UltraLossless,
     }

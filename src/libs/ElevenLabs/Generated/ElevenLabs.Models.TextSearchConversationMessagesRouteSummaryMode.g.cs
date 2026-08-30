@@ -10,11 +10,11 @@ namespace ElevenLabs
     public enum TextSearchConversationMessagesRouteSummaryMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Exclude,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Include,
     }

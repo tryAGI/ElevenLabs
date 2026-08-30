@@ -203,6 +203,41 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetAppointmentByConfirmationNumberParams)}");
                 getAppointmentByConfirmationNumber = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.CreateOrderParams? createOrder = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CreateOrder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateOrderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateOrderParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreateOrderParams)}");
+                createOrder = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.GetOrderByConfirmationNumberParams? getOrderByConfirmationNumber = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.GetOrderByConfirmationNumber)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetOrderByConfirmationNumberParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetOrderByConfirmationNumberParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetOrderByConfirmationNumberParams)}");
+                getOrderByConfirmationNumber = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.GetClientOrdersParams? getClientOrders = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.GetClientOrders)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetClientOrdersParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetClientOrdersParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetClientOrdersParams)}");
+                getClientOrders = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.UpdateOrderParams? updateOrder = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateOrder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateOrderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateOrderParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UpdateOrderParams)}");
+                updateOrder = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.CancelOrderParams? cancelOrder = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CancelOrder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CancelOrderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CancelOrderParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CancelOrderParams)}");
+                cancelOrder = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.ListGroupSessionsParams? listGroupSessions = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListGroupSessions)
             {
@@ -273,6 +308,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CancelCalendarEventParams)}");
                 cancelCalendarEvent = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.RestoreCalendarEventParams? restoreCalendarEvent = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.RestoreCalendarEvent)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RestoreCalendarEventParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RestoreCalendarEventParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.RestoreCalendarEventParams)}");
+                restoreCalendarEvent = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.DeleteCalendarEventParams? deleteCalendarEvent = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.DeleteCalendarEvent)
             {
@@ -315,6 +357,69 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DeleteAgentRuleParams)}");
                 deleteAgentRule = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.ListTransferRulesParams? listTransferRules = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListTransferRules)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListTransferRulesParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListTransferRulesParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ListTransferRulesParams)}");
+                listTransferRules = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.CreateTransferRuleParams? createTransferRule = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CreateTransferRule)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateTransferRuleParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateTransferRuleParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreateTransferRuleParams)}");
+                createTransferRule = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.UpdateTransferRuleParams? updateTransferRule = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateTransferRule)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateTransferRuleParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateTransferRuleParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UpdateTransferRuleParams)}");
+                updateTransferRule = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.DeleteTransferRuleParams? deleteTransferRule = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.DeleteTransferRule)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DeleteTransferRuleParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DeleteTransferRuleParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DeleteTransferRuleParams)}");
+                deleteTransferRule = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.ListAgentProceduresParams? listAgentProcedures = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListAgentProcedures)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListAgentProceduresParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListAgentProceduresParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ListAgentProceduresParams)}");
+                listAgentProcedures = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.ListAgentReferencesParams? listAgentReferences = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListAgentReferences)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListAgentReferencesParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListAgentReferencesParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ListAgentReferencesParams)}");
+                listAgentReferences = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.CreateAgentProcedureParams? createAgentProcedure = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CreateAgentProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateAgentProcedureParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateAgentProcedureParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreateAgentProcedureParams)}");
+                createAgentProcedure = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.UpdateAgentProcedureParams? updateAgentProcedure = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateAgentProcedureParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateAgentProcedureParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UpdateAgentProcedureParams)}");
+                updateAgentProcedure = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.DeleteAgentProcedureParams? deleteAgentProcedure = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.DeleteAgentProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DeleteAgentProcedureParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DeleteAgentProcedureParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DeleteAgentProcedureParams)}");
+                deleteAgentProcedure = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.ListHolidaysParams? listHolidays = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListHolidays)
             {
@@ -350,6 +455,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetScheduleParams)}");
                 getSchedule = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.SubmitBusinessInfoParams? submitBusinessInfo = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SubmitBusinessInfoParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SubmitBusinessInfoParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.SubmitBusinessInfoParams)}");
+                submitBusinessInfo = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.UpdateBusinessInfoParams? updateBusinessInfo = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBusinessInfo)
             {
@@ -384,6 +496,13 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateBookingPageSettingsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateBookingPageSettingsParams> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UpdateBookingPageSettingsParams)}");
                 updateBookingPageSettings = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.UpdateBookingPageAppearanceParams? updateBookingPageAppearance = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBookingPageAppearance)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateBookingPageAppearanceParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateBookingPageAppearanceParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UpdateBookingPageAppearanceParams)}");
+                updateBookingPageAppearance = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.GetBookingSlugStatusParams? getBookingSlugStatus = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.GetBookingSlugStatus)
@@ -462,6 +581,34 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ReportKnowledgeGapParams)}");
                 reportKnowledgeGap = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.OptInSmsReminderParams? optInSmsReminder = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.OptInSmsReminder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OptInSmsReminderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OptInSmsReminderParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OptInSmsReminderParams)}");
+                optInSmsReminder = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.OptOutSmsReminderParams? optOutSmsReminder = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.OptOutSmsReminder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OptOutSmsReminderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OptOutSmsReminderParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OptOutSmsReminderParams)}");
+                optOutSmsReminder = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.TriggerUserVerificationParams? triggerUserVerification = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.TriggerUserVerification)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TriggerUserVerificationParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TriggerUserVerificationParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TriggerUserVerificationParams)}");
+                triggerUserVerification = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.ValidateUserVerificationCodeParams? validateUserVerificationCode = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ValidateUserVerificationCode)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ValidateUserVerificationCodeParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ValidateUserVerificationCodeParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ValidateUserVerificationCodeParams)}");
+                validateUserVerificationCode = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var __value = new global::ElevenLabs.Params(
                 discriminator?.SmbToolType,
@@ -517,6 +664,16 @@ namespace ElevenLabs.JsonConverters
 
                 getAppointmentByConfirmationNumber,
 
+                createOrder,
+
+                getOrderByConfirmationNumber,
+
+                getClientOrders,
+
+                updateOrder,
+
+                cancelOrder,
+
                 listGroupSessions,
 
                 scheduleGroupSession,
@@ -537,6 +694,8 @@ namespace ElevenLabs.JsonConverters
 
                 cancelCalendarEvent,
 
+                restoreCalendarEvent,
+
                 deleteCalendarEvent,
 
                 listCustomerFacingAgents,
@@ -549,6 +708,24 @@ namespace ElevenLabs.JsonConverters
 
                 deleteAgentRule,
 
+                listTransferRules,
+
+                createTransferRule,
+
+                updateTransferRule,
+
+                deleteTransferRule,
+
+                listAgentProcedures,
+
+                listAgentReferences,
+
+                createAgentProcedure,
+
+                updateAgentProcedure,
+
+                deleteAgentProcedure,
+
                 listHolidays,
 
                 createHoliday,
@@ -559,6 +736,8 @@ namespace ElevenLabs.JsonConverters
 
                 getSchedule,
 
+                submitBusinessInfo,
+
                 updateBusinessInfo,
 
                 updateCustomerFacingConfig,
@@ -568,6 +747,8 @@ namespace ElevenLabs.JsonConverters
                 getBookingPageSettings,
 
                 updateBookingPageSettings,
+
+                updateBookingPageAppearance,
 
                 getBookingSlugStatus,
 
@@ -589,7 +770,15 @@ namespace ElevenLabs.JsonConverters
 
                 leaveMessage,
 
-                reportKnowledgeGap
+                reportKnowledgeGap,
+
+                optInSmsReminder,
+
+                optOutSmsReminder,
+
+                triggerUserVerification,
+
+                validateUserVerificationCode
                 );
 
             return __value;
@@ -760,6 +949,36 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetAppointmentByConfirmationNumberParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.GetAppointmentByConfirmationNumber!, typeInfo);
             }
+            else if (value.IsCreateOrder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateOrderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateOrderParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateOrderParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateOrder!, typeInfo);
+            }
+            else if (value.IsGetOrderByConfirmationNumber)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetOrderByConfirmationNumberParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetOrderByConfirmationNumberParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetOrderByConfirmationNumberParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GetOrderByConfirmationNumber!, typeInfo);
+            }
+            else if (value.IsGetClientOrders)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetClientOrdersParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetClientOrdersParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetClientOrdersParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GetClientOrders!, typeInfo);
+            }
+            else if (value.IsUpdateOrder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateOrderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateOrderParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UpdateOrderParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateOrder!, typeInfo);
+            }
+            else if (value.IsCancelOrder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CancelOrderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CancelOrderParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CancelOrderParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CancelOrder!, typeInfo);
+            }
             else if (value.IsListGroupSessions)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListGroupSessionsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListGroupSessionsParams?> ??
@@ -820,6 +1039,12 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CancelCalendarEventParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.CancelCalendarEvent!, typeInfo);
             }
+            else if (value.IsRestoreCalendarEvent)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RestoreCalendarEventParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RestoreCalendarEventParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.RestoreCalendarEventParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RestoreCalendarEvent!, typeInfo);
+            }
             else if (value.IsDeleteCalendarEvent)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DeleteCalendarEventParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DeleteCalendarEventParams?> ??
@@ -856,6 +1081,60 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DeleteAgentRuleParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeleteAgentRule!, typeInfo);
             }
+            else if (value.IsListTransferRules)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListTransferRulesParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListTransferRulesParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ListTransferRulesParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ListTransferRules!, typeInfo);
+            }
+            else if (value.IsCreateTransferRule)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateTransferRuleParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateTransferRuleParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateTransferRuleParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateTransferRule!, typeInfo);
+            }
+            else if (value.IsUpdateTransferRule)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateTransferRuleParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateTransferRuleParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UpdateTransferRuleParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateTransferRule!, typeInfo);
+            }
+            else if (value.IsDeleteTransferRule)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DeleteTransferRuleParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DeleteTransferRuleParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DeleteTransferRuleParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeleteTransferRule!, typeInfo);
+            }
+            else if (value.IsListAgentProcedures)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListAgentProceduresParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListAgentProceduresParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ListAgentProceduresParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ListAgentProcedures!, typeInfo);
+            }
+            else if (value.IsListAgentReferences)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListAgentReferencesParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListAgentReferencesParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ListAgentReferencesParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ListAgentReferences!, typeInfo);
+            }
+            else if (value.IsCreateAgentProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateAgentProcedureParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateAgentProcedureParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateAgentProcedureParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateAgentProcedure!, typeInfo);
+            }
+            else if (value.IsUpdateAgentProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateAgentProcedureParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateAgentProcedureParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UpdateAgentProcedureParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateAgentProcedure!, typeInfo);
+            }
+            else if (value.IsDeleteAgentProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DeleteAgentProcedureParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DeleteAgentProcedureParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DeleteAgentProcedureParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeleteAgentProcedure!, typeInfo);
+            }
             else if (value.IsListHolidays)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListHolidaysParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListHolidaysParams?> ??
@@ -886,6 +1165,12 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetScheduleParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.GetSchedule!, typeInfo);
             }
+            else if (value.IsSubmitBusinessInfo)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SubmitBusinessInfoParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SubmitBusinessInfoParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SubmitBusinessInfoParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SubmitBusinessInfo!, typeInfo);
+            }
             else if (value.IsUpdateBusinessInfo)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateBusinessInfoParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateBusinessInfoParams?> ??
@@ -915,6 +1200,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateBookingPageSettingsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateBookingPageSettingsParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UpdateBookingPageSettingsParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateBookingPageSettings!, typeInfo);
+            }
+            else if (value.IsUpdateBookingPageAppearance)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateBookingPageAppearanceParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateBookingPageAppearanceParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UpdateBookingPageAppearanceParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpdateBookingPageAppearance!, typeInfo);
             }
             else if (value.IsGetBookingSlugStatus)
             {
@@ -981,6 +1272,30 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ReportKnowledgeGapParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ReportKnowledgeGapParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ReportKnowledgeGapParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.ReportKnowledgeGap!, typeInfo);
+            }
+            else if (value.IsOptInSmsReminder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OptInSmsReminderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OptInSmsReminderParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OptInSmsReminderParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.OptInSmsReminder!, typeInfo);
+            }
+            else if (value.IsOptOutSmsReminder)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OptOutSmsReminderParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OptOutSmsReminderParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OptOutSmsReminderParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.OptOutSmsReminder!, typeInfo);
+            }
+            else if (value.IsTriggerUserVerification)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TriggerUserVerificationParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TriggerUserVerificationParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TriggerUserVerificationParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TriggerUserVerification!, typeInfo);
+            }
+            else if (value.IsValidateUserVerificationCode)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ValidateUserVerificationCodeParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ValidateUserVerificationCodeParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ValidateUserVerificationCodeParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ValidateUserVerificationCode!, typeInfo);
             }
         }
     }

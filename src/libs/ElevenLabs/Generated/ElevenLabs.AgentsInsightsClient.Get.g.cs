@@ -27,11 +27,25 @@ namespace ElevenLabs
             };
         partial void PrepareGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId);
+            ref string agentId,
+            int? pageSize,
+            ref global::ElevenLabs.TopicSortBy? sortBy,
+            ref global::ElevenLabs.SortDirection? sortDirection,
+            int? fromUnixSecs,
+            int? toUnixSecs,
+            ref bool? includeEvaluationCriteria,
+            ref string? cursor);
         partial void PrepareGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId);
+            string agentId,
+            int? pageSize,
+            global::ElevenLabs.TopicSortBy? sortBy,
+            global::ElevenLabs.SortDirection? sortDirection,
+            int? fromUnixSecs,
+            int? toUnixSecs,
+            bool? includeEvaluationCriteria,
+            string? cursor);
         partial void ProcessGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -48,16 +62,54 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// ID of the agent
         /// </param>
+        /// <param name="pageSize">
+        /// Number of top-level topic groups to return.
+        /// </param>
+        /// <param name="sortBy">
+        /// Column to rank topics by. Use conversations for volume, sentiment with sort_direction=asc for the most negative topics, and frustration with sort_direction=desc for the most frustrated ones. Topics with no score are always ranked last.<br/>
+        /// Default Value: conversations
+        /// </param>
+        /// <param name="sortDirection">
+        /// Direction to sort topics.<br/>
+        /// Default Value: desc
+        /// </param>
+        /// <param name="fromUnixSecs">
+        /// Start of the window to view topics for. When set with to_unix_secs, the completed daily topic-discovery runs in the range are aggregated together, so the window scopes the metrics as well as the topic set. Floored to the start of its UTC day because runs cover whole UTC days; aggregated_run_count reports how many runs were summed. Omit both bounds to get the single latest run.
+        /// </param>
+        /// <param name="toUnixSecs">
+        /// End of the window to view topics for.
+        /// </param>
+        /// <param name="includeEvaluationCriteria">
+        /// Include the per-criteria evaluation breakdown on each topic's metrics. Pass false to drop it: it dominates the payload and the weighted success_rate is returned either way.<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentTopicsResponseModel> GetAsync(
             string agentId,
+            int? pageSize = default,
+            global::ElevenLabs.TopicSortBy? sortBy = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
+            int? fromUnixSecs = default,
+            int? toUnixSecs = default,
+            bool? includeEvaluationCriteria = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await GetAsResponseAsync(
                 agentId: agentId,
+                pageSize: pageSize,
+                sortBy: sortBy,
+                sortDirection: sortDirection,
+                fromUnixSecs: fromUnixSecs,
+                toUnixSecs: toUnixSecs,
+                includeEvaluationCriteria: includeEvaluationCriteria,
+                cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -71,11 +123,42 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// ID of the agent
         /// </param>
+        /// <param name="pageSize">
+        /// Number of top-level topic groups to return.
+        /// </param>
+        /// <param name="sortBy">
+        /// Column to rank topics by. Use conversations for volume, sentiment with sort_direction=asc for the most negative topics, and frustration with sort_direction=desc for the most frustrated ones. Topics with no score are always ranked last.<br/>
+        /// Default Value: conversations
+        /// </param>
+        /// <param name="sortDirection">
+        /// Direction to sort topics.<br/>
+        /// Default Value: desc
+        /// </param>
+        /// <param name="fromUnixSecs">
+        /// Start of the window to view topics for. When set with to_unix_secs, the completed daily topic-discovery runs in the range are aggregated together, so the window scopes the metrics as well as the topic set. Floored to the start of its UTC day because runs cover whole UTC days; aggregated_run_count reports how many runs were summed. Omit both bounds to get the single latest run.
+        /// </param>
+        /// <param name="toUnixSecs">
+        /// End of the window to view topics for.
+        /// </param>
+        /// <param name="includeEvaluationCriteria">
+        /// Include the per-criteria evaluation breakdown on each topic's metrics. Pass false to drop it: it dominates the payload and the weighted success_rate is returned either way.<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAgentTopicsResponseModel>> GetAsResponseAsync(
             string agentId,
+            int? pageSize = default,
+            global::ElevenLabs.TopicSortBy? sortBy = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
+            int? fromUnixSecs = default,
+            int? toUnixSecs = default,
+            bool? includeEvaluationCriteria = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -83,7 +166,14 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGetArguments(
                 httpClient: HttpClient,
-                agentId: ref agentId);
+                agentId: ref agentId,
+                pageSize: pageSize,
+                sortBy: ref sortBy,
+                sortDirection: ref sortDirection,
+                fromUnixSecs: fromUnixSecs,
+                toUnixSecs: toUnixSecs,
+                includeEvaluationCriteria: ref includeEvaluationCriteria,
+                cursor: ref cursor);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -111,6 +201,15 @@ namespace ElevenLabs
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: $"/v1/convai/agents/{agentId}/topics",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("sort_by", sortBy?.ToValueString())
+                                .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
+                                .AddOptionalParameter("from_unix_secs", fromUnixSecs?.ToString())
+                                .AddOptionalParameter("to_unix_secs", toUnixSecs?.ToString())
+                                .AddOptionalParameter("include_evaluation_criteria", includeEvaluationCriteria?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("cursor", cursor)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -138,7 +237,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -151,7 +250,14 @@ namespace ElevenLabs
                 PrepareGetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId!);
+                    agentId: agentId!,
+                    pageSize: pageSize,
+                    sortBy: sortBy,
+                    sortDirection: sortDirection,
+                    fromUnixSecs: fromUnixSecs,
+                    toUnixSecs: toUnixSecs,
+                    includeEvaluationCriteria: includeEvaluationCriteria,
+                    cursor: cursor);
 
                 return __httpRequest;
             }
@@ -463,5 +569,64 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps GetAsync as an IAsyncEnumerable&lt;global::ElevenLabs.AgentTopicResponseModel&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="agentId">
+        /// ID of the agent
+        /// </param>
+        /// <param name="pageSize">
+        /// Number of top-level topic groups to return.
+        /// </param>
+        /// <param name="sortBy">
+        /// Column to rank topics by. Use conversations for volume, sentiment with sort_direction=asc for the most negative topics, and frustration with sort_direction=desc for the most frustrated ones. Topics with no score are always ranked last.<br/>
+        /// Default Value: conversations
+        /// </param>
+        /// <param name="sortDirection">
+        /// Direction to sort topics.<br/>
+        /// Default Value: desc
+        /// </param>
+        /// <param name="fromUnixSecs">
+        /// Start of the window to view topics for. When set with to_unix_secs, the completed daily topic-discovery runs in the range are aggregated together, so the window scopes the metrics as well as the topic set. Floored to the start of its UTC day because runs cover whole UTC days; aggregated_run_count reports how many runs were summed. Omit both bounds to get the single latest run.
+        /// </param>
+        /// <param name="toUnixSecs">
+        /// End of the window to view topics for.
+        /// </param>
+        /// <param name="includeEvaluationCriteria">
+        /// Include the per-criteria evaluation breakdown on each topic's metrics. Pass false to drop it: it dominates the payload and the weighted success_rate is returned either way.<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentTopicResponseModel> GetAutoPagingAsync(
+            string agentId,             int? pageSize = default,
+            global::ElevenLabs.TopicSortBy? sortBy = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
+            int? fromUnixSecs = default,
+            int? toUnixSecs = default,
+            bool? includeEvaluationCriteria = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetAgentTopicsResponseModel, global::ElevenLabs.AgentTopicResponseModel>(
+                fetchPage: (__cursor, __ct) => GetAsync(
+                    agentId: agentId,
+                    pageSize: pageSize,
+                    sortBy: sortBy,
+                    sortDirection: sortDirection,
+                    fromUnixSecs: fromUnixSecs,
+                    toUnixSecs: toUnixSecs,
+                    includeEvaluationCriteria: includeEvaluationCriteria,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.AgentTopicResponseModel>?)__response.Topics,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

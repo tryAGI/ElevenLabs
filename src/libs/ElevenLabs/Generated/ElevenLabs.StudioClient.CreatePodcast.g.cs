@@ -151,7 +151,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
             if (safetyIdentifier != default)
@@ -511,7 +511,7 @@ namespace ElevenLabs
         /// 'high' - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side.<br/>
         /// 'ultra' - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side.<br/>
         /// 'ultra_lossless' - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format.<br/>
-        /// Default Value: standard
+        /// If not provided, defaults to the highest quality preset available on your subscription tier.
         /// </param>
         /// <param name="durationScale">
         /// Duration of the generated podcast. Must be one of:<br/>
@@ -588,14 +588,14 @@ namespace ElevenLabs
         ///         error_details: "Error details if conversion failed"<br/>
         ///       }<br/>
         ///     }<br/>
-        ///     
+        ///
         /// </param>
         /// <param name="applyTextNormalization">
         ///     This parameter controls text normalization with four modes: 'auto', 'on', 'apply_english' and 'off'.<br/>
         ///     When set to 'auto', the system will automatically decide whether to apply text normalization<br/>
         ///     (e.g., spelling out numbers). With 'on', text normalization will always be applied, while<br/>
         ///     with 'off', it will be skipped. 'apply_english' is the same as 'on' but will assume that text is in English.<br/>
-        ///     
+        ///
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

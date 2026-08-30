@@ -35,12 +35,21 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.SubtitleOrderItemRequest)}");
                 subtitles = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.TranscriptionOrderItemRequest? transcription = default;
+            if (discriminator?.Kind == global::ElevenLabs.OrderItemRequestOutputDiscriminatorKind.Transcription)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TranscriptionOrderItemRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TranscriptionOrderItemRequest> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TranscriptionOrderItemRequest)}");
+                transcription = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var __value = new global::ElevenLabs.OrderItemRequestOutput(
                 discriminator?.Kind,
                 dub,
 
-                subtitles
+                subtitles,
+
+                transcription
                 );
 
             return __value;
@@ -66,6 +75,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SubtitleOrderItemRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SubtitleOrderItemRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SubtitleOrderItemRequest).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Subtitles!, typeInfo);
+            }
+            else if (value.IsTranscription)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TranscriptionOrderItemRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TranscriptionOrderItemRequest?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TranscriptionOrderItemRequest).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Transcription!, typeInfo);
             }
         }
     }

@@ -16,7 +16,7 @@ namespace ElevenLabs
         public double? Stability { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speed")]
         public double? Speed { get; set; }

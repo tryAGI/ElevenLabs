@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CaptionStyleVerticalPlacementModelAlign
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Bottom,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Center,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Top,
     }

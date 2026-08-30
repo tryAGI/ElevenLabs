@@ -4,16 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetPhoneNumberRouteResponseDiscriminatorProvider
     {
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Exotel,
+        /// <summary>
+        ///
         /// </summary>
         SipTrunk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Twilio,
     }
@@ -30,6 +34,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                GetPhoneNumberRouteResponseDiscriminatorProvider.Exotel => "exotel",
                 GetPhoneNumberRouteResponseDiscriminatorProvider.SipTrunk => "sip_trunk",
                 GetPhoneNumberRouteResponseDiscriminatorProvider.Twilio => "twilio",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -42,6 +47,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "exotel" => GetPhoneNumberRouteResponseDiscriminatorProvider.Exotel,
                 "sip_trunk" => GetPhoneNumberRouteResponseDiscriminatorProvider.SipTrunk,
                 "twilio" => GetPhoneNumberRouteResponseDiscriminatorProvider.Twilio,
                 _ => null,

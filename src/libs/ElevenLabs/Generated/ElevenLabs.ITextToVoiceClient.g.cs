@@ -4,6 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
+    /// Design and generate custom voices from a text prompt.<br/>
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
@@ -39,7 +40,7 @@ namespace ElevenLabs
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 

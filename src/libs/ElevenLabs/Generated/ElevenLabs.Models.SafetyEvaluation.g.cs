@@ -16,7 +16,7 @@ namespace ElevenLabs
         public bool? IsUnsafe { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm_reason")]
         public string? LlmReason { get; set; }
@@ -28,7 +28,7 @@ namespace ElevenLabs
         public int? SafetyPromptVersion { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("matched_rule_id")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.SafetyRule>? MatchedRuleId { get; set; }

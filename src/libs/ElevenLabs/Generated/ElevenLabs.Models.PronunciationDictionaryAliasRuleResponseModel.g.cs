@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PronunciationDictionaryAliasRuleResponseModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("string_to_replace")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -30,14 +30,14 @@ namespace ElevenLabs
         public bool? WordBoundaries { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"alias"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         public string Type { get; set; } = "alias";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alias")]
         [global::System.Text.Json.Serialization.JsonRequired]

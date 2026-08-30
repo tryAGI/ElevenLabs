@@ -4,26 +4,26 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class WordTimestamp
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("word")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Word { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int StartMs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]

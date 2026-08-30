@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class AuthConnectionLocator
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_connection_id")]
         [global::System.Text.Json.Serialization.JsonRequired]

@@ -20,7 +20,7 @@ namespace ElevenLabs.Realtime.JsonConverters
                     {
                         return global::ElevenLabs.Realtime.PartialTranscriptPayloadMessageTypeExtensions.ToEnum(stringValue) ?? default;
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

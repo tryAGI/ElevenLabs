@@ -4,55 +4,67 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AgentTopicResponseModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("topic_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string TopicId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("label")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Label { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Description { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int ConversationCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parent_topic_id")]
         public string? ParentTopicId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("x_2d")]
         public double? X2d { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("y_2d")]
         public double? Y2d { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metrics")]
+        public global::ElevenLabs.TopicMetricsAggregate? Metrics { get; set; }
+
+        /// <summary>
+        /// Success rate across the topic's evaluation criteria, weighted by scored conversations. Returned regardless of include_evaluation_criteria.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("success_rate")]
+        public double? SuccessRate { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -70,6 +82,10 @@ namespace ElevenLabs
         /// <param name="parentTopicId"></param>
         /// <param name="x2d"></param>
         /// <param name="y2d"></param>
+        /// <param name="metrics"></param>
+        /// <param name="successRate">
+        /// Success rate across the topic's evaluation criteria, weighted by scored conversations. Returned regardless of include_evaluation_criteria.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -80,7 +96,9 @@ namespace ElevenLabs
             int conversationCount,
             string? parentTopicId,
             double? x2d,
-            double? y2d)
+            double? y2d,
+            global::ElevenLabs.TopicMetricsAggregate? metrics,
+            double? successRate)
         {
             this.TopicId = topicId ?? throw new global::System.ArgumentNullException(nameof(topicId));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
@@ -89,6 +107,8 @@ namespace ElevenLabs
             this.ParentTopicId = parentTopicId;
             this.X2d = x2d;
             this.Y2d = y2d;
+            this.Metrics = metrics;
+            this.SuccessRate = successRate;
         }
 
         /// <summary>

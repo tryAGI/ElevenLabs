@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ContentGuardrailOutputTriggerActionDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EndCall,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Retry,
     }

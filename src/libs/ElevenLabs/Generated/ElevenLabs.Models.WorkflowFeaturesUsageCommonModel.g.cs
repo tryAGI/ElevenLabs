@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class WorkflowFeaturesUsageCommonModel
     {
@@ -15,25 +15,25 @@ namespace ElevenLabs
         public bool? Enabled { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_node")]
         public global::ElevenLabs.FeatureStatusCommonModel? ToolNode { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("standalone_agent_node")]
         public global::ElevenLabs.FeatureStatusCommonModel? StandaloneAgentNode { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_number_node")]
         public global::ElevenLabs.FeatureStatusCommonModel? PhoneNumberNode { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_node")]
         public global::ElevenLabs.FeatureStatusCommonModel? EndNode { get; set; }

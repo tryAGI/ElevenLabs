@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"}
+    /// Example: {"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"}
     /// </summary>
     public sealed partial class ASRConversationalConfig
     {
@@ -18,7 +18,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// The provider of the transcription service<br/>
-        /// Default Value: elevenlabs
+        /// Default Value: scribe_realtime
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ASRProviderJsonConverter))]
@@ -53,7 +53,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="provider">
         /// The provider of the transcription service<br/>
-        /// Default Value: elevenlabs
+        /// Default Value: scribe_realtime
         /// </param>
         /// <param name="userInputAudioFormat">
         /// The format of the audio to be transcribed<br/>

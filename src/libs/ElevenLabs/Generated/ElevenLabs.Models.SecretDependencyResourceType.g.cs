@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SecretDependencyResourceType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Agents,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PhoneNumbers,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tools,
     }

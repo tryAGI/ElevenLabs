@@ -151,14 +151,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(voiceId ?? string.Empty),
-                                name: "\"voice_id\"");
-
                             var __contentRecording = new global::System.Net.Http.ByteArrayContent(request.Recording ?? global::System.Array.Empty<byte>());
                             __contentRecording.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
                                 request.Recordingname is null
@@ -649,14 +645,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(voiceId ?? string.Empty),
-                                name: "\"voice_id\"");
-
                             var __contentRecording = new global::System.Net.Http.StreamContent(recording);
                             __contentRecording.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
                                 request.Recordingname is null
@@ -1103,14 +1095,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(voiceId ?? string.Empty),
-                                name: "\"voice_id\"");
-
                             var __contentRecording = new global::System.Net.Http.StreamContent(recording);
                             __contentRecording.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
                                 request.Recordingname is null

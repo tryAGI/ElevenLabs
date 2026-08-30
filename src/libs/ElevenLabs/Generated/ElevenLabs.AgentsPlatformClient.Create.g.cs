@@ -1,6 +1,8 @@
 
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial class AgentsPlatformClient
@@ -48,7 +50,7 @@ namespace ElevenLabs
         /// Create an agent from a config object
         /// </summary>
         /// <param name="enableVersioning">
-        /// Enable versioning for the agent<br/>
+        /// Deprecated: all agents are versioned. This parameter is ignored.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="request"></param>
@@ -77,7 +79,7 @@ namespace ElevenLabs
         /// Create an agent from a config object
         /// </summary>
         /// <param name="enableVersioning">
-        /// Enable versioning for the agent<br/>
+        /// Deprecated: all agents are versioned. This parameter is ignored.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="request"></param>
@@ -156,7 +158,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -493,7 +495,7 @@ namespace ElevenLabs
         /// Create an agent from a config object
         /// </summary>
         /// <param name="enableVersioning">
-        /// Enable versioning for the agent<br/>
+        /// Deprecated: all agents are versioned. This parameter is ignored.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="conversationConfig">

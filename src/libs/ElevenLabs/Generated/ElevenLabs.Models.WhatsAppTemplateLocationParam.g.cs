@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class WhatsAppTemplateLocationParam
     {
@@ -15,7 +15,7 @@ namespace ElevenLabs
         public string? Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("location")]
         [global::System.Text.Json.Serialization.JsonRequired]

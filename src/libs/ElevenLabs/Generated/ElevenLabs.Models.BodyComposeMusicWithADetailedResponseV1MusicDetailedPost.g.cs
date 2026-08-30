@@ -6,7 +6,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodyComposeMusicWithADetailedResponseV1MusicDetailedPost
     {
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// A detailed composition plan to guide music generation. Cannot be used in conjunction with `prompt`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("composition_plan")]
-        public global::ElevenLabs.MusicPrompt? CompositionPlan { get; set; }
+        public global::ElevenLabs.OneOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>? CompositionPlan { get; set; }
 
         /// <summary>
         /// The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 3000ms and 600000ms. Optional - if not provided, the model will choose a length based on the prompt.
@@ -52,8 +52,8 @@ namespace ElevenLabs
         /// Default Value: music_v1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelIdJsonConverter))]
-        public global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelId? ModelId { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.MusicModelIDJsonConverter))]
+        public global::ElevenLabs.MusicModelID? ModelId { get; set; }
 
         /// <summary>
         /// Random seed to initialize the music generation process. Providing the same seed with the same parameters can help achieve more consistent results, but exact reproducibility is not guaranteed and outputs may change across system updates. Cannot be used in conjunction with prompt.
@@ -89,14 +89,14 @@ namespace ElevenLabs
         public bool? UsePhoneticNames { get; set; }
 
         /// <summary>
-        /// Controls how strictly section durations in the `composition_plan` are enforced. Only used with `composition_plan`. When set to true, the model will precisely respect each section's `duration_ms` from the plan. When set to false, the model may adjust individual section durations which will generally lead to better generation quality and improved latency, while always preserving the total song duration from the plan.<br/>
+        /// Controls how strictly section durations in the `composition_plan` are enforced. Only used with `composition_plan` and only applies to `music_v1`; for `music_v2` section durations are always enforced and this is ignored. When false for `music_v1`, the model may adjust individual section durations for better quality and latency, while preserving the total song duration from the plan.<br/>
         /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("respect_sections_durations")]
         public bool? RespectSectionsDurations { get; set; }
 
         /// <summary>
-        /// Whether to store the generated song for inpainting. Only available to enterprise clients with access to the inpainting feature.<br/>
+        /// Whether to store the generated song for inpainting.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("store_for_inpainting")]
@@ -108,6 +108,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("with_timestamps")]
         public bool? WithTimestamps { get; set; }
+
+        /// <summary>
+        /// Whether to return the visual waveform of the generated song.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("with_waveform_visual")]
+        public bool? WithWaveformVisual { get; set; }
 
         /// <summary>
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
@@ -170,15 +177,19 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="respectSectionsDurations">
-        /// Controls how strictly section durations in the `composition_plan` are enforced. Only used with `composition_plan`. When set to true, the model will precisely respect each section's `duration_ms` from the plan. When set to false, the model may adjust individual section durations which will generally lead to better generation quality and improved latency, while always preserving the total song duration from the plan.<br/>
+        /// Controls how strictly section durations in the `composition_plan` are enforced. Only used with `composition_plan` and only applies to `music_v1`; for `music_v2` section durations are always enforced and this is ignored. When false for `music_v1`, the model may adjust individual section durations for better quality and latency, while preserving the total song duration from the plan.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="storeForInpainting">
-        /// Whether to store the generated song for inpainting. Only available to enterprise clients with access to the inpainting feature.<br/>
+        /// Whether to store the generated song for inpainting.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="withTimestamps">
         /// Whether to return the timestamps of the words in the generated song.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="withWaveformVisual">
+        /// Whether to return the visual waveform of the generated song.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="signWithC2pa">
@@ -195,9 +206,9 @@ namespace ElevenLabs
             string? prompt,
             global::ElevenLabs.MusicGenerationMode? generationMode,
             string? lyricsText,
-            global::ElevenLabs.MusicPrompt? compositionPlan,
+            global::ElevenLabs.OneOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>? compositionPlan,
             int? musicLengthMs,
-            global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelId? modelId,
+            global::ElevenLabs.MusicModelID? modelId,
             int? seed,
             bool? forceInstrumental,
             string? finetuneId,
@@ -206,6 +217,7 @@ namespace ElevenLabs
             bool? respectSectionsDurations,
             bool? storeForInpainting,
             bool? withTimestamps,
+            bool? withWaveformVisual,
             bool? signWithC2pa,
             global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix? modelStylePrefix)
         {
@@ -223,6 +235,7 @@ namespace ElevenLabs
             this.RespectSectionsDurations = respectSectionsDurations;
             this.StoreForInpainting = storeForInpainting;
             this.WithTimestamps = withTimestamps;
+            this.WithWaveformVisual = withWaveformVisual;
             this.SignWithC2pa = signWithC2pa;
             this.ModelStylePrefix = modelStylePrefix;
         }

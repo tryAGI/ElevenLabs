@@ -35,11 +35,11 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.LanguageDetectionToolResultModel)}");
                 languageDetectionSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::ElevenLabs.TransferToAgentToolResultSuccessModel? transferToAgentSuccess = default;
+            global::ElevenLabs.TransferToAgentToolResultSuccessModelInput? transferToAgentSuccess = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToAgentSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToAgentToolResultSuccessModel> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToAgentToolResultSuccessModel)}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModelInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToAgentToolResultSuccessModelInput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToAgentToolResultSuccessModelInput)}");
                 transferToAgentSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.TransferToAgentToolResultErrorModel? transferToAgentError = default;
@@ -62,6 +62,13 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultSipSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultSipSuccessModel> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToNumberResultSipSuccessModel)}");
                 transferToNumberSipSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.TransferToNumberResultExotelSuccessModel? transferToNumberExotelSuccess = default;
+            if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberExotelSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultExotelSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultExotelSuccessModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToNumberResultExotelSuccessModel)}");
+                transferToNumberExotelSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.TransferToNumberResultErrorModel? transferToNumberError = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberError)
@@ -112,6 +119,20 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.KnowledgeBaseRagToolResultModel)}");
                 knowledgeBaseRagSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.KnowledgeBaseToolResultModel? knowledgeBaseSuccess = default;
+            if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.KnowledgeBaseSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseToolResultModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.KnowledgeBaseToolResultModel)}");
+                knowledgeBaseSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.DummyToolResultModel? dummy = default;
+            if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.Dummy)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DummyToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DummyToolResultModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DummyToolResultModel)}");
+                dummy = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var __value = new global::ElevenLabs.ResultVariant1(
                 discriminator?.ResultType,
@@ -127,6 +148,8 @@ namespace ElevenLabs.JsonConverters
 
                 transferToNumberSipSuccess,
 
+                transferToNumberExotelSuccess,
+
                 transferToNumberError,
 
                 skipTurnSuccess,
@@ -139,7 +162,11 @@ namespace ElevenLabs.JsonConverters
 
                 testingToolResult,
 
-                knowledgeBaseRagSuccess
+                knowledgeBaseRagSuccess,
+
+                knowledgeBaseSuccess,
+
+                dummy
                 );
 
             return __value;
@@ -168,8 +195,8 @@ namespace ElevenLabs.JsonConverters
             }
             else if (value.IsTransferToAgentSuccess)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToAgentToolResultSuccessModel?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModel).Name}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModelInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToAgentToolResultSuccessModelInput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModelInput).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToAgentSuccess!, typeInfo);
             }
             else if (value.IsTransferToAgentError)
@@ -189,6 +216,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultSipSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultSipSuccessModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToNumberResultSipSuccessModel).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToNumberSipSuccess!, typeInfo);
+            }
+            else if (value.IsTransferToNumberExotelSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultExotelSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultExotelSuccessModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToNumberResultExotelSuccessModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToNumberExotelSuccess!, typeInfo);
             }
             else if (value.IsTransferToNumberError)
             {
@@ -231,6 +264,18 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseRagToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseRagToolResultModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.KnowledgeBaseRagToolResultModel).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeBaseRagSuccess!, typeInfo);
+            }
+            else if (value.IsKnowledgeBaseSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseToolResultModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.KnowledgeBaseToolResultModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeBaseSuccess!, typeInfo);
+            }
+            else if (value.IsDummy)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DummyToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DummyToolResultModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DummyToolResultModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Dummy!, typeInfo);
             }
         }
     }

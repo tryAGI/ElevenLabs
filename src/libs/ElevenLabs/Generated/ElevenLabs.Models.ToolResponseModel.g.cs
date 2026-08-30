@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ToolResponseModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -24,15 +24,15 @@ namespace ElevenLabs
         public required global::ElevenLabs.ToolConfig2 ToolConfig { get; set; }
 
         /// <summary>
-        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// Example: {"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </summary>
-        /// <example>{"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
+        /// <example>{"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::ElevenLabs.ResourceAccessInfo AccessInfo { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage_stats")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -58,7 +58,7 @@ namespace ElevenLabs
         /// The type of tool
         /// </param>
         /// <param name="accessInfo">
-        /// Example: {"creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
+        /// Example: {"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </param>
         /// <param name="usageStats"></param>
         /// <param name="responseMocks">

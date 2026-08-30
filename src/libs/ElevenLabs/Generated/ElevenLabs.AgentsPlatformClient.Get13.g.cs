@@ -29,7 +29,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string documentationId,
             ref string chunkId,
-            global::ElevenLabs.EmbeddingModelEnum? embeddingModel);
+            ref global::ElevenLabs.EmbeddingModelEnum? embeddingModel);
         partial void PrepareGet13Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -107,7 +107,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 documentationId: ref documentationId,
                 chunkId: ref chunkId,
-                embeddingModel: embeddingModel);
+                embeddingModel: ref embeddingModel);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -165,7 +165,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

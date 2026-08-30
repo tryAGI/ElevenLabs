@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct CreateEnvironmentVariableRequest : global::System.IEquatable<CreateEnvironmentVariableRequest>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateStringEnvironmentVariableRequest? String { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(String))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsString => String != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickString(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateStringEnvironmentVariableRequest PickString() => IsString
             ? String!
             : throw new global::System.InvalidOperationException($"Expected union variant 'String' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateSecretEnvironmentVariableRequest? Secret { get; init; }
@@ -61,7 +61,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Secret))]
@@ -69,7 +69,7 @@ namespace ElevenLabs
         public bool IsSecret => Secret != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSecret(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateSecretEnvironmentVariableRequest PickSecret() => IsSecret
             ? Secret!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Secret' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest? AuthConnection { get; init; }
@@ -98,7 +98,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AuthConnection))]
@@ -106,7 +106,7 @@ namespace ElevenLabs
         public bool IsAuthConnection => AuthConnection != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickAuthConnection(
 #if NET6_0_OR_GREATER
@@ -119,23 +119,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest PickAuthConnection() => IsAuthConnection
             ? AuthConnection!
             : throw new global::System.InvalidOperationException($"Expected union variant 'AuthConnection' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateEnvironmentVariableRequest(global::ElevenLabs.CreateStringEnvironmentVariableRequest value) => new CreateEnvironmentVariableRequest((global::ElevenLabs.CreateStringEnvironmentVariableRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateStringEnvironmentVariableRequest?(CreateEnvironmentVariableRequest @this) => @this.String;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateEnvironmentVariableRequest(global::ElevenLabs.CreateStringEnvironmentVariableRequest? value)
         {
@@ -143,22 +143,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateEnvironmentVariableRequest FromString(global::ElevenLabs.CreateStringEnvironmentVariableRequest? value) => new CreateEnvironmentVariableRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateEnvironmentVariableRequest(global::ElevenLabs.CreateSecretEnvironmentVariableRequest value) => new CreateEnvironmentVariableRequest((global::ElevenLabs.CreateSecretEnvironmentVariableRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateSecretEnvironmentVariableRequest?(CreateEnvironmentVariableRequest @this) => @this.Secret;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateEnvironmentVariableRequest(global::ElevenLabs.CreateSecretEnvironmentVariableRequest? value)
         {
@@ -166,22 +166,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateEnvironmentVariableRequest FromSecret(global::ElevenLabs.CreateSecretEnvironmentVariableRequest? value) => new CreateEnvironmentVariableRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateEnvironmentVariableRequest(global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest value) => new CreateEnvironmentVariableRequest((global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest?(CreateEnvironmentVariableRequest @this) => @this.AuthConnection;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateEnvironmentVariableRequest(global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest? value)
         {
@@ -189,12 +189,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateEnvironmentVariableRequest FromAuthConnection(global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest? value) => new CreateEnvironmentVariableRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateEnvironmentVariableRequest(
             global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminatorType? type,
@@ -211,25 +211,25 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             AuthConnection as object ??
             Secret as object ??
-            String as object 
+            String as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             String?.ToString() ??
             Secret?.ToString() ??
-            AuthConnection?.ToString() 
+            AuthConnection?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -237,7 +237,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.CreateStringEnvironmentVariableRequest, TResult>? @string = null,
@@ -267,7 +267,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.CreateStringEnvironmentVariableRequest>? @string = null,
@@ -297,7 +297,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.CreateStringEnvironmentVariableRequest>? @string = null,
@@ -325,7 +325,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -348,19 +348,19 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(CreateEnvironmentVariableRequest other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CreateStringEnvironmentVariableRequest?>.Default.Equals(String, other.String) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CreateSecretEnvironmentVariableRequest?>.Default.Equals(Secret, other.Secret) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest?>.Default.Equals(AuthConnection, other.AuthConnection) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest?>.Default.Equals(AuthConnection, other.AuthConnection)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(CreateEnvironmentVariableRequest obj1, CreateEnvironmentVariableRequest obj2)
         {
@@ -368,7 +368,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(CreateEnvironmentVariableRequest obj1, CreateEnvironmentVariableRequest obj2)
         {
@@ -376,7 +376,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

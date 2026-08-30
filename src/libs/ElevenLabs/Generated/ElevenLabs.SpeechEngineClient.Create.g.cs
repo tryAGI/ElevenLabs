@@ -139,7 +139,7 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -483,7 +483,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="asr">
         /// ASR configuration<br/>
-        /// Example: {"keywords":["hello","world"],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"}
+        /// Example: {"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"}
         /// </param>
         /// <param name="tts">
         /// TTS configuration<br/>
@@ -491,7 +491,11 @@ namespace ElevenLabs
         /// </param>
         /// <param name="turn">
         /// Turn detection configuration<br/>
-        /// Example: {"interruption_ignore_terms":[],"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","turn_eagerness":"normal","turn_timeout":7.0}
+        /// Example: {"interruption_ignore_term_languages":[],"interruption_ignore_terms":[],"merge_with_default_ignore_terms":false,"mode":"turn","retranscribe_on_turn_timeout":false,"silence_end_call_timeout":-1.0,"speculative_turn":false,"spelling_patience":"auto","transcribe_on_disabled_interruptions":false,"turn_eagerness":"normal","turn_timeout":7.0}
+        /// </param>
+        /// <param name="vad">
+        /// Configuration for voice activity detection<br/>
+        /// Example: {"background_voice_detection":false}
         /// </param>
         /// <param name="conversation">
         /// Conversation configuration (client events, etc.)<br/>
@@ -524,6 +528,7 @@ namespace ElevenLabs
             global::ElevenLabs.ASRConversationalConfig? asr = default,
             global::ElevenLabs.TTSConversationalConfigInput? tts = default,
             global::ElevenLabs.BaseTurnConfig? turn = default,
+            global::ElevenLabs.VADConfig? vad = default,
             global::ElevenLabs.ConversationConfigInput? conversation = default,
             global::ElevenLabs.PrivacyConfigInput? privacy = default,
             global::ElevenLabs.AgentCallLimits? callLimits = default,
@@ -540,6 +545,7 @@ namespace ElevenLabs
                 Asr = asr,
                 Tts = tts,
                 Turn = turn,
+                Vad = vad,
                 Conversation = conversation,
                 Privacy = privacy,
                 CallLimits = callLimits,

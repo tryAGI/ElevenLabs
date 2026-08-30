@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    /// Agent-level alerting configuration overriding workspace settings.
     /// </summary>
     public sealed partial class AgentPlatformSettingsResponseModelAlerting
     {

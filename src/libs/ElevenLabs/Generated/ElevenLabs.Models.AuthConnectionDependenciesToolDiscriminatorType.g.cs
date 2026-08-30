@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum AuthConnectionDependenciesToolDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Available,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unknown,
     }

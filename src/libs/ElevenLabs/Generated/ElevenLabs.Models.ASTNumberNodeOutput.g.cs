@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ASTNumberNodeOutput
     {
@@ -19,8 +19,9 @@ namespace ElevenLabs
         /// Value of this literal.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("value")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<double?, int?>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Value { get; set; }
+        public required global::ElevenLabs.AnyOf<double?, int?> Value { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -41,7 +42,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ASTNumberNodeOutput(
-            double value,
+            global::ElevenLabs.AnyOf<double?, int?> value,
             string type = "number_literal")
         {
             this.Type = type;
@@ -53,18 +54,6 @@ namespace ElevenLabs
         /// </summary>
         public ASTNumberNodeOutput()
         {
-        }
-
-        /// <summary>
-        /// Creates a new <see cref="ASTNumberNodeOutput"/> from its single non-const required field,
-        /// hardcoding any const discriminator fields.
-        /// </summary>
-        public static ASTNumberNodeOutput FromValue(double value)
-        {
-            return new ASTNumberNodeOutput
-            {
-                Value = value,
-            };
         }
 
     }

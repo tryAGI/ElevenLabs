@@ -4,12 +4,12 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class MatchAnythingParameterEvaluationStrategy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"anything"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]

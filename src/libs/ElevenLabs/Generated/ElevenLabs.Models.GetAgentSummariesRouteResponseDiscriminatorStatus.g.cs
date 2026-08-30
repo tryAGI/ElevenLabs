@@ -4,16 +4,16 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetAgentSummariesRouteResponseDiscriminatorStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failure,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Success,
     }

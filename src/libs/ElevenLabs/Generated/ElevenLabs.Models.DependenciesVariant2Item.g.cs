@@ -5,17 +5,17 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct DependenciesVariant2Item : global::System.IEquatable<DependenciesVariant2Item>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant2ItemDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.DependentAvailableAgentIdentifier? Available { get; init; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Available))]
@@ -32,7 +32,7 @@ namespace ElevenLabs
         public bool IsAvailable => Available != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickAvailable(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DependentAvailableAgentIdentifier PickAvailable() => IsAvailable
             ? Available!
@@ -62,7 +62,7 @@ namespace ElevenLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Unknown))]
@@ -70,7 +70,7 @@ namespace ElevenLabs
         public bool IsUnknown => Unknown != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUnknown(
 #if NET6_0_OR_GREATER
@@ -83,23 +83,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::ElevenLabs.DependentUnknownAgentIdentifier PickUnknown() => IsUnknown
             ? Unknown!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Unknown' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator DependenciesVariant2Item(global::ElevenLabs.DependentAvailableAgentIdentifier value) => new DependenciesVariant2Item((global::ElevenLabs.DependentAvailableAgentIdentifier?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DependentAvailableAgentIdentifier?(DependenciesVariant2Item @this) => @this.Available;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DependenciesVariant2Item(global::ElevenLabs.DependentAvailableAgentIdentifier? value)
         {
@@ -107,22 +107,22 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static DependenciesVariant2Item FromAvailable(global::ElevenLabs.DependentAvailableAgentIdentifier? value) => new DependenciesVariant2Item(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator DependenciesVariant2Item(global::ElevenLabs.DependentUnknownAgentIdentifier value) => new DependenciesVariant2Item((global::ElevenLabs.DependentUnknownAgentIdentifier?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::ElevenLabs.DependentUnknownAgentIdentifier?(DependenciesVariant2Item @this) => @this.Unknown;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DependenciesVariant2Item(global::ElevenLabs.DependentUnknownAgentIdentifier? value)
         {
@@ -130,12 +130,12 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static DependenciesVariant2Item FromUnknown(global::ElevenLabs.DependentUnknownAgentIdentifier? value) => new DependenciesVariant2Item(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DependenciesVariant2Item(
             global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant2ItemDiscriminatorType? type,
@@ -150,23 +150,23 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Unknown as object ??
-            Available as object 
+            Available as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Available?.ToString() ??
-            Unknown?.ToString() 
+            Unknown?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -174,7 +174,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.DependentAvailableAgentIdentifier, TResult>? available = null,
@@ -199,7 +199,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::ElevenLabs.DependentAvailableAgentIdentifier>? available = null,
@@ -223,7 +223,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.DependentAvailableAgentIdentifier>? available = null,
@@ -246,7 +246,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -267,18 +267,18 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(DependenciesVariant2Item other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DependentAvailableAgentIdentifier?>.Default.Equals(Available, other.Available) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DependentUnknownAgentIdentifier?>.Default.Equals(Unknown, other.Unknown) 
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DependentUnknownAgentIdentifier?>.Default.Equals(Unknown, other.Unknown)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(DependenciesVariant2Item obj1, DependenciesVariant2Item obj2)
         {
@@ -286,7 +286,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(DependenciesVariant2Item obj1, DependenciesVariant2Item obj2)
         {
@@ -294,7 +294,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

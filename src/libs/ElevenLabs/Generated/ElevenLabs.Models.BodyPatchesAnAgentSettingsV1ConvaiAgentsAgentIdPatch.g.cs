@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch
     {
@@ -47,6 +47,12 @@ namespace ElevenLabs
         public string? VersionDescription { get; set; }
 
         /// <summary>
+        /// Procedure versions to publish, keyed by procedure_id. When provided, this map replaces the procedures from the current draft or branch tip. When omitted or null, unpublished procedure edits are used if present; otherwise, the branch tip's procedures are retained. Pass an empty object to remove all procedures.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("procedures")]
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureVersionRef>? Procedures { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -74,6 +80,9 @@ namespace ElevenLabs
         /// <param name="versionDescription">
         /// Description for this version when publishing changes (only applicable for versioned agents)
         /// </param>
+        /// <param name="procedures">
+        /// Procedure versions to publish, keyed by procedure_id. When provided, this map replaces the procedures from the current draft or branch tip. When omitted or null, unpublished procedure edits are used if present; otherwise, the branch tip's procedures are retained. Pass an empty object to remove all procedures.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -83,7 +92,8 @@ namespace ElevenLabs
             global::ElevenLabs.AgentWorkflowRequestModel? workflow,
             string? name,
             global::System.Collections.Generic.IList<string>? tags,
-            string? versionDescription)
+            string? versionDescription,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureVersionRef>? procedures)
         {
             this.ConversationConfig = conversationConfig;
             this.PlatformSettings = platformSettings;
@@ -91,6 +101,7 @@ namespace ElevenLabs
             this.Name = name;
             this.Tags = tags;
             this.VersionDescription = versionDescription;
+            this.Procedures = procedures;
         }
 
         /// <summary>

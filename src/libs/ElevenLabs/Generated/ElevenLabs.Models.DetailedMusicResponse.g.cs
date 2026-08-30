@@ -10,13 +10,12 @@ namespace ElevenLabs
     public sealed partial class DetailedMusicResponse
     {
         /// <summary>
-        /// The composition plan used to generate the song<br/>
-        /// Example: {"negative_global_styles":["metal","hip-hop","country"],"positive_global_styles":["pop","rock","jazz"],"sections":[{"duration_ms":10000,"lines":["Verse 1 lyrics"],"negative_local_styles":["metal","hip-hop","country"],"positive_local_styles":["pop","rock","jazz"],"section_name":"Verse 1"}]}
+        /// The composition plan used to generate the song
         /// </summary>
-        /// <example>{"negative_global_styles":["metal","hip-hop","country"],"positive_global_styles":["pop","rock","jazz"],"sections":[{"duration_ms":10000,"lines":["Verse 1 lyrics"],"negative_local_styles":["metal","hip-hop","country"],"positive_local_styles":["pop","rock","jazz"],"section_name":"Verse 1"}]}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("composition_plan")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.MusicPrompt CompositionPlan { get; set; }
+        public required global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan> CompositionPlan { get; set; }
 
         /// <summary>
         /// The metadata of the generated song<br/>
@@ -34,6 +33,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.WordTimestamp>? WordsTimestamps { get; set; }
 
         /// <summary>
+        /// A low-resolution waveform of the generated song, for showing a preview of it. Holds 4 values per second of audio, from -1000 to 1000. Stereo is mixed down to a single channel. Only present if `with_waveform_visual` was True in the request body.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("waveform_visual")]
+        public global::System.Collections.Generic.IList<int>? WaveformVisual { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -43,8 +48,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="DetailedMusicResponse" /> class.
         /// </summary>
         /// <param name="compositionPlan">
-        /// The composition plan used to generate the song<br/>
-        /// Example: {"negative_global_styles":["metal","hip-hop","country"],"positive_global_styles":["pop","rock","jazz"],"sections":[{"duration_ms":10000,"lines":["Verse 1 lyrics"],"negative_local_styles":["metal","hip-hop","country"],"positive_local_styles":["pop","rock","jazz"],"section_name":"Verse 1"}]}
+        /// The composition plan used to generate the song
         /// </param>
         /// <param name="songMetadata">
         /// The metadata of the generated song<br/>
@@ -53,17 +57,22 @@ namespace ElevenLabs
         /// <param name="wordsTimestamps">
         /// The timestamps of the words in the generated song
         /// </param>
+        /// <param name="waveformVisual">
+        /// A low-resolution waveform of the generated song, for showing a preview of it. Holds 4 values per second of audio, from -1000 to 1000. Stereo is mixed down to a single channel. Only present if `with_waveform_visual` was True in the request body.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public DetailedMusicResponse(
-            global::ElevenLabs.MusicPrompt compositionPlan,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan> compositionPlan,
             global::ElevenLabs.SongMetadata songMetadata,
-            global::System.Collections.Generic.IList<global::ElevenLabs.WordTimestamp>? wordsTimestamps)
+            global::System.Collections.Generic.IList<global::ElevenLabs.WordTimestamp>? wordsTimestamps,
+            global::System.Collections.Generic.IList<int>? waveformVisual)
         {
-            this.CompositionPlan = compositionPlan ?? throw new global::System.ArgumentNullException(nameof(compositionPlan));
+            this.CompositionPlan = compositionPlan;
             this.SongMetadata = songMetadata ?? throw new global::System.ArgumentNullException(nameof(songMetadata));
             this.WordsTimestamps = wordsTimestamps;
+            this.WaveformVisual = waveformVisual;
         }
 
         /// <summary>

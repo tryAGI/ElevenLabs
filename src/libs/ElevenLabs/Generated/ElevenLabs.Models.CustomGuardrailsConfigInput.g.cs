@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class CustomGuardrailsConfigInput
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("configs")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.CustomGuardrailConfig>? Configs { get; set; }

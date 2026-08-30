@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum MockingStrategy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         All,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Selected,
     }

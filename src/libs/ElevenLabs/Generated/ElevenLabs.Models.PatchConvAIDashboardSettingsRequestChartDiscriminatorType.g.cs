@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PatchConvAIDashboardSettingsRequestChartDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CallSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Criteria,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DataCollection,
     }

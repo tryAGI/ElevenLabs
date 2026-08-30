@@ -4,24 +4,24 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PhoneNumberTransferTransferDestinationDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Phone,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PhoneDynamicVariable,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SipUri,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SipUriDynamicVariable,
     }

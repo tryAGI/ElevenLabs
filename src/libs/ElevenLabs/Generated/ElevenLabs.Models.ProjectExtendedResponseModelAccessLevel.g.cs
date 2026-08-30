@@ -9,19 +9,19 @@ namespace ElevenLabs
     public enum ProjectExtendedResponseModelAccessLevel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Admin,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Commenter,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Editor,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Viewer,
     }

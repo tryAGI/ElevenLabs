@@ -10,27 +10,27 @@ namespace ElevenLabs
     public enum OAuth2JWTResponseAlgorithm
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Hs256,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Hs384,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Hs512,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rs256,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rs384,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rs512,
     }

@@ -37,6 +37,13 @@ namespace ElevenLabs
         public int? ThinkingBudget { get; set; }
 
         /// <summary>
+        /// Enable model reasoning summaries. When disabled, we do not request summaries from provider if possible for faster TTFB. Not ZRM compatible.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_reasoning_summary")]
+        public bool? EnableReasoningSummary { get; set; }
+
+        /// <summary>
         /// The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field).<br/>
         /// Default Value: 0F
         /// </summary>
@@ -88,7 +95,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Whether to remove the default personality lines from the system prompt<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ignore_default_personality")]
         public bool? IgnoreDefaultPersonality { get; set; }
@@ -97,7 +104,7 @@ namespace ElevenLabs
         /// Configuration for RAG
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rag")]
-        public global::ElevenLabs.RagConfig? Rag { get; set; }
+        public global::ElevenLabs.RagConfigOutput? Rag { get; set; }
 
         /// <summary>
         /// Timezone for displaying current time in system prompt. If set, the current time will be included in the system prompt using this timezone. Must be a valid timezone name (e.g., 'America/New_York', 'Europe/London', 'UTC'). Recommended for accurate time-aware responses; without this, the agent has no knowledge of the current date/time unless you provide it via dynamic variables or tools, which can lead to incorrect or hallucinated time references.
@@ -114,7 +121,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Time in seconds before cascading to backup LLM. Must be between 2 and 15 seconds.<br/>
-        /// Default Value: 8F
+        /// Default Value: 4F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cascade_timeout_seconds")]
         public double? CascadeTimeoutSeconds { get; set; }
@@ -148,6 +155,10 @@ namespace ElevenLabs
         /// <param name="thinkingBudget">
         /// Max number of tokens used for thinking. Use 0 to turn off if supported by the model.
         /// </param>
+        /// <param name="enableReasoningSummary">
+        /// Enable model reasoning summaries. When disabled, we do not request summaries from provider if possible for faster TTFB. Not ZRM compatible.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="temperature">
         /// The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field).<br/>
         /// Default Value: 0F
@@ -176,7 +187,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="ignoreDefaultPersonality">
         /// Whether to remove the default personality lines from the system prompt<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="rag">
         /// Configuration for RAG
@@ -189,7 +200,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cascadeTimeoutSeconds">
         /// Time in seconds before cascading to backup LLM. Must be between 2 and 15 seconds.<br/>
-        /// Default Value: 8F
+        /// Default Value: 4F
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -199,6 +210,7 @@ namespace ElevenLabs
             global::ElevenLabs.Llm? llm,
             global::ElevenLabs.LLMReasoningEffort? reasoningEffort,
             int? thinkingBudget,
+            bool? enableReasoningSummary,
             double? temperature,
             int? maxTokens,
             global::System.Collections.Generic.IList<string>? toolIds,
@@ -208,7 +220,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? knowledgeBase,
             global::ElevenLabs.CustomLLM? customLlm,
             bool? ignoreDefaultPersonality,
-            global::ElevenLabs.RagConfig? rag,
+            global::ElevenLabs.RagConfigOutput? rag,
             string? timezone,
             global::ElevenLabs.BackupLlmConfig2? backupLlmConfig,
             double? cascadeTimeoutSeconds)
@@ -217,6 +229,7 @@ namespace ElevenLabs
             this.Llm = llm;
             this.ReasoningEffort = reasoningEffort;
             this.ThinkingBudget = thinkingBudget;
+            this.EnableReasoningSummary = enableReasoningSummary;
             this.Temperature = temperature;
             this.MaxTokens = maxTokens;
             this.ToolIds = toolIds;

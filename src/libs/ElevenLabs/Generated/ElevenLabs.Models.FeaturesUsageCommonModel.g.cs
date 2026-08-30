@@ -4,42 +4,42 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class FeaturesUsageCommonModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_detection")]
         public global::ElevenLabs.FeatureStatusCommonModel? LanguageDetection { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_to_agent")]
         public global::ElevenLabs.FeatureStatusCommonModel? TransferToAgent { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_to_number")]
         public global::ElevenLabs.FeatureStatusCommonModel? TransferToNumber { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("multivoice")]
         public global::ElevenLabs.FeatureStatusCommonModel? Multivoice { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dtmf_tones")]
         public global::ElevenLabs.FeatureStatusCommonModel? DtmfTones { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_mcp_servers")]
         public global::ElevenLabs.FeatureStatusCommonModel? ExternalMcpServers { get; set; }
@@ -57,7 +57,7 @@ namespace ElevenLabs
         public bool? PiiZrmAgent { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_dynamic_variable_updates")]
         public global::ElevenLabs.FeatureStatusCommonModel? ToolDynamicVariableUpdates { get; set; }
@@ -69,37 +69,37 @@ namespace ElevenLabs
         public bool? IsLivekit { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voicemail_detection")]
         public global::ElevenLabs.FeatureStatusCommonModel? VoicemailDetection { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dtmf_input")]
         public global::ElevenLabs.FeatureStatusCommonModel? DtmfInput { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workflow")]
         public global::ElevenLabs.WorkflowFeaturesUsageCommonModel? Workflow { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_testing")]
         public global::ElevenLabs.TestsFeatureUsageCommonModel? AgentTesting { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("versioning")]
         public global::ElevenLabs.FeatureStatusCommonModel? Versioning { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_input")]
         public global::ElevenLabs.FeatureStatusCommonModel? FileInput { get; set; }

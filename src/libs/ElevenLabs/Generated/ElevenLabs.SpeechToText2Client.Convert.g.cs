@@ -29,11 +29,13 @@ namespace ElevenLabs
             };
         partial void PrepareConvertArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string? token,
             ref bool? enableLogging,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost request);
         partial void PrepareConvertRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string? token,
             bool? enableLogging,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost request);
         partial void ProcessConvertResponse(
@@ -47,8 +49,11 @@ namespace ElevenLabs
 
         /// <summary>
         /// Speech To Text<br/>
-        /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
+        /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
         /// </summary>
+        /// <param name="token">
+        /// A single-use authentication token created via POST /v1/single-use-token/batch_scribe. This token can only be used once and expires after 15 minutes. Alternative to API key or bearer token authentication for frontend clients.
+        /// </param>
         /// <param name="enableLogging">
         /// When enable_logging is set to false zero retention mode will be used for the request. This will mean log and transcript storage features are unavailable for this request. Zero retention mode may only be used by enterprise customers.<br/>
         /// Default Value: true
@@ -60,6 +65,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AnyOf<global::ElevenLabs.SpeechToTextChunkResponseModel, global::ElevenLabs.MultichannelSpeechToTextResponseModel, global::ElevenLabs.SpeechToTextWebhookResponseModel>> ConvertAsync(
 
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost request,
+            string? token = default,
             bool? enableLogging = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -67,6 +73,7 @@ namespace ElevenLabs
             var __response = await ConvertAsResponseAsync(
 
                 request: request,
+                token: token,
                 enableLogging: enableLogging,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -76,8 +83,11 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Speech To Text<br/>
-        /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
+        /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
         /// </summary>
+        /// <param name="token">
+        /// A single-use authentication token created via POST /v1/single-use-token/batch_scribe. This token can only be used once and expires after 15 minutes. Alternative to API key or bearer token authentication for frontend clients.
+        /// </param>
         /// <param name="enableLogging">
         /// When enable_logging is set to false zero retention mode will be used for the request. This will mean log and transcript storage features are unavailable for this request. Zero retention mode may only be used by enterprise customers.<br/>
         /// Default Value: true
@@ -89,6 +99,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnyOf<global::ElevenLabs.SpeechToTextChunkResponseModel, global::ElevenLabs.MultichannelSpeechToTextResponseModel, global::ElevenLabs.SpeechToTextWebhookResponseModel>>> ConvertAsResponseAsync(
 
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost request,
+            string? token = default,
             bool? enableLogging = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -99,6 +110,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareConvertArguments(
                 httpClient: HttpClient,
+                token: ref token,
                 enableLogging: ref enableLogging,
                 request: request);
 
@@ -129,6 +141,7 @@ namespace ElevenLabs
                                 path: "/v1/speech-to-text",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
+                                .AddOptionalParameter("token", token)
                                 .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -158,18 +171,10 @@ namespace ElevenLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            if (enableLogging != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(enableLogging, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
-                                    name: "\"enable_logging\"");
-
-                            }
                             __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(request.ModelId.ToValueString()),
                                 name: "\"model_id\"");
@@ -268,7 +273,7 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.AdditionalFormats, x => x.ToString() ?? string.Empty))}]"),
+                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.AdditionalFormats!, x => x.ToString() ?? string.Empty))}]"),
                                     name: "\"additional_formats\"");
 
                             }
@@ -336,6 +341,14 @@ namespace ElevenLabs
                                     name: "\"use_multi_channel\"");
 
                             }
+                            if (request.MultichannelOutputStyle != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((request.MultichannelOutputStyle).HasValue ? (request.MultichannelOutputStyle).GetValueOrDefault().ToValueString() : string.Empty),
+                                    name: "\"multichannel_output_style\"");
+
+                            }
                             if (request.WebhookMetadata != default)
                             {
 
@@ -346,18 +359,50 @@ namespace ElevenLabs
                             }
                             if (request.EntityDetection != default)
                             {
+                                if ((request.EntityDetection).GetValueOrDefault().TryPickValue1(out var __valueEntityDetection1))
+                                {
 
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.EntityDetection.ToString() ?? string.Empty),
-                                    name: "\"entity_detection\"");
+                                    var __contentEntityDetection1 = new global::System.Net.Http.StringContent(__valueEntityDetection1 ?? string.Empty);
+                                    __httpRequestContent.Add(
+                                        content: __contentEntityDetection1,
+                                        name: "\"entity_detection\"");
+                                }
+                                else if ((request.EntityDetection).GetValueOrDefault().TryPickValue2(out var __valueEntityDetection2))
+                                {
 
+                                    for (var __iEntityDetection2 = 0; __iEntityDetection2 < (__valueEntityDetection2!).Count; __iEntityDetection2++)
+                                    {
+
+                                        var __contentEntityDetection2Item = new global::System.Net.Http.StringContent((__valueEntityDetection2!)[__iEntityDetection2] ?? string.Empty);
+                                        __httpRequestContent.Add(
+                                            content: __contentEntityDetection2Item,
+                                            name: "\"entity_detection\"");
+                                    }
+                                }
+                                else if ((request.EntityDetection).GetValueOrDefault().TryPickValue3(out var __valueEntityDetection3))
+                                {
+
+                                    var __contentEntityDetection3 = new global::System.Net.Http.StringContent((__valueEntityDetection3!).ToString() ?? string.Empty);
+                                    __httpRequestContent.Add(
+                                        content: __contentEntityDetection3,
+                                        name: "\"entity_detection\"");
+                                }
                             }
+
                             if (request.NoVerbatim != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.NoVerbatim, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"no_verbatim\"");
+
+                            }
+                            if (request.UseSpeakerLibrary != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.UseSpeakerLibrary, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"use_speaker_library\"");
 
                             }
                             if (request.DetectSpeakerRoles != default)
@@ -370,12 +415,36 @@ namespace ElevenLabs
                             }
                             if (request.EntityRedaction != default)
                             {
+                                if ((request.EntityRedaction).GetValueOrDefault().TryPickValue1(out var __valueEntityRedaction1))
+                                {
 
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.EntityRedaction.ToString() ?? string.Empty),
-                                    name: "\"entity_redaction\"");
+                                    var __contentEntityRedaction1 = new global::System.Net.Http.StringContent(__valueEntityRedaction1 ?? string.Empty);
+                                    __httpRequestContent.Add(
+                                        content: __contentEntityRedaction1,
+                                        name: "\"entity_redaction\"");
+                                }
+                                else if ((request.EntityRedaction).GetValueOrDefault().TryPickValue2(out var __valueEntityRedaction2))
+                                {
 
+                                    for (var __iEntityRedaction2 = 0; __iEntityRedaction2 < (__valueEntityRedaction2!).Count; __iEntityRedaction2++)
+                                    {
+
+                                        var __contentEntityRedaction2Item = new global::System.Net.Http.StringContent((__valueEntityRedaction2!)[__iEntityRedaction2] ?? string.Empty);
+                                        __httpRequestContent.Add(
+                                            content: __contentEntityRedaction2Item,
+                                            name: "\"entity_redaction\"");
+                                    }
+                                }
+                                else if ((request.EntityRedaction).GetValueOrDefault().TryPickValue3(out var __valueEntityRedaction3))
+                                {
+
+                                    var __contentEntityRedaction3 = new global::System.Net.Http.StringContent((__valueEntityRedaction3!).ToString() ?? string.Empty);
+                                    __httpRequestContent.Add(
+                                        content: __contentEntityRedaction3,
+                                        name: "\"entity_redaction\"");
+                                }
                             }
+
                             if (request.EntityRedactionMode != default)
                             {
 
@@ -388,7 +457,7 @@ namespace ElevenLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Keyterms, x => x))}]"),
+                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Keyterms!, x => x))}]"),
                                     name: "\"keyterms\"");
 
                             }
@@ -406,6 +475,7 @@ namespace ElevenLabs
                 PrepareConvertRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    token: token,
                     enableLogging: enableLogging,
                     request: request);
 
@@ -721,8 +791,11 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Speech To Text<br/>
-        /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
+        /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
         /// </summary>
+        /// <param name="token">
+        /// A single-use authentication token created via POST /v1/single-use-token/batch_scribe. This token can only be used once and expires after 15 minutes. Alternative to API key or bearer token authentication for frontend clients.
+        /// </param>
         /// <param name="enableLogging">
         /// When enable_logging is set to false zero retention mode will be used for the request. This will mean log and transcript storage features are unavailable for this request. Zero retention mode may only be used by enterprise customers.<br/>
         /// Default Value: true
@@ -731,10 +804,10 @@ namespace ElevenLabs
         /// The ID of the model to use for transcription.
         /// </param>
         /// <param name="file">
-        /// The file to transcribe (100ms minimum audio length). All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
+        /// The file to transcribe (100ms minimum audio length). All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 5.0GB.
         /// </param>
         /// <param name="filename">
-        /// The file to transcribe (100ms minimum audio length). All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 3.0GB.
+        /// The file to transcribe (100ms minimum audio length). All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 5.0GB.
         /// </param>
         /// <param name="languageCode">
         /// An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.
@@ -781,8 +854,12 @@ namespace ElevenLabs
         /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be an integer between 0 and 2147483647.
         /// </param>
         /// <param name="useMultiChannel">
-        /// Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel will be transcribed independently and the results will be combined. Each word in the response will include a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported. Each channel is billed independently at the full audio duration, so cost scales linearly with the number of channels.<br/>
+        /// Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel is transcribed independently. By default a separate transcript is returned per channel; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Each word in the response includes a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported. Each channel is billed independently at the full audio duration, so cost scales linearly with the number of channels.<br/>
         /// Default Value: false
+        /// </param>
+        /// <param name="multichannelOutputStyle">
+        /// Controls the response shape when use_multi_channel is enabled. 'separate' (default) returns one transcript per channel under 'transcripts'. 'combined' merges all channels into a single transcript whose words are sorted by start time, each carrying a 'channel_index' - matching the single-channel response shape. 'combined' requires timestamps (timestamps_granularity must not be 'none') and does not support entity detection or redaction.<br/>
+        /// Default Value: separate
         /// </param>
         /// <param name="webhookMetadata">
         /// Optional metadata to be included in the webhook response. This should be a JSON string representing an object with a maximum depth of 2 levels and maximum size of 16KB. Useful for tracking internal IDs, job references, or other contextual information.
@@ -792,6 +869,10 @@ namespace ElevenLabs
         /// </param>
         /// <param name="noVerbatim">
         /// If true, the transcription will not have any filler words, false starts and non-speech sounds. Only supported with scribe_v2 model.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="useSpeakerLibrary">
+        /// Whether to use the speaker library for identifying known speakers during diarization. When enabled and diarize is true, detected speakers will be matched against registered speakers in the workspace's speaker library.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="detectSpeakerRoles">
@@ -814,6 +895,7 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AnyOf<global::ElevenLabs.SpeechToTextChunkResponseModel, global::ElevenLabs.MultichannelSpeechToTextResponseModel, global::ElevenLabs.SpeechToTextWebhookResponseModel>> ConvertAsync(
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostModelId modelId,
+            string? token = default,
             bool? enableLogging = default,
             byte[]? file = default,
             string? filename = default,
@@ -831,9 +913,11 @@ namespace ElevenLabs
             double? temperature = default,
             int? seed = default,
             bool? useMultiChannel = default,
+            global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle? multichannelOutputStyle = default,
             global::ElevenLabs.AnyOf<string, object, object>? webhookMetadata = default,
             global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityDetection = default,
             bool? noVerbatim = default,
+            bool? useSpeakerLibrary = default,
             bool? detectSpeakerRoles = default,
             global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityRedaction = default,
             string? entityRedactionMode = default,
@@ -860,9 +944,11 @@ namespace ElevenLabs
                 Temperature = temperature,
                 Seed = seed,
                 UseMultiChannel = useMultiChannel,
+                MultichannelOutputStyle = multichannelOutputStyle,
                 WebhookMetadata = webhookMetadata,
                 EntityDetection = entityDetection,
                 NoVerbatim = noVerbatim,
+                UseSpeakerLibrary = useSpeakerLibrary,
                 DetectSpeakerRoles = detectSpeakerRoles,
                 EntityRedaction = entityRedaction,
                 EntityRedactionMode = entityRedactionMode,
@@ -870,6 +956,7 @@ namespace ElevenLabs
             };
 
             return await ConvertAsync(
+                token: token,
                 enableLogging: enableLogging,
                 request: __request,
                 requestOptions: requestOptions,

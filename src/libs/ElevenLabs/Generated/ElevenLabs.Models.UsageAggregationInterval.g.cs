@@ -9,23 +9,23 @@ namespace ElevenLabs
     public enum UsageAggregationInterval
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Cumulative,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Day,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Hour,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Month,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Week,
     }

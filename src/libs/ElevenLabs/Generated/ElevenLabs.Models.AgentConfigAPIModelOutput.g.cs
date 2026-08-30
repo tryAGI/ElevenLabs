@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// </summary>
         /// <example>{"dynamic_variable_placeholders":{"user_name":"John Doe"}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
-        public global::ElevenLabs.DynamicVariablesConfigOutput? DynamicVariables { get; set; }
+        public global::ElevenLabs.DynamicVariablesConfig? DynamicVariables { get; set; }
 
         /// <summary>
         /// If true, the user will not be able to interrupt the agent while the first message is being delivered.<br/>
@@ -108,7 +108,7 @@ namespace ElevenLabs
             string? firstMessage,
             string? language,
             bool? hinglishMode,
-            global::ElevenLabs.DynamicVariablesConfigOutput? dynamicVariables,
+            global::ElevenLabs.DynamicVariablesConfig? dynamicVariables,
             bool? disableFirstMessageInterruptions,
             string? maxConversationDurationMessage,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.BehaviorOverride>? textBehaviorOverrides,

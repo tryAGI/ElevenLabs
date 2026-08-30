@@ -9,15 +9,15 @@ namespace ElevenLabs
     public enum SpeechToTextWordResponseModelType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioEvent,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Spacing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Word,
     }

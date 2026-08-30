@@ -4,22 +4,46 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CaptionStyleWordAnimationModelExitType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Fade,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Pop,
+        /// <summary>
+        ///
         /// </summary>
         Scale,
+        /// <summary>
+        ///
+        /// </summary>
+        ScaleDown,
+        /// <summary>
+        ///
+        /// </summary>
+        Slam,
+        /// <summary>
+        ///
+        /// </summary>
+        SlideDown,
+        /// <summary>
+        ///
+        /// </summary>
+        SlideIn,
+        /// <summary>
+        ///
+        /// </summary>
+        SlideUp,
     }
 
     /// <summary>
@@ -36,7 +60,13 @@ namespace ElevenLabs
             {
                 CaptionStyleWordAnimationModelExitType.Fade => "fade",
                 CaptionStyleWordAnimationModelExitType.None => "none",
+                CaptionStyleWordAnimationModelExitType.Pop => "pop",
                 CaptionStyleWordAnimationModelExitType.Scale => "scale",
+                CaptionStyleWordAnimationModelExitType.ScaleDown => "scale_down",
+                CaptionStyleWordAnimationModelExitType.Slam => "slam",
+                CaptionStyleWordAnimationModelExitType.SlideDown => "slide_down",
+                CaptionStyleWordAnimationModelExitType.SlideIn => "slide_in",
+                CaptionStyleWordAnimationModelExitType.SlideUp => "slide_up",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -49,7 +79,13 @@ namespace ElevenLabs
             {
                 "fade" => CaptionStyleWordAnimationModelExitType.Fade,
                 "none" => CaptionStyleWordAnimationModelExitType.None,
+                "pop" => CaptionStyleWordAnimationModelExitType.Pop,
                 "scale" => CaptionStyleWordAnimationModelExitType.Scale,
+                "scale_down" => CaptionStyleWordAnimationModelExitType.ScaleDown,
+                "slam" => CaptionStyleWordAnimationModelExitType.Slam,
+                "slide_down" => CaptionStyleWordAnimationModelExitType.SlideDown,
+                "slide_in" => CaptionStyleWordAnimationModelExitType.SlideIn,
+                "slide_up" => CaptionStyleWordAnimationModelExitType.SlideUp,
                 _ => null,
             };
         }

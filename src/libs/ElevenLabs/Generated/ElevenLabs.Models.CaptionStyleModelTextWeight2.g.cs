@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CaptionStyleModelTextWeight2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x900,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Bold,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Normal,
     }

@@ -9,11 +9,11 @@ namespace ElevenLabs
     public enum AnalysisScope
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Agent,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Conversation,
     }

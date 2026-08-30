@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SampleConfigDBModel
     {
@@ -15,19 +15,19 @@ namespace ElevenLabs
         public bool? IsSample { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parent_id")]
         public string? ParentId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parent_type")]
         public global::ElevenLabs.SampleConfigDBModelParentType2? ParentType { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chapter_ids")]
         public global::System.Collections.Generic.IList<string>? ChapterIds { get; set; }
