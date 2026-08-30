@@ -67,7 +67,7 @@ public partial class Tests
         AssertReturnType(
             typeof(IMusicClient),
             nameof(IMusicClient.ComposeDetailedStreamAsync),
-            typeof(IAsyncEnumerable<Stream>),
+            typeof(IAsyncEnumerable<string>),
             typeof(BodyStreamComposedMusicWithADetailedResponseV1MusicDetailedStreamPost),
             typeof(ComposeDetailedStreamOutputFormat?),
             typeof(AutoSDKRequestOptions),

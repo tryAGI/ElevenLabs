@@ -69,6 +69,7 @@ public partial class Tests
 
         capturedUri.Should().NotBeNull();
         capturedUri!.AbsolutePath.Should().Be("/v1/speech-to-text");
+        capturedUri.Query.Should().Be("?enable_logging=false");
         capturedPayload.Should().NotBeNull();
 
         var payload = capturedPayload!;
@@ -78,7 +79,6 @@ public partial class Tests
         payload.Should().Contain("fake-audio");
         payload.Should().Contain("Content-Type: audio/wav");
         payload.Should().Contain("\r\ntrue\r\n");
-        payload.Should().Contain("\r\nfalse\r\n");
         payload.Should().Contain("\r\n0.22\r\n");
         payload.Should().Contain("\r\n0.5\r\n");
         payload.Should().NotContain("True");
