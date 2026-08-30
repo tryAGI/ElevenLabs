@@ -75,6 +75,43 @@ public partial class Tests
     }
 
     [TestMethod]
+    public void RealtimeUri_FormatsNullableOptionsWithoutValueAccess()
+    {
+        using var httpClient = new HttpClient
+        {
+            BaseAddress = new Uri("https://api.elevenlabs.io"),
+        };
+
+        var client = new SpeechToText2Client(
+            httpClient: httpClient,
+            authorizations: CreateApiKeyAuthorizations(),
+            options: null,
+            disposeHttpClient: false);
+
+        var method = typeof(SpeechToText2Client)
+            .GetMethod("BuildRealtimeUri", BindingFlags.Instance | BindingFlags.NonPublic);
+        method.Should().NotBeNull();
+
+        var uri = (Uri)method!.Invoke(client,
+        [
+            new RealtimeSpeechToTextOptions
+            {
+                VadSilenceThresholdSeconds = 1.5,
+                VadThreshold = 0.4,
+                MinSpeechDurationMs = 125,
+                MinSilenceDurationMs = 250,
+                EnableLogging = false,
+            },
+        ])!;
+
+        uri.Query.Should().Contain("vad_silence_threshold_secs=1.5");
+        uri.Query.Should().Contain("vad_threshold=0.4");
+        uri.Query.Should().Contain("min_speech_duration_ms=125");
+        uri.Query.Should().Contain("min_silence_duration_ms=250");
+        uri.Query.Should().Contain("enable_logging=false");
+    }
+
+    [TestMethod]
     public void RealtimeSpeechToTextSession_ExposesWebSocketCloseDetails()
     {
         var closeStatus = typeof(RealtimeSpeechToTextSession)
