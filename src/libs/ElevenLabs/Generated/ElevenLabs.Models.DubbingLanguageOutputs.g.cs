@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class DubbingLanguageOutputs
     {
         /// <summary>
-        /// Signed URL of the dubbed lossless audio track.
+        /// Signed URL for the dubbed lossless audio track, in FLAC. The link expires one hour after it is issued; re-read the language target for a fresh one.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lossless_audio")]
         public string? LosslessAudio { get; set; }
@@ -24,7 +24,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="DubbingLanguageOutputs" /> class.
         /// </summary>
         /// <param name="losslessAudio">
-        /// Signed URL of the dubbed lossless audio track.
+        /// Signed URL for the dubbed lossless audio track, in FLAC. The link expires one hour after it is issued; re-read the language target for a fresh one.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

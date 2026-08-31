@@ -4,28 +4,28 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Lifecycle status of the project: 'preparing'/'processing' while it transcribes, 'ready' once transcription is done, or 'failed'.
+    /// Lifecycle status of the project: `queued` before the source is picked up, `preparing` while it is transcribed, `ready` once transcription is done and language targets can start, or `failed`. A project is never reported as `processing` — that value belongs to language targets.
     /// </summary>
     public enum DubbingProjectResponseStatus
     {
         /// <summary>
-        /// 'preparing'/'processing' while it transcribes, 'ready' once transcription is done, or 'failed'.
+        /// `queued` before the source is picked up, `preparing` while it is transcribed, `ready` once transcription is done and language targets can start, or `failed`. A project is never reported as `processing` — that value belongs to language targets.
         /// </summary>
         Failed,
         /// <summary>
-        /// 'preparing'/'processing' while it transcribes, 'ready' once transcription is done, or 'failed'.
+        /// `queued` before the source is picked up, `preparing` while it is transcribed, `ready` once transcription is done and language targets can start, or `failed`. A project is never reported as `processing` — that value belongs to language targets.
         /// </summary>
         Preparing,
         /// <summary>
-        /// 'preparing'/'processing' while it transcribes, 'ready' once transcription is done, or 'failed'.
+        /// `queued` before the source is picked up, `preparing` while it is transcribed, `ready` once transcription is done and language targets can start, or `failed`. A project is never reported as `processing` — that value belongs to language targets.
         /// </summary>
         Processing,
         /// <summary>
-        ///
+        /// `queued` before the source is picked up, `preparing` while it is transcribed, `ready` once transcription is done and language targets can start, or `failed`. A project is never reported as `processing` — that value belongs to language targets.
         /// </summary>
         Queued,
         /// <summary>
-        /// 'preparing'/'processing' while it transcribes, 'ready' once transcription is done, or 'failed'.
+        /// `queued` before the source is picked up, `preparing` while it is transcribed, `ready` once transcription is done and language targets can start, or `failed`. A project is never reported as `processing` — that value belongs to language targets.
         /// </summary>
         Ready,
     }

@@ -16,14 +16,14 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<string> RegeneratedSegmentIds { get; set; }
 
         /// <summary>
-        /// Seconds of audio this re-dub covers -- the edited regions only, never the whole target. `charged_seconds` is the part of it that was billed.
+        /// Seconds of audio this re-dub covers — the edited regions only, never the whole target. `charged_seconds` is the part of it that was billed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("regenerated_seconds")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double RegeneratedSeconds { get; set; }
 
         /// <summary>
-        /// Seconds actually billed, after the free-regeneration allowance. Zero when the re-dub cost nothing -- the allowance covered all of it, or the project's included generation did.
+        /// Seconds actually billed, after the free-regeneration allowance. Zero when the re-dub cost nothing — either the allowance covered all of it, or the project's included generation did.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("charged_seconds")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -49,10 +49,10 @@ namespace ElevenLabs
         /// The segments this re-dub re-synthesizes: those with edits to apply.
         /// </param>
         /// <param name="regeneratedSeconds">
-        /// Seconds of audio this re-dub covers -- the edited regions only, never the whole target. `charged_seconds` is the part of it that was billed.
+        /// Seconds of audio this re-dub covers — the edited regions only, never the whole target. `charged_seconds` is the part of it that was billed.
         /// </param>
         /// <param name="chargedSeconds">
-        /// Seconds actually billed, after the free-regeneration allowance. Zero when the re-dub cost nothing -- the allowance covered all of it, or the project's included generation did.
+        /// Seconds actually billed, after the free-regeneration allowance. Zero when the re-dub cost nothing — either the allowance covered all of it, or the project's included generation did.
         /// </param>
         /// <param name="freeRegenerationSecondsRemaining">
         /// Free-regeneration seconds left for this language target after this re-dub. The allowance is the source's own duration.

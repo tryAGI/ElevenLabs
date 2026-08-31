@@ -9,21 +9,21 @@ namespace ElevenLabs
     public sealed partial class DubbingError
     {
         /// <summary>
-        /// Stable identifier for the failure, safe to branch on. New codes are added over time, so treat an unrecognized value as 'internal_error'.
+        /// Stable identifier for the failure, safe to branch on. New codes are added over time, so we recommend treating an unrecognized value as `internal_error`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("code")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Code { get; set; }
 
         /// <summary>
-        /// Human-readable description of the failure, for display. The wording may change at any time; branch on `code` instead.
+        /// Human-readable description of the failure, for display. The wording may change at any time, so we recommend branching on `code` instead.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Message { get; set; }
 
         /// <summary>
-        /// Whether resubmitting the same input could succeed. False means the failure describes the input or the account, so an identical retry will fail the same way.
+        /// Whether resubmitting the same input could succeed. A value of false means the failure describes the input or the account, so an identical retry will fail the same way.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retryable")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -39,13 +39,13 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="DubbingError" /> class.
         /// </summary>
         /// <param name="code">
-        /// Stable identifier for the failure, safe to branch on. New codes are added over time, so treat an unrecognized value as 'internal_error'.
+        /// Stable identifier for the failure, safe to branch on. New codes are added over time, so we recommend treating an unrecognized value as `internal_error`.
         /// </param>
         /// <param name="message">
-        /// Human-readable description of the failure, for display. The wording may change at any time; branch on `code` instead.
+        /// Human-readable description of the failure, for display. The wording may change at any time, so we recommend branching on `code` instead.
         /// </param>
         /// <param name="retryable">
-        /// Whether resubmitting the same input could succeed. False means the failure describes the input or the account, so an identical retry will fail the same way.
+        /// Whether resubmitting the same input could succeed. A value of false means the failure describes the input or the account, so an identical retry will fail the same way.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

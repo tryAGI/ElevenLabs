@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// A new source segment; its id and word-level alignment are assigned by the server.
+    /// A new source segment; its ID and word-level alignment are assigned by the server.
     /// </summary>
     public sealed partial class DubbingSegmentCreateRequest
     {

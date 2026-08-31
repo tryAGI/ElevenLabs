@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Get Dubbing Transcript<br/>
-        /// The project's source transcript, as editable segments.
+        /// The project's source transcript, as editable segments. Available once the project is `ready`.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -20,7 +20,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Dubbing Transcript<br/>
-        /// The project's source transcript, as editable segments.
+        /// The project's source transcript, as editable segments. Available once the project is `ready`.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.

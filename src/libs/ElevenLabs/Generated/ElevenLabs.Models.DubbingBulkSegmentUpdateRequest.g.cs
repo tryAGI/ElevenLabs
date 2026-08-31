@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class DubbingBulkSegmentUpdateRequest
     {
         /// <summary>
-        /// Map of segment id to the partial update to apply to that segment.
+        /// Map of segment ID to the partial update to apply to that segment. At least one entry and at most 500.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segments")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="DubbingBulkSegmentUpdateRequest" /> class.
         /// </summary>
         /// <param name="segments">
-        /// Map of segment id to the partial update to apply to that segment.
+        /// Map of segment ID to the partial update to apply to that segment. At least one entry and at most 500.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

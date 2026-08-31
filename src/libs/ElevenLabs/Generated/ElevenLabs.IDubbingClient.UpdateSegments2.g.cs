@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Update Dubbing Target Transcript Segments<br/>
-        /// Enterprise only. Edit several segments' translations for a language target in one atomic request.
+        /// Enterprise only. Edit several segments' translations for a language target in one atomic request: every edit applies or none does. Bumps the target's `revision` and marks it `stale` if it had already completed. The source transcript and the project's other languages are untouched, and no audio changes until you regenerate the target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -27,7 +27,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Dubbing Target Transcript Segments<br/>
-        /// Enterprise only. Edit several segments' translations for a language target in one atomic request.
+        /// Enterprise only. Edit several segments' translations for a language target in one atomic request: every edit applies or none does. Bumps the target's `revision` and marks it `stale` if it had already completed. The source transcript and the project's other languages are untouched, and no audio changes until you regenerate the target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -48,7 +48,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Dubbing Target Transcript Segments<br/>
-        /// Enterprise only. Edit several segments' translations for a language target in one atomic request.
+        /// Enterprise only. Edit several segments' translations for a language target in one atomic request: every edit applies or none does. Bumps the target's `revision` and marks it `stale` if it had already completed. The source transcript and the project's other languages are untouched, and no audio changes until you regenerate the target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -57,7 +57,7 @@ namespace ElevenLabs
         /// Identifier of the language target.
         /// </param>
         /// <param name="segments">
-        /// Map of segment id to the translation edit to apply to that segment.
+        /// Map of segment ID to the translation edit to apply to that segment. At least one entry and at most 500.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

@@ -11,11 +11,23 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        DocumentationGap,
+        /// <summary>
+        ///
+        /// </summary>
+        IncorrectInformation,
+        /// <summary>
+        ///
+        /// </summary>
         KnowledgeGap,
         /// <summary>
         ///
         /// </summary>
         MissingTool,
+        /// <summary>
+        ///
+        /// </summary>
+        PlatformBug,
         /// <summary>
         ///
         /// </summary>
@@ -28,6 +40,10 @@ namespace ElevenLabs
         ///
         /// </summary>
         UnnecessaryEscalation,
+        /// <summary>
+        ///
+        /// </summary>
+        WrongAction,
     }
 
     /// <summary>
@@ -42,11 +58,15 @@ namespace ElevenLabs
         {
             return value switch
             {
+                AgentConversationTicketIssueType.DocumentationGap => "documentation_gap",
+                AgentConversationTicketIssueType.IncorrectInformation => "incorrect_information",
                 AgentConversationTicketIssueType.KnowledgeGap => "knowledge_gap",
                 AgentConversationTicketIssueType.MissingTool => "missing_tool",
+                AgentConversationTicketIssueType.PlatformBug => "platform_bug",
                 AgentConversationTicketIssueType.ProductFeedback => "product_feedback",
                 AgentConversationTicketIssueType.ToolIssue => "tool_issue",
                 AgentConversationTicketIssueType.UnnecessaryEscalation => "unnecessary_escalation",
+                AgentConversationTicketIssueType.WrongAction => "wrong_action",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +77,15 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "documentation_gap" => AgentConversationTicketIssueType.DocumentationGap,
+                "incorrect_information" => AgentConversationTicketIssueType.IncorrectInformation,
                 "knowledge_gap" => AgentConversationTicketIssueType.KnowledgeGap,
                 "missing_tool" => AgentConversationTicketIssueType.MissingTool,
+                "platform_bug" => AgentConversationTicketIssueType.PlatformBug,
                 "product_feedback" => AgentConversationTicketIssueType.ProductFeedback,
                 "tool_issue" => AgentConversationTicketIssueType.ToolIssue,
                 "unnecessary_escalation" => AgentConversationTicketIssueType.UnnecessaryEscalation,
+                "wrong_action" => AgentConversationTicketIssueType.WrongAction,
                 _ => null,
             };
         }

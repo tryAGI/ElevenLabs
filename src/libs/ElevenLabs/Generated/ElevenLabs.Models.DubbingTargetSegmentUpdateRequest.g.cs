@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// A partial edit to a target segment. An omitted field is left unchanged; a provided ``null``<br/>
+    /// A partial edit to a target segment. An omitted field is left unchanged; a provided `null`<br/>
     /// clears it (see each field for what clearing means).
     /// </summary>
     public sealed partial class DubbingTargetSegmentUpdateRequest

@@ -45,7 +45,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Get Dubbing Language Target<br/>
-        /// Full language-target detail.
+        /// Full language-target detail. Once the target reports `completed`, `outputs` carries the signed download URLs. To learn when that happens, we recommend the project's `webhook_ids` subscription rather than polling this endpoint; fetch here when a delivered URL has expired, or to reconcile after an edit.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the parent dubbing project.
@@ -73,7 +73,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Get Dubbing Language Target<br/>
-        /// Full language-target detail.
+        /// Full language-target detail. Once the target reports `completed`, `outputs` carries the signed download URLs. To learn when that happens, we recommend the project's `webhook_ids` subscription rather than polling this endpoint; fetch here when a delivered URL has expired, or to reconcile after an edit.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the parent dubbing project.

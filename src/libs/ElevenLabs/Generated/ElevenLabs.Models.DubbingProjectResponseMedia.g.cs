@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Source media metadata; null until the project is ready.
+    /// Source media metadata, populated once the source has been fetched and decoded (shortly after create, before the project is `ready`); null until then.
     /// </summary>
     public sealed partial class DubbingProjectResponseMedia
     {

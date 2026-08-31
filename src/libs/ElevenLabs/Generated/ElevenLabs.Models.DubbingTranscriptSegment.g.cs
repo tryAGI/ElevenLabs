@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class DubbingTranscriptSegment
     {
         /// <summary>
-        /// Stable identifier of the segment.
+        /// Stable identifier of the segment, used to address it in edit requests.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -44,7 +44,7 @@ namespace ElevenLabs
         public required double EndS { get; set; }
 
         /// <summary>
-        /// The caller-supplied external id for this segment, if one was provided.
+        /// The caller-supplied external ID for this segment, if one was provided.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_id")]
         public string? ExternalId { get; set; }
@@ -59,7 +59,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="DubbingTranscriptSegment" /> class.
         /// </summary>
         /// <param name="id">
-        /// Stable identifier of the segment.
+        /// Stable identifier of the segment, used to address it in edit requests.
         /// </param>
         /// <param name="text">
         /// The transcribed text of the segment.
@@ -74,7 +74,7 @@ namespace ElevenLabs
         /// End time of the segment, in seconds.
         /// </param>
         /// <param name="externalId">
-        /// The caller-supplied external id for this segment, if one was provided.
+        /// The caller-supplied external ID for this segment, if one was provided.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

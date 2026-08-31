@@ -6,7 +6,9 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Create Dubbing Language Target<br/>
-        /// Queue a language target for a project (starts once the project is ready).
+        /// Add a language to dub a project into, and queue the dub.<br/>
+        /// This is the call that produces dubbed audio, and it is billed per generation. The target is created `queued` and starts as soon as the project is `ready`, so it can be added at any point after the project is created. It inherits the project's dubbing model and cannot pick another.<br/>
+        /// A project created with `webhook_ids` sends a `dubbing_language_completed` event carrying the output download URLs, so we recommend subscribing rather than polling this target to completion.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the parent dubbing project.
@@ -23,7 +25,9 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Dubbing Language Target<br/>
-        /// Queue a language target for a project (starts once the project is ready).
+        /// Add a language to dub a project into, and queue the dub.<br/>
+        /// This is the call that produces dubbed audio, and it is billed per generation. The target is created `queued` and starts as soon as the project is `ready`, so it can be added at any point after the project is created. It inherits the project's dubbing model and cannot pick another.<br/>
+        /// A project created with `webhook_ids` sends a `dubbing_language_completed` event carrying the output download URLs, so we recommend subscribing rather than polling this target to completion.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the parent dubbing project.
@@ -40,19 +44,21 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Dubbing Language Target<br/>
-        /// Queue a language target for a project (starts once the project is ready).
+        /// Add a language to dub a project into, and queue the dub.<br/>
+        /// This is the call that produces dubbed audio, and it is billed per generation. The target is created `queued` and starts as soon as the project is `ready`, so it can be added at any point after the project is created. It inherits the project's dubbing model and cannot pick another.<br/>
+        /// A project created with `webhook_ids` sends a `dubbing_language_completed` event carrying the output download URLs, so we recommend subscribing rather than polling this target to completion.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the parent dubbing project.
         /// </param>
         /// <param name="targetLanguage">
-        /// BCP-47 language tag to dub the project into (e.g. 'fr', 'es-MX'); must be a language the dubbing model supports. A region-qualified tag must be one of the supported dialects.
+        /// BCP-47 language tag to dub the project into (for example, `fr` or `es-MX`). Must be one of the [languages the project's dubbing model supports](https://elevenlabs.io/docs/help-center/product/dubbing/which-languages-are-supported-in-dubbing), and a region-qualified tag must be one of the supported dialects.
         /// </param>
         /// <param name="voiceSettings">
-        /// Voice settings applied to the whole language (e.g. cloning strength).
+        /// Voice settings applied to every speaker in this language. Omit to use the defaults.
         /// </param>
         /// <param name="translations">
-        /// Enterprise only. Optional translations to use instead of machine translation. A map from each source segment's external_id (or its id, if you supplied none) to the translated text; every source segment must be covered exactly once. At most 20000 entries, totalling at most 4 MiB of text.
+        /// Enterprise only. Optional translations to use instead of machine translation. A map from each source segment's `external_id` (or its `id`, if you supplied none) to the translated text; every source segment must be covered exactly once. At most 20,000 entries, totaling at most 4 MiB of text. See [Bring your own transcript](https://elevenlabs.io/docs/eleven-api/guides/how-to/dubbing/bring-your-own-transcript).
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

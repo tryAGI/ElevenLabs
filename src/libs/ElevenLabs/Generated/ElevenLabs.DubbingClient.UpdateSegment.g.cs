@@ -47,7 +47,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Update Dubbing Transcript Segment<br/>
-        /// Enterprise only. Edit a source segment's text, speaker, or timing.
+        /// Enterprise only. Edit a source segment's text, speaker, or timing. Omitted fields are left unchanged. Bumps the project's `revision`, discards the affected translations in every language target, and marks any target that had already completed `stale`. No audio changes until you regenerate a target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -80,7 +80,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Update Dubbing Transcript Segment<br/>
-        /// Enterprise only. Edit a source segment's text, speaker, or timing.
+        /// Enterprise only. Edit a source segment's text, speaker, or timing. Omitted fields are left unchanged. Bumps the project's `revision`, discards the affected translations in every language target, and marks any target that had already completed `stale`. No audio changes until you regenerate a target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -498,7 +498,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Update Dubbing Transcript Segment<br/>
-        /// Enterprise only. Edit a source segment's text, speaker, or timing.
+        /// Enterprise only. Edit a source segment's text, speaker, or timing. Omitted fields are left unchanged. Bumps the project's `revision`, discards the affected translations in every language target, and marks any target that had already completed `stale`. No audio changes until you regenerate a target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -510,7 +510,7 @@ namespace ElevenLabs
         /// New text for the segment.
         /// </param>
         /// <param name="speakerId">
-        /// New speaker id for the segment.
+        /// New speaker ID for the segment.
         /// </param>
         /// <param name="startS">
         /// New start time, in seconds.

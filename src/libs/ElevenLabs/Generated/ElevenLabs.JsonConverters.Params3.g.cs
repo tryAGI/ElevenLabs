@@ -84,18 +84,18 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.KnowledgeBaseToolConfig)}");
                 knowledgeBase = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::ElevenLabs.StartProcedureToolConfigOutput? startProcedure = default;
+            global::ElevenLabs.StartProcedureToolConfig? startProcedure = default;
             if (discriminator?.SystemToolType == global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType.StartProcedure)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.StartProcedureToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.StartProcedureToolConfigOutput> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.StartProcedureToolConfigOutput)}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.StartProcedureToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.StartProcedureToolConfig> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.StartProcedureToolConfig)}");
                 startProcedure = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::ElevenLabs.EndProcedureToolConfigOutput? endProcedure = default;
+            global::ElevenLabs.EndProcedureToolConfig? endProcedure = default;
             if (discriminator?.SystemToolType == global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType.EndProcedure)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndProcedureToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndProcedureToolConfigOutput> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.EndProcedureToolConfigOutput)}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndProcedureToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndProcedureToolConfig> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.EndProcedureToolConfig)}");
                 endProcedure = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.RunSubagentToolConfigOutput? runSubagent = default;
@@ -201,14 +201,14 @@ namespace ElevenLabs.JsonConverters
             }
             else if (value.IsStartProcedure)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.StartProcedureToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.StartProcedureToolConfigOutput?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.StartProcedureToolConfigOutput).Name}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.StartProcedureToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.StartProcedureToolConfig?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.StartProcedureToolConfig).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.StartProcedure!, typeInfo);
             }
             else if (value.IsEndProcedure)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndProcedureToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndProcedureToolConfigOutput?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.EndProcedureToolConfigOutput).Name}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndProcedureToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndProcedureToolConfig?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.EndProcedureToolConfig).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.EndProcedure!, typeInfo);
             }
             else if (value.IsRunSubagent)

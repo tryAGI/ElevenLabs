@@ -45,7 +45,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Get Dubbing Target Transcript<br/>
-        /// A language target's transcript: source segments with their translations.
+        /// A language target's transcript: source segments with their translations. Available once the target has produced an output. Returns a conflict while the target is still on its first dub, since it has no translations to return yet.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -73,7 +73,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Get Dubbing Target Transcript<br/>
-        /// A language target's transcript: source segments with their translations.
+        /// A language target's transcript: source segments with their translations. Available once the target has produced an output. Returns a conflict while the target is still on its first dub, since it has no translations to return yet.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
