@@ -48012,12 +48012,14 @@
         "properties": {
           "start_time": {
             "type": "integer",
+            "format": "int64",
             "minimum": 1577836800000.0,
             "title": "Start Time",
             "description": "Start of the time range as a Unix timestamp in milliseconds. Must be at least 2020-01-01."
           },
           "end_time": {
             "type": "integer",
+            "format": "int64",
             "minimum": 1577836800000.0,
             "title": "End Time",
             "description": "End of the time range as a Unix timestamp in milliseconds. Must be at least 2020-01-01."

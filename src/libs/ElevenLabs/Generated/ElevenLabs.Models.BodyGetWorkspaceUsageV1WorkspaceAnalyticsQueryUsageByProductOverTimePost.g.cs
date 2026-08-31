@@ -12,17 +12,15 @@ namespace ElevenLabs
         /// Start of the time range as a Unix timestamp in milliseconds. Must be at least 2020-01-01.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_time")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTimeOffset StartTime { get; set; }
+        public required long StartTime { get; set; }
 
         /// <summary>
         /// End of the time range as a Unix timestamp in milliseconds. Must be at least 2020-01-01.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_time")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTimeOffset EndTime { get; set; }
+        public required long EndTime { get; set; }
 
         /// <summary>
         /// Bucket size in seconds. Each row in the response covers this many seconds of the selected time range. For example, pass 3600 for hourly buckets or 86400 for daily buckets. Whether `time_zone` shifts bucket boundaries depends on this value: whole-day multiples (e.g. 86400) align to local midnight; whole-hour multiples up to 24 hours (e.g. 3600, 14400) align to local hour boundaries from midnight; sub-hour values and other sizes remain UTC-anchored regardless of `time_zone`.<br/>
@@ -79,8 +77,8 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePost(
-            global::System.DateTimeOffset startTime,
-            global::System.DateTimeOffset endTime,
+            long startTime,
+            long endTime,
             int? intervalSeconds,
             global::System.Collections.Generic.IList<global::ElevenLabs.BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item>? groupBy,
             global::System.Collections.Generic.IList<global::ElevenLabs.ColumnFilter>? filters,

@@ -54,8 +54,8 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceAnalyticsQueryResponseModel> GetUsageByProductOverTimeAsync(
-            global::System.DateTimeOffset startTime,
-            global::System.DateTimeOffset endTime,
+            long startTime,
+            long endTime,
             int? intervalSeconds = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item>? groupBy = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.ColumnFilter>? filters = default,

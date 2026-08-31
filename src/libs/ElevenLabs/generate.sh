@@ -57,6 +57,12 @@ if [[ "$use_pinned_spec" == false ]]; then
       "title": "Model Parameters",
       "description": "Model-specific parameters."
     }
+    |
+    # The workspace usage API expects Unix milliseconds, but its upstream schema
+    # omits `format: int64`. Without the explicit format the AutoSDK timestamp
+    # heuristic emits DateTimeOffset with the seconds-based Unix converter.
+    (.components.schemas.Body_Get_Workspace_Usage_v1_workspace_analytics_query_usage_by_product_over_time_post.properties.start_time.format) = "int64"
+    | (.components.schemas.Body_Get_Workspace_Usage_v1_workspace_analytics_query_usage_by_product_over_time_post.properties.end_time.format) = "int64"
   ' > openapi.json
 elif [[ ! -f openapi.json ]]; then
   echo "error: --pinned-spec requested but openapi.json does not exist." >&2
