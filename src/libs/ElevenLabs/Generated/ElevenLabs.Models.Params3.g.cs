@@ -363,9 +363,9 @@ namespace ElevenLabs
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.StartProcedureToolConfigOutput? StartProcedure { get; init; }
+        public global::ElevenLabs.StartProcedureToolConfig? StartProcedure { get; init; }
 #else
-        public global::ElevenLabs.StartProcedureToolConfigOutput? StartProcedure { get; }
+        public global::ElevenLabs.StartProcedureToolConfig? StartProcedure { get; }
 #endif
 
         /// <summary>
@@ -383,7 +383,7 @@ namespace ElevenLabs
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::ElevenLabs.StartProcedureToolConfigOutput? value)
+            out global::ElevenLabs.StartProcedureToolConfig? value)
         {
             value = StartProcedure;
             return IsStartProcedure;
@@ -392,7 +392,7 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StartProcedureToolConfigOutput PickStartProcedure() => IsStartProcedure
+        public global::ElevenLabs.StartProcedureToolConfig PickStartProcedure() => IsStartProcedure
             ? StartProcedure!
             : throw new global::System.InvalidOperationException($"Expected union variant 'StartProcedure' but the value was {ToString()}.");
 
@@ -400,9 +400,9 @@ namespace ElevenLabs
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.EndProcedureToolConfigOutput? EndProcedure { get; init; }
+        public global::ElevenLabs.EndProcedureToolConfig? EndProcedure { get; init; }
 #else
-        public global::ElevenLabs.EndProcedureToolConfigOutput? EndProcedure { get; }
+        public global::ElevenLabs.EndProcedureToolConfig? EndProcedure { get; }
 #endif
 
         /// <summary>
@@ -420,7 +420,7 @@ namespace ElevenLabs
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::ElevenLabs.EndProcedureToolConfigOutput? value)
+            out global::ElevenLabs.EndProcedureToolConfig? value)
         {
             value = EndProcedure;
             return IsEndProcedure;
@@ -429,7 +429,7 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EndProcedureToolConfigOutput PickEndProcedure() => IsEndProcedure
+        public global::ElevenLabs.EndProcedureToolConfig PickEndProcedure() => IsEndProcedure
             ? EndProcedure!
             : throw new global::System.InvalidOperationException($"Expected union variant 'EndProcedure' but the value was {ToString()}.");
 
@@ -679,17 +679,17 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator Params3(global::ElevenLabs.StartProcedureToolConfigOutput value) => new Params3((global::ElevenLabs.StartProcedureToolConfigOutput?)value);
+        public static implicit operator Params3(global::ElevenLabs.StartProcedureToolConfig value) => new Params3((global::ElevenLabs.StartProcedureToolConfig?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::ElevenLabs.StartProcedureToolConfigOutput?(Params3 @this) => @this.StartProcedure;
+        public static implicit operator global::ElevenLabs.StartProcedureToolConfig?(Params3 @this) => @this.StartProcedure;
 
         /// <summary>
         ///
         /// </summary>
-        public Params3(global::ElevenLabs.StartProcedureToolConfigOutput? value)
+        public Params3(global::ElevenLabs.StartProcedureToolConfig? value)
         {
             StartProcedure = value;
         }
@@ -697,22 +697,22 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public static Params3 FromStartProcedure(global::ElevenLabs.StartProcedureToolConfigOutput? value) => new Params3(value);
+        public static Params3 FromStartProcedure(global::ElevenLabs.StartProcedureToolConfig? value) => new Params3(value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator Params3(global::ElevenLabs.EndProcedureToolConfigOutput value) => new Params3((global::ElevenLabs.EndProcedureToolConfigOutput?)value);
+        public static implicit operator Params3(global::ElevenLabs.EndProcedureToolConfig value) => new Params3((global::ElevenLabs.EndProcedureToolConfig?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::ElevenLabs.EndProcedureToolConfigOutput?(Params3 @this) => @this.EndProcedure;
+        public static implicit operator global::ElevenLabs.EndProcedureToolConfig?(Params3 @this) => @this.EndProcedure;
 
         /// <summary>
         ///
         /// </summary>
-        public Params3(global::ElevenLabs.EndProcedureToolConfigOutput? value)
+        public Params3(global::ElevenLabs.EndProcedureToolConfig? value)
         {
             EndProcedure = value;
         }
@@ -720,7 +720,7 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public static Params3 FromEndProcedure(global::ElevenLabs.EndProcedureToolConfigOutput? value) => new Params3(value);
+        public static Params3 FromEndProcedure(global::ElevenLabs.EndProcedureToolConfig? value) => new Params3(value);
 
         /// <summary>
         ///
@@ -759,8 +759,8 @@ namespace ElevenLabs
             global::ElevenLabs.VoicemailDetectionToolConfig? voicemailDetection,
             global::ElevenLabs.KnowledgeBaseRagToolConfig? knowledgeBaseRag,
             global::ElevenLabs.KnowledgeBaseToolConfig? knowledgeBase,
-            global::ElevenLabs.StartProcedureToolConfigOutput? startProcedure,
-            global::ElevenLabs.EndProcedureToolConfigOutput? endProcedure,
+            global::ElevenLabs.StartProcedureToolConfig? startProcedure,
+            global::ElevenLabs.EndProcedureToolConfig? endProcedure,
             global::ElevenLabs.RunSubagentToolConfigOutput? runSubagent
             )
         {
@@ -837,8 +837,8 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.VoicemailDetectionToolConfig, TResult>? voicemailDetection = null,
             global::System.Func<global::ElevenLabs.KnowledgeBaseRagToolConfig, TResult>? knowledgeBaseRag = null,
             global::System.Func<global::ElevenLabs.KnowledgeBaseToolConfig, TResult>? knowledgeBase = null,
-            global::System.Func<global::ElevenLabs.StartProcedureToolConfigOutput, TResult>? startProcedure = null,
-            global::System.Func<global::ElevenLabs.EndProcedureToolConfigOutput, TResult>? endProcedure = null,
+            global::System.Func<global::ElevenLabs.StartProcedureToolConfig, TResult>? startProcedure = null,
+            global::System.Func<global::ElevenLabs.EndProcedureToolConfig, TResult>? endProcedure = null,
             global::System.Func<global::ElevenLabs.RunSubagentToolConfigOutput, TResult>? runSubagent = null,
             bool validate = true)
         {
@@ -921,9 +921,9 @@ namespace ElevenLabs
 
             global::System.Action<global::ElevenLabs.KnowledgeBaseToolConfig>? knowledgeBase = null,
 
-            global::System.Action<global::ElevenLabs.StartProcedureToolConfigOutput>? startProcedure = null,
+            global::System.Action<global::ElevenLabs.StartProcedureToolConfig>? startProcedure = null,
 
-            global::System.Action<global::ElevenLabs.EndProcedureToolConfigOutput>? endProcedure = null,
+            global::System.Action<global::ElevenLabs.EndProcedureToolConfig>? endProcedure = null,
 
             global::System.Action<global::ElevenLabs.RunSubagentToolConfigOutput>? runSubagent = null,
             bool validate = true)
@@ -996,8 +996,8 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.VoicemailDetectionToolConfig>? voicemailDetection = null,
             global::System.Action<global::ElevenLabs.KnowledgeBaseRagToolConfig>? knowledgeBaseRag = null,
             global::System.Action<global::ElevenLabs.KnowledgeBaseToolConfig>? knowledgeBase = null,
-            global::System.Action<global::ElevenLabs.StartProcedureToolConfigOutput>? startProcedure = null,
-            global::System.Action<global::ElevenLabs.EndProcedureToolConfigOutput>? endProcedure = null,
+            global::System.Action<global::ElevenLabs.StartProcedureToolConfig>? startProcedure = null,
+            global::System.Action<global::ElevenLabs.EndProcedureToolConfig>? endProcedure = null,
             global::System.Action<global::ElevenLabs.RunSubagentToolConfigOutput>? runSubagent = null,
             bool validate = true)
         {
@@ -1082,9 +1082,9 @@ namespace ElevenLabs
                 KnowledgeBase,
                 typeof(global::ElevenLabs.KnowledgeBaseToolConfig),
                 StartProcedure,
-                typeof(global::ElevenLabs.StartProcedureToolConfigOutput),
+                typeof(global::ElevenLabs.StartProcedureToolConfig),
                 EndProcedure,
-                typeof(global::ElevenLabs.EndProcedureToolConfigOutput),
+                typeof(global::ElevenLabs.EndProcedureToolConfig),
                 RunSubagent,
                 typeof(global::ElevenLabs.RunSubagentToolConfigOutput),
             };
@@ -1112,8 +1112,8 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.VoicemailDetectionToolConfig?>.Default.Equals(VoicemailDetection, other.VoicemailDetection) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.KnowledgeBaseRagToolConfig?>.Default.Equals(KnowledgeBaseRag, other.KnowledgeBaseRag) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.KnowledgeBaseToolConfig?>.Default.Equals(KnowledgeBase, other.KnowledgeBase) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.StartProcedureToolConfigOutput?>.Default.Equals(StartProcedure, other.StartProcedure) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.EndProcedureToolConfigOutput?>.Default.Equals(EndProcedure, other.EndProcedure) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.StartProcedureToolConfig?>.Default.Equals(StartProcedure, other.StartProcedure) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.EndProcedureToolConfig?>.Default.Equals(EndProcedure, other.EndProcedure) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.RunSubagentToolConfigOutput?>.Default.Equals(RunSubagent, other.RunSubagent)
                 ;
         }

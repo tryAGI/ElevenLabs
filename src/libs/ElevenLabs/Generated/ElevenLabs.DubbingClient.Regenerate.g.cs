@@ -45,7 +45,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Regenerate Dubbing Target<br/>
-        /// Enterprise only. Re-dub a target from its edited transcript, re-synthesizing only the edited regions (charged like a generation). Conflicts when the target has no edits to apply -- nothing is dispatched and nothing is charged.
+        /// Enterprise only. Re-dub a target from its edited transcript, re-synthesizing only the edited regions (charged like a generation, less the free-regeneration allowance). Accepted asynchronously: the target returns to `processing` and sends a `dubbing_language_completed` event to the project's `webhook_ids` when the re-dub lands, carrying the new output URLs. Returns a conflict when the target has no edits to apply — nothing is dispatched and nothing is charged.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -73,7 +73,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Regenerate Dubbing Target<br/>
-        /// Enterprise only. Re-dub a target from its edited transcript, re-synthesizing only the edited regions (charged like a generation). Conflicts when the target has no edits to apply -- nothing is dispatched and nothing is charged.
+        /// Enterprise only. Re-dub a target from its edited transcript, re-synthesizing only the edited regions (charged like a generation, less the free-regeneration allowance). Accepted asynchronously: the target returns to `processing` and sends a `dubbing_language_completed` event to the project's `webhook_ids` when the re-dub lands, carrying the new output URLs. Returns a conflict when the target has no edits to apply — nothing is dispatched and nothing is charged.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.

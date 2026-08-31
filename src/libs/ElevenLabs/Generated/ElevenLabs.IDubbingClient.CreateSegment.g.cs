@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Add Dubbing Transcript Segment<br/>
-        /// Enterprise only. Add a new source segment to the transcript.
+        /// Enterprise only. Add a new source segment to the transcript. Its span must lie within the source media, last between 0.1 and 25 seconds, and not overlap another segment by the same speaker. Bumps the project's `revision`, discards the affected translations in every language target, and marks any target that had already completed `stale`. No audio changes until you regenerate a target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -23,7 +23,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Add Dubbing Transcript Segment<br/>
-        /// Enterprise only. Add a new source segment to the transcript.
+        /// Enterprise only. Add a new source segment to the transcript. Its span must lie within the source media, last between 0.1 and 25 seconds, and not overlap another segment by the same speaker. Bumps the project's `revision`, discards the affected translations in every language target, and marks any target that had already completed `stale`. No audio changes until you regenerate a target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -40,7 +40,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Add Dubbing Transcript Segment<br/>
-        /// Enterprise only. Add a new source segment to the transcript.
+        /// Enterprise only. Add a new source segment to the transcript. Its span must lie within the source media, last between 0.1 and 25 seconds, and not overlap another segment by the same speaker. Bumps the project's `revision`, discards the affected translations in every language target, and marks any target that had already completed `stale`. No audio changes until you regenerate a target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.

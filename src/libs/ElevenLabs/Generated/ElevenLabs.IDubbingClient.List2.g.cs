@@ -6,20 +6,20 @@ namespace ElevenLabs
     {
         /// <summary>
         /// List Dubbing Language Targets<br/>
-        /// List a project's language targets (cursor-paginated).
+        /// List a project's language targets, cursor-paginated, each with signed output URLs once it has produced an output.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the parent dubbing project.
         /// </param>
         /// <param name="cursor">
-        /// Pagination cursor from a previous response's next_cursor.
+        /// Pass the `next_cursor` from a previous response to fetch the page after it. Omit for the first page.
         /// </param>
         /// <param name="pageSize">
-        /// Number of language targets per page (max 100).<br/>
+        /// Number of language targets per page. Clamped to between 1 and 100 rather than rejected, so a larger value returns a full page.<br/>
         /// Default Value: 20
         /// </param>
         /// <param name="status">
-        /// Filter to targets in this status (queued, processing, completed, stale, failed).
+        /// Filter to targets in this status: `queued`, `processing`, `completed`, `stale`, or `failed`. Omit to return every status.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -33,20 +33,20 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Dubbing Language Targets<br/>
-        /// List a project's language targets (cursor-paginated).
+        /// List a project's language targets, cursor-paginated, each with signed output URLs once it has produced an output.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the parent dubbing project.
         /// </param>
         /// <param name="cursor">
-        /// Pagination cursor from a previous response's next_cursor.
+        /// Pass the `next_cursor` from a previous response to fetch the page after it. Omit for the first page.
         /// </param>
         /// <param name="pageSize">
-        /// Number of language targets per page (max 100).<br/>
+        /// Number of language targets per page. Clamped to between 1 and 100 rather than rejected, so a larger value returns a full page.<br/>
         /// Default Value: 20
         /// </param>
         /// <param name="status">
-        /// Filter to targets in this status (queued, processing, completed, stale, failed).
+        /// Filter to targets in this status: `queued`, `processing`, `completed`, `stale`, or `failed`. Omit to return every status.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -66,11 +66,11 @@ namespace ElevenLabs
         /// Identifier of the parent dubbing project.
         /// </param>
         /// <param name="pageSize">
-        /// Number of language targets per page (max 100).<br/>
+        /// Number of language targets per page. Clamped to between 1 and 100 rather than rejected, so a larger value returns a full page.<br/>
         /// Default Value: 20
         /// </param>
         /// <param name="status">
-        /// Filter to targets in this status (queued, processing, completed, stale, failed).
+        /// Filter to targets in this status: `queued`, `processing`, `completed`, `stale`, or `failed`. Omit to return every status.
         /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>

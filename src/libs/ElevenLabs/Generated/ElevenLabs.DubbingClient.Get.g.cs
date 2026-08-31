@@ -43,7 +43,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Get Dubbing Project<br/>
-        /// Full project detail, including its language target ids.
+        /// Full project detail, including the IDs of every language target under it. To follow a project to `ready`, we recommend a `webhook_ids` subscription rather than polling this endpoint.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project to fetch.
@@ -66,7 +66,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Get Dubbing Project<br/>
-        /// Full project detail, including its language target ids.
+        /// Full project detail, including the IDs of every language target under it. To follow a project to `ready`, we recommend a `webhook_ids` subscription rather than polling this endpoint.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project to fetch.

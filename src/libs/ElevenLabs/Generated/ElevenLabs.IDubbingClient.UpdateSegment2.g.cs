@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Update Dubbing Target Transcript Segment<br/>
-        /// Enterprise only. Edit a segment's translation for a language target.
+        /// Enterprise only. Edit a segment's translation for a language target. Omitted fields are left unchanged; an explicit null clears the field. Bumps the target's `revision` and marks it `stale` if it had already completed. The source transcript and the project's other languages are untouched, and no audio changes until you regenerate the target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -31,7 +31,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Dubbing Target Transcript Segment<br/>
-        /// Enterprise only. Edit a segment's translation for a language target.
+        /// Enterprise only. Edit a segment's translation for a language target. Omitted fields are left unchanged; an explicit null clears the field. Bumps the target's `revision` and marks it `stale` if it had already completed. The source transcript and the project's other languages are untouched, and no audio changes until you regenerate the target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -56,7 +56,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Dubbing Target Transcript Segment<br/>
-        /// Enterprise only. Edit a segment's translation for a language target.
+        /// Enterprise only. Edit a segment's translation for a language target. Omitted fields are left unchanged; an explicit null clears the field. Bumps the target's `revision` and marks it `stale` if it had already completed. The source transcript and the project's other languages are untouched, and no audio changes until you regenerate the target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.

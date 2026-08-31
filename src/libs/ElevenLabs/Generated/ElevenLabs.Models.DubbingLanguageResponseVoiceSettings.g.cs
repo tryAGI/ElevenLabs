@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Voice settings applied to the whole language, or null if unset.
+    /// Voice settings applied to every speaker in this language, or null if the defaults apply.
     /// </summary>
     public sealed partial class DubbingLanguageResponseVoiceSettings
     {

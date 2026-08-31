@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public sealed partial class EndProcedureToolConfigInputProcedures
+    public sealed partial class EndProcedureToolConfigProcedures
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -47,20 +47,20 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::ElevenLabs.EndProcedureToolConfigInputProcedures? FromJson(
+        public static global::ElevenLabs.EndProcedureToolConfigProcedures? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::ElevenLabs.EndProcedureToolConfigInputProcedures),
-                jsonSerializerContext) as global::ElevenLabs.EndProcedureToolConfigInputProcedures;
+                typeof(global::ElevenLabs.EndProcedureToolConfigProcedures),
+                jsonSerializerContext) as global::ElevenLabs.EndProcedureToolConfigProcedures;
         }
 
         /// <summary>
         /// Deserializes a JSON string using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::ElevenLabs.EndProcedureToolConfigInputProcedures? FromJson(
+        public static global::ElevenLabs.EndProcedureToolConfigProcedures? FromJson(
             string json)
         {
             return FromJson(
@@ -75,7 +75,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::ElevenLabs.EndProcedureToolConfigInputProcedures? FromJson(
+        public static global::ElevenLabs.EndProcedureToolConfigProcedures? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -86,7 +86,7 @@ namespace ElevenLabs
                     global::ElevenLabs.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.EndProcedureToolConfigInputProcedures>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.EndProcedureToolConfigProcedures>(
                 json,
                 jsonSerializerOptions);
         }
@@ -94,20 +94,20 @@ namespace ElevenLabs
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.EndProcedureToolConfigInputProcedures?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::ElevenLabs.EndProcedureToolConfigProcedures?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::ElevenLabs.EndProcedureToolConfigInputProcedures),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.EndProcedureToolConfigInputProcedures;
+                typeof(global::ElevenLabs.EndProcedureToolConfigProcedures),
+                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.EndProcedureToolConfigProcedures;
         }
 
         /// <summary>
         /// Deserializes a JSON stream using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.EndProcedureToolConfigInputProcedures?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.EndProcedureToolConfigProcedures?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream)
         {
             return FromJsonStreamAsync(
@@ -122,7 +122,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.EndProcedureToolConfigInputProcedures?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::ElevenLabs.EndProcedureToolConfigProcedures?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -133,7 +133,7 @@ namespace ElevenLabs
                     global::ElevenLabs.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.EndProcedureToolConfigInputProcedures?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.EndProcedureToolConfigProcedures?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Why the project failed; null unless `status` is 'failed'. Also null for the few projects that failed before failure reporting was introduced.
+    /// Why the project failed; null unless `status` is `failed`. Also null for the few projects that failed before failure reporting was introduced.
     /// </summary>
     public sealed partial class DubbingProjectResponseError
     {

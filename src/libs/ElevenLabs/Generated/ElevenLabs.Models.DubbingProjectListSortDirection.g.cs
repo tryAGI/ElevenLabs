@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Sort by creation time (default 'DESCENDING').<br/>
+    /// Sort by creation time; newest first by default.<br/>
     /// Default Value: DESCENDING
     /// </summary>
     public enum DubbingProjectListSortDirection

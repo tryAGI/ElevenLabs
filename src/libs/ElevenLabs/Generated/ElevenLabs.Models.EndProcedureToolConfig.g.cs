@@ -6,10 +6,10 @@ namespace ElevenLabs
     /// <summary>
     ///
     /// </summary>
-    public sealed partial class StartProcedureToolConfigInput
+    public sealed partial class EndProcedureToolConfig
     {
         /// <summary>
-        /// Default Value: start_procedure
+        /// Default Value: end_procedure
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_tool_type")]
         public string? SystemToolType { get; set; }
@@ -18,7 +18,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("procedures")]
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureAtVersionInput>? Procedures { get; set; }
+        public object? Procedures { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -27,27 +27,27 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StartProcedureToolConfigInput" /> class.
+        /// Initializes a new instance of the <see cref="EndProcedureToolConfig" /> class.
         /// </summary>
         /// <param name="systemToolType">
-        /// Default Value: start_procedure
+        /// Default Value: end_procedure
         /// </param>
         /// <param name="procedures"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public StartProcedureToolConfigInput(
+        public EndProcedureToolConfig(
             string? systemToolType,
-            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureAtVersionInput>? procedures)
+            object? procedures)
         {
             this.SystemToolType = systemToolType;
             this.Procedures = procedures;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StartProcedureToolConfigInput" /> class.
+        /// Initializes a new instance of the <see cref="EndProcedureToolConfig" /> class.
         /// </summary>
-        public StartProcedureToolConfigInput()
+        public EndProcedureToolConfig()
         {
         }
 

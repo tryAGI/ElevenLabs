@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The new revision after a source edit that returns no segment (e.g. a delete).
+    /// The new revision after a source edit that returns no segment, such as a delete.
     /// </summary>
     public sealed partial class DubbingTranscriptRevisionResponse
     {

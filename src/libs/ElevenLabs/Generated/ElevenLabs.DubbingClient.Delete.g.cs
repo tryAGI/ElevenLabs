@@ -38,7 +38,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Delete Dubbing Project<br/>
-        /// Delete a project and its language targets.
+        /// Delete a project, every language target under it, and their stored media and outputs. This cannot be undone, and a dub already running is still billed.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project to delete.
@@ -59,7 +59,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Delete Dubbing Project<br/>
-        /// Delete a project and its language targets.
+        /// Delete a project, every language target under it, and their stored media and outputs. This cannot be undone, and a dub already running is still billed.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project to delete.

@@ -30,7 +30,7 @@ namespace ElevenLabs
         public required string TargetLanguage { get; set; }
 
         /// <summary>
-        /// Lifecycle status: 'queued' (waiting on the project), 'processing', 'completed', 'stale' (source/transcript changed), or 'failed'.
+        /// Lifecycle status: `queued` (waiting on the project to be ready, or on a worker), `processing` while it is being dubbed, `completed` once its output is available, `stale` when the transcript changed after the output was produced, or `failed`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.DubbingLanguageResponseStatusJsonConverter))]
@@ -38,19 +38,19 @@ namespace ElevenLabs
         public required global::ElevenLabs.DubbingLanguageResponseStatus Status { get; set; }
 
         /// <summary>
-        /// Effective dubbing model id (target override or project default).
+        /// Dubbing model this target is dubbed with, inherited from the project and not selectable per language.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         public string? ModelId { get; set; }
 
         /// <summary>
-        /// Voice settings applied to the whole language, or null if unset.
+        /// Voice settings applied to every speaker in this language, or null if the defaults apply.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_settings")]
         public global::ElevenLabs.VoiceSettings? VoiceSettings { get; set; }
 
         /// <summary>
-        /// Signed output URLs; null until the target has produced an output (present once 'completed', and kept while 'stale' -- compare `output_revision` against `revision` to tell whether the output is up to date).
+        /// Signed output URLs; null until the target has produced an output (present once `completed`, and kept while `stale` — compare `output_revision` against `revision` to tell whether the output is up to date).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("outputs")]
         public global::ElevenLabs.DubbingLanguageOutputs? Outputs { get; set; }
@@ -63,13 +63,13 @@ namespace ElevenLabs
         public required int Revision { get; set; }
 
         /// <summary>
-        /// The `revision` the current dubbed output was generated from; equal to `revision` when up to date, less than it when 'stale'. Null until a generation has completed.
+        /// The `revision` the current dubbed output was generated from; equal to `revision` when up to date, and lower when `stale`. This is null until a generation has completed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_revision")]
         public int? OutputRevision { get; set; }
 
         /// <summary>
-        /// Why this language failed; null unless `status` is 'failed', and also null for the few languages that failed before failure reporting was introduced. A code of 'project_failed' means the parent project failed, so read the project for the underlying cause.
+        /// Why this language failed; null unless `status` is `failed`, and also null for the few languages that failed before failure reporting was introduced. A code of `project_failed` means the parent project failed, so read the project for the underlying cause.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public global::ElevenLabs.DubbingError? Error { get; set; }
@@ -113,7 +113,7 @@ namespace ElevenLabs
         /// BCP-47 language tag this target is dubbed into.
         /// </param>
         /// <param name="status">
-        /// Lifecycle status: 'queued' (waiting on the project), 'processing', 'completed', 'stale' (source/transcript changed), or 'failed'.
+        /// Lifecycle status: `queued` (waiting on the project to be ready, or on a worker), `processing` while it is being dubbed, `completed` once its output is available, `stale` when the transcript changed after the output was produced, or `failed`.
         /// </param>
         /// <param name="revision">
         /// Monotonic counter incremented whenever this target's transcript changes (a source edit affecting it, or an edit to its translation).
@@ -125,19 +125,19 @@ namespace ElevenLabs
         /// When the language target was last updated.
         /// </param>
         /// <param name="modelId">
-        /// Effective dubbing model id (target override or project default).
+        /// Dubbing model this target is dubbed with, inherited from the project and not selectable per language.
         /// </param>
         /// <param name="voiceSettings">
-        /// Voice settings applied to the whole language, or null if unset.
+        /// Voice settings applied to every speaker in this language, or null if the defaults apply.
         /// </param>
         /// <param name="outputs">
-        /// Signed output URLs; null until the target has produced an output (present once 'completed', and kept while 'stale' -- compare `output_revision` against `revision` to tell whether the output is up to date).
+        /// Signed output URLs; null until the target has produced an output (present once `completed`, and kept while `stale` — compare `output_revision` against `revision` to tell whether the output is up to date).
         /// </param>
         /// <param name="outputRevision">
-        /// The `revision` the current dubbed output was generated from; equal to `revision` when up to date, less than it when 'stale'. Null until a generation has completed.
+        /// The `revision` the current dubbed output was generated from; equal to `revision` when up to date, and lower when `stale`. This is null until a generation has completed.
         /// </param>
         /// <param name="error">
-        /// Why this language failed; null unless `status` is 'failed', and also null for the few languages that failed before failure reporting was introduced. A code of 'project_failed' means the parent project failed, so read the project for the underlying cause.
+        /// Why this language failed; null unless `status` is `failed`, and also null for the few languages that failed before failure reporting was introduced. A code of `project_failed` means the parent project failed, so read the project for the underlying cause.
         /// </param>
         /// <param name="warnings">
         /// Non-fatal conditions raised while dubbing this language, empty when there are none. Reflects the latest generation. Conditions raised while preparing the source are reported on the project instead.

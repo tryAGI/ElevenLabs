@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Voice settings applied to the whole language (e.g. cloning strength).
+    /// Voice settings applied to every speaker in this language. Omit to use the defaults.
     /// </summary>
     public sealed partial class BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePostVoiceSettings
     {

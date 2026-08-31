@@ -6,20 +6,20 @@ namespace ElevenLabs
     {
         /// <summary>
         /// List Dubbing Projects<br/>
-        /// List the workspace's dubbing projects (cursor-paginated).
+        /// List the dubbing projects in your workspace that you can access, newest first, cursor-paginated. Listed projects carry no `language_ids`; fetch a project, or list its language targets, to see them.
         /// </summary>
         /// <param name="cursor">
-        /// Pagination cursor from a previous response's next_cursor.
+        /// Pass the `next_cursor` from a previous response to fetch the page after it. Omit for the first page.
         /// </param>
         /// <param name="pageSize">
-        /// Number of projects per page (max 100).<br/>
+        /// Number of projects per page. Clamped to between 1 and 100 rather than rejected, so a larger value returns a full page.<br/>
         /// Default Value: 20
         /// </param>
         /// <param name="status">
-        /// Filter to projects in this status (preparing, ready, failed).
+        /// Filter to projects in this status: `queued`, `preparing`, `ready`, or `failed`. Omit to return every status.
         /// </param>
         /// <param name="sortDirection">
-        /// Sort by creation time (default 'DESCENDING').<br/>
+        /// Sort by creation time; newest first by default.<br/>
         /// Default Value: DESCENDING
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -34,20 +34,20 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Dubbing Projects<br/>
-        /// List the workspace's dubbing projects (cursor-paginated).
+        /// List the dubbing projects in your workspace that you can access, newest first, cursor-paginated. Listed projects carry no `language_ids`; fetch a project, or list its language targets, to see them.
         /// </summary>
         /// <param name="cursor">
-        /// Pagination cursor from a previous response's next_cursor.
+        /// Pass the `next_cursor` from a previous response to fetch the page after it. Omit for the first page.
         /// </param>
         /// <param name="pageSize">
-        /// Number of projects per page (max 100).<br/>
+        /// Number of projects per page. Clamped to between 1 and 100 rather than rejected, so a larger value returns a full page.<br/>
         /// Default Value: 20
         /// </param>
         /// <param name="status">
-        /// Filter to projects in this status (preparing, ready, failed).
+        /// Filter to projects in this status: `queued`, `preparing`, `ready`, or `failed`. Omit to return every status.
         /// </param>
         /// <param name="sortDirection">
-        /// Sort by creation time (default 'DESCENDING').<br/>
+        /// Sort by creation time; newest first by default.<br/>
         /// Default Value: DESCENDING
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -65,14 +65,14 @@ namespace ElevenLabs
         /// Wraps ListAsync as an IAsyncEnumerable&lt;global::ElevenLabs.DubbingProjectResponse&gt; that auto-pages over the response.
         /// </summary>
         /// <param name="pageSize">
-        /// Number of projects per page (max 100).<br/>
+        /// Number of projects per page. Clamped to between 1 and 100 rather than rejected, so a larger value returns a full page.<br/>
         /// Default Value: 20
         /// </param>
         /// <param name="status">
-        /// Filter to projects in this status (preparing, ready, failed).
+        /// Filter to projects in this status: `queued`, `preparing`, `ready`, or `failed`. Omit to return every status.
         /// </param>
         /// <param name="sortDirection">
-        /// Sort by creation time (default 'DESCENDING').<br/>
+        /// Sort by creation time; newest first by default.<br/>
         /// Default Value: DESCENDING
         /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>

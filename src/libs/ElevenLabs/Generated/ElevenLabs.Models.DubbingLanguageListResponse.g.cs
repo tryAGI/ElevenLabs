@@ -16,7 +16,7 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.DubbingLanguageResponse> Languages { get; set; }
 
         /// <summary>
-        /// Cursor for the next page, or null when there are no more results.
+        /// Opaque cursor to pass back as `cursor` for the next page, or null when there are no more results.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("next_cursor")]
         public string? NextCursor { get; set; }
@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// The page of language targets for the project.
         /// </param>
         /// <param name="nextCursor">
-        /// Cursor for the next page, or null when there are no more results.
+        /// Opaque cursor to pass back as `cursor` for the next page, or null when there are no more results.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

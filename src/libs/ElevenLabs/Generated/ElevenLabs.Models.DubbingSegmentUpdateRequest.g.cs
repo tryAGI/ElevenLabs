@@ -15,7 +15,7 @@ namespace ElevenLabs
         public string? Text { get; set; }
 
         /// <summary>
-        /// New speaker id for the segment.
+        /// New speaker ID for the segment.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speaker_id")]
         public string? SpeakerId { get; set; }
@@ -45,7 +45,7 @@ namespace ElevenLabs
         /// New text for the segment.
         /// </param>
         /// <param name="speakerId">
-        /// New speaker id for the segment.
+        /// New speaker ID for the segment.
         /// </param>
         /// <param name="startS">
         /// New start time, in seconds.

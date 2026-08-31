@@ -9,21 +9,21 @@ namespace ElevenLabs
     public sealed partial class VoicesNotPermittedWarning
     {
         /// <summary>
-        /// Identifies this warning; branch on it to read the fields below.
+        /// Identifies this warning; branch on it to read the other fields.
         /// </summary>
         /// <default>"voices_not_permitted"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         public string Type { get; set; } = "voices_not_permitted";
 
         /// <summary>
-        /// Speakers whose voices were not permitted for cloning. The dub used a replacement voice for each of them; the rest of the speakers are unaffected.
+        /// Speakers whose voices were not permitted for cloning. The dub used a replacement voice for each of them; all other speakers are unaffected.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speaker_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> SpeakerIds { get; set; }
 
         /// <summary>
-        /// Human-readable description of the warning, for display. The wording may change at any time; branch on `type` instead.
+        /// Human-readable description of the warning, for display. The wording may change at any time, so we recommend branching on `type` instead.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -39,13 +39,13 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="VoicesNotPermittedWarning" /> class.
         /// </summary>
         /// <param name="speakerIds">
-        /// Speakers whose voices were not permitted for cloning. The dub used a replacement voice for each of them; the rest of the speakers are unaffected.
+        /// Speakers whose voices were not permitted for cloning. The dub used a replacement voice for each of them; all other speakers are unaffected.
         /// </param>
         /// <param name="message">
-        /// Human-readable description of the warning, for display. The wording may change at any time; branch on `type` instead.
+        /// Human-readable description of the warning, for display. The wording may change at any time, so we recommend branching on `type` instead.
         /// </param>
         /// <param name="type">
-        /// Identifies this warning; branch on it to read the fields below.
+        /// Identifies this warning; branch on it to read the other fields.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

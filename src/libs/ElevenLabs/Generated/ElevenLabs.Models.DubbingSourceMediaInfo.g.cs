@@ -15,7 +15,7 @@ namespace ElevenLabs
         public string? Filename { get; set; }
 
         /// <summary>
-        /// Duration of the source media in seconds.
+        /// Duration of the source media, in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration_s")]
         public double? DurationS { get; set; }
@@ -27,7 +27,7 @@ namespace ElevenLabs
         public bool? HasVideo { get; set; }
 
         /// <summary>
-        /// MIME type of the uploaded source media.
+        /// MIME type of the uploaded source media (null for URL sources).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mime_type")]
         public string? MimeType { get; set; }
@@ -45,13 +45,13 @@ namespace ElevenLabs
         /// Original filename of the uploaded source media (null for URL sources).
         /// </param>
         /// <param name="durationS">
-        /// Duration of the source media in seconds.
+        /// Duration of the source media, in seconds.
         /// </param>
         /// <param name="hasVideo">
         /// Whether the source media contains a video stream.
         /// </param>
         /// <param name="mimeType">
-        /// MIME type of the uploaded source media.
+        /// MIME type of the uploaded source media (null for URL sources).
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -45,7 +45,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Delete Dubbing Transcript Segment<br/>
-        /// Enterprise only. Remove a source segment from the transcript.
+        /// Enterprise only. Remove a source segment from the transcript so it is no longer dubbed. Bumps the project's `revision`, discards the affected translations in every language target, and marks any target that had already completed `stale`. No audio changes until you regenerate a target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
@@ -73,7 +73,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Delete Dubbing Transcript Segment<br/>
-        /// Enterprise only. Remove a source segment from the transcript.
+        /// Enterprise only. Remove a source segment from the transcript so it is no longer dubbed. Bumps the project's `revision`, discards the affected translations in every language target, and marks any target that had already completed `stale`. No audio changes until you regenerate a target.
         /// </summary>
         /// <param name="projectId">
         /// Identifier of the dubbing project.
