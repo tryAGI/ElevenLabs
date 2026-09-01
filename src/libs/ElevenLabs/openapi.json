@@ -48012,17 +48012,17 @@
         "properties": {
           "start_time": {
             "type": "integer",
-            "format": "int64",
             "minimum": 1577836800000.0,
             "title": "Start Time",
-            "description": "Start of the time range as a Unix timestamp in milliseconds. Must be at least 2020-01-01."
+            "description": "Start of the time range as a Unix timestamp in milliseconds. Must be at least 2020-01-01.",
+            "format": "int64"
           },
           "end_time": {
             "type": "integer",
-            "format": "int64",
             "minimum": 1577836800000.0,
             "title": "End Time",
-            "description": "End of the time range as a Unix timestamp in milliseconds. Must be at least 2020-01-01."
+            "description": "End of the time range as a Unix timestamp in milliseconds. Must be at least 2020-01-01.",
+            "format": "int64"
           },
           "interval_seconds": {
             "type": "integer",
@@ -67216,6 +67216,144 @@
         "example": {
           "status": "ok"
         }
+      },
+      "EffectsSpec-Input": {
+        "properties": {
+          "filter_preset_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filter Preset Id"
+          },
+          "distance": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Distance",
+            "default": 0.0
+          },
+          "environment_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment Id"
+          },
+          "background_noise_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Background Noise Id"
+          },
+          "send_level": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Send Level",
+            "default": 1.0
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          }
+        },
+        "type": "object",
+        "title": "EffectsSpec",
+        "description": "Filter preset, distance (proximity EQ), and environment (convolution reverb)."
+      },
+      "EffectsSpec-Output": {
+        "properties": {
+          "filter_preset_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filter Preset Id"
+          },
+          "distance": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Distance",
+            "default": 0.0
+          },
+          "environment_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Environment Id"
+          },
+          "background_noise_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Background Noise Id"
+          },
+          "send_level": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Send Level",
+            "default": 1.0
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          }
+        },
+        "type": "object",
+        "required": [
+          "filter_preset_id",
+          "distance",
+          "environment_id",
+          "background_noise_id",
+          "send_level",
+          "seed"
+        ],
+        "title": "EffectsSpec",
+        "description": "Filter preset, distance (proximity EQ), and environment (convolution reverb)."
       },
       "ElevenFlashV2_5Request": {
         "properties": {
@@ -96612,6 +96750,17 @@
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.",
             "default": true
+          },
+          "audio_effects": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EffectsSpec-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional TTS effects spec: filter preset, distance (proximity EQ), and environment (convolution reverb)."
           }
         },
         "type": "object",
@@ -96726,6 +96875,17 @@
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.",
             "default": true
+          },
+          "audio_effects": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EffectsSpec-Output"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional TTS effects spec: filter preset, distance (proximity EQ), and environment (convolution reverb)."
           }
         },
         "type": "object",
@@ -97072,6 +97232,17 @@
             ],
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model."
+          },
+          "audio_effects": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EffectsSpec-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional TTS effects spec: filter preset, distance (proximity EQ), and environment (convolution reverb)."
           }
         },
         "type": "object",
@@ -97258,6 +97429,17 @@
             ],
             "title": "Enable Phoneme Tags",
             "description": "Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model."
+          },
+          "audio_effects": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EffectsSpec-Output"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional TTS effects spec: filter preset, distance (proximity EQ), and environment (convolution reverb)."
           }
         },
         "type": "object",

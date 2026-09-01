@@ -87,6 +87,12 @@ namespace ElevenLabs
         public bool? EnablePhonemeTags { get; set; }
 
         /// <summary>
+        /// Optional TTS effects spec: filter preset, distance (proximity EQ), and environment (convolution reverb).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("audio_effects")]
+        public global::ElevenLabs.EffectsSpecInput? AudioEffects { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -134,6 +140,9 @@ namespace ElevenLabs
         /// <param name="enablePhonemeTags">
         /// Opt-in to SSML phoneme tag handling for V3 models. When enabled, phoneme tags (inline and from pronunciation dictionaries) are parsed into inline IPA before being sent to the model.
         /// </param>
+        /// <param name="audioEffects">
+        /// Optional TTS effects spec: filter preset, distance (proximity EQ), and environment (convolution reverb).
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -150,7 +159,8 @@ namespace ElevenLabs
             double? similarityBoost,
             global::ElevenLabs.TextNormalisationType? textNormalisationType,
             global::System.Collections.Generic.IList<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? pronunciationDictionaryLocators,
-            bool? enablePhonemeTags)
+            bool? enablePhonemeTags,
+            global::ElevenLabs.EffectsSpecInput? audioEffects)
         {
             this.ModelId = modelId;
             this.VoiceId = voiceId;
@@ -165,6 +175,7 @@ namespace ElevenLabs
             this.TextNormalisationType = textNormalisationType;
             this.PronunciationDictionaryLocators = pronunciationDictionaryLocators;
             this.EnablePhonemeTags = enablePhonemeTags;
+            this.AudioEffects = audioEffects;
         }
 
         /// <summary>
