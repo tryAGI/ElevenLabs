@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"chunks":[{"chunk_id":"chunk_498cjVigY5qzO86Huf0OWal","content_format":"html","document_id":"doc_J3Pbu5gP6NNKBscdCdwB","document_name":"Account FAQ","document_type":"file","text":"To reset your password, open Settings and choose Security...","vector_distance":0.21}],"retrieval_query":"How do I reset my password?"}
+    /// Example: {"chunks":[{"chunk_id":"chunk_498cjVigY5qzO86Huf0OWal","content_format":"html","document_id":"doc_J3Pbu5gP6NNKBscdCdwB","document_name":"Account FAQ","document_type":"url","source_url":"https://example.com/account-faq?utm_medium=agents_citation\u0026utm_source=elevenlabs","text":"To reset your password, open Settings and choose Security...","vector_distance":0.21}],"retrieval_query":"How do I reset my password?"}
     /// </summary>
     public sealed partial class AgentKnowledgeBaseRagQueryResponseModel
     {

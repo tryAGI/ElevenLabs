@@ -69,7 +69,7 @@ namespace ElevenLabs
         /// Default Value: {"ringing_timeout_secs":60,"twilio_call_recording_enabled":false}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("telephony_call_config")]
-        public global::ElevenLabs.TelephonyCallConfig? TelephonyCallConfig { get; set; }
+        public global::ElevenLabs.TelephonyCallConfigInput? TelephonyCallConfig { get; set; }
 
         /// <summary>
         /// Maximum number of simultaneous calls for this batch. When set, dispatch is governed by this limit rather than workspace/agent capacity percentages.
@@ -114,7 +114,7 @@ namespace ElevenLabs
             string? timezone,
             string? branchId,
             string? environment,
-            global::ElevenLabs.TelephonyCallConfig? telephonyCallConfig,
+            global::ElevenLabs.TelephonyCallConfigInput? telephonyCallConfig,
             int? targetConcurrencyLimit)
         {
             this.CallName = callName ?? throw new global::System.ArgumentNullException(nameof(callName));

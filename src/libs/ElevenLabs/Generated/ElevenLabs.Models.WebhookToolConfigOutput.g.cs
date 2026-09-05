@@ -125,6 +125,19 @@ namespace ElevenLabs
         public required global::ElevenLabs.WebhookToolApiSchemaConfigOutput ApiSchema { get; set; }
 
         /// <summary>
+        /// Whether to resolve a redirect from the endpoint and return the final response. One redirect is followed, as a GET without the request body; nothing configured on this tool (headers, authentication, client certificate) is sent to the redirect target. Both the endpoint and the redirect target must use HTTPS. Not supported for API integration tools.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("follow_redirects")]
+        public bool? FollowRedirects { get; set; }
+
+        /// <summary>
+        /// Domains a redirect may point at, e.g. 'test.example.com'. Required when following redirects, and a target outside the list is refused.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("follow_redirects_allowed_domains")]
+        public global::System.Collections.Generic.IList<string>? FollowRedirectsAllowedDomains { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -179,6 +192,13 @@ namespace ElevenLabs
         /// Determines when and how the tool executes: 'immediate' executes the tool right away when requested by the LLM, 'post_tool_speech' waits for the agent to finish speaking before executing, 'async' runs the tool in the background without blocking - best for long-running operations.<br/>
         /// Default Value: immediate
         /// </param>
+        /// <param name="followRedirects">
+        /// Whether to resolve a redirect from the endpoint and return the final response. One redirect is followed, as a GET without the request body; nothing configured on this tool (headers, authentication, client certificate) is sent to the redirect target. Both the endpoint and the redirect target must use HTTPS. Not supported for API integration tools.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="followRedirectsAllowedDomains">
+        /// Domains a redirect may point at, e.g. 'test.example.com'. Required when following redirects, and a target outside the list is refused.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -195,7 +215,9 @@ namespace ElevenLabs
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
             global::ElevenLabs.ToolErrorHandlingMode? toolErrorHandlingMode,
             global::ElevenLabs.DynamicVariablesConfig? dynamicVariables,
-            global::ElevenLabs.ToolExecutionMode? executionMode)
+            global::ElevenLabs.ToolExecutionMode? executionMode,
+            bool? followRedirects,
+            global::System.Collections.Generic.IList<string>? followRedirectsAllowedDomains)
         {
             this.Type = type;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -210,6 +232,8 @@ namespace ElevenLabs
             this.DynamicVariables = dynamicVariables;
             this.ExecutionMode = executionMode;
             this.ApiSchema = apiSchema ?? throw new global::System.ArgumentNullException(nameof(apiSchema));
+            this.FollowRedirects = followRedirects;
+            this.FollowRedirectsAllowedDomains = followRedirectsAllowedDomains;
         }
 
         /// <summary>
