@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"access_info":{"creator_email":"john@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"},"agent_id":"J3Pbu5gP6NNKBscdCdwB","archived":false,"created_at_unix_secs":1716153600,"last_call_time_unix_secs":1716240000,"name":"My Agent","tags":["Customer Support","Technical Help","Eleven"]}
+    /// Example: {"access_info":{"creator_email":"john@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"},"agent_id":"J3Pbu5gP6NNKBscdCdwB","archived":false,"created_at_unix_secs":1716153600,"last_call_time_unix_secs":1716240000,"name":"My Agent","tags":["Customer Support","Technical Help","Eleven"],"voice_id":"UCaNsl8F6Xh4GALkVMLS"}
     /// </summary>
     public sealed partial class AgentSummaryResponseModel
     {
@@ -21,6 +21,13 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
+
+        /// <summary>
+        /// Voice ID assigned to this agent
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string VoiceId { get; set; }
 
         /// <summary>
         /// Agent tags used to categorize the agent
@@ -73,6 +80,9 @@ namespace ElevenLabs
         /// <param name="name">
         /// The name of the agent
         /// </param>
+        /// <param name="voiceId">
+        /// Voice ID assigned to this agent
+        /// </param>
         /// <param name="tags">
         /// Agent tags used to categorize the agent
         /// </param>
@@ -96,6 +106,7 @@ namespace ElevenLabs
         public AgentSummaryResponseModel(
             string agentId,
             string name,
+            string voiceId,
             global::System.Collections.Generic.IList<string> tags,
             int createdAtUnixSecs,
             global::ElevenLabs.ResourceAccessInfo accessInfo,
@@ -104,6 +115,7 @@ namespace ElevenLabs
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
             this.Tags = tags ?? throw new global::System.ArgumentNullException(nameof(tags));
             this.CreatedAtUnixSecs = createdAtUnixSecs;
             this.AccessInfo = accessInfo ?? throw new global::System.ArgumentNullException(nameof(accessInfo));

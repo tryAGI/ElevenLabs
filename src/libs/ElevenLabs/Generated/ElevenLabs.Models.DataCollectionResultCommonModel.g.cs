@@ -18,6 +18,12 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string? Name { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("value")]
         public object? Value { get; set; }
 
@@ -45,6 +51,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="dataCollectionId"></param>
         /// <param name="rationale"></param>
+        /// <param name="name"></param>
         /// <param name="value"></param>
         /// <param name="jsonSchema"></param>
 #if NET7_0_OR_GREATER
@@ -53,10 +60,12 @@ namespace ElevenLabs
         public DataCollectionResultCommonModel(
             string dataCollectionId,
             string rationale,
+            string? name,
             object? value,
             global::ElevenLabs.LiteralJsonSchemaProperty? jsonSchema)
         {
             this.DataCollectionId = dataCollectionId ?? throw new global::System.ArgumentNullException(nameof(dataCollectionId));
+            this.Name = name;
             this.Value = value;
             this.JsonSchema = jsonSchema;
             this.Rationale = rationale ?? throw new global::System.ArgumentNullException(nameof(rationale));

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Execution-related properties for a tool.
+    /// Execution-related properties for a tool (2025-11-25 only).
     /// </summary>
     public sealed partial class ToolExecution2
     {

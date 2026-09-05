@@ -14,9 +14,8 @@ namespace ElevenLabs
         /// The ID of the model to use for transcription.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodySpeechToTextV1SpeechToTextPostModelIdJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostModelId ModelId { get; set; }
+        public required string ModelId { get; set; }
 
         /// <summary>
         /// The file to transcribe (100ms minimum audio length). All major audio and video formats are supported. Exactly one of the file or cloud_storage_url parameters must be provided. The file size must be less than 5.0GB.
@@ -296,7 +295,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodySpeechToTextV1SpeechToTextPost(
-            global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostModelId modelId,
+            string modelId,
             byte[]? file,
             string? filename,
             string? languageCode,
@@ -323,7 +322,7 @@ namespace ElevenLabs
             string? entityRedactionMode,
             global::System.Collections.Generic.IList<string>? keyterms)
         {
-            this.ModelId = modelId;
+            this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
             this.File = file;
             this.Filename = filename;
             this.LanguageCode = languageCode;

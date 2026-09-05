@@ -176,7 +176,7 @@ namespace ElevenLabs
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(request.ModelId.ToValueString()),
+                                content: new global::System.Net.Http.StringContent(request.ModelId ?? string.Empty),
                                 name: "\"model_id\"");
 
                             if (request.File != default)
@@ -894,7 +894,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AnyOf<global::ElevenLabs.SpeechToTextChunkResponseModel, global::ElevenLabs.MultichannelSpeechToTextResponseModel, global::ElevenLabs.SpeechToTextWebhookResponseModel>> ConvertAsync(
-            global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostModelId modelId,
+            string modelId,
             string? token = default,
             bool? enableLogging = default,
             byte[]? file = default,

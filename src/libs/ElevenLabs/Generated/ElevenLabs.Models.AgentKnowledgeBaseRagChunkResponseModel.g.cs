@@ -23,6 +23,12 @@ namespace ElevenLabs
         public required string DocumentName { get; set; }
 
         /// <summary>
+        /// Tracked source URL for URL documents, or null for other document types.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_url")]
+        public string? SourceUrl { get; set; }
+
+        /// <summary>
         /// ID of the retrieved chunk.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunk_id")]
@@ -88,6 +94,9 @@ namespace ElevenLabs
         /// <param name="documentType">
         /// Type of the source knowledge base document.
         /// </param>
+        /// <param name="sourceUrl">
+        /// Tracked source URL for URL documents, or null for other document types.
+        /// </param>
         /// <param name="vectorDistance">
         /// Similarity distance when exposed by the retrieval strategy.
         /// </param>
@@ -101,10 +110,12 @@ namespace ElevenLabs
             string text,
             global::ElevenLabs.ContentFormat contentFormat,
             global::ElevenLabs.KnowledgeBaseDocumentType documentType,
+            string? sourceUrl,
             double? vectorDistance)
         {
             this.DocumentId = documentId ?? throw new global::System.ArgumentNullException(nameof(documentId));
             this.DocumentName = documentName ?? throw new global::System.ArgumentNullException(nameof(documentName));
+            this.SourceUrl = sourceUrl;
             this.ChunkId = chunkId ?? throw new global::System.ArgumentNullException(nameof(chunkId));
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.VectorDistance = vectorDistance;

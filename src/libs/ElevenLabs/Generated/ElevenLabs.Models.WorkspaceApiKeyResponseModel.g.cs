@@ -92,6 +92,12 @@ namespace ElevenLabs
         public bool? ThirdPartyDisableAllowed { get; set; }
 
         /// <summary>
+        /// Per-API-key concurrency limits (TTS/dubbing/music). Enterprise-only.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("platform_limits")]
+        public global::ElevenLabs.PlatformLimits? PlatformLimits { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -119,6 +125,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="allowedIps"></param>
         /// <param name="thirdPartyDisableAllowed"></param>
+        /// <param name="platformLimits">
+        /// Per-API-key concurrency limits (TTS/dubbing/music). Enterprise-only.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -135,7 +144,8 @@ namespace ElevenLabs
             int? characterLimit,
             int? characterCount,
             global::System.Collections.Generic.IList<string>? allowedIps,
-            bool? thirdPartyDisableAllowed)
+            bool? thirdPartyDisableAllowed,
+            global::ElevenLabs.PlatformLimits? platformLimits)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Hint = hint ?? throw new global::System.ArgumentNullException(nameof(hint));
@@ -150,6 +160,7 @@ namespace ElevenLabs
             this.HashedXiApiKey = hashedXiApiKey ?? throw new global::System.ArgumentNullException(nameof(hashedXiApiKey));
             this.AllowedIps = allowedIps;
             this.ThirdPartyDisableAllowed = thirdPartyDisableAllowed;
+            this.PlatformLimits = platformLimits;
         }
 
         /// <summary>

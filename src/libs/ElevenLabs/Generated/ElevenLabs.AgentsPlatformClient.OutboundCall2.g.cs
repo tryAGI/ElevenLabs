@@ -489,7 +489,7 @@ namespace ElevenLabs
             string agentPhoneNumberId,
             string toNumber,
             global::ElevenLabs.ConversationInitiationClientDataRequestInput? conversationInitiationClientData = default,
-            global::ElevenLabs.TelephonyCallConfig? telephonyCallConfig = default,
+            global::ElevenLabs.TelephonyCallConfigInput? telephonyCallConfig = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

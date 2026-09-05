@@ -127,7 +127,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("telephony_call_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.TelephonyCallConfig TelephonyCallConfig { get; set; }
+        public required global::ElevenLabs.TelephonyCallConfigOutput TelephonyCallConfig { get; set; }
 
         /// <summary>
         /// Maximum number of simultaneous calls for this batch. When set, dispatch is governed by this limit rather than workspace/agent capacity percentages.
@@ -211,7 +211,7 @@ namespace ElevenLabs
             int lastUpdatedAtUnix,
             global::ElevenLabs.BatchCallStatus status,
             int retryCount,
-            global::ElevenLabs.TelephonyCallConfig telephonyCallConfig,
+            global::ElevenLabs.TelephonyCallConfigOutput telephonyCallConfig,
             string agentName,
             global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipientResponseModel> recipients,
             string? phoneNumberId,

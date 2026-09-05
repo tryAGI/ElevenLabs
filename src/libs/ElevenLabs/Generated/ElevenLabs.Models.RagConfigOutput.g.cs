@@ -55,6 +55,12 @@ namespace ElevenLabs
         public string? QueryRewritePromptOverride { get; set; }
 
         /// <summary>
+        /// When set, the agent uses the knowledge_base tool instead of the legacy knowledge_base_rag tool. None means the agent is not opted in.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("knowledge_base_tool_info")]
+        public global::ElevenLabs.KnowledgeBaseToolInfo? KnowledgeBaseToolInfo { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -87,6 +93,9 @@ namespace ElevenLabs
         /// <param name="queryRewritePromptOverride">
         /// Custom prompt for rewriting user queries before RAG retrieval. The conversation history will be automatically appended at the end. If not set, the default prompt will be used.
         /// </param>
+        /// <param name="knowledgeBaseToolInfo">
+        /// When set, the agent uses the knowledge_base tool instead of the legacy knowledge_base_rag tool. None means the agent is not opted in.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -97,7 +106,8 @@ namespace ElevenLabs
             int? maxDocumentsLength,
             int? maxRetrievedRagChunksCount,
             int? numCandidates,
-            string? queryRewritePromptOverride)
+            string? queryRewritePromptOverride,
+            global::ElevenLabs.KnowledgeBaseToolInfo? knowledgeBaseToolInfo)
         {
             this.Enabled = enabled;
             this.EmbeddingModel = embeddingModel;
@@ -106,6 +116,7 @@ namespace ElevenLabs
             this.MaxRetrievedRagChunksCount = maxRetrievedRagChunksCount;
             this.NumCandidates = numCandidates;
             this.QueryRewritePromptOverride = queryRewritePromptOverride;
+            this.KnowledgeBaseToolInfo = knowledgeBaseToolInfo;
         }
 
         /// <summary>

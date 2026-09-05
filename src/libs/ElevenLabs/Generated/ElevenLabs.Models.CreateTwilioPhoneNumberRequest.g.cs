@@ -53,18 +53,24 @@ namespace ElevenLabs
         public string? AgentId { get; set; }
 
         /// <summary>
-        /// Twilio Account SID
+        /// Twilio Account SID (starts with `AC`) or API Key SID (starts with `SK`)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sid")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Sid { get; set; }
 
         /// <summary>
-        /// Twilio Auth Token
+        /// Secret paired with `sid`: the Account Auth Token for an Account SID, or the API Key Secret for an API Key SID
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Token { get; set; }
+
+        /// <summary>
+        /// Twilio Account Auth Token, required for API Key imports to validate inbound webhook signatures
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("account_auth_token")]
+        public string? AccountAuthToken { get; set; }
 
         /// <summary>
         /// Twilio Additional Region Configuration
@@ -95,16 +101,19 @@ namespace ElevenLabs
         /// Label for the phone number
         /// </param>
         /// <param name="sid">
-        /// Twilio Account SID
+        /// Twilio Account SID (starts with `AC`) or API Key SID (starts with `SK`)
         /// </param>
         /// <param name="token">
-        /// Twilio Auth Token
+        /// Secret paired with `sid`: the Account Auth Token for an Account SID, or the API Key Secret for an API Key SID
         /// </param>
         /// <param name="provider">
         /// Default Value: twilio
         /// </param>
         /// <param name="agentId">
         /// Agent ID to assign the phone number to
+        /// </param>
+        /// <param name="accountAuthToken">
+        /// Twilio Account Auth Token, required for API Key imports to validate inbound webhook signatures
         /// </param>
         /// <param name="regionConfig">
         /// Twilio Additional Region Configuration
@@ -123,6 +132,7 @@ namespace ElevenLabs
             string token,
             string? provider,
             string? agentId,
+            string? accountAuthToken,
             global::ElevenLabs.RegionConfigRequest? regionConfig,
             bool? enableSms)
         {
@@ -132,6 +142,7 @@ namespace ElevenLabs
             this.AgentId = agentId;
             this.Sid = sid ?? throw new global::System.ArgumentNullException(nameof(sid));
             this.Token = token ?? throw new global::System.ArgumentNullException(nameof(token));
+            this.AccountAuthToken = accountAuthToken;
             this.RegionConfig = regionConfig;
             this.EnableSms = enableSms;
         }
