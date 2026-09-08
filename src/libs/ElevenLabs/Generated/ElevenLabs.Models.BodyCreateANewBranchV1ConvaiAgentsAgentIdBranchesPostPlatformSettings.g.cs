@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Changes to apply to platform settings
+    ///
     /// </summary>
     public sealed partial class BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPostPlatformSettings
     {

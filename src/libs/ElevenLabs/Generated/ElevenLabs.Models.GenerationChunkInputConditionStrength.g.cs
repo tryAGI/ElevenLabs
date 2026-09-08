@@ -4,16 +4,60 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// How strongly the model adheres to the conditioning reference. Low strength means the model will be more creative and deviate from the reference. High strength means the model will be more consistent with the reference.
+    ///
     /// </summary>
-    public sealed partial class GenerationChunkInputConditionStrength
+    public enum GenerationChunkInputConditionStrength
     {
-
         /// <summary>
-        /// Additional properties that are not explicitly defined in the schema
+        ///
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonExtensionData]
-        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+        High,
+        /// <summary>
+        ///
+        /// </summary>
+        Low,
+        /// <summary>
+        ///
+        /// </summary>
+        Medium,
+        /// <summary>
+        ///
+        /// </summary>
+        Xhigh,
+    }
 
+    /// <summary>
+    /// Enum extensions to do fast conversions without the reflection.
+    /// </summary>
+    public static class GenerationChunkInputConditionStrengthExtensions
+    {
+        /// <summary>
+        /// Converts an enum to a string.
+        /// </summary>
+        public static string ToValueString(this GenerationChunkInputConditionStrength value)
+        {
+            return value switch
+            {
+                GenerationChunkInputConditionStrength.High => "high",
+                GenerationChunkInputConditionStrength.Low => "low",
+                GenerationChunkInputConditionStrength.Medium => "medium",
+                GenerationChunkInputConditionStrength.Xhigh => "xhigh",
+                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
+            };
+        }
+        /// <summary>
+        /// Converts an string to a enum.
+        /// </summary>
+        public static GenerationChunkInputConditionStrength? ToEnum(string value)
+        {
+            return value switch
+            {
+                "high" => GenerationChunkInputConditionStrength.High,
+                "low" => GenerationChunkInputConditionStrength.Low,
+                "medium" => GenerationChunkInputConditionStrength.Medium,
+                "xhigh" => GenerationChunkInputConditionStrength.Xhigh,
+                _ => null,
+            };
+        }
     }
 }

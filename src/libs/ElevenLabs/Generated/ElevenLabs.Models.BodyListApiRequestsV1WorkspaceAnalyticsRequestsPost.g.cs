@@ -30,7 +30,7 @@ namespace ElevenLabs
         /// Optional timestamp sort direction. If omitted, defaults to desc when end_time is provided, otherwise asc.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sort")]
-        public global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPostSort2? Sort { get; set; }
+        public global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPostSort? Sort { get; set; }
 
         /// <summary>
         ///
@@ -74,7 +74,7 @@ namespace ElevenLabs
             long? startTime,
             long? endTime,
             int? limit,
-            global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPostSort2? sort,
+            global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPostSort? sort,
             global::System.Collections.Generic.IList<global::ElevenLabs.ColumnFilter>? filters,
             string? search)
         {

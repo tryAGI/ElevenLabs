@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Procedure versions to publish, keyed by procedure_id. When provided, this map replaces the procedures from the current draft or branch tip. When omitted or null, unpublished procedure edits are used if present; otherwise, the branch tip's procedures are retained. Pass an empty object to remove all procedures.
+    ///
     /// </summary>
     public sealed partial class BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatchProcedures
     {

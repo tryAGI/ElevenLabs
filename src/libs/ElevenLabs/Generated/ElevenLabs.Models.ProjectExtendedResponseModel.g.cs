@@ -105,7 +105,7 @@ namespace ElevenLabs
         /// The target audience of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_audience")]
-        public global::ElevenLabs.ProjectExtendedResponseModelTargetAudience2? TargetAudience { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelTargetAudience? TargetAudience { get; set; }
 
         /// <summary>
         /// Two-letter language code (ISO 639-1) of the language of the project.
@@ -164,7 +164,7 @@ namespace ElevenLabs
         /// Whether the project is fiction.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fiction")]
-        public global::ElevenLabs.ProjectExtendedResponseModelFiction2? Fiction { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelFiction? Fiction { get; set; }
 
         /// <summary>
         /// Whether quality check is enabled for this project.
@@ -190,7 +190,7 @@ namespace ElevenLabs
         /// The source type of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_type")]
-        public global::ElevenLabs.ProjectExtendedResponseModelSourceType2? SourceType { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelSourceType? SourceType { get; set; }
 
         /// <summary>
         /// Whether chapters are enabled for the project.<br/>
@@ -228,7 +228,7 @@ namespace ElevenLabs
         /// The aspect ratio of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("aspect_ratio")]
-        public global::ElevenLabs.ProjectExtendedResponseModelAspectRatio2? AspectRatio { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelAspectRatio? AspectRatio { get; set; }
 
         /// <summary>
         /// Agent-related settings for the project
@@ -499,21 +499,21 @@ namespace ElevenLabs
             string? description,
             global::System.Collections.Generic.IList<string>? genres,
             string? coverImageUrl,
-            global::ElevenLabs.ProjectExtendedResponseModelTargetAudience2? targetAudience,
+            global::ElevenLabs.ProjectExtendedResponseModelTargetAudience? targetAudience,
             string? language,
             string? contentType,
             string? originalPublicationDate,
             bool? matureContent,
             string? isbnNumber,
-            global::ElevenLabs.ProjectExtendedResponseModelFiction2? fiction,
+            global::ElevenLabs.ProjectExtendedResponseModelFiction? fiction,
             global::ElevenLabs.ProjectCreationMetaResponseModel? creationMeta,
-            global::ElevenLabs.ProjectExtendedResponseModelSourceType2? sourceType,
+            global::ElevenLabs.ProjectExtendedResponseModelSourceType? sourceType,
             bool? chaptersEnabled,
             bool? captionsEnabled,
             global::ElevenLabs.CaptionStyleModel? captionStyle,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.CaptionStyleModel>? captionStyleTemplateOverrides,
             string? publicShareId,
-            global::ElevenLabs.ProjectExtendedResponseModelAspectRatio2? aspectRatio,
+            global::ElevenLabs.ProjectExtendedResponseModelAspectRatio? aspectRatio,
             global::ElevenLabs.StudioAgentSettingsModel? agentSettings,
             object? experimental,
             global::System.Collections.Generic.IList<global::ElevenLabs.VoiceResponseModel>? baseVoices,

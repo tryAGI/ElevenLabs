@@ -103,7 +103,7 @@ namespace ElevenLabs
         /// The safety controls of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("safety_control")]
-        public global::ElevenLabs.VoiceResponseModelSafetyControl2? SafetyControl { get; set; }
+        public global::ElevenLabs.VoiceResponseModelSafetyControl? SafetyControl { get; set; }
 
         /// <summary>
         /// The voice verification of the voice.
@@ -159,13 +159,13 @@ namespace ElevenLabs
         /// The recording quality of the voice as determined by the review pipeline.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recording_quality")]
-        public global::ElevenLabs.VoiceResponseModelRecordingQuality2? RecordingQuality { get; set; }
+        public global::ElevenLabs.VoiceResponseModelRecordingQuality? RecordingQuality { get; set; }
 
         /// <summary>
         /// The review pipeline status of the voice.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("labelling_status")]
-        public global::ElevenLabs.VoiceResponseModelLabellingStatus2? LabellingStatus { get; set; }
+        public global::ElevenLabs.VoiceResponseModelLabellingStatus? LabellingStatus { get; set; }
 
         /// <summary>
         /// The reason for the recording quality assessment, as determined by the review pipeline.
@@ -280,7 +280,7 @@ namespace ElevenLabs
             global::ElevenLabs.VoiceSharingResponseModel? sharing,
             global::System.Collections.Generic.IList<global::ElevenLabs.VerifiedVoiceLanguageResponseModel>? verifiedLanguages,
             global::System.Collections.Generic.IList<string>? collectionIds,
-            global::ElevenLabs.VoiceResponseModelSafetyControl2? safetyControl,
+            global::ElevenLabs.VoiceResponseModelSafetyControl? safetyControl,
             global::ElevenLabs.VoiceVerificationResponseModel? voiceVerification,
             string? permissionOnResource,
             bool? isOwner,
@@ -289,8 +289,8 @@ namespace ElevenLabs
             int? favoritedAtUnix,
             int? createdAtUnix,
             bool? isBookmarked,
-            global::ElevenLabs.VoiceResponseModelRecordingQuality2? recordingQuality,
-            global::ElevenLabs.VoiceResponseModelLabellingStatus2? labellingStatus,
+            global::ElevenLabs.VoiceResponseModelRecordingQuality? recordingQuality,
+            global::ElevenLabs.VoiceResponseModelLabellingStatus? labellingStatus,
             string? recordingQualityReason)
         {
             this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));

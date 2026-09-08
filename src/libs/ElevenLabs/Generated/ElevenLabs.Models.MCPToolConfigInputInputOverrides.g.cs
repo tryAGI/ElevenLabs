@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Input parameter overrides for this tool
+    ///
     /// </summary>
     public sealed partial class MCPToolConfigInputInputOverrides
     {

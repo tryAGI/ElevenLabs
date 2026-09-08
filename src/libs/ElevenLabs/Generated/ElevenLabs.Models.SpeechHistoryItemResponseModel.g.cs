@@ -43,7 +43,7 @@ namespace ElevenLabs
         /// The category of the voice. Either 'premade', 'cloned', 'generated' or 'professional'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_category")]
-        public global::ElevenLabs.SpeechHistoryItemResponseModelVoiceCategory2? VoiceCategory { get; set; }
+        public global::ElevenLabs.SpeechHistoryItemResponseModelVoiceCategory? VoiceCategory { get; set; }
 
         /// <summary>
         /// The text used to generate the audio item.
@@ -104,7 +104,7 @@ namespace ElevenLabs
         /// The source of the history item. Either TTS (text to speech), STS (speech to text), AN (audio native), Projects, Dubbing, PlayAPI, PD (pronunciation dictionary) or ConvAI (Agents Platform).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source")]
-        public global::ElevenLabs.SpeechHistoryItemResponseModelSource2? Source { get; set; }
+        public global::ElevenLabs.SpeechHistoryItemResponseModelSource? Source { get; set; }
 
         /// <summary>
         /// The alignments of the history item.
@@ -201,11 +201,11 @@ namespace ElevenLabs
             string? voiceId,
             string? modelId,
             string? voiceName,
-            global::ElevenLabs.SpeechHistoryItemResponseModelVoiceCategory2? voiceCategory,
+            global::ElevenLabs.SpeechHistoryItemResponseModelVoiceCategory? voiceCategory,
             string? text,
             object? settings,
             string? shareLinkId,
-            global::ElevenLabs.SpeechHistoryItemResponseModelSource2? source,
+            global::ElevenLabs.SpeechHistoryItemResponseModelSource? source,
             global::ElevenLabs.HistoryAlignmentsResponseModel? alignments,
             global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInputResponseModel>? dialogue,
             string? outputFormat)

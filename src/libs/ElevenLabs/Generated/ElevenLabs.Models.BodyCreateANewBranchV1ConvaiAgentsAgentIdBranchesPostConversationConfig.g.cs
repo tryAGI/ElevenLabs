@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Changes to apply to conversation config
+    ///
     /// </summary>
     public sealed partial class BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPostConversationConfig
     {

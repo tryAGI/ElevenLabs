@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Platform settings for the agent are all settings that aren't related to the conversation orchestration and content.
+    ///
     /// </summary>
     public sealed partial class BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatchPlatformSettings
     {

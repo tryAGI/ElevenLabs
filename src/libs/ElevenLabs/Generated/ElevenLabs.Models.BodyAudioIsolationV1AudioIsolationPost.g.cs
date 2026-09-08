@@ -27,7 +27,7 @@ namespace ElevenLabs
         /// Default Value: other
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_format")]
-        public global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat2? FileFormat { get; set; }
+        public global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat? FileFormat { get; set; }
 
         /// <summary>
         /// Optional preview image base64 for tracking this generation.
@@ -63,7 +63,7 @@ namespace ElevenLabs
         public BodyAudioIsolationV1AudioIsolationPost(
             byte[] audio,
             string audioname,
-            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat2? fileFormat,
+            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat? fileFormat,
             string? previewB64)
         {
             this.Audio = audio ?? throw new global::System.ArgumentNullException(nameof(audio));

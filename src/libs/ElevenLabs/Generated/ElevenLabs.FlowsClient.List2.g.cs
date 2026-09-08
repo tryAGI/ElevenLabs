@@ -29,14 +29,14 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
             ref int? pageSize,
-            ref global::ElevenLabs.ListImageGenerationsStatus2? status,
+            ref global::ElevenLabs.ListImageGenerationsStatus? status,
             ref string? modelId);
         partial void PrepareList2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
             int? pageSize,
-            global::ElevenLabs.ListImageGenerationsStatus2? status,
+            global::ElevenLabs.ListImageGenerationsStatus? status,
             string? modelId);
         partial void ProcessList2Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -70,7 +70,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MediaGenerationListResponse> List2Async(
             string? cursor = default,
             int? pageSize = default,
-            global::ElevenLabs.ListImageGenerationsStatus2? status = default,
+            global::ElevenLabs.ListImageGenerationsStatus? status = default,
             string? modelId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -109,7 +109,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MediaGenerationListResponse>> List2AsResponseAsync(
             string? cursor = default,
             int? pageSize = default,
-            global::ElevenLabs.ListImageGenerationsStatus2? status = default,
+            global::ElevenLabs.ListImageGenerationsStatus? status = default,
             string? modelId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -528,7 +528,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.MediaGenerationResponse> List2AutoPagingAsync(
               int? pageSize = default,
-            global::ElevenLabs.ListImageGenerationsStatus2? status = default,
+            global::ElevenLabs.ListImageGenerationsStatus? status = default,
             string? modelId = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)

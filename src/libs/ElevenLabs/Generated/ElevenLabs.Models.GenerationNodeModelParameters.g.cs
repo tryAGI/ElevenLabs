@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Model-specific parameters.
+    ///
     /// </summary>
     public sealed partial class GenerationNodeModelParameters
     {

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// OpenTelemetry trace payload when the request uses format=opentelemetry; otherwise omitted.
+    ///
     /// </summary>
     public sealed partial class GetConversationResponseModelOtlpTraces
     {

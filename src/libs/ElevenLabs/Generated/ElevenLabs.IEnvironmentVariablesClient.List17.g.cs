@@ -32,7 +32,7 @@ namespace ElevenLabs
             int? pageSize = default,
             string? label = default,
             string? environment = default,
-            global::ElevenLabs.ListEnvironmentVariablesType2? type = default,
+            global::ElevenLabs.ListEnvironmentVariablesType? type = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -63,7 +63,7 @@ namespace ElevenLabs
             int? pageSize = default,
             string? label = default,
             string? environment = default,
-            global::ElevenLabs.ListEnvironmentVariablesType2? type = default,
+            global::ElevenLabs.ListEnvironmentVariablesType? type = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -89,7 +89,7 @@ namespace ElevenLabs
               int? pageSize = default,
             string? label = default,
             string? environment = default,
-            global::ElevenLabs.ListEnvironmentVariablesType2? type = default,
+            global::ElevenLabs.ListEnvironmentVariablesType? type = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default);
 

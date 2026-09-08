@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// When set, the entire object uses this constant JSON value at runtime. Mutually exclusive with description (LLM-provided object), dynamic_variable, and is_omitted.
+    ///
     /// </summary>
     public sealed partial class ObjectJsonSchemaPropertyOutputConstantValue
     {

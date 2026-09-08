@@ -61,7 +61,7 @@ namespace ElevenLabs
         /// The permission on the resource of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("permission_on_resource")]
-        public global::ElevenLabs.AddPronunciationDictionaryResponseModelPermissionOnResource2? PermissionOnResource { get; set; }
+        public global::ElevenLabs.AddPronunciationDictionaryResponseModelPermissionOnResource? PermissionOnResource { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -107,7 +107,7 @@ namespace ElevenLabs
             string versionId,
             int versionRulesNum,
             string? description,
-            global::ElevenLabs.AddPronunciationDictionaryResponseModelPermissionOnResource2? permissionOnResource)
+            global::ElevenLabs.AddPronunciationDictionaryResponseModelPermissionOnResource? permissionOnResource)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));

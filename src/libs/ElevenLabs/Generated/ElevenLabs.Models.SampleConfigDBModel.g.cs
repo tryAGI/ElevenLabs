@@ -24,7 +24,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parent_type")]
-        public global::ElevenLabs.SampleConfigDBModelParentType2? ParentType { get; set; }
+        public global::ElevenLabs.SampleConfigDBModelParentType? ParentType { get; set; }
 
         /// <summary>
         ///
@@ -53,7 +53,7 @@ namespace ElevenLabs
         public SampleConfigDBModel(
             bool? isSample,
             string? parentId,
-            global::ElevenLabs.SampleConfigDBModelParentType2? parentType,
+            global::ElevenLabs.SampleConfigDBModelParentType? parentType,
             global::System.Collections.Generic.IList<string>? chapterIds)
         {
             this.IsSample = isSample;

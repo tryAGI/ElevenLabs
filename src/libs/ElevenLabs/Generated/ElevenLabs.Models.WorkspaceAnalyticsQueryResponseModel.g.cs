@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("column_units")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ColumnUnit> ColumnUnits { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ColumnUnit?> ColumnUnits { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -56,7 +56,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string> columns,
             global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceAnalyticsQueryResponseModelColumnType> columnTypes,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>>> rows,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ColumnUnit> columnUnits)
+            global::System.Collections.Generic.IList<global::ElevenLabs.ColumnUnit?> columnUnits)
         {
             this.Columns = columns ?? throw new global::System.ArgumentNullException(nameof(columns));
             this.ColumnTypes = columnTypes ?? throw new global::System.ArgumentNullException(nameof(columnTypes));

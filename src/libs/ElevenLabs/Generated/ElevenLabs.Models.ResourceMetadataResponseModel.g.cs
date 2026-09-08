@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// The access level for anonymous users. If None, the resource is not shared publicly.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("anonymous_access_level_override")]
-        public global::ElevenLabs.ResourceMetadataResponseModelAnonymousAccessLevelOverride2? AnonymousAccessLevelOverride { get; set; }
+        public global::ElevenLabs.ResourceMetadataResponseModelAnonymousAccessLevelOverride? AnonymousAccessLevelOverride { get; set; }
 
         /// <summary>
         /// A mapping of grant slots to group IDs. Keys are the preset access roles plus workspace custom-role ids ('role_...'). When the resource is shared with a user, the group id is the user's id.
@@ -95,7 +95,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ShareOptionResponseModel> shareOptions,
             string? resourceName,
             string? creatorUserId,
-            global::ElevenLabs.ResourceMetadataResponseModelAnonymousAccessLevelOverride2? anonymousAccessLevelOverride)
+            global::ElevenLabs.ResourceMetadataResponseModelAnonymousAccessLevelOverride? anonymousAccessLevelOverride)
         {
             this.ResourceId = resourceId ?? throw new global::System.ArgumentNullException(nameof(resourceId));
             this.ResourceName = resourceName;

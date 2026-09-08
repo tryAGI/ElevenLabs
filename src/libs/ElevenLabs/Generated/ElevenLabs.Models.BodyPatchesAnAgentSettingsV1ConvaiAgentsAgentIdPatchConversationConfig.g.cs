@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Conversation configuration for an agent
+    ///
     /// </summary>
     public sealed partial class BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatchConversationConfig
     {

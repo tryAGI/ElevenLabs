@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Labels for the voice. Keys can be language, accent, gender, or age.
+    ///
     /// </summary>
     public sealed partial class BodyEditPvcVoiceV1VoicesPvcVoiceIdPostLabels
     {

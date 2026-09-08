@@ -91,6 +91,19 @@ namespace ElevenLabs
         public bool? DraftExists { get; set; }
 
         /// <summary>
+        /// Unix seconds when the caller's draft on this branch was first created, or null when they have no draft. A draft created before last_committed_at was written against a config the branch has since moved past, so it may not reflect the current one.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("draft_created_at")]
+        public int? DraftCreatedAt { get; set; }
+
+        /// <summary>
+        /// Whether the caller's draft on this branch was created before the branch's last commit, meaning it was written against a config the branch has since moved past and may not reflect the current one.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("draft_is_behind_tip")]
+        public bool? DraftIsBehindTip { get; set; }
+
+        /// <summary>
         /// Number of calls in the last 7 days<br/>
         /// Default Value: 0
         /// </summary>
@@ -148,6 +161,13 @@ namespace ElevenLabs
         /// Whether a draft exists for the branch<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="draftCreatedAt">
+        /// Unix seconds when the caller's draft on this branch was first created, or null when they have no draft. A draft created before last_committed_at was written against a config the branch has since moved past, so it may not reflect the current one.
+        /// </param>
+        /// <param name="draftIsBehindTip">
+        /// Whether the caller's draft on this branch was created before the branch's last commit, meaning it was written against a config the branch has since moved past and may not reflect the current one.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="calls7d">
         /// Number of calls in the last 7 days<br/>
         /// Default Value: 0
@@ -177,6 +197,8 @@ namespace ElevenLabs
             double? currentLivePercentage,
             string? parentBranchId,
             bool? draftExists,
+            int? draftCreatedAt,
+            bool? draftIsBehindTip,
             int? calls7d,
             int? commitsAhead,
             int? commitsBehind,
@@ -194,6 +216,8 @@ namespace ElevenLabs
             this.CurrentLivePercentage = currentLivePercentage;
             this.ParentBranchId = parentBranchId;
             this.DraftExists = draftExists;
+            this.DraftCreatedAt = draftCreatedAt;
+            this.DraftIsBehindTip = draftIsBehindTip;
             this.Calls7d = calls7d;
             this.CommitsAhead = commitsAhead;
             this.CommitsBehind = commitsBehind;

@@ -29,7 +29,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
             ref int? pageSize,
-            ref global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort,
+            ref global::ElevenLabs.GetPronunciationDictionariesMetadataSort? sort,
             ref string? sortDirection,
             ref bool? includeArchived);
         partial void PrepareListRequest(
@@ -37,7 +37,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
             int? pageSize,
-            global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort,
+            global::ElevenLabs.GetPronunciationDictionariesMetadataSort? sort,
             string? sortDirection,
             bool? includeArchived);
         partial void ProcessListResponse(
@@ -78,7 +78,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPronunciationDictionariesMetadataResponseModel> ListAsync(
             string? cursor = default,
             int? pageSize = default,
-            global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort = default,
+            global::ElevenLabs.GetPronunciationDictionariesMetadataSort? sort = default,
             string? sortDirection = default,
             bool? includeArchived = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -125,7 +125,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetPronunciationDictionariesMetadataResponseModel>> ListAsResponseAsync(
             string? cursor = default,
             int? pageSize = default,
-            global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort = default,
+            global::ElevenLabs.GetPronunciationDictionariesMetadataSort? sort = default,
             string? sortDirection = default,
             bool? includeArchived = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -554,7 +554,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel> ListAutoPagingAsync(
               int? pageSize = default,
-            global::ElevenLabs.GetPronunciationDictionariesMetadataSort2? sort = default,
+            global::ElevenLabs.GetPronunciationDictionariesMetadataSort? sort = default,
             string? sortDirection = default,
             bool? includeArchived = default,
             string? cursor = null,

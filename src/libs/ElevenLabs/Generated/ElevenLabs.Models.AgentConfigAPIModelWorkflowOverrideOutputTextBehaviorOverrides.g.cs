@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Per-channel response behavior overrides for text conversations. Built-in channel defaults apply when unset.
+    ///
     /// </summary>
     public sealed partial class AgentConfigAPIModelWorkflowOverrideOutputTextBehaviorOverrides
     {

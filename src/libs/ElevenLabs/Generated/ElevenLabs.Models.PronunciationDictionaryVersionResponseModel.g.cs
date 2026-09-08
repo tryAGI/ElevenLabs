@@ -47,7 +47,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("permission_on_resource")]
-        public global::ElevenLabs.PronunciationDictionaryVersionResponseModelPermissionOnResource2? PermissionOnResource { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryVersionResponseModelPermissionOnResource? PermissionOnResource { get; set; }
 
         /// <summary>
         ///
@@ -98,7 +98,7 @@ namespace ElevenLabs
             string versionName,
             string createdBy,
             int creationTimeUnix,
-            global::ElevenLabs.PronunciationDictionaryVersionResponseModelPermissionOnResource2? permissionOnResource,
+            global::ElevenLabs.PronunciationDictionaryVersionResponseModelPermissionOnResource? permissionOnResource,
             int? archivedTimeUnix)
         {
             this.VersionId = versionId ?? throw new global::System.ArgumentNullException(nameof(versionId));

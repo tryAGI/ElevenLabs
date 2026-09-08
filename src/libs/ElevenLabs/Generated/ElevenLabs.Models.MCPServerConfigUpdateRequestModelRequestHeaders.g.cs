@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// The headers to include in requests to the MCP server
+    ///
     /// </summary>
     public sealed partial class MCPServerConfigUpdateRequestModelRequestHeaders
     {

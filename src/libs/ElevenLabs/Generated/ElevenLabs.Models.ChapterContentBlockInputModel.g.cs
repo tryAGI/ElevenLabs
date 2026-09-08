@@ -12,7 +12,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sub_type")]
-        public global::ElevenLabs.ChapterContentBlockInputModelSubType2? SubType { get; set; }
+        public global::ElevenLabs.ChapterContentBlockInputModelSubType? SubType { get; set; }
 
         /// <summary>
         ///
@@ -44,7 +44,7 @@ namespace ElevenLabs
 #endif
         public ChapterContentBlockInputModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel> nodes,
-            global::ElevenLabs.ChapterContentBlockInputModelSubType2? subType,
+            global::ElevenLabs.ChapterContentBlockInputModelSubType? subType,
             string? blockId)
         {
             this.SubType = subType;

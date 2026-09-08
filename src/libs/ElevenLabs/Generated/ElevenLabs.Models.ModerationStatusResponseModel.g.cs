@@ -61,13 +61,13 @@ namespace ElevenLabs
         /// The safety status of the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("safety_status")]
-        public global::ElevenLabs.ModerationStatusResponseModelSafetyStatus2? SafetyStatus { get; set; }
+        public global::ElevenLabs.ModerationStatusResponseModelSafetyStatus? SafetyStatus { get; set; }
 
         /// <summary>
         /// The warning status of the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("warning_status")]
-        public global::ElevenLabs.ModerationStatusResponseModelWarningStatus2? WarningStatus { get; set; }
+        public global::ElevenLabs.ModerationStatusResponseModelWarningStatus? WarningStatus { get; set; }
 
         /// <summary>
         /// Whether the user is on the watchlist.
@@ -127,8 +127,8 @@ namespace ElevenLabs
             bool enterpriseBackgroundModerationEnabled,
             bool isIvcCaptchaRequired,
             bool onWatchlist,
-            global::ElevenLabs.ModerationStatusResponseModelSafetyStatus2? safetyStatus,
-            global::ElevenLabs.ModerationStatusResponseModelWarningStatus2? warningStatus)
+            global::ElevenLabs.ModerationStatusResponseModelSafetyStatus? safetyStatus,
+            global::ElevenLabs.ModerationStatusResponseModelWarningStatus? warningStatus)
         {
             this.IsInProbation = isInProbation;
             this.EnterpriseCheckNogoVoice = enterpriseCheckNogoVoice;

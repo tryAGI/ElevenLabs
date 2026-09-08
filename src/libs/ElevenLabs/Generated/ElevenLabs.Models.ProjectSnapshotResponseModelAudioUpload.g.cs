@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// (Deprecated)
+    ///
     /// </summary>
     public sealed partial class ProjectSnapshotResponseModelAudioUpload
     {

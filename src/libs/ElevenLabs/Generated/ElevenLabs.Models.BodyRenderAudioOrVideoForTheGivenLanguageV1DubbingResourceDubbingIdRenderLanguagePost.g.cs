@@ -12,9 +12,9 @@ namespace ElevenLabs
         /// The type of the render. One of ['mp4', 'aac', 'mp3', 'wav', 'aaf', 'tracks_zip', 'clips_zip']
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("render_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.RenderType2JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.RenderTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.RenderType2 RenderType { get; set; }
+        public required global::ElevenLabs.RenderType RenderType { get; set; }
 
         /// <summary>
         /// Whether to normalize the volume of the rendered audio.<br/>
@@ -43,7 +43,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyRenderAudioOrVideoForTheGivenLanguageV1DubbingResourceDubbingIdRenderLanguagePost(
-            global::ElevenLabs.RenderType2 renderType,
+            global::ElevenLabs.RenderType renderType,
             bool? normalizeVolume)
         {
             this.RenderType = renderType;

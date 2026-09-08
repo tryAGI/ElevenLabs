@@ -62,7 +62,7 @@ namespace ElevenLabs
             string? timezone = default,
             string? branchId = default,
             string? environment = default,
-            global::ElevenLabs.TelephonyCallConfig? telephonyCallConfig = default,
+            global::ElevenLabs.TelephonyCallConfigInput? telephonyCallConfig = default,
             int? targetConcurrencyLimit = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

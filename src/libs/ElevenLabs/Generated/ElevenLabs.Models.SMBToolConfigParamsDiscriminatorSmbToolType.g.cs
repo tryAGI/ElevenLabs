@@ -71,7 +71,15 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        CreateProductQuoteRequest,
+        /// <summary>
+        ///
+        /// </summary>
         CreateService,
+        /// <summary>
+        ///
+        /// </summary>
+        CreateServiceQuoteRequest,
         /// <summary>
         ///
         /// </summary>
@@ -263,6 +271,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        SendCustomEmail,
+        /// <summary>
+        ///
+        /// </summary>
         SetBookingSlug,
         /// <summary>
         ///
@@ -373,7 +385,9 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateLocation => "create_location",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateOrder => "create_order",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateProduct => "create_product",
+                SMBToolConfigParamsDiscriminatorSmbToolType.CreateProductQuoteRequest => "create_product_quote_request",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateService => "create_service",
+                SMBToolConfigParamsDiscriminatorSmbToolType.CreateServiceQuoteRequest => "create_service_quote_request",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateStaff => "create_staff",
                 SMBToolConfigParamsDiscriminatorSmbToolType.CreateTransferRule => "create_transfer_rule",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteAgentProcedure => "delete_agent_procedure",
@@ -421,6 +435,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.RestoreCalendarEvent => "restore_calendar_event",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ScheduleGroupSession => "schedule_group_session",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients => "search_clients",
+                SMBToolConfigParamsDiscriminatorSmbToolType.SendCustomEmail => "send_custom_email",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug => "set_booking_slug",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo => "submit_business_info",
                 SMBToolConfigParamsDiscriminatorSmbToolType.TriggerUserVerification => "trigger_user_verification",
@@ -467,7 +482,9 @@ namespace ElevenLabs
                 "create_location" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateLocation,
                 "create_order" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateOrder,
                 "create_product" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateProduct,
+                "create_product_quote_request" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateProductQuoteRequest,
                 "create_service" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateService,
+                "create_service_quote_request" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateServiceQuoteRequest,
                 "create_staff" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateStaff,
                 "create_transfer_rule" => SMBToolConfigParamsDiscriminatorSmbToolType.CreateTransferRule,
                 "delete_agent_procedure" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteAgentProcedure,
@@ -515,6 +532,7 @@ namespace ElevenLabs
                 "restore_calendar_event" => SMBToolConfigParamsDiscriminatorSmbToolType.RestoreCalendarEvent,
                 "schedule_group_session" => SMBToolConfigParamsDiscriminatorSmbToolType.ScheduleGroupSession,
                 "search_clients" => SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients,
+                "send_custom_email" => SMBToolConfigParamsDiscriminatorSmbToolType.SendCustomEmail,
                 "set_booking_slug" => SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug,
                 "submit_business_info" => SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo,
                 "trigger_user_verification" => SMBToolConfigParamsDiscriminatorSmbToolType.TriggerUserVerification,

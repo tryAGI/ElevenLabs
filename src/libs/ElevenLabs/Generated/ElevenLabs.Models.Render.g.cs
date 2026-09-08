@@ -32,7 +32,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        public global::ElevenLabs.RenderType2? Type { get; set; }
+        public global::ElevenLabs.RenderType? Type { get; set; }
 
         /// <summary>
         ///
@@ -71,7 +71,7 @@ namespace ElevenLabs
             int version,
             global::ElevenLabs.RenderStatus status,
             string? language,
-            global::ElevenLabs.RenderType2? type,
+            global::ElevenLabs.RenderType? type,
             global::ElevenLabs.DubbingMediaReference? mediaRef)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));

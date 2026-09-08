@@ -90,7 +90,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("display_mode")]
-        public global::ElevenLabs.DirectPublishingReadResponseModelDisplayMode2? DisplayMode { get; set; }
+        public global::ElevenLabs.DirectPublishingReadResponseModelDisplayMode? DisplayMode { get; set; }
 
         /// <summary>
         ///
@@ -120,7 +120,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_audience")]
-        public global::ElevenLabs.DirectPublishingReadResponseModelTargetAudience2? TargetAudience { get; set; }
+        public global::ElevenLabs.DirectPublishingReadResponseModelTargetAudience? TargetAudience { get; set; }
 
         /// <summary>
         ///
@@ -240,7 +240,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("payout_type")]
-        public global::ElevenLabs.DirectPublishingReadResponseModelPayoutType2? PayoutType { get; set; }
+        public global::ElevenLabs.DirectPublishingReadResponseModelPayoutType? PayoutType { get; set; }
 
         /// <summary>
         ///
@@ -416,12 +416,12 @@ namespace ElevenLabs
             string? articleImageUrl,
             string? language,
             string? locale,
-            global::ElevenLabs.DirectPublishingReadResponseModelDisplayMode2? displayMode,
+            global::ElevenLabs.DirectPublishingReadResponseModelDisplayMode? displayMode,
             global::System.Collections.Generic.IList<global::ElevenLabs.DirectPublishingReadResponseModelGenreVariant1Item>? genre,
             string? fiction,
             string? contentType,
             string? originalFileType,
-            global::ElevenLabs.DirectPublishingReadResponseModelTargetAudience2? targetAudience,
+            global::ElevenLabs.DirectPublishingReadResponseModelTargetAudience? targetAudience,
             bool? matureContent,
             bool? safesearchAdult,
             string? origin,
@@ -441,7 +441,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? distributionTerritories,
             string? edition,
             global::System.Collections.Generic.IList<global::ElevenLabs.Contributor>? contributors,
-            global::ElevenLabs.DirectPublishingReadResponseModelPayoutType2? payoutType,
+            global::ElevenLabs.DirectPublishingReadResponseModelPayoutType? payoutType,
             double? listPrice,
             string? currency,
             string? originalAudioProjectExportId,

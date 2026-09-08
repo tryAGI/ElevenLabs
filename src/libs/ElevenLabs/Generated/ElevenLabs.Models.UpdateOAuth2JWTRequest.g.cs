@@ -24,7 +24,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("algorithm")]
-        public global::ElevenLabs.UpdateOAuth2JWTRequestAlgorithm2? Algorithm { get; set; }
+        public global::ElevenLabs.UpdateOAuth2JWTRequestAlgorithm? Algorithm { get; set; }
 
         /// <summary>
         ///
@@ -72,7 +72,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token_response_field")]
-        public global::ElevenLabs.UpdateOAuth2JWTRequestTokenResponseField2? TokenResponseField { get; set; }
+        public global::ElevenLabs.UpdateOAuth2JWTRequestTokenResponseField? TokenResponseField { get; set; }
 
         /// <summary>
         ///
@@ -109,7 +109,7 @@ namespace ElevenLabs
         public UpdateOAuth2JWTRequest(
             string? authType,
             string? provider,
-            global::ElevenLabs.UpdateOAuth2JWTRequestAlgorithm2? algorithm,
+            global::ElevenLabs.UpdateOAuth2JWTRequestAlgorithm? algorithm,
             string? keyId,
             string? issuer,
             string? audience,
@@ -117,7 +117,7 @@ namespace ElevenLabs
             int? expirationSeconds,
             global::System.Collections.Generic.Dictionary<string, string>? extraParams,
             global::System.Collections.Generic.IList<string>? scopes,
-            global::ElevenLabs.UpdateOAuth2JWTRequestTokenResponseField2? tokenResponseField,
+            global::ElevenLabs.UpdateOAuth2JWTRequestTokenResponseField? tokenResponseField,
             string? secretKey)
         {
             this.AuthType = authType;

@@ -613,7 +613,7 @@ namespace ElevenLabs
             string? instructionsPrompt = default,
             global::System.Collections.Generic.IList<string>? highlights = default,
             string? callbackUrl = default,
-            global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization2? applyTextNormalization = default,
+            global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization? applyTextNormalization = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
