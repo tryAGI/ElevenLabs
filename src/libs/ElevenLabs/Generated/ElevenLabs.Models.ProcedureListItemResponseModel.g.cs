@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"has_draft":false,"name":"Customer Support Procedure","procedure_id":"agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3","trigger":"When the customer asks for support","type":"free_form","version_id":"agtprcv_7rbqxer9o12cyxi55ckw6sgz1dl4"}
+    /// Example: {"has_draft":false,"name":"Customer Support Procedure","procedure_id":"agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3","referenced_dynamic_variables":["customer_id"],"referenced_kb_ids":["kb_123"],"referenced_procedure_ids":["agtprc_other"],"referenced_tool_ids":["tool_123"],"trigger":"When the customer asks for support","type":"free_form","version_id":"agtprcv_7rbqxer9o12cyxi55ckw6sgz1dl4"}
     /// </summary>
     public sealed partial class ProcedureListItemResponseModel
     {
@@ -49,6 +49,36 @@ namespace ElevenLabs
         public required bool HasDraft { get; set; }
 
         /// <summary>
+        /// Tool IDs referenced in the procedure content
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("referenced_tool_ids")]
+        public global::System.Collections.Generic.IList<string>? ReferencedToolIds { get; set; }
+
+        /// <summary>
+        /// Knowledge base IDs referenced in the procedure content
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("referenced_kb_ids")]
+        public global::System.Collections.Generic.IList<string>? ReferencedKbIds { get; set; }
+
+        /// <summary>
+        /// Procedure IDs referenced in the procedure content
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("referenced_procedure_ids")]
+        public global::System.Collections.Generic.IList<string>? ReferencedProcedureIds { get; set; }
+
+        /// <summary>
+        /// Dynamic variable names used in the procedure content
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("referenced_dynamic_variables")]
+        public global::System.Collections.Generic.IList<string>? ReferencedDynamicVariables { get; set; }
+
+        /// <summary>
+        /// Procedure ID of the folder this procedure is placed in. None means root.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("folder_parent_id")]
+        public string? FolderParentId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -76,6 +106,21 @@ namespace ElevenLabs
         /// <param name="trigger">
         /// When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it.
         /// </param>
+        /// <param name="referencedToolIds">
+        /// Tool IDs referenced in the procedure content
+        /// </param>
+        /// <param name="referencedKbIds">
+        /// Knowledge base IDs referenced in the procedure content
+        /// </param>
+        /// <param name="referencedProcedureIds">
+        /// Procedure IDs referenced in the procedure content
+        /// </param>
+        /// <param name="referencedDynamicVariables">
+        /// Dynamic variable names used in the procedure content
+        /// </param>
+        /// <param name="folderParentId">
+        /// Procedure ID of the folder this procedure is placed in. None means root.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -85,7 +130,12 @@ namespace ElevenLabs
             string? versionId,
             string? name,
             global::ElevenLabs.ProcedureType? type,
-            string? trigger)
+            string? trigger,
+            global::System.Collections.Generic.IList<string>? referencedToolIds,
+            global::System.Collections.Generic.IList<string>? referencedKbIds,
+            global::System.Collections.Generic.IList<string>? referencedProcedureIds,
+            global::System.Collections.Generic.IList<string>? referencedDynamicVariables,
+            string? folderParentId)
         {
             this.ProcedureId = procedureId ?? throw new global::System.ArgumentNullException(nameof(procedureId));
             this.VersionId = versionId;
@@ -93,6 +143,11 @@ namespace ElevenLabs
             this.Type = type;
             this.Trigger = trigger;
             this.HasDraft = hasDraft;
+            this.ReferencedToolIds = referencedToolIds;
+            this.ReferencedKbIds = referencedKbIds;
+            this.ReferencedProcedureIds = referencedProcedureIds;
+            this.ReferencedDynamicVariables = referencedDynamicVariables;
+            this.FolderParentId = folderParentId;
         }
 
         /// <summary>

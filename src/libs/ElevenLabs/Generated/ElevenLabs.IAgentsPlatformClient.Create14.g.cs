@@ -63,6 +63,10 @@ namespace ElevenLabs
         /// <param name="workflow">
         /// Updated workflow definition
         /// </param>
+        /// <param name="includeDraft">
+        /// When true, the new branch uses the caller's draft procedure set instead of the branch tip. Requires parent_version_id to be the branch tip.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -74,6 +78,7 @@ namespace ElevenLabs
             object? conversationConfig = default,
             object? platformSettings = default,
             global::ElevenLabs.AgentWorkflowRequestModel? workflow = default,
+            bool? includeDraft = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

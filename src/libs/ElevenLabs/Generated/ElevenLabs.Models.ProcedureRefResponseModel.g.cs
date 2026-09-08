@@ -66,6 +66,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? ReferencedDynamicVariables { get; set; }
 
         /// <summary>
+        /// Procedure ID of the folder this procedure is placed in. None means root.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("folder_parent_id")]
+        public string? FolderParentId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -102,6 +108,9 @@ namespace ElevenLabs
         /// <param name="referencedDynamicVariables">
         /// Dynamic variable names used in the procedure content
         /// </param>
+        /// <param name="folderParentId">
+        /// Procedure ID of the folder this procedure is placed in. None means root.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -114,7 +123,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? referencedToolIds,
             global::System.Collections.Generic.IList<string>? referencedKbIds,
             global::System.Collections.Generic.IList<string>? referencedProcedureIds,
-            global::System.Collections.Generic.IList<string>? referencedDynamicVariables)
+            global::System.Collections.Generic.IList<string>? referencedDynamicVariables,
+            string? folderParentId)
         {
             this.ProcedureId = procedureId ?? throw new global::System.ArgumentNullException(nameof(procedureId));
             this.VersionId = versionId;
@@ -125,6 +135,7 @@ namespace ElevenLabs
             this.ReferencedKbIds = referencedKbIds;
             this.ReferencedProcedureIds = referencedProcedureIds;
             this.ReferencedDynamicVariables = referencedDynamicVariables;
+            this.FolderParentId = folderParentId;
         }
 
         /// <summary>

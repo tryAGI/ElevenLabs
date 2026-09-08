@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class GenerationChunkInput
     {
         /// <summary>
-        /// The text config to be generated for this chunk. Can contain section name in square brackets, e.g. [Verse 1], lyrics lines, and inline directions in curly braces, e.g. {scratching}.
+        /// The text config to be generated for this chunk. Can contain an optional section name in square brackets at the beginning, e.g. [Verse 1], lyrics lines, and inline directions in curly braces, e.g. {scratching}. Section names must be between 1 and 100 characters. At most 30 lines are allowed, each at most 200 characters.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -65,7 +65,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="GenerationChunkInput" /> class.
         /// </summary>
         /// <param name="text">
-        /// The text config to be generated for this chunk. Can contain section name in square brackets, e.g. [Verse 1], lyrics lines, and inline directions in curly braces, e.g. {scratching}.
+        /// The text config to be generated for this chunk. Can contain an optional section name in square brackets at the beginning, e.g. [Verse 1], lyrics lines, and inline directions in curly braces, e.g. {scratching}. Section names must be between 1 and 100 characters. At most 30 lines are allowed, each at most 200 characters.
         /// </param>
         /// <param name="durationMs">
         /// The duration of the chunk in milliseconds. Must be between 3000ms and 120000ms.

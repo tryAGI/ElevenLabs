@@ -19,6 +19,14 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        EndProcedureError,
+        /// <summary>
+        ///
+        /// </summary>
+        EndProcedureSuccess,
+        /// <summary>
+        ///
+        /// </summary>
         KnowledgeBaseRagSuccess,
         /// <summary>
         ///
@@ -40,6 +48,14 @@ namespace ElevenLabs
         ///
         /// </summary>
         SkipTurnSuccess,
+        /// <summary>
+        ///
+        /// </summary>
+        StartProcedureError,
+        /// <summary>
+        ///
+        /// </summary>
+        StartProcedureSuccess,
         /// <summary>
         ///
         /// </summary>
@@ -88,12 +104,16 @@ namespace ElevenLabs
             {
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.Dummy => "dummy",
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.EndCallSuccess => "end_call_success",
+                ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.EndProcedureError => "end_procedure_error",
+                ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.EndProcedureSuccess => "end_procedure_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.KnowledgeBaseRagSuccess => "knowledge_base_rag_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.KnowledgeBaseSuccess => "knowledge_base_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.LanguageDetectionSuccess => "language_detection_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.PlayDtmfError => "play_dtmf_error",
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.PlayDtmfSuccess => "play_dtmf_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.SkipTurnSuccess => "skip_turn_success",
+                ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.StartProcedureError => "start_procedure_error",
+                ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.StartProcedureSuccess => "start_procedure_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TestingToolResult => "testing_tool_result",
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToAgentError => "transfer_to_agent_error",
                 ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToAgentSuccess => "transfer_to_agent_success",
@@ -114,12 +134,16 @@ namespace ElevenLabs
             {
                 "dummy" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.Dummy,
                 "end_call_success" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.EndCallSuccess,
+                "end_procedure_error" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.EndProcedureError,
+                "end_procedure_success" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.EndProcedureSuccess,
                 "knowledge_base_rag_success" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.KnowledgeBaseRagSuccess,
                 "knowledge_base_success" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.KnowledgeBaseSuccess,
                 "language_detection_success" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.LanguageDetectionSuccess,
                 "play_dtmf_error" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.PlayDtmfError,
                 "play_dtmf_success" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.PlayDtmfSuccess,
                 "skip_turn_success" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.SkipTurnSuccess,
+                "start_procedure_error" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.StartProcedureError,
+                "start_procedure_success" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.StartProcedureSuccess,
                 "testing_tool_result" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TestingToolResult,
                 "transfer_to_agent_error" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToAgentError,
                 "transfer_to_agent_success" => ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToAgentSuccess,

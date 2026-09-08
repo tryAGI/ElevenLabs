@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Folder,
+        /// <summary>
+        ///
+        /// </summary>
         FreeForm,
     }
 
@@ -31,6 +35,7 @@ namespace ElevenLabs
             return value switch
             {
                 ProcedureType.Deterministic => "deterministic",
+                ProcedureType.Folder => "folder",
                 ProcedureType.FreeForm => "free_form",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -43,6 +48,7 @@ namespace ElevenLabs
             return value switch
             {
                 "deterministic" => ProcedureType.Deterministic,
+                "folder" => ProcedureType.Folder,
                 "free_form" => ProcedureType.FreeForm,
                 _ => null,
             };

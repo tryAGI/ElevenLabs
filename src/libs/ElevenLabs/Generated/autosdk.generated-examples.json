@@ -39,7 +39,7 @@
       "Slug": "create-procedure-route",
       "Description": "Create a new procedure for the agent on a branch.",
       "Language": "http",
-      "Code": "### Create Procedure\n# @name create_procedure_route\nPOST {{host}}/v1/convai/agents/{{agent_id}}/branches/{{branch_id}}/procedures\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022name\u0022: \u0022\u0022,\n  \u0022content\u0022: \u0022\u0022,\n  \u0022type\u0022: \u0022free_form\u0022,\n  \u0022trigger\u0022: \u0022string\u0022\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Create Procedure\n# @name create_procedure_route\nPOST {{host}}/v1/convai/agents/{{agent_id}}/branches/{{branch_id}}/procedures\nxi-api-key: {{api_key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022name\u0022: \u0022\u0022,\n  \u0022content\u0022: \u0022\u0022,\n  \u0022type\u0022: \u0022free_form\u0022,\n  \u0022trigger\u0022: \u0022string\u0022,\n  \u0022folder_parent_id\u0022: \u0022string\u0022\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "create_procedure_route",
       "Setup": null
@@ -147,9 +147,9 @@
       "Order": 14,
       "Title": "List Procedures",
       "Slug": "list-procedures-route",
-      "Description": "List the agent\u0027s procedures on a branch with their procedure_id, version_id, name, type, trigger, and has_draft. has_draft is true when a procedure has unpublished draft changes on this branch; its name/type/trigger then reflect that draft. Does not return procedure content -- use Get Procedure to read a procedure\u0027s body.",
+      "Description": "List the procedures attached to this agent branch. By default, unpublished drafts take precedence over the latest committed version. Pass agent_version_id to list a published snapshot instead. has_draft is true when a procedure has unpublished draft changes on this branch. Procedure content is not included; use Get Procedure to read a procedure\u0027s body.",
       "Language": "csharp",
-      "Code": "using var client = ElevenLabsClient.CreateFromEnvironment();\nvar response = await client.ListAsync();\n\n// Example response:\n// {\n//   \u0022procedures\u0022: [\n//     {\n//       \u0022has_draft\u0022: false,\n//       \u0022name\u0022: \u0022Customer Support Procedure\u0022,\n//       \u0022procedure_id\u0022: \u0022agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3\u0022,\n//       \u0022trigger\u0022: \u0022When the customer asks for support\u0022,\n//       \u0022type\u0022: \u0022free_form\u0022,\n//       \u0022version_id\u0022: \u0022agtprcv_7rbqxer9o12cyxi55ckw6sgz1dl4\u0022\n//     }\n//   ]\n// }",
+      "Code": "using var client = ElevenLabsClient.CreateFromEnvironment();\nvar response = await client.ListAsync();\n\n// Example response:\n// {\n//   \u0022procedures\u0022: [\n//     {\n//       \u0022has_draft\u0022: false,\n//       \u0022name\u0022: \u0022Customer Support Procedure\u0022,\n//       \u0022procedure_id\u0022: \u0022agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3\u0022,\n//       \u0022referenced_dynamic_variables\u0022: [\n//         \u0022customer_id\u0022\n//       ],\n//       \u0022referenced_kb_ids\u0022: [\n//         \u0022kb_123\u0022\n//       ],\n//       \u0022referenced_procedure_ids\u0022: [\n//         \u0022agtprc_other\u0022\n//       ],\n//       \u0022referenced_tool_ids\u0022: [\n//         \u0022tool_123\u0022\n//       ],\n//       \u0022trigger\u0022: \u0022When the customer asks for support\u0022,\n//       \u0022type\u0022: \u0022free_form\u0022,\n//       \u0022version_id\u0022: \u0022agtprcv_7rbqxer9o12cyxi55ckw6sgz1dl4\u0022\n//     }\n//   ]\n// }",
       "Format": "sdk",
       "OperationId": "list_procedures_route",
       "Setup": "This example assumes \u0060using ElevenLabs;\u0060 is in scope and a configured credential environment variable is set: \u0060ELEVENLABS_API_KEY\u0060."

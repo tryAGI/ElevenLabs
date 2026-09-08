@@ -30747,7 +30747,7 @@
           "Agents Platform"
         ],
         "summary": "List Procedures",
-        "description": "List the agent's procedures on a branch with their procedure_id, version_id, name, type, trigger, and has_draft. has_draft is true when a procedure has unpublished draft changes on this branch; its name/type/trigger then reflect that draft. Does not return procedure content -- use Get Procedure to read a procedure's body.",
+        "description": "List the procedures attached to this agent branch. By default, unpublished drafts take precedence over the latest committed version. Pass agent_version_id to list a published snapshot instead. has_draft is true when a procedure has unpublished draft changes on this branch. Procedure content is not included; use Get Procedure to read a procedure's body.",
         "operationId": "list_procedures_route",
         "parameters": [
           {
@@ -46828,6 +46828,12 @@
               }
             ],
             "description": "Updated workflow definition"
+          },
+          "include_draft": {
+            "type": "boolean",
+            "title": "Include Draft",
+            "description": "When true, the new branch uses the caller's draft procedure set instead of the branch tip. Requires parent_version_id to be the branch tip.",
+            "default": false
           }
         },
         "type": "object",
@@ -59416,6 +59422,18 @@
                     "$ref": "#/components/schemas/KnowledgeBaseToolResultModel"
                   },
                   {
+                    "$ref": "#/components/schemas/StartProcedureToolResultSuccessModel"
+                  },
+                  {
+                    "$ref": "#/components/schemas/StartProcedureToolResultErrorModel"
+                  },
+                  {
+                    "$ref": "#/components/schemas/EndProcedureToolResultSuccessModel"
+                  },
+                  {
+                    "$ref": "#/components/schemas/EndProcedureToolResultErrorModel"
+                  },
+                  {
                     "$ref": "#/components/schemas/DummyToolResultModel"
                   }
                 ],
@@ -59424,12 +59442,16 @@
                   "mapping": {
                     "dummy": "#/components/schemas/DummyToolResultModel",
                     "end_call_success": "#/components/schemas/EndCallToolResultModel",
+                    "end_procedure_error": "#/components/schemas/EndProcedureToolResultErrorModel",
+                    "end_procedure_success": "#/components/schemas/EndProcedureToolResultSuccessModel",
                     "knowledge_base_rag_success": "#/components/schemas/KnowledgeBaseRagToolResultModel",
                     "knowledge_base_success": "#/components/schemas/KnowledgeBaseToolResultModel",
                     "language_detection_success": "#/components/schemas/LanguageDetectionToolResultModel",
                     "play_dtmf_error": "#/components/schemas/PlayDTMFResultErrorModel",
                     "play_dtmf_success": "#/components/schemas/PlayDTMFResultSuccessModel",
                     "skip_turn_success": "#/components/schemas/SkipTurnToolResponseModel",
+                    "start_procedure_error": "#/components/schemas/StartProcedureToolResultErrorModel",
+                    "start_procedure_success": "#/components/schemas/StartProcedureToolResultSuccessModel",
                     "testing_tool_result": "#/components/schemas/TestToolResultModel",
                     "transfer_to_agent_error": "#/components/schemas/TransferToAgentToolResultErrorModel",
                     "transfer_to_agent_success": "#/components/schemas/TransferToAgentToolResultSuccessModel-Input",
@@ -59563,6 +59585,18 @@
                     "$ref": "#/components/schemas/KnowledgeBaseToolResultModel"
                   },
                   {
+                    "$ref": "#/components/schemas/StartProcedureToolResultSuccessModel"
+                  },
+                  {
+                    "$ref": "#/components/schemas/StartProcedureToolResultErrorModel"
+                  },
+                  {
+                    "$ref": "#/components/schemas/EndProcedureToolResultSuccessModel"
+                  },
+                  {
+                    "$ref": "#/components/schemas/EndProcedureToolResultErrorModel"
+                  },
+                  {
                     "$ref": "#/components/schemas/DummyToolResultModel"
                   }
                 ],
@@ -59571,12 +59605,16 @@
                   "mapping": {
                     "dummy": "#/components/schemas/DummyToolResultModel",
                     "end_call_success": "#/components/schemas/EndCallToolResultModel",
+                    "end_procedure_error": "#/components/schemas/EndProcedureToolResultErrorModel",
+                    "end_procedure_success": "#/components/schemas/EndProcedureToolResultSuccessModel",
                     "knowledge_base_rag_success": "#/components/schemas/KnowledgeBaseRagToolResultModel",
                     "knowledge_base_success": "#/components/schemas/KnowledgeBaseToolResultModel",
                     "language_detection_success": "#/components/schemas/LanguageDetectionToolResultModel",
                     "play_dtmf_error": "#/components/schemas/PlayDTMFResultErrorModel",
                     "play_dtmf_success": "#/components/schemas/PlayDTMFResultSuccessModel",
                     "skip_turn_success": "#/components/schemas/SkipTurnToolResponseModel",
+                    "start_procedure_error": "#/components/schemas/StartProcedureToolResultErrorModel",
+                    "start_procedure_success": "#/components/schemas/StartProcedureToolResultSuccessModel",
                     "testing_tool_result": "#/components/schemas/TestToolResultModel",
                     "transfer_to_agent_error": "#/components/schemas/TransferToAgentToolResultErrorModel",
                     "transfer_to_agent_success": "#/components/schemas/TransferToAgentToolResultSuccessModel-Output",
@@ -62672,6 +62710,18 @@
             ],
             "title": "Trigger",
             "description": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it. If omitted or null, the trigger is derived from the content instead. Also accepts `description` as an alias."
+          },
+          "folder_parent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Folder Parent Id",
+            "description": "Procedure ID of the folder to create this procedure in, or null for root."
           }
         },
         "type": "object",
@@ -68154,6 +68204,75 @@
           "invalid_id"
         ]
       },
+      "EndProcedureToolResultErrorModel": {
+        "properties": {
+          "result_type": {
+            "type": "string",
+            "const": "end_procedure_error",
+            "title": "Result Type",
+            "default": "end_procedure_error"
+          },
+          "status": {
+            "$ref": "#/components/schemas/EndProcedureToolErrorStatus"
+          },
+          "procedure_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Procedure Id"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "message"
+        ],
+        "title": "EndProcedureToolResultErrorModel"
+      },
+      "EndProcedureToolResultSuccessModel": {
+        "properties": {
+          "result_type": {
+            "type": "string",
+            "const": "end_procedure_success",
+            "title": "Result Type",
+            "default": "end_procedure_success"
+          },
+          "status": {
+            "type": "string",
+            "const": "success",
+            "title": "Status",
+            "default": "success"
+          },
+          "procedure_id": {
+            "type": "string",
+            "title": "Procedure Id"
+          },
+          "procedure_name": {
+            "type": "string",
+            "title": "Procedure Name"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "procedure_id",
+          "procedure_name"
+        ],
+        "title": "EndProcedureToolResultSuccessModel"
+      },
       "EntityManagementActivityId": {
         "type": "integer",
         "enum": [
@@ -70295,9 +70414,9 @@
         "properties": {
           "text": {
             "type": "string",
-            "maxLength": 6000,
+            "maxLength": 6132,
             "title": "Text",
-            "description": "The text config to be generated for this chunk. Can contain section name in square brackets, e.g. [Verse 1], lyrics lines, and inline directions in curly braces, e.g. {scratching}."
+            "description": "The text config to be generated for this chunk. Can contain an optional section name in square brackets at the beginning, e.g. [Verse 1], lyrics lines, and inline directions in curly braces, e.g. {scratching}. Section names must be between 1 and 100 characters. At most 30 lines are allowed, each at most 200 characters."
           },
           "duration_ms": {
             "type": "integer",
@@ -70377,9 +70496,9 @@
         "properties": {
           "text": {
             "type": "string",
-            "maxLength": 6000,
+            "maxLength": 6132,
             "title": "Text",
-            "description": "The text config to be generated for this chunk. Can contain section name in square brackets, e.g. [Verse 1], lyrics lines, and inline directions in curly braces, e.g. {scratching}."
+            "description": "The text config to be generated for this chunk. Can contain an optional section name in square brackets at the beginning, e.g. [Verse 1], lyrics lines, and inline directions in curly braces, e.g. {scratching}. Section names must be between 1 and 100 characters. At most 30 lines are allowed, each at most 200 characters."
           },
           "duration_ms": {
             "type": "integer",
@@ -70808,6 +70927,14 @@
             ],
             "title": "Main Branch Id",
             "description": "The ID of the main branch for this agent"
+          },
+          "procedures": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ProcedureRefResponseModel"
+            },
+            "type": "object",
+            "title": "Procedures",
+            "description": "Procedures keyed by procedure_id."
           }
         },
         "type": "object",
@@ -78012,6 +78139,18 @@
               "has_draft": false,
               "name": "Customer Support Procedure",
               "procedure_id": "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3",
+              "referenced_dynamic_variables": [
+                "customer_id"
+              ],
+              "referenced_kb_ids": [
+                "kb_123"
+              ],
+              "referenced_procedure_ids": [
+                "agtprc_other"
+              ],
+              "referenced_tool_ids": [
+                "tool_123"
+              ],
               "trigger": "When the customer asks for support",
               "type": "free_form",
               "version_id": "agtprcv_7rbqxer9o12cyxi55ckw6sgz1dl4"
@@ -80948,6 +81087,14 @@
             ],
             "title": "Main Branch Id",
             "description": "The ID of the main branch for this agent"
+          },
+          "procedures": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ProcedureRefResponseModel"
+            },
+            "type": "object",
+            "title": "Procedures",
+            "description": "Procedures keyed by procedure_id."
           },
           "overridden_fields": {
             "items": {
@@ -85322,6 +85469,18 @@
             "title": "Trigger",
             "description": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it.",
             "default": ""
+          },
+          "folder_parent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Folder Parent Id",
+            "description": "Procedure ID of the folder this procedure is placed in. None means root."
           }
         },
         "type": "object",
@@ -85387,6 +85546,18 @@
             "title": "Trigger",
             "description": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it.",
             "default": ""
+          },
+          "folder_parent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Folder Parent Id",
+            "description": "Procedure ID of the folder this procedure is placed in. None means root."
           }
         },
         "type": "object",
@@ -85444,6 +85615,50 @@
             "type": "boolean",
             "title": "Has Draft",
             "description": "True when the procedure has unpublished draft changes on this branch (a newly created or edited procedure not yet published). When true, the name, type, and trigger reflect that draft."
+          },
+          "referenced_tool_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Tool Ids",
+            "description": "Tool IDs referenced in the procedure content"
+          },
+          "referenced_kb_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Kb Ids",
+            "description": "Knowledge base IDs referenced in the procedure content"
+          },
+          "referenced_procedure_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Procedure Ids",
+            "description": "Procedure IDs referenced in the procedure content"
+          },
+          "referenced_dynamic_variables": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Referenced Dynamic Variables",
+            "description": "Dynamic variable names used in the procedure content"
+          },
+          "folder_parent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Folder Parent Id",
+            "description": "Procedure ID of the folder this procedure is placed in. None means root."
           }
         },
         "type": "object",
@@ -85456,6 +85671,18 @@
           "has_draft": false,
           "name": "Customer Support Procedure",
           "procedure_id": "agtprc_6qbpwdq8n01bxhk44bgjy6f10ck3",
+          "referenced_dynamic_variables": [
+            "customer_id"
+          ],
+          "referenced_kb_ids": [
+            "kb_123"
+          ],
+          "referenced_procedure_ids": [
+            "agtprc_other"
+          ],
+          "referenced_tool_ids": [
+            "tool_123"
+          ],
           "trigger": "When the customer asks for support",
           "type": "free_form",
           "version_id": "agtprcv_7rbqxer9o12cyxi55ckw6sgz1dl4"
@@ -85528,6 +85755,18 @@
             "type": "array",
             "title": "Referenced Dynamic Variables",
             "description": "Dynamic variable names used in the procedure content"
+          },
+          "folder_parent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Folder Parent Id",
+            "description": "Procedure ID of the folder this procedure is placed in. None means root."
           }
         },
         "type": "object",
@@ -85559,7 +85798,8 @@
         "type": "string",
         "enum": [
           "free_form",
-          "deterministic"
+          "deterministic",
+          "folder"
         ],
         "title": "ProcedureType",
         "default": "free_form"
@@ -95496,6 +95736,97 @@
           "invalid_name",
           "already_active"
         ]
+      },
+      "StartProcedureToolResultErrorModel": {
+        "properties": {
+          "result_type": {
+            "type": "string",
+            "const": "start_procedure_error",
+            "title": "Result Type",
+            "default": "start_procedure_error"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StartProcedureToolErrorStatus"
+          },
+          "procedure_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Procedure Id"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "message"
+        ],
+        "title": "StartProcedureToolResultErrorModel"
+      },
+      "StartProcedureToolResultSuccessModel": {
+        "properties": {
+          "result_type": {
+            "type": "string",
+            "const": "start_procedure_success",
+            "title": "Result Type",
+            "default": "start_procedure_success"
+          },
+          "status": {
+            "type": "string",
+            "const": "success",
+            "title": "Status",
+            "default": "success"
+          },
+          "procedure_id": {
+            "type": "string",
+            "title": "Procedure Id"
+          },
+          "procedure_name": {
+            "type": "string",
+            "title": "Procedure Name"
+          },
+          "procedure_entry_workflow_node": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Procedure Entry Workflow Node"
+          },
+          "procedure_return_workflow_node": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Procedure Return Workflow Node"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "default": "Procedure is now started. Follow its instructions from the <active-procedures> section of your system prompt."
+          }
+        },
+        "type": "object",
+        "required": [
+          "procedure_id",
+          "procedure_name"
+        ],
+        "title": "StartProcedureToolResultSuccessModel"
       },
       "StartSpeakerSeparationResponseModel": {
         "properties": {
