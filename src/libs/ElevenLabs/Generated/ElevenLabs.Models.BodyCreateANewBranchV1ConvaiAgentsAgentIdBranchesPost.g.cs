@@ -48,6 +48,13 @@ namespace ElevenLabs
         public global::ElevenLabs.AgentWorkflowRequestModel? Workflow { get; set; }
 
         /// <summary>
+        /// When true, the new branch uses the caller's draft procedure set instead of the branch tip. Requires parent_version_id to be the branch tip.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("include_draft")]
+        public bool? IncludeDraft { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -74,6 +81,10 @@ namespace ElevenLabs
         /// <param name="workflow">
         /// Updated workflow definition
         /// </param>
+        /// <param name="includeDraft">
+        /// When true, the new branch uses the caller's draft procedure set instead of the branch tip. Requires parent_version_id to be the branch tip.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -83,7 +94,8 @@ namespace ElevenLabs
             string description,
             object? conversationConfig,
             object? platformSettings,
-            global::ElevenLabs.AgentWorkflowRequestModel? workflow)
+            global::ElevenLabs.AgentWorkflowRequestModel? workflow,
+            bool? includeDraft)
         {
             this.ParentVersionId = parentVersionId ?? throw new global::System.ArgumentNullException(nameof(parentVersionId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -91,6 +103,7 @@ namespace ElevenLabs
             this.ConversationConfig = conversationConfig;
             this.PlatformSettings = platformSettings;
             this.Workflow = workflow;
+            this.IncludeDraft = includeDraft;
         }
 
         /// <summary>

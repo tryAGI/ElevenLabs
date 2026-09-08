@@ -93,6 +93,12 @@ namespace ElevenLabs
         public string? MainBranchId { get; set; }
 
         /// <summary>
+        /// Procedures keyed by procedure_id.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("procedures")]
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureRefResponseModel>? Procedures { get; set; }
+
+        /// <summary>
         /// Dot-paths of config fields where both branches modified the same field relative to their common ancestor (conflicts). Present regardless of which side wins the conflict.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overridden_fields")]
@@ -160,6 +166,9 @@ namespace ElevenLabs
         /// <param name="mainBranchId">
         /// The ID of the main branch for this agent
         /// </param>
+        /// <param name="procedures">
+        /// Procedures keyed by procedure_id.
+        /// </param>
         /// <param name="overriddenFields">
         /// Dot-paths of config fields where both branches modified the same field relative to their common ancestor (conflicts). Present regardless of which side wins the conflict.
         /// </param>
@@ -187,6 +196,7 @@ namespace ElevenLabs
             string? versionId,
             string? branchId,
             string? mainBranchId,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureRefResponseModel>? procedures,
             global::System.Collections.Generic.IList<string>? overriddenFields,
             global::System.Collections.Generic.IList<global::ElevenLabs.FieldConflict>? conflicts,
             bool? sourceIdenticalToTarget)
@@ -204,6 +214,7 @@ namespace ElevenLabs
             this.VersionId = versionId;
             this.BranchId = branchId;
             this.MainBranchId = mainBranchId;
+            this.Procedures = procedures;
             this.OverriddenFields = overriddenFields;
             this.Conflicts = conflicts;
             this.SourceIdenticalToTarget = sourceIdenticalToTarget;

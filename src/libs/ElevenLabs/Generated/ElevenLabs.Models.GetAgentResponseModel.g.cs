@@ -93,6 +93,12 @@ namespace ElevenLabs
         public string? MainBranchId { get; set; }
 
         /// <summary>
+        /// Procedures keyed by procedure_id.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("procedures")]
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureRefResponseModel>? Procedures { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -141,6 +147,9 @@ namespace ElevenLabs
         /// <param name="mainBranchId">
         /// The ID of the main branch for this agent
         /// </param>
+        /// <param name="procedures">
+        /// Procedures keyed by procedure_id.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -157,7 +166,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? tags,
             string? versionId,
             string? branchId,
-            string? mainBranchId)
+            string? mainBranchId,
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureRefResponseModel>? procedures)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -172,6 +182,7 @@ namespace ElevenLabs
             this.VersionId = versionId;
             this.BranchId = branchId;
             this.MainBranchId = mainBranchId;
+            this.Procedures = procedures;
         }
 
         /// <summary>

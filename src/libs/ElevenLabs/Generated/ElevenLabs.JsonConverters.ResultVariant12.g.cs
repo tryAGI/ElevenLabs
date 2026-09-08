@@ -126,6 +126,34 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.KnowledgeBaseToolResultModel)}");
                 knowledgeBaseSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.StartProcedureToolResultSuccessModel? startProcedureSuccess = default;
+            if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.StartProcedureSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.StartProcedureToolResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.StartProcedureToolResultSuccessModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.StartProcedureToolResultSuccessModel)}");
+                startProcedureSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.StartProcedureToolResultErrorModel? startProcedureError = default;
+            if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.StartProcedureError)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.StartProcedureToolResultErrorModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.StartProcedureToolResultErrorModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.StartProcedureToolResultErrorModel)}");
+                startProcedureError = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.EndProcedureToolResultSuccessModel? endProcedureSuccess = default;
+            if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.EndProcedureSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndProcedureToolResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndProcedureToolResultSuccessModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.EndProcedureToolResultSuccessModel)}");
+                endProcedureSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.EndProcedureToolResultErrorModel? endProcedureError = default;
+            if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.EndProcedureError)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndProcedureToolResultErrorModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndProcedureToolResultErrorModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.EndProcedureToolResultErrorModel)}");
+                endProcedureError = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.DummyToolResultModel? dummy = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.Dummy)
             {
@@ -165,6 +193,14 @@ namespace ElevenLabs.JsonConverters
                 knowledgeBaseRagSuccess,
 
                 knowledgeBaseSuccess,
+
+                startProcedureSuccess,
+
+                startProcedureError,
+
+                endProcedureSuccess,
+
+                endProcedureError,
 
                 dummy
                 );
@@ -270,6 +306,30 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseToolResultModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseToolResultModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.KnowledgeBaseToolResultModel).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeBaseSuccess!, typeInfo);
+            }
+            else if (value.IsStartProcedureSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.StartProcedureToolResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.StartProcedureToolResultSuccessModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.StartProcedureToolResultSuccessModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StartProcedureSuccess!, typeInfo);
+            }
+            else if (value.IsStartProcedureError)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.StartProcedureToolResultErrorModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.StartProcedureToolResultErrorModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.StartProcedureToolResultErrorModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StartProcedureError!, typeInfo);
+            }
+            else if (value.IsEndProcedureSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndProcedureToolResultSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndProcedureToolResultSuccessModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.EndProcedureToolResultSuccessModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.EndProcedureSuccess!, typeInfo);
+            }
+            else if (value.IsEndProcedureError)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndProcedureToolResultErrorModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndProcedureToolResultErrorModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.EndProcedureToolResultErrorModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.EndProcedureError!, typeInfo);
             }
             else if (value.IsDummy)
             {

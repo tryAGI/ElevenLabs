@@ -44,6 +44,12 @@ namespace ElevenLabs
         public string? Trigger { get; set; }
 
         /// <summary>
+        /// Procedure ID of the folder this procedure is placed in. None means root.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("folder_parent_id")]
+        public string? FolderParentId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -68,6 +74,9 @@ namespace ElevenLabs
         /// <param name="trigger">
         /// When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it.
         /// </param>
+        /// <param name="folderParentId">
+        /// Procedure ID of the folder this procedure is placed in. None means root.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -76,13 +85,15 @@ namespace ElevenLabs
             string name,
             string content,
             global::ElevenLabs.ProcedureType? type,
-            string? trigger)
+            string? trigger,
+            string? folderParentId)
         {
             this.ProcedureId = procedureId ?? throw new global::System.ArgumentNullException(nameof(procedureId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
             this.Type = type;
             this.Trigger = trigger;
+            this.FolderParentId = folderParentId;
         }
 
         /// <summary>

@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// List Procedures<br/>
-        /// List the agent's procedures on a branch with their procedure_id, version_id, name, type, trigger, and has_draft. has_draft is true when a procedure has unpublished draft changes on this branch; its name/type/trigger then reflect that draft. Does not return procedure content -- use Get Procedure to read a procedure's body.
+        /// List the procedures attached to this agent branch. By default, unpublished drafts take precedence over the latest committed version. Pass agent_version_id to list a published snapshot instead. has_draft is true when a procedure has unpublished draft changes on this branch. Procedure content is not included; use Get Procedure to read a procedure's body.
         /// </summary>
         /// <param name="agentId">
         /// Agent ID to get the procedure draft from
@@ -28,7 +28,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Procedures<br/>
-        /// List the agent's procedures on a branch with their procedure_id, version_id, name, type, trigger, and has_draft. has_draft is true when a procedure has unpublished draft changes on this branch; its name/type/trigger then reflect that draft. Does not return procedure content -- use Get Procedure to read a procedure's body.
+        /// List the procedures attached to this agent branch. By default, unpublished drafts take precedence over the latest committed version. Pass agent_version_id to list a published snapshot instead. has_draft is true when a procedure has unpublished draft changes on this branch. Procedure content is not included; use Get Procedure to read a procedure's body.
         /// </summary>
         /// <param name="agentId">
         /// Agent ID to get the procedure draft from
