@@ -28,6 +28,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.SearchClientsParams)}");
                 searchClients = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.SendCustomEmailParams? sendCustomEmail = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.SendCustomEmail)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SendCustomEmailParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SendCustomEmailParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.SendCustomEmailParams)}");
+                sendCustomEmail = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.ListClientsParams? listClients = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListClients)
             {
@@ -574,6 +581,20 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.LeaveMessageParams)}");
                 leaveMessage = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.CreateServiceQuoteRequestParams? createServiceQuoteRequest = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CreateServiceQuoteRequest)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateServiceQuoteRequestParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateServiceQuoteRequestParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreateServiceQuoteRequestParams)}");
+                createServiceQuoteRequest = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.CreateProductQuoteRequestParams? createProductQuoteRequest = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.CreateProductQuoteRequest)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateProductQuoteRequestParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateProductQuoteRequestParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreateProductQuoteRequestParams)}");
+                createProductQuoteRequest = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.ReportKnowledgeGapParams? reportKnowledgeGap = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ReportKnowledgeGap)
             {
@@ -613,6 +634,8 @@ namespace ElevenLabs.JsonConverters
             var __value = new global::ElevenLabs.Params(
                 discriminator?.SmbToolType,
                 searchClients,
+
+                sendCustomEmail,
 
                 listClients,
 
@@ -770,6 +793,10 @@ namespace ElevenLabs.JsonConverters
 
                 leaveMessage,
 
+                createServiceQuoteRequest,
+
+                createProductQuoteRequest,
+
                 reportKnowledgeGap,
 
                 optInSmsReminder,
@@ -798,6 +825,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SearchClientsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SearchClientsParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SearchClientsParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.SearchClients!, typeInfo);
+            }
+            else if (value.IsSendCustomEmail)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SendCustomEmailParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SendCustomEmailParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SendCustomEmailParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SendCustomEmail!, typeInfo);
             }
             else if (value.IsListClients)
             {
@@ -1266,6 +1299,18 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.LeaveMessageParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.LeaveMessageParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.LeaveMessageParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.LeaveMessage!, typeInfo);
+            }
+            else if (value.IsCreateServiceQuoteRequest)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateServiceQuoteRequestParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateServiceQuoteRequestParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateServiceQuoteRequestParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateServiceQuoteRequest!, typeInfo);
+            }
+            else if (value.IsCreateProductQuoteRequest)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreateProductQuoteRequestParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreateProductQuoteRequestParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreateProductQuoteRequestParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateProductQuoteRequest!, typeInfo);
             }
             else if (value.IsReportKnowledgeGap)
             {

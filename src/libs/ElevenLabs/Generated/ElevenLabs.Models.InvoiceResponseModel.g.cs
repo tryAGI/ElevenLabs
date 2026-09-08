@@ -58,7 +58,7 @@ namespace ElevenLabs
         /// Deprecated. Use [payment_intent_statusses] instead. The status of this invoice's first payment intent. None when there is no payment intent.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("payment_intent_status")]
-        public global::ElevenLabs.InvoiceResponseModelPaymentIntentStatus2? PaymentIntentStatus { get; set; }
+        public global::ElevenLabs.InvoiceResponseModelPaymentIntentStatus? PaymentIntentStatus { get; set; }
 
         /// <summary>
         /// The statuses of this invoice's payment intents. Empty list when there are no payment intents.
@@ -115,7 +115,7 @@ namespace ElevenLabs
             int? taxCents,
             double? discountPercentOff,
             double? discountAmountOff,
-            global::ElevenLabs.InvoiceResponseModelPaymentIntentStatus2? paymentIntentStatus)
+            global::ElevenLabs.InvoiceResponseModelPaymentIntentStatus? paymentIntentStatus)
         {
             this.AmountDueCents = amountDueCents;
             this.SubtotalCents = subtotalCents;

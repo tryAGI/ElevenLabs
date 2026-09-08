@@ -40,7 +40,7 @@ namespace ElevenLabs
         /// Finetune visibility. Only 'private' and 'workspace' can be set.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("visibility")]
-        public global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2? Visibility { get; set; }
+        public global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility? Visibility { get; set; }
 
         /// <summary>
         /// The model to create a finetune for.<br/>
@@ -88,7 +88,7 @@ namespace ElevenLabs
             string primaryGenre,
             global::System.Collections.Generic.IList<byte[]>? files,
             global::System.Collections.Generic.IList<string>? tags,
-            global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2? visibility,
+            global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility? visibility,
             global::ElevenLabs.MusicModelID? modelId)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));

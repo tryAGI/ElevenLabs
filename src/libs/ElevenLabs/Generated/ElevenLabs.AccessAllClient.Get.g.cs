@@ -495,7 +495,7 @@ namespace ElevenLabs
             long? startTime = default,
             long? endTime = default,
             int? limit = default,
-            global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPostSort2? sort = default,
+            global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPostSort? sort = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.ColumnFilter>? filters = default,
             string? search = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,

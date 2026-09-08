@@ -8,7 +8,7 @@ public partial class Tests
     [TestMethod]
     public void FlowsAndAgentWorkflows_ExposeCurrentApiModels()
     {
-        GetSpeechHistorySource2.Flows.ToValueString().Should().Be("Flows");
+        GetSpeechHistorySource.Flows.ToValueString().Should().Be("Flows");
         PermissionType.Flows.ToValueString().Should().Be("flows");
         WorkspaceGroupPermission.Flows.ToValueString().Should().Be("flows");
 
@@ -22,7 +22,7 @@ public partial class Tests
         typeof(AgentTransferOpPush).Should().NotBeNull();
         typeof(AgentTransferOpPop).Should().NotBeNull();
         typeof(AgentTransferOpReplace).Should().NotBeNull();
-        typeof(RunSubagentToolConfigInput).Should().NotBeNull();
+        typeof(WorkflowOverrideAgentNodeModelInput).Should().NotBeNull();
     }
 
     [TestMethod]

@@ -47,7 +47,7 @@ namespace ElevenLabs
         /// Requested additional formats of the transcript.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("additional_formats")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AdditionalFormatResponseModel>? AdditionalFormats { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AdditionalFormatResponseModel?>? AdditionalFormats { get; set; }
 
         /// <summary>
         /// The transcription ID of the response.
@@ -112,7 +112,7 @@ namespace ElevenLabs
             string text,
             global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextWordResponseModel> words,
             int? channelIndex,
-            global::System.Collections.Generic.IList<global::ElevenLabs.AdditionalFormatResponseModel>? additionalFormats,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AdditionalFormatResponseModel?>? additionalFormats,
             string? transcriptionId,
             global::System.Collections.Generic.IList<global::ElevenLabs.DetectedEntity>? entities,
             double? audioDurationSecs)

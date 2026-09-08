@@ -91,7 +91,7 @@ namespace ElevenLabs
             byte[]? file = default,
             string? filename = default,
             bool? autoConvert = default,
-            global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePostApplyTextNormalization2? applyTextNormalization = default,
+            global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePostApplyTextNormalization? applyTextNormalization = default,
             global::System.Collections.Generic.IList<string>? pronunciationDictionaryLocators = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

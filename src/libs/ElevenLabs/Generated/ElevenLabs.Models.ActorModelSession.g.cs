@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Session information
+    ///
     /// </summary>
     public sealed partial class ActorModelSession
     {

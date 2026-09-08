@@ -45,7 +45,7 @@ public partial class Tests
             var audioBytes = Encoding.UTF8.GetBytes("fake-audio");
             // Ignore deserialization result — we're testing request serialization
             await client.ConvertAsync(
-                modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV2,
+                modelId: "scribe_v2",
                 file: audioBytes,
                 filename: "sample.wav",
                 languageCode: "eng",
@@ -203,7 +203,7 @@ public partial class Tests
             await client.ConvertAsync(
                 request: new BodySpeechToTextV1SpeechToTextPost
                 {
-                    ModelId = BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1,
+                    ModelId = "scribe_v1",
                     SourceUrl = "https://example.com/audio.wav",
                 });
         }
@@ -224,7 +224,7 @@ public partial class Tests
             Path.Combine(AppContext.BaseDirectory, "Resources", "hello-in-russian-24k-pcm16.wav"));
 
         var result = await client.SpeechToText2.ConvertAsync(
-            modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV2,
+            modelId: "scribe_v2",
             file: audioFile,
             filename: "hello-in-russian-24k-pcm16.wav",
             languageCode: "ru",

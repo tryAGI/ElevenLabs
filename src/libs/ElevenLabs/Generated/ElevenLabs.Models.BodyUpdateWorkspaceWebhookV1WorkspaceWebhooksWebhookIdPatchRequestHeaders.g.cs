@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// A list of request headers to include with the webhook delivery (optional)
+    ///
     /// </summary>
     public sealed partial class BodyUpdateWorkspaceWebhookV1WorkspaceWebhooksWebhookIdPatchRequestHeaders
     {

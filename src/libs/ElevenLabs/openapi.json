@@ -6189,7 +6189,7 @@
           "Dubbing"
         ],
         "summary": "Create Dubbing Project",
-        "description": "Create a dubbing project from an uploaded file (`file`) or a source URL (`source_url`).\n\nReturns as soon as the project record exists, before the source has been fetched: the project starts `queued` and reaches `ready` once its source has been transcribed. Creating a project does not dub anything — add a language target to it for each language you want, or pass `target_language` to queue the first one here.\n\nPreparation can take minutes on a long source, so we recommend passing `webhook_ids` to be notified when the project turns `ready` or `failed`, rather than polling for it.",
+        "description": "Create a dubbing project from an uploaded file (`file`) or a source URL (`source_url`).\n\nReturns as soon as the project record exists, before the source has been fetched: the project starts `queued` and reaches `ready` once its source has been transcribed. Add a language target to it for each language you want, or pass `target_language` to queue the first one here.\n\nCreating a project incurs a minimum charge of one language: you are charged for at least one language's dubbing when the project is created, before any output exists. This charge prepays the first language target — the first target you add, or the one queued via `target_language`, consumes it — and each additional language is charged separately.\n\nPreparation can take minutes on a long source, so we recommend passing `webhook_ids` to be notified when the project turns `ready` or `failed`, rather than polling for it.",
         "operationId": "dubbing_project_create",
         "parameters": [
           {
@@ -18212,6 +18212,27 @@
             "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values."
           },
           {
+            "name": "dynamic_variable_params",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. Names containing ':' cannot be expressed.",
+              "title": "Dynamic Variable Params"
+            },
+            "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. Names containing ':' cannot be expressed."
+          },
+          {
             "name": "data_collection_ids",
             "in": "query",
             "required": false,
@@ -19808,6 +19829,27 @@
             "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values."
           },
           {
+            "name": "dynamic_variable_params",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. Names containing ':' cannot be expressed.",
+              "title": "Dynamic Variable Params"
+            },
+            "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. Names containing ':' cannot be expressed."
+          },
+          {
             "name": "tool_names",
             "in": "query",
             "required": false,
@@ -21090,6 +21132,191 @@
         "x-fern-sdk-method-name": "create_manual"
       }
     },
+    "/v1/convai/triage-tickets": {
+      "get": {
+        "summary": "List Workspace Conversation Tickets",
+        "description": "List conversation triage tickets across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, tickets assigned to the caller); for a single agent's tickets, use the per-agent endpoint instead. Tickets for agents the caller cannot access are omitted.",
+        "operationId": "list_workspace_conversation_tickets_route",
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "How many agent conversation tickets to return. Can not exceed 100.",
+              "default": 100,
+              "title": "Page Size"
+            },
+            "description": "How many agent conversation tickets to return. Can not exceed 100."
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/AgentConversationTicketStatus"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tickets by status.",
+              "title": "Status"
+            },
+            "description": "Filter tickets by status."
+          },
+          {
+            "name": "assignee_user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.",
+              "title": "Assignee User Id"
+            },
+            "description": "Filter tickets by assignee. Use 'unassigned' for tickets with no assignee."
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Used for fetching next page. Cursor is returned in the response.",
+              "title": "Cursor"
+            },
+            "description": "Used for fetching next page. Cursor is returned in the response."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAgentConversationTicketsPageResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "triage_tickets"
+        ],
+        "x-fern-sdk-method-name": "list_for_workspace"
+      },
+      "post": {
+        "summary": "Create Agent Conversation Ticket",
+        "description": "Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.",
+        "operationId": "create_agent_conversation_ticket_route",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAgentConversationTicketRequestModel",
+                "description": "Ticket to create."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentConversationTicketResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "triage_tickets"
+        ],
+        "x-fern-sdk-method-name": "create"
+      }
+    },
     "/v1/convai/agents/{agent_id}/triage-tickets/assignable-users": {
       "get": {
         "summary": "Get Agent Conversation Ticket Assignable Users",
@@ -21344,71 +21571,6 @@
           "triage_tickets"
         ],
         "x-fern-sdk-method-name": "delete"
-      }
-    },
-    "/v1/convai/triage-tickets": {
-      "post": {
-        "summary": "Create Agent Conversation Ticket",
-        "description": "Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.",
-        "operationId": "create_agent_conversation_ticket_route",
-        "parameters": [
-          {
-            "name": "xi-api-key",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
-              "title": "Xi-Api-Key"
-            },
-            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateAgentConversationTicketRequestModel",
-                "description": "Ticket to create."
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AgentConversationTicketResponseModel"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "x-fern-sdk-group-name": [
-          "conversational_ai",
-          "triage_tickets"
-        ],
-        "x-fern-sdk-method-name": "create"
       }
     },
     "/v1/convai/triage-tickets/{agentqa_ticket_id}/comments": {
@@ -38327,6 +38489,24 @@
             "description": "Whether a draft exists for the branch",
             "default": false
           },
+          "draft_created_at": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Draft Created At",
+            "description": "Unix seconds when the caller's draft on this branch was first created, or null when they have no draft. A draft created before last_committed_at was written against a config the branch has since moved past, so it may not reflect the current one."
+          },
+          "draft_is_behind_tip": {
+            "type": "boolean",
+            "title": "Draft Is Behind Tip",
+            "description": "Whether the caller's draft on this branch was created before the branch's last commit, meaning it was written against a config the branch has since moved past and may not reflect the current one.",
+            "default": false
+          },
           "calls_7d": {
             "type": "integer",
             "title": "Calls 7D",
@@ -39337,6 +39517,18 @@
             "title": "Document Name",
             "description": "Name of the source knowledge base document."
           },
+          "source_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Url",
+            "description": "Tracked source URL for URL documents, or null for other document types."
+          },
           "chunk_id": {
             "type": "string",
             "title": "Chunk Id",
@@ -39372,6 +39564,7 @@
         "required": [
           "document_id",
           "document_name",
+          "source_url",
           "chunk_id",
           "text",
           "vector_distance",
@@ -39433,7 +39626,8 @@
               "content_format": "html",
               "document_id": "doc_J3Pbu5gP6NNKBscdCdwB",
               "document_name": "Account FAQ",
-              "document_type": "file",
+              "document_type": "url",
+              "source_url": "https://example.com/account-faq?utm_medium=agents_citation&utm_source=elevenlabs",
               "text": "To reset your password, open Settings and choose Security...",
               "vector_distance": 0.21
             }
@@ -39948,6 +40142,11 @@
             "title": "Name",
             "description": "The name of the agent"
           },
+          "voice_id": {
+            "type": "string",
+            "title": "Voice Id",
+            "description": "Voice ID assigned to this agent"
+          },
           "tags": {
             "items": {
               "type": "string"
@@ -39988,6 +40187,7 @@
         "required": [
           "agent_id",
           "name",
+          "voice_id",
           "tags",
           "created_at_unix_secs",
           "access_info"
@@ -40009,7 +40209,8 @@
             "Customer Support",
             "Technical Help",
             "Eleven"
-          ]
+          ],
+          "voice_id": "UCaNsl8F6Xh4GALkVMLS"
         }
       },
       "AgentTestEntityType": {
@@ -41385,6 +41586,21 @@
           "opus_48000_192"
         ]
       },
+      "AllowedValues": {
+        "properties": {
+          "dynamic_variable": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Dynamic Variable",
+            "description": "Name of a dynamic variable that must resolve to a JSON array of permitted values, e.g. [\"ws_alpha\", \"ws_beta\"]. System variables work only if they resolve to a list."
+          }
+        },
+        "type": "object",
+        "required": [
+          "dynamic_variable"
+        ],
+        "title": "AllowedValues"
+      },
       "AllowlistItem": {
         "properties": {
           "hostname": {
@@ -41461,11 +41677,23 @@
             "description": "The name of the dynamic variable to use for this property's value. Mutually exclusive with description, is_system_provided, constant_value, and is_omitted.",
             "default": ""
           },
+          "allowed_values": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AllowedValues"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Server-side rejection guard for an LLM-provided value: the runtime rejects any value outside the permitted set this object names, and the set is not advertised to the LLM as an enum. Only supported when the value source is `description`; combining it with dynamic_variable, is_system_provided, constant_value, or is_omitted is rejected."
+          },
           "allowed_values_dynamic_variable": {
             "type": "string",
             "title": "Allowed Values Dynamic Variable",
-            "description": "When set, the LLM provides the value but the runtime rejects any value not present in the list held by this dynamic variable. Use to let the LLM pick from a server-verified set (e.g. the IDs the current user is allowed to access). Requires description; mutually exclusive with dynamic_variable, is_system_provided, constant_value, and is_omitted.",
-            "default": ""
+            "description": "DEPRECATED: use `allowed_values` instead. When set, the LLM provides the value but the runtime rejects any value not present in the list held by this dynamic variable (must be a JSON array such as [\"ws_alpha\", \"ws_beta\"]). Use to let the LLM pick from a server-verified set (e.g. the IDs the current user is allowed to access). Requires description; mutually exclusive with dynamic_variable, is_system_provided, constant_value, and is_omitted.",
+            "default": "",
+            "deprecated": true
           },
           "constant_value": {
             "anyOf": [
@@ -41494,6 +41722,18 @@
             "title": "Is Omitted",
             "description": "If true, this parameter will be completely omitted from the request. Only valid for optional parameters. Mutually exclusive with description, dynamic_variable, is_system_provided, and constant_value.",
             "default": false
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name",
+            "description": "The name of this data collection item."
           },
           "llm": {
             "anyOf": [
@@ -44308,7 +44548,7 @@
             "default": 0
           },
           "telephony_call_config": {
-            "$ref": "#/components/schemas/TelephonyCallConfig"
+            "$ref": "#/components/schemas/TelephonyCallConfig-Output"
           },
           "target_concurrency_limit": {
             "anyOf": [
@@ -44502,7 +44742,7 @@
             "default": 0
           },
           "telephony_call_config": {
-            "$ref": "#/components/schemas/TelephonyCallConfig"
+            "$ref": "#/components/schemas/TelephonyCallConfig-Output"
           },
           "target_concurrency_limit": {
             "anyOf": [
@@ -45869,7 +46109,7 @@
               }
             ],
             "title": "Target Language",
-            "description": "Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready — equivalent to creating the project and then creating one language target. Must be one of the [languages the dubbing model supports](https://elevenlabs.io/docs/help-center/product/dubbing/which-languages-are-supported-in-dubbing), and a region-qualified tag must be one of the supported dialects. Its ID is returned in `language_ids`."
+            "description": "Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready — equivalent to creating the project and then creating one language target. Must be one of the [languages the dubbing model supports](https://elevenlabs.io/docs/help-center/product/dubbing/which-languages-are-supported-in-dubbing), and a region-qualified tag must be one of the supported dialects. This is the first language target, so it consumes the project's minimum charge rather than adding to it. Its ID is returned in `language_ids`."
           },
           "transcript": {
             "anyOf": [
@@ -48184,7 +48424,7 @@
             ]
           },
           "telephony_call_config": {
-            "$ref": "#/components/schemas/TelephonyCallConfig",
+            "$ref": "#/components/schemas/TelephonyCallConfig-Input",
             "default": {
               "ringing_timeout_secs": 60,
               "twilio_call_recording_enabled": false
@@ -48224,7 +48464,7 @@
             ]
           },
           "telephony_call_config": {
-            "$ref": "#/components/schemas/TelephonyCallConfig",
+            "$ref": "#/components/schemas/TelephonyCallConfig-Input",
             "default": {
               "ringing_timeout_secs": 60,
               "twilio_call_recording_enabled": false
@@ -48276,7 +48516,7 @@
             "description": "Whether let Twilio record the call."
           },
           "telephony_call_config": {
-            "$ref": "#/components/schemas/TelephonyCallConfig",
+            "$ref": "#/components/schemas/TelephonyCallConfig-Input",
             "default": {
               "ringing_timeout_secs": 60,
               "twilio_call_recording_enabled": false
@@ -49402,12 +49642,11 @@
         "properties": {
           "model_id": {
             "type": "string",
-            "enum": [
-              "scribe_v1",
-              "scribe_v2"
-            ],
             "title": "Model Id",
-            "description": "The ID of the model to use for transcription."
+            "description": "The ID of the model to use for transcription.",
+            "examples": [
+              "scribe_v2"
+            ]
           },
           "file": {
             "anyOf": [
@@ -50167,7 +50406,7 @@
             "title": "Environment"
           },
           "telephony_call_config": {
-            "$ref": "#/components/schemas/TelephonyCallConfig",
+            "$ref": "#/components/schemas/TelephonyCallConfig-Input",
             "default": {
               "ringing_timeout_secs": 60,
               "twilio_call_recording_enabled": false
@@ -55841,6 +56080,24 @@
           ]
         }
       },
+      "ComputedUsagePlatformLimit": {
+        "properties": {
+          "limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Limit"
+          }
+        },
+        "type": "object",
+        "title": "ComputedUsagePlatformLimit",
+        "description": "Platform limit with usage computed externally. Example: PVCs use the count_owned_pro_voices_in_billing_group function to compute the usage."
+      },
       "ConfigEntityType": {
         "type": "string",
         "enum": [
@@ -56353,7 +56610,7 @@
             },
             "type": "array",
             "title": "Events",
-            "description": "List of event types to send via webhook. Options: transcript, audio, call_initiation_failure, unredacted_transcript, unredacted_audio."
+            "description": "List of event types to send via webhook. Options: transcript, audio, call_initiation_failure, answering_machine_detection, unredacted_transcript, unredacted_audio."
           },
           "transcript_format": {
             "$ref": "#/components/schemas/WebhookTranscriptFormat",
@@ -62449,6 +62706,18 @@
         "type": "object",
         "title": "CreateProductParams"
       },
+      "CreateProductQuoteRequestParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "create_product_quote_request",
+            "title": "Smb Tool Type",
+            "default": "create_product_quote_request"
+          }
+        },
+        "type": "object",
+        "title": "CreateProductQuoteRequestParams"
+      },
       "CreatePronunciationDictionaryResponseModel": {
         "properties": {
           "status": {
@@ -62682,6 +62951,18 @@
         "type": "object",
         "title": "CreateServiceParams",
         "description": "Create a new service (classic, rental, or group) in the system."
+      },
+      "CreateServiceQuoteRequestParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "create_service_quote_request",
+            "title": "Smb Tool Type",
+            "default": "create_service_quote_request"
+          }
+        },
+        "type": "object",
+        "title": "CreateServiceQuoteRequestParams"
       },
       "CreateSimulationTestRequest": {
         "properties": {
@@ -63124,12 +63405,24 @@
           "sid": {
             "type": "string",
             "title": "Sid",
-            "description": "Twilio Account SID"
+            "description": "Twilio Account SID (starts with `AC`) or API Key SID (starts with `SK`)"
           },
           "token": {
             "type": "string",
             "title": "Token",
-            "description": "Twilio Auth Token"
+            "description": "Secret paired with `sid`: the Account Auth Token for an Account SID, or the API Key Secret for an API Key SID"
+          },
+          "account_auth_token": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Account Auth Token",
+            "description": "Twilio Account Auth Token, required for API Key imports to validate inbound webhook signatures"
           },
           "region_config": {
             "anyOf": [
@@ -63810,6 +64103,17 @@
           "data_collection_id": {
             "type": "string",
             "title": "Data Collection Id"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
           },
           "value": {
             "title": "Value"
@@ -70877,7 +71181,8 @@
                 "Customer Support",
                 "Technical Help",
                 "Eleven"
-              ]
+              ],
+              "voice_id": "UCaNsl8F6Xh4GALkVMLS"
             }
           ],
           "has_more": false,
@@ -74832,15 +75137,29 @@
               }
             ],
             "title": "Sizes"
+          },
+          "theme": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "light",
+                  "dark"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Theme"
           }
         },
-        "additionalProperties": true,
         "type": "object",
         "required": [
           "src"
         ],
         "title": "Icon",
-        "description": "An icon for display in user interfaces."
+        "description": "An optionally-sized icon for display in a user interface (2025-11-25+)."
       },
       "ImageAnalysis": {
         "properties": {
@@ -77843,7 +78162,8 @@
               "tags": [
                 "production",
                 "v1"
-              ]
+              ],
+              "voice_id": "UCaNsl8F6Xh4GALkVMLS"
             }
           ]
         }
@@ -77973,11 +78293,23 @@
             "description": "The name of the dynamic variable to use for this property's value. Mutually exclusive with description, is_system_provided, constant_value, and is_omitted.",
             "default": ""
           },
+          "allowed_values": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AllowedValues"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Server-side rejection guard for an LLM-provided value: the runtime rejects any value outside the permitted set this object names, and the set is not advertised to the LLM as an enum. Only supported when the value source is `description`; combining it with dynamic_variable, is_system_provided, constant_value, or is_omitted is rejected."
+          },
           "allowed_values_dynamic_variable": {
             "type": "string",
             "title": "Allowed Values Dynamic Variable",
-            "description": "When set, the LLM provides the value but the runtime rejects any value not present in the list held by this dynamic variable. Use to let the LLM pick from a server-verified set (e.g. the IDs the current user is allowed to access). Requires description; mutually exclusive with dynamic_variable, is_system_provided, constant_value, and is_omitted.",
-            "default": ""
+            "description": "DEPRECATED: use `allowed_values` instead. When set, the LLM provides the value but the runtime rejects any value not present in the list held by this dynamic variable (must be a JSON array such as [\"ws_alpha\", \"ws_beta\"]). Use to let the LLM pick from a server-verified set (e.g. the IDs the current user is allowed to access). Requires description; mutually exclusive with dynamic_variable, is_system_provided, constant_value, and is_omitted.",
+            "default": "",
+            "deprecated": true
           },
           "constant_value": {
             "anyOf": [
@@ -84157,6 +84489,33 @@
         "title": "PlatformCategoryUsage",
         "description": "Accumulated charge for a single :class:`PlatformCategory`."
       },
+      "PlatformLimits": {
+        "properties": {
+          "credits": {
+            "$ref": "#/components/schemas/StoredUsagePlatformLimit",
+            "description": "Credit usage limit (limit=None means unlimited)"
+          },
+          "pvc": {
+            "$ref": "#/components/schemas/ComputedUsagePlatformLimit",
+            "description": "Professional Voice Clone count limit (limit=None means unlimited)"
+          },
+          "concurrency": {
+            "$ref": "#/components/schemas/ComputedUsagePlatformLimit",
+            "description": "TTS concurrency limit (limit=None means unlimited)"
+          },
+          "dubbing_concurrency": {
+            "$ref": "#/components/schemas/ComputedUsagePlatformLimit",
+            "description": "Dubbing concurrency limit (limit=None means unlimited)"
+          },
+          "music_concurrency": {
+            "$ref": "#/components/schemas/ComputedUsagePlatformLimit",
+            "description": "Music generation concurrency limit (limit=None means unlimited)"
+          }
+        },
+        "type": "object",
+        "title": "PlatformLimits",
+        "description": "Unified container for all platform limits.\n\nCan be used by:\n- Billing groups (WorkspaceGroupDBModel.platform_limits)\n- Child workspaces (SubscriptionDBModel.platform_limits)\n- API keys (XiApiKeyMetadataDBModel.platform_limits)\n\nAll fields are required when platform_limits exists. Use limit=None for unlimited."
+      },
       "PlatformUsage": {
         "properties": {
           "category_usage": {
@@ -89183,7 +89542,32 @@
           "ultra_lossless"
         ]
       },
-      "QueryParamsJsonSchema": {
+      "QueryParamsJsonSchema-Input": {
+        "properties": {
+          "properties": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/LiteralJsonSchemaProperty"
+            },
+            "type": "object",
+            "minProperties": 1,
+            "title": "Properties"
+          },
+          "required": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Required"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "properties"
+        ],
+        "title": "QueryParamsJsonSchema"
+      },
+      "QueryParamsJsonSchema-Output": {
         "properties": {
           "properties": {
             "additionalProperties": {
@@ -89472,6 +89856,17 @@
             "examples": [
               "You are given a conversation between a user and an assistant. Rewrite the last question to be self-contained and clear."
             ]
+          },
+          "knowledge_base_tool_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KnowledgeBaseToolInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When set, the agent uses the knowledge_base tool instead of the legacy knowledge_base_rag tool. None means the agent is not opted in."
           }
         },
         "type": "object",
@@ -89554,6 +89949,17 @@
             "examples": [
               "You are given a conversation between a user and an assistant. Rewrite the last question to be self-contained and clear."
             ]
+          },
+          "knowledge_base_tool_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KnowledgeBaseToolInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When set, the agent uses the knowledge_base tool instead of the legacy knowledge_base_rag tool. None means the agent is not opted in."
           }
         },
         "type": "object",
@@ -89656,6 +90062,17 @@
             "examples": [
               "You are given a conversation between a user and an assistant. Rewrite the last question to be self-contained and clear."
             ]
+          },
+          "knowledge_base_tool_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KnowledgeBaseToolInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When set, the agent uses the knowledge_base tool instead of the legacy knowledge_base_rag tool. None means the agent is not opted in."
           }
         },
         "type": "object",
@@ -89758,6 +90175,17 @@
             "examples": [
               "You are given a conversation between a user and an assistant. Rewrite the last question to be self-contained and clear."
             ]
+          },
+          "knowledge_base_tool_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KnowledgeBaseToolInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When set, the agent uses the knowledge_base tool instead of the legacy knowledge_base_rag tool. None means the agent is not opted in."
           }
         },
         "type": "object",
@@ -90026,7 +90454,7 @@
           "studio_clip": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/StudioClipReference"
+                "$ref": "#/components/schemas/StudioClipLocator"
               },
               {
                 "type": "null"
@@ -91039,50 +91467,6 @@
         ],
         "title": "RunConversationEvaluationsRequest"
       },
-      "RunSubagentToolConfig-Input": {
-        "properties": {
-          "system_tool_type": {
-            "type": "string",
-            "const": "run_subagent",
-            "title": "System Tool Type",
-            "default": "run_subagent"
-          },
-          "agents": {
-            "items": {
-              "$ref": "#/components/schemas/SubAgent-Input"
-            },
-            "type": "array",
-            "title": "Agents"
-          }
-        },
-        "type": "object",
-        "required": [
-          "agents"
-        ],
-        "title": "RunSubagentToolConfig"
-      },
-      "RunSubagentToolConfig-Output": {
-        "properties": {
-          "system_tool_type": {
-            "type": "string",
-            "const": "run_subagent",
-            "title": "System Tool Type",
-            "default": "run_subagent"
-          },
-          "agents": {
-            "items": {
-              "$ref": "#/components/schemas/SubAgent-Output"
-            },
-            "type": "array",
-            "title": "Agents"
-          }
-        },
-        "type": "object",
-        "required": [
-          "agents"
-        ],
-        "title": "RunSubagentToolConfig"
-      },
       "SFXModelId": {
         "type": "string",
         "enum": [
@@ -91416,6 +91800,9 @@
                 "$ref": "#/components/schemas/SearchClientsParams"
               },
               {
+                "$ref": "#/components/schemas/SendCustomEmailParams"
+              },
+              {
                 "$ref": "#/components/schemas/ListClientsParams"
               },
               {
@@ -91650,6 +92037,12 @@
                 "$ref": "#/components/schemas/LeaveMessageParams"
               },
               {
+                "$ref": "#/components/schemas/CreateServiceQuoteRequestParams"
+              },
+              {
+                "$ref": "#/components/schemas/CreateProductQuoteRequestParams"
+              },
+              {
                 "$ref": "#/components/schemas/ReportKnowledgeGapParams"
               },
               {
@@ -91684,7 +92077,9 @@
                 "create_location": "#/components/schemas/CreateLocationParams",
                 "create_order": "#/components/schemas/CreateOrderParams",
                 "create_product": "#/components/schemas/CreateProductParams",
+                "create_product_quote_request": "#/components/schemas/CreateProductQuoteRequestParams",
                 "create_service": "#/components/schemas/CreateServiceParams",
+                "create_service_quote_request": "#/components/schemas/CreateServiceQuoteRequestParams",
                 "create_staff": "#/components/schemas/CreateStaffParams",
                 "create_transfer_rule": "#/components/schemas/CreateTransferRuleParams",
                 "delete_agent_procedure": "#/components/schemas/DeleteAgentProcedureParams",
@@ -91732,6 +92127,7 @@
                 "restore_calendar_event": "#/components/schemas/RestoreCalendarEventParams",
                 "schedule_group_session": "#/components/schemas/ScheduleGroupSessionParams",
                 "search_clients": "#/components/schemas/SearchClientsParams",
+                "send_custom_email": "#/components/schemas/SendCustomEmailParams",
                 "set_booking_slug": "#/components/schemas/SetBookingSlugParams",
                 "submit_business_info": "#/components/schemas/SubmitBusinessInfoParams",
                 "trigger_user_verification": "#/components/schemas/TriggerUserVerificationParams",
@@ -92671,6 +93067,18 @@
           "format"
         ],
         "title": "SegmentedJsonExportOptions"
+      },
+      "SendCustomEmailParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "send_custom_email",
+            "title": "Smb Tool Type",
+            "default": "send_custom_email"
+          }
+        },
+        "type": "object",
+        "title": "SendCustomEmailParams"
       },
       "SentimentAggregate": {
         "properties": {
@@ -94321,6 +94729,11 @@
             "title": "Name",
             "description": "Human-readable name for the speech engine"
           },
+          "voice_id": {
+            "type": "string",
+            "title": "Voice Id",
+            "description": "Voice ID assigned to this speech engine"
+          },
           "created_at_unix_secs": {
             "type": "integer",
             "title": "Created At Unix Secs",
@@ -94343,6 +94756,7 @@
         "required": [
           "speech_engine_id",
           "name",
+          "voice_id",
           "created_at_unix_secs",
           "tags",
           "access_info"
@@ -94361,7 +94775,8 @@
           "tags": [
             "production",
             "v1"
-          ]
+          ],
+          "voice_id": "UCaNsl8F6Xh4GALkVMLS"
         }
       },
       "SpeechHistoryItemResponseModel": {
@@ -95135,6 +95550,30 @@
         "title": "StatusId",
         "description": "OCSF Status levels.\n\nSpec: https://schema.ocsf.io/1.6.0/objects/status_id"
       },
+      "StoredUsagePlatformLimit": {
+        "properties": {
+          "limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Limit"
+          },
+          "usage": {
+            "type": "integer",
+            "title": "Usage",
+            "description": "Current usage",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "title": "StoredUsagePlatformLimit",
+        "description": "Platform limit with usage stored in Firestore. Example: credit usage tracked in Firestore."
+      },
       "StreamingAudioChunkWithTimestampsAndVoiceSegmentsResponseModel": {
         "properties": {
           "audio_base64": {
@@ -95312,7 +95751,7 @@
         "type": "object",
         "title": "StudioAgentToolSettingsModel"
       },
-      "StudioClipReference": {
+      "StudioClipLocator": {
         "properties": {
           "project_id": {
             "type": "string",
@@ -95366,7 +95805,8 @@
           "clip_type",
           "clip_id"
         ],
-        "title": "StudioClipReference"
+        "title": "StudioClipLocator",
+        "description": "Coordinates of a clip inside a Studio project: the payload of a studio_clip reference."
       },
       "StudioTextStyleOutlineModel": {
         "properties": {
@@ -95433,114 +95873,6 @@
           "offset_y"
         ],
         "title": "StudioTextStyleShadowModel"
-      },
-      "SubAgent-Input": {
-        "properties": {
-          "agent_id": {
-            "type": "string",
-            "title": "Agent Id"
-          },
-          "branch_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Branch Id"
-          },
-          "description": {
-            "type": "string",
-            "title": "Description"
-          },
-          "parameters": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ObjectJsonSchemaProperty-Input",
-                "description": "JSON schema for the parameters the LLM provides."
-              },
-              {
-                "type": "null"
-              }
-            ]
-          }
-        },
-        "type": "object",
-        "required": [
-          "agent_id",
-          "description"
-        ],
-        "title": "SubAgent"
-      },
-      "SubAgent-Output": {
-        "properties": {
-          "agent_id": {
-            "type": "string",
-            "title": "Agent Id"
-          },
-          "branch_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Branch Id"
-          },
-          "description": {
-            "type": "string",
-            "title": "Description"
-          },
-          "parameters": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ObjectJsonSchemaProperty-Output",
-                "description": "JSON schema for the parameters the LLM provides."
-              },
-              {
-                "type": "null"
-              }
-            ]
-          }
-        },
-        "type": "object",
-        "required": [
-          "agent_id",
-          "description"
-        ],
-        "title": "SubAgent"
-      },
-      "SubagentRunResultDetails": {
-        "properties": {
-          "sub_conversation_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Sub Conversation Id"
-          },
-          "agent_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Agent Id"
-          }
-        },
-        "type": "object",
-        "title": "SubagentRunResultDetails"
       },
       "SubmitBusinessInfoParams": {
         "properties": {
@@ -96431,9 +96763,6 @@
               },
               {
                 "$ref": "#/components/schemas/EndProcedureToolConfig"
-              },
-              {
-                "$ref": "#/components/schemas/RunSubagentToolConfig-Input"
               }
             ],
             "title": "Params",
@@ -96446,7 +96775,6 @@
                 "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
-                "run_subagent": "#/components/schemas/RunSubagentToolConfig-Input",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
                 "start_procedure": "#/components/schemas/StartProcedureToolConfig",
                 "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig-Input",
@@ -96599,9 +96927,6 @@
               },
               {
                 "$ref": "#/components/schemas/EndProcedureToolConfig"
-              },
-              {
-                "$ref": "#/components/schemas/RunSubagentToolConfig-Output"
               }
             ],
             "title": "Params",
@@ -96614,7 +96939,6 @@
                 "knowledge_base_rag": "#/components/schemas/KnowledgeBaseRagToolConfig",
                 "language_detection": "#/components/schemas/LanguageDetectionToolConfig",
                 "play_keypad_touch_tone": "#/components/schemas/PlayDTMFToolConfig",
-                "run_subagent": "#/components/schemas/RunSubagentToolConfig-Output",
                 "skip_turn": "#/components/schemas/SkipTurnToolConfig",
                 "start_procedure": "#/components/schemas/StartProcedureToolConfig",
                 "transfer_to_agent": "#/components/schemas/TransferToAgentToolConfig-Output",
@@ -97519,7 +97843,7 @@
         "title": "TTSOutputFormat",
         "default": "pcm_16000"
       },
-      "TelephonyCallConfig": {
+      "TelephonyCallConfig-Input": {
         "properties": {
           "ringing_timeout_secs": {
             "type": "integer",
@@ -97534,6 +97858,48 @@
             "title": "Twilio Call Recording Enabled",
             "description": "Whether to record the call using Twilio call recording. Ignored for non-Twilio providers. Recordings are stored in your Twilio account.",
             "default": false
+          },
+          "twilio_machine_detection": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TwilioMachineDetectionConfig"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Configuration for Twilio's carrier-level answering machine detection (AMD). Omit or set to null to disable it. Ignored for non-Twilio providers and for inbound calls. The resulting verdict is delivered as its own `answering_machine_detection` webhook event, which requires that event to be enabled on the workspace or agent webhook settings; it is not part of the conversation or the post-call webhook. Detection runs asynchronously so it never delays the start of the conversation, and the verdict can arrive at any point during the call -- with `detect_message_end`, even after it has ended. Twilio bills separately for AMD."
+          }
+        },
+        "type": "object",
+        "title": "TelephonyCallConfig"
+      },
+      "TelephonyCallConfig-Output": {
+        "properties": {
+          "ringing_timeout_secs": {
+            "type": "integer",
+            "maximum": 999.0,
+            "minimum": 1.0,
+            "title": "Ringing Timeout Secs",
+            "description": "How long to ring the recipient before giving up, in seconds. Note that this will also be limited by the provider's own constraints.",
+            "default": 60
+          },
+          "twilio_call_recording_enabled": {
+            "type": "boolean",
+            "title": "Twilio Call Recording Enabled",
+            "description": "Whether to record the call using Twilio call recording. Ignored for non-Twilio providers. Recordings are stored in your Twilio account.",
+            "default": false
+          },
+          "twilio_machine_detection": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TwilioMachineDetectionConfig"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Configuration for Twilio's carrier-level answering machine detection (AMD). Omit or set to null to disable it. Ignored for non-Twilio providers and for inbound calls. The resulting verdict is delivered as its own `answering_machine_detection` webhook event, which requires that event to be enabled on the workspace or agent webhook settings; it is not part of the conversation or the post-call webhook. Detection runs asynchronously so it never delays the start of the conversation, and the verdict can arrive at any point during the call -- with `detect_message_end`, even after it has ended. Twilio bills separately for AMD."
           }
         },
         "type": "object",
@@ -98145,6 +98511,16 @@
             "type": "object",
             "title": "Inputschema"
           },
+          "execution": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ToolExecution"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "outputSchema": {
             "anyOf": [
               {
@@ -98192,19 +98568,8 @@
               }
             ],
             "title": "Meta"
-          },
-          "execution": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ToolExecution"
-              },
-              {
-                "type": "null"
-              }
-            ]
           }
         },
-        "additionalProperties": true,
         "type": "object",
         "required": [
           "name",
@@ -98271,7 +98636,6 @@
             "title": "Openworldhint"
           }
         },
-        "additionalProperties": true,
         "type": "object",
         "title": "ToolAnnotations",
         "description": "Additional properties describing a Tool to clients.\n\nNOTE: all properties in ToolAnnotations are **hints**.\nThey are not guaranteed to provide a faithful description of\ntool behavior (including descriptive properties like `title`).\n\nClients should never make tool use decisions based on ToolAnnotations\nreceived from untrusted servers."
@@ -98412,10 +98776,9 @@
             "title": "Tasksupport"
           }
         },
-        "additionalProperties": true,
         "type": "object",
         "title": "ToolExecution",
-        "description": "Execution-related properties for a tool."
+        "description": "Execution-related properties for a tool (2025-11-25 only)."
       },
       "ToolExecutionMode": {
         "type": "string",
@@ -100175,6 +100538,28 @@
         ],
         "title": "TwilioEdgeLocation",
         "description": "Valid Twilio edge locations."
+      },
+      "TwilioMachineDetectionConfig": {
+        "properties": {
+          "mode": {
+            "$ref": "#/components/schemas/TwilioMachineDetectionMode",
+            "description": "How thorough the detection should be. `enable` returns a verdict as soon as Twilio can tell a human from a machine. `detect_message_end` also waits for the voicemail greeting to finish, which is what produces the `machine_end_*` verdicts, but returns a result later.",
+            "default": "enable"
+          }
+        },
+        "type": "object",
+        "title": "TwilioMachineDetectionConfig",
+        "description": "How to run Twilio's carrier-level answering machine detection (AMD) on a call."
+      },
+      "TwilioMachineDetectionMode": {
+        "type": "string",
+        "enum": [
+          "enable",
+          "detect_message_end"
+        ],
+        "title": "TwilioMachineDetectionMode",
+        "description": "Which Twilio answering-machine-detection (AMD) mode to request for a call.\n\n`enable` returns a verdict as soon as Twilio can tell a human from a machine.\n`detect_message_end` additionally waits for the greeting to finish, which is what\ndistinguishes the `machine_end_*` verdicts, at the cost of a later result.",
+        "default": "enable"
       },
       "TwilioOutboundCallResponse": {
         "properties": {
@@ -105594,6 +105979,7 @@
           "transcript",
           "audio",
           "call_initiation_failure",
+          "answering_machine_detection",
           "unredacted_transcript",
           "unredacted_audio"
         ],
@@ -105756,7 +106142,7 @@
           "query_params_schema": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/QueryParamsJsonSchema"
+                "$ref": "#/components/schemas/QueryParamsJsonSchema-Input"
               },
               {
                 "type": "null"
@@ -105913,7 +106299,7 @@
           "query_params_schema": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/QueryParamsJsonSchema"
+                "$ref": "#/components/schemas/QueryParamsJsonSchema-Output"
               },
               {
                 "type": "null"
@@ -106112,6 +106498,21 @@
           "api_schema": {
             "$ref": "#/components/schemas/WebhookToolApiSchemaConfig-Input",
             "description": "The schema for the outgoing webhoook, including parameters and URL specification"
+          },
+          "follow_redirects": {
+            "type": "boolean",
+            "title": "Follow Redirects",
+            "description": "Whether to resolve a redirect from the endpoint and return the final response. One redirect is followed, as a GET without the request body; nothing configured on this tool (headers, authentication, client certificate) is sent to the redirect target. Both the endpoint and the redirect target must use HTTPS. Not supported for API integration tools.",
+            "default": false
+          },
+          "follow_redirects_allowed_domains": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 20,
+            "title": "Follow Redirects Allowed Domains",
+            "description": "Domains a redirect may point at, e.g. 'test.example.com'. Required when following redirects, and a target outside the list is refused."
           }
         },
         "type": "object",
@@ -106222,6 +106623,21 @@
           "api_schema": {
             "$ref": "#/components/schemas/WebhookToolApiSchemaConfig-Output",
             "description": "The schema for the outgoing webhoook, including parameters and URL specification"
+          },
+          "follow_redirects": {
+            "type": "boolean",
+            "title": "Follow Redirects",
+            "description": "Whether to resolve a redirect from the endpoint and return the final response. One redirect is followed, as a GET without the request body; nothing configured on this tool (headers, authentication, client certificate) is sent to the redirect target. Both the endpoint and the redirect target must use HTTPS. Not supported for API integration tools.",
+            "default": false
+          },
+          "follow_redirects_allowed_domains": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 20,
+            "title": "Follow Redirects Allowed Domains",
+            "description": "Domains a redirect may point at, e.g. 'test.example.com'. Required when following redirects, and a target outside the list is refused."
           }
         },
         "type": "object",
@@ -110762,6 +111178,17 @@
               }
             ],
             "title": "Third Party Disable Allowed"
+          },
+          "platform_limits": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PlatformLimits"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Per-API-key concurrency limits (TTS/dubbing/music). Enterprise-only."
           }
         },
         "type": "object",

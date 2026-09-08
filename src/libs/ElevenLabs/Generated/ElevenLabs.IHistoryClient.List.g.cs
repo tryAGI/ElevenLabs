@@ -47,9 +47,9 @@ namespace ElevenLabs
             string? modelId = default,
             int? dateBeforeUnix = default,
             int? dateAfterUnix = default,
-            global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection = default,
+            global::ElevenLabs.GetSpeechHistorySortDirection? sortDirection = default,
             string? search = default,
-            global::ElevenLabs.GetSpeechHistorySource2? source = default,
+            global::ElevenLabs.GetSpeechHistorySource? source = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -95,9 +95,9 @@ namespace ElevenLabs
             string? modelId = default,
             int? dateBeforeUnix = default,
             int? dateAfterUnix = default,
-            global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection = default,
+            global::ElevenLabs.GetSpeechHistorySortDirection? sortDirection = default,
             string? search = default,
-            global::ElevenLabs.GetSpeechHistorySource2? source = default,
+            global::ElevenLabs.GetSpeechHistorySource? source = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

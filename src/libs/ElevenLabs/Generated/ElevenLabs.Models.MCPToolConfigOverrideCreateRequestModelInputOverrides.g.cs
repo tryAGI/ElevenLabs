@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Mapping of json path to input override configuration
+    ///
     /// </summary>
     public sealed partial class MCPToolConfigOverrideCreateRequestModelInputOverrides
     {

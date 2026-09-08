@@ -43,6 +43,7 @@ namespace ElevenLabs
             ref string? userId,
             global::System.Collections.Generic.IList<string>? evaluationParams,
             global::System.Collections.Generic.IList<string>? dataCollectionParams,
+            global::System.Collections.Generic.IList<string>? dynamicVariableParams,
             global::System.Collections.Generic.IList<string>? toolNames,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful,
             global::System.Collections.Generic.IList<string>? toolNamesErrored,
@@ -79,6 +80,7 @@ namespace ElevenLabs
             string? userId,
             global::System.Collections.Generic.IList<string>? evaluationParams,
             global::System.Collections.Generic.IList<string>? dataCollectionParams,
+            global::System.Collections.Generic.IList<string>? dynamicVariableParams,
             global::System.Collections.Generic.IList<string>? toolNames,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful,
             global::System.Collections.Generic.IList<string>? toolNamesErrored,
@@ -157,6 +159,9 @@ namespace ElevenLabs
         /// <param name="dataCollectionParams">
         /// Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values.
         /// </param>
+        /// <param name="dynamicVariableParams">
+        /// Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. Names containing ':' cannot be expressed.
+        /// </param>
         /// <param name="toolNames">
         /// Filter conversations by tool names used during the call.
         /// </param>
@@ -228,6 +233,7 @@ namespace ElevenLabs
             string? userId = default,
             global::System.Collections.Generic.IList<string>? evaluationParams = default,
             global::System.Collections.Generic.IList<string>? dataCollectionParams = default,
+            global::System.Collections.Generic.IList<string>? dynamicVariableParams = default,
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
@@ -265,6 +271,7 @@ namespace ElevenLabs
                 userId: userId,
                 evaluationParams: evaluationParams,
                 dataCollectionParams: dataCollectionParams,
+                dynamicVariableParams: dynamicVariableParams,
                 toolNames: toolNames,
                 toolNamesSuccessful: toolNamesSuccessful,
                 toolNamesErrored: toolNamesErrored,
@@ -340,6 +347,9 @@ namespace ElevenLabs
         /// <param name="dataCollectionParams">
         /// Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values.
         /// </param>
+        /// <param name="dynamicVariableParams">
+        /// Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. Names containing ':' cannot be expressed.
+        /// </param>
         /// <param name="toolNames">
         /// Filter conversations by tool names used during the call.
         /// </param>
@@ -411,6 +421,7 @@ namespace ElevenLabs
             string? userId = default,
             global::System.Collections.Generic.IList<string>? evaluationParams = default,
             global::System.Collections.Generic.IList<string>? dataCollectionParams = default,
+            global::System.Collections.Generic.IList<string>? dynamicVariableParams = default,
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
@@ -451,6 +462,7 @@ namespace ElevenLabs
                 userId: ref userId,
                 evaluationParams: evaluationParams,
                 dataCollectionParams: dataCollectionParams,
+                dynamicVariableParams: dynamicVariableParams,
                 toolNames: toolNames,
                 toolNamesSuccessful: toolNamesSuccessful,
                 toolNamesErrored: toolNamesErrored,
@@ -512,6 +524,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("user_id", userId)
                                 .AddOptionalParameter("evaluation_params", evaluationParams?.ToString())
                                 .AddOptionalParameter("data_collection_params", dataCollectionParams?.ToString())
+                                .AddOptionalParameter("dynamic_variable_params", dynamicVariableParams?.ToString())
                                 .AddOptionalParameter("tool_names", toolNames?.ToString())
                                 .AddOptionalParameter("tool_names_successful", toolNamesSuccessful?.ToString())
                                 .AddOptionalParameter("tool_names_errored", toolNamesErrored?.ToString())
@@ -586,6 +599,7 @@ namespace ElevenLabs
                     userId: userId,
                     evaluationParams: evaluationParams,
                     dataCollectionParams: dataCollectionParams,
+                    dynamicVariableParams: dynamicVariableParams,
                     toolNames: toolNames,
                     toolNamesSuccessful: toolNamesSuccessful,
                     toolNamesErrored: toolNamesErrored,
@@ -966,6 +980,9 @@ namespace ElevenLabs
         /// <param name="dataCollectionParams">
         /// Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values.
         /// </param>
+        /// <param name="dynamicVariableParams">
+        /// Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. Names containing ':' cannot be expressed.
+        /// </param>
         /// <param name="toolNames">
         /// Filter conversations by tool names used during the call.
         /// </param>
@@ -1032,6 +1049,7 @@ namespace ElevenLabs
             string? userId = default,
             global::System.Collections.Generic.IList<string>? evaluationParams = default,
             global::System.Collections.Generic.IList<string>? dataCollectionParams = default,
+            global::System.Collections.Generic.IList<string>? dynamicVariableParams = default,
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
@@ -1069,6 +1087,7 @@ namespace ElevenLabs
                     userId: userId,
                     evaluationParams: evaluationParams,
                     dataCollectionParams: dataCollectionParams,
+                    dynamicVariableParams: dynamicVariableParams,
                     toolNames: toolNames,
                     toolNamesSuccessful: toolNamesSuccessful,
                     toolNamesErrored: toolNamesErrored,

@@ -66,7 +66,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<byte[]> ConvertAsync(
             byte[] audio,
             string audioname,
-            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat2? fileFormat = default,
+            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat? fileFormat = default,
             string? previewB64 = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -94,7 +94,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<byte[]> ConvertAsync(
             global::System.IO.Stream audio,
             string audioname,
-            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat2? fileFormat = default,
+            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat? fileFormat = default,
             string? previewB64 = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -121,7 +121,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::System.IO.Stream> ConvertAsStreamAsync(
             global::System.IO.Stream audio,
             string audioname,
-            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat2? fileFormat = default,
+            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat? fileFormat = default,
             string? previewB64 = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -148,7 +148,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<byte[]>> ConvertAsResponseAsync(
             global::System.IO.Stream audio,
             string audioname,
-            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat2? fileFormat = default,
+            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat? fileFormat = default,
             string? previewB64 = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

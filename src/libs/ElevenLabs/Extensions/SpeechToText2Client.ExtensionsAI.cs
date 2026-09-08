@@ -6,7 +6,7 @@ namespace ElevenLabs;
 
 public sealed partial class SpeechToText2Client : Microsoft.Extensions.AI.ISpeechToTextClient
 {
-    private const BodySpeechToTextV1SpeechToTextPostModelId DefaultModelId = BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1;
+    private const string DefaultModelId = "scribe_v1";
 
     /// <inheritdoc />
     object? Microsoft.Extensions.AI.ISpeechToTextClient.GetService(Type serviceType, object? serviceKey) =>
@@ -71,7 +71,7 @@ public sealed partial class SpeechToText2Client : Microsoft.Extensions.AI.ISpeec
         return new(text)
         {
             EndTime = words?.Count > 0 && words.Max(w => w.End) is double endTime ? TimeSpan.FromSeconds(endTime) : null,
-            ModelId = post.ModelId.ToValueString(),
+            ModelId = post.ModelId,
             RawRepresentation = result,
             StartTime = words?.Count > 0 && words.Min(w => w.Start) is double startTime ? TimeSpan.FromSeconds(startTime) : null,
         };
@@ -88,6 +88,5 @@ public sealed partial class SpeechToText2Client : Microsoft.Extensions.AI.ISpeec
         }
     }
 
-    private static BodySpeechToTextV1SpeechToTextPostModelId? ParseModelId(string? modelId) =>
-        modelId is null ? null : BodySpeechToTextV1SpeechToTextPostModelIdExtensions.ToEnum(modelId);
+    private static string? ParseModelId(string? modelId) => modelId;
 }

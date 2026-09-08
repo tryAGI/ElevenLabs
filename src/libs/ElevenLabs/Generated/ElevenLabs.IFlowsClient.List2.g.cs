@@ -27,7 +27,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.MediaGenerationListResponse> List2Async(
             string? cursor = default,
             int? pageSize = default,
-            global::ElevenLabs.ListImageGenerationsStatus2? status = default,
+            global::ElevenLabs.ListImageGenerationsStatus? status = default,
             string? modelId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -54,7 +54,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MediaGenerationListResponse>> List2AsResponseAsync(
             string? cursor = default,
             int? pageSize = default,
-            global::ElevenLabs.ListImageGenerationsStatus2? status = default,
+            global::ElevenLabs.ListImageGenerationsStatus? status = default,
             string? modelId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -76,7 +76,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.MediaGenerationResponse> List2AutoPagingAsync(
               int? pageSize = default,
-            global::ElevenLabs.ListImageGenerationsStatus2? status = default,
+            global::ElevenLabs.ListImageGenerationsStatus? status = default,
             string? modelId = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -4,16 +4,60 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Why the requesting user has access to this resource. 'creator' = caller is the owner. 'explicit' = caller (or one of their workspace groups) is listed in role_to_group_ids beyond the workspace-wide everyone group. 'workspace_default' = the workspace-wide everyone group is listed in role_to_group_ids (every non-anon workspace member, including admins, sees this resource). 'workspace_admin' = caller is a workspace admin and the admin seat is the *only* path to access; reserved for docs nobody else can see. Lets the UI disclose why an admin-bypass viewer sees a doc that wasn't explicitly shared with them.
+    ///
     /// </summary>
-    public sealed partial class ResourceAccessInfoAccessSource
+    public enum ResourceAccessInfoAccessSource
     {
-
         /// <summary>
-        /// Additional properties that are not explicitly defined in the schema
+        ///
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonExtensionData]
-        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+        Creator,
+        /// <summary>
+        ///
+        /// </summary>
+        Explicit,
+        /// <summary>
+        ///
+        /// </summary>
+        WorkspaceAdmin,
+        /// <summary>
+        ///
+        /// </summary>
+        WorkspaceDefault,
+    }
 
+    /// <summary>
+    /// Enum extensions to do fast conversions without the reflection.
+    /// </summary>
+    public static class ResourceAccessInfoAccessSourceExtensions
+    {
+        /// <summary>
+        /// Converts an enum to a string.
+        /// </summary>
+        public static string ToValueString(this ResourceAccessInfoAccessSource value)
+        {
+            return value switch
+            {
+                ResourceAccessInfoAccessSource.Creator => "creator",
+                ResourceAccessInfoAccessSource.Explicit => "explicit",
+                ResourceAccessInfoAccessSource.WorkspaceAdmin => "workspace_admin",
+                ResourceAccessInfoAccessSource.WorkspaceDefault => "workspace_default",
+                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
+            };
+        }
+        /// <summary>
+        /// Converts an string to a enum.
+        /// </summary>
+        public static ResourceAccessInfoAccessSource? ToEnum(string value)
+        {
+            return value switch
+            {
+                "creator" => ResourceAccessInfoAccessSource.Creator,
+                "explicit" => ResourceAccessInfoAccessSource.Explicit,
+                "workspace_admin" => ResourceAccessInfoAccessSource.WorkspaceAdmin,
+                "workspace_default" => ResourceAccessInfoAccessSource.WorkspaceDefault,
+                _ => null,
+            };
+        }
     }
 }

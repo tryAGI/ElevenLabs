@@ -30,7 +30,7 @@ namespace ElevenLabs
         /// Finetune visibility. Only 'private' and 'workspace' can be set.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("visibility")]
-        public global::ElevenLabs.UpdateMusicFinetuneRequestModelVisibility2? Visibility { get; set; }
+        public global::ElevenLabs.UpdateMusicFinetuneRequestModelVisibility? Visibility { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -60,7 +60,7 @@ namespace ElevenLabs
             string? name,
             global::System.Collections.Generic.IList<string>? tags,
             string? primaryGenre,
-            global::ElevenLabs.UpdateMusicFinetuneRequestModelVisibility2? visibility)
+            global::ElevenLabs.UpdateMusicFinetuneRequestModelVisibility? visibility)
         {
             this.Name = name;
             this.Tags = tags;

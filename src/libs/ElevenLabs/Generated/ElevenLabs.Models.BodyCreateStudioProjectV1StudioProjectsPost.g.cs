@@ -99,7 +99,7 @@ namespace ElevenLabs
         /// An optional target audience of the Studio project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_audience")]
-        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2? TargetAudience { get; set; }
+        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience? TargetAudience { get; set; }
 
         /// <summary>
         /// An optional language of the Studio project. Two-letter language code (ISO 639-1).
@@ -214,7 +214,7 @@ namespace ElevenLabs
         /// An optional specification of whether the content of this Studio project is fiction.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fiction")]
-        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostFiction2? Fiction { get; set; }
+        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostFiction? Fiction { get; set; }
 
         /// <summary>
         ///     This parameter controls text normalization with four modes: 'auto', 'on', 'apply_english' and 'off'.<br/>
@@ -224,7 +224,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("apply_text_normalization")]
-        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2? ApplyTextNormalization { get; set; }
+        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization? ApplyTextNormalization { get; set; }
 
         /// <summary>
         /// Whether to auto convert the Studio project to audio or not.<br/>
@@ -244,7 +244,7 @@ namespace ElevenLabs
         /// The type of Studio project to create.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_type")]
-        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostSourceType2? SourceType { get; set; }
+        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostSourceType? SourceType { get; set; }
 
         /// <summary>
         ///     Optional voice settings overrides for the project, encoded as a list of JSON strings.<br/>
@@ -451,7 +451,7 @@ namespace ElevenLabs
             string? author,
             string? description,
             global::System.Collections.Generic.IList<string>? genres,
-            global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience2? targetAudience,
+            global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience? targetAudience,
             string? language,
             string? contentType,
             string? originalPublicationDate,
@@ -461,11 +461,11 @@ namespace ElevenLabs
             bool? volumeNormalization,
             global::System.Collections.Generic.IList<string>? pronunciationDictionaryLocators,
             string? callbackUrl,
-            global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostFiction2? fiction,
-            global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization2? applyTextNormalization,
+            global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostFiction? fiction,
+            global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization? applyTextNormalization,
             bool? autoConvert,
             bool? autoAssignVoices,
-            global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostSourceType2? sourceType,
+            global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostSourceType? sourceType,
             global::System.Collections.Generic.IList<string>? voiceSettings,
             bool? createPublishingRead)
         {

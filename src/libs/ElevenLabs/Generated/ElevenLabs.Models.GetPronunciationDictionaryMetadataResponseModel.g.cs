@@ -40,7 +40,7 @@ namespace ElevenLabs
         /// The permission on the resource of the pronunciation dictionary.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("permission_on_resource")]
-        public global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModelPermissionOnResource2? PermissionOnResource { get; set; }
+        public global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModelPermissionOnResource? PermissionOnResource { get; set; }
 
         /// <summary>
         /// The user ID of the creator of the pronunciation dictionary.
@@ -115,7 +115,7 @@ namespace ElevenLabs
             string name,
             string createdBy,
             global::System.DateTimeOffset creationTimeUnix,
-            global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModelPermissionOnResource2? permissionOnResource,
+            global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModelPermissionOnResource? permissionOnResource,
             int? archivedTimeUnix,
             string? description)
         {

@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        AnsweringMachineDetection,
+        /// <summary>
+        ///
+        /// </summary>
         Audio,
         /// <summary>
         ///
@@ -42,6 +46,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                WebhookEventType.AnsweringMachineDetection => "answering_machine_detection",
                 WebhookEventType.Audio => "audio",
                 WebhookEventType.CallInitiationFailure => "call_initiation_failure",
                 WebhookEventType.Transcript => "transcript",
@@ -57,6 +62,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "answering_machine_detection" => WebhookEventType.AnsweringMachineDetection,
                 "audio" => WebhookEventType.Audio,
                 "call_initiation_failure" => WebhookEventType.CallInitiationFailure,
                 "transcript" => WebhookEventType.Transcript,

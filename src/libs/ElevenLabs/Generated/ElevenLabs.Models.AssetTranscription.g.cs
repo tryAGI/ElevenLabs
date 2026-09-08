@@ -20,7 +20,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
-        public global::ElevenLabs.AssetTranscriptionData2? Data { get; set; }
+        public global::ElevenLabs.AssetTranscriptionData? Data { get; set; }
 
         /// <summary>
         ///
@@ -45,7 +45,7 @@ namespace ElevenLabs
 #endif
         public AssetTranscription(
             global::ElevenLabs.AssetTranscriptionStatus status,
-            global::ElevenLabs.AssetTranscriptionData2? data,
+            global::ElevenLabs.AssetTranscriptionData? data,
             int? updatedAtMs)
         {
             this.Status = status;

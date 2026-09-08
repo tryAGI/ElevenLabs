@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Optional custom request headers to include with each webhook delivery
+    ///
     /// </summary>
     public sealed partial class WebhookHMACSettingsRequestHeaders
     {

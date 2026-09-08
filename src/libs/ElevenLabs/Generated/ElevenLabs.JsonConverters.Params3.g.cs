@@ -98,13 +98,6 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.EndProcedureToolConfig)}");
                 endProcedure = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::ElevenLabs.RunSubagentToolConfigOutput? runSubagent = default;
-            if (discriminator?.SystemToolType == global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType.RunSubagent)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RunSubagentToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RunSubagentToolConfigOutput> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.RunSubagentToolConfigOutput)}");
-                runSubagent = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
-            }
 
             var __value = new global::ElevenLabs.Params3(
                 discriminator?.SystemToolType,
@@ -128,9 +121,7 @@ namespace ElevenLabs.JsonConverters
 
                 startProcedure,
 
-                endProcedure,
-
-                runSubagent
+                endProcedure
                 );
 
             return __value;
@@ -210,12 +201,6 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndProcedureToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndProcedureToolConfig?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.EndProcedureToolConfig).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.EndProcedure!, typeInfo);
-            }
-            else if (value.IsRunSubagent)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RunSubagentToolConfigOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RunSubagentToolConfigOutput?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.RunSubagentToolConfigOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.RunSubagent!, typeInfo);
             }
         }
     }

@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"access_info":{"creator_email":"john@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"},"created_at_unix_secs":1714000000,"name":"My Speech Engine","speech_engine_id":"seng_3701k3ttaq12ewp8b7qv5rfyszkz","tags":["production","v1"]}
+    /// Example: {"access_info":{"creator_email":"john@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"},"created_at_unix_secs":1714000000,"name":"My Speech Engine","speech_engine_id":"seng_3701k3ttaq12ewp8b7qv5rfyszkz","tags":["production","v1"],"voice_id":"UCaNsl8F6Xh4GALkVMLS"}
     /// </summary>
     public sealed partial class SpeechEngineSummaryResponse
     {
@@ -21,6 +21,13 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
+
+        /// <summary>
+        /// Voice ID assigned to this speech engine
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string VoiceId { get; set; }
 
         /// <summary>
         /// Creation time in Unix seconds
@@ -60,6 +67,9 @@ namespace ElevenLabs
         /// <param name="name">
         /// Human-readable name for the speech engine
         /// </param>
+        /// <param name="voiceId">
+        /// Voice ID assigned to this speech engine
+        /// </param>
         /// <param name="createdAtUnixSecs">
         /// Creation time in Unix seconds
         /// </param>
@@ -76,12 +86,14 @@ namespace ElevenLabs
         public SpeechEngineSummaryResponse(
             string speechEngineId,
             string name,
+            string voiceId,
             int createdAtUnixSecs,
             global::System.Collections.Generic.IList<string> tags,
             global::ElevenLabs.ResourceAccessInfo accessInfo)
         {
             this.SpeechEngineId = speechEngineId ?? throw new global::System.ArgumentNullException(nameof(speechEngineId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
             this.CreatedAtUnixSecs = createdAtUnixSecs;
             this.Tags = tags ?? throw new global::System.ArgumentNullException(nameof(tags));
             this.AccessInfo = accessInfo ?? throw new global::System.ArgumentNullException(nameof(accessInfo));

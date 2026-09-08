@@ -53,7 +53,7 @@ namespace ElevenLabs
         /// Default Value: other
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_format")]
-        public global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat2? FileFormat { get; set; }
+        public global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? FileFormat { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -98,7 +98,7 @@ namespace ElevenLabs
             string? voiceSettings,
             int? seed,
             bool? removeBackgroundNoise,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat2? fileFormat)
+            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? fileFormat)
         {
             this.Audio = audio ?? throw new global::System.ArgumentNullException(nameof(audio));
             this.Audioname = audioname ?? throw new global::System.ArgumentNullException(nameof(audioname));

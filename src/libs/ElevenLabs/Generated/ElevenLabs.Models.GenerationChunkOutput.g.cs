@@ -53,7 +53,7 @@ namespace ElevenLabs
         /// How strongly the model adheres to the conditioning reference. Low strength means the model will be more creative and deviate from the reference. High strength means the model will be more consistent with the reference.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("condition_strength")]
-        public global::ElevenLabs.GenerationChunkOutputConditionStrength2? ConditionStrength { get; set; }
+        public global::ElevenLabs.GenerationChunkOutputConditionStrength? ConditionStrength { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -96,7 +96,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? negativeStyles,
             global::ElevenLabs.GenerationChunkOutputContextAdherence? contextAdherence,
             global::ElevenLabs.AudioRefChunk? conditioningRef,
-            global::ElevenLabs.GenerationChunkOutputConditionStrength2? conditionStrength)
+            global::ElevenLabs.GenerationChunkOutputConditionStrength? conditionStrength)
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.DurationMs = durationMs;

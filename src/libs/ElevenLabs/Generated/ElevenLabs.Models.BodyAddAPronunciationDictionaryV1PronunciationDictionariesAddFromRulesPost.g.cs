@@ -34,7 +34,7 @@ namespace ElevenLabs
         /// Should be one of 'admin', 'editor' or 'viewer'. If not provided, defaults to no access.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspace_access")]
-        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPostWorkspaceAccess2? WorkspaceAccess { get; set; }
+        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPostWorkspaceAccess? WorkspaceAccess { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -66,7 +66,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModel>> rules,
             string name,
             string? description,
-            global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPostWorkspaceAccess2? workspaceAccess)
+            global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPostWorkspaceAccess? workspaceAccess)
         {
             this.Rules = rules ?? throw new global::System.ArgumentNullException(nameof(rules));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));

@@ -36,31 +36,31 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_align")]
-        public global::ElevenLabs.CaptionStyleModelTextAlign2? TextAlign { get; set; }
+        public global::ElevenLabs.CaptionStyleModelTextAlign? TextAlign { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_style")]
-        public global::ElevenLabs.CaptionStyleModelTextStyle2? TextStyle { get; set; }
+        public global::ElevenLabs.CaptionStyleModelTextStyle? TextStyle { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_weight")]
-        public global::ElevenLabs.CaptionStyleModelTextWeight2? TextWeight { get; set; }
+        public global::ElevenLabs.CaptionStyleModelTextWeight? TextWeight { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_transform")]
-        public global::ElevenLabs.CaptionStyleModelTextTransform2? TextTransform { get; set; }
+        public global::ElevenLabs.CaptionStyleModelTextTransform? TextTransform { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_blend_mode")]
-        public global::ElevenLabs.CaptionStyleModelTextBlendMode2? TextBlendMode { get; set; }
+        public global::ElevenLabs.CaptionStyleModelTextBlendMode? TextBlendMode { get; set; }
 
         /// <summary>
         ///
@@ -249,11 +249,11 @@ namespace ElevenLabs
             string? textFont,
             double? textScale,
             string? textColor,
-            global::ElevenLabs.CaptionStyleModelTextAlign2? textAlign,
-            global::ElevenLabs.CaptionStyleModelTextStyle2? textStyle,
-            global::ElevenLabs.CaptionStyleModelTextWeight2? textWeight,
-            global::ElevenLabs.CaptionStyleModelTextTransform2? textTransform,
-            global::ElevenLabs.CaptionStyleModelTextBlendMode2? textBlendMode,
+            global::ElevenLabs.CaptionStyleModelTextAlign? textAlign,
+            global::ElevenLabs.CaptionStyleModelTextStyle? textStyle,
+            global::ElevenLabs.CaptionStyleModelTextWeight? textWeight,
+            global::ElevenLabs.CaptionStyleModelTextTransform? textTransform,
+            global::ElevenLabs.CaptionStyleModelTextBlendMode? textBlendMode,
             global::ElevenLabs.StudioTextStyleShadowModel? textShadow,
             global::ElevenLabs.StudioTextStyleOutlineModel? textOutline,
             bool? backgroundEnabled,

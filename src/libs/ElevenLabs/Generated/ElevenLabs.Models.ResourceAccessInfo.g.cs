@@ -41,13 +41,13 @@ namespace ElevenLabs
         /// The access level for anonymous users. If None, the resource is not shared publicly.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("anonymous_access_level_override")]
-        public global::ElevenLabs.ResourceAccessInfoAnonymousAccessLevelOverride2? AnonymousAccessLevelOverride { get; set; }
+        public global::ElevenLabs.ResourceAccessInfoAnonymousAccessLevelOverride? AnonymousAccessLevelOverride { get; set; }
 
         /// <summary>
         /// Why the requesting user has access to this resource. 'creator' = caller is the owner. 'explicit' = caller (or one of their workspace groups) is listed in role_to_group_ids beyond the workspace-wide everyone group. 'workspace_default' = the workspace-wide everyone group is listed in role_to_group_ids (every non-anon workspace member, including admins, sees this resource). 'workspace_admin' = caller is a workspace admin and the admin seat is the *only* path to access; reserved for docs nobody else can see. Lets the UI disclose why an admin-bypass viewer sees a doc that wasn't explicitly shared with them.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_source")]
-        public global::ElevenLabs.ResourceAccessInfoAccessSource2? AccessSource { get; set; }
+        public global::ElevenLabs.ResourceAccessInfoAccessSource? AccessSource { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -84,8 +84,8 @@ namespace ElevenLabs
             string creatorName,
             string creatorEmail,
             global::ElevenLabs.ResourceAccessInfoRole role,
-            global::ElevenLabs.ResourceAccessInfoAnonymousAccessLevelOverride2? anonymousAccessLevelOverride,
-            global::ElevenLabs.ResourceAccessInfoAccessSource2? accessSource)
+            global::ElevenLabs.ResourceAccessInfoAnonymousAccessLevelOverride? anonymousAccessLevelOverride,
+            global::ElevenLabs.ResourceAccessInfoAccessSource? accessSource)
         {
             this.IsCreator = isCreator;
             this.CreatorName = creatorName ?? throw new global::System.ArgumentNullException(nameof(creatorName));

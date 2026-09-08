@@ -59,7 +59,7 @@ namespace ElevenLabs
             string? name = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             string? primaryGenre = default,
-            global::ElevenLabs.UpdateMusicFinetuneRequestModelVisibility2? visibility = default,
+            global::ElevenLabs.UpdateMusicFinetuneRequestModelVisibility? visibility = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

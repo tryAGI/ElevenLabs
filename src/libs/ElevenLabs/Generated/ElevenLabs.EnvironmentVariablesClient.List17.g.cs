@@ -31,7 +31,7 @@ namespace ElevenLabs
             ref int? pageSize,
             ref string? label,
             ref string? environment,
-            ref global::ElevenLabs.ListEnvironmentVariablesType2? type);
+            ref global::ElevenLabs.ListEnvironmentVariablesType? type);
         partial void PrepareList17Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -39,7 +39,7 @@ namespace ElevenLabs
             int? pageSize,
             string? label,
             string? environment,
-            global::ElevenLabs.ListEnvironmentVariablesType2? type);
+            global::ElevenLabs.ListEnvironmentVariablesType? type);
         partial void ProcessList17Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -77,7 +77,7 @@ namespace ElevenLabs
             int? pageSize = default,
             string? label = default,
             string? environment = default,
-            global::ElevenLabs.ListEnvironmentVariablesType2? type = default,
+            global::ElevenLabs.ListEnvironmentVariablesType? type = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -121,7 +121,7 @@ namespace ElevenLabs
             int? pageSize = default,
             string? label = default,
             string? environment = default,
-            global::ElevenLabs.ListEnvironmentVariablesType2? type = default,
+            global::ElevenLabs.ListEnvironmentVariablesType? type = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -579,7 +579,7 @@ namespace ElevenLabs
               int? pageSize = default,
             string? label = default,
             string? environment = default,
-            global::ElevenLabs.ListEnvironmentVariablesType2? type = default,
+            global::ElevenLabs.ListEnvironmentVariablesType? type = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

@@ -288,7 +288,7 @@ namespace ElevenLabs
         /// Theme for code block syntax highlighting. Defaults to auto-detection by the widget when not set.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("syntax_highlight_theme")]
-        public global::ElevenLabs.WidgetConfigOutputSyntaxHighlightTheme2? SyntaxHighlightTheme { get; set; }
+        public global::ElevenLabs.WidgetConfigOutputSyntaxHighlightTheme? SyntaxHighlightTheme { get; set; }
 
         /// <summary>
         /// Text contents of the widget
@@ -564,7 +564,7 @@ namespace ElevenLabs
             bool? showAgentStatus,
             bool? showConversationId,
             bool? stripAudioTags,
-            global::ElevenLabs.WidgetConfigOutputSyntaxHighlightTheme2? syntaxHighlightTheme,
+            global::ElevenLabs.WidgetConfigOutputSyntaxHighlightTheme? syntaxHighlightTheme,
             global::ElevenLabs.WidgetTextContents? textContents,
             global::ElevenLabs.WidgetStyles? styles,
             bool? showResizeButton,

@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// Schema for any query params, if any. These will be added to end of the URL as query params. Note: properties in a query param must all be literal types
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("query_params_schema")]
-        public global::ElevenLabs.QueryParamsJsonSchema? QueryParamsSchema { get; set; }
+        public global::ElevenLabs.QueryParamsJsonSchemaOutput? QueryParamsSchema { get; set; }
 
         /// <summary>
         /// Schema for the body parameters, if any. Used for POST/PATCH/PUT requests. The schema should be an object which will be sent as the json body
@@ -132,7 +132,7 @@ namespace ElevenLabs
             object? requestHeaders,
             global::ElevenLabs.WebhookToolApiSchemaConfigOutputMethod? method,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? pathParamsSchema,
-            global::ElevenLabs.QueryParamsJsonSchema? queryParamsSchema,
+            global::ElevenLabs.QueryParamsJsonSchemaOutput? queryParamsSchema,
             global::ElevenLabs.ObjectJsonSchemaPropertyOutput? requestBodySchema,
             global::ElevenLabs.ObjectJsonSchemaPropertyOutput? responseBodySchema,
             global::ElevenLabs.ResponseFilter? responseFilter,

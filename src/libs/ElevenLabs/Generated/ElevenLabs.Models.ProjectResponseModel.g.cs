@@ -105,7 +105,7 @@ namespace ElevenLabs
         /// The target audience of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_audience")]
-        public global::ElevenLabs.ProjectResponseModelTargetAudience2? TargetAudience { get; set; }
+        public global::ElevenLabs.ProjectResponseModelTargetAudience? TargetAudience { get; set; }
 
         /// <summary>
         /// Two-letter language code (ISO 639-1) of the language of the project.
@@ -164,7 +164,7 @@ namespace ElevenLabs
         /// Whether the project is fiction.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fiction")]
-        public global::ElevenLabs.ProjectResponseModelFiction2? Fiction { get; set; }
+        public global::ElevenLabs.ProjectResponseModelFiction? Fiction { get; set; }
 
         /// <summary>
         /// Whether quality check is enabled for this project.
@@ -190,7 +190,7 @@ namespace ElevenLabs
         /// The source type of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_type")]
-        public global::ElevenLabs.ProjectResponseModelSourceType2? SourceType { get; set; }
+        public global::ElevenLabs.ProjectResponseModelSourceType? SourceType { get; set; }
 
         /// <summary>
         /// Whether chapters are enabled for the project.<br/>
@@ -228,7 +228,7 @@ namespace ElevenLabs
         /// The aspect ratio of the project.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("aspect_ratio")]
-        public global::ElevenLabs.ProjectResponseModelAspectRatio2? AspectRatio { get; set; }
+        public global::ElevenLabs.ProjectResponseModelAspectRatio? AspectRatio { get; set; }
 
         /// <summary>
         /// Agent-related settings for the project
@@ -393,21 +393,21 @@ namespace ElevenLabs
             string? description,
             global::System.Collections.Generic.IList<string>? genres,
             string? coverImageUrl,
-            global::ElevenLabs.ProjectResponseModelTargetAudience2? targetAudience,
+            global::ElevenLabs.ProjectResponseModelTargetAudience? targetAudience,
             string? language,
             string? contentType,
             string? originalPublicationDate,
             bool? matureContent,
             string? isbnNumber,
-            global::ElevenLabs.ProjectResponseModelFiction2? fiction,
+            global::ElevenLabs.ProjectResponseModelFiction? fiction,
             global::ElevenLabs.ProjectCreationMetaResponseModel? creationMeta,
-            global::ElevenLabs.ProjectResponseModelSourceType2? sourceType,
+            global::ElevenLabs.ProjectResponseModelSourceType? sourceType,
             bool? chaptersEnabled,
             bool? captionsEnabled,
             global::ElevenLabs.CaptionStyleModel? captionStyle,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.CaptionStyleModel>? captionStyleTemplateOverrides,
             string? publicShareId,
-            global::ElevenLabs.ProjectResponseModelAspectRatio2? aspectRatio,
+            global::ElevenLabs.ProjectResponseModelAspectRatio? aspectRatio,
             global::ElevenLabs.StudioAgentSettingsModel? agentSettings)
         {
             this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));

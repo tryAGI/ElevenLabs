@@ -35,10 +35,6 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        RunSubagent,
-        /// <summary>
-        ///
-        /// </summary>
         SkipTurn,
         /// <summary>
         ///
@@ -76,7 +72,6 @@ namespace ElevenLabs
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.KnowledgeBaseRag => "knowledge_base_rag",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.LanguageDetection => "language_detection",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.PlayKeypadTouchTone => "play_keypad_touch_tone",
-                SystemToolConfigOutputParamsDiscriminatorSystemToolType.RunSubagent => "run_subagent",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.SkipTurn => "skip_turn",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.StartProcedure => "start_procedure",
                 SystemToolConfigOutputParamsDiscriminatorSystemToolType.TransferToAgent => "transfer_to_agent",
@@ -98,7 +93,6 @@ namespace ElevenLabs
                 "knowledge_base_rag" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.KnowledgeBaseRag,
                 "language_detection" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.LanguageDetection,
                 "play_keypad_touch_tone" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.PlayKeypadTouchTone,
-                "run_subagent" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.RunSubagent,
                 "skip_turn" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.SkipTurn,
                 "start_procedure" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.StartProcedure,
                 "transfer_to_agent" => SystemToolConfigOutputParamsDiscriminatorSystemToolType.TransferToAgent,

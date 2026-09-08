@@ -30,7 +30,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("studio_clip")]
-        public global::ElevenLabs.StudioClipReference? StudioClip { get; set; }
+        public global::ElevenLabs.StudioClipLocator? StudioClip { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -52,7 +52,7 @@ namespace ElevenLabs
             string? generationId,
             string? contentAssetId,
             string? templateNodeId,
-            global::ElevenLabs.StudioClipReference? studioClip)
+            global::ElevenLabs.StudioClipLocator? studioClip)
         {
             this.GenerationId = generationId;
             this.ContentAssetId = contentAssetId;

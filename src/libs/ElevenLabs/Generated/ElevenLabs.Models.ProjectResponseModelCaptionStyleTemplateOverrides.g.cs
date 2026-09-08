@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Styling changes that have been made to the provided templates
+    ///
     /// </summary>
     public sealed partial class ProjectResponseModelCaptionStyleTemplateOverrides
     {

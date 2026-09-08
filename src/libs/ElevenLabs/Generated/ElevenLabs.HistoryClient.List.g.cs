@@ -33,9 +33,9 @@ namespace ElevenLabs
             ref string? modelId,
             int? dateBeforeUnix,
             int? dateAfterUnix,
-            ref global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection,
+            ref global::ElevenLabs.GetSpeechHistorySortDirection? sortDirection,
             ref string? search,
-            ref global::ElevenLabs.GetSpeechHistorySource2? source);
+            ref global::ElevenLabs.GetSpeechHistorySource? source);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -45,9 +45,9 @@ namespace ElevenLabs
             string? modelId,
             int? dateBeforeUnix,
             int? dateAfterUnix,
-            global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection,
+            global::ElevenLabs.GetSpeechHistorySortDirection? sortDirection,
             string? search,
-            global::ElevenLabs.GetSpeechHistorySource2? source);
+            global::ElevenLabs.GetSpeechHistorySource? source);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -100,9 +100,9 @@ namespace ElevenLabs
             string? modelId = default,
             int? dateBeforeUnix = default,
             int? dateAfterUnix = default,
-            global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection = default,
+            global::ElevenLabs.GetSpeechHistorySortDirection? sortDirection = default,
             string? search = default,
-            global::ElevenLabs.GetSpeechHistorySource2? source = default,
+            global::ElevenLabs.GetSpeechHistorySource? source = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -165,9 +165,9 @@ namespace ElevenLabs
             string? modelId = default,
             int? dateBeforeUnix = default,
             int? dateAfterUnix = default,
-            global::ElevenLabs.GetSpeechHistorySortDirection2? sortDirection = default,
+            global::ElevenLabs.GetSpeechHistorySortDirection? sortDirection = default,
             string? search = default,
-            global::ElevenLabs.GetSpeechHistorySource2? source = default,
+            global::ElevenLabs.GetSpeechHistorySource? source = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

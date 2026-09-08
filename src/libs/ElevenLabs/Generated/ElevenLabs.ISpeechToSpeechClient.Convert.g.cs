@@ -179,7 +179,7 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat2? fileFormat = default,
+            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -245,7 +245,7 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat2? fileFormat = default,
+            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -310,7 +310,7 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat2? fileFormat = default,
+            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -375,7 +375,7 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat2? fileFormat = default,
+            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

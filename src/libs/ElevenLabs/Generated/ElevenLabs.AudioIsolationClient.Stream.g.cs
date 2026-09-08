@@ -489,7 +489,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::System.IO.Stream> StreamAsync(
             byte[] audio,
             string audioname,
-            global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat2? fileFormat = default,
+            global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -526,7 +526,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::System.IO.Stream> StreamAsync(
             global::System.IO.Stream audio,
             string audioname,
-            global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat2? fileFormat = default,
+            global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -948,7 +948,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.IO.Stream>> StreamAsResponseAsync(
             global::System.IO.Stream audio,
             string audioname,
-            global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat2? fileFormat = default,
+            global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
