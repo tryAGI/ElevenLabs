@@ -28,6 +28,26 @@ namespace ElevenLabs
         public string? BranchId { get; set; }
 
         /// <summary>
+        /// The ID of the agent version this test invocation ran against. For draft or config-override runs this is the version those uncommitted changes were applied on top of. None only for runs recorded before this field existed.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("version_id")]
+        public string? VersionId { get; set; }
+
+        /// <summary>
+        /// Whether the run included uncommitted changes (a saved draft or an ad-hoc config override) layered on top of version_id.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ran_against_draft")]
+        public bool? RanAgainstDraft { get; set; }
+
+        /// <summary>
+        /// Whether the test runs in this invocation did not all execute against the same version, which happens when a subset of runs was resubmitted after the original run. When true, version_id describes the most recent resubmit rather than every run.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("runs_diverged_from_version")]
+        public bool? RunsDivergedFromVersion { get; set; }
+
+        /// <summary>
         /// Creation time of the test invocation in unix seconds
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix_secs")]
@@ -118,6 +138,17 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch this test invocation was run on
         /// </param>
+        /// <param name="versionId">
+        /// The ID of the agent version this test invocation ran against. For draft or config-override runs this is the version those uncommitted changes were applied on top of. None only for runs recorded before this field existed.
+        /// </param>
+        /// <param name="ranAgainstDraft">
+        /// Whether the run included uncommitted changes (a saved draft or an ad-hoc config override) layered on top of version_id.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="runsDivergedFromVersion">
+        /// Whether the test runs in this invocation did not all execute against the same version, which happens when a subset of runs was resubmitted after the original run. When true, version_id describes the most recent resubmit rather than every run.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="accessInfo">
         /// The access information of the test invocation
         /// </param>
@@ -138,12 +169,18 @@ namespace ElevenLabs
             string title,
             string? agentId,
             string? branchId,
+            string? versionId,
+            bool? ranAgainstDraft,
+            bool? runsDivergedFromVersion,
             global::ElevenLabs.ResourceAccessInfo? accessInfo,
             int? repeatCount)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.AgentId = agentId;
             this.BranchId = branchId;
+            this.VersionId = versionId;
+            this.RanAgainstDraft = ranAgainstDraft;
+            this.RunsDivergedFromVersion = runsDivergedFromVersion;
             this.CreatedAtUnixSecs = createdAtUnixSecs;
             this.TestRunCount = testRunCount;
             this.PassedCount = passedCount;

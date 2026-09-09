@@ -30,6 +30,18 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("version_id")]
+        public string? VersionId { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ran_against_draft")]
+        public bool? RanAgainstDraft { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         public int? CreatedAt { get; set; }
 
@@ -77,6 +89,10 @@ namespace ElevenLabs
         /// <param name="testRuns"></param>
         /// <param name="agentId"></param>
         /// <param name="branchId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="ranAgainstDraft">
+        /// Default Value: false
+        /// </param>
         /// <param name="createdAt"></param>
         /// <param name="folderId"></param>
         /// <param name="repeatCount">
@@ -94,6 +110,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestRunResponseModel> testRuns,
             string? agentId,
             string? branchId,
+            string? versionId,
+            bool? ranAgainstDraft,
             int? createdAt,
             string? folderId,
             int? repeatCount,
@@ -103,6 +121,8 @@ namespace ElevenLabs
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.AgentId = agentId;
             this.BranchId = branchId;
+            this.VersionId = versionId;
+            this.RanAgainstDraft = ranAgainstDraft;
             this.CreatedAt = createdAt;
             this.FolderId = folderId;
             this.RepeatCount = repeatCount;
