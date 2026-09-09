@@ -29,12 +29,14 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string? agentId,
             ref int? pageSize,
+            ref string? search,
             ref string? cursor);
         partial void PrepareList2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? agentId,
             int? pageSize,
+            string? search,
             string? cursor);
         partial void ProcessList2Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -56,6 +58,9 @@ namespace ElevenLabs
         /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
         /// </param>
+        /// <param name="search">
+        /// Search query to filter tests and folders by name.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -65,6 +70,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetTestInvocationsPageResponseModel> List2Async(
             string? agentId = default,
             int? pageSize = default,
+            string? search = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -72,6 +78,7 @@ namespace ElevenLabs
             var __response = await List2AsResponseAsync(
                 agentId: agentId,
                 pageSize: pageSize,
+                search: search,
                 cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -90,6 +97,9 @@ namespace ElevenLabs
         /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
         /// </param>
+        /// <param name="search">
+        /// Search query to filter tests and folders by name.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -99,6 +109,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetTestInvocationsPageResponseModel>> List2AsResponseAsync(
             string? agentId = default,
             int? pageSize = default,
+            string? search = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -109,6 +120,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 agentId: ref agentId,
                 pageSize: ref pageSize,
+                search: ref search,
                 cursor: ref cursor);
 
 
@@ -140,6 +152,7 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddOptionalParameter("agent_id", agentId)
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -184,6 +197,7 @@ namespace ElevenLabs
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
                     pageSize: pageSize,
+                    search: search,
                     cursor: cursor);
 
                 return __httpRequest;
@@ -507,11 +521,15 @@ namespace ElevenLabs
         /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
         /// </param>
+        /// <param name="search">
+        /// Search query to filter tests and folders by name.
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.TestInvocationSummaryResponseModel> List2AutoPagingAsync(
               string? agentId = default,
             int? pageSize = default,
+            string? search = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -519,6 +537,7 @@ namespace ElevenLabs
                 fetchPage: (__cursor, __ct) => List2Async(
                     agentId: agentId,
                     pageSize: pageSize,
+                    search: search,
                     cursor: __cursor,
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null

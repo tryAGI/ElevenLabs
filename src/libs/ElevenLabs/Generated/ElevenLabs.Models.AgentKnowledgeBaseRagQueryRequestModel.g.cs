@@ -23,6 +23,18 @@ namespace ElevenLabs
         public bool? UseAgentDefaults { get; set; }
 
         /// <summary>
+        /// Optional maximum total character length of document chunks returned. Overrides the selected RAG settings for this query only.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_documents_length")]
+        public int? MaxDocumentsLength { get; set; }
+
+        /// <summary>
+        /// Optional maximum number of document chunks retrieved. Overrides the selected RAG settings for this query only.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_retrieved_rag_chunks_count")]
+        public int? MaxRetrievedRagChunksCount { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -38,15 +50,25 @@ namespace ElevenLabs
         /// When true (the default), retrieval uses the agent's own RAG settings, reproducing exactly what the agent would retrieve. Set to false to retrieve with neutral default RAG settings instead (the agent's embedding model is always kept, since it determines which vector index exists). Useful for auditing the knowledge base independently of how a particular agent is tuned.<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="maxDocumentsLength">
+        /// Optional maximum total character length of document chunks returned. Overrides the selected RAG settings for this query only.
+        /// </param>
+        /// <param name="maxRetrievedRagChunksCount">
+        /// Optional maximum number of document chunks retrieved. Overrides the selected RAG settings for this query only.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AgentKnowledgeBaseRagQueryRequestModel(
             string query,
-            bool? useAgentDefaults)
+            bool? useAgentDefaults,
+            int? maxDocumentsLength,
+            int? maxRetrievedRagChunksCount)
         {
             this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
             this.UseAgentDefaults = useAgentDefaults;
+            this.MaxDocumentsLength = maxDocumentsLength;
+            this.MaxRetrievedRagChunksCount = maxRetrievedRagChunksCount;
         }
 
         /// <summary>

@@ -69,7 +69,7 @@ namespace ElevenLabs
         /// Default Value: 30
         /// </param>
         /// <param name="search">
-        /// Search query to filter tests by name.
+        /// Search query to filter tests and folders by name.
         /// </param>
         /// <param name="parentFolderId">
         /// Filter by parent folder ID. Use 'root' to get items in the root folder.
@@ -130,7 +130,7 @@ namespace ElevenLabs
         /// Default Value: 30
         /// </param>
         /// <param name="search">
-        /// Search query to filter tests by name.
+        /// Search query to filter tests and folders by name.
         /// </param>
         /// <param name="parentFolderId">
         /// Filter by parent folder ID. Use 'root' to get items in the root folder.
@@ -581,7 +581,7 @@ namespace ElevenLabs
         /// Default Value: 30
         /// </param>
         /// <param name="search">
-        /// Search query to filter tests by name.
+        /// Search query to filter tests and folders by name.
         /// </param>
         /// <param name="parentFolderId">
         /// Filter by parent folder ID. Use 'root' to get items in the root folder.
