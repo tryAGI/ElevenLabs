@@ -44,6 +44,18 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("version_id")]
+        public string? VersionId { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ran_against_draft")]
+        public bool? RanAgainstDraft { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workflow_node_id")]
         public string? WorkflowNodeId { get; set; }
 
@@ -126,6 +138,10 @@ namespace ElevenLabs
         /// <param name="testId"></param>
         /// <param name="testInfo"></param>
         /// <param name="branchId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="ranAgainstDraft">
+        /// Default Value: false
+        /// </param>
         /// <param name="workflowNodeId"></param>
         /// <param name="agentResponses"></param>
         /// <param name="testName">
@@ -148,6 +164,8 @@ namespace ElevenLabs
             string testId,
             global::ElevenLabs.TestInfoVariant1? testInfo,
             string? branchId,
+            string? versionId,
+            bool? ranAgainstDraft,
             string? workflowNodeId,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput>? agentResponses,
             string? testName,
@@ -163,6 +181,8 @@ namespace ElevenLabs
             this.TestInvocationId = testInvocationId ?? throw new global::System.ArgumentNullException(nameof(testInvocationId));
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.BranchId = branchId;
+            this.VersionId = versionId;
+            this.RanAgainstDraft = ranAgainstDraft;
             this.WorkflowNodeId = workflowNodeId;
             this.Status = status;
             this.AgentResponses = agentResponses;

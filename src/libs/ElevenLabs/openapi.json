@@ -74359,6 +74359,22 @@
             ],
             "title": "Branch Id"
           },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Id"
+          },
+          "ran_against_draft": {
+            "type": "boolean",
+            "title": "Ran Against Draft",
+            "default": false
+          },
           "created_at": {
             "type": "integer",
             "title": "Created At"
@@ -76594,6 +76610,7 @@
           "gemini-3.5-flash-lite",
           "gemini-3.6-flash",
           "gemini-3.7-flash",
+          "gemini-3.8-flash",
           "claude-sonnet-4-5",
           "claude-opus-4-7",
           "claude-opus-4-8",
@@ -98470,6 +98487,30 @@
             "title": "Branch Id",
             "description": "The ID of the branch this test invocation was run on"
           },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Id",
+            "description": "The ID of the agent version this test invocation ran against. For draft or config-override runs this is the version those uncommitted changes were applied on top of. None only for runs recorded before this field existed."
+          },
+          "ran_against_draft": {
+            "type": "boolean",
+            "title": "Ran Against Draft",
+            "description": "Whether the run included uncommitted changes (a saved draft or an ad-hoc config override) layered on top of version_id.",
+            "default": false
+          },
+          "runs_diverged_from_version": {
+            "type": "boolean",
+            "title": "Runs Diverged From Version",
+            "description": "Whether the test runs in this invocation did not all execute against the same version, which happens when a subset of runs was resubmitted after the original run. When true, version_id describes the most recent resubmit rather than every run.",
+            "default": false
+          },
           "created_at_unix_secs": {
             "type": "integer",
             "title": "Created At Unix Secs",
@@ -101170,6 +101211,22 @@
               }
             ],
             "title": "Branch Id"
+          },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Id"
+          },
+          "ran_against_draft": {
+            "type": "boolean",
+            "title": "Ran Against Draft",
+            "default": false
           },
           "workflow_node_id": {
             "anyOf": [
