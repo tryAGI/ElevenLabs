@@ -17420,10 +17420,10 @@
                   "type": "null"
                 }
               ],
-              "description": "Search query to filter tests by name.",
+              "description": "Search query to filter tests and folders by name.",
               "title": "Search"
             },
-            "description": "Search query to filter tests by name."
+            "description": "Search query to filter tests and folders by name."
           },
           {
             "name": "parent_folder_id",
@@ -17596,6 +17596,24 @@
               "title": "Page Size"
             },
             "description": "How many Tests to return at maximum. Can not exceed 100, defaults to 30."
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Search query to filter tests and folders by name.",
+              "title": "Search"
+            },
+            "description": "Search query to filter tests and folders by name."
           },
           {
             "name": "cursor",
@@ -39589,6 +39607,34 @@
             "title": "Use Agent Defaults",
             "description": "When true (the default), retrieval uses the agent's own RAG settings, reproducing exactly what the agent would retrieve. Set to false to retrieve with neutral default RAG settings instead (the agent's embedding model is always kept, since it determines which vector index exists). Useful for auditing the knowledge base independently of how a particular agent is tuned.",
             "default": true
+          },
+          "max_documents_length": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 50000.0,
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Documents Length",
+            "description": "Optional maximum total character length of document chunks returned. Overrides the selected RAG settings for this query only."
+          },
+          "max_retrieved_rag_chunks_count": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 20.0,
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Retrieved Rag Chunks Count",
+            "description": "Optional maximum number of document chunks retrieved. Overrides the selected RAG settings for this query only."
           }
         },
         "type": "object",
