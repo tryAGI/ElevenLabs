@@ -60629,7 +60629,9 @@
             "description": "If set, only these procedures are available to the starting agent. Each ID must be attached to that agent; unknown IDs fail conversation start. An empty list disables all of that agent's procedures. Not applied after an agent transfer. Requires enable_procedure_ids_from_client."
           },
           "dynamic_variables": {
-            "additionalProperties": true,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/DynamicVariableInternalValueType"
+            },
             "type": "object",
             "title": "Dynamic Variables"
           },
@@ -67708,6 +67710,7 @@
           "value_path": "user.name"
         }
       },
+      "DynamicVariableInternalValueType": {},
       "DynamicVariableSchemaOverride": {
         "properties": {
           "source": {
