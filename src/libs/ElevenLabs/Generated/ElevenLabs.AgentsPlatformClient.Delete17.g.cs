@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Create16SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Delete17SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,50 +21,57 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Create16SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Delete17SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_Create16SecurityRequirement0,
+            {                s_Delete17SecurityRequirement0,
             };
-        partial void PrepareCreate16Arguments(
+        partial void PrepareDelete17Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request);
-        partial void PrepareCreate16Request(
+            ref string branchId,
+            ref string procedureId);
+        partial void PrepareDelete17Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request);
-        partial void ProcessCreate16Response(
+            string branchId,
+            string procedureId);
+        partial void ProcessDelete17Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreate16ResponseContent(
+        partial void ProcessDelete17ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
+        /// Delete Procedure Draft<br/>
+        /// Delete user's draft for a procedure, resetting to the committed version
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// Agent ID to get the procedure draft from
         /// </param>
-        /// <param name="request"></param>
+        /// <param name="branchId">
+        /// Branch ID to get the procedure draft from
+        /// </param>
+        /// <param name="procedureId">
+        /// The procedure ID
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentDeploymentResponse> Create16Async(
+        public async global::System.Threading.Tasks.Task<string> Delete17Async(
             string agentId,
-
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request,
+            string branchId,
+            string procedureId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Create16AsResponseAsync(
+            var __response = await Delete17AsResponseAsync(
                 agentId: agentId,
-
-                request: request,
+                branchId: branchId,
+                procedureId: procedureId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -72,37 +79,41 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
+        /// Delete Procedure Draft<br/>
+        /// Delete user's draft for a procedure, resetting to the committed version
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// Agent ID to get the procedure draft from
         /// </param>
-        /// <param name="request"></param>
+        /// <param name="branchId">
+        /// Branch ID to get the procedure draft from
+        /// </param>
+        /// <param name="procedureId">
+        /// The procedure ID
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentDeploymentResponse>> Create16AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Delete17AsResponseAsync(
             string agentId,
-
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request,
+            string branchId,
+            string procedureId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreate16Arguments(
+            PrepareDelete17Arguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                request: request);
+                branchId: ref branchId,
+                procedureId: ref procedureId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Create16SecurityRequirements,
-                operationName: "Create16Async");
+                securityRequirements: s_Delete17SecurityRequirements,
+                operationName: "Delete17Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -122,7 +133,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/deployments",
+                                path: $"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -130,7 +141,7 @@ namespace ElevenLabs
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: global::System.Net.Http.HttpMethod.Delete,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -153,12 +164,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
-                            __httpRequest.Content = __httpRequestContent;
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -167,11 +172,12 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreate16Request(
+                PrepareDelete17Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentId: agentId!,
-                    request: request);
+                    branchId: branchId!,
+                    procedureId: procedureId!);
 
                 return __httpRequest;
             }
@@ -188,10 +194,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create16",
-                                methodName: "Create16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
-                                httpMethod: "POST",
+                                operationId: "Delete17",
+                                methodName: "Delete17Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -222,10 +228,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create16",
-                                methodName: "Create16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
-                                httpMethod: "POST",
+                                operationId: "Delete17",
+                                methodName: "Delete17Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -263,10 +269,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create16",
-                                methodName: "Create16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
-                                httpMethod: "POST",
+                                operationId: "Delete17",
+                                methodName: "Delete17Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -303,7 +309,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreate16Response(
+                ProcessDelete17Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -311,10 +317,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create16",
-                                methodName: "Create16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
-                                httpMethod: "POST",
+                                operationId: "Delete17",
+                                methodName: "Delete17Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -333,10 +339,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create16",
-                                methodName: "Create16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
-                                httpMethod: "POST",
+                                operationId: "Delete17",
+                                methodName: "Delete17Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -400,7 +406,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessCreate16ResponseContent(
+                                ProcessDelete17ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -409,13 +415,11 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.AgentDeploymentResponse.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentDeploymentResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -435,19 +439,17 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                                    var __content = await __response.Content.ReadAsStringAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.AgentDeploymentResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentDeploymentResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -482,36 +484,6 @@ namespace ElevenLabs
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
-        /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="deploymentRequest">
-        /// Request to create a new deployment
-        /// </param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentDeploymentResponse> Create16Async(
-            string agentId,
-            global::ElevenLabs.AgentDeploymentRequest deploymentRequest,
-            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost
-            {
-                DeploymentRequest = deploymentRequest,
-            };
-
-            return await Create16Async(
-                agentId: agentId,
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

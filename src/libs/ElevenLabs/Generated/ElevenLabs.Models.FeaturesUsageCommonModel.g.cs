@@ -105,6 +105,18 @@ namespace ElevenLabs
         public global::ElevenLabs.FeatureStatusCommonModel? FileInput { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("freeform_procedure")]
+        public global::ElevenLabs.FeatureStatusCommonModel? FreeformProcedure { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("structured_procedure")]
+        public global::ElevenLabs.FeatureStatusCommonModel? StructuredProcedure { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -135,6 +147,8 @@ namespace ElevenLabs
         /// <param name="agentTesting"></param>
         /// <param name="versioning"></param>
         /// <param name="fileInput"></param>
+        /// <param name="freeformProcedure"></param>
+        /// <param name="structuredProcedure"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -154,7 +168,9 @@ namespace ElevenLabs
             global::ElevenLabs.WorkflowFeaturesUsageCommonModel? workflow,
             global::ElevenLabs.TestsFeatureUsageCommonModel? agentTesting,
             global::ElevenLabs.FeatureStatusCommonModel? versioning,
-            global::ElevenLabs.FeatureStatusCommonModel? fileInput)
+            global::ElevenLabs.FeatureStatusCommonModel? fileInput,
+            global::ElevenLabs.FeatureStatusCommonModel? freeformProcedure,
+            global::ElevenLabs.FeatureStatusCommonModel? structuredProcedure)
         {
             this.LanguageDetection = languageDetection;
             this.TransferToAgent = transferToAgent;
@@ -172,6 +188,8 @@ namespace ElevenLabs
             this.AgentTesting = agentTesting;
             this.Versioning = versioning;
             this.FileInput = fileInput;
+            this.FreeformProcedure = freeformProcedure;
+            this.StructuredProcedure = structuredProcedure;
         }
 
         /// <summary>

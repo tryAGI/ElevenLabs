@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Create16SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Create18SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,48 +21,55 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Create16SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Create18SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_Create16SecurityRequirement0,
+            {                s_Create18SecurityRequirement0,
             };
-        partial void PrepareCreate16Arguments(
+        partial void PrepareCreate18Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request);
-        partial void PrepareCreate16Request(
+            ref string branchId,
+            global::ElevenLabs.CreateProcedureRequestModel request);
+        partial void PrepareCreate18Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request);
-        partial void ProcessCreate16Response(
+            string branchId,
+            global::ElevenLabs.CreateProcedureRequestModel request);
+        partial void ProcessCreate18Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreate16ResponseContent(
+        partial void ProcessCreate18ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
+        /// Create Procedure<br/>
+        /// Create a new procedure for the agent on a branch.
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// Agent ID to get the procedure draft from
+        /// </param>
+        /// <param name="branchId">
+        /// Branch ID to get the procedure draft from
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentDeploymentResponse> Create16Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateProcedureResponseModel> Create18Async(
             string agentId,
+            string branchId,
 
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request,
+            global::ElevenLabs.CreateProcedureRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Create16AsResponseAsync(
+            var __response = await Create18AsResponseAsync(
                 agentId: agentId,
+                branchId: branchId,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -72,20 +79,24 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
+        /// Create Procedure<br/>
+        /// Create a new procedure for the agent on a branch.
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// Agent ID to get the procedure draft from
+        /// </param>
+        /// <param name="branchId">
+        /// Branch ID to get the procedure draft from
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentDeploymentResponse>> Create16AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateProcedureResponseModel>> Create18AsResponseAsync(
             string agentId,
+            string branchId,
 
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request,
+            global::ElevenLabs.CreateProcedureRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -93,16 +104,17 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreate16Arguments(
+            PrepareCreate18Arguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
+                branchId: ref branchId,
                 request: request);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Create16SecurityRequirements,
-                operationName: "Create16Async");
+                securityRequirements: s_Create18SecurityRequirements,
+                operationName: "Create18Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -122,7 +134,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/deployments",
+                                path: $"/v1/convai/agents/{agentId}/branches/{branchId}/procedures",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -167,10 +179,11 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreate16Request(
+                PrepareCreate18Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentId: agentId!,
+                    branchId: branchId!,
                     request: request);
 
                 return __httpRequest;
@@ -188,9 +201,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create16",
-                                methodName: "Create16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                operationId: "Create18",
+                                methodName: "Create18Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -222,9 +235,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create16",
-                                methodName: "Create16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                operationId: "Create18",
+                                methodName: "Create18Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -263,9 +276,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create16",
-                                methodName: "Create16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                operationId: "Create18",
+                                methodName: "Create18Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -303,7 +316,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreate16Response(
+                ProcessCreate18Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -311,9 +324,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create16",
-                                methodName: "Create16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                operationId: "Create18",
+                                methodName: "Create18Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -333,9 +346,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create16",
-                                methodName: "Create16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                operationId: "Create18",
+                                methodName: "Create18Async",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -400,7 +413,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessCreate16ResponseContent(
+                                ProcessCreate18ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -409,9 +422,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.AgentDeploymentResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.CreateProcedureResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentDeploymentResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateProcedureResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -441,9 +454,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.AgentDeploymentResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.CreateProcedureResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentDeploymentResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateProcedureResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -484,31 +497,31 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
+        /// Create Procedure<br/>
+        /// Create a new procedure for the agent on a branch.
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// Agent ID to get the procedure draft from
         /// </param>
-        /// <param name="deploymentRequest">
-        /// Request to create a new deployment
+        /// <param name="branchId">
+        /// Branch ID to get the procedure draft from
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentDeploymentResponse> Create16Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateProcedureResponseModel> Create18Async(
             string agentId,
-            global::ElevenLabs.AgentDeploymentRequest deploymentRequest,
+            string branchId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost
+            var __request = new global::ElevenLabs.CreateProcedureRequestModel
             {
-                DeploymentRequest = deploymentRequest,
             };
 
-            return await Create16Async(
+            return await Create18Async(
                 agentId: agentId,
+                branchId: branchId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

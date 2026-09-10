@@ -1,21 +1,15 @@
 #nullable enable
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 namespace ElevenLabs
 {
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Create Mcp Tool Configuration Override<br/>
-        /// Create configuration overrides for a specific MCP tool.
+        /// Create Mcp Server Tool Approval<br/>
+        /// Add approval for a specific MCP tool when using per-tool approval mode.
         /// </summary>
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
-        /// </param>
-        /// <param name="environment">
-        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
-        /// Default Value: production
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -24,20 +18,15 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create13Async(
             string mcpServerId,
 
-            global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel request,
-            string? environment = default,
+            global::ElevenLabs.MCPToolAddApprovalRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create Mcp Tool Configuration Override<br/>
-        /// Create configuration overrides for a specific MCP tool.
+        /// Create Mcp Server Tool Approval<br/>
+        /// Add approval for a specific MCP tool when using per-tool approval mode.
         /// </summary>
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
-        /// </param>
-        /// <param name="environment">
-        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
-        /// Default Value: production
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -46,50 +35,28 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServerResponseModel>> Create13AsResponseAsync(
             string mcpServerId,
 
-            global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel request,
-            string? environment = default,
+            global::ElevenLabs.MCPToolAddApprovalRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create Mcp Tool Configuration Override<br/>
-        /// Create configuration overrides for a specific MCP tool.
+        /// Create Mcp Server Tool Approval<br/>
+        /// Add approval for a specific MCP tool when using per-tool approval mode.
         /// </summary>
         /// <param name="mcpServerId">
         /// ID of the MCP Server.
         /// </param>
-        /// <param name="environment">
-        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
-        /// Default Value: production
-        /// </param>
-        /// <param name="preToolSpeech">
-        /// If set, overrides the server's pre_tool_speech setting for this tool.
-        /// </param>
-        /// <param name="interruptionMode">
-        /// If set, overrides the server's interruption_mode setting for this tool.
-        /// </param>
-        /// <param name="toolCallSound">
-        /// Overrides the server's tool_call_sound setting for this tool. A sound name plays that sound; 'off' overrides to no sound (silence); null means do not override (inherit the server default).
-        /// </param>
-        /// <param name="toolCallSoundBehavior">
-        /// If set, overrides the server's tool_call_sound_behavior setting for this tool
-        /// </param>
-        /// <param name="executionMode">
-        /// If set, overrides the server's execution_mode setting for this tool
-        /// </param>
-        /// <param name="responseTimeoutSecs">
-        /// If set, overrides the server's response timeout for this MCP tool.
-        /// </param>
-        /// <param name="assignments">
-        /// Dynamic variable assignments for this MCP tool
-        /// </param>
-        /// <param name="inputOverrides">
-        /// Mapping of json path to input override configuration
-        /// </param>
-        /// <param name="responseMocks">
-        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
-        /// </param>
         /// <param name="toolName">
         /// The name of the MCP tool
+        /// </param>
+        /// <param name="toolDescription">
+        /// The description of the MCP tool
+        /// </param>
+        /// <param name="inputSchema">
+        /// The input schema of the MCP tool (the schema defined on the MCP server before ElevenLabs does any extra processing)
+        /// </param>
+        /// <param name="approvalPolicy">
+        /// The tool-level approval policy<br/>
+        /// Default Value: requires_approval
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -97,16 +64,9 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create13Async(
             string mcpServerId,
             string toolName,
-            string? environment = default,
-            global::ElevenLabs.PreToolSpeechMode? preToolSpeech = default,
-            global::ElevenLabs.ToolInterruptionMode? interruptionMode = default,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.ToolCallSoundType?, string, object>? toolCallSound = default,
-            global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
-            global::ElevenLabs.ToolExecutionMode? executionMode = default,
-            int? responseTimeoutSecs = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments = default,
-            object? inputOverrides = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
+            string toolDescription,
+            object? inputSchema = default,
+            global::ElevenLabs.MCPToolApprovalPolicy? approvalPolicy = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

@@ -1,6 +1,8 @@
 
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial class AgentsPlatformClient
@@ -27,13 +29,15 @@ namespace ElevenLabs
             };
         partial void PrepareCreate14Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request);
+            ref string mcpServerId,
+            ref string? environment,
+            global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel request);
         partial void PrepareCreate14Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request);
+            string mcpServerId,
+            string? environment,
+            global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel request);
         partial void ProcessCreate14Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,27 +48,33 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Create A New Branch<br/>
-        /// Create a new branch from a given version of any branch
+        /// Create Mcp Tool Configuration Override<br/>
+        /// Create configuration overrides for a specific MCP tool.
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
+        /// <param name="environment">
+        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
+        /// Default Value: production
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentBranchResponseModel> Create14Async(
-            string agentId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create14Async(
+            string mcpServerId,
 
-            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request,
+            global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel request,
+            string? environment = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Create14AsResponseAsync(
-                agentId: agentId,
+                mcpServerId: mcpServerId,
 
                 request: request,
+                environment: environment,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -72,20 +82,25 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Create A New Branch<br/>
-        /// Create a new branch from a given version of any branch
+        /// Create Mcp Tool Configuration Override<br/>
+        /// Create configuration overrides for a specific MCP tool.
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
+        /// <param name="environment">
+        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
+        /// Default Value: production
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateAgentBranchResponseModel>> Create14AsResponseAsync(
-            string agentId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServerResponseModel>> Create14AsResponseAsync(
+            string mcpServerId,
 
-            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request,
+            global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel request,
+            string? environment = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -95,7 +110,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreate14Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
+                mcpServerId: ref mcpServerId,
+                environment: ref environment,
                 request: request);
 
 
@@ -122,8 +138,11 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/branches",
+                                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-configs",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("environment", environment)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -170,7 +189,8 @@ namespace ElevenLabs
                 PrepareCreate14Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId!,
+                    mcpServerId: mcpServerId!,
+                    environment: environment,
                     request: request);
 
                 return __httpRequest;
@@ -190,7 +210,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create14",
                                 methodName: "Create14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -224,7 +244,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create14",
                                 methodName: "Create14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -265,7 +285,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create14",
                                 methodName: "Create14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -313,7 +333,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create14",
                                 methodName: "Create14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -335,7 +355,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create14",
                                 methodName: "Create14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -350,6 +370,38 @@ namespace ElevenLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
+                            //
+                            if ((int)__response.StatusCode == 409)
+                            {
+                                string? __content_409 = null;
+                                global::System.Exception? __exception_409 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                    else
+                                    {
+                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_409 = __ex;
+                                }
+
+
+                                throw global::ElevenLabs.ApiException.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_409 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_409,
+                                    responseBody: __content_409,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
                             // Validation Error
                             if ((int)__response.StatusCode == 422)
                             {
@@ -409,9 +461,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.CreateAgentBranchResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.MCPServerResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateAgentBranchResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServerResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -441,9 +493,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.CreateAgentBranchResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.MCPServerResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateAgentBranchResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServerResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -484,62 +536,82 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Create A New Branch<br/>
-        /// Create a new branch from a given version of any branch
+        /// Create Mcp Tool Configuration Override<br/>
+        /// Create configuration overrides for a specific MCP tool.
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
         /// </param>
-        /// <param name="parentVersionId">
-        /// ID of the version to branch from
+        /// <param name="environment">
+        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
+        /// Default Value: production
         /// </param>
-        /// <param name="name">
-        /// Name of the branch. It is unique within the agent.
+        /// <param name="preToolSpeech">
+        /// If set, overrides the server's pre_tool_speech setting for this tool.
         /// </param>
-        /// <param name="description">
-        /// Description for the branch
+        /// <param name="interruptionMode">
+        /// If set, overrides the server's interruption_mode setting for this tool.
         /// </param>
-        /// <param name="conversationConfig">
-        /// Changes to apply to conversation config
+        /// <param name="toolCallSound">
+        /// Overrides the server's tool_call_sound setting for this tool. A sound name plays that sound; 'off' overrides to no sound (silence); null means do not override (inherit the server default).
         /// </param>
-        /// <param name="platformSettings">
-        /// Changes to apply to platform settings
+        /// <param name="toolCallSoundBehavior">
+        /// If set, overrides the server's tool_call_sound_behavior setting for this tool
         /// </param>
-        /// <param name="workflow">
-        /// Updated workflow definition
+        /// <param name="executionMode">
+        /// If set, overrides the server's execution_mode setting for this tool
         /// </param>
-        /// <param name="includeDraft">
-        /// When true, the new branch uses the caller's draft procedure set instead of the branch tip. Requires parent_version_id to be the branch tip.<br/>
-        /// Default Value: false
+        /// <param name="responseTimeoutSecs">
+        /// If set, overrides the server's response timeout for this MCP tool.
+        /// </param>
+        /// <param name="assignments">
+        /// Dynamic variable assignments for this MCP tool
+        /// </param>
+        /// <param name="inputOverrides">
+        /// Mapping of json path to input override configuration
+        /// </param>
+        /// <param name="responseMocks">
+        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// </param>
+        /// <param name="toolName">
+        /// The name of the MCP tool
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentBranchResponseModel> Create14Async(
-            string agentId,
-            string parentVersionId,
-            string name,
-            string description,
-            object? conversationConfig = default,
-            object? platformSettings = default,
-            global::ElevenLabs.AgentWorkflowRequestModel? workflow = default,
-            bool? includeDraft = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Create14Async(
+            string mcpServerId,
+            string toolName,
+            string? environment = default,
+            global::ElevenLabs.PreToolSpeechMode? preToolSpeech = default,
+            global::ElevenLabs.ToolInterruptionMode? interruptionMode = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.ToolCallSoundType?, string, object>? toolCallSound = default,
+            global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
+            global::ElevenLabs.ToolExecutionMode? executionMode = default,
+            int? responseTimeoutSecs = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? assignments = default,
+            object? inputOverrides = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost
+            var __request = new global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel
             {
-                ParentVersionId = parentVersionId,
-                Name = name,
-                Description = description,
-                ConversationConfig = conversationConfig,
-                PlatformSettings = platformSettings,
-                Workflow = workflow,
-                IncludeDraft = includeDraft,
+                PreToolSpeech = preToolSpeech,
+                InterruptionMode = interruptionMode,
+                ToolCallSound = toolCallSound,
+                ToolCallSoundBehavior = toolCallSoundBehavior,
+                ExecutionMode = executionMode,
+                ResponseTimeoutSecs = responseTimeoutSecs,
+                Assignments = assignments,
+                InputOverrides = inputOverrides,
+                ResponseMocks = responseMocks,
+                ToolName = toolName,
             };
 
             return await Create14Async(
-                agentId: agentId,
+                mcpServerId: mcpServerId,
+                environment: environment,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

@@ -17,6 +17,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
+        /// <param name="versionId">
+        /// The ID of the version to use
+        /// </param>
         /// <param name="environment">
         /// The environment to use for resolving environment variables (e.g. 'production', 'staging'). Defaults to 'production'.
         /// </param>
@@ -31,6 +34,7 @@ namespace ElevenLabs
             string agentId,
             string? participantName = default,
             string? branchId = default,
+            string? versionId = default,
             string? environment = default,
             bool? debugEventsRequest = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -48,6 +52,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
+        /// <param name="versionId">
+        /// The ID of the version to use
+        /// </param>
         /// <param name="environment">
         /// The environment to use for resolving environment variables (e.g. 'production', 'staging'). Defaults to 'production'.
         /// </param>
@@ -62,6 +69,7 @@ namespace ElevenLabs
             string agentId,
             string? participantName = default,
             string? branchId = default,
+            string? versionId = default,
             string? environment = default,
             bool? debugEventsRequest = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,

@@ -29,6 +29,12 @@ namespace ElevenLabs
         public required int CallDurationSecs { get; set; }
 
         /// <summary>
+        /// Seconds the caller was held in the concurrency wait queue. Excluded from call_duration_secs and from billed time. None when the conversation was never queued.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("queue_wait_secs")]
+        public double? QueueWaitSecs { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cost")]
@@ -202,6 +208,9 @@ namespace ElevenLabs
         /// <param name="startTimeUnixSecs"></param>
         /// <param name="callDurationSecs"></param>
         /// <param name="acceptedTimeUnixSecs"></param>
+        /// <param name="queueWaitSecs">
+        /// Seconds the caller was held in the concurrency wait queue. Excluded from call_duration_secs and from billed time. None when the conversation was never queued.
+        /// </param>
         /// <param name="cost"></param>
         /// <param name="deletionSettings"></param>
         /// <param name="feedback"></param>
@@ -249,6 +258,7 @@ namespace ElevenLabs
             int startTimeUnixSecs,
             int callDurationSecs,
             int? acceptedTimeUnixSecs,
+            double? queueWaitSecs,
             int? cost,
             global::ElevenLabs.ConversationDeletionSettings? deletionSettings,
             global::ElevenLabs.ConversationHistoryFeedbackCommonModel? feedback,
@@ -279,6 +289,7 @@ namespace ElevenLabs
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.AcceptedTimeUnixSecs = acceptedTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
+            this.QueueWaitSecs = queueWaitSecs;
             this.Cost = cost;
             this.DeletionSettings = deletionSettings;
             this.Feedback = feedback;

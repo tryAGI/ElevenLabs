@@ -104,6 +104,12 @@ namespace ElevenLabs
         public global::ElevenLabs.AgentCallLimits? CallLimits { get; set; }
 
         /// <summary>
+        /// Concurrency wait-queue config for the agent
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("queueing_config")]
+        public global::ElevenLabs.AgentQueueingConfig? QueueingConfig { get; set; }
+
+        /// <summary>
         /// Privacy settings for the agent<br/>
         /// Example: {"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false}
         /// </summary>
@@ -202,6 +208,9 @@ namespace ElevenLabs
         /// Call limits for the agent<br/>
         /// Example: {"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000}
         /// </param>
+        /// <param name="queueingConfig">
+        /// Concurrency wait-queue config for the agent
+        /// </param>
         /// <param name="privacy">
         /// Privacy settings for the agent<br/>
         /// Example: {"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false}
@@ -241,6 +250,7 @@ namespace ElevenLabs
             bool? autoTranslateTranscriptToAppLanguage,
             global::ElevenLabs.AuthSettings? auth,
             global::ElevenLabs.AgentCallLimits? callLimits,
+            global::ElevenLabs.AgentQueueingConfig? queueingConfig,
             global::ElevenLabs.PrivacyConfigInput? privacy,
             global::ElevenLabs.AgentTrustContext? trustContext,
             global::ElevenLabs.Llm? analysisLlm,
@@ -262,6 +272,7 @@ namespace ElevenLabs
             this.AutoTranslateTranscriptToAppLanguage = autoTranslateTranscriptToAppLanguage;
             this.Auth = auth;
             this.CallLimits = callLimits;
+            this.QueueingConfig = queueingConfig;
             this.Privacy = privacy;
             this.TrustContext = trustContext;
             this.AnalysisLlm = analysisLlm;

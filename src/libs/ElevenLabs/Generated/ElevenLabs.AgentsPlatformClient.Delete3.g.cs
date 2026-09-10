@@ -27,55 +27,61 @@ namespace ElevenLabs
             };
         partial void PrepareDelete3Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string conversationId);
+            ref string folderId,
+            ref bool? force);
         partial void PrepareDelete3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string conversationId);
+            string folderId,
+            bool? force);
         partial void ProcessDelete3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessDelete3ResponseContent(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
-
         /// <summary>
-        /// Delete Conversation<br/>
-        /// Delete a particular conversation
+        /// Delete Agent Test Folder<br/>
+        /// Deletes an agent test folder by ID. Use force=true to delete a non-empty folder and all its contents.
         /// </summary>
-        /// <param name="conversationId">
-        /// The id of the conversation you're taking the action on.
+        /// <param name="folderId">
+        /// The folder ID.
+        /// </param>
+        /// <param name="force">
+        /// Force delete. Required for deleting non-empty folders.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Delete3Async(
-            string conversationId,
+        public async global::System.Threading.Tasks.Task Delete3Async(
+            string folderId,
+            bool? force = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Delete3AsResponseAsync(
-                conversationId: conversationId,
+            await Delete3AsResponseAsync(
+                folderId: folderId,
+                force: force,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
-
-            return __response.Body;
         }
         /// <summary>
-        /// Delete Conversation<br/>
-        /// Delete a particular conversation
+        /// Delete Agent Test Folder<br/>
+        /// Deletes an agent test folder by ID. Use force=true to delete a non-empty folder and all its contents.
         /// </summary>
-        /// <param name="conversationId">
-        /// The id of the conversation you're taking the action on.
+        /// <param name="folderId">
+        /// The folder ID.
+        /// </param>
+        /// <param name="force">
+        /// Force delete. Required for deleting non-empty folders.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Delete3AsResponseAsync(
-            string conversationId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse> Delete3AsResponseAsync(
+            string folderId,
+            bool? force = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -83,7 +89,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete3Arguments(
                 httpClient: HttpClient,
-                conversationId: ref conversationId);
+                folderId: ref folderId,
+                force: ref force);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -109,8 +116,11 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/conversations/{conversationId}",
+                                path: $"/v1/convai/agent-testing/folders/{folderId}",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("force", force?.ToString().ToLowerInvariant())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -151,7 +161,8 @@ namespace ElevenLabs
                 PrepareDelete3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    conversationId: conversationId!);
+                    folderId: folderId!,
+                    force: force);
 
                 return __httpRequest;
             }
@@ -170,7 +181,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete3",
                                 methodName: "Delete3Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}\"",
+                                pathTemplate: "$\"/v1/convai/agent-testing/folders/{folderId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -204,7 +215,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete3",
                                 methodName: "Delete3Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}\"",
+                                pathTemplate: "$\"/v1/convai/agent-testing/folders/{folderId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -245,7 +256,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete3",
                                 methodName: "Delete3Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}\"",
+                                pathTemplate: "$\"/v1/convai/agent-testing/folders/{folderId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -293,7 +304,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete3",
                                 methodName: "Delete3Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}\"",
+                                pathTemplate: "$\"/v1/convai/agent-testing/folders/{folderId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -315,7 +326,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete3",
                                 methodName: "Delete3Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}\"",
+                                pathTemplate: "$\"/v1/convai/agent-testing/folders/{folderId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -380,20 +391,15 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessDelete3ResponseContent(
-                                    httpClient: HttpClient,
-                                    httpResponseMessage: __response,
-                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                return new global::ElevenLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -413,17 +419,10 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
-                #if NET5_0_OR_GREATER
-                                        __effectiveCancellationToken
-                #endif
-                                    ).ConfigureAwait(false);
-
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

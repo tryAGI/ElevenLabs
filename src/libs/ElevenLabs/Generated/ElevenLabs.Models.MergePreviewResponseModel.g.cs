@@ -99,6 +99,13 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureRefResponseModel>? Procedures { get; set; }
 
         /// <summary>
+        /// URL of the default hold tone played to queued callers when no custom hold audio is uploaded, so the dashboard can preview it.<br/>
+        /// Default Value: https://eleven-public-cdn-common.elevenlabs.io/convai/ambient-audio-assets/elevator1.mp3
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_hold_audio_url")]
+        public string? DefaultHoldAudioUrl { get; set; }
+
+        /// <summary>
         /// Dot-paths of config fields where both branches modified the same field relative to their common ancestor (conflicts). Present regardless of which side wins the conflict.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overridden_fields")]
@@ -169,6 +176,10 @@ namespace ElevenLabs
         /// <param name="procedures">
         /// Procedures keyed by procedure_id.
         /// </param>
+        /// <param name="defaultHoldAudioUrl">
+        /// URL of the default hold tone played to queued callers when no custom hold audio is uploaded, so the dashboard can preview it.<br/>
+        /// Default Value: https://eleven-public-cdn-common.elevenlabs.io/convai/ambient-audio-assets/elevator1.mp3
+        /// </param>
         /// <param name="overriddenFields">
         /// Dot-paths of config fields where both branches modified the same field relative to their common ancestor (conflicts). Present regardless of which side wins the conflict.
         /// </param>
@@ -197,6 +208,7 @@ namespace ElevenLabs
             string? branchId,
             string? mainBranchId,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureRefResponseModel>? procedures,
+            string? defaultHoldAudioUrl,
             global::System.Collections.Generic.IList<string>? overriddenFields,
             global::System.Collections.Generic.IList<global::ElevenLabs.FieldConflict>? conflicts,
             bool? sourceIdenticalToTarget)
@@ -215,6 +227,7 @@ namespace ElevenLabs
             this.BranchId = branchId;
             this.MainBranchId = mainBranchId;
             this.Procedures = procedures;
+            this.DefaultHoldAudioUrl = defaultHoldAudioUrl;
             this.OverriddenFields = overriddenFields;
             this.Conflicts = conflicts;
             this.SourceIdenticalToTarget = sourceIdenticalToTarget;
