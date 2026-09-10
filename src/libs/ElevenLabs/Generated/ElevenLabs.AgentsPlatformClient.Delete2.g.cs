@@ -27,61 +27,55 @@ namespace ElevenLabs
             };
         partial void PrepareDelete2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string folderId,
-            ref bool? force);
+            ref string agentId);
         partial void PrepareDelete2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string folderId,
-            bool? force);
+            string agentId);
         partial void ProcessDelete2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessDelete2ResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
         /// <summary>
-        /// Delete Agent Test Folder<br/>
-        /// Deletes an agent test folder by ID. Use force=true to delete a non-empty folder and all its contents.
+        /// Delete Agent Hold Audio<br/>
+        /// Removes the agent's custom hold audio; queued callers hear the default hold tone again.
         /// </summary>
-        /// <param name="folderId">
-        /// The folder ID.
-        /// </param>
-        /// <param name="force">
-        /// Force delete. Required for deleting non-empty folders.<br/>
-        /// Default Value: false
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task Delete2Async(
-            string folderId,
-            bool? force = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DeleteAgentHoldAudioResponseModel> Delete2Async(
+            string agentId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await Delete2AsResponseAsync(
-                folderId: folderId,
-                force: force,
+            var __response = await Delete2AsResponseAsync(
+                agentId: agentId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
+
+            return __response.Body;
         }
         /// <summary>
-        /// Delete Agent Test Folder<br/>
-        /// Deletes an agent test folder by ID. Use force=true to delete a non-empty folder and all its contents.
+        /// Delete Agent Hold Audio<br/>
+        /// Removes the agent's custom hold audio; queued callers hear the default hold tone again.
         /// </summary>
-        /// <param name="folderId">
-        /// The folder ID.
-        /// </param>
-        /// <param name="force">
-        /// Force delete. Required for deleting non-empty folders.<br/>
-        /// Default Value: false
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse> Delete2AsResponseAsync(
-            string folderId,
-            bool? force = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DeleteAgentHoldAudioResponseModel>> Delete2AsResponseAsync(
+            string agentId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -89,8 +83,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete2Arguments(
                 httpClient: HttpClient,
-                folderId: ref folderId,
-                force: ref force);
+                agentId: ref agentId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -116,11 +109,8 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agent-testing/folders/{folderId}",
+                                path: $"/v1/convai/agents/{agentId}/hold-audio",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddOptionalParameter("force", force?.ToString().ToLowerInvariant())
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -161,8 +151,7 @@ namespace ElevenLabs
                 PrepareDelete2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    folderId: folderId!,
-                    force: force);
+                    agentId: agentId!);
 
                 return __httpRequest;
             }
@@ -181,7 +170,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete2",
                                 methodName: "Delete2Async",
-                                pathTemplate: "$\"/v1/convai/agent-testing/folders/{folderId}\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/hold-audio\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -215,7 +204,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete2",
                                 methodName: "Delete2Async",
-                                pathTemplate: "$\"/v1/convai/agent-testing/folders/{folderId}\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/hold-audio\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -256,7 +245,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete2",
                                 methodName: "Delete2Async",
-                                pathTemplate: "$\"/v1/convai/agent-testing/folders/{folderId}\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/hold-audio\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -304,7 +293,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete2",
                                 methodName: "Delete2Async",
-                                pathTemplate: "$\"/v1/convai/agent-testing/folders/{folderId}\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/hold-audio\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -326,7 +315,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete2",
                                 methodName: "Delete2Async",
-                                pathTemplate: "$\"/v1/convai/agent-testing/folders/{folderId}\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/hold-audio\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -391,15 +380,22 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
+                                ProcessDelete2ResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                return new global::ElevenLabs.AutoSDKHttpResponse(
+                                    var __value = global::ElevenLabs.DeleteAgentHoldAudioResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DeleteAgentHoldAudioResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -419,10 +415,19 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    return new global::ElevenLabs.AutoSDKHttpResponse(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    var __value = await global::ElevenLabs.DeleteAgentHoldAudioResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DeleteAgentHoldAudioResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Create18Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Create19Async(
 
             global::ElevenLabs.CreateEnvironmentVariableRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariableResponse>> Create18AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariableResponse>> Create19AsResponseAsync(
 
             global::ElevenLabs.CreateEnvironmentVariableRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -37,7 +37,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Create18Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Create19Async(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

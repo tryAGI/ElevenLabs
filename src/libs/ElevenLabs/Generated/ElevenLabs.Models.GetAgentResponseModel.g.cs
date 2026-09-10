@@ -99,6 +99,13 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureRefResponseModel>? Procedures { get; set; }
 
         /// <summary>
+        /// URL of the default hold tone played to queued callers when no custom hold audio is uploaded, so the dashboard can preview it.<br/>
+        /// Default Value: https://eleven-public-cdn-common.elevenlabs.io/convai/ambient-audio-assets/elevator1.mp3
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_hold_audio_url")]
+        public string? DefaultHoldAudioUrl { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -150,6 +157,10 @@ namespace ElevenLabs
         /// <param name="procedures">
         /// Procedures keyed by procedure_id.
         /// </param>
+        /// <param name="defaultHoldAudioUrl">
+        /// URL of the default hold tone played to queued callers when no custom hold audio is uploaded, so the dashboard can preview it.<br/>
+        /// Default Value: https://eleven-public-cdn-common.elevenlabs.io/convai/ambient-audio-assets/elevator1.mp3
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -167,7 +178,8 @@ namespace ElevenLabs
             string? versionId,
             string? branchId,
             string? mainBranchId,
-            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureRefResponseModel>? procedures)
+            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureRefResponseModel>? procedures,
+            string? defaultHoldAudioUrl)
         {
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -183,6 +195,7 @@ namespace ElevenLabs
             this.BranchId = branchId;
             this.MainBranchId = mainBranchId;
             this.Procedures = procedures;
+            this.DefaultHoldAudioUrl = defaultHoldAudioUrl;
         }
 
         /// <summary>

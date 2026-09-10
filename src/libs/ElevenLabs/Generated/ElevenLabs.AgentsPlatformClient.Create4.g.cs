@@ -27,13 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareCreate4Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string conversationId,
-            global::ElevenLabs.ConversationFeedbackRequestModel request);
+            global::ElevenLabs.BodyCreateAgentTestFolderV1ConvaiAgentTestingFoldersPost request);
         partial void PrepareCreate4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string conversationId,
-            global::ElevenLabs.ConversationFeedbackRequestModel request);
+            global::ElevenLabs.BodyCreateAgentTestFolderV1ConvaiAgentTestingFoldersPost request);
         partial void ProcessCreate4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,25 +42,20 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Send Conversation Feedback<br/>
-        /// Send the feedback for the given conversation
+        /// Create Agent Test Folder<br/>
+        /// Creates a folder for organizing agent tests.
         /// </summary>
-        /// <param name="conversationId">
-        /// The id of the conversation you're taking the action on.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Create4Async(
-            string conversationId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentTestFolderResponseModel> Create4Async(
 
-            global::ElevenLabs.ConversationFeedbackRequestModel request,
+            global::ElevenLabs.BodyCreateAgentTestFolderV1ConvaiAgentTestingFoldersPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Create4AsResponseAsync(
-                conversationId: conversationId,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -72,20 +65,16 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Send Conversation Feedback<br/>
-        /// Send the feedback for the given conversation
+        /// Create Agent Test Folder<br/>
+        /// Creates a folder for organizing agent tests.
         /// </summary>
-        /// <param name="conversationId">
-        /// The id of the conversation you're taking the action on.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Create4AsResponseAsync(
-            string conversationId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateAgentTestFolderResponseModel>> Create4AsResponseAsync(
 
-            global::ElevenLabs.ConversationFeedbackRequestModel request,
+            global::ElevenLabs.BodyCreateAgentTestFolderV1ConvaiAgentTestingFoldersPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -95,7 +84,6 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreate4Arguments(
                 httpClient: HttpClient,
-                conversationId: ref conversationId,
                 request: request);
 
 
@@ -122,7 +110,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/conversations/{conversationId}/feedback",
+                                path: "/v1/convai/agent-testing/folders",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -170,7 +158,6 @@ namespace ElevenLabs
                 PrepareCreate4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    conversationId: conversationId!,
                     request: request);
 
                 return __httpRequest;
@@ -190,7 +177,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create4",
                                 methodName: "Create4Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/feedback\"",
+                                pathTemplate: "\"/v1/convai/agent-testing/folders\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -224,7 +211,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create4",
                                 methodName: "Create4Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/feedback\"",
+                                pathTemplate: "\"/v1/convai/agent-testing/folders\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -265,7 +252,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create4",
                                 methodName: "Create4Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/feedback\"",
+                                pathTemplate: "\"/v1/convai/agent-testing/folders\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -313,7 +300,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create4",
                                 methodName: "Create4Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/feedback\"",
+                                pathTemplate: "\"/v1/convai/agent-testing/folders\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -335,7 +322,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create4",
                                 methodName: "Create4Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/feedback\"",
+                                pathTemplate: "\"/v1/convai/agent-testing/folders\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -409,11 +396,13 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                                    var __value = global::ElevenLabs.CreateAgentTestFolderResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateAgentTestFolderResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -433,17 +422,19 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                                    var __value = await global::ElevenLabs.CreateAgentTestFolderResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateAgentTestFolderResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -480,31 +471,31 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Send Conversation Feedback<br/>
-        /// Send the feedback for the given conversation
+        /// Create Agent Test Folder<br/>
+        /// Creates a folder for organizing agent tests.
         /// </summary>
-        /// <param name="conversationId">
-        /// The id of the conversation you're taking the action on.
+        /// <param name="name">
+        /// The name of the folder to create
         /// </param>
-        /// <param name="feedback">
-        /// Either 'like' or 'dislike' to indicate the feedback for the conversation.
+        /// <param name="parentFolderId">
+        /// The ID of the parent folder. If not provided, the folder will be created at the root level.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Create4Async(
-            string conversationId,
-            global::ElevenLabs.UserFeedbackScore? feedback = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentTestFolderResponseModel> Create4Async(
+            string name,
+            string? parentFolderId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.ConversationFeedbackRequestModel
+            var __request = new global::ElevenLabs.BodyCreateAgentTestFolderV1ConvaiAgentTestingFoldersPost
             {
-                Feedback = feedback,
+                Name = name,
+                ParentFolderId = parentFolderId,
             };
 
             return await Create4Async(
-                conversationId: conversationId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

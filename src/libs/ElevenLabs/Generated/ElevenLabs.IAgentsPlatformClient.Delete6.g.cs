@@ -5,31 +5,31 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Delete File Upload<br/>
-        /// Remove a file upload from a conversation. Only possible if the file hasn't already been used in the conversation.
+        /// Delete Phone Number<br/>
+        /// Delete Phone Number by ID
         /// </summary>
-        /// <param name="fileId"></param>
-        /// <param name="conversationId"></param>
+        /// <param name="phoneNumberId">
+        /// The phone number ID. This is returned when a phone number is imported.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Delete6Async(
-            string fileId,
-            string conversationId,
+        global::System.Threading.Tasks.Task<string> Delete6Async(
+            string phoneNumberId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Delete File Upload<br/>
-        /// Remove a file upload from a conversation. Only possible if the file hasn't already been used in the conversation.
+        /// Delete Phone Number<br/>
+        /// Delete Phone Number by ID
         /// </summary>
-        /// <param name="fileId"></param>
-        /// <param name="conversationId"></param>
+        /// <param name="phoneNumberId">
+        /// The phone number ID. This is returned when a phone number is imported.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConvAIFileUploadResponseModel>> Delete6AsResponseAsync(
-            string fileId,
-            string conversationId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Delete6AsResponseAsync(
+            string phoneNumberId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

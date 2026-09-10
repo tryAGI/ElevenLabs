@@ -23,7 +23,8 @@ namespace ElevenLabs
         public int? WaitTimeoutSeconds { get; set; }
 
         /// <summary>
-        /// Custom hold audio played to queued callers; when unset, callers hear the default hold tone. Set via the hold-audio upload route, not writable through agent PATCH.
+        /// Custom hold audio played to queued callers; when unset, callers hear the default hold tone. Read-only: set it by uploading a file through the agent hold-audio endpoint.<br/>
+        /// Included only in responses
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hold_audio")]
         public global::ElevenLabs.AgentHoldAudioConfig? HoldAudio { get; set; }
@@ -46,7 +47,8 @@ namespace ElevenLabs
         /// Default Value: 180
         /// </param>
         /// <param name="holdAudio">
-        /// Custom hold audio played to queued callers; when unset, callers hear the default hold tone. Set via the hold-audio upload route, not writable through agent PATCH.
+        /// Custom hold audio played to queued callers; when unset, callers hear the default hold tone. Read-only: set it by uploading a file through the agent hold-audio endpoint.<br/>
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

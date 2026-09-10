@@ -5,47 +5,94 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Add Tool<br/>
-        /// Add a new tool to the available tools in the workspace.
+        /// Upload File<br/>
+        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
         /// </summary>
+        /// <param name="conversationId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Create8Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Create8Async(
+            string conversationId,
 
-            global::ElevenLabs.ToolRequestModel request,
+            global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Add Tool<br/>
-        /// Add a new tool to the available tools in the workspace.
+        /// Upload File<br/>
+        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
         /// </summary>
+        /// <param name="conversationId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ToolResponseModel>> Create8AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConvAIFileUploadResponseModel>> Create8AsResponseAsync(
+            string conversationId,
 
-            global::ElevenLabs.ToolRequestModel request,
+            global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Add Tool<br/>
-        /// Add a new tool to the available tools in the workspace.
+        /// Upload File<br/>
+        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
         /// </summary>
-        /// <param name="toolConfig">
-        /// Configuration for the tool
+        /// <param name="conversationId"></param>
+        /// <param name="file">
+        /// Image or PDF file to upload
         /// </param>
-        /// <param name="responseMocks">
-        /// Mock responses with optional parameter conditions. Evaluated top-to-bottom; first match wins.
+        /// <param name="filename">
+        /// Image or PDF file to upload
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Create8Async(
-            global::ElevenLabs.ToolConfig toolConfig,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? responseMocks = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Create8Async(
+            string conversationId,
+            byte[] file,
+            string filename,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Upload File<br/>
+        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
+        /// </summary>
+        /// <param name="conversationId"></param>
+        /// <param name="file">
+        /// Image or PDF file to upload
+        /// </param>
+        /// <param name="filename">
+        /// Image or PDF file to upload
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIFileUploadResponseModel> Create8Async(
+            string conversationId,
+            global::System.IO.Stream file,
+            string filename,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Upload File<br/>
+        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
+        /// </summary>
+        /// <param name="conversationId"></param>
+        /// <param name="file">
+        /// Image or PDF file to upload
+        /// </param>
+        /// <param name="filename">
+        /// Image or PDF file to upload
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConvAIFileUploadResponseModel>> Create8AsResponseAsync(
+            string conversationId,
+            global::System.IO.Stream file,
+            string filename,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

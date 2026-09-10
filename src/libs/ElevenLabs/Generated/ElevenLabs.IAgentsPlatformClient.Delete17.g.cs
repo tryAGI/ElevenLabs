@@ -5,39 +5,47 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Delete Agent Draft<br/>
-        /// Delete a draft for an agent
+        /// Delete Procedure Draft<br/>
+        /// Delete user's draft for a procedure, resetting to the committed version
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// Agent ID to get the procedure draft from
         /// </param>
         /// <param name="branchId">
-        /// The ID of the agent branch to use
+        /// Branch ID to get the procedure draft from
+        /// </param>
+        /// <param name="procedureId">
+        /// The procedure ID
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> Delete16Async(
+        global::System.Threading.Tasks.Task<string> Delete17Async(
             string agentId,
             string branchId,
+            string procedureId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Delete Agent Draft<br/>
-        /// Delete a draft for an agent
+        /// Delete Procedure Draft<br/>
+        /// Delete user's draft for a procedure, resetting to the committed version
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// Agent ID to get the procedure draft from
         /// </param>
         /// <param name="branchId">
-        /// The ID of the agent branch to use
+        /// Branch ID to get the procedure draft from
+        /// </param>
+        /// <param name="procedureId">
+        /// The procedure ID
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Delete16AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Delete17AsResponseAsync(
             string agentId,
             string branchId,
+            string procedureId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

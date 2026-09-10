@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Create18SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Create19SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,22 +21,22 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Create18SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Create19SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_Create18SecurityRequirement0,
+            {                s_Create19SecurityRequirement0,
             };
-        partial void PrepareCreate18Arguments(
+        partial void PrepareCreate19Arguments(
             global::System.Net.Http.HttpClient httpClient,
             global::ElevenLabs.CreateEnvironmentVariableRequest request);
-        partial void PrepareCreate18Request(
+        partial void PrepareCreate19Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             global::ElevenLabs.CreateEnvironmentVariableRequest request);
-        partial void ProcessCreate18Response(
+        partial void ProcessCreate19Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreate18ResponseContent(
+        partial void ProcessCreate19ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -49,13 +49,13 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Create18Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Create19Async(
 
             global::ElevenLabs.CreateEnvironmentVariableRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Create18AsResponseAsync(
+            var __response = await Create19AsResponseAsync(
 
                 request: request,
                 requestOptions: requestOptions,
@@ -72,7 +72,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariableResponse>> Create18AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariableResponse>> Create19AsResponseAsync(
 
             global::ElevenLabs.CreateEnvironmentVariableRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -80,15 +80,15 @@ namespace ElevenLabs
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreate18Arguments(
+            PrepareCreate19Arguments(
                 httpClient: HttpClient,
                 request: request);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Create18SecurityRequirements,
-                operationName: "Create18Async");
+                securityRequirements: s_Create19SecurityRequirements,
+                operationName: "Create19Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -153,7 +153,7 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreate18Request(
+                PrepareCreate19Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     request: request);
@@ -173,8 +173,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create18",
-                                methodName: "Create18Async",
+                                operationId: "Create19",
+                                methodName: "Create19Async",
                                 pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -207,8 +207,8 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create18",
-                                methodName: "Create18Async",
+                                operationId: "Create19",
+                                methodName: "Create19Async",
                                 pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -248,8 +248,8 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create18",
-                                methodName: "Create18Async",
+                                operationId: "Create19",
+                                methodName: "Create19Async",
                                 pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -288,7 +288,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreate18Response(
+                ProcessCreate19Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -296,8 +296,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create18",
-                                methodName: "Create18Async",
+                                operationId: "Create19",
+                                methodName: "Create19Async",
                                 pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -318,8 +318,8 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create18",
-                                methodName: "Create18Async",
+                                operationId: "Create19",
+                                methodName: "Create19Async",
                                 pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -449,7 +449,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessCreate18ResponseContent(
+                                ProcessCreate19ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -539,7 +539,7 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Create18Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Create19Async(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -547,7 +547,7 @@ namespace ElevenLabs
             {
             };
 
-            return await Create18Async(
+            return await Create19Async(
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

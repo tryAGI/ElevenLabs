@@ -27,11 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareCreate6Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateExotelPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2> request);
+            global::ElevenLabs.CreateConversationTagRequestModel request);
         partial void PrepareCreate6Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateExotelPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2> request);
+            global::ElevenLabs.CreateConversationTagRequestModel request);
         partial void ProcessCreate6Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,16 +42,16 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Import Phone Number<br/>
-        /// Import Phone Number from provider configuration (Twilio, Exotel, or SIP trunk)
+        /// Create Conversation Tag<br/>
+        /// Create a new conversation tag for the workspace.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreatePhoneNumberResponseModel> Create6Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConversationTagResponseModel> Create6Async(
 
-            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateExotelPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2> request,
+            global::ElevenLabs.CreateConversationTagRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -65,19 +65,21 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Import Phone Number<br/>
-        /// Import Phone Number from provider configuration (Twilio, Exotel, or SIP trunk)
+        /// Create Conversation Tag<br/>
+        /// Create a new conversation tag for the workspace.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreatePhoneNumberResponseModel>> Create6AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConversationTagResponseModel>> Create6AsResponseAsync(
 
-            global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateExotelPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2> request,
+            global::ElevenLabs.CreateConversationTagRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareCreate6Arguments(
@@ -108,7 +110,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/phone-numbers",
+                                path: "/v1/convai/tags",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -175,7 +177,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create6",
                                 methodName: "Create6Async",
-                                pathTemplate: "\"/v1/convai/phone-numbers\"",
+                                pathTemplate: "\"/v1/convai/tags\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -209,7 +211,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create6",
                                 methodName: "Create6Async",
-                                pathTemplate: "\"/v1/convai/phone-numbers\"",
+                                pathTemplate: "\"/v1/convai/tags\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -250,7 +252,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create6",
                                 methodName: "Create6Async",
-                                pathTemplate: "\"/v1/convai/phone-numbers\"",
+                                pathTemplate: "\"/v1/convai/tags\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -298,7 +300,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create6",
                                 methodName: "Create6Async",
-                                pathTemplate: "\"/v1/convai/phone-numbers\"",
+                                pathTemplate: "\"/v1/convai/tags\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -320,7 +322,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create6",
                                 methodName: "Create6Async",
-                                pathTemplate: "\"/v1/convai/phone-numbers\"",
+                                pathTemplate: "\"/v1/convai/tags\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -394,9 +396,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.CreatePhoneNumberResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ConversationTagResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreatePhoneNumberResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConversationTagResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -426,9 +428,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.CreatePhoneNumberResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ConversationTagResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreatePhoneNumberResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConversationTagResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -469,18 +471,28 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Import Phone Number<br/>
-        /// Import Phone Number from provider configuration (Twilio, Exotel, or SIP trunk)
+        /// Create Conversation Tag<br/>
+        /// Create a new conversation tag for the workspace.
         /// </summary>
+        /// <param name="title">
+        /// Display title of the tag.
+        /// </param>
+        /// <param name="description">
+        /// Optional free-text description.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreatePhoneNumberResponseModel> Create6Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConversationTagResponseModel> Create6Async(
+            string title,
+            string? description = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateExotelPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2>
+            var __request = new global::ElevenLabs.CreateConversationTagRequestModel
             {
+                Title = title,
+                Description = description,
             };
 
             return await Create6Async(

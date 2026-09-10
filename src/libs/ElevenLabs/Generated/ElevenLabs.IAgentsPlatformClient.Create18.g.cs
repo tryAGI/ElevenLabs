@@ -5,55 +5,63 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
+        /// Create Procedure<br/>
+        /// Create a new procedure for the agent on a branch.
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// Agent ID to get the procedure draft from
+        /// </param>
+        /// <param name="branchId">
+        /// Branch ID to get the procedure draft from
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AgentDeploymentResponse> Create16Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.CreateProcedureResponseModel> Create18Async(
             string agentId,
+            string branchId,
 
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request,
+            global::ElevenLabs.CreateProcedureRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
+        /// Create Procedure<br/>
+        /// Create a new procedure for the agent on a branch.
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// Agent ID to get the procedure draft from
+        /// </param>
+        /// <param name="branchId">
+        /// Branch ID to get the procedure draft from
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentDeploymentResponse>> Create16AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateProcedureResponseModel>> Create18AsResponseAsync(
             string agentId,
+            string branchId,
 
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request,
+            global::ElevenLabs.CreateProcedureRequestModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
+        /// Create Procedure<br/>
+        /// Create a new procedure for the agent on a branch.
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// Agent ID to get the procedure draft from
         /// </param>
-        /// <param name="deploymentRequest">
-        /// Request to create a new deployment
+        /// <param name="branchId">
+        /// Branch ID to get the procedure draft from
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AgentDeploymentResponse> Create16Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.CreateProcedureResponseModel> Create18Async(
             string agentId,
-            global::ElevenLabs.AgentDeploymentRequest deploymentRequest,
+            string branchId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

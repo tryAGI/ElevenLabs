@@ -30,6 +30,7 @@ namespace ElevenLabs
             ref string agentId,
             ref bool? includeConversationId,
             ref string? branchId,
+            ref string? versionId,
             ref string? environment,
             ref bool? debugEventsRequest);
         partial void PrepareGetSignedUrlRequest(
@@ -38,6 +39,7 @@ namespace ElevenLabs
             string agentId,
             bool? includeConversationId,
             string? branchId,
+            string? versionId,
             string? environment,
             bool? debugEventsRequest);
         partial void ProcessGetSignedUrlResponse(
@@ -63,6 +65,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
+        /// <param name="versionId">
+        /// The ID of the version to use
+        /// </param>
         /// <param name="environment">
         /// The environment to use for resolving environment variables (e.g. 'production', 'staging'). Defaults to 'production'.
         /// </param>
@@ -77,6 +82,7 @@ namespace ElevenLabs
             string agentId,
             bool? includeConversationId = default,
             string? branchId = default,
+            string? versionId = default,
             string? environment = default,
             bool? debugEventsRequest = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -86,6 +92,7 @@ namespace ElevenLabs
                 agentId: agentId,
                 includeConversationId: includeConversationId,
                 branchId: branchId,
+                versionId: versionId,
                 environment: environment,
                 debugEventsRequest: debugEventsRequest,
                 requestOptions: requestOptions,
@@ -108,6 +115,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
+        /// <param name="versionId">
+        /// The ID of the version to use
+        /// </param>
         /// <param name="environment">
         /// The environment to use for resolving environment variables (e.g. 'production', 'staging'). Defaults to 'production'.
         /// </param>
@@ -122,6 +132,7 @@ namespace ElevenLabs
             string agentId,
             bool? includeConversationId = default,
             string? branchId = default,
+            string? versionId = default,
             string? environment = default,
             bool? debugEventsRequest = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -134,6 +145,7 @@ namespace ElevenLabs
                 agentId: ref agentId,
                 includeConversationId: ref includeConversationId,
                 branchId: ref branchId,
+                versionId: ref versionId,
                 environment: ref environment,
                 debugEventsRequest: ref debugEventsRequest);
 
@@ -167,6 +179,7 @@ namespace ElevenLabs
                                 .AddRequiredParameter("agent_id", agentId)
                                 .AddOptionalParameter("include_conversation_id", includeConversationId?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("branch_id", branchId)
+                                .AddOptionalParameter("version_id", versionId)
                                 .AddOptionalParameter("environment", environment)
                                 .AddOptionalParameter("debug_events_request", debugEventsRequest?.ToString().ToLowerInvariant())
                                 ;
@@ -213,6 +226,7 @@ namespace ElevenLabs
                     agentId: agentId!,
                     includeConversationId: includeConversationId,
                     branchId: branchId,
+                    versionId: versionId,
                     environment: environment,
                     debugEventsRequest: debugEventsRequest);
 

@@ -4,14 +4,14 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Custom hold audio played on loop to callers waiting in the queue.<br/>
-    /// Server-written only: set via the agent hold-audio upload route and stripped<br/>
-    /// from user PATCH payloads, since the runtime fetches audio_url at call time.
+    /// Custom hold audio played on loop to callers waiting in the agent's queue.<br/>
+    /// Set by uploading a file through the agent hold-audio endpoint. Values sent in<br/>
+    /// agent create or update requests are ignored.
     /// </summary>
     public sealed partial class AgentHoldAudioConfig
     {
         /// <summary>
-        /// Bucket-relative path of the uploaded clip, used for deletion
+        /// Storage path of the uploaded clip
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_path")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -55,7 +55,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="AgentHoldAudioConfig" /> class.
         /// </summary>
         /// <param name="audioPath">
-        /// Bucket-relative path of the uploaded clip, used for deletion
+        /// Storage path of the uploaded clip
         /// </param>
         /// <param name="audioUrl">
         /// Public CDN URL of the uploaded clip

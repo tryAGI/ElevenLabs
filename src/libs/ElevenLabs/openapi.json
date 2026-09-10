@@ -14611,6 +14611,24 @@
             "description": "The ID of the branch to use"
           },
           {
+            "name": "version_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The ID of the version to use",
+              "title": "Version Id"
+            },
+            "description": "The ID of the version to use"
+          },
+          {
             "name": "environment",
             "in": "query",
             "required": false,
@@ -14742,6 +14760,24 @@
               "title": "Branch Id"
             },
             "description": "The ID of the branch to use"
+          },
+          {
+            "name": "version_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The ID of the version to use",
+              "title": "Version Id"
+            },
+            "description": "The ID of the version to use"
           },
           {
             "name": "environment",
@@ -14876,6 +14912,24 @@
               "title": "Branch Id"
             },
             "description": "The ID of the branch to use"
+          },
+          {
+            "name": "version_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The ID of the version to use",
+              "title": "Version Id"
+            },
+            "description": "The ID of the version to use"
           },
           {
             "name": "environment",
@@ -16006,6 +16060,160 @@
           "avatar"
         ],
         "x-fern-sdk-method-name": "create"
+      }
+    },
+    "/v1/convai/agents/{agent_id}/hold-audio": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Post Agent Hold Audio",
+        "description": "Sets the custom hold audio played on loop to callers waiting in the agent's concurrency wait queue. Replaces any previously uploaded clip.",
+        "operationId": "post_agent_hold_audio_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Post_Agent_hold_audio_v1_convai_agents__agent_id__hold_audio_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostAgentHoldAudioResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "hold_audio"
+        ],
+        "x-fern-sdk-method-name": "create"
+      },
+      "delete": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Delete Agent Hold Audio",
+        "description": "Removes the agent's custom hold audio; queued callers hear the default hold tone again.",
+        "operationId": "delete_agent_hold_audio_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteAgentHoldAudioResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "hold_audio"
+        ],
+        "x-fern-sdk-method-name": "delete"
       }
     },
     "/v1/convai/agents": {
@@ -39489,7 +39697,7 @@
           "audio_path": {
             "type": "string",
             "title": "Audio Path",
-            "description": "Bucket-relative path of the uploaded clip, used for deletion"
+            "description": "Storage path of the uploaded clip"
           },
           "audio_url": {
             "type": "string",
@@ -39521,7 +39729,7 @@
           "size_bytes"
         ],
         "title": "AgentHoldAudioConfig",
-        "description": "Custom hold audio played on loop to callers waiting in the queue.\n\nServer-written only: set via the agent hold-audio upload route and stripped\nfrom user PATCH payloads, since the runtime fetches audio_url at call time."
+        "description": "Custom hold audio played on loop to callers waiting in the agent's queue.\n\nSet by uploading a file through the agent hold-audio endpoint. Values sent in\nagent create or update requests are ignored."
       },
       "AgentKnowledgeBaseRagChunkResponseModel": {
         "properties": {
@@ -39871,6 +40079,10 @@
             "$ref": "#/components/schemas/AgentCallLimits",
             "description": "Call limits for the agent"
           },
+          "queueing_config": {
+            "$ref": "#/components/schemas/AgentQueueingConfig",
+            "description": "Concurrency wait-queue config for the agent"
+          },
           "privacy": {
             "$ref": "#/components/schemas/PrivacyConfig-Input",
             "description": "Privacy settings for the agent"
@@ -40006,6 +40218,10 @@
             "$ref": "#/components/schemas/AgentCallLimits",
             "description": "Call limits for the agent"
           },
+          "queueing_config": {
+            "$ref": "#/components/schemas/AgentQueueingConfig",
+            "description": "Concurrency wait-queue config for the agent"
+          },
           "privacy": {
             "$ref": "#/components/schemas/PrivacyConfig-Output",
             "description": "Privacy settings for the agent"
@@ -40071,7 +40287,8 @@
                 "type": "null"
               }
             ],
-            "description": "Custom hold audio played to queued callers; when unset, callers hear the default hold tone. Set via the hold-audio upload route, not writable through agent PATCH."
+            "description": "Custom hold audio played to queued callers; when unset, callers hear the default hold tone. Read-only: set it by uploading a file through the agent hold-audio endpoint.",
+            "readOnly": true
           }
         },
         "type": "object",
@@ -49038,6 +49255,21 @@
         ],
         "title": "Body_Post_Agent_avatar_v1_convai_agents__agent_id__avatar_post"
       },
+      "Body_Post_Agent_hold_audio_v1_convai_agents__agent_id__hold_audio_post": {
+        "properties": {
+          "hold_audio_file": {
+            "type": "string",
+            "title": "Hold Audio File",
+            "description": "An MP3 or WAV file played on loop to callers waiting in the agent's concurrency wait queue. Maximum size 40 MB, maximum duration 180 seconds.",
+            "format": "binary"
+          }
+        },
+        "type": "object",
+        "required": [
+          "hold_audio_file"
+        ],
+        "title": "Body_Post_Agent_hold_audio_v1_convai_agents__agent_id__hold_audio_post"
+      },
       "Body_Register_a_Twilio_call_and_return_TwiML_v1_convai_twilio_register_call_post": {
         "properties": {
           "agent_id": {
@@ -58003,6 +58235,18 @@
             "type": "integer",
             "title": "Call Duration Secs"
           },
+          "queue_wait_secs": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Queue Wait Secs",
+            "description": "Seconds the caller was held in the concurrency wait queue. Excluded from call_duration_secs and from billed time. None when the conversation was never queued."
+          },
           "cost": {
             "anyOf": [
               {
@@ -64285,6 +64529,19 @@
         ],
         "title": "DefaultSharingGroupResponseModel"
       },
+      "DeleteAgentHoldAudioResponseModel": {
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "agent_id"
+        ],
+        "title": "DeleteAgentHoldAudioResponseModel"
+      },
       "DeleteAgentProcedureParams": {
         "properties": {
           "smb_tool_type": {
@@ -69277,6 +69534,12 @@
           },
           "file_input": {
             "$ref": "#/components/schemas/FeatureStatusCommonModel"
+          },
+          "freeform_procedure": {
+            "$ref": "#/components/schemas/FeatureStatusCommonModel"
+          },
+          "structured_procedure": {
+            "$ref": "#/components/schemas/FeatureStatusCommonModel"
           }
         },
         "type": "object",
@@ -70981,6 +71244,12 @@
             "type": "object",
             "title": "Procedures",
             "description": "Procedures keyed by procedure_id."
+          },
+          "default_hold_audio_url": {
+            "type": "string",
+            "title": "Default Hold Audio Url",
+            "description": "URL of the default hold tone played to queued callers when no custom hold audio is uploaded, so the dashboard can preview it.",
+            "default": "https://eleven-public-cdn-common.elevenlabs.io/convai/ambient-audio-assets/elevator1.mp3"
           }
         },
         "type": "object",
@@ -81159,6 +81428,12 @@
             "title": "Procedures",
             "description": "Procedures keyed by procedure_id."
           },
+          "default_hold_audio_url": {
+            "type": "string",
+            "title": "Default Hold Audio Url",
+            "description": "URL of the default hold tone played to queued callers when no custom hold audio is uploaded, so the dashboard can preview it.",
+            "default": "https://eleven-public-cdn-common.elevenlabs.io/convai/ambient-audio-assets/elevator1.mp3"
+          },
           "overridden_fields": {
             "items": {
               "type": "string"
@@ -85056,6 +85331,23 @@
           "agent_id"
         ],
         "title": "PostAgentAvatarResponseModel"
+      },
+      "PostAgentHoldAudioResponseModel": {
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
+          },
+          "hold_audio": {
+            "$ref": "#/components/schemas/AgentHoldAudioConfig"
+          }
+        },
+        "type": "object",
+        "required": [
+          "agent_id",
+          "hold_audio"
+        ],
+        "title": "PostAgentHoldAudioResponseModel"
       },
       "PostDialDigitsDynamicVariable": {
         "properties": {
