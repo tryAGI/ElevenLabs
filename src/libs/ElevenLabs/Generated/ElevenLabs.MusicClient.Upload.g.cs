@@ -542,7 +542,7 @@ namespace ElevenLabs
         /// The audio file to upload.
         /// </param>
         /// <param name="extractCompositionPlan">
-        /// Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1` or `music_v2`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.<br/>
+        /// Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1`, `music_v2` or `music_v2_5`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="withTimestamps">
@@ -591,7 +591,7 @@ namespace ElevenLabs
         /// The audio file to upload.
         /// </param>
         /// <param name="extractCompositionPlan">
-        /// Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1` or `music_v2`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.<br/>
+        /// Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1`, `music_v2` or `music_v2_5`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="withTimestamps">
@@ -1078,7 +1078,7 @@ namespace ElevenLabs
         /// The audio file to upload.
         /// </param>
         /// <param name="extractCompositionPlan">
-        /// Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1` or `music_v2`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.<br/>
+        /// Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1`, `music_v2` or `music_v2_5`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="withTimestamps">

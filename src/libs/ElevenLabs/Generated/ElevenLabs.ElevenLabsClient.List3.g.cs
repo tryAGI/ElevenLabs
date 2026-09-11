@@ -220,11 +220,11 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("conversation_id", conversationId)
-                                .AddOptionalParameter("status", status?.ToString())
-                                .AddOptionalParameter("sources", sources?.ToString())
+                                .AddOptionalParameter("status", status?.ToValueString())
+                                .AddOptionalParameter("sources", sources, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                                 .AddOptionalParameter("owner_user_id", ownerUserId)
                                 .AddOptionalParameter("assignee_user_id", assigneeUserId)
-                                .AddOptionalParameter("issue_type", issueType?.ToString())
+                                .AddOptionalParameter("issue_type", issueType?.ToValueString())
                                 .AddOptionalParameter("label", label)
                                 .AddOptionalParameter("cursor", cursor)
                                 ;

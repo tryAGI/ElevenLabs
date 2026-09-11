@@ -151,7 +151,7 @@ namespace ElevenLabs
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
-                                .AddOptionalParameter("status", status?.ToString())
+                                .AddOptionalParameter("status", status?.ToValueString())
                                 .AddOptionalParameter("assignee_user_id", assigneeUserId)
                                 .AddOptionalParameter("cursor", cursor)
                                 ;

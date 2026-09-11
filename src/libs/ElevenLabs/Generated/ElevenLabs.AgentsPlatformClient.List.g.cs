@@ -223,9 +223,9 @@ namespace ElevenLabs
                                 .AddOptionalParameter("archived", archived?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("show_only_owned_agents", showOnlyOwnedAgents?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("created_by_user_id", createdByUserId)
-                                .AddOptionalParameter("tags", tags?.ToString())
+                                .AddOptionalParameter("tags", tags, delimiter: ",", explode: true)
                                 .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
-                                .AddOptionalParameter("sort_by", sortBy?.ToString())
+                                .AddOptionalParameter("sort_by", sortBy?.ToValueString())
                                 .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();

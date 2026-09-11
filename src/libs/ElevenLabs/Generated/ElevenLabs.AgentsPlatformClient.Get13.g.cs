@@ -136,7 +136,7 @@ namespace ElevenLabs
                                 path: $"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("embedding_model", embeddingModel?.ToString())
+                                .AddOptionalParameter("embedding_model", embeddingModel?.ToValueString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(

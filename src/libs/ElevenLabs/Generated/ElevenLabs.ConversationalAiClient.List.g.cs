@@ -138,7 +138,7 @@ namespace ElevenLabs
                                 path: "/v1/convai/knowledge-base/crawl",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("include_job_ids", includeJobIds?.ToString())
+                                .AddOptionalParameter("include_job_ids", includeJobIds, delimiter: ",", explode: true)
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("cursor", cursor)
                                 ;
