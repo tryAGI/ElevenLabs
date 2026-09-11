@@ -18432,10 +18432,10 @@
                   "type": "null"
                 }
               ],
-              "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values.",
+              "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte|missing.",
               "title": "Data Collection Params"
             },
-            "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values."
+            "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte|missing."
           },
           {
             "name": "dynamic_variable_params",
@@ -20049,10 +20049,10 @@
                   "type": "null"
                 }
               ],
-              "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values.",
+              "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte|missing.",
               "title": "Data Collection Params"
             },
-            "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values."
+            "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte|missing."
           },
           {
             "name": "dynamic_variable_params",
@@ -112471,7 +112471,6 @@
           "convai_agent_versions_deployments",
           "convai_agent_experiments",
           "convai_memory_entries",
-          "convai_coaching_proposals",
           "convai_templates",
           "dashboard",
           "dashboard_configuration",

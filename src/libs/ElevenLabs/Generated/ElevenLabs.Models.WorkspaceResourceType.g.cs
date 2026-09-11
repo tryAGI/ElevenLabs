@@ -79,10 +79,6 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        ConvaiCoachingProposals,
-        /// <summary>
-        ///
-        /// </summary>
         ConvaiCrawlJobs,
         /// <summary>
         ///
@@ -215,7 +211,6 @@ namespace ElevenLabs
                 WorkspaceResourceType.ConvaiApiIntegrationConnections => "convai_api_integration_connections",
                 WorkspaceResourceType.ConvaiApiIntegrationTriggerConnections => "convai_api_integration_trigger_connections",
                 WorkspaceResourceType.ConvaiBatchCalls => "convai_batch_calls",
-                WorkspaceResourceType.ConvaiCoachingProposals => "convai_coaching_proposals",
                 WorkspaceResourceType.ConvaiCrawlJobs => "convai_crawl_jobs",
                 WorkspaceResourceType.ConvaiCrawlTasks => "convai_crawl_tasks",
                 WorkspaceResourceType.ConvaiKbExternalSyncJobs => "convai_kb_external_sync_jobs",
@@ -269,7 +264,6 @@ namespace ElevenLabs
                 "convai_api_integration_connections" => WorkspaceResourceType.ConvaiApiIntegrationConnections,
                 "convai_api_integration_trigger_connections" => WorkspaceResourceType.ConvaiApiIntegrationTriggerConnections,
                 "convai_batch_calls" => WorkspaceResourceType.ConvaiBatchCalls,
-                "convai_coaching_proposals" => WorkspaceResourceType.ConvaiCoachingProposals,
                 "convai_crawl_jobs" => WorkspaceResourceType.ConvaiCrawlJobs,
                 "convai_crawl_tasks" => WorkspaceResourceType.ConvaiCrawlTasks,
                 "convai_kb_external_sync_jobs" => WorkspaceResourceType.ConvaiKbExternalSyncJobs,

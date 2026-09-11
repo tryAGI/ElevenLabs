@@ -54,7 +54,7 @@ namespace ElevenLabs
         /// Evaluation filters. Repeat param. Format: criteria_id:result. Example: eval=value_framing:success
         /// </param>
         /// <param name="dataCollectionParams">
-        /// Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values.
+        /// Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte|missing.
         /// </param>
         /// <param name="dynamicVariableParams">
         /// Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. Names containing ':' cannot be expressed.
@@ -200,7 +200,7 @@ namespace ElevenLabs
         /// Evaluation filters. Repeat param. Format: criteria_id:result. Example: eval=value_framing:success
         /// </param>
         /// <param name="dataCollectionParams">
-        /// Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values.
+        /// Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte|missing.
         /// </param>
         /// <param name="dynamicVariableParams">
         /// Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. Names containing ':' cannot be expressed.
@@ -346,7 +346,7 @@ namespace ElevenLabs
         /// Evaluation filters. Repeat param. Format: criteria_id:result. Example: eval=value_framing:success
         /// </param>
         /// <param name="dataCollectionParams">
-        /// Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in|exists|missing. For in, pipe-delimit values.
+        /// Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte|missing.
         /// </param>
         /// <param name="dynamicVariableParams">
         /// Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. Names containing ':' cannot be expressed.
