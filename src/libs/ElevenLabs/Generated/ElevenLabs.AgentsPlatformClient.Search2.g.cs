@@ -152,7 +152,7 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddRequiredParameter("query", query)
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
-                                .AddOptionalParameter("types", types?.ToString())
+                                .AddOptionalParameter("types", types, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                                 .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();

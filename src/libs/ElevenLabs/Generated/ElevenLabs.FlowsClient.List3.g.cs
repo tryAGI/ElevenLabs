@@ -152,7 +152,7 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddOptionalParameter("cursor", cursor)
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
-                                .AddOptionalParameter("status", status?.ToString())
+                                .AddOptionalParameter("status", status?.ToValueString())
                                 .AddOptionalParameter("model_id", modelId)
                                 ;
                             var __path = __pathBuilder.ToString();

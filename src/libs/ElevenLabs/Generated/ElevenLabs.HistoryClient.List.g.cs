@@ -218,9 +218,9 @@ namespace ElevenLabs
                                 .AddOptionalParameter("model_id", modelId)
                                 .AddOptionalParameter("date_before_unix", dateBeforeUnix?.ToString())
                                 .AddOptionalParameter("date_after_unix", dateAfterUnix?.ToString())
-                                .AddOptionalParameter("sort_direction", sortDirection?.ToString())
+                                .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
                                 .AddOptionalParameter("search", search)
-                                .AddOptionalParameter("source", source?.ToString())
+                                .AddOptionalParameter("source", source?.ToValueString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(

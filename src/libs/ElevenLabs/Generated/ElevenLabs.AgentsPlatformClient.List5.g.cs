@@ -136,7 +136,7 @@ namespace ElevenLabs
                                 path: "/v1/convai/phone-numbers",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("provider", provider?.ToString())
+                                .AddOptionalParameter("provider", provider?.ToValueString())
                                 .AddOptionalParameter("agent_id", agentId)
                                 .AddOptionalParameter("branch_id", branchId)
                                 ;

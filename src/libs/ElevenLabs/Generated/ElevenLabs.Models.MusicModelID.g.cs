@@ -16,6 +16,10 @@ namespace ElevenLabs
         ///
         /// </summary>
         MusicV2,
+        /// <summary>
+        ///
+        /// </summary>
+        MusicV25,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace ElevenLabs
             {
                 MusicModelID.MusicV1 => "music_v1",
                 MusicModelID.MusicV2 => "music_v2",
+                MusicModelID.MusicV25 => "music_v2_5",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace ElevenLabs
             {
                 "music_v1" => MusicModelID.MusicV1,
                 "music_v2" => MusicModelID.MusicV2,
+                "music_v2_5" => MusicModelID.MusicV25,
                 _ => null,
             };
         }

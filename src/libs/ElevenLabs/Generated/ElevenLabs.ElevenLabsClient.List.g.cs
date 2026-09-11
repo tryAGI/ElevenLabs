@@ -208,7 +208,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("parent_folder_id", parentFolderId)
-                                .AddOptionalParameter("types", types?.ToString())
+                                .AddOptionalParameter("types", types, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                                 .AddOptionalParameter("include_folders", includeFolders?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("sort_mode", sortMode?.ToValueString())
                                 .AddOptionalParameter("sharing_mode", sharingMode?.ToValueString())

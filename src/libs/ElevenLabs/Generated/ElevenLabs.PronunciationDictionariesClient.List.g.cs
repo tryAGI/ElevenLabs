@@ -170,7 +170,7 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddOptionalParameter("cursor", cursor)
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
-                                .AddOptionalParameter("sort", sort?.ToString())
+                                .AddOptionalParameter("sort", sort?.ToValueString())
                                 .AddOptionalParameter("sort_direction", sortDirection)
                                 .AddOptionalParameter("include_archived", includeArchived?.ToString().ToLowerInvariant())
                                 ;

@@ -355,15 +355,15 @@ namespace ElevenLabs
                                 .AddOptionalParameter("collection_id", collectionId)
                                 .AddOptionalParameter("gender", gender)
                                 .AddOptionalParameter("age", age)
-                                .AddOptionalParameter("language", language?.ToString())
+                                .AddOptionalParameter("language", language, delimiter: ",", explode: true)
                                 .AddOptionalParameter("accent", accent)
-                                .AddOptionalParameter("use_cases", useCases?.ToString())
+                                .AddOptionalParameter("use_cases", useCases, delimiter: ",", explode: true)
                                 .AddOptionalParameter("min_notice_period_days", minNoticePeriodDays?.ToString())
                                 .AddOptionalParameter("include_custom_rates", includeCustomRates?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("include_live_moderated", includeLiveModerated?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("high_quality", highQuality?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("include_total_count", includeTotalCount?.ToString().ToLowerInvariant())
-                                .AddOptionalParameter("voice_ids", voiceIds?.ToString())
+                                .AddOptionalParameter("voice_ids", voiceIds, delimiter: ",", explode: true)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(

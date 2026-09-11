@@ -180,8 +180,8 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddOptionalParameter("cursor", cursor)
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
-                                .AddOptionalParameter("visibility", visibility?.ToString())
-                                .AddOptionalParameter("created_by", createdBy?.ToString())
+                                .AddOptionalParameter("visibility", visibility?.ToValueString())
+                                .AddOptionalParameter("created_by", createdBy?.ToValueString())
                                 .AddOptionalParameter("sort", sort?.ToValueString())
                                 .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
                                 ;

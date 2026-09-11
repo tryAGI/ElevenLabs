@@ -166,7 +166,7 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("offset", offset?.ToString())
-                                .AddOptionalParameter("status", status?.ToString())
+                                .AddOptionalParameter("status", status, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                                 .AddOptionalParameter("start_date", startDate?.ToString())
                                 .AddOptionalParameter("end_date", endDate?.ToString())
                                 ;

@@ -45945,7 +45945,7 @@
           "respect_sections_durations": {
             "type": "boolean",
             "title": "Respect Sections Durations",
-            "description": "Controls how strictly section durations in the `composition_plan` are enforced. Only used with `composition_plan` and only applies to `music_v1`; for `music_v2` section durations are always enforced and this is ignored. When false for `music_v1`, the model may adjust individual section durations for better quality and latency, while preserving the total song duration from the plan.",
+            "description": "Controls how strictly section durations in the `composition_plan` are enforced. Only used with `composition_plan` and only applies to `music_v1`; for `music_v2` and `music_v2_5` section durations are always enforced and this is ignored. When false for `music_v1`, the model may adjust individual section durations for better quality and latency, while preserving the total song duration from the plan.",
             "default": true
           },
           "store_for_inpainting": {
@@ -46130,7 +46130,7 @@
           "respect_sections_durations": {
             "type": "boolean",
             "title": "Respect Sections Durations",
-            "description": "Controls how strictly section durations in the `composition_plan` are enforced. Only used with `composition_plan` and only applies to `music_v1`; for `music_v2` section durations are always enforced and this is ignored. When false for `music_v1`, the model may adjust individual section durations for better quality and latency, while preserving the total song duration from the plan.",
+            "description": "Controls how strictly section durations in the `composition_plan` are enforced. Only used with `composition_plan` and only applies to `music_v1`; for `music_v2` and `music_v2_5` section durations are always enforced and this is ignored. When false for `music_v1`, the model may adjust individual section durations for better quality and latency, while preserving the total song duration from the plan.",
             "default": true
           },
           "store_for_inpainting": {
@@ -51766,7 +51766,7 @@
               }
             ],
             "title": "Extract Composition Plan",
-            "description": "Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1` or `music_v2`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.",
+            "description": "Whether to generate and return the composition plan for the uploaded song. Pass a model id (`music_v1`, `music_v2` or `music_v2_5`) to control which composition plan format is returned. Passing `true`/`false` is deprecated; `true` defaults to the `music_v1` plan format. Enabling this will increase the latency.",
             "default": false
           },
           "with_timestamps": {
@@ -56331,7 +56331,7 @@
           "chunks"
         ],
         "title": "CompositionPlan",
-        "description": "Composition plan for the `music_v2` model. Using this field with any other model will result in an error.",
+        "description": "Composition plan for the `music_v2` and `music_v2_5` models. Using this field with any other model will result in an error.",
         "example": {
           "chunks": [
             {
@@ -82571,7 +82571,8 @@
             "description": "The base music model the finetune was trained on.",
             "examples": [
               "music_v1",
-              "music_v2"
+              "music_v2",
+              "music_v2_5"
             ]
           },
           "created_at": {
@@ -82648,7 +82649,8 @@
         "type": "string",
         "enum": [
           "music_v1",
-          "music_v2"
+          "music_v2",
+          "music_v2_5"
         ],
         "title": "MusicModelID",
         "x-fern-enum": {

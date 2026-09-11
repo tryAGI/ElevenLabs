@@ -166,7 +166,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("label", label)
                                 .AddOptionalParameter("environment", environment)
-                                .AddOptionalParameter("type", type?.ToString())
+                                .AddOptionalParameter("type", type?.ToValueString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
