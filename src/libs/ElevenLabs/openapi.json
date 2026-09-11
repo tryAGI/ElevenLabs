@@ -77405,12 +77405,17 @@
           "price_per_minute": {
             "type": "number",
             "title": "Price Per Minute"
+          },
+          "price_per_message": {
+            "type": "number",
+            "title": "Price Per Message"
           }
         },
         "type": "object",
         "required": [
           "llm",
-          "price_per_minute"
+          "price_per_minute",
+          "price_per_message"
         ],
         "title": "LLMUsageCalculatorLLMResponseModel"
       },

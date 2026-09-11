@@ -24,6 +24,13 @@ namespace ElevenLabs
         public required double PricePerMinute { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("price_per_message")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required double PricePerMessage { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -34,15 +41,18 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="llm"></param>
         /// <param name="pricePerMinute"></param>
+        /// <param name="pricePerMessage"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LLMUsageCalculatorLLMResponseModel(
             global::ElevenLabs.Llm llm,
-            double pricePerMinute)
+            double pricePerMinute,
+            double pricePerMessage)
         {
             this.Llm = llm;
             this.PricePerMinute = pricePerMinute;
+            this.PricePerMessage = pricePerMessage;
         }
 
         /// <summary>
