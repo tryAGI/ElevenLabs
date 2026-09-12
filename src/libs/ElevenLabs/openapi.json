@@ -75177,6 +75177,11 @@
             "type": "string",
             "title": "Phone Number"
           },
+          "account_type": {
+            "$ref": "#/components/schemas/WhatsAppAccountType",
+            "description": "Which Embedded Signup flow produced this account.",
+            "default": "cloud_api"
+          },
           "assigned_agent_id": {
             "anyOf": [
               {
@@ -107411,6 +107416,15 @@
           "Dubbing"
         ],
         "title": "WebhookUsageType"
+      },
+      "WhatsAppAccountType": {
+        "type": "string",
+        "enum": [
+          "cloud_api",
+          "coexistence"
+        ],
+        "title": "WhatsAppAccountType",
+        "default": "cloud_api"
       },
       "WhatsAppAuthResponse": {
         "properties": {
