@@ -44,6 +44,14 @@ namespace ElevenLabs
         public required string PhoneNumber { get; set; }
 
         /// <summary>
+        /// Which Embedded Signup flow produced this account.<br/>
+        /// Default Value: cloud_api
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("account_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WhatsAppAccountTypeJsonConverter))]
+        public global::ElevenLabs.WhatsAppAccountType? AccountType { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assigned_agent_id")]
@@ -93,6 +101,10 @@ namespace ElevenLabs
         /// <param name="businessAccountName"></param>
         /// <param name="phoneNumberName"></param>
         /// <param name="phoneNumber"></param>
+        /// <param name="accountType">
+        /// Which Embedded Signup flow produced this account.<br/>
+        /// Default Value: cloud_api
+        /// </param>
         /// <param name="assignedAgentId"></param>
         /// <param name="enableMessaging">
         /// Default Value: true
@@ -116,6 +128,7 @@ namespace ElevenLabs
             string businessAccountName,
             string phoneNumberName,
             string phoneNumber,
+            global::ElevenLabs.WhatsAppAccountType? accountType,
             string? assignedAgentId,
             bool? enableMessaging,
             bool? enableAudioMessageResponse,
@@ -128,6 +141,7 @@ namespace ElevenLabs
             this.BusinessAccountName = businessAccountName ?? throw new global::System.ArgumentNullException(nameof(businessAccountName));
             this.PhoneNumberName = phoneNumberName ?? throw new global::System.ArgumentNullException(nameof(phoneNumberName));
             this.PhoneNumber = phoneNumber ?? throw new global::System.ArgumentNullException(nameof(phoneNumber));
+            this.AccountType = accountType;
             this.AssignedAgentId = assignedAgentId;
             this.EnableMessaging = enableMessaging;
             this.EnableAudioMessageResponse = enableAudioMessageResponse;
