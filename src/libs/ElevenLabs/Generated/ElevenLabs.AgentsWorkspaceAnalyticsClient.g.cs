@@ -35,7 +35,7 @@ namespace ElevenLabs
         /// <inheritdoc/>
         public global::ElevenLabs.AutoSDKClientOptions Options { get; }
 
-        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::ElevenLabs.SourceGenerationContext.Default);
+        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::ElevenLabs.AgentsWorkspaceAnalyticsSourceGenerationContext.Default);
 
         /// <summary>
         ///
