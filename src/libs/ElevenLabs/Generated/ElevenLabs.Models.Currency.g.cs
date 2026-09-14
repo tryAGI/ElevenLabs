@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Gbp,
+        /// <summary>
+        ///
+        /// </summary>
         Inr,
         /// <summary>
         ///
@@ -39,6 +43,7 @@ namespace ElevenLabs
             return value switch
             {
                 Currency.Eur => "eur",
+                Currency.Gbp => "gbp",
                 Currency.Inr => "inr",
                 Currency.Pln => "pln",
                 Currency.Usd => "usd",
@@ -53,6 +58,7 @@ namespace ElevenLabs
             return value switch
             {
                 "eur" => Currency.Eur,
+                "gbp" => Currency.Gbp,
                 "inr" => Currency.Inr,
                 "pln" => Currency.Pln,
                 "usd" => Currency.Usd,

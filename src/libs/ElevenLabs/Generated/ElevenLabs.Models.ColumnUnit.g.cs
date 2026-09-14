@@ -23,6 +23,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Gbp,
+        /// <summary>
+        ///
+        /// </summary>
         Inr,
         /// <summary>
         ///
@@ -69,6 +73,7 @@ namespace ElevenLabs
                 ColumnUnit.Credits => "credits",
                 ColumnUnit.Duration => "duration",
                 ColumnUnit.Eur => "eur",
+                ColumnUnit.Gbp => "gbp",
                 ColumnUnit.Inr => "inr",
                 ColumnUnit.Min => "min",
                 ColumnUnit.Ms => "ms",
@@ -90,6 +95,7 @@ namespace ElevenLabs
                 "credits" => ColumnUnit.Credits,
                 "duration" => ColumnUnit.Duration,
                 "eur" => ColumnUnit.Eur,
+                "gbp" => ColumnUnit.Gbp,
                 "inr" => ColumnUnit.Inr,
                 "min" => ColumnUnit.Min,
                 "ms" => ColumnUnit.Ms,

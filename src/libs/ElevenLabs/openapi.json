@@ -56197,6 +56197,7 @@
           "eur",
           "inr",
           "pln",
+          "gbp",
           "ratio",
           "rating"
         ],
@@ -63518,6 +63519,14 @@
             "description": "Language for the speech engine",
             "default": "en"
           },
+          "cascade_timeout_seconds": {
+            "type": "number",
+            "maximum": 15.0,
+            "minimum": 2.0,
+            "title": "Cascade Timeout Seconds",
+            "description": "Time in seconds to wait for the upstream speech engine endpoint to respond before the attempt is abandoned and retried. Must be between 2 and 15 seconds.",
+            "default": 4.0
+          },
           "tags": {
             "items": {
               "type": "string"
@@ -63965,7 +63974,8 @@
           "usd",
           "eur",
           "inr",
-          "pln"
+          "pln",
+          "gbp"
         ],
         "title": "Currency"
       },
@@ -95212,6 +95222,11 @@
             "title": "Language",
             "description": "ISO language code used by the speech engine (e.g. 'en')"
           },
+          "cascade_timeout_seconds": {
+            "type": "number",
+            "title": "Cascade Timeout Seconds",
+            "description": "Time in seconds to wait for the upstream speech engine endpoint to respond before the attempt is abandoned and retried. Must be between 2 and 15 seconds."
+          },
           "tags": {
             "items": {
               "type": "string"
@@ -95253,6 +95268,7 @@
           "privacy",
           "call_limits",
           "language",
+          "cascade_timeout_seconds",
           "tags",
           "overrides",
           "metadata"
@@ -95270,6 +95286,7 @@
             "bursting_enabled": true,
             "daily_limit": 100000
           },
+          "cascade_timeout_seconds": 4.0,
           "conversation": {
             "client_events": [
               "audio",
@@ -103034,6 +103051,20 @@
               }
             ],
             "title": "Language"
+          },
+          "cascade_timeout_seconds": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 15.0,
+                "minimum": 2.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cascade Timeout Seconds",
+            "description": "Time in seconds to wait for the upstream speech engine endpoint to respond before the attempt is abandoned and retried. Must be between 2 and 15 seconds."
           },
           "tags": {
             "anyOf": [
