@@ -86,6 +86,13 @@ namespace ElevenLabs
         public string? Language { get; set; }
 
         /// <summary>
+        /// Time in seconds to wait for the upstream speech engine endpoint to respond before the attempt is abandoned and retried. Must be between 2 and 15 seconds.<br/>
+        /// Default Value: 4F
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cascade_timeout_seconds")]
+        public double? CascadeTimeoutSeconds { get; set; }
+
+        /// <summary>
         /// Tags for categorization
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
@@ -145,6 +152,10 @@ namespace ElevenLabs
         /// Language for the speech engine<br/>
         /// Default Value: en
         /// </param>
+        /// <param name="cascadeTimeoutSeconds">
+        /// Time in seconds to wait for the upstream speech engine endpoint to respond before the attempt is abandoned and retried. Must be between 2 and 15 seconds.<br/>
+        /// Default Value: 4F
+        /// </param>
         /// <param name="tags">
         /// Tags for categorization
         /// </param>
@@ -165,6 +176,7 @@ namespace ElevenLabs
             global::ElevenLabs.PrivacyConfigInput? privacy,
             global::ElevenLabs.AgentCallLimits? callLimits,
             string? language,
+            double? cascadeTimeoutSeconds,
             global::System.Collections.Generic.IList<string>? tags,
             global::ElevenLabs.SpeechEngineConversationInitiationClientDataConfig? overrides)
         {
@@ -178,6 +190,7 @@ namespace ElevenLabs
             this.Privacy = privacy;
             this.CallLimits = callLimits;
             this.Language = language;
+            this.CascadeTimeoutSeconds = cascadeTimeoutSeconds;
             this.Tags = tags;
             this.Overrides = overrides;
         }

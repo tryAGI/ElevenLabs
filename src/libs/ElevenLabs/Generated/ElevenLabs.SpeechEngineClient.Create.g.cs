@@ -513,6 +513,10 @@ namespace ElevenLabs
         /// Language for the speech engine<br/>
         /// Default Value: en
         /// </param>
+        /// <param name="cascadeTimeoutSeconds">
+        /// Time in seconds to wait for the upstream speech engine endpoint to respond before the attempt is abandoned and retried. Must be between 2 and 15 seconds.<br/>
+        /// Default Value: 4F
+        /// </param>
         /// <param name="tags">
         /// Tags for categorization
         /// </param>
@@ -533,6 +537,7 @@ namespace ElevenLabs
             global::ElevenLabs.PrivacyConfigInput? privacy = default,
             global::ElevenLabs.AgentCallLimits? callLimits = default,
             string? language = default,
+            double? cascadeTimeoutSeconds = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.SpeechEngineConversationInitiationClientDataConfig? overrides = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -550,6 +555,7 @@ namespace ElevenLabs
                 Privacy = privacy,
                 CallLimits = callLimits,
                 Language = language,
+                CascadeTimeoutSeconds = cascadeTimeoutSeconds,
                 Tags = tags,
                 Overrides = overrides,
             };

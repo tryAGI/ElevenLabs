@@ -55,6 +55,9 @@ namespace ElevenLabs
         /// <param name="privacy"></param>
         /// <param name="callLimits"></param>
         /// <param name="language"></param>
+        /// <param name="cascadeTimeoutSeconds">
+        /// Time in seconds to wait for the upstream speech engine endpoint to respond before the attempt is abandoned and retried. Must be between 2 and 15 seconds.
+        /// </param>
         /// <param name="tags"></param>
         /// <param name="overrides"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -72,6 +75,7 @@ namespace ElevenLabs
             global::ElevenLabs.PrivacyConfigInput? privacy = default,
             global::ElevenLabs.AgentCallLimits? callLimits = default,
             string? language = default,
+            double? cascadeTimeoutSeconds = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.SpeechEngineConversationInitiationClientDataConfig? overrides = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
