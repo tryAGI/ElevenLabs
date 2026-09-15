@@ -5,9 +5,6 @@ namespace ElevenLabs
 {
     /// <summary>
     /// Alerting configuration used at both per-agent and per-workspace level.<br/>
-    /// All fields are optional overrides; the cascade resolver fills in defaults<br/>
-    /// when they are unset. Notifiers stack and dedupe (by webhook_id) across the<br/>
-    /// workspace and agent layers rather than overriding each other.<br/>
     /// Cascade order for per-monitor threshold and auto-resolve: agent → workspace →<br/>
     /// system default.
     /// </summary>
@@ -26,7 +23,7 @@ namespace ElevenLabs
         public int? AutoResolveAfterInactiveMinutes { get; set; }
 
         /// <summary>
-        /// Delivery channels for alert lifecycle notifications. Stacked and deduped by ``webhook_id`` / ``connection_id`` with other layers.
+        /// Delivery channels for alert lifecycle notifications. Stacked with other layers and deduped by ``webhook_id``, PagerDuty ``connection_id``, or Slack ``(connection_id, channel_id)``.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("notifiers")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.NotifiersItem>? Notifiers { get; set; }
@@ -47,7 +44,7 @@ namespace ElevenLabs
         /// How many minutes an alert can stay inactive before it is auto-resolved. Unset values fall through to the next layer.
         /// </param>
         /// <param name="notifiers">
-        /// Delivery channels for alert lifecycle notifications. Stacked and deduped by ``webhook_id`` / ``connection_id`` with other layers.
+        /// Delivery channels for alert lifecycle notifications. Stacked with other layers and deduped by ``webhook_id``, PagerDuty ``connection_id``, or Slack ``(connection_id, channel_id)``.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

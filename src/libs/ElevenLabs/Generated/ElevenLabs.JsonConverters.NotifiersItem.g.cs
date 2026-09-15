@@ -63,9 +63,9 @@ namespace ElevenLabs.JsonConverters
             }
             else if (value.IsIntegration)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.AlertingIntegrationNotifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.AlertingIntegrationNotifier?> ??
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.AlertingIntegrationNotifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.AlertingIntegrationNotifier> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.AlertingIntegrationNotifier).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Integration!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Integration!.Value, typeInfo);
             }
         }
     }

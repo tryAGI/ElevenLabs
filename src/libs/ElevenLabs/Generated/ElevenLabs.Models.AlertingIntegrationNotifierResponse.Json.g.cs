@@ -2,7 +2,7 @@
 
 namespace ElevenLabs
 {
-    public sealed partial class AlertingIntegrationNotifierResponse
+    public readonly partial struct AlertingIntegrationNotifierResponse
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -54,7 +54,7 @@ namespace ElevenLabs
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
                 typeof(global::ElevenLabs.AlertingIntegrationNotifierResponse),
-                jsonSerializerContext) as global::ElevenLabs.AlertingIntegrationNotifierResponse;
+                jsonSerializerContext) as global::ElevenLabs.AlertingIntegrationNotifierResponse?;
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace ElevenLabs
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
                 typeof(global::ElevenLabs.AlertingIntegrationNotifierResponse),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.AlertingIntegrationNotifierResponse;
+                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.AlertingIntegrationNotifierResponse?;
         }
 
         /// <summary>

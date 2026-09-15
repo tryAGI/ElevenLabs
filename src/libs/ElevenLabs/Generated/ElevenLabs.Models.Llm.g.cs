@@ -367,6 +367,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Gpt6Astra,
+        /// <summary>
+        ///
+        /// </summary>
         GptOss120b,
         /// <summary>
         ///
@@ -503,6 +507,7 @@ namespace ElevenLabs
                 Llm.Gpt56Luna => "gpt-5.6-luna",
                 Llm.Gpt56Sol => "gpt-5.6-sol",
                 Llm.Gpt56Terra => "gpt-5.6-terra",
+                Llm.Gpt6Astra => "gpt-6-astra",
                 Llm.GptOss120b => "gpt-oss-120b",
                 Llm.GptOss20b => "gpt-oss-20b",
                 Llm.GrokBeta => "grok-beta",
@@ -611,6 +616,7 @@ namespace ElevenLabs
                 "gpt-5.6-luna" => Llm.Gpt56Luna,
                 "gpt-5.6-sol" => Llm.Gpt56Sol,
                 "gpt-5.6-terra" => Llm.Gpt56Terra,
+                "gpt-6-astra" => Llm.Gpt6Astra,
                 "gpt-oss-120b" => Llm.GptOss120b,
                 "gpt-oss-20b" => Llm.GptOss20b,
                 "grok-beta" => Llm.GrokBeta,

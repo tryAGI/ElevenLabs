@@ -85,7 +85,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         public global::ElevenLabs.AlertingIntegrationNotifier PickIntegration() => IsIntegration
-            ? Integration!
+            ? Integration!.Value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Integration' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,7 +177,7 @@ namespace ElevenLabs
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.AlertingWebhookNotifier, TResult>? webhook = null,
-            global::System.Func<global::ElevenLabs.AlertingIntegrationNotifier, TResult>? integration = null,
+            global::System.Func<global::ElevenLabs.AlertingIntegrationNotifier?, TResult>? integration = null,
             bool validate = true)
         {
             if (validate)
@@ -203,7 +203,7 @@ namespace ElevenLabs
         public void Match(
             global::System.Action<global::ElevenLabs.AlertingWebhookNotifier>? webhook = null,
 
-            global::System.Action<global::ElevenLabs.AlertingIntegrationNotifier>? integration = null,
+            global::System.Action<global::ElevenLabs.AlertingIntegrationNotifier?>? integration = null,
             bool validate = true)
         {
             if (validate)
@@ -226,7 +226,7 @@ namespace ElevenLabs
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.AlertingWebhookNotifier>? webhook = null,
-            global::System.Action<global::ElevenLabs.AlertingIntegrationNotifier>? integration = null,
+            global::System.Action<global::ElevenLabs.AlertingIntegrationNotifier?>? integration = null,
             bool validate = true)
         {
             if (validate)
