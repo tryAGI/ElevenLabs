@@ -41490,43 +41490,38 @@
         "title": "AgentWorkspaceOverrides"
       },
       "AlertingIntegrationNotifier": {
-        "properties": {
-          "type": {
-            "type": "string",
-            "const": "integration",
-            "title": "Type",
-            "default": "integration"
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/AlertingPagerDutyNotifier"
           },
-          "connection_id": {
-            "type": "string",
-            "title": "Connection Id",
-            "description": "ID of the workspace integration connection (e.g. PagerDuty) to deliver alert lifecycle notifications to. The connection's integration must have the monitoring capability."
+          {
+            "$ref": "#/components/schemas/AlertingSlackNotifier"
           }
-        },
-        "type": "object",
-        "required": [
-          "connection_id"
         ],
-        "title": "AlertingIntegrationNotifier"
+        "discriminator": {
+          "propertyName": "integration_type",
+          "mapping": {
+            "pagerduty": "#/components/schemas/AlertingPagerDutyNotifier",
+            "slack": "#/components/schemas/AlertingSlackNotifier"
+          }
+        }
       },
       "AlertingIntegrationNotifierResponse": {
-        "properties": {
-          "type": {
-            "type": "string",
-            "const": "integration",
-            "title": "Type",
-            "default": "integration"
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/AlertingPagerDutyNotifierResponse"
           },
-          "connection_id": {
-            "type": "string",
-            "title": "Connection Id"
+          {
+            "$ref": "#/components/schemas/AlertingSlackNotifierResponse"
           }
-        },
-        "type": "object",
-        "required": [
-          "connection_id"
         ],
-        "title": "AlertingIntegrationNotifierResponse"
+        "discriminator": {
+          "propertyName": "integration_type",
+          "mapping": {
+            "pagerduty": "#/components/schemas/AlertingPagerDutyNotifierResponse",
+            "slack": "#/components/schemas/AlertingSlackNotifierResponse"
+          }
+        }
       },
       "AlertingMonitorConfig": {
         "properties": {
@@ -41628,6 +41623,59 @@
         "type": "object",
         "title": "AlertingMonitorConfig"
       },
+      "AlertingPagerDutyNotifier": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "integration",
+            "title": "Type",
+            "default": "integration"
+          },
+          "integration_type": {
+            "type": "string",
+            "const": "pagerduty",
+            "title": "Integration Type",
+            "default": "pagerduty"
+          },
+          "connection_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Connection Id",
+            "description": "ID of the workspace integration connection to deliver alert lifecycle notifications to. The connection's integration must have the monitoring capability and match ``integration_type``."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "connection_id"
+        ],
+        "title": "AlertingPagerDutyNotifier"
+      },
+      "AlertingPagerDutyNotifierResponse": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "integration",
+            "title": "Type",
+            "default": "integration"
+          },
+          "integration_type": {
+            "type": "string",
+            "const": "pagerduty",
+            "title": "Integration Type",
+            "default": "pagerduty"
+          },
+          "connection_id": {
+            "type": "string",
+            "title": "Connection Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "connection_id"
+        ],
+        "title": "AlertingPagerDutyNotifierResponse"
+      },
       "AlertingSettings": {
         "properties": {
           "monitor_configs": {
@@ -41672,12 +41720,12 @@
             "type": "array",
             "maxItems": 10,
             "title": "Notifiers",
-            "description": "Delivery channels for alert lifecycle notifications. Stacked and deduped by ``webhook_id`` / ``connection_id`` with other layers."
+            "description": "Delivery channels for alert lifecycle notifications. Stacked with other layers and deduped by ``webhook_id``, PagerDuty ``connection_id``, or Slack ``(connection_id, channel_id)``."
           }
         },
         "type": "object",
         "title": "AlertingSettings",
-        "description": "Alerting configuration used at both per-agent and per-workspace level.\n\nAll fields are optional overrides; the cascade resolver fills in defaults\nwhen they are unset. Notifiers stack and dedupe (by webhook_id) across the\nworkspace and agent layers rather than overriding each other.\n\nCascade order for per-monitor threshold and auto-resolve: agent → workspace →\nsystem default."
+        "description": "Alerting configuration used at both per-agent and per-workspace level.\nCascade order for per-monitor threshold and auto-resolve: agent → workspace →\nsystem default."
       },
       "AlertingSettingsResponse": {
         "properties": {
@@ -41724,6 +41772,72 @@
         "type": "object",
         "title": "AlertingSettingsResponse",
         "description": "Customer-facing view of alerting settings. Unlike AdminAlertingSettingsResponse,\nit has no internal_notifiers field: those are ElevenLabs-internal delivery\nchannels whose URLs must never be returned outside the admin API."
+      },
+      "AlertingSlackNotifier": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "integration",
+            "title": "Type",
+            "default": "integration"
+          },
+          "integration_type": {
+            "type": "string",
+            "const": "slack",
+            "title": "Integration Type",
+            "default": "slack"
+          },
+          "connection_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Connection Id",
+            "description": "ID of the workspace integration connection to deliver alert lifecycle notifications to. The connection's integration must have the monitoring capability and match ``integration_type``."
+          },
+          "channel_id": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Channel Id",
+            "description": "ID of the Slack channel to post alert notifications to, e.g. ``C0123456789``. The Slack app must be a member of the channel and have the ``chat:write`` scope, or ``chat:write.public`` for public channels it has not joined."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "connection_id",
+          "channel_id"
+        ],
+        "title": "AlertingSlackNotifier"
+      },
+      "AlertingSlackNotifierResponse": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "integration",
+            "title": "Type",
+            "default": "integration"
+          },
+          "integration_type": {
+            "type": "string",
+            "const": "slack",
+            "title": "Integration Type",
+            "default": "slack"
+          },
+          "connection_id": {
+            "type": "string",
+            "title": "Connection Id"
+          },
+          "channel_id": {
+            "type": "string",
+            "title": "Channel Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "connection_id",
+          "channel_id"
+        ],
+        "title": "AlertingSlackNotifierResponse"
       },
       "AlertingWebhookHeader": {
         "properties": {
@@ -76879,6 +76993,7 @@
           "gpt-5.6-sol",
           "gpt-5.6-terra",
           "gpt-5.6-luna",
+          "gpt-6-astra",
           "gpt-5-mini",
           "gpt-5-nano",
           "gpt-3.5-turbo",
