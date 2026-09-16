@@ -18432,10 +18432,10 @@
                   "type": "null"
                 }
               ],
-              "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte|missing.",
+              "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte. An empty value matches conversations where the field was not collected.",
               "title": "Data Collection Params"
             },
-            "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte|missing."
+            "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte. An empty value matches conversations where the field was not collected."
           },
           {
             "name": "dynamic_variable_params",
@@ -18453,10 +18453,10 @@
                   "type": "null"
                 }
               ],
-              "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. Names containing ':' cannot be expressed.",
+              "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. An empty value matches conversations where the variable was not set. Names containing ':' cannot be expressed.",
               "title": "Dynamic Variable Params"
             },
-            "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. Names containing ':' cannot be expressed."
+            "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. An empty value matches conversations where the variable was not set. Names containing ':' cannot be expressed."
           },
           {
             "name": "data_collection_ids",
@@ -20049,10 +20049,10 @@
                   "type": "null"
                 }
               ],
-              "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte|missing.",
+              "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte. An empty value matches conversations where the field was not collected.",
               "title": "Data Collection Params"
             },
-            "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte|missing."
+            "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte. An empty value matches conversations where the field was not collected."
           },
           {
             "name": "dynamic_variable_params",
@@ -20070,10 +20070,10 @@
                   "type": "null"
                 }
               ],
-              "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. Names containing ':' cannot be expressed.",
+              "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. An empty value matches conversations where the variable was not set. Names containing ':' cannot be expressed.",
               "title": "Dynamic Variable Params"
             },
-            "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. Names containing ':' cannot be expressed."
+            "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. An empty value matches conversations where the variable was not set. Names containing ':' cannot be expressed."
           },
           {
             "name": "tool_names",
@@ -112615,6 +112615,7 @@
           "voice_collection",
           "pronunciation_dictionary",
           "dubbing",
+          "dubbing_project",
           "project",
           "convai_agents",
           "convai_knowledge_base_documents",

@@ -143,6 +143,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        DubbingProject,
+        /// <summary>
+        ///
+        /// </summary>
         Project,
         /// <summary>
         ///
@@ -227,6 +231,7 @@ namespace ElevenLabs
                 WorkspaceResourceType.Dashboard => "dashboard",
                 WorkspaceResourceType.DashboardConfiguration => "dashboard_configuration",
                 WorkspaceResourceType.Dubbing => "dubbing",
+                WorkspaceResourceType.DubbingProject => "dubbing_project",
                 WorkspaceResourceType.Project => "project",
                 WorkspaceResourceType.PronunciationDictionary => "pronunciation_dictionary",
                 WorkspaceResourceType.ResourceCollection => "resource_collection",
@@ -280,6 +285,7 @@ namespace ElevenLabs
                 "dashboard" => WorkspaceResourceType.Dashboard,
                 "dashboard_configuration" => WorkspaceResourceType.DashboardConfiguration,
                 "dubbing" => WorkspaceResourceType.Dubbing,
+                "dubbing_project" => WorkspaceResourceType.DubbingProject,
                 "project" => WorkspaceResourceType.Project,
                 "pronunciation_dictionary" => WorkspaceResourceType.PronunciationDictionary,
                 "resource_collection" => WorkspaceResourceType.ResourceCollection,
