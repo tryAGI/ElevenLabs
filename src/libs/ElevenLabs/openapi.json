@@ -88566,6 +88566,12 @@
             "$ref": "#/components/schemas/BuiltInTools-Input",
             "description": "Built-in system tools to be used by the agent"
           },
+          "enable_parallel_tool_calls": {
+            "type": "boolean",
+            "title": "Enable Parallel Tool Calls",
+            "description": "Enable parallel tool calling. When enabled, the agent can execute multiple tools in parallel within a single turn. Not supported by all models.",
+            "default": true
+          },
           "mcp_server_ids": {
             "items": {
               "type": "string"
@@ -88793,6 +88799,12 @@
           "built_in_tools": {
             "$ref": "#/components/schemas/BuiltInTools-Output",
             "description": "Built-in system tools to be used by the agent"
+          },
+          "enable_parallel_tool_calls": {
+            "type": "boolean",
+            "title": "Enable Parallel Tool Calls",
+            "description": "Enable parallel tool calling. When enabled, the agent can execute multiple tools in parallel within a single turn. Not supported by all models.",
+            "default": true
           },
           "mcp_server_ids": {
             "items": {
@@ -89265,6 +89277,18 @@
             ],
             "description": "Built-in system tools to be used by the agent"
           },
+          "enable_parallel_tool_calls": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enable Parallel Tool Calls",
+            "description": "Enable parallel tool calling. When enabled, the agent can execute multiple tools in parallel within a single turn. Not supported by all models."
+          },
           "mcp_server_ids": {
             "anyOf": [
               {
@@ -89559,6 +89583,18 @@
               }
             ],
             "description": "Built-in system tools to be used by the agent"
+          },
+          "enable_parallel_tool_calls": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enable Parallel Tool Calls",
+            "description": "Enable parallel tool calling. When enabled, the agent can execute multiple tools in parallel within a single turn. Not supported by all models."
           },
           "mcp_server_ids": {
             "anyOf": [
