@@ -70,6 +70,13 @@ namespace ElevenLabs
         public global::ElevenLabs.BuiltInToolsOutput? BuiltInTools { get; set; }
 
         /// <summary>
+        /// Enable parallel tool calling. When enabled, the agent can execute multiple tools in parallel within a single turn. Not supported by all models.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_parallel_tool_calls")]
+        public bool? EnableParallelToolCalls { get; set; }
+
+        /// <summary>
         /// A list of MCP server ids to be used by the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_server_ids")]
@@ -173,6 +180,10 @@ namespace ElevenLabs
         /// <param name="builtInTools">
         /// Built-in system tools to be used by the agent
         /// </param>
+        /// <param name="enableParallelToolCalls">
+        /// Enable parallel tool calling. When enabled, the agent can execute multiple tools in parallel within a single turn. Not supported by all models.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="mcpServerIds">
         /// A list of MCP server ids to be used by the agent
         /// </param>
@@ -215,6 +226,7 @@ namespace ElevenLabs
             int? maxTokens,
             global::System.Collections.Generic.IList<string>? toolIds,
             global::ElevenLabs.BuiltInToolsOutput? builtInTools,
+            bool? enableParallelToolCalls,
             global::System.Collections.Generic.IList<string>? mcpServerIds,
             global::System.Collections.Generic.IList<string>? nativeMcpServerIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? knowledgeBase,
@@ -234,6 +246,7 @@ namespace ElevenLabs
             this.MaxTokens = maxTokens;
             this.ToolIds = toolIds;
             this.BuiltInTools = builtInTools;
+            this.EnableParallelToolCalls = enableParallelToolCalls;
             this.McpServerIds = mcpServerIds;
             this.NativeMcpServerIds = nativeMcpServerIds;
             this.KnowledgeBase = knowledgeBase;
