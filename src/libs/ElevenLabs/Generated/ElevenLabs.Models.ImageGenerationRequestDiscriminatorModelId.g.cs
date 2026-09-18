@@ -44,6 +44,14 @@ namespace ElevenLabs
         ///
         /// </summary>
         GptImage2,
+        /// <summary>
+        ///
+        /// </summary>
+        GptImage25Flare,
+        /// <summary>
+        ///
+        /// </summary>
+        GptImage25Sunburst,
     }
 
     /// <summary>
@@ -67,6 +75,8 @@ namespace ElevenLabs
                 ImageGenerationRequestDiscriminatorModelId.GptImage1 => "gpt-image-1",
                 ImageGenerationRequestDiscriminatorModelId.GptImage15 => "gpt-image-1.5",
                 ImageGenerationRequestDiscriminatorModelId.GptImage2 => "gpt-image-2",
+                ImageGenerationRequestDiscriminatorModelId.GptImage25Flare => "gpt-image-2.5-flare",
+                ImageGenerationRequestDiscriminatorModelId.GptImage25Sunburst => "gpt-image-2.5-sunburst",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -86,6 +96,8 @@ namespace ElevenLabs
                 "gpt-image-1" => ImageGenerationRequestDiscriminatorModelId.GptImage1,
                 "gpt-image-1.5" => ImageGenerationRequestDiscriminatorModelId.GptImage15,
                 "gpt-image-2" => ImageGenerationRequestDiscriminatorModelId.GptImage2,
+                "gpt-image-2.5-flare" => ImageGenerationRequestDiscriminatorModelId.GptImage25Flare,
+                "gpt-image-2.5-sunburst" => ImageGenerationRequestDiscriminatorModelId.GptImage25Sunburst,
                 _ => null,
             };
         }

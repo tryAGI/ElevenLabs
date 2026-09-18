@@ -126,6 +126,80 @@ namespace ElevenLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'GptImage2' but the value was {ToString()}.");
 
         /// <summary>
+        /// Request body for the OpenAI GPT Image 2.5 Sunburst model.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.GPTImage25SunburstRequest? GptImage25Sunburst { get; init; }
+#else
+        public global::ElevenLabs.GPTImage25SunburstRequest? GptImage25Sunburst { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GptImage25Sunburst))]
+#endif
+        public bool IsGptImage25Sunburst => GptImage25Sunburst != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickGptImage25Sunburst(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GPTImage25SunburstRequest? value)
+        {
+            value = GptImage25Sunburst;
+            return IsGptImage25Sunburst;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.GPTImage25SunburstRequest PickGptImage25Sunburst() => IsGptImage25Sunburst
+            ? GptImage25Sunburst!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'GptImage25Sunburst' but the value was {ToString()}.");
+
+        /// <summary>
+        /// Request body for the OpenAI GPT Image 2.5 Flare model.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.GPTImage25FlareRequest? GptImage25Flare { get; init; }
+#else
+        public global::ElevenLabs.GPTImage25FlareRequest? GptImage25Flare { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GptImage25Flare))]
+#endif
+        public bool IsGptImage25Flare => GptImage25Flare != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickGptImage25Flare(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.GPTImage25FlareRequest? value)
+        {
+            value = GptImage25Flare;
+            return IsGptImage25Flare;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.GPTImage25FlareRequest PickGptImage25Flare() => IsGptImage25Flare
+            ? GptImage25Flare!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'GptImage25Flare' but the value was {ToString()}.");
+
+        /// <summary>
         /// Request body for the Google Gemini 2.5 Flash image model.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -422,6 +496,52 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        public static implicit operator ImageGenerationRequest(global::ElevenLabs.GPTImage25SunburstRequest value) => new ImageGenerationRequest((global::ElevenLabs.GPTImage25SunburstRequest?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.GPTImage25SunburstRequest?(ImageGenerationRequest @this) => @this.GptImage25Sunburst;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public ImageGenerationRequest(global::ElevenLabs.GPTImage25SunburstRequest? value)
+        {
+            GptImage25Sunburst = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static ImageGenerationRequest FromGptImage25Sunburst(global::ElevenLabs.GPTImage25SunburstRequest? value) => new ImageGenerationRequest(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator ImageGenerationRequest(global::ElevenLabs.GPTImage25FlareRequest value) => new ImageGenerationRequest((global::ElevenLabs.GPTImage25FlareRequest?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.GPTImage25FlareRequest?(ImageGenerationRequest @this) => @this.GptImage25Flare;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public ImageGenerationRequest(global::ElevenLabs.GPTImage25FlareRequest? value)
+        {
+            GptImage25Flare = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static ImageGenerationRequest FromGptImage25Flare(global::ElevenLabs.GPTImage25FlareRequest? value) => new ImageGenerationRequest(value);
+
+        /// <summary>
+        ///
+        /// </summary>
         public static implicit operator ImageGenerationRequest(global::ElevenLabs.Gemini25FlashImageRequest value) => new ImageGenerationRequest((global::ElevenLabs.Gemini25FlashImageRequest?)value);
 
         /// <summary>
@@ -565,6 +685,8 @@ namespace ElevenLabs
             global::ElevenLabs.GPTImage1Request? gptImage1,
             global::ElevenLabs.GPTImage15Request? gptImage15,
             global::ElevenLabs.GPTImage2Request? gptImage2,
+            global::ElevenLabs.GPTImage25SunburstRequest? gptImage25Sunburst,
+            global::ElevenLabs.GPTImage25FlareRequest? gptImage25Flare,
             global::ElevenLabs.Gemini25FlashImageRequest? gemini25FlashImage,
             global::ElevenLabs.Gemini3ProImageRequest? gemini3ProImage,
             global::ElevenLabs.Gemini31FlashImageRequest? gemini31FlashImage,
@@ -578,6 +700,8 @@ namespace ElevenLabs
             GptImage1 = gptImage1;
             GptImage15 = gptImage15;
             GptImage2 = gptImage2;
+            GptImage25Sunburst = gptImage25Sunburst;
+            GptImage25Flare = gptImage25Flare;
             Gemini25FlashImage = gemini25FlashImage;
             Gemini3ProImage = gemini3ProImage;
             Gemini31FlashImage = gemini31FlashImage;
@@ -596,6 +720,8 @@ namespace ElevenLabs
             Gemini31FlashImage as object ??
             Gemini3ProImage as object ??
             Gemini25FlashImage as object ??
+            GptImage25Flare as object ??
+            GptImage25Sunburst as object ??
             GptImage2 as object ??
             GptImage15 as object ??
             GptImage1 as object
@@ -608,6 +734,8 @@ namespace ElevenLabs
             GptImage1?.ToString() ??
             GptImage15?.ToString() ??
             GptImage2?.ToString() ??
+            GptImage25Sunburst?.ToString() ??
+            GptImage25Flare?.ToString() ??
             Gemini25FlashImage?.ToString() ??
             Gemini3ProImage?.ToString() ??
             Gemini31FlashImage?.ToString() ??
@@ -621,7 +749,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsGptImage1 && !IsGptImage15 && !IsGptImage2 && !IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && IsGptImage15 && !IsGptImage2 && !IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && IsGptImage2 && !IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && !IsGptImage2 && IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && !IsGptImage2 && !IsGemini25FlashImage && IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && !IsGptImage2 && !IsGemini25FlashImage && !IsGemini3ProImage && IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && !IsGptImage2 && !IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && !IsGptImage2 && !IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && !IsGptImage2 && !IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && IsBytedanceSeedream5Pro;
+            return IsGptImage1 && !IsGptImage15 && !IsGptImage2 && !IsGptImage25Sunburst && !IsGptImage25Flare && !IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && IsGptImage15 && !IsGptImage2 && !IsGptImage25Sunburst && !IsGptImage25Flare && !IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && IsGptImage2 && !IsGptImage25Sunburst && !IsGptImage25Flare && !IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && !IsGptImage2 && IsGptImage25Sunburst && !IsGptImage25Flare && !IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && !IsGptImage2 && !IsGptImage25Sunburst && IsGptImage25Flare && !IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && !IsGptImage2 && !IsGptImage25Sunburst && !IsGptImage25Flare && IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && !IsGptImage2 && !IsGptImage25Sunburst && !IsGptImage25Flare && !IsGemini25FlashImage && IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && !IsGptImage2 && !IsGptImage25Sunburst && !IsGptImage25Flare && !IsGemini25FlashImage && !IsGemini3ProImage && IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && !IsGptImage2 && !IsGptImage25Sunburst && !IsGptImage25Flare && !IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && !IsGptImage2 && !IsGptImage25Sunburst && !IsGptImage25Flare && !IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && IsBytedanceSeedream5Lite && !IsBytedanceSeedream5Pro || !IsGptImage1 && !IsGptImage15 && !IsGptImage2 && !IsGptImage25Sunburst && !IsGptImage25Flare && !IsGemini25FlashImage && !IsGemini3ProImage && !IsGemini31FlashImage && !IsGemini31FlashLiteImage && !IsBytedanceSeedream5Lite && IsBytedanceSeedream5Pro;
         }
 
         /// <summary>
@@ -631,6 +759,8 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.GPTImage1Request, TResult>? gptImage1 = null,
             global::System.Func<global::ElevenLabs.GPTImage15Request, TResult>? gptImage15 = null,
             global::System.Func<global::ElevenLabs.GPTImage2Request, TResult>? gptImage2 = null,
+            global::System.Func<global::ElevenLabs.GPTImage25SunburstRequest, TResult>? gptImage25Sunburst = null,
+            global::System.Func<global::ElevenLabs.GPTImage25FlareRequest, TResult>? gptImage25Flare = null,
             global::System.Func<global::ElevenLabs.Gemini25FlashImageRequest, TResult>? gemini25FlashImage = null,
             global::System.Func<global::ElevenLabs.Gemini3ProImageRequest, TResult>? gemini3ProImage = null,
             global::System.Func<global::ElevenLabs.Gemini31FlashImageRequest, TResult>? gemini31FlashImage = null,
@@ -655,6 +785,14 @@ namespace ElevenLabs
             else if (IsGptImage2 && gptImage2 != null)
             {
                 return gptImage2(GptImage2!);
+            }
+            else if (IsGptImage25Sunburst && gptImage25Sunburst != null)
+            {
+                return gptImage25Sunburst(GptImage25Sunburst!);
+            }
+            else if (IsGptImage25Flare && gptImage25Flare != null)
+            {
+                return gptImage25Flare(GptImage25Flare!);
             }
             else if (IsGemini25FlashImage && gemini25FlashImage != null)
             {
@@ -694,6 +832,10 @@ namespace ElevenLabs
 
             global::System.Action<global::ElevenLabs.GPTImage2Request>? gptImage2 = null,
 
+            global::System.Action<global::ElevenLabs.GPTImage25SunburstRequest>? gptImage25Sunburst = null,
+
+            global::System.Action<global::ElevenLabs.GPTImage25FlareRequest>? gptImage25Flare = null,
+
             global::System.Action<global::ElevenLabs.Gemini25FlashImageRequest>? gemini25FlashImage = null,
 
             global::System.Action<global::ElevenLabs.Gemini3ProImageRequest>? gemini3ProImage = null,
@@ -723,6 +865,14 @@ namespace ElevenLabs
             else if (IsGptImage2)
             {
                 gptImage2?.Invoke(GptImage2!);
+            }
+            else if (IsGptImage25Sunburst)
+            {
+                gptImage25Sunburst?.Invoke(GptImage25Sunburst!);
+            }
+            else if (IsGptImage25Flare)
+            {
+                gptImage25Flare?.Invoke(GptImage25Flare!);
             }
             else if (IsGemini25FlashImage)
             {
@@ -757,6 +907,8 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.GPTImage1Request>? gptImage1 = null,
             global::System.Action<global::ElevenLabs.GPTImage15Request>? gptImage15 = null,
             global::System.Action<global::ElevenLabs.GPTImage2Request>? gptImage2 = null,
+            global::System.Action<global::ElevenLabs.GPTImage25SunburstRequest>? gptImage25Sunburst = null,
+            global::System.Action<global::ElevenLabs.GPTImage25FlareRequest>? gptImage25Flare = null,
             global::System.Action<global::ElevenLabs.Gemini25FlashImageRequest>? gemini25FlashImage = null,
             global::System.Action<global::ElevenLabs.Gemini3ProImageRequest>? gemini3ProImage = null,
             global::System.Action<global::ElevenLabs.Gemini31FlashImageRequest>? gemini31FlashImage = null,
@@ -781,6 +933,14 @@ namespace ElevenLabs
             else if (IsGptImage2)
             {
                 gptImage2?.Invoke(GptImage2!);
+            }
+            else if (IsGptImage25Sunburst)
+            {
+                gptImage25Sunburst?.Invoke(GptImage25Sunburst!);
+            }
+            else if (IsGptImage25Flare)
+            {
+                gptImage25Flare?.Invoke(GptImage25Flare!);
             }
             else if (IsGemini25FlashImage)
             {
@@ -821,6 +981,10 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.GPTImage15Request),
                 GptImage2,
                 typeof(global::ElevenLabs.GPTImage2Request),
+                GptImage25Sunburst,
+                typeof(global::ElevenLabs.GPTImage25SunburstRequest),
+                GptImage25Flare,
+                typeof(global::ElevenLabs.GPTImage25FlareRequest),
                 Gemini25FlashImage,
                 typeof(global::ElevenLabs.Gemini25FlashImageRequest),
                 Gemini3ProImage,
@@ -852,6 +1016,8 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GPTImage1Request?>.Default.Equals(GptImage1, other.GptImage1) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GPTImage15Request?>.Default.Equals(GptImage15, other.GptImage15) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GPTImage2Request?>.Default.Equals(GptImage2, other.GptImage2) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GPTImage25SunburstRequest?>.Default.Equals(GptImage25Sunburst, other.GptImage25Sunburst) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GPTImage25FlareRequest?>.Default.Equals(GptImage25Flare, other.GptImage25Flare) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.Gemini25FlashImageRequest?>.Default.Equals(Gemini25FlashImage, other.Gemini25FlashImage) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.Gemini3ProImageRequest?>.Default.Equals(Gemini3ProImage, other.Gemini3ProImage) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.Gemini31FlashImageRequest?>.Default.Equals(Gemini31FlashImage, other.Gemini31FlashImage) &&

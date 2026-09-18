@@ -1,5 +1,7 @@
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial interface IConversationalAiClient
@@ -37,10 +39,6 @@ namespace ElevenLabs
         /// <param name="url">
         /// URL to a page of documentation that the agent will have access to in order to interact with users.
         /// </param>
-        /// <param name="maxDepth">
-        /// Maximum depth for crawling (1-5), defaults to 3.<br/>
-        /// Default Value: 3
-        /// </param>
         /// <param name="maxPages">
         /// Maximum number of pages to crawl (1-10,000), defaults to 1000.<br/>
         /// Default Value: 1000
@@ -70,7 +68,6 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.CreateCrawlJobResponseModel> CreateAsync(
             string url,
-            int? maxDepth = default,
             int? maxPages = default,
             string? pattern = default,
             global::System.Collections.Generic.IList<string>? sitemapUrls = default,
