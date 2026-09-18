@@ -46,7 +46,7 @@ namespace ElevenLabs
         /// The phone numbers of the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_numbers")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem2>? PhoneNumbers { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem3>? PhoneNumbers { get; set; }
 
         /// <summary>
         /// WhatsApp accounts assigned to the agent
@@ -199,7 +199,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationalConfigAPIModelOutput conversationConfig,
             global::ElevenLabs.AgentMetadataResponseModel metadata,
             global::ElevenLabs.AgentPlatformSettingsResponseModel? platformSettings,
-            global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem2>? phoneNumbers,
+            global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem3>? phoneNumbers,
             global::System.Collections.Generic.IList<global::ElevenLabs.GetWhatsAppAccountResponse>? whatsappAccounts,
             global::ElevenLabs.AgentWorkflowResponseModel? workflow,
             global::ElevenLabs.ResourceAccessInfo? accessInfo,

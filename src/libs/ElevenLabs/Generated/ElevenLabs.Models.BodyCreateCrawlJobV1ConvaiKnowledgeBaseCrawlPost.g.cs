@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -16,10 +18,11 @@ namespace ElevenLabs
         public required string Url { get; set; }
 
         /// <summary>
-        /// Maximum depth for crawling (1-5), defaults to 3.<br/>
+        /// Deprecated - this field is a no-op and will be removed in a future version.<br/>
         /// Default Value: 3
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_depth")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public int? MaxDepth { get; set; }
 
         /// <summary>
@@ -79,10 +82,6 @@ namespace ElevenLabs
         /// <param name="url">
         /// URL to a page of documentation that the agent will have access to in order to interact with users.
         /// </param>
-        /// <param name="maxDepth">
-        /// Maximum depth for crawling (1-5), defaults to 3.<br/>
-        /// Default Value: 3
-        /// </param>
         /// <param name="maxPages">
         /// Maximum number of pages to crawl (1-10,000), defaults to 1000.<br/>
         /// Default Value: 1000
@@ -112,7 +111,6 @@ namespace ElevenLabs
 #endif
         public BodyCreateCrawlJobV1ConvaiKnowledgeBaseCrawlPost(
             string url,
-            int? maxDepth,
             int? maxPages,
             string? pattern,
             global::System.Collections.Generic.IList<string>? sitemapUrls,
@@ -122,7 +120,6 @@ namespace ElevenLabs
             int? minimumFrequencyDays)
         {
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
-            this.MaxDepth = maxDepth;
             this.MaxPages = maxPages;
             this.Pattern = pattern;
             this.SitemapUrls = sitemapUrls;

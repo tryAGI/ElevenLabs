@@ -42,6 +42,20 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GPTImage2Request)}");
                 gptImage2 = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.GPTImage25SunburstRequest? gptImage25Sunburst = default;
+            if (discriminator?.ModelId == global::ElevenLabs.ImageGenerationRequestDiscriminatorModelId.GptImage25Sunburst)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GPTImage25SunburstRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GPTImage25SunburstRequest> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GPTImage25SunburstRequest)}");
+                gptImage25Sunburst = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.GPTImage25FlareRequest? gptImage25Flare = default;
+            if (discriminator?.ModelId == global::ElevenLabs.ImageGenerationRequestDiscriminatorModelId.GptImage25Flare)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GPTImage25FlareRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GPTImage25FlareRequest> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GPTImage25FlareRequest)}");
+                gptImage25Flare = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.Gemini25FlashImageRequest? gemini25FlashImage = default;
             if (discriminator?.ModelId == global::ElevenLabs.ImageGenerationRequestDiscriminatorModelId.Gemini25FlashImage)
             {
@@ -93,6 +107,10 @@ namespace ElevenLabs.JsonConverters
 
                 gptImage2,
 
+                gptImage25Sunburst,
+
+                gptImage25Flare,
+
                 gemini25FlashImage,
 
                 gemini3ProImage,
@@ -135,6 +153,18 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GPTImage2Request), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GPTImage2Request?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GPTImage2Request).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.GptImage2!, typeInfo);
+            }
+            else if (value.IsGptImage25Sunburst)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GPTImage25SunburstRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GPTImage25SunburstRequest?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GPTImage25SunburstRequest).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GptImage25Sunburst!, typeInfo);
+            }
+            else if (value.IsGptImage25Flare)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GPTImage25FlareRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GPTImage25FlareRequest?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GPTImage25FlareRequest).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GptImage25Flare!, typeInfo);
             }
             else if (value.IsGemini25FlashImage)
             {

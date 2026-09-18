@@ -22416,6 +22416,253 @@
         "x-fern-sdk-method-name": "update"
       }
     },
+    "/v1/convai/v2/phone-numbers": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "List Phone Numbers Page",
+        "description": "Retrieve a page of Phone Numbers",
+        "operationId": "list_phone_numbers_page_route",
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 1000,
+              "minimum": 1,
+              "description": "Number of phone numbers per page",
+              "default": 100,
+              "title": "Page Size"
+            },
+            "description": "Number of phone numbers per page"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 100
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by phone number ID, label, or phone number. A phone number ID must match exactly; label and phone number matching is a case-insensitive substring.",
+              "title": "Search"
+            },
+            "description": "Filter by phone number ID, label, or phone number. A phone number ID must match exactly; label and phone number matching is a case-insensitive substring."
+          },
+          {
+            "name": "label",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 100
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by label. Matching is a case-insensitive substring.",
+              "title": "Label"
+            },
+            "description": "Filter by label. Matching is a case-insensitive substring."
+          },
+          {
+            "name": "phone_number",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 100
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by phone number",
+              "title": "Phone Number"
+            },
+            "description": "Filter by phone number"
+          },
+          {
+            "name": "provider",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/TelephonyProvider"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by telephony provider",
+              "title": "Provider"
+            },
+            "description": "Filter by telephony provider"
+          },
+          {
+            "name": "supports_outbound",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by whether the phone number can place outbound calls",
+              "title": "Supports Outbound"
+            },
+            "description": "Filter by whether the phone number can place outbound calls"
+          },
+          {
+            "name": "agent_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by assigned agent ID",
+              "title": "Agent Id"
+            },
+            "description": "Filter by assigned agent ID"
+          },
+          {
+            "name": "branch_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by assigned branch ID",
+              "title": "Branch Id"
+            },
+            "description": "Filter by assigned branch ID"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/PhoneNumberSortBy"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The field to sort the results by",
+              "title": "Sort By"
+            },
+            "description": "The field to sort the results by"
+          },
+          {
+            "name": "sort_direction",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/SortDirection",
+              "description": "The direction to sort the results",
+              "default": "asc"
+            },
+            "description": "The direction to sort the results"
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Used for fetching next page. Cursor is returned in the response.",
+              "title": "Cursor"
+            },
+            "description": "Used for fetching next page. Cursor is returned in the response."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPhoneNumbersPageResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "phone_numbers"
+        ],
+        "x-fern-sdk-method-name": "list_v2"
+      }
+    },
     "/v1/convai/phone-numbers/{phone_number_id}/sip-messages": {
       "get": {
         "tags": [
@@ -46466,7 +46713,7 @@
             },
             "type": "array",
             "title": "Keyterms",
-            "description": "Key terms to bias transcription and translation toward (for example, product or brand names). At most 1,000 terms; each term at most 50 characters and 5 words; the characters `<>{}[]\\` are not allowed. Terms are trimmed and deduplicated."
+            "description": "Key terms to bias transcription and translation toward (for example, product or brand names). At most 1,000 terms; each term at most 50 characters and 5 words; the characters `<>{}[]\\` are not allowed. Terms are trimmed and deduplicated. Repeat the field once per term, or pass a single JSON array."
           },
           "webhook_ids": {
             "items": {
@@ -46474,7 +46721,7 @@
             },
             "type": "array",
             "title": "Webhook Ids",
-            "description": "IDs of workspace webhooks to notify as this project progresses — the alternative to polling, and what we recommend. Each receives a `dubbing_project_ready` or `dubbing_project_failed` event for the project, and a `dubbing_language_completed` or `dubbing_language_failed` event for every language under it; `dubbing_language_completed` carries the output download URLs. At most 3 IDs, each already configured in your workspace — see [Webhooks](https://elevenlabs.io/docs/eleven-api/resources/webhooks) for how to create one and verify its signature. Delivery is best-effort and can repeat, so we recommend handling events idempotently."
+            "description": "IDs of workspace webhooks to notify as this project progresses — the alternative to polling, and what we recommend. Each receives a `dubbing_project_ready` or `dubbing_project_failed` event for the project, and a `dubbing_language_completed` or `dubbing_language_failed` event for every language under it; `dubbing_language_completed` carries the output download URLs. At most 3 IDs, each already configured in your workspace — see [Webhooks](https://elevenlabs.io/docs/eleven-api/resources/webhooks) for how to create one and verify its signature. Repeat the field once per ID, or pass a single JSON array or comma-separated string. Delivery is best-effort and can repeat, so we recommend handling events idempotently."
           },
           "target_language": {
             "anyOf": [
@@ -47483,11 +47730,10 @@
           },
           "max_depth": {
             "type": "integer",
-            "maximum": 5.0,
-            "minimum": 1.0,
             "title": "Max Depth",
-            "description": "Maximum depth for crawling (1-5), defaults to 3.",
-            "default": 3
+            "description": "Deprecated - this field is a no-op and will be removed in a future version.",
+            "default": 3,
+            "deprecated": true
           },
           "max_pages": {
             "type": "integer",
@@ -70395,6 +70641,236 @@
         "title": "GPTImage1_5Request",
         "description": "Request body for the OpenAI GPT Image 1.5 model."
       },
+      "GPTImage25FlareRequest": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the image to generate.",
+            "examples": [
+              "A corgi in a tiny lifeguard chair on a sunlit beach at golden hour, photorealistic"
+            ]
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ImageReference"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "title": "Images",
+            "description": "Up to 10 reference images to edit or draw from."
+          },
+          "mask": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An image whose fully transparent areas mark where the first reference image may be edited; requires `images`."
+          },
+          "quality": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ],
+            "title": "Quality",
+            "description": "The quality of the output image.",
+            "default": "high"
+          },
+          "model_id": {
+            "type": "string",
+            "const": "gpt-image-2.5-flare",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "1:1",
+              "4:5",
+              "5:4",
+              "3:4",
+              "4:3",
+              "2:3",
+              "3:2",
+              "1:2",
+              "2:1",
+              "9:16",
+              "16:9",
+              "21:9",
+              "1:3",
+              "3:1"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output image. With `auto`, the model picks an aspect ratio based on the inputs.",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "1K",
+              "2K",
+              "4K"
+            ],
+            "title": "Resolution",
+            "description": "The resolution of the output image.",
+            "default": "1K"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "GPTImage25FlareRequest",
+        "description": "Request body for the OpenAI GPT Image 2.5 Flare model."
+      },
+      "GPTImage25SunburstRequest": {
+        "properties": {
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the generation's result to the workspace's configured flows webhooks once it completes or fails. The webhook payload matches the terminal response of the corresponding GET endpoint.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "A text description of the image to generate.",
+            "examples": [
+              "A corgi in a tiny lifeguard chair on a sunlit beach at golden hour, photorealistic"
+            ]
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ImageReference"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "title": "Images",
+            "description": "Up to 10 reference images to edit or draw from."
+          },
+          "mask": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImageReference"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An image whose fully transparent areas mark where the first reference image may be edited; requires `images`."
+          },
+          "quality": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ],
+            "title": "Quality",
+            "description": "The quality of the output image.",
+            "default": "high"
+          },
+          "model_id": {
+            "type": "string",
+            "const": "gpt-image-2.5-sunburst",
+            "title": "Model Id",
+            "description": "The model to use for the generation."
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "1:1",
+              "4:5",
+              "5:4",
+              "3:4",
+              "4:3",
+              "2:3",
+              "3:2",
+              "1:2",
+              "2:1",
+              "9:16",
+              "16:9",
+              "21:9",
+              "1:3",
+              "3:1"
+            ],
+            "title": "Aspect Ratio",
+            "description": "The aspect ratio of the output image. With `auto`, the model picks an aspect ratio based on the inputs.",
+            "default": "16:9"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "1K",
+              "2K",
+              "4K"
+            ],
+            "title": "Resolution",
+            "description": "The resolution of the output image.",
+            "default": "1K"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt",
+          "model_id"
+        ],
+        "title": "GPTImage25SunburstRequest",
+        "description": "Request body for the OpenAI GPT Image 2.5 Sunburst model."
+      },
       "GPTImage2Request": {
         "properties": {
           "webhook": {
@@ -72424,7 +72900,10 @@
           },
           "max_depth": {
             "type": "integer",
-            "title": "Max Depth"
+            "title": "Max Depth",
+            "description": "Deprecated - this field is a no-op and will be removed in a future version.",
+            "default": 3,
+            "deprecated": true
           },
           "max_pages": {
             "type": "integer",
@@ -72474,7 +72953,6 @@
         "type": "object",
         "required": [
           "seed_url",
-          "max_depth",
           "max_pages",
           "root_folder_id",
           "updated_at",
@@ -73903,6 +74381,59 @@
           "phone_number_id": "phone_123",
           "provider": "twilio"
         }
+      },
+      "GetPhoneNumbersPageResponseModel": {
+        "properties": {
+          "phone_numbers": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/GetPhoneNumberTwilioResponseModel"
+                },
+                {
+                  "$ref": "#/components/schemas/GetPhoneNumberExotelResponseModel"
+                },
+                {
+                  "$ref": "#/components/schemas/GetPhoneNumberSIPTrunkResponseModel"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "provider",
+                "mapping": {
+                  "exotel": "#/components/schemas/GetPhoneNumberExotelResponseModel",
+                  "sip_trunk": "#/components/schemas/GetPhoneNumberSIPTrunkResponseModel",
+                  "twilio": "#/components/schemas/GetPhoneNumberTwilioResponseModel"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Phone Numbers",
+            "description": "The phone numbers on this page"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor",
+            "description": "Pass this value as `cursor` to fetch the next page. Null when there are no more results."
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More",
+            "description": "Whether there are more results available",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "phone_numbers"
+        ],
+        "title": "GetPhoneNumbersPageResponseModel"
       },
       "GetProjectsResponseModel": {
         "properties": {
@@ -75885,6 +76416,12 @@
             "$ref": "#/components/schemas/GPTImage2Request"
           },
           {
+            "$ref": "#/components/schemas/GPTImage25SunburstRequest"
+          },
+          {
+            "$ref": "#/components/schemas/GPTImage25FlareRequest"
+          },
+          {
             "$ref": "#/components/schemas/Gemini25FlashImageRequest"
           },
           {
@@ -75914,7 +76451,9 @@
             "gemini-3.1-flash-lite-image": "#/components/schemas/Gemini31FlashLiteImageRequest",
             "gpt-image-1": "#/components/schemas/GPTImage1Request",
             "gpt-image-1.5": "#/components/schemas/GPTImage1_5Request",
-            "gpt-image-2": "#/components/schemas/GPTImage2Request"
+            "gpt-image-2": "#/components/schemas/GPTImage2Request",
+            "gpt-image-2.5-flare": "#/components/schemas/GPTImage25FlareRequest",
+            "gpt-image-2.5-sunburst": "#/components/schemas/GPTImage25SunburstRequest"
           }
         }
       },
@@ -84936,6 +85475,14 @@
           "phone_number"
         ],
         "title": "PhoneNumberDynamicVariableTransferDestination"
+      },
+      "PhoneNumberSortBy": {
+        "type": "string",
+        "enum": [
+          "label",
+          "phone_number"
+        ],
+        "title": "PhoneNumberSortBy"
       },
       "PhoneNumberTransfer": {
         "properties": {

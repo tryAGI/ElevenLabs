@@ -7,12 +7,12 @@ namespace ElevenLabs
     /// <summary>
     ///
     /// </summary>
-    public readonly partial struct PhoneNumbersItem2 : global::System.IEquatable<PhoneNumbersItem2>
+    public readonly partial struct PhoneNumbersItem3 : global::System.IEquatable<PhoneNumbersItem3>
     {
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumbersPageResponseModelPhoneNumberDiscriminatorProvider? Provider { get; }
+        public global::ElevenLabs.MergePreviewResponseModelPhoneNumberDiscriminatorProvider? Provider { get; }
 
         /// <summary>
         /// Example: {"label":"Customer Support","phone_number":"\u002B1234567890","phone_number_id":"phone_123","provider":"twilio"}
@@ -127,17 +127,17 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator PhoneNumbersItem2(global::ElevenLabs.GetPhoneNumberTwilioResponseModel value) => new PhoneNumbersItem2((global::ElevenLabs.GetPhoneNumberTwilioResponseModel?)value);
+        public static implicit operator PhoneNumbersItem3(global::ElevenLabs.GetPhoneNumberTwilioResponseModel value) => new PhoneNumbersItem3((global::ElevenLabs.GetPhoneNumberTwilioResponseModel?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::ElevenLabs.GetPhoneNumberTwilioResponseModel?(PhoneNumbersItem2 @this) => @this.Twilio;
+        public static implicit operator global::ElevenLabs.GetPhoneNumberTwilioResponseModel?(PhoneNumbersItem3 @this) => @this.Twilio;
 
         /// <summary>
         ///
         /// </summary>
-        public PhoneNumbersItem2(global::ElevenLabs.GetPhoneNumberTwilioResponseModel? value)
+        public PhoneNumbersItem3(global::ElevenLabs.GetPhoneNumberTwilioResponseModel? value)
         {
             Twilio = value;
         }
@@ -145,22 +145,22 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public static PhoneNumbersItem2 FromTwilio(global::ElevenLabs.GetPhoneNumberTwilioResponseModel? value) => new PhoneNumbersItem2(value);
+        public static PhoneNumbersItem3 FromTwilio(global::ElevenLabs.GetPhoneNumberTwilioResponseModel? value) => new PhoneNumbersItem3(value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator PhoneNumbersItem2(global::ElevenLabs.GetPhoneNumberExotelResponseModel value) => new PhoneNumbersItem2((global::ElevenLabs.GetPhoneNumberExotelResponseModel?)value);
+        public static implicit operator PhoneNumbersItem3(global::ElevenLabs.GetPhoneNumberExotelResponseModel value) => new PhoneNumbersItem3((global::ElevenLabs.GetPhoneNumberExotelResponseModel?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::ElevenLabs.GetPhoneNumberExotelResponseModel?(PhoneNumbersItem2 @this) => @this.Exotel;
+        public static implicit operator global::ElevenLabs.GetPhoneNumberExotelResponseModel?(PhoneNumbersItem3 @this) => @this.Exotel;
 
         /// <summary>
         ///
         /// </summary>
-        public PhoneNumbersItem2(global::ElevenLabs.GetPhoneNumberExotelResponseModel? value)
+        public PhoneNumbersItem3(global::ElevenLabs.GetPhoneNumberExotelResponseModel? value)
         {
             Exotel = value;
         }
@@ -168,22 +168,22 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public static PhoneNumbersItem2 FromExotel(global::ElevenLabs.GetPhoneNumberExotelResponseModel? value) => new PhoneNumbersItem2(value);
+        public static PhoneNumbersItem3 FromExotel(global::ElevenLabs.GetPhoneNumberExotelResponseModel? value) => new PhoneNumbersItem3(value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator PhoneNumbersItem2(global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel value) => new PhoneNumbersItem2((global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel?)value);
+        public static implicit operator PhoneNumbersItem3(global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel value) => new PhoneNumbersItem3((global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel?(PhoneNumbersItem2 @this) => @this.SipTrunk;
+        public static implicit operator global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel?(PhoneNumbersItem3 @this) => @this.SipTrunk;
 
         /// <summary>
         ///
         /// </summary>
-        public PhoneNumbersItem2(global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? value)
+        public PhoneNumbersItem3(global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? value)
         {
             SipTrunk = value;
         }
@@ -191,13 +191,13 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public static PhoneNumbersItem2 FromSipTrunk(global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? value) => new PhoneNumbersItem2(value);
+        public static PhoneNumbersItem3 FromSipTrunk(global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? value) => new PhoneNumbersItem3(value);
 
         /// <summary>
         ///
         /// </summary>
-        public PhoneNumbersItem2(
-            global::ElevenLabs.GetPhoneNumbersPageResponseModelPhoneNumberDiscriminatorProvider? provider,
+        public PhoneNumbersItem3(
+            global::ElevenLabs.MergePreviewResponseModelPhoneNumberDiscriminatorProvider? provider,
             global::ElevenLabs.GetPhoneNumberTwilioResponseModel? twilio,
             global::ElevenLabs.GetPhoneNumberExotelResponseModel? exotel,
             global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? sipTrunk
@@ -350,7 +350,7 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public bool Equals(PhoneNumbersItem2 other)
+        public bool Equals(PhoneNumbersItem3 other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.GetPhoneNumberTwilioResponseModel?>.Default.Equals(Twilio, other.Twilio) &&
@@ -362,15 +362,15 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public static bool operator ==(PhoneNumbersItem2 obj1, PhoneNumbersItem2 obj2)
+        public static bool operator ==(PhoneNumbersItem3 obj1, PhoneNumbersItem3 obj2)
         {
-            return global::System.Collections.Generic.EqualityComparer<PhoneNumbersItem2>.Default.Equals(obj1, obj2);
+            return global::System.Collections.Generic.EqualityComparer<PhoneNumbersItem3>.Default.Equals(obj1, obj2);
         }
 
         /// <summary>
         ///
         /// </summary>
-        public static bool operator !=(PhoneNumbersItem2 obj1, PhoneNumbersItem2 obj2)
+        public static bool operator !=(PhoneNumbersItem3 obj1, PhoneNumbersItem3 obj2)
         {
             return !(obj1 == obj2);
         }
@@ -380,7 +380,7 @@ namespace ElevenLabs
         /// </summary>
         public override bool Equals(object? obj)
         {
-            return obj is PhoneNumbersItem2 o && Equals(o);
+            return obj is PhoneNumbersItem3 o && Equals(o);
         }
     }
 }

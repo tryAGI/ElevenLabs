@@ -75,6 +75,14 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage15RequestQuality), TypeInfoPropertyName = "GPTImage15RequestQuality2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage15RequestBackground), TypeInfoPropertyName = "GPTImage15RequestBackground2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage15RequestAspectRatio), TypeInfoPropertyName = "GPTImage15RequestAspectRatio2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage25FlareRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage25FlareRequestQuality), TypeInfoPropertyName = "GPTImage25FlareRequestQuality2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage25FlareRequestAspectRatio), TypeInfoPropertyName = "GPTImage25FlareRequestAspectRatio2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage25FlareRequestResolution), TypeInfoPropertyName = "GPTImage25FlareRequestResolution2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage25SunburstRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage25SunburstRequestQuality), TypeInfoPropertyName = "GPTImage25SunburstRequestQuality2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage25SunburstRequestAspectRatio), TypeInfoPropertyName = "GPTImage25SunburstRequestAspectRatio2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage25SunburstRequestResolution), TypeInfoPropertyName = "GPTImage25SunburstRequestResolution2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage2Request))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage2RequestQuality), TypeInfoPropertyName = "GPTImage2RequestQuality2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage2RequestAspectRatio), TypeInfoPropertyName = "GPTImage2RequestAspectRatio2")]
@@ -167,6 +175,12 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage15RequestQuality?), TypeInfoPropertyName = "NullableGPTImage15RequestQuality2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage15RequestBackground?), TypeInfoPropertyName = "NullableGPTImage15RequestBackground2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage15RequestAspectRatio?), TypeInfoPropertyName = "NullableGPTImage15RequestAspectRatio2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage25FlareRequestQuality?), TypeInfoPropertyName = "NullableGPTImage25FlareRequestQuality2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage25FlareRequestAspectRatio?), TypeInfoPropertyName = "NullableGPTImage25FlareRequestAspectRatio2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage25FlareRequestResolution?), TypeInfoPropertyName = "NullableGPTImage25FlareRequestResolution2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage25SunburstRequestQuality?), TypeInfoPropertyName = "NullableGPTImage25SunburstRequestQuality2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage25SunburstRequestAspectRatio?), TypeInfoPropertyName = "NullableGPTImage25SunburstRequestAspectRatio2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage25SunburstRequestResolution?), TypeInfoPropertyName = "NullableGPTImage25SunburstRequestResolution2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage2RequestQuality?), TypeInfoPropertyName = "NullableGPTImage2RequestQuality2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage2RequestAspectRatio?), TypeInfoPropertyName = "NullableGPTImage2RequestAspectRatio2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GPTImage2RequestResolution?), TypeInfoPropertyName = "NullableGPTImage2RequestResolution2")]
@@ -394,6 +408,30 @@ namespace ElevenLabs
                     || typeToConvert == typeof(global::ElevenLabs.GPTImage15RequestAspectRatio)
 
                     || typeToConvert == typeof(global::ElevenLabs.GPTImage15RequestAspectRatio?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GPTImage25FlareRequestQuality)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GPTImage25FlareRequestQuality?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GPTImage25FlareRequestAspectRatio)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GPTImage25FlareRequestAspectRatio?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GPTImage25FlareRequestResolution)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GPTImage25FlareRequestResolution?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GPTImage25SunburstRequestQuality)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GPTImage25SunburstRequestQuality?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GPTImage25SunburstRequestAspectRatio)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GPTImage25SunburstRequestAspectRatio?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GPTImage25SunburstRequestResolution)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GPTImage25SunburstRequestResolution?)
 
                     || typeToConvert == typeof(global::ElevenLabs.GPTImage2RequestQuality)
 
@@ -744,6 +782,66 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.GPTImage15RequestAspectRatio?))
                 {
                     return new global::ElevenLabs.JsonConverters.GPTImage15RequestAspectRatioNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GPTImage25FlareRequestQuality))
+                {
+                    return new global::ElevenLabs.JsonConverters.GPTImage25FlareRequestQualityJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GPTImage25FlareRequestQuality?))
+                {
+                    return new global::ElevenLabs.JsonConverters.GPTImage25FlareRequestQualityNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GPTImage25FlareRequestAspectRatio))
+                {
+                    return new global::ElevenLabs.JsonConverters.GPTImage25FlareRequestAspectRatioJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GPTImage25FlareRequestAspectRatio?))
+                {
+                    return new global::ElevenLabs.JsonConverters.GPTImage25FlareRequestAspectRatioNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GPTImage25FlareRequestResolution))
+                {
+                    return new global::ElevenLabs.JsonConverters.GPTImage25FlareRequestResolutionJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GPTImage25FlareRequestResolution?))
+                {
+                    return new global::ElevenLabs.JsonConverters.GPTImage25FlareRequestResolutionNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GPTImage25SunburstRequestQuality))
+                {
+                    return new global::ElevenLabs.JsonConverters.GPTImage25SunburstRequestQualityJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GPTImage25SunburstRequestQuality?))
+                {
+                    return new global::ElevenLabs.JsonConverters.GPTImage25SunburstRequestQualityNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GPTImage25SunburstRequestAspectRatio))
+                {
+                    return new global::ElevenLabs.JsonConverters.GPTImage25SunburstRequestAspectRatioJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GPTImage25SunburstRequestAspectRatio?))
+                {
+                    return new global::ElevenLabs.JsonConverters.GPTImage25SunburstRequestAspectRatioNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GPTImage25SunburstRequestResolution))
+                {
+                    return new global::ElevenLabs.JsonConverters.GPTImage25SunburstRequestResolutionJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GPTImage25SunburstRequestResolution?))
+                {
+                    return new global::ElevenLabs.JsonConverters.GPTImage25SunburstRequestResolutionNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.GPTImage2RequestQuality))

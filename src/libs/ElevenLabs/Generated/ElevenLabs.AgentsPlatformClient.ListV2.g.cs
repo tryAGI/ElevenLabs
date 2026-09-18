@@ -3,11 +3,11 @@
 
 namespace ElevenLabs
 {
-    public partial class DubbingClient
+    public partial class AgentsPlatformClient
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_CreateSecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_ListV2SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,46 +21,115 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_CreateSecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_ListV2SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_CreateSecurityRequirement0,
+            {                s_ListV2SecurityRequirement0,
             };
-        partial void PrepareCreateArguments(
+        partial void PrepareListV2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPost request);
-        partial void PrepareCreateRequest(
+            ref int? pageSize,
+            ref string? search,
+            ref string? label,
+            ref string? phoneNumber,
+            ref global::ElevenLabs.TelephonyProvider? provider,
+            bool? supportsOutbound,
+            ref string? agentId,
+            ref string? branchId,
+            ref global::ElevenLabs.PhoneNumberSortBy? sortBy,
+            ref global::ElevenLabs.SortDirection? sortDirection,
+            ref string? cursor);
+        partial void PrepareListV2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPost request);
-        partial void ProcessCreateResponse(
+            int? pageSize,
+            string? search,
+            string? label,
+            string? phoneNumber,
+            global::ElevenLabs.TelephonyProvider? provider,
+            bool? supportsOutbound,
+            string? agentId,
+            string? branchId,
+            global::ElevenLabs.PhoneNumberSortBy? sortBy,
+            global::ElevenLabs.SortDirection? sortDirection,
+            string? cursor);
+        partial void ProcessListV2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateResponseContent(
+        partial void ProcessListV2ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create Dubbing Project<br/>
-        /// Create a dubbing project from an uploaded file (`file`) or a source URL (`source_url`).<br/>
-        /// Returns as soon as the project record exists, before the source has been fetched: the project starts `queued` and reaches `ready` once its source has been transcribed. Add a language target to it for each language you want, or pass `target_language` to queue the first one here.<br/>
-        /// Creating a project incurs a minimum charge of one language: you are charged for at least one language's dubbing when the project is created, before any output exists. This charge prepays the first language target — the first target you add, or the one queued via `target_language`, consumes it — and each additional language is charged separately.<br/>
-        /// Preparation can take minutes on a long source, so we recommend passing `webhook_ids` to be notified when the project turns `ready` or `failed`, rather than polling for it.
+        /// List Phone Numbers Page<br/>
+        /// Retrieve a page of Phone Numbers
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="pageSize">
+        /// Number of phone numbers per page<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="search">
+        /// Filter by phone number ID, label, or phone number. A phone number ID must match exactly; label and phone number matching is a case-insensitive substring.
+        /// </param>
+        /// <param name="label">
+        /// Filter by label. Matching is a case-insensitive substring.
+        /// </param>
+        /// <param name="phoneNumber">
+        /// Filter by phone number
+        /// </param>
+        /// <param name="provider">
+        /// Filter by telephony provider
+        /// </param>
+        /// <param name="supportsOutbound">
+        /// Filter by whether the phone number can place outbound calls
+        /// </param>
+        /// <param name="agentId">
+        /// Filter by assigned agent ID
+        /// </param>
+        /// <param name="branchId">
+        /// Filter by assigned branch ID
+        /// </param>
+        /// <param name="sortBy">
+        /// The field to sort the results by
+        /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: asc
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingProjectResponse> CreateAsync(
-
-            global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPost request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumbersPageResponseModel> ListV2Async(
+            int? pageSize = default,
+            string? search = default,
+            string? label = default,
+            string? phoneNumber = default,
+            global::ElevenLabs.TelephonyProvider? provider = default,
+            bool? supportsOutbound = default,
+            string? agentId = default,
+            string? branchId = default,
+            global::ElevenLabs.PhoneNumberSortBy? sortBy = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await CreateAsResponseAsync(
-
-                request: request,
+            var __response = await ListV2AsResponseAsync(
+                pageSize: pageSize,
+                search: search,
+                label: label,
+                phoneNumber: phoneNumber,
+                provider: provider,
+                supportsOutbound: supportsOutbound,
+                agentId: agentId,
+                branchId: branchId,
+                sortBy: sortBy,
+                sortDirection: sortDirection,
+                cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -68,35 +137,83 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Create Dubbing Project<br/>
-        /// Create a dubbing project from an uploaded file (`file`) or a source URL (`source_url`).<br/>
-        /// Returns as soon as the project record exists, before the source has been fetched: the project starts `queued` and reaches `ready` once its source has been transcribed. Add a language target to it for each language you want, or pass `target_language` to queue the first one here.<br/>
-        /// Creating a project incurs a minimum charge of one language: you are charged for at least one language's dubbing when the project is created, before any output exists. This charge prepays the first language target — the first target you add, or the one queued via `target_language`, consumes it — and each additional language is charged separately.<br/>
-        /// Preparation can take minutes on a long source, so we recommend passing `webhook_ids` to be notified when the project turns `ready` or `failed`, rather than polling for it.
+        /// List Phone Numbers Page<br/>
+        /// Retrieve a page of Phone Numbers
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="pageSize">
+        /// Number of phone numbers per page<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="search">
+        /// Filter by phone number ID, label, or phone number. A phone number ID must match exactly; label and phone number matching is a case-insensitive substring.
+        /// </param>
+        /// <param name="label">
+        /// Filter by label. Matching is a case-insensitive substring.
+        /// </param>
+        /// <param name="phoneNumber">
+        /// Filter by phone number
+        /// </param>
+        /// <param name="provider">
+        /// Filter by telephony provider
+        /// </param>
+        /// <param name="supportsOutbound">
+        /// Filter by whether the phone number can place outbound calls
+        /// </param>
+        /// <param name="agentId">
+        /// Filter by assigned agent ID
+        /// </param>
+        /// <param name="branchId">
+        /// Filter by assigned branch ID
+        /// </param>
+        /// <param name="sortBy">
+        /// The field to sort the results by
+        /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: asc
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingProjectResponse>> CreateAsResponseAsync(
-
-            global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPost request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetPhoneNumbersPageResponseModel>> ListV2AsResponseAsync(
+            int? pageSize = default,
+            string? search = default,
+            string? label = default,
+            string? phoneNumber = default,
+            global::ElevenLabs.TelephonyProvider? provider = default,
+            bool? supportsOutbound = default,
+            string? agentId = default,
+            string? branchId = default,
+            global::ElevenLabs.PhoneNumberSortBy? sortBy = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateArguments(
+            PrepareListV2Arguments(
                 httpClient: HttpClient,
-                request: request);
+                pageSize: ref pageSize,
+                search: ref search,
+                label: ref label,
+                phoneNumber: ref phoneNumber,
+                provider: ref provider,
+                supportsOutbound: supportsOutbound,
+                agentId: ref agentId,
+                branchId: ref branchId,
+                sortBy: ref sortBy,
+                sortDirection: ref sortDirection,
+                cursor: ref cursor);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_CreateSecurityRequirements,
-                operationName: "CreateAsync");
+                securityRequirements: s_ListV2SecurityRequirements,
+                operationName: "ListV2Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -110,21 +227,34 @@ namespace ElevenLabs
             var __maxAttempts = global::ElevenLabs.AutoSDKRequestOptionsSupport.GetMaxAttempts(
                 clientOptions: Options,
                 requestOptions: requestOptions,
-                supportsRetry: false);
+                supportsRetry: true);
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/dubbing/project",
+                                path: "/v1/convai/v2/phone-numbers",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("search", search)
+                                .AddOptionalParameter("label", label)
+                                .AddOptionalParameter("phone_number", phoneNumber)
+                                .AddOptionalParameter("provider", provider?.ToValueString())
+                                .AddOptionalParameter("supports_outbound", supportsOutbound?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("agent_id", agentId)
+                                .AddOptionalParameter("branch_id", branchId)
+                                .AddOptionalParameter("sort_by", sortBy?.ToValueString())
+                                .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
+                                .AddOptionalParameter("cursor", cursor)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: global::System.Net.Http.HttpMethod.Get,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -147,151 +277,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                            var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            if (request.File != default)
-                            {
-
-                                var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
-                                __contentFile.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
-                                    request.Filename is null
-                                        ? "application/octet-stream"
-                                        : (global::System.IO.Path.GetExtension(request.Filename) ?? string.Empty).ToLowerInvariant() switch
-                                        {
-                                            ".aac" => "audio/aac",
-                                            ".flac" => "audio/flac",
-                                            ".gif" => "image/gif",
-                                            ".jpeg" => "image/jpeg",
-                                            ".jpg" => "image/jpeg",
-                                            ".json" => "application/json",
-                                            ".m4a" => "audio/mp4",
-                                            ".mp3" => "audio/mpeg",
-                                            ".mp4" => "video/mp4",
-                                            ".mpeg" => "audio/mpeg",
-                                            ".mpga" => "audio/mpeg",
-                                            ".oga" => "audio/ogg",
-                                            ".ogg" => "audio/ogg",
-                                            ".opus" => "audio/ogg",
-                                            ".pdf" => "application/pdf",
-                                            ".png" => "image/png",
-                                            ".txt" => "text/plain",
-                                            ".wav" => "audio/wav",
-                                            ".weba" => "audio/webm",
-                                            ".webm" => "video/webm",
-                                            ".webp" => "image/webp",
-                                            _ => "application/octet-stream",
-                                        });
-                                __httpRequestContent.Add(
-                                    content: __contentFile,
-                                    name: "\"file\"",
-                                    fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
-                                if (__contentFile.Headers.ContentDisposition != null)
-                                {
-                                    __contentFile.Headers.ContentDisposition.FileNameStar = null;
-                                }
-
-                            }
-                            if (request.SourceUrl != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.SourceUrl ?? string.Empty),
-                                    name: "\"source_url\"");
-
-                            }
-                            if (request.Reference != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.Reference ?? string.Empty),
-                                    name: "\"reference\"");
-
-                            }
-                            if (request.SourceLanguage != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.SourceLanguage ?? string.Empty),
-                                    name: "\"source_language\"");
-
-                            }
-                            if (request.ModelId != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.ModelId.ToString() ?? string.Empty),
-                                    name: "\"model_id\"");
-
-                            }
-                            if (request.Keyterms != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Keyterms!, x => x))}]"),
-                                    name: "\"keyterms\"");
-
-                            }
-                            if (request.WebhookIds != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.WebhookIds!, x => x))}]"),
-                                    name: "\"webhook_ids\"");
-
-                            }
-                            if (request.TargetLanguage != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.TargetLanguage ?? string.Empty),
-                                    name: "\"target_language\"");
-
-                            }
-                            if (request.Transcript != default)
-                            {
-
-                                var __contentTranscript = new global::System.Net.Http.ByteArrayContent(request.Transcript ?? global::System.Array.Empty<byte>());
-                                __contentTranscript.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
-                                    request.Transcriptname is null
-                                        ? "application/octet-stream"
-                                        : (global::System.IO.Path.GetExtension(request.Transcriptname) ?? string.Empty).ToLowerInvariant() switch
-                                        {
-                                            ".aac" => "audio/aac",
-                                            ".flac" => "audio/flac",
-                                            ".gif" => "image/gif",
-                                            ".jpeg" => "image/jpeg",
-                                            ".jpg" => "image/jpeg",
-                                            ".json" => "application/json",
-                                            ".m4a" => "audio/mp4",
-                                            ".mp3" => "audio/mpeg",
-                                            ".mp4" => "video/mp4",
-                                            ".mpeg" => "audio/mpeg",
-                                            ".mpga" => "audio/mpeg",
-                                            ".oga" => "audio/ogg",
-                                            ".ogg" => "audio/ogg",
-                                            ".opus" => "audio/ogg",
-                                            ".pdf" => "application/pdf",
-                                            ".png" => "image/png",
-                                            ".txt" => "text/plain",
-                                            ".wav" => "audio/wav",
-                                            ".weba" => "audio/webm",
-                                            ".webm" => "video/webm",
-                                            ".webp" => "image/webp",
-                                            _ => "application/octet-stream",
-                                        });
-                                __httpRequestContent.Add(
-                                    content: __contentTranscript,
-                                    name: "\"transcript\"",
-                                    fileName: request.Transcriptname != null ? $"\"{request.Transcriptname}\"" : string.Empty);
-                                if (__contentTranscript.Headers.ContentDisposition != null)
-                                {
-                                    __contentTranscript.Headers.ContentDisposition.FileNameStar = null;
-                                }
-
-                            }
-
-                            __httpRequest.Content = __httpRequestContent;
-
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -300,10 +285,20 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreateRequest(
+                PrepareListV2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    request: request);
+                    pageSize: pageSize,
+                    search: search,
+                    label: label,
+                    phoneNumber: phoneNumber,
+                    provider: provider,
+                    supportsOutbound: supportsOutbound,
+                    agentId: agentId,
+                    branchId: branchId,
+                    sortBy: sortBy,
+                    sortDirection: sortDirection,
+                    cursor: cursor);
 
                 return __httpRequest;
             }
@@ -320,10 +315,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/v1/dubbing/project\"",
-                                httpMethod: "POST",
+                                operationId: "ListV2",
+                                methodName: "ListV2Async",
+                                pathTemplate: "\"/v1/convai/v2/phone-numbers\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -354,10 +349,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/v1/dubbing/project\"",
-                                httpMethod: "POST",
+                                operationId: "ListV2",
+                                methodName: "ListV2Async",
+                                pathTemplate: "\"/v1/convai/v2/phone-numbers\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -395,10 +390,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/v1/dubbing/project\"",
-                                httpMethod: "POST",
+                                operationId: "ListV2",
+                                methodName: "ListV2Async",
+                                pathTemplate: "\"/v1/convai/v2/phone-numbers\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -435,7 +430,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreateResponse(
+                ProcessListV2Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -443,10 +438,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/v1/dubbing/project\"",
-                                httpMethod: "POST",
+                                operationId: "ListV2",
+                                methodName: "ListV2Async",
+                                pathTemplate: "\"/v1/convai/v2/phone-numbers\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -465,10 +460,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/v1/dubbing/project\"",
-                                httpMethod: "POST",
+                                operationId: "ListV2",
+                                methodName: "ListV2Async",
+                                pathTemplate: "\"/v1/convai/v2/phone-numbers\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -532,7 +527,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessCreateResponseContent(
+                                ProcessListV2ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -541,9 +536,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.DubbingProjectResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.GetPhoneNumbersPageResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingProjectResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetPhoneNumbersPageResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -573,9 +568,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.DubbingProjectResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.GetPhoneNumbersPageResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.DubbingProjectResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetPhoneNumbersPageResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -615,83 +610,79 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
         /// <summary>
-        /// Create Dubbing Project<br/>
-        /// Create a dubbing project from an uploaded file (`file`) or a source URL (`source_url`).<br/>
-        /// Returns as soon as the project record exists, before the source has been fetched: the project starts `queued` and reaches `ready` once its source has been transcribed. Add a language target to it for each language you want, or pass `target_language` to queue the first one here.<br/>
-        /// Creating a project incurs a minimum charge of one language: you are charged for at least one language's dubbing when the project is created, before any output exists. This charge prepays the first language target — the first target you add, or the one queued via `target_language`, consumes it — and each additional language is charged separately.<br/>
-        /// Preparation can take minutes on a long source, so we recommend passing `webhook_ids` to be notified when the project turns `ready` or `failed`, rather than polling for it.
+        /// Wraps ListV2Async as an IAsyncEnumerable&lt;global::ElevenLabs.PhoneNumbersItem2&gt; that auto-pages over the response.
         /// </summary>
-        /// <param name="file">
-        /// The source media file to dub: an audio or video file of at most 3 GiB. Provide this or `source_url`, not both.
+        /// <param name="pageSize">
+        /// Number of phone numbers per page<br/>
+        /// Default Value: 100
         /// </param>
-        /// <param name="filename">
-        /// The source media file to dub: an audio or video file of at most 3 GiB. Provide this or `source_url`, not both.
+        /// <param name="search">
+        /// Filter by phone number ID, label, or phone number. A phone number ID must match exactly; label and phone number matching is a case-insensitive substring.
         /// </param>
-        /// <param name="sourceUrl">
-        /// Public HTTP(S) URL the source media is fetched from server-side, subject to the same size and format limits as an upload. Provide this or `file`, not both.
+        /// <param name="label">
+        /// Filter by label. Matching is a case-insensitive substring.
         /// </param>
-        /// <param name="reference">
-        /// Optional free-form string (at most 500 characters) to identify the project on your end. Stored and echoed back verbatim; it does not affect the dub.
+        /// <param name="phoneNumber">
+        /// Filter by phone number
         /// </param>
-        /// <param name="sourceLanguage">
-        /// BCP-47 language tag of the source media; must be a language the transcription model supports. Any region or script subtag is ignored, since transcription is per-language. Omit to auto-detect.
+        /// <param name="provider">
+        /// Filter by telephony provider
         /// </param>
-        /// <param name="modelId">
-        /// Dubbing model (`dubbing_v1` or `dubbing_v2`) every language target of this project is dubbed with. Defaults to `dubbing_v2`. Fixed at create time — the source is prepared for this model, so neither the project nor an individual target can change it later.
+        /// <param name="supportsOutbound">
+        /// Filter by whether the phone number can place outbound calls
         /// </param>
-        /// <param name="keyterms">
-        /// Key terms to bias transcription and translation toward (for example, product or brand names). At most 1,000 terms; each term at most 50 characters and 5 words; the characters `&lt;&gt;{}[]\` are not allowed. Terms are trimmed and deduplicated. Repeat the field once per term, or pass a single JSON array.
+        /// <param name="agentId">
+        /// Filter by assigned agent ID
         /// </param>
-        /// <param name="webhookIds">
-        /// IDs of workspace webhooks to notify as this project progresses — the alternative to polling, and what we recommend. Each receives a `dubbing_project_ready` or `dubbing_project_failed` event for the project, and a `dubbing_language_completed` or `dubbing_language_failed` event for every language under it; `dubbing_language_completed` carries the output download URLs. At most 3 IDs, each already configured in your workspace — see [Webhooks](https://elevenlabs.io/docs/eleven-api/resources/webhooks) for how to create one and verify its signature. Repeat the field once per ID, or pass a single JSON array or comma-separated string. Delivery is best-effort and can repeat, so we recommend handling events idempotently.
+        /// <param name="branchId">
+        /// Filter by assigned branch ID
         /// </param>
-        /// <param name="targetLanguage">
-        /// Optional shortcut: also create a language target in this BCP-47 language, queued to start once the project is ready — equivalent to creating the project and then creating one language target. Must be one of the [languages the dubbing model supports](https://elevenlabs.io/docs/help-center/product/dubbing/which-languages-are-supported-in-dubbing), and a region-qualified tag must be one of the supported dialects. This is the first language target, so it consumes the project's minimum charge rather than adding to it. Its ID is returned in `language_ids`.
+        /// <param name="sortBy">
+        /// The field to sort the results by
         /// </param>
-        /// <param name="transcript">
-        /// Enterprise only. Optional JSON transcript to use instead of transcribing the source: a `{"segments": [...]}` document, at most 20,000 segments and 4 MiB. See [Bring your own transcript](https://elevenlabs.io/docs/eleven-api/guides/how-to/dubbing/bring-your-own-transcript) for the segment fields and their constraints. `source_language` is required whenever a transcript is provided. If any segment carries a `translation`, `target_language` is required and every segment must carry one; those translations seed the target created via `target_language`, which then skips machine translation.
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: asc
         /// </param>
-        /// <param name="transcriptname">
-        /// Enterprise only. Optional JSON transcript to use instead of transcribing the source: a `{"segments": [...]}` document, at most 20,000 segments and 4 MiB. See [Bring your own transcript](https://elevenlabs.io/docs/eleven-api/guides/how-to/dubbing/bring-your-own-transcript) for the segment fields and their constraints. `source_language` is required whenever a transcript is provided. If any segment carries a `translation`, `target_language` is required and every segment must carry one; those translations seed the target created via `target_language`, which then skips machine translation.
-        /// </param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.DubbingProjectResponse> CreateAsync(
-            byte[]? file = default,
-            string? filename = default,
-            string? sourceUrl = default,
-            string? reference = default,
-            string? sourceLanguage = default,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string, object>? modelId = default,
-            global::System.Collections.Generic.IList<string>? keyterms = default,
-            global::System.Collections.Generic.IList<string>? webhookIds = default,
-            string? targetLanguage = default,
-            byte[]? transcript = default,
-            string? transcriptname = default,
-            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.PhoneNumbersItem2> ListV2AutoPagingAsync(
+              int? pageSize = default,
+            string? search = default,
+            string? label = default,
+            string? phoneNumber = default,
+            global::ElevenLabs.TelephonyProvider? provider = default,
+            bool? supportsOutbound = default,
+            string? agentId = default,
+            string? branchId = default,
+            global::ElevenLabs.PhoneNumberSortBy? sortBy = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
+            string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPost
-            {
-                File = file,
-                Filename = filename,
-                SourceUrl = sourceUrl,
-                Reference = reference,
-                SourceLanguage = sourceLanguage,
-                ModelId = modelId,
-                Keyterms = keyterms,
-                WebhookIds = webhookIds,
-                TargetLanguage = targetLanguage,
-                Transcript = transcript,
-                Transcriptname = transcriptname,
-            };
-
-            return await CreateAsync(
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetPhoneNumbersPageResponseModel, global::ElevenLabs.PhoneNumbersItem2>(
+                fetchPage: (__cursor, __ct) => ListV2Async(
+                    pageSize: pageSize,
+                    search: search,
+                    label: label,
+                    phoneNumber: phoneNumber,
+                    provider: provider,
+                    supportsOutbound: supportsOutbound,
+                    agentId: agentId,
+                    branchId: branchId,
+                    sortBy: sortBy,
+                    sortDirection: sortDirection,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.PhoneNumbersItem2>?)__response.PhoneNumbers,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
         }
+
     }
 }

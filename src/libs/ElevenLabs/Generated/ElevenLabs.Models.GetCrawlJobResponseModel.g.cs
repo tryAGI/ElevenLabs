@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -29,11 +31,12 @@ namespace ElevenLabs
         public string? Pattern { get; set; }
 
         /// <summary>
-        ///
+        /// Deprecated - this field is a no-op and will be removed in a future version.<br/>
+        /// Default Value: 3
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_depth")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MaxDepth { get; set; }
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public int? MaxDepth { get; set; }
 
         /// <summary>
         ///
@@ -111,7 +114,6 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="GetCrawlJobResponseModel" /> class.
         /// </summary>
         /// <param name="seedUrl"></param>
-        /// <param name="maxDepth"></param>
         /// <param name="maxPages"></param>
         /// <param name="rootFolderId"></param>
         /// <param name="updatedAt"></param>
@@ -141,7 +143,6 @@ namespace ElevenLabs
 #endif
         public GetCrawlJobResponseModel(
             string seedUrl,
-            int maxDepth,
             int maxPages,
             string rootFolderId,
             int updatedAt,
@@ -158,7 +159,6 @@ namespace ElevenLabs
             this.Type = type;
             this.SeedUrl = seedUrl ?? throw new global::System.ArgumentNullException(nameof(seedUrl));
             this.Pattern = pattern;
-            this.MaxDepth = maxDepth;
             this.MaxPages = maxPages;
             this.Status = status;
             this.PagesIdentified = pagesIdentified;
