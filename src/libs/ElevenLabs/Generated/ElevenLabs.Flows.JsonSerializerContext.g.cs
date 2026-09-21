@@ -24,12 +24,17 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTimeOffset))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ArraySchema))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ContentSchema), TypeInfoPropertyName = "ContentSchema2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AudioReference), TypeInfoPropertyName = "AudioReference2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GenerationReference))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.StaticAssetReference))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InlineAudioReference))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AudioReferenceDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AudioReferenceDiscriminatorType), TypeInfoPropertyName = "AudioReferenceDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AudioSchema))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BooleanSchema))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BytedanceSeedance25Request))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WebhookTarget))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BytedanceSeedance25RequestAspectRatio), TypeInfoPropertyName = "BytedanceSeedance25RequestAspectRatio2")]
@@ -54,6 +59,16 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BytedanceSeedream5ProRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BytedanceSeedream5ProRequestAspectRatio), TypeInfoPropertyName = "BytedanceSeedream5ProRequestAspectRatio2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BytedanceSeedream5ProRequestResolution), TypeInfoPropertyName = "BytedanceSeedream5ProRequestResolution2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<double>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.StringSchema))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.NumberSchema))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.IntegerSchema))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ImageSchema))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VideoSchema))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceSchema))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ObjectSchema))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ContentSchemaDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ContentSchemaDiscriminatorType), TypeInfoPropertyName = "ContentSchemaDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CreatifyAuroraRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CreatifyAuroraRequestResolution), TypeInfoPropertyName = "CreatifyAuroraRequestResolution2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ElevenFlashV25Request))]
@@ -107,6 +122,8 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ImageReferenceDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ImageReferenceDiscriminatorType), TypeInfoPropertyName = "ImageReferenceDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InlineAudioReferenceMimeType), TypeInfoPropertyName = "InlineAudioReferenceMimeType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InlineBase64Reference))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InlineBase64ReferenceMimeType), TypeInfoPropertyName = "InlineBase64ReferenceMimeType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InlineImageReferenceMimeType), TypeInfoPropertyName = "InlineImageReferenceMimeType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InlineVideoReference))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InlineVideoReferenceMimeType), TypeInfoPropertyName = "InlineVideoReferenceMimeType2")]
@@ -121,6 +138,49 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MediaGenerationResponse), TypeInfoPropertyName = "MediaGenerationResponse2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MediaGenerationResponseDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MediaGenerationResponseDiscriminatorStatus), TypeInfoPropertyName = "MediaGenerationResponseDiscriminatorStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ContentSchema>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateArrayOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateRunStatus), TypeInfoPropertyName = "TemplateRunStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateArrayOutputFailureReason), TypeInfoPropertyName = "TemplateArrayOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.TemplateOutput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateOutput), TypeInfoPropertyName = "TemplateOutput2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateAudioOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateAudioOutputFailureReason), TypeInfoPropertyName = "TemplateAudioOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateBooleanOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateBooleanOutputFailureReason), TypeInfoPropertyName = "TemplateBooleanOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateImageOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateImageOutputFailureReason), TypeInfoPropertyName = "TemplateImageOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateInputReference), TypeInfoPropertyName = "TemplateInputReference2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceReference))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateInputReferenceDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateInputReferenceDiscriminatorType), TypeInfoPropertyName = "TemplateInputReferenceDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateIntegerOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateIntegerOutputFailureReason), TypeInfoPropertyName = "TemplateIntegerOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateListResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.TemplateSummary>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateSummary))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateNumberOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateNumberOutputFailureReason), TypeInfoPropertyName = "TemplateNumberOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateObjectOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateObjectOutputFailureReason), TypeInfoPropertyName = "TemplateObjectOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.TemplateOutput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateVideoOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateStringOutput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateOutputDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateOutputDiscriminatorType), TypeInfoPropertyName = "TemplateOutputDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplatePort))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateRunCreateRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.TemplateRunInput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateRunInput), TypeInfoPropertyName = "TemplateRunInput2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.TemplateRunInput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateRunListResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.TemplateRunResponse>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateRunResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateStringOutputFailureReason), TypeInfoPropertyName = "TemplateStringOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.TemplateVersion>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateVersion))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.TemplatePort>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateVideoOutputFailureReason), TypeInfoPropertyName = "TemplateVideoOutputFailureReason2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToSpeechGenerationRequest), TypeInfoPropertyName = "TextToSpeechGenerationRequest2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToSpeechGenerationRequestDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToSpeechGenerationRequestDiscriminatorModelId), TypeInfoPropertyName = "TextToSpeechGenerationRequestDiscriminatorModelId2")]
@@ -150,6 +210,8 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTimeOffset?))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ContentSchema?), TypeInfoPropertyName = "NullableContentSchema2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AudioReference?), TypeInfoPropertyName = "NullableAudioReference2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AudioReferenceDiscriminatorType?), TypeInfoPropertyName = "NullableAudioReferenceDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BytedanceSeedance25RequestAspectRatio?), TypeInfoPropertyName = "NullableBytedanceSeedance25RequestAspectRatio2")]
@@ -165,6 +227,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BytedanceSeedream5LiteRequestResolution?), TypeInfoPropertyName = "NullableBytedanceSeedream5LiteRequestResolution2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BytedanceSeedream5ProRequestAspectRatio?), TypeInfoPropertyName = "NullableBytedanceSeedream5ProRequestAspectRatio2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BytedanceSeedream5ProRequestResolution?), TypeInfoPropertyName = "NullableBytedanceSeedream5ProRequestResolution2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ContentSchemaDiscriminatorType?), TypeInfoPropertyName = "NullableContentSchemaDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CreatifyAuroraRequestResolution?), TypeInfoPropertyName = "NullableCreatifyAuroraRequestResolution2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ElevenFlashV25RequestOutputFormat?), TypeInfoPropertyName = "NullableElevenFlashV25RequestOutputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ElevenMultilingualV2RequestOutputFormat?), TypeInfoPropertyName = "NullableElevenMultilingualV2RequestOutputFormat2")]
@@ -194,12 +257,28 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ImageGenerationRequestDiscriminatorModelId?), TypeInfoPropertyName = "NullableImageGenerationRequestDiscriminatorModelId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ImageReferenceDiscriminatorType?), TypeInfoPropertyName = "NullableImageReferenceDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InlineAudioReferenceMimeType?), TypeInfoPropertyName = "NullableInlineAudioReferenceMimeType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InlineBase64ReferenceMimeType?), TypeInfoPropertyName = "NullableInlineBase64ReferenceMimeType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InlineImageReferenceMimeType?), TypeInfoPropertyName = "NullableInlineImageReferenceMimeType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.InlineVideoReferenceMimeType?), TypeInfoPropertyName = "NullableInlineVideoReferenceMimeType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MediaGenerationFailedResponseFailureReason?), TypeInfoPropertyName = "NullableMediaGenerationFailedResponseFailureReason2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MediaGenerationInProgressResponseStatus?), TypeInfoPropertyName = "NullableMediaGenerationInProgressResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MediaGenerationResponse?), TypeInfoPropertyName = "NullableMediaGenerationResponse2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MediaGenerationResponseDiscriminatorStatus?), TypeInfoPropertyName = "NullableMediaGenerationResponseDiscriminatorStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateRunStatus?), TypeInfoPropertyName = "NullableTemplateRunStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateArrayOutputFailureReason?), TypeInfoPropertyName = "NullableTemplateArrayOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateOutput?), TypeInfoPropertyName = "NullableTemplateOutput2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateAudioOutputFailureReason?), TypeInfoPropertyName = "NullableTemplateAudioOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateBooleanOutputFailureReason?), TypeInfoPropertyName = "NullableTemplateBooleanOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateImageOutputFailureReason?), TypeInfoPropertyName = "NullableTemplateImageOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateInputReference?), TypeInfoPropertyName = "NullableTemplateInputReference2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateInputReferenceDiscriminatorType?), TypeInfoPropertyName = "NullableTemplateInputReferenceDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateIntegerOutputFailureReason?), TypeInfoPropertyName = "NullableTemplateIntegerOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateNumberOutputFailureReason?), TypeInfoPropertyName = "NullableTemplateNumberOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateObjectOutputFailureReason?), TypeInfoPropertyName = "NullableTemplateObjectOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateOutputDiscriminatorType?), TypeInfoPropertyName = "NullableTemplateOutputDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateRunInput?), TypeInfoPropertyName = "NullableTemplateRunInput2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateStringOutputFailureReason?), TypeInfoPropertyName = "NullableTemplateStringOutputFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TemplateVideoOutputFailureReason?), TypeInfoPropertyName = "NullableTemplateVideoOutputFailureReason2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToSpeechGenerationRequest?), TypeInfoPropertyName = "NullableTextToSpeechGenerationRequest2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToSpeechGenerationRequestDiscriminatorModelId?), TypeInfoPropertyName = "NullableTextToSpeechGenerationRequestDiscriminatorModelId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, int?>?), TypeInfoPropertyName = "NullableAnyOfStringInt322")]
@@ -219,9 +298,16 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ImageReference>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.VideoReference>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AudioReference>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<double>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.PronunciationDictionaryVersionLocator>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.MediaGenerationResponse>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.TemplateOutput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.TemplateSummary>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.TemplateRunInput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.TemplateRunResponse>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.TemplateVersion>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.TemplatePort>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.VeoImageReference>))]
     internal sealed partial class FlowsSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -269,9 +355,13 @@ namespace ElevenLabs
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AudioReferenceJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.ContentSchemaJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ImageGenerationRequestJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ImageReferenceJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.MediaGenerationResponseJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.TemplateInputReferenceJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.TemplateOutputJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.TemplateRunInputJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.TextToSpeechGenerationRequestJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.VideoGenerationRequestJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.VideoReferenceJsonConverter());
@@ -368,6 +458,10 @@ namespace ElevenLabs
                     || typeToConvert == typeof(global::ElevenLabs.BytedanceSeedream5ProRequestResolution)
 
                     || typeToConvert == typeof(global::ElevenLabs.BytedanceSeedream5ProRequestResolution?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.ContentSchemaDiscriminatorType)
+
+                    || typeToConvert == typeof(global::ElevenLabs.ContentSchemaDiscriminatorType?)
 
                     || typeToConvert == typeof(global::ElevenLabs.CreatifyAuroraRequestResolution)
 
@@ -481,6 +575,10 @@ namespace ElevenLabs
 
                     || typeToConvert == typeof(global::ElevenLabs.InlineAudioReferenceMimeType?)
 
+                    || typeToConvert == typeof(global::ElevenLabs.InlineBase64ReferenceMimeType)
+
+                    || typeToConvert == typeof(global::ElevenLabs.InlineBase64ReferenceMimeType?)
+
                     || typeToConvert == typeof(global::ElevenLabs.InlineImageReferenceMimeType)
 
                     || typeToConvert == typeof(global::ElevenLabs.InlineImageReferenceMimeType?)
@@ -500,6 +598,54 @@ namespace ElevenLabs
                     || typeToConvert == typeof(global::ElevenLabs.MediaGenerationResponseDiscriminatorStatus)
 
                     || typeToConvert == typeof(global::ElevenLabs.MediaGenerationResponseDiscriminatorStatus?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateArrayOutputFailureReason)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateArrayOutputFailureReason?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateAudioOutputFailureReason)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateAudioOutputFailureReason?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateBooleanOutputFailureReason)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateBooleanOutputFailureReason?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateImageOutputFailureReason)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateImageOutputFailureReason?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateInputReferenceDiscriminatorType)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateInputReferenceDiscriminatorType?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateIntegerOutputFailureReason)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateIntegerOutputFailureReason?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateNumberOutputFailureReason)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateNumberOutputFailureReason?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateObjectOutputFailureReason)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateObjectOutputFailureReason?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateOutputDiscriminatorType)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateOutputDiscriminatorType?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateRunStatus)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateRunStatus?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateStringOutputFailureReason)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateStringOutputFailureReason?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateVideoOutputFailureReason)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TemplateVideoOutputFailureReason?)
 
                     || typeToConvert == typeof(global::ElevenLabs.TextToSpeechGenerationRequestDiscriminatorModelId)
 
@@ -682,6 +828,16 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.BytedanceSeedream5ProRequestResolution?))
                 {
                     return new global::ElevenLabs.JsonConverters.BytedanceSeedream5ProRequestResolutionNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.ContentSchemaDiscriminatorType))
+                {
+                    return new global::ElevenLabs.JsonConverters.ContentSchemaDiscriminatorTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.ContentSchemaDiscriminatorType?))
+                {
+                    return new global::ElevenLabs.JsonConverters.ContentSchemaDiscriminatorTypeNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.CreatifyAuroraRequestResolution))
@@ -964,6 +1120,16 @@ namespace ElevenLabs
                     return new global::ElevenLabs.JsonConverters.InlineAudioReferenceMimeTypeNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::ElevenLabs.InlineBase64ReferenceMimeType))
+                {
+                    return new global::ElevenLabs.JsonConverters.InlineBase64ReferenceMimeTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.InlineBase64ReferenceMimeType?))
+                {
+                    return new global::ElevenLabs.JsonConverters.InlineBase64ReferenceMimeTypeNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::ElevenLabs.InlineImageReferenceMimeType))
                 {
                     return new global::ElevenLabs.JsonConverters.InlineImageReferenceMimeTypeJsonConverter();
@@ -1012,6 +1178,126 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.MediaGenerationResponseDiscriminatorStatus?))
                 {
                     return new global::ElevenLabs.JsonConverters.MediaGenerationResponseDiscriminatorStatusNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateArrayOutputFailureReason))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateArrayOutputFailureReasonJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateArrayOutputFailureReason?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateArrayOutputFailureReasonNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateAudioOutputFailureReason))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateAudioOutputFailureReasonJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateAudioOutputFailureReason?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateAudioOutputFailureReasonNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateBooleanOutputFailureReason))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateBooleanOutputFailureReasonJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateBooleanOutputFailureReason?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateBooleanOutputFailureReasonNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateImageOutputFailureReason))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateImageOutputFailureReasonJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateImageOutputFailureReason?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateImageOutputFailureReasonNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateInputReferenceDiscriminatorType))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateInputReferenceDiscriminatorTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateInputReferenceDiscriminatorType?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateInputReferenceDiscriminatorTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateIntegerOutputFailureReason))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateIntegerOutputFailureReasonJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateIntegerOutputFailureReason?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateIntegerOutputFailureReasonNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateNumberOutputFailureReason))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateNumberOutputFailureReasonJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateNumberOutputFailureReason?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateNumberOutputFailureReasonNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateObjectOutputFailureReason))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateObjectOutputFailureReasonJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateObjectOutputFailureReason?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateObjectOutputFailureReasonNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateOutputDiscriminatorType))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateOutputDiscriminatorTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateOutputDiscriminatorType?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateOutputDiscriminatorTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateRunStatus))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateRunStatusJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateRunStatus?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateRunStatusNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateStringOutputFailureReason))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateStringOutputFailureReasonJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateStringOutputFailureReason?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateStringOutputFailureReasonNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateVideoOutputFailureReason))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateVideoOutputFailureReasonJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TemplateVideoOutputFailureReason?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TemplateVideoOutputFailureReasonNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.TextToSpeechGenerationRequestDiscriminatorModelId))

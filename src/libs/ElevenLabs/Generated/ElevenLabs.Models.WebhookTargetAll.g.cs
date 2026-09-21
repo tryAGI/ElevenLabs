@@ -9,11 +9,11 @@ namespace ElevenLabs
     public sealed partial class WebhookTargetAll
     {
         /// <summary>
-        /// Send the result to all of the workspace's configured flows webhooks.<br/>
-        /// Default Value: all
+        /// Send the result to all of the workspace's configured flows webhooks.
         /// </summary>
+        /// <default>"all"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        public string? Type { get; set; }
+        public string Type { get; set; } = "all";
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -25,14 +25,13 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="WebhookTargetAll" /> class.
         /// </summary>
         /// <param name="type">
-        /// Send the result to all of the workspace's configured flows webhooks.<br/>
-        /// Default Value: all
+        /// Send the result to all of the workspace's configured flows webhooks.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public WebhookTargetAll(
-            string? type)
+            string type = "all")
         {
             this.Type = type;
         }

@@ -32,7 +32,19 @@ namespace ElevenLabs
         /// Settings controlling the dialogue generation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
-        public global::ElevenLabs.ModelSettingsResponseModel? Settings { get; set; }
+        public global::ElevenLabs.ToDialogueSettingsResponseModel? Settings { get; set; }
+
+        /// <summary>
+        /// The text that comes immediately before this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("previous_text")]
+        public string? PreviousText { get; set; }
+
+        /// <summary>
+        /// The text that comes immediately after this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("future_text")]
+        public string? FutureText { get; set; }
 
         /// <summary>
         /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
@@ -53,6 +65,18 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("apply_text_normalization")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostApplyTextNormalizationJsonConverter))]
         public global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostApplyTextNormalization? ApplyTextNormalization { get; set; }
+
+        /// <summary>
+        /// A list of request_ids of dialogue generations that came before this one. Used to condition the model for continuity when splitting a large task into multiple requests. A maximum of 3 request_ids can be sent. The last request_id is the audio which is closest to the current request. Not supported by every model.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("previous_request_ids")]
+        public global::System.Collections.Generic.IList<string>? PreviousRequestIds { get; set; }
+
+        /// <summary>
+        /// A list of request_ids of dialogue generations that come after this one. Useful for maintaining continuity when regenerating a clip in the middle of a sequence. A maximum of 3 request_ids can be sent. The first request_id is the audio which is closest to the current request. Not supported by every model.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("next_request_ids")]
+        public global::System.Collections.Generic.IList<string>? NextRequestIds { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -76,6 +100,12 @@ namespace ElevenLabs
         /// <param name="settings">
         /// Settings controlling the dialogue generation.
         /// </param>
+        /// <param name="previousText">
+        /// The text that comes immediately before this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model.
+        /// </param>
+        /// <param name="futureText">
+        /// The text that comes immediately after this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model.
+        /// </param>
         /// <param name="pronunciationDictionaryLocators">
         /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
         /// </param>
@@ -86,6 +116,12 @@ namespace ElevenLabs
         /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.<br/>
         /// Default Value: auto
         /// </param>
+        /// <param name="previousRequestIds">
+        /// A list of request_ids of dialogue generations that came before this one. Used to condition the model for continuity when splitting a large task into multiple requests. A maximum of 3 request_ids can be sent. The last request_id is the audio which is closest to the current request. Not supported by every model.
+        /// </param>
+        /// <param name="nextRequestIds">
+        /// A list of request_ids of dialogue generations that come after this one. Useful for maintaining continuity when regenerating a clip in the middle of a sequence. A maximum of 3 request_ids can be sent. The first request_id is the audio which is closest to the current request. Not supported by every model.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -93,18 +129,26 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInput> inputs,
             string? modelId,
             string? languageCode,
-            global::ElevenLabs.ModelSettingsResponseModel? settings,
+            global::ElevenLabs.ToDialogueSettingsResponseModel? settings,
+            string? previousText,
+            string? futureText,
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? pronunciationDictionaryLocators,
             int? seed,
-            global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostApplyTextNormalization? applyTextNormalization)
+            global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostApplyTextNormalization? applyTextNormalization,
+            global::System.Collections.Generic.IList<string>? previousRequestIds,
+            global::System.Collections.Generic.IList<string>? nextRequestIds)
         {
             this.Inputs = inputs ?? throw new global::System.ArgumentNullException(nameof(inputs));
             this.ModelId = modelId;
             this.LanguageCode = languageCode;
             this.Settings = settings;
+            this.PreviousText = previousText;
+            this.FutureText = futureText;
             this.PronunciationDictionaryLocators = pronunciationDictionaryLocators;
             this.Seed = seed;
             this.ApplyTextNormalization = applyTextNormalization;
+            this.PreviousRequestIds = previousRequestIds;
+            this.NextRequestIds = nextRequestIds;
         }
 
         /// <summary>

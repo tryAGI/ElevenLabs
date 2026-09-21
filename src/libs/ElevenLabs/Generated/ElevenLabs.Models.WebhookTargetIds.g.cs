@@ -9,11 +9,11 @@ namespace ElevenLabs
     public sealed partial class WebhookTargetIds
     {
         /// <summary>
-        /// Send the result to the listed flows webhooks.<br/>
-        /// Default Value: ids
+        /// Send the result to the listed flows webhooks.
         /// </summary>
+        /// <default>"ids"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        public string? Type { get; set; }
+        public string Type { get; set; } = "ids";
 
         /// <summary>
         /// The IDs of the workspace flows webhooks to deliver the result to. Each must be one of the workspace's configured flows webhooks.
@@ -35,15 +35,14 @@ namespace ElevenLabs
         /// The IDs of the workspace flows webhooks to deliver the result to. Each must be one of the workspace's configured flows webhooks.
         /// </param>
         /// <param name="type">
-        /// Send the result to the listed flows webhooks.<br/>
-        /// Default Value: ids
+        /// Send the result to the listed flows webhooks.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public WebhookTargetIds(
             global::System.Collections.Generic.IList<string> ids,
-            string? type)
+            string type = "ids")
         {
             this.Type = type;
             this.Ids = ids ?? throw new global::System.ArgumentNullException(nameof(ids));

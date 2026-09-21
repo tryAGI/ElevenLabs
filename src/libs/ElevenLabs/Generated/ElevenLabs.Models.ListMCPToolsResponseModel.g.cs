@@ -5,7 +5,7 @@ namespace ElevenLabs
 {
     /// <summary>
     /// Response model for testing tools available on an MCP server.<br/>
-    /// Example: {"success":true,"tools":[{"description":"Gets current weather conditions for a location.","inputSchema":{"properties":{"latitude":{"description":"Latitude","type":"string"},"longitude":{"description":"Longitude","type":"string"}},"required":["latitude","longitude"],"type":"object"},"name":"weather_by_zapier_get_current"},{"description":"Description of tool2","inputSchema":{"properties":{},"type":"object"},"name":"tool2"}]}
+    /// Example: {"success":true,"tool_approval_statuses":[],"tools":[{"description":"Gets current weather conditions for a location.","inputSchema":{"properties":{"latitude":{"description":"Latitude","type":"string"},"longitude":{"description":"Longitude","type":"string"}},"required":["latitude","longitude"],"type":"object"},"name":"weather_by_zapier_get_current"},{"description":"Description of tool2","inputSchema":{"properties":{},"type":"object"},"name":"tool2"}]}
     /// </summary>
     public sealed partial class ListMCPToolsResponseModel
     {
@@ -22,6 +22,12 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::ElevenLabs.Tool> Tools { get; set; }
+
+        /// <summary>
+        /// Derived approval states for currently discovered tools. Populated only for persisted MCP servers using per-tool approval; otherwise empty.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_approval_statuses")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolApprovalStatus>? ToolApprovalStatuses { get; set; }
 
         /// <summary>
         /// Error message if the operation was not successful.
@@ -44,6 +50,9 @@ namespace ElevenLabs
         /// <param name="tools">
         /// A list of tools available on the MCP server.
         /// </param>
+        /// <param name="toolApprovalStatuses">
+        /// Derived approval states for currently discovered tools. Populated only for persisted MCP servers using per-tool approval; otherwise empty.
+        /// </param>
         /// <param name="errorMessage">
         /// Error message if the operation was not successful.
         /// </param>
@@ -53,10 +62,12 @@ namespace ElevenLabs
         public ListMCPToolsResponseModel(
             bool success,
             global::System.Collections.Generic.IList<global::ElevenLabs.Tool> tools,
+            global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolApprovalStatus>? toolApprovalStatuses,
             string? errorMessage)
         {
             this.Success = success;
             this.Tools = tools ?? throw new global::System.ArgumentNullException(nameof(tools));
+            this.ToolApprovalStatuses = toolApprovalStatuses;
             this.ErrorMessage = errorMessage;
         }
 
