@@ -36487,6 +36487,489 @@
         "x-fern-sdk-method-name": "get"
       }
     },
+    "/v1/flows/templates/{template_id}/runs": {
+      "post": {
+        "tags": [
+          "Flows",
+          "Templates"
+        ],
+        "summary": "Create Template Run",
+        "description": "Start a run of a flows template. Pass `version_id` to pin a snapshot, or omit it / pass `latest` to run the latest published version. Set input values under `inputs`, keyed by input port id. The response is the run in its initial state, with every output already listed under its port id in `outputs`. Include `webhook` to receive a `flows_template_run` event carrying the finished run once its `status` is `completed` or `failed`; this is the recommended way to wait. Without one, fetch `GET /v1/flows/templates/{template_id}/runs/{run_id}` at a modest interval until the `status` is terminal.",
+        "operationId": "create_public_template_run",
+        "parameters": [
+          {
+            "name": "template_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the template, as shown in the ElevenLabs app or by `GET /v1/flows/templates`.",
+              "title": "Template Id"
+            },
+            "description": "The ID of the template, as shown in the ElevenLabs app or by `GET /v1/flows/templates`."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TemplateRunCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TemplateRunResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "flows",
+          "templates",
+          "runs"
+        ],
+        "x-fern-sdk-method-name": "create"
+      },
+      "get": {
+        "tags": [
+          "Flows",
+          "Templates"
+        ],
+        "summary": "List Template Runs",
+        "description": "List this template's runs created through this API, newest first.",
+        "operationId": "list_public_template_runs",
+        "parameters": [
+          {
+            "name": "template_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the template, as shown in the ElevenLabs app or by `GET /v1/flows/templates`.",
+              "title": "Template Id"
+            },
+            "description": "The ID of the template, as shown in the ElevenLabs app or by `GET /v1/flows/templates`."
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Pagination cursor: the `next_cursor` value of the previous page's response. Omit it for the first page.",
+              "title": "Cursor"
+            },
+            "description": "Pagination cursor: the `next_cursor` value of the previous page's response. Omit it for the first page."
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "How many runs to return per page.",
+              "default": 30,
+              "title": "Page Size"
+            },
+            "description": "How many runs to return per page."
+          },
+          {
+            "name": "version_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only return runs of this template version id.",
+              "title": "Version Id"
+            },
+            "description": "Only return runs of this template version id."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TemplateRunListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "flows",
+          "templates",
+          "runs"
+        ],
+        "x-fern-sdk-method-name": "list"
+      }
+    },
+    "/v1/flows/templates/{template_id}/runs/{run_id}": {
+      "get": {
+        "tags": [
+          "Flows",
+          "Templates"
+        ],
+        "summary": "Get Template Run",
+        "description": "Retrieve a template run: its `status`, rolled up from its outputs, and each output's own status and download URL once completed.",
+        "operationId": "get_public_template_run",
+        "parameters": [
+          {
+            "name": "template_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the template, as shown in the ElevenLabs app or by `GET /v1/flows/templates`.",
+              "title": "Template Id"
+            },
+            "description": "The ID of the template, as shown in the ElevenLabs app or by `GET /v1/flows/templates`."
+          },
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Run Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TemplateRunResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "flows",
+          "templates",
+          "runs"
+        ],
+        "x-fern-sdk-method-name": "get"
+      }
+    },
+    "/v1/flows/templates": {
+      "get": {
+        "tags": [
+          "Flows",
+          "Templates"
+        ],
+        "summary": "List Templates",
+        "description": "List the published flows templates in your workspace, together with each runnable version's inputs and outputs. Use the ids here as `template_id` / `version_id` on `POST /v1/flows/templates/{template_id}/runs`. Versions built on models that are not available to you through the API are left out, so `versions` is empty when none of a template's published versions is runnable through this API. Templates shared with you by link, or published to Explore from another workspace, are not listed but can still be fetched and run by `template_id`.",
+        "operationId": "list_public_templates",
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Pagination cursor: the `next_cursor` value of the previous page's response. Omit it for the first page.",
+              "title": "Cursor"
+            },
+            "description": "Pagination cursor: the `next_cursor` value of the previous page's response. Omit it for the first page."
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 25,
+              "minimum": 1,
+              "description": "How many templates to return per page. Lower than the run list's ceiling because each row expands its versions' input and output schemas.",
+              "default": 10,
+              "title": "Page Size"
+            },
+            "description": "How many templates to return per page. Lower than the run list's ceiling because each row expands its versions' input and output schemas."
+          },
+          {
+            "name": "versions_per_template",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 10,
+              "minimum": 1,
+              "description": "How many of each template's published versions to return, newest first. `has_more_versions` tells you when a template has more.",
+              "default": 3,
+              "title": "Versions Per Template"
+            },
+            "description": "How many of each template's published versions to return, newest first. `has_more_versions` tells you when a template has more."
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 100
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only return templates whose name or description contains this text.",
+              "title": "Search"
+            },
+            "description": "Only return templates whose name or description contains this text."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TemplateListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "flows",
+          "templates"
+        ],
+        "x-fern-sdk-method-name": "list"
+      }
+    },
+    "/v1/flows/templates/{template_id}": {
+      "get": {
+        "tags": [
+          "Flows",
+          "Templates"
+        ],
+        "summary": "Get Template",
+        "description": "Retrieve one flows template, together with each runnable version's inputs and outputs. `versions` is empty when no published version is runnable through this API. Works for any template you can open, including templates shared with you by link or published to Explore from another workspace, which `GET /v1/flows/templates` does not list.",
+        "operationId": "get_public_template",
+        "parameters": [
+          {
+            "name": "template_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the template, as shown in the ElevenLabs app or by `GET /v1/flows/templates`.",
+              "title": "Template Id"
+            },
+            "description": "The ID of the template, as shown in the ElevenLabs app or by `GET /v1/flows/templates`."
+          },
+          {
+            "name": "versions_per_template",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 10,
+              "minimum": 1,
+              "description": "How many of each template's published versions to return, newest first. `has_more_versions` tells you when a template has more.",
+              "default": 10,
+              "title": "Versions Per Template"
+            },
+            "description": "How many of each template's published versions to return, newest first. `has_more_versions` tells you when a template has more."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TemplateSummary"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "flows",
+          "templates"
+        ],
+        "x-fern-sdk-method-name": "get"
+      }
+    },
     "/v1/assets": {
       "post": {
         "tags": [
@@ -43193,6 +43676,48 @@
         "type": "object",
         "title": "ArrayJsonSchemaProperty"
       },
+      "ArraySchema": {
+        "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "type": {
+            "type": "string",
+            "const": "array",
+            "title": "Type",
+            "default": "array"
+          },
+          "items": {
+            "$ref": "#/components/schemas/ContentSchema"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items"
+        ],
+        "title": "ArraySchema"
+      },
       "AssetListResponse": {
         "properties": {
           "assets": {
@@ -44141,6 +44666,42 @@
             "inline_base64": "#/components/schemas/InlineAudioReference"
           }
         }
+      },
+      "AudioSchema": {
+        "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "type": {
+            "type": "string",
+            "const": "audio",
+            "title": "Type",
+            "default": "audio"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "AudioSchema"
       },
       "AudioSegment": {
         "properties": {
@@ -51121,19 +51682,44 @@
           "settings": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/ModelSettingsResponseModel"
+                "$ref": "#/components/schemas/ToDialogueSettingsResponseModel"
               },
               {
                 "type": "null"
               }
             ],
-            "title": "Settings",
             "description": "Settings controlling the dialogue generation.",
             "examples": [
               {
                 "stability": 0.5
               }
             ]
+          },
+          "previous_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Previous Text",
+            "description": "The text that comes immediately before this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model."
+          },
+          "future_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Future Text",
+            "description": "The text that comes immediately after this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model."
           },
           "pronunciation_dictionary_locators": {
             "anyOf": [
@@ -51186,6 +51772,36 @@
             "examples": [
               true
             ]
+          },
+          "previous_request_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Previous Request Ids",
+            "description": "A list of request_ids of dialogue generations that came before this one. Used to condition the model for continuity when splitting a large task into multiple requests. A maximum of 3 request_ids can be sent. The last request_id is the audio which is closest to the current request. Not supported by every model."
+          },
+          "next_request_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Request Ids",
+            "description": "A list of request_ids of dialogue generations that come after this one. Useful for maintaining continuity when regenerating a clip in the middle of a sequence. A maximum of 3 request_ids can be sent. The first request_id is the audio which is closest to the current request. Not supported by every model."
           }
         },
         "type": "object",
@@ -51237,19 +51853,44 @@
           "settings": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/ModelSettingsResponseModel"
+                "$ref": "#/components/schemas/ToDialogueSettingsResponseModel"
               },
               {
                 "type": "null"
               }
             ],
-            "title": "Settings",
             "description": "Settings controlling the dialogue generation.",
             "examples": [
               {
                 "stability": 0.5
               }
             ]
+          },
+          "previous_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Previous Text",
+            "description": "The text that comes immediately before this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model."
+          },
+          "future_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Future Text",
+            "description": "The text that comes immediately after this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model."
           },
           "pronunciation_dictionary_locators": {
             "anyOf": [
@@ -51302,6 +51943,36 @@
             "examples": [
               true
             ]
+          },
+          "previous_request_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Previous Request Ids",
+            "description": "A list of request_ids of dialogue generations that came before this one. Used to condition the model for continuity when splitting a large task into multiple requests. A maximum of 3 request_ids can be sent. The last request_id is the audio which is closest to the current request. Not supported by every model."
+          },
+          "next_request_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Request Ids",
+            "description": "A list of request_ids of dialogue generations that come after this one. Useful for maintaining continuity when regenerating a clip in the middle of a sequence. A maximum of 3 request_ids can be sent. The first request_id is the audio which is closest to the current request. Not supported by every model."
           }
         },
         "type": "object",
@@ -52487,13 +53158,12 @@
           "settings": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/ModelSettingsResponseModel"
+                "$ref": "#/components/schemas/ToDialogueSettingsResponseModel"
               },
               {
                 "type": "null"
               }
             ],
-            "title": "Settings",
             "description": "Settings controlling the dialogue generation.",
             "examples": [
               {
@@ -52552,6 +53222,62 @@
             "examples": [
               true
             ]
+          },
+          "previous_request_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Previous Request Ids",
+            "description": "A list of request_ids of dialogue generations that came before this one. Used to condition the model for continuity when splitting a large task into multiple requests. A maximum of 3 request_ids can be sent. The last request_id is the audio which is closest to the current request. Not supported by every model."
+          },
+          "next_request_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Request Ids",
+            "description": "A list of request_ids of dialogue generations that come after this one. Useful for maintaining continuity when regenerating a clip in the middle of a sequence. A maximum of 3 request_ids can be sent. The first request_id is the audio which is closest to the current request. Not supported by every model."
+          },
+          "previous_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Previous Text",
+            "description": "The text that comes immediately before this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model."
+          },
+          "future_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Future Text",
+            "description": "The text that comes immediately after this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model."
           }
         },
         "type": "object",
@@ -52603,13 +53329,12 @@
           "settings": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/ModelSettingsResponseModel"
+                "$ref": "#/components/schemas/ToDialogueSettingsResponseModel"
               },
               {
                 "type": "null"
               }
             ],
-            "title": "Settings",
             "description": "Settings controlling the dialogue generation.",
             "examples": [
               {
@@ -52668,6 +53393,62 @@
             "examples": [
               true
             ]
+          },
+          "previous_request_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Previous Request Ids",
+            "description": "A list of request_ids of dialogue generations that came before this one. Used to condition the model for continuity when splitting a large task into multiple requests. A maximum of 3 request_ids can be sent. The last request_id is the audio which is closest to the current request. Not supported by every model."
+          },
+          "next_request_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Request Ids",
+            "description": "A list of request_ids of dialogue generations that come after this one. Useful for maintaining continuity when regenerating a clip in the middle of a sequence. A maximum of 3 request_ids can be sent. The first request_id is the audio which is closest to the current request. Not supported by every model."
+          },
+          "previous_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Previous Text",
+            "description": "The text that comes immediately before this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model."
+          },
+          "future_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Future Text",
+            "description": "The text that comes immediately after this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model."
           }
         },
         "type": "object",
@@ -53418,6 +54199,42 @@
           "text"
         ],
         "title": "Body_text_to_speech_stream_with_timestamps"
+      },
+      "BooleanSchema": {
+        "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "type": {
+            "type": "string",
+            "const": "boolean",
+            "title": "Type",
+            "default": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "BooleanSchema"
       },
       "BranchProtectionStatus": {
         "type": "string",
@@ -56957,6 +57774,55 @@
         },
         "type": "object",
         "title": "ContentGuardrail"
+      },
+      "ContentSchema": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/StringSchema"
+          },
+          {
+            "$ref": "#/components/schemas/NumberSchema"
+          },
+          {
+            "$ref": "#/components/schemas/IntegerSchema"
+          },
+          {
+            "$ref": "#/components/schemas/BooleanSchema"
+          },
+          {
+            "$ref": "#/components/schemas/ImageSchema"
+          },
+          {
+            "$ref": "#/components/schemas/VideoSchema"
+          },
+          {
+            "$ref": "#/components/schemas/AudioSchema"
+          },
+          {
+            "$ref": "#/components/schemas/VoiceSchema"
+          },
+          {
+            "$ref": "#/components/schemas/ObjectSchema"
+          },
+          {
+            "$ref": "#/components/schemas/ArraySchema"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "array": "#/components/schemas/ArraySchema",
+            "audio": "#/components/schemas/AudioSchema",
+            "boolean": "#/components/schemas/BooleanSchema",
+            "image": "#/components/schemas/ImageSchema",
+            "integer": "#/components/schemas/IntegerSchema",
+            "number": "#/components/schemas/NumberSchema",
+            "object": "#/components/schemas/ObjectSchema",
+            "string": "#/components/schemas/StringSchema",
+            "video": "#/components/schemas/VideoSchema",
+            "voice": "#/components/schemas/VoiceSchema"
+          }
+        }
       },
       "ContentThresholdGuardrail": {
         "properties": {
@@ -76478,6 +77344,42 @@
           }
         }
       },
+      "ImageSchema": {
+        "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "type": {
+            "type": "string",
+            "const": "image",
+            "title": "Type",
+            "default": "image"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "ImageSchema"
+      },
       "ImageSubject": {
         "properties": {
           "name": {
@@ -76607,6 +77509,50 @@
         "title": "InlineAudioReference",
         "description": "Audio passed inline as base64. The audio is stored as an ephemeral\nasset with no guaranteed retention: it may be deleted at any time after\nthe generation completes. To keep an input and reuse it across\ngenerations, upload it via the assets API (`POST /v1/assets`) and pass\nan `asset` reference instead."
       },
+      "InlineBase64Reference": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "inline_base64",
+            "title": "Type"
+          },
+          "content_base64": {
+            "type": "string",
+            "maxLength": 34952536,
+            "title": "Content Base64",
+            "description": "The media file's bytes, base64-encoded (standard alphabet). Up to 25MB decoded.",
+            "examples": [
+              "iVBORw0KGgoAAAANSUhEUgAA..."
+            ]
+          },
+          "mime_type": {
+            "type": "string",
+            "enum": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/heic",
+              "image/heif",
+              "audio/mpeg",
+              "audio/wav",
+              "video/mp4",
+              "video/quicktime",
+              "video/webm"
+            ],
+            "title": "Mime Type",
+            "description": "The MIME type of the encoded media."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "content_base64",
+          "mime_type"
+        ],
+        "title": "InlineBase64Reference",
+        "description": "Media passed inline as base64. Stored as an ephemeral asset with no\nguaranteed retention. To keep an input and reuse it, upload via\n``POST /v1/assets`` and pass an ``asset`` reference instead."
+      },
       "InlineImageReference": {
         "properties": {
           "type": {
@@ -76682,6 +77628,42 @@
         ],
         "title": "InlineVideoReference",
         "description": "A video passed inline as base64. The video is stored as an ephemeral\nasset with no guaranteed retention: it may be deleted at any time after\nthe generation completes. To keep an input and reuse it across\ngenerations, upload it via the assets API (`POST /v1/assets`) and pass\nan `asset` reference instead."
+      },
+      "IntegerSchema": {
+        "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "type": {
+            "type": "string",
+            "const": "integer",
+            "title": "Type",
+            "default": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "IntegerSchema"
       },
       "IntegrationType": {
         "type": "string",
@@ -79042,6 +80024,14 @@
             "title": "Tools",
             "description": "A list of tools available on the MCP server."
           },
+          "tool_approval_statuses": {
+            "items": {
+              "$ref": "#/components/schemas/MCPToolApprovalStatus"
+            },
+            "type": "array",
+            "title": "Tool Approval Statuses",
+            "description": "Derived approval states for currently discovered tools. Populated only for persisted MCP servers using per-tool approval; otherwise empty."
+          },
           "error_message": {
             "anyOf": [
               {
@@ -79064,6 +80054,7 @@
         "description": "Response model for testing tools available on an MCP server.",
         "example": {
           "success": true,
+          "tool_approval_statuses": [],
           "tools": [
             {
               "description": "Gets current weather conditions for a location.",
@@ -79572,6 +80563,25 @@
         ],
         "title": "MCPApprovalPolicyUpdateRequestModel",
         "description": "Request model for updating MCP Server approval mode."
+      },
+      "MCPApprovedToolDefinition": {
+        "properties": {
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "The MCP server-provided tool description at approval time",
+            "default": ""
+          },
+          "input_schema": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Input Schema",
+            "description": "The MCP server-provided JSON input schema at approval time"
+          }
+        },
+        "type": "object",
+        "title": "MCPApprovedToolDefinition",
+        "description": "Snapshot of the MCP tool definition that was approved."
       },
       "MCPServerConfig-Input": {
         "properties": {
@@ -80369,6 +81379,58 @@
         "title": "MCPToolApprovalPolicy",
         "description": "Defines the tool-level approval policy.",
         "default": "requires_approval"
+      },
+      "MCPToolApprovalState": {
+        "type": "string",
+        "enum": [
+          "up_to_date",
+          "needs_review",
+          "not_approved"
+        ],
+        "title": "MCPToolApprovalState",
+        "description": "Whether a discovered MCP tool has an approval and whether it still matches."
+      },
+      "MCPToolApprovalStatus": {
+        "properties": {
+          "tool_id": {
+            "type": "string",
+            "title": "Tool Id",
+            "description": "Canonical MCP tool identifier in the form mcp:<server_id>:<tool_name>"
+          },
+          "state": {
+            "$ref": "#/components/schemas/MCPToolApprovalState",
+            "description": "Whether a stored approval exists and still matches the live tool definition"
+          },
+          "approval_policy": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MCPToolApprovalPolicy"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Stored execution policy. Set when the tool has an approval."
+          },
+          "approved_definition": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MCPApprovedToolDefinition"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Previously approved definition, included when the tool needs review and a snapshot exists."
+          }
+        },
+        "type": "object",
+        "required": [
+          "tool_id",
+          "state"
+        ],
+        "title": "MCPToolApprovalStatus",
+        "description": "Derived approval state for a currently discovered MCP tool."
       },
       "MCPToolConfig-Input": {
         "properties": {
@@ -82694,30 +83756,6 @@
           "token_cost_factor": 1.0
         }
       },
-      "ModelSettingsResponseModel": {
-        "properties": {
-          "stability": {
-            "anyOf": [
-              {
-                "type": "number",
-                "maximum": 1.0,
-                "minimum": 0.0
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Stability",
-            "description": "Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.",
-            "default": 0.5
-          }
-        },
-        "type": "object",
-        "title": "ModelSettingsResponseModel",
-        "example": {
-          "stability": 0.5
-        }
-      },
       "ModerationConfig": {
         "properties": {
           "sexual": {
@@ -83500,6 +84538,56 @@
           "wav_48000"
         ]
       },
+      "NumberSchema": {
+        "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "type": {
+            "type": "string",
+            "const": "number",
+            "title": "Type",
+            "default": "number"
+          },
+          "enum": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enum"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "NumberSchema"
+      },
       "NumericDistributionAggregate": {
         "properties": {
           "count": {
@@ -84162,6 +85250,56 @@
         "additionalProperties": false,
         "type": "object",
         "title": "ObjectJsonSchemaProperty"
+      },
+      "ObjectSchema": {
+        "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "type": {
+            "type": "string",
+            "const": "object",
+            "title": "Type",
+            "default": "object"
+          },
+          "properties": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ContentSchema"
+            },
+            "type": "object",
+            "title": "Properties"
+          },
+          "required": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Required"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "ObjectSchema"
       },
       "OmitSchemaOverride": {
         "properties": {
@@ -97143,6 +98281,56 @@
           }
         }
       },
+      "StringSchema": {
+        "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "type": {
+            "type": "string",
+            "const": "string",
+            "title": "Type",
+            "default": "string"
+          },
+          "enum": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enum"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "StringSchema"
+      },
       "StudioAgentSettingsModel": {
         "properties": {
           "tool_settings": {
@@ -99339,6 +100527,1372 @@
         ],
         "title": "TelephonyProvider"
       },
+      "TemplateArrayOutput": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The id of the generation behind this output. Pass it as a `generation` reference to use the output as an input elsewhere.",
+            "examples": [
+              "JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/TemplateRunStatus",
+            "description": "The lifecycle status of the output. It ends at `completed`, when the output's content fields are set, or `failed`, when `failure_reason` and `error_message` are set.",
+            "examples": [
+              "completed"
+            ]
+          },
+          "failure_reason": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "timeout",
+                  "model_error",
+                  "moderated",
+                  "invalid_parameters",
+                  "dependency_failed",
+                  "charging_failed",
+                  "internal_error"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Failure Reason",
+            "description": "The category of failure. Present only when `status` is `failed`.",
+            "examples": [
+              "timeout"
+            ]
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message",
+            "description": "A human-readable description of the failure. Present only when `status` is `failed`. Failed generations are not charged."
+          },
+          "type": {
+            "type": "string",
+            "const": "array",
+            "title": "Type",
+            "description": "The kind of output: the `type` of the port's `content_schema`."
+          },
+          "content": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/TemplateOutput"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content",
+            "description": "The first elements of the list, in order, each following the shape of the schema's `items`. Present only when `status` is `completed`. When `has_more` is true this is not the whole list. Reserved: no template produces this kind of output yet; it is published so that templates which do can be run with the same client."
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor",
+            "description": "Pass as `cursor` to a later endpoint to fetch the elements after `content`. `null` when `content` holds the whole list, or before the output completes. Reserved: no template produces this kind of output yet; it is published so that templates which do can be run with the same client."
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More",
+            "description": "Whether the list has elements beyond `content`.",
+            "readOnly": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "type",
+          "has_more"
+        ],
+        "title": "TemplateArrayOutput",
+        "description": "An `array` output, delivered as `content` once completed: one output per\nelement, each an output in its own right with its own `status`. A list can\nbe arbitrarily long, so `content` is its first page; when `has_more` is\ntrue, `next_cursor` leads to the rest."
+      },
+      "TemplateAudioOutput": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The id of the generation behind this output. Pass it as a `generation` reference to use the output as an input elsewhere.",
+            "examples": [
+              "JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/TemplateRunStatus",
+            "description": "The lifecycle status of the output. It ends at `completed`, when the output's content fields are set, or `failed`, when `failure_reason` and `error_message` are set.",
+            "examples": [
+              "completed"
+            ]
+          },
+          "failure_reason": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "timeout",
+                  "model_error",
+                  "moderated",
+                  "invalid_parameters",
+                  "dependency_failed",
+                  "charging_failed",
+                  "internal_error"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Failure Reason",
+            "description": "The category of failure. Present only when `status` is `failed`.",
+            "examples": [
+              "timeout"
+            ]
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message",
+            "description": "A human-readable description of the failure. Present only when `status` is `failed`. Failed generations are not charged."
+          },
+          "content_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Url",
+            "description": "A signed URL to download the generated media from. Present only when `status` is `completed`. It expires about an hour after this response is returned; fetch the run again for a fresh URL.",
+            "examples": [
+              "https://storage.googleapis.com/generations/JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "content_mime_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Mime Type",
+            "description": "The MIME type of the generated media. Present only when `status` is `completed`.",
+            "examples": [
+              "video/mp4",
+              "image/png",
+              "audio/mpeg"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "const": "audio",
+            "title": "Type",
+            "description": "The kind of output: the `type` of the port's `content_schema`."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "type"
+        ],
+        "title": "TemplateAudioOutput",
+        "description": "An `audio` output, downloaded from `content_url` once completed."
+      },
+      "TemplateBooleanOutput": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The id of the generation behind this output. Pass it as a `generation` reference to use the output as an input elsewhere.",
+            "examples": [
+              "JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/TemplateRunStatus",
+            "description": "The lifecycle status of the output. It ends at `completed`, when the output's content fields are set, or `failed`, when `failure_reason` and `error_message` are set.",
+            "examples": [
+              "completed"
+            ]
+          },
+          "failure_reason": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "timeout",
+                  "model_error",
+                  "moderated",
+                  "invalid_parameters",
+                  "dependency_failed",
+                  "charging_failed",
+                  "internal_error"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Failure Reason",
+            "description": "The category of failure. Present only when `status` is `failed`.",
+            "examples": [
+              "timeout"
+            ]
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message",
+            "description": "A human-readable description of the failure. Present only when `status` is `failed`. Failed generations are not charged."
+          },
+          "type": {
+            "type": "string",
+            "const": "boolean",
+            "title": "Type",
+            "description": "The kind of output: the `type` of the port's `content_schema`."
+          },
+          "content": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content",
+            "description": "The generated boolean. Present only when `status` is `completed`. Reserved: no template produces this kind of output yet; it is published so that templates which do can be run with the same client.",
+            "examples": [
+              true
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "type"
+        ],
+        "title": "TemplateBooleanOutput",
+        "description": "A `boolean` output, delivered as `content` once completed."
+      },
+      "TemplateImageOutput": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The id of the generation behind this output. Pass it as a `generation` reference to use the output as an input elsewhere.",
+            "examples": [
+              "JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/TemplateRunStatus",
+            "description": "The lifecycle status of the output. It ends at `completed`, when the output's content fields are set, or `failed`, when `failure_reason` and `error_message` are set.",
+            "examples": [
+              "completed"
+            ]
+          },
+          "failure_reason": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "timeout",
+                  "model_error",
+                  "moderated",
+                  "invalid_parameters",
+                  "dependency_failed",
+                  "charging_failed",
+                  "internal_error"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Failure Reason",
+            "description": "The category of failure. Present only when `status` is `failed`.",
+            "examples": [
+              "timeout"
+            ]
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message",
+            "description": "A human-readable description of the failure. Present only when `status` is `failed`. Failed generations are not charged."
+          },
+          "content_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Url",
+            "description": "A signed URL to download the generated media from. Present only when `status` is `completed`. It expires about an hour after this response is returned; fetch the run again for a fresh URL.",
+            "examples": [
+              "https://storage.googleapis.com/generations/JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "content_mime_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Mime Type",
+            "description": "The MIME type of the generated media. Present only when `status` is `completed`.",
+            "examples": [
+              "video/mp4",
+              "image/png",
+              "audio/mpeg"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "const": "image",
+            "title": "Type",
+            "description": "The kind of output: the `type` of the port's `content_schema`."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "type"
+        ],
+        "title": "TemplateImageOutput",
+        "description": "An `image` output, downloaded from `content_url` once completed."
+      },
+      "TemplateInputReference": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/GenerationReference"
+          },
+          {
+            "$ref": "#/components/schemas/StaticAssetReference"
+          },
+          {
+            "$ref": "#/components/schemas/VoiceReference"
+          },
+          {
+            "$ref": "#/components/schemas/InlineBase64Reference"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "asset": "#/components/schemas/StaticAssetReference",
+            "generation": "#/components/schemas/GenerationReference",
+            "inline_base64": "#/components/schemas/InlineBase64Reference",
+            "voice": "#/components/schemas/VoiceReference"
+          }
+        }
+      },
+      "TemplateIntegerOutput": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The id of the generation behind this output. Pass it as a `generation` reference to use the output as an input elsewhere.",
+            "examples": [
+              "JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/TemplateRunStatus",
+            "description": "The lifecycle status of the output. It ends at `completed`, when the output's content fields are set, or `failed`, when `failure_reason` and `error_message` are set.",
+            "examples": [
+              "completed"
+            ]
+          },
+          "failure_reason": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "timeout",
+                  "model_error",
+                  "moderated",
+                  "invalid_parameters",
+                  "dependency_failed",
+                  "charging_failed",
+                  "internal_error"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Failure Reason",
+            "description": "The category of failure. Present only when `status` is `failed`.",
+            "examples": [
+              "timeout"
+            ]
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message",
+            "description": "A human-readable description of the failure. Present only when `status` is `failed`. Failed generations are not charged."
+          },
+          "type": {
+            "type": "string",
+            "const": "integer",
+            "title": "Type",
+            "description": "The kind of output: the `type` of the port's `content_schema`."
+          },
+          "content": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content",
+            "description": "The generated integer. Present only when `status` is `completed`. Reserved: no template produces this kind of output yet; it is published so that templates which do can be run with the same client.",
+            "examples": [
+              3
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "type"
+        ],
+        "title": "TemplateIntegerOutput",
+        "description": "An `integer` output, delivered as `content` once completed."
+      },
+      "TemplateListResponse": {
+        "properties": {
+          "templates": {
+            "items": {
+              "$ref": "#/components/schemas/TemplateSummary"
+            },
+            "type": "array",
+            "title": "Templates",
+            "description": "The templates on this page, most recently updated first. A page can hold fewer than `page_size` templates, or none at all, because templates you cannot run are filtered out after the page is read — keep paging while `has_more` is true."
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor",
+            "description": "Pass as `cursor` to fetch the next page. `null` when there is no further page."
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More",
+            "description": "Whether more templates exist beyond this page.",
+            "readOnly": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "templates",
+          "next_cursor",
+          "has_more"
+        ],
+        "title": "TemplateListResponse",
+        "description": "One page of the templates the caller can run, most recently updated first.",
+        "example": {
+          "has_more": true,
+          "next_cursor": "cGFnZXwx",
+          "templates": [
+            {
+              "description": "Drop in a product photo, get a studio shot.",
+              "has_more_versions": false,
+              "id": "tmpl_abc123",
+              "name": "Product shot",
+              "versions": [
+                {
+                  "inputs": [
+                    {
+                      "content_schema": {
+                        "title": "Prompt",
+                        "type": "string"
+                      },
+                      "id": "prompt"
+                    },
+                    {
+                      "content_schema": {
+                        "description": "A clean product photo on any background.",
+                        "title": "Product photo",
+                        "type": "image"
+                      },
+                      "id": "reference"
+                    }
+                  ],
+                  "is_latest": true,
+                  "outputs": [
+                    {
+                      "content_schema": {
+                        "title": "Final image",
+                        "type": "image"
+                      },
+                      "id": "product_still"
+                    }
+                  ],
+                  "published_at_unix": 1739721600,
+                  "version_id": "ver_01hxyz"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "TemplateNumberOutput": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The id of the generation behind this output. Pass it as a `generation` reference to use the output as an input elsewhere.",
+            "examples": [
+              "JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/TemplateRunStatus",
+            "description": "The lifecycle status of the output. It ends at `completed`, when the output's content fields are set, or `failed`, when `failure_reason` and `error_message` are set.",
+            "examples": [
+              "completed"
+            ]
+          },
+          "failure_reason": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "timeout",
+                  "model_error",
+                  "moderated",
+                  "invalid_parameters",
+                  "dependency_failed",
+                  "charging_failed",
+                  "internal_error"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Failure Reason",
+            "description": "The category of failure. Present only when `status` is `failed`.",
+            "examples": [
+              "timeout"
+            ]
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message",
+            "description": "A human-readable description of the failure. Present only when `status` is `failed`. Failed generations are not charged."
+          },
+          "type": {
+            "type": "string",
+            "const": "number",
+            "title": "Type",
+            "description": "The kind of output: the `type` of the port's `content_schema`."
+          },
+          "content": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content",
+            "description": "The generated number. Present only when `status` is `completed`. Reserved: no template produces this kind of output yet; it is published so that templates which do can be run with the same client.",
+            "examples": [
+              0.72
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "type"
+        ],
+        "title": "TemplateNumberOutput",
+        "description": "A `number` output, delivered as `content` once completed."
+      },
+      "TemplateObjectOutput": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The id of the generation behind this output. Pass it as a `generation` reference to use the output as an input elsewhere.",
+            "examples": [
+              "JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/TemplateRunStatus",
+            "description": "The lifecycle status of the output. It ends at `completed`, when the output's content fields are set, or `failed`, when `failure_reason` and `error_message` are set.",
+            "examples": [
+              "completed"
+            ]
+          },
+          "failure_reason": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "timeout",
+                  "model_error",
+                  "moderated",
+                  "invalid_parameters",
+                  "dependency_failed",
+                  "charging_failed",
+                  "internal_error"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Failure Reason",
+            "description": "The category of failure. Present only when `status` is `failed`.",
+            "examples": [
+              "timeout"
+            ]
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message",
+            "description": "A human-readable description of the failure. Present only when `status` is `failed`. Failed generations are not charged."
+          },
+          "type": {
+            "type": "string",
+            "const": "object",
+            "title": "Type",
+            "description": "The kind of output: the `type` of the port's `content_schema`."
+          },
+          "content": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/TemplateOutput"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content",
+            "description": "One output per field, keyed by field name, each following the shape of that field's schema. Present only when `status` is `completed`. Reserved: no template produces this kind of output yet; it is published so that templates which do can be run with the same client."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "type"
+        ],
+        "title": "TemplateObjectOutput",
+        "description": "An `object` output, delivered as `content` once completed: one output per\nfield of the schema's `properties`, each an output in its own right with\nits own `status`. There are no dynamic fields."
+      },
+      "TemplateOutput": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/TemplateImageOutput"
+          },
+          {
+            "$ref": "#/components/schemas/TemplateVideoOutput"
+          },
+          {
+            "$ref": "#/components/schemas/TemplateAudioOutput"
+          },
+          {
+            "$ref": "#/components/schemas/TemplateStringOutput"
+          },
+          {
+            "$ref": "#/components/schemas/TemplateIntegerOutput"
+          },
+          {
+            "$ref": "#/components/schemas/TemplateNumberOutput"
+          },
+          {
+            "$ref": "#/components/schemas/TemplateBooleanOutput"
+          },
+          {
+            "$ref": "#/components/schemas/TemplateArrayOutput"
+          },
+          {
+            "$ref": "#/components/schemas/TemplateObjectOutput"
+          }
+        ],
+        "title": "TemplateOutput",
+        "description": "One output of a template run, discriminated on `type`: the `type` of the\nport's `content_schema`. Check `status` for where it is in its lifecycle.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "array": "#/components/schemas/TemplateArrayOutput",
+            "audio": "#/components/schemas/TemplateAudioOutput",
+            "boolean": "#/components/schemas/TemplateBooleanOutput",
+            "image": "#/components/schemas/TemplateImageOutput",
+            "integer": "#/components/schemas/TemplateIntegerOutput",
+            "number": "#/components/schemas/TemplateNumberOutput",
+            "object": "#/components/schemas/TemplateObjectOutput",
+            "string": "#/components/schemas/TemplateStringOutput",
+            "video": "#/components/schemas/TemplateVideoOutput"
+          }
+        }
+      },
+      "TemplatePort": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The port id. Input ids are the keys of the `inputs` map on `POST /v1/flows/templates/{template_id}/runs`; output ids are the keys of the `outputs` map on the run response.",
+            "examples": [
+              "prompt"
+            ]
+          },
+          "content_schema": {
+            "$ref": "#/components/schemas/ContentSchema",
+            "description": "What this port accepts or produces, as a `ContentSchema`. Its `title` is the port's display name and its `description` is the help text the template author wrote. For an input, its `type` decides what value is accepted: `string` takes a bare string or a `generation` reference, `voice` takes a `voice` reference, and `image`/`video`/`audio` take an `asset`, `generation` or `inline_base64` reference. `number`, `integer` and `boolean` take a JSON value of that type. An `array` input takes a JSON array with one value per element, each admissible for its `items`. `object` inputs cannot be bound through this API yet. A `string` schema may carry an `enum` of the only values accepted. For an output, its `type` decides which `Template<Kind>Output` shape the run response holds under the port id."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "content_schema"
+        ],
+        "title": "TemplatePort",
+        "description": "One input or output port of a published template version."
+      },
+      "TemplateRunCreateRequest": {
+        "properties": {
+          "inputs": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/TemplateRunInput"
+            },
+            "type": "object",
+            "maxProperties": 64,
+            "title": "Inputs",
+            "description": "Input values keyed by input port id. Every input port of the version being run must be given; a missing or unknown id is rejected. Pass `{}` for a template with no inputs."
+          },
+          "version_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Id",
+            "description": "The template snapshot to run. Pass a specific version id to pin that snapshot, or `latest` (the default when omitted) to run the template's most recently published version. Only published versions can be pinned, except by the template's owner, who may also pin an unpublished saved snapshot to try it out before publishing. The live draft is never run through this API.",
+            "examples": [
+              "latest",
+              "ver_01hxyz"
+            ]
+          },
+          "webhook": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WebhookTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Include to send the run's result to the workspace's configured flows webhooks once the run's `status` reaches `completed` or `failed`. One event for the whole run: the `flows_template_run` event's `data` matches the terminal response of `GET /v1/flows/templates/{template_id}/runs/{run_id}`.",
+            "examples": [
+              {
+                "type": "all"
+              },
+              {
+                "ids": [
+                  "Q8mVr2LpXcT4nB6yJdKw"
+                ],
+                "type": "ids"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "inputs"
+        ],
+        "title": "TemplateRunCreateRequest",
+        "description": "Request body of ``POST /v1/flows/templates/{template_id}/runs``.",
+        "example": {
+          "inputs": {
+            "prompt": "a corgi on a surfboard",
+            "reference": {
+              "asset_id": "5xM2KqOnZyce22SPZ9d4",
+              "type": "asset"
+            }
+          },
+          "version_id": "latest",
+          "webhook": {
+            "type": "all"
+          }
+        }
+      },
+      "TemplateRunInput": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "$ref": "#/components/schemas/TemplateInputReference"
+          },
+          {
+            "items": {
+              "$ref": "#/components/schemas/TemplateRunInput"
+            },
+            "type": "array",
+            "maxItems": 64
+          }
+        ],
+        "title": "TemplateRunInput",
+        "description": "One value bound to a template input port, in the form its `content_schema`\ncalls for. A `string` port takes the text itself; `number`, `integer` and\n`boolean` ports take a JSON value of that type. Anything stored elsewhere is\na reference discriminated on `type`: a prior `generation`, an uploaded\n`asset`, a `voice`, or media passed `inline_base64`. An `array` port takes a\nJSON array with one value per element, admissible for the schema's `items`.\n`object` ports cannot be bound through this API yet.\n\nNo constraints beyond the wire shape live here: what a port accepts (an\n`enum`, a length) is stated by its `content_schema`, and the run path\nvalidates against that same schema."
+      },
+      "TemplateRunListResponse": {
+        "properties": {
+          "runs": {
+            "items": {
+              "$ref": "#/components/schemas/TemplateRunResponse"
+            },
+            "type": "array",
+            "title": "Runs",
+            "description": "The runs on this page, newest first. Each item has the same shape as `GET /v1/flows/templates/{template_id}/runs/{run_id}`."
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor",
+            "description": "Pass as `cursor` to fetch the next page. `null` when there is no further page."
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More",
+            "description": "Whether more runs exist beyond this page.",
+            "readOnly": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "runs",
+          "next_cursor",
+          "has_more"
+        ],
+        "title": "TemplateRunListResponse",
+        "description": "One page of the caller's public-API template runs, newest first.",
+        "example": {
+          "has_more": true,
+          "next_cursor": "MjAyNi0wNy0xN1QxMjowMDowMHxLeDJtUDdZNFdWcmc5a0UzTm5SYw",
+          "runs": [
+            {
+              "id": "sess_JWr5N6X9ZTqf8jD2LmQb",
+              "outputs": {
+                "marketing_title": {
+                  "content": "Ride the wave.",
+                  "id": "Kx2mP7Y4WVrg9kE3NnRc",
+                  "status": "completed",
+                  "type": "string"
+                },
+                "product_demo": {
+                  "id": "QWr5N6X9ZTqf8jD2La3B",
+                  "status": "generating",
+                  "type": "video"
+                },
+                "product_still": {
+                  "content_mime_type": "image/png",
+                  "content_url": "https://storage.googleapis.com/generations/JWr5N6X9ZTqf8jD2LmQb",
+                  "id": "JWr5N6X9ZTqf8jD2LmQb",
+                  "status": "completed",
+                  "type": "image"
+                }
+              },
+              "status": "generating",
+              "template_id": "tmpl_abc123",
+              "version_id": "ver_01hxyz"
+            }
+          ]
+        }
+      },
+      "TemplateRunResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The unique identifier of the run.",
+            "examples": [
+              "sess_JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "template_id": {
+            "type": "string",
+            "title": "Template Id",
+            "description": "The template this run executed, so a webhook consumer running several templates can tell their runs apart without keeping a run-to-template map.",
+            "examples": [
+              "tmpl_abc123"
+            ]
+          },
+          "version_id": {
+            "type": "string",
+            "title": "Version Id",
+            "description": "The template version this run executed. Resolved when the run is created, so a run started with `latest` records the concrete version it ran.",
+            "examples": [
+              "ver_01hxyz"
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/TemplateRunStatus",
+            "description": "The run's status, rolled up from its outputs: `pending` until an output starts, `generating` while any output is unfinished, `completed` once every output has completed, and `failed` once every output has finished and at least one failed. `completed` and `failed` are terminal: the `flows_template_run` webhook fires once the run reaches either.",
+            "examples": [
+              "completed"
+            ]
+          },
+          "outputs": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/TemplateOutput"
+            },
+            "type": "object",
+            "title": "Outputs",
+            "description": "The run's outputs, keyed by output port id. Each is a `TemplateOutput` discriminated on `type`, the `type` of its port's `content_schema`."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "template_id",
+          "version_id",
+          "status",
+          "outputs"
+        ],
+        "title": "TemplateRunResponse",
+        "description": "A template run and its outputs. Every output exists from the moment the\nrun is created and reports its own `status`; the run's `status` rolls them\nup, and the run is finished once it is `completed` or `failed`.",
+        "example": {
+          "id": "sess_JWr5N6X9ZTqf8jD2LmQb",
+          "outputs": {
+            "marketing_title": {
+              "content": "Ride the wave.",
+              "id": "Kx2mP7Y4WVrg9kE3NnRc",
+              "status": "completed",
+              "type": "string"
+            },
+            "product_demo": {
+              "id": "QWr5N6X9ZTqf8jD2La3B",
+              "status": "generating",
+              "type": "video"
+            },
+            "product_still": {
+              "content_mime_type": "image/png",
+              "content_url": "https://storage.googleapis.com/generations/JWr5N6X9ZTqf8jD2LmQb",
+              "id": "JWr5N6X9ZTqf8jD2LmQb",
+              "status": "completed",
+              "type": "image"
+            }
+          },
+          "status": "generating",
+          "template_id": "tmpl_abc123",
+          "version_id": "ver_01hxyz"
+        }
+      },
+      "TemplateRunStatus": {
+        "type": "string",
+        "enum": [
+          "pending",
+          "generating",
+          "completed",
+          "failed"
+        ],
+        "title": "TemplateRunStatus",
+        "description": "Where a run, or one of its outputs, is in its lifecycle. The run's is rolled\nup from its outputs' (``aggregate_output_statuses``). A class rather than a\n``Literal`` so it publishes as one named enum instead of being inlined into\nevery kind."
+      },
+      "TemplateStringOutput": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The id of the generation behind this output. Pass it as a `generation` reference to use the output as an input elsewhere.",
+            "examples": [
+              "JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/TemplateRunStatus",
+            "description": "The lifecycle status of the output. It ends at `completed`, when the output's content fields are set, or `failed`, when `failure_reason` and `error_message` are set.",
+            "examples": [
+              "completed"
+            ]
+          },
+          "failure_reason": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "timeout",
+                  "model_error",
+                  "moderated",
+                  "invalid_parameters",
+                  "dependency_failed",
+                  "charging_failed",
+                  "internal_error"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Failure Reason",
+            "description": "The category of failure. Present only when `status` is `failed`.",
+            "examples": [
+              "timeout"
+            ]
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message",
+            "description": "A human-readable description of the failure. Present only when `status` is `failed`. Failed generations are not charged."
+          },
+          "type": {
+            "type": "string",
+            "const": "string",
+            "title": "Type",
+            "description": "The kind of output: the `type` of the port's `content_schema`."
+          },
+          "content": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content",
+            "description": "The generated text. Present only when `status` is `completed`.",
+            "examples": [
+              "A corgi rides a surfboard at golden hour."
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "type"
+        ],
+        "title": "TemplateStringOutput",
+        "description": "A `string` output, delivered as `content` once completed."
+      },
+      "TemplateSummary": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Pass as `template_id` on `POST /v1/flows/templates/{template_id}/runs`.",
+            "examples": [
+              "tmpl_abc123"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "The template's name.",
+            "examples": [
+              "Product shot"
+            ]
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "The template's description, if it has one."
+          },
+          "versions": {
+            "items": {
+              "$ref": "#/components/schemas/TemplateVersion"
+            },
+            "type": "array",
+            "title": "Versions",
+            "description": "The published versions this caller can run, newest first. A version whose graph uses a model that is not available to you through the API is left out, as is one whose stored snapshot is gone; either way the list can be empty while the template still has versions the ElevenLabs app can run."
+          },
+          "has_more_versions": {
+            "type": "boolean",
+            "title": "Has More Versions",
+            "description": "Whether this template has further published versions beyond the `versions_per_template` returned here. Fetch `GET /v1/flows/templates/{template_id}` with a larger `versions_per_template` to see more of them."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "versions",
+          "has_more_versions"
+        ],
+        "title": "TemplateSummary",
+        "description": "A template the caller can run, and its runnable versions."
+      },
+      "TemplateVersion": {
+        "properties": {
+          "version_id": {
+            "type": "string",
+            "title": "Version Id",
+            "description": "Pass as `version_id` on `POST /v1/flows/templates/{template_id}/runs` to pin a run to this snapshot.",
+            "examples": [
+              "ver_01hxyz"
+            ]
+          },
+          "published_at_unix": {
+            "type": "integer",
+            "title": "Published At Unix",
+            "description": "When this version was published, as a Unix timestamp in seconds."
+          },
+          "is_latest": {
+            "type": "boolean",
+            "title": "Is Latest",
+            "description": "Whether this is the version a run gets when `version_id` is omitted or set to `latest`."
+          },
+          "inputs": {
+            "items": {
+              "$ref": "#/components/schemas/TemplatePort"
+            },
+            "type": "array",
+            "title": "Inputs",
+            "description": "The inputs this version accepts, in canvas order. Every input is required on a run."
+          },
+          "outputs": {
+            "items": {
+              "$ref": "#/components/schemas/TemplatePort"
+            },
+            "type": "array",
+            "title": "Outputs",
+            "description": "The outputs this version produces, in canvas order."
+          }
+        },
+        "type": "object",
+        "required": [
+          "version_id",
+          "published_at_unix",
+          "is_latest",
+          "inputs",
+          "outputs"
+        ],
+        "title": "TemplateVersion",
+        "description": "A published snapshot of a template, and the ports it runs with."
+      },
+      "TemplateVideoOutput": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The id of the generation behind this output. Pass it as a `generation` reference to use the output as an input elsewhere.",
+            "examples": [
+              "JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/TemplateRunStatus",
+            "description": "The lifecycle status of the output. It ends at `completed`, when the output's content fields are set, or `failed`, when `failure_reason` and `error_message` are set.",
+            "examples": [
+              "completed"
+            ]
+          },
+          "failure_reason": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "timeout",
+                  "model_error",
+                  "moderated",
+                  "invalid_parameters",
+                  "dependency_failed",
+                  "charging_failed",
+                  "internal_error"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Failure Reason",
+            "description": "The category of failure. Present only when `status` is `failed`.",
+            "examples": [
+              "timeout"
+            ]
+          },
+          "error_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Message",
+            "description": "A human-readable description of the failure. Present only when `status` is `failed`. Failed generations are not charged."
+          },
+          "content_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Url",
+            "description": "A signed URL to download the generated media from. Present only when `status` is `completed`. It expires about an hour after this response is returned; fetch the run again for a fresh URL.",
+            "examples": [
+              "https://storage.googleapis.com/generations/JWr5N6X9ZTqf8jD2LmQb"
+            ]
+          },
+          "content_mime_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Mime Type",
+            "description": "The MIME type of the generated media. Present only when `status` is `completed`.",
+            "examples": [
+              "video/mp4",
+              "image/png",
+              "audio/mpeg"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "const": "video",
+            "title": "Type",
+            "description": "The kind of output: the `type` of the port's `content_schema`."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "type"
+        ],
+        "title": "TemplateVideoOutput",
+        "description": "A `video` output, downloaded from `content_url` once completed."
+      },
       "TestConditionRationaleCommonModel": {
         "properties": {
           "messages": {
@@ -99880,18 +102434,20 @@
             "description": "Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.",
             "default": 0.5
           },
-          "speed": {
+          "similarity": {
             "anyOf": [
               {
                 "type": "number",
-                "maximum": 2.0,
-                "minimum": 0.5
+                "maximum": 1.0,
+                "minimum": 0.0
               },
               {
                 "type": "null"
               }
             ],
-            "title": "Speed"
+            "title": "Similarity",
+            "description": "Determines how strongly the model is guided while generating. Higher values make the model adhere more closely to the voice, at the cost of variation. Not supported by every model.",
+            "default": 0.75
           }
         },
         "type": "object",
@@ -105343,6 +107899,42 @@
           }
         }
       },
+      "VideoSchema": {
+        "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "type": {
+            "type": "string",
+            "const": "video",
+            "title": "Type",
+            "default": "video"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "VideoSchema"
+      },
       "VideoSegment": {
         "properties": {
           "start_ms": {
@@ -105904,6 +108496,32 @@
           "text"
         ],
         "title": "VoicePreviewsResponseModel"
+      },
+      "VoiceReference": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "voice",
+            "title": "Type"
+          },
+          "voice_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Voice Id",
+            "description": "The ID of a voice in this workspace.",
+            "examples": [
+              "21m00Tcm4TlvDq8ikWAM"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "voice_id"
+        ],
+        "title": "VoiceReference",
+        "description": "A voice this workspace can use."
       },
       "VoiceRemixRequestModel": {
         "properties": {
@@ -106574,6 +109192,42 @@
             0.5
           ]
         }
+      },
+      "VoiceSchema": {
+        "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "type": {
+            "type": "string",
+            "const": "voice",
+            "title": "Type",
+            "default": "voice"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "VoiceSchema"
       },
       "VoiceSegment": {
         "properties": {
@@ -107521,11 +110175,13 @@
             "type": "string",
             "const": "all",
             "title": "Type",
-            "description": "Send the result to all of the workspace's configured flows webhooks.",
-            "default": "all"
+            "description": "Send the result to all of the workspace's configured flows webhooks."
           }
         },
         "type": "object",
+        "required": [
+          "type"
+        ],
         "title": "WebhookTargetAll",
         "description": "Deliver the result to all of the workspace's configured flows webhooks."
       },
@@ -107535,8 +110191,7 @@
             "type": "string",
             "const": "ids",
             "title": "Type",
-            "description": "Send the result to the listed flows webhooks.",
-            "default": "ids"
+            "description": "Send the result to the listed flows webhooks."
           },
           "ids": {
             "items": {
@@ -107555,6 +110210,7 @@
         },
         "type": "object",
         "required": [
+          "type",
           "ids"
         ],
         "title": "WebhookTargetIds",

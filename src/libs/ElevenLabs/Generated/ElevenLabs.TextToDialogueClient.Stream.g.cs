@@ -483,6 +483,12 @@ namespace ElevenLabs
         /// <param name="settings">
         /// Settings controlling the dialogue generation.
         /// </param>
+        /// <param name="previousText">
+        /// The text that comes immediately before this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model.
+        /// </param>
+        /// <param name="futureText">
+        /// The text that comes immediately after this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model.
+        /// </param>
         /// <param name="pronunciationDictionaryLocators">
         /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
         /// </param>
@@ -493,6 +499,12 @@ namespace ElevenLabs
         /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.<br/>
         /// Default Value: auto
         /// </param>
+        /// <param name="previousRequestIds">
+        /// A list of request_ids of dialogue generations that came before this one. Used to condition the model for continuity when splitting a large task into multiple requests. A maximum of 3 request_ids can be sent. The last request_id is the audio which is closest to the current request. Not supported by every model.
+        /// </param>
+        /// <param name="nextRequestIds">
+        /// A list of request_ids of dialogue generations that come after this one. Useful for maintaining continuity when regenerating a clip in the middle of a sequence. A maximum of 3 request_ids can be sent. The first request_id is the audio which is closest to the current request. Not supported by every model.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -502,10 +514,14 @@ namespace ElevenLabs
             bool? enableLogging = default,
             string? modelId = default,
             string? languageCode = default,
-            global::ElevenLabs.ModelSettingsResponseModel? settings = default,
+            global::ElevenLabs.ToDialogueSettingsResponseModel? settings = default,
+            string? previousText = default,
+            string? futureText = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? pronunciationDictionaryLocators = default,
             int? seed = default,
             global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostApplyTextNormalization? applyTextNormalization = default,
+            global::System.Collections.Generic.IList<string>? previousRequestIds = default,
+            global::System.Collections.Generic.IList<string>? nextRequestIds = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -515,9 +531,13 @@ namespace ElevenLabs
                 ModelId = modelId,
                 LanguageCode = languageCode,
                 Settings = settings,
+                PreviousText = previousText,
+                FutureText = futureText,
                 PronunciationDictionaryLocators = pronunciationDictionaryLocators,
                 Seed = seed,
                 ApplyTextNormalization = applyTextNormalization,
+                PreviousRequestIds = previousRequestIds,
+                NextRequestIds = nextRequestIds,
             };
 
             return await StreamAsync(
