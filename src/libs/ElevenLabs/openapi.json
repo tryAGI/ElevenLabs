@@ -48356,6 +48356,12 @@
             "description": "Whether to automatically remove the document if the URL becomes unavailable. Only applicable when auto-sync is enabled.",
             "default": false
           },
+          "auto_discover": {
+            "type": "boolean",
+            "title": "Auto Discover",
+            "description": "Automatically discover and add new pages linked from already-crawled pages during auto-sync. Requires enable_auto_sync=true.",
+            "default": false
+          },
           "minimum_frequency_days": {
             "anyOf": [
               {
@@ -73775,6 +73781,12 @@
             "type": "integer",
             "title": "Max Pages"
           },
+          "auto_discover": {
+            "type": "boolean",
+            "title": "Auto Discover",
+            "description": "Whether to automatically discover and enqueue additional pages found while crawling.",
+            "default": false
+          },
           "status": {
             "$ref": "#/components/schemas/CrawlStatus",
             "default": "queued"
@@ -78538,6 +78550,7 @@
           "claude-opus-4-7",
           "claude-opus-4-8",
           "claude-opus-5",
+          "claude-opus-5-5",
           "claude-sonnet-4-6",
           "claude-sonnet-5",
           "claude-sonnet-4",
