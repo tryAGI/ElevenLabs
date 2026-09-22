@@ -65,6 +65,13 @@ namespace ElevenLabs
         public bool? AutoRemove { get; set; }
 
         /// <summary>
+        /// Automatically discover and add new pages linked from already-crawled pages during auto-sync. Requires enable_auto_sync=true.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auto_discover")]
+        public bool? AutoDiscover { get; set; }
+
+        /// <summary>
         /// Minimum frequency (in days) at which the underlying eligible documents are refreshed. The actual interval may be shorter, never longer. Defaults to 7, tightened to the parent folder's frequency if that is stricter. Only applicable when auto-sync is enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("minimum_frequency_days")]
@@ -103,6 +110,10 @@ namespace ElevenLabs
         /// Whether to automatically remove the document if the URL becomes unavailable. Only applicable when auto-sync is enabled.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="autoDiscover">
+        /// Automatically discover and add new pages linked from already-crawled pages during auto-sync. Requires enable_auto_sync=true.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="minimumFrequencyDays">
         /// Minimum frequency (in days) at which the underlying eligible documents are refreshed. The actual interval may be shorter, never longer. Defaults to 7, tightened to the parent folder's frequency if that is stricter. Only applicable when auto-sync is enabled.
         /// </param>
@@ -117,6 +128,7 @@ namespace ElevenLabs
             string? parentFolderId,
             bool? enableAutoSync,
             bool? autoRemove,
+            bool? autoDiscover,
             int? minimumFrequencyDays)
         {
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
@@ -126,6 +138,7 @@ namespace ElevenLabs
             this.ParentFolderId = parentFolderId;
             this.EnableAutoSync = enableAutoSync;
             this.AutoRemove = autoRemove;
+            this.AutoDiscover = autoDiscover;
             this.MinimumFrequencyDays = minimumFrequencyDays;
         }
 
