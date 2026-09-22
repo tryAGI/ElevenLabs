@@ -83677,17 +83677,19 @@
           "max_characters_request_free_user": {
             "type": "integer",
             "title": "Max Characters Request Free User",
-            "description": "The maximum number of characters that can be requested by a free user."
+            "description": "Deprecated. Not enforced; use `maximum_text_length_per_request` instead.",
+            "deprecated": true
           },
           "max_characters_request_subscribed_user": {
             "type": "integer",
             "title": "Max Characters Request Subscribed User",
-            "description": "The maximum number of characters that can be requested by a subscribed user."
+            "description": "Deprecated. Not enforced; use `maximum_text_length_per_request` instead.",
+            "deprecated": true
           },
           "maximum_text_length_per_request": {
             "type": "integer",
             "title": "Maximum Text Length Per Request",
-            "description": "The maximum length of text that can be requested for this model."
+            "description": "The maximum number of input text characters accepted per request for this model. Longer requests are rejected."
           },
           "languages": {
             "items": {

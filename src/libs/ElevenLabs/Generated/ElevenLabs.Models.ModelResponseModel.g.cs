@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -86,21 +88,21 @@ namespace ElevenLabs
         public required bool RequiresAlphaAccess { get; set; }
 
         /// <summary>
-        /// The maximum number of characters that can be requested by a free user.
+        /// Deprecated. Not enforced; use `maximum_text_length_per_request` instead.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_characters_request_free_user")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int MaxCharactersRequestFreeUser { get; set; }
 
         /// <summary>
-        /// The maximum number of characters that can be requested by a subscribed user.
+        /// Deprecated. Not enforced; use `maximum_text_length_per_request` instead.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_characters_request_subscribed_user")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int MaxCharactersRequestSubscribedUser { get; set; }
 
         /// <summary>
-        /// The maximum length of text that can be requested for this model.
+        /// The maximum number of input text characters accepted per request for this model. Longer requests are rejected.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("maximum_text_length_per_request")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -172,13 +174,13 @@ namespace ElevenLabs
         /// Whether the model requires alpha access.
         /// </param>
         /// <param name="maxCharactersRequestFreeUser">
-        /// The maximum number of characters that can be requested by a free user.
+        /// Deprecated. Not enforced; use `maximum_text_length_per_request` instead.
         /// </param>
         /// <param name="maxCharactersRequestSubscribedUser">
-        /// The maximum number of characters that can be requested by a subscribed user.
+        /// Deprecated. Not enforced; use `maximum_text_length_per_request` instead.
         /// </param>
         /// <param name="maximumTextLengthPerRequest">
-        /// The maximum length of text that can be requested for this model.
+        /// The maximum number of input text characters accepted per request for this model. Longer requests are rejected.
         /// </param>
         /// <param name="languages">
         /// The languages supported by the model.
