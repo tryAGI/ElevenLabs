@@ -207,6 +207,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Glm52,
+        /// <summary>
+        ///
+        /// </summary>
         Gpt35Turbo,
         /// <summary>
         ///
@@ -475,6 +479,7 @@ namespace ElevenLabs
                 Llm.Gemini37Flash => "gemini-3.7-flash",
                 Llm.Gemini38Flash => "gemini-3.8-flash",
                 Llm.Glm45AirFp8 => "glm-45-air-fp8",
+                Llm.Glm52 => "glm-52",
                 Llm.Gpt35Turbo => "gpt-3.5-turbo",
                 Llm.Gpt35Turbo0125 => "gpt-3.5-turbo-0125",
                 Llm.Gpt35Turbo1106 => "gpt-3.5-turbo-1106",
@@ -586,6 +591,7 @@ namespace ElevenLabs
                 "gemini-3.7-flash" => Llm.Gemini37Flash,
                 "gemini-3.8-flash" => Llm.Gemini38Flash,
                 "glm-45-air-fp8" => Llm.Glm45AirFp8,
+                "glm-52" => Llm.Glm52,
                 "gpt-3.5-turbo" => Llm.Gpt35Turbo,
                 "gpt-3.5-turbo-0125" => Llm.Gpt35Turbo0125,
                 "gpt-3.5-turbo-1106" => Llm.Gpt35Turbo1106,

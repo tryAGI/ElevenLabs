@@ -44063,9 +44063,7 @@
             "title": "Source"
           },
           "analysis_item_id": {
-            "type": "string",
-            "const": "__system_data_collection_topic",
-            "title": "Analysis Item Id",
+            "$ref": "#/components/schemas/SystemDataCollectionId",
             "description": "Id of the referenced built-in system data-collection item."
           },
           "scope": {
@@ -44089,12 +44087,7 @@
             "title": "Source"
           },
           "analysis_item_id": {
-            "type": "string",
-            "enum": [
-              "__system_eval_criteria_sentiment",
-              "__system_eval_criteria_frustration"
-            ],
-            "title": "Analysis Item Id",
+            "$ref": "#/components/schemas/SystemEvaluationId",
             "description": "Id of the referenced built-in system evaluation."
           },
           "scope": {
@@ -78568,6 +78561,7 @@
           "gpt-oss-20b",
           "gpt-oss-120b",
           "glm-45-air-fp8",
+          "glm-52",
           "gemini-2.5-flash-preview-09-2025",
           "gemini-2.5-flash-lite-preview-09-2025",
           "gemini-2.5-flash-preview-05-20",
@@ -99245,6 +99239,13 @@
         ],
         "title": "SupportedVoice"
       },
+      "SystemDataCollectionId": {
+        "type": "string",
+        "enum": [
+          "__system_data_collection_topic"
+        ],
+        "title": "SystemDataCollectionId"
+      },
       "SystemEvaluationCriteria": {
         "properties": {
           "user_sentiment_score": {
@@ -99266,6 +99267,14 @@
           "user_frustration_score"
         ],
         "title": "SystemEvaluationCriteria"
+      },
+      "SystemEvaluationId": {
+        "type": "string",
+        "enum": [
+          "__system_eval_criteria_sentiment",
+          "__system_eval_criteria_frustration"
+        ],
+        "title": "SystemEvaluationId"
       },
       "SystemToolConfig-Input": {
         "properties": {
@@ -104915,6 +104924,29 @@
               }
             ],
             "title": "Environment"
+          },
+          "credits_used": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Credits Used",
+            "description": "Credits billed for this test run. None for runs created before cost tracking."
+          },
+          "charging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationChargingCommonModel"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Finalized billing and provider-usage breakdown for this test run."
           }
         },
         "type": "object",
