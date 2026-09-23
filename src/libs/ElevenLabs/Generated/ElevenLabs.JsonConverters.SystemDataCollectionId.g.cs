@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class AttachedSystemEvaluationRefAnalysisItemIdNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.AttachedSystemEvaluationRefAnalysisItemId?>
+    public sealed class SystemDataCollectionIdJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.SystemDataCollectionId>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.AttachedSystemEvaluationRefAnalysisItemId? Read(
+        public override global::ElevenLabs.SystemDataCollectionId Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.AttachedSystemEvaluationRefAnalysisItemIdExtensions.ToEnum(stringValue);
+                        return global::ElevenLabs.SystemDataCollectionIdExtensions.ToEnum(stringValue) ?? default;
                     }
 
                     break;
@@ -26,11 +26,11 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.AttachedSystemEvaluationRefAnalysisItemId)numValue;
+                    return (global::ElevenLabs.SystemDataCollectionId)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::ElevenLabs.AttachedSystemEvaluationRefAnalysisItemId?);
+                    return default(global::ElevenLabs.SystemDataCollectionId);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,19 +42,12 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.AttachedSystemEvaluationRefAnalysisItemId? value,
+            global::ElevenLabs.SystemDataCollectionId value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            if (value == null)
-            {
-                writer.WriteNullValue();
-            }
-            else
-            {
-                writer.WriteStringValue(global::ElevenLabs.AttachedSystemEvaluationRefAnalysisItemIdExtensions.ToValueString(value.Value));
-            }
+            writer.WriteStringValue(global::ElevenLabs.SystemDataCollectionIdExtensions.ToValueString(value));
         }
     }
 }
