@@ -63,6 +63,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        ClaudeOpus55,
+        /// <summary>
+        ///
+        /// </summary>
         ClaudeSonnet4,
         /// <summary>
         ///
@@ -200,6 +204,10 @@ namespace ElevenLabs
         ///
         /// </summary>
         Glm45AirFp8,
+        /// <summary>
+        ///
+        /// </summary>
+        Glm52,
         /// <summary>
         ///
         /// </summary>
@@ -435,6 +443,7 @@ namespace ElevenLabs
                 Llm.ClaudeOpus47 => "claude-opus-4-7",
                 Llm.ClaudeOpus48 => "claude-opus-4-8",
                 Llm.ClaudeOpus5 => "claude-opus-5",
+                Llm.ClaudeOpus55 => "claude-opus-5-5",
                 Llm.ClaudeSonnet4 => "claude-sonnet-4",
                 Llm.ClaudeSonnet45 => "claude-sonnet-4-5",
                 Llm.ClaudeSonnet45_20250929 => "claude-sonnet-4-5@20250929",
@@ -470,6 +479,7 @@ namespace ElevenLabs
                 Llm.Gemini37Flash => "gemini-3.7-flash",
                 Llm.Gemini38Flash => "gemini-3.8-flash",
                 Llm.Glm45AirFp8 => "glm-45-air-fp8",
+                Llm.Glm52 => "glm-52",
                 Llm.Gpt35Turbo => "gpt-3.5-turbo",
                 Llm.Gpt35Turbo0125 => "gpt-3.5-turbo-0125",
                 Llm.Gpt35Turbo1106 => "gpt-3.5-turbo-1106",
@@ -545,6 +555,7 @@ namespace ElevenLabs
                 "claude-opus-4-7" => Llm.ClaudeOpus47,
                 "claude-opus-4-8" => Llm.ClaudeOpus48,
                 "claude-opus-5" => Llm.ClaudeOpus5,
+                "claude-opus-5-5" => Llm.ClaudeOpus55,
                 "claude-sonnet-4" => Llm.ClaudeSonnet4,
                 "claude-sonnet-4-5" => Llm.ClaudeSonnet45,
                 "claude-sonnet-4-5@20250929" => Llm.ClaudeSonnet45_20250929,
@@ -580,6 +591,7 @@ namespace ElevenLabs
                 "gemini-3.7-flash" => Llm.Gemini37Flash,
                 "gemini-3.8-flash" => Llm.Gemini38Flash,
                 "glm-45-air-fp8" => Llm.Glm45AirFp8,
+                "glm-52" => Llm.Glm52,
                 "gpt-3.5-turbo" => Llm.Gpt35Turbo,
                 "gpt-3.5-turbo-0125" => Llm.Gpt35Turbo0125,
                 "gpt-3.5-turbo-1106" => Llm.Gpt35Turbo1106,

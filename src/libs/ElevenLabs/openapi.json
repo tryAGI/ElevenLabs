@@ -44063,9 +44063,7 @@
             "title": "Source"
           },
           "analysis_item_id": {
-            "type": "string",
-            "const": "__system_data_collection_topic",
-            "title": "Analysis Item Id",
+            "$ref": "#/components/schemas/SystemDataCollectionId",
             "description": "Id of the referenced built-in system data-collection item."
           },
           "scope": {
@@ -44089,12 +44087,7 @@
             "title": "Source"
           },
           "analysis_item_id": {
-            "type": "string",
-            "enum": [
-              "__system_eval_criteria_sentiment",
-              "__system_eval_criteria_frustration"
-            ],
-            "title": "Analysis Item Id",
+            "$ref": "#/components/schemas/SystemEvaluationId",
             "description": "Id of the referenced built-in system evaluation."
           },
           "scope": {
@@ -48356,6 +48349,12 @@
             "description": "Whether to automatically remove the document if the URL becomes unavailable. Only applicable when auto-sync is enabled.",
             "default": false
           },
+          "auto_discover": {
+            "type": "boolean",
+            "title": "Auto Discover",
+            "description": "Automatically discover and add new pages linked from already-crawled pages during auto-sync. Requires enable_auto_sync=true.",
+            "default": false
+          },
           "minimum_frequency_days": {
             "anyOf": [
               {
@@ -49458,7 +49457,7 @@
             "type": "integer",
             "minimum": 1.0,
             "title": "Interval Seconds",
-            "description": "Bucket size in seconds. Each row in the response covers this many seconds of the selected time range. For example, pass 3600 for hourly buckets or 86400 for daily buckets. Whether `time_zone` shifts bucket boundaries depends on this value: whole-day multiples (e.g. 86400) align to local midnight; whole-hour multiples up to 24 hours (e.g. 3600, 14400) align to local hour boundaries from midnight; sub-hour values and other sizes remain UTC-anchored regardless of `time_zone`.",
+            "description": "Bucket size in seconds. Each row in the response covers this many seconds of the selected time range. For example, pass 3600 for hourly buckets, 86400 for daily buckets, or 604800 for weekly buckets. Whether `time_zone` shifts bucket boundaries depends on this value: week multiples (e.g. 604800) are calendar weeks that start Monday at local midnight; whole-day multiples that are not whole weeks (e.g. 86400) align to local midnight; whole-hour multiples up to 24 hours (e.g. 3600, 14400) align to local hour boundaries from midnight; sub-hour values and other sizes remain UTC-anchored regardless of `time_zone`.",
             "default": 60
           },
           "group_by": {
@@ -49511,7 +49510,7 @@
           "time_zone": {
             "type": "string",
             "title": "Time Zone",
-            "description": "IANA time zone identifier (e.g. 'America/New_York', 'Europe/London', 'UTC') used to align bucket boundaries for eligible `interval_seconds` values. Whole-day multiples start at local midnight; whole-hour multiples up to 24 hours align to local hour boundaries from midnight. Sub-hour intervals and other bucket sizes remain UTC-anchored regardless of this setting. Defaults to UTC.",
+            "description": "IANA time zone identifier (e.g. 'America/New_York', 'Europe/London', 'UTC') used to align bucket boundaries for eligible `interval_seconds` values. Week multiples (e.g. 604800) are calendar weeks that start Monday at local midnight. Whole-day multiples that are not whole weeks start at local midnight; whole-hour multiples up to 24 hours align to local hour boundaries from midnight. Sub-hour intervals and other bucket sizes remain UTC-anchored regardless of this setting. Defaults to UTC.",
             "default": "UTC"
           }
         },
@@ -73775,6 +73774,12 @@
             "type": "integer",
             "title": "Max Pages"
           },
+          "auto_discover": {
+            "type": "boolean",
+            "title": "Auto Discover",
+            "description": "Whether to automatically discover and enqueue additional pages found while crawling.",
+            "default": false
+          },
           "status": {
             "$ref": "#/components/schemas/CrawlStatus",
             "default": "queued"
@@ -78538,6 +78543,7 @@
           "claude-opus-4-7",
           "claude-opus-4-8",
           "claude-opus-5",
+          "claude-opus-5-5",
           "claude-sonnet-4-6",
           "claude-sonnet-5",
           "claude-sonnet-4",
@@ -78555,6 +78561,7 @@
           "gpt-oss-20b",
           "gpt-oss-120b",
           "glm-45-air-fp8",
+          "glm-52",
           "gemini-2.5-flash-preview-09-2025",
           "gemini-2.5-flash-lite-preview-09-2025",
           "gemini-2.5-flash-preview-05-20",
@@ -99232,6 +99239,13 @@
         ],
         "title": "SupportedVoice"
       },
+      "SystemDataCollectionId": {
+        "type": "string",
+        "enum": [
+          "__system_data_collection_topic"
+        ],
+        "title": "SystemDataCollectionId"
+      },
       "SystemEvaluationCriteria": {
         "properties": {
           "user_sentiment_score": {
@@ -99253,6 +99267,14 @@
           "user_frustration_score"
         ],
         "title": "SystemEvaluationCriteria"
+      },
+      "SystemEvaluationId": {
+        "type": "string",
+        "enum": [
+          "__system_eval_criteria_sentiment",
+          "__system_eval_criteria_frustration"
+        ],
+        "title": "SystemEvaluationId"
       },
       "SystemToolConfig-Input": {
         "properties": {
@@ -104902,6 +104924,29 @@
               }
             ],
             "title": "Environment"
+          },
+          "credits_used": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Credits Used",
+            "description": "Credits billed for this test run. None for runs created before cost tracking."
+          },
+          "charging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConversationChargingCommonModel"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Finalized billing and provider-usage breakdown for this test run."
           }
         },
         "type": "object",

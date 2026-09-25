@@ -18,9 +18,9 @@ namespace ElevenLabs
         /// <summary>
         /// Id of the referenced built-in system data-collection item.
         /// </summary>
-        /// <default>"__system_data_collection_topic"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("analysis_item_id")]
-        public string AnalysisItemId { get; set; } = "__system_data_collection_topic";
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SystemDataCollectionIdJsonConverter))]
+        public global::ElevenLabs.SystemDataCollectionId AnalysisItemId { get; set; }
 
         /// <summary>
         /// Transcript context ('conversation' or 'agent') used when running this item.<br/>
@@ -39,21 +39,21 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AttachedSystemDataCollectionRef" /> class.
         /// </summary>
+        /// <param name="analysisItemId">
+        /// Id of the referenced built-in system data-collection item.
+        /// </param>
         /// <param name="scope">
         /// Transcript context ('conversation' or 'agent') used when running this item.<br/>
         /// Default Value: conversation
         /// </param>
         /// <param name="source"></param>
-        /// <param name="analysisItemId">
-        /// Id of the referenced built-in system data-collection item.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AttachedSystemDataCollectionRef(
+            global::ElevenLabs.SystemDataCollectionId analysisItemId,
             global::ElevenLabs.AnalysisScope? scope,
-            string source = "system",
-            string analysisItemId = "__system_data_collection_topic")
+            string source = "system")
         {
             this.Source = source;
             this.AnalysisItemId = analysisItemId;

@@ -19,9 +19,9 @@ namespace ElevenLabs
         /// Id of the referenced built-in system evaluation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("analysis_item_id")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AttachedSystemEvaluationRefAnalysisItemIdJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SystemEvaluationIdJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AttachedSystemEvaluationRefAnalysisItemId AnalysisItemId { get; set; }
+        public required global::ElevenLabs.SystemEvaluationId AnalysisItemId { get; set; }
 
         /// <summary>
         /// Transcript context ('conversation' or 'agent') used when running this item.<br/>
@@ -61,7 +61,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AttachedSystemEvaluationRef(
-            global::ElevenLabs.AttachedSystemEvaluationRefAnalysisItemId analysisItemId,
+            global::ElevenLabs.SystemEvaluationId analysisItemId,
             global::ElevenLabs.AnalysisScope? scope,
             double? weight,
             string source = "system")
@@ -83,7 +83,7 @@ namespace ElevenLabs
         /// Creates a new <see cref="AttachedSystemEvaluationRef"/> from its single non-const required field,
         /// hardcoding any const discriminator fields.
         /// </summary>
-        public static AttachedSystemEvaluationRef FromAnalysisItemId(global::ElevenLabs.AttachedSystemEvaluationRefAnalysisItemId analysisItemId)
+        public static AttachedSystemEvaluationRef FromAnalysisItemId(global::ElevenLabs.SystemEvaluationId analysisItemId)
         {
             return new AttachedSystemEvaluationRef
             {

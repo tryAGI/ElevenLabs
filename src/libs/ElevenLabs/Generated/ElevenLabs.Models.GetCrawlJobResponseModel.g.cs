@@ -46,6 +46,13 @@ namespace ElevenLabs
         public required int MaxPages { get; set; }
 
         /// <summary>
+        /// Whether to automatically discover and enqueue additional pages found while crawling.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auto_discover")]
+        public bool? AutoDiscover { get; set; }
+
+        /// <summary>
         /// Default Value: queued
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
@@ -123,6 +130,10 @@ namespace ElevenLabs
         /// Default Value: discovery
         /// </param>
         /// <param name="pattern"></param>
+        /// <param name="autoDiscover">
+        /// Whether to automatically discover and enqueue additional pages found while crawling.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="status">
         /// Default Value: queued
         /// </param>
@@ -150,6 +161,7 @@ namespace ElevenLabs
             int createdAt,
             global::ElevenLabs.CrawlType? type,
             string? pattern,
+            bool? autoDiscover,
             global::ElevenLabs.CrawlStatus? status,
             int? pagesIdentified,
             int? pagesScraped,
@@ -160,6 +172,7 @@ namespace ElevenLabs
             this.SeedUrl = seedUrl ?? throw new global::System.ArgumentNullException(nameof(seedUrl));
             this.Pattern = pattern;
             this.MaxPages = maxPages;
+            this.AutoDiscover = autoDiscover;
             this.Status = status;
             this.PagesIdentified = pagesIdentified;
             this.PagesScraped = pagesScraped;

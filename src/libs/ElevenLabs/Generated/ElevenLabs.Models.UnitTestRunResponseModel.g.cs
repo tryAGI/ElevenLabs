@@ -123,6 +123,18 @@ namespace ElevenLabs
         public string? Environment { get; set; }
 
         /// <summary>
+        /// Credits billed for this test run. None for runs created before cost tracking.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("credits_used")]
+        public int? CreditsUsed { get; set; }
+
+        /// <summary>
+        /// Finalized billing and provider-usage breakdown for this test run.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("charging")]
+        public global::ElevenLabs.ConversationChargingCommonModel? Charging { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -153,6 +165,12 @@ namespace ElevenLabs
         /// <param name="rootFolderId"></param>
         /// <param name="rootFolderName"></param>
         /// <param name="environment"></param>
+        /// <param name="creditsUsed">
+        /// Credits billed for this test run. None for runs created before cost tracking.
+        /// </param>
+        /// <param name="charging">
+        /// Finalized billing and provider-usage breakdown for this test run.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -174,7 +192,9 @@ namespace ElevenLabs
             global::ElevenLabs.TestRunMetadata? metadata,
             string? rootFolderId,
             string? rootFolderName,
-            string? environment)
+            string? environment,
+            int? creditsUsed,
+            global::ElevenLabs.ConversationChargingCommonModel? charging)
         {
             this.TestRunId = testRunId ?? throw new global::System.ArgumentNullException(nameof(testRunId));
             this.TestInfo = testInfo;
@@ -194,6 +214,8 @@ namespace ElevenLabs
             this.RootFolderId = rootFolderId;
             this.RootFolderName = rootFolderName;
             this.Environment = environment;
+            this.CreditsUsed = creditsUsed;
+            this.Charging = charging;
         }
 
         /// <summary>
