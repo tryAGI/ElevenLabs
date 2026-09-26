@@ -9,17 +9,17 @@ namespace ElevenLabs
     public sealed partial class PostDialDigitsDynamicVariable
     {
         /// <summary>
-        /// Default Value: dynamic
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        public string? Type { get; set; }
-
-        /// <summary>
         /// The dynamic variable name to resolve
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("value")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Value { get; set; }
+
+        /// <summary>
+        /// Default Value: dynamic
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        public string? Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -43,8 +43,8 @@ namespace ElevenLabs
             string value,
             string? type)
         {
-            this.Type = type;
             this.Value = value ?? throw new global::System.ArgumentNullException(nameof(value));
+            this.Type = type;
         }
 
         /// <summary>

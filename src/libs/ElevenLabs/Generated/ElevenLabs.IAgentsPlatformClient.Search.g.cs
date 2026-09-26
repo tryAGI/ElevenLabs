@@ -14,6 +14,9 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
+        /// <param name="branchId">
+        /// Filter conversations by branch ID.
+        /// </param>
         /// <param name="pageSize">
         /// Number of results per page. Max 50.<br/>
         /// Default Value: 20
@@ -27,6 +30,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.MessagesSearchResponse> SearchAsync(
             string textQuery,
             string? agentId = default,
+            string? branchId = default,
             int? pageSize = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -41,6 +45,9 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
+        /// <param name="branchId">
+        /// Filter conversations by branch ID.
+        /// </param>
         /// <param name="pageSize">
         /// Number of results per page. Max 50.<br/>
         /// Default Value: 20
@@ -54,6 +61,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MessagesSearchResponse>> SearchAsResponseAsync(
             string textQuery,
             string? agentId = default,
+            string? branchId = default,
             int? pageSize = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -68,6 +76,9 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource.
         /// </param>
+        /// <param name="branchId">
+        /// Filter conversations by branch ID.
+        /// </param>
         /// <param name="pageSize">
         /// Number of results per page. Max 50.<br/>
         /// Default Value: 20
@@ -76,6 +87,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.MessagesSearchResult> SearchAutoPagingAsync(
             string textQuery,             string? agentId = default,
+            string? branchId = default,
             int? pageSize = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default);

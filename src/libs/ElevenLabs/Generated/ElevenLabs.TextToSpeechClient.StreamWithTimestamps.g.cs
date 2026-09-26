@@ -479,6 +479,10 @@ namespace ElevenLabs
         /// <param name="nextRequestIds">
         /// A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
         /// </param>
+        /// <param name="usePvcAsIvc">
+        /// Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="applyTextNormalization">
         /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.<br/>
         /// Default Value: auto
@@ -505,6 +509,7 @@ namespace ElevenLabs
             string? nextText = default,
             global::System.Collections.Generic.IList<string>? previousRequestIds = default,
             global::System.Collections.Generic.IList<string>? nextRequestIds = default,
+            bool? usePvcAsIvc = default,
             global::ElevenLabs.BodyTextToSpeechStreamWithTimestampsApplyTextNormalization? applyTextNormalization = default,
             bool? applyLanguageTextNormalization = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -522,6 +527,7 @@ namespace ElevenLabs
                 NextText = nextText,
                 PreviousRequestIds = previousRequestIds,
                 NextRequestIds = nextRequestIds,
+                UsePvcAsIvc = usePvcAsIvc,
                 ApplyTextNormalization = applyTextNormalization,
                 ApplyLanguageTextNormalization = applyLanguageTextNormalization,
             };

@@ -16,7 +16,7 @@ namespace ElevenLabs
         public required string ConversationId { get; set; }
 
         /// <summary>
-        /// The QA finding covering the whole conversation.
+        /// The issue this ticket is about, covering the whole conversation rather than a single turn.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("qa_comment")]
         public string? QaComment { get; set; }
@@ -40,7 +40,7 @@ namespace ElevenLabs
         /// Conversation this ticket is about.
         /// </param>
         /// <param name="qaComment">
-        /// The QA finding covering the whole conversation.
+        /// The issue this ticket is about, covering the whole conversation rather than a single turn.
         /// </param>
         /// <param name="turnComments">
         /// Optional turn-level comments on what went wrong.
