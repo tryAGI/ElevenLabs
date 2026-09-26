@@ -28,6 +28,7 @@ namespace ElevenLabs
         partial void PrepareList2Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? agentId,
+            ref string? branchId,
             ref int? pageSize,
             ref string? search,
             ref string? cursor);
@@ -35,6 +36,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? agentId,
+            string? branchId,
             int? pageSize,
             string? search,
             string? cursor);
@@ -54,6 +56,9 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Filter by agent ID
         /// </param>
+        /// <param name="branchId">
+        /// Filter by branch ID
+        /// </param>
         /// <param name="pageSize">
         /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
@@ -69,6 +74,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetTestInvocationsPageResponseModel> List2Async(
             string? agentId = default,
+            string? branchId = default,
             int? pageSize = default,
             string? search = default,
             string? cursor = default,
@@ -77,6 +83,7 @@ namespace ElevenLabs
         {
             var __response = await List2AsResponseAsync(
                 agentId: agentId,
+                branchId: branchId,
                 pageSize: pageSize,
                 search: search,
                 cursor: cursor,
@@ -93,6 +100,9 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Filter by agent ID
         /// </param>
+        /// <param name="branchId">
+        /// Filter by branch ID
+        /// </param>
         /// <param name="pageSize">
         /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
@@ -108,6 +118,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetTestInvocationsPageResponseModel>> List2AsResponseAsync(
             string? agentId = default,
+            string? branchId = default,
             int? pageSize = default,
             string? search = default,
             string? cursor = default,
@@ -119,6 +130,7 @@ namespace ElevenLabs
             PrepareList2Arguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
+                branchId: ref branchId,
                 pageSize: ref pageSize,
                 search: ref search,
                 cursor: ref cursor);
@@ -151,6 +163,7 @@ namespace ElevenLabs
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("agent_id", agentId)
+                                .AddOptionalParameter("branch_id", branchId)
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("cursor", cursor)
@@ -196,6 +209,7 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
+                    branchId: branchId,
                     pageSize: pageSize,
                     search: search,
                     cursor: cursor);
@@ -517,6 +531,9 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Filter by agent ID
         /// </param>
+        /// <param name="branchId">
+        /// Filter by branch ID
+        /// </param>
         /// <param name="pageSize">
         /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
@@ -528,6 +545,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.TestInvocationSummaryResponseModel> List2AutoPagingAsync(
               string? agentId = default,
+            string? branchId = default,
             int? pageSize = default,
             string? search = default,
             string? cursor = null,
@@ -536,6 +554,7 @@ namespace ElevenLabs
             return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetTestInvocationsPageResponseModel, global::ElevenLabs.TestInvocationSummaryResponseModel>(
                 fetchPage: (__cursor, __ct) => List2Async(
                     agentId: agentId,
+                    branchId: branchId,
                     pageSize: pageSize,
                     search: search,
                     cursor: __cursor,

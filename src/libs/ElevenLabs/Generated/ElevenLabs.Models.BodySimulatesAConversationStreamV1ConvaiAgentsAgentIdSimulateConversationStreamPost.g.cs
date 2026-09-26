@@ -23,7 +23,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Maximum number of new turns to generate in the conversation simulation<br/>
-        /// Default Value: 10000
+        /// Default Value: 100
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("new_turns_limit")]
         public int? NewTurnsLimit { get; set; }
@@ -45,7 +45,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="newTurnsLimit">
         /// Maximum number of new turns to generate in the conversation simulation<br/>
-        /// Default Value: 10000
+        /// Default Value: 100
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

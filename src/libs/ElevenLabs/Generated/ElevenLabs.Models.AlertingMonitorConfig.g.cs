@@ -9,6 +9,12 @@ namespace ElevenLabs
     public sealed partial class AlertingMonitorConfig
     {
         /// <summary>
+        /// Whether this monitor is enabled and can notify
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enabled")]
+        public bool? Enabled { get; set; }
+
+        /// <summary>
         /// Failure rate threshold at which this monitor can notify.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("threshold")]
@@ -59,6 +65,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AlertingMonitorConfig" /> class.
         /// </summary>
+        /// <param name="enabled">
+        /// Whether this monitor is enabled and can notify
+        /// </param>
         /// <param name="threshold">
         /// Failure rate threshold at which this monitor can notify.
         /// </param>
@@ -84,6 +93,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AlertingMonitorConfig(
+            bool? enabled,
             double? threshold,
             double? relativeIncreaseThreshold,
             int? minFailureCount,
@@ -92,6 +102,7 @@ namespace ElevenLabs
             int? suspectTriggerThreshold,
             int? autoResolveAfterInactiveMinutes)
         {
+            this.Enabled = enabled;
             this.Threshold = threshold;
             this.RelativeIncreaseThreshold = relativeIncreaseThreshold;
             this.MinFailureCount = minFailureCount;

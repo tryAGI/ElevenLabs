@@ -2549,6 +2549,9 @@
               }
             }
           },
+          "409": {
+            "description": "A generation for this preview is already in progress. Retry the request."
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -2612,6 +2615,9 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "A generation for this preview is already in progress. Retry the request."
           },
           "422": {
             "description": "Validation Error",
@@ -2711,6 +2717,9 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "A generation for this preview is already in progress. Retry the request."
           },
           "422": {
             "description": "Validation Error",
@@ -2824,6 +2833,9 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "A generation for this preview is already in progress. Retry the request."
           },
           "422": {
             "description": "Validation Error",
@@ -17792,6 +17804,24 @@
             "description": "Filter by agent ID"
           },
           {
+            "name": "branch_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by branch ID",
+              "title": "Branch Id"
+            },
+            "description": "Filter by branch ID"
+          },
+          {
             "name": "page_size",
             "in": "query",
             "required": false,
@@ -18411,10 +18441,10 @@
                   "type": "null"
                 }
               ],
-              "description": "Evaluation filters. Repeat param. Format: criteria_id:result. Example: eval=value_framing:success",
+              "description": "Evaluation filters. Repeat param. Format: criteria_id:result where result is one of success|failure|unknown. Example: eval=value_framing:success",
               "title": "Evaluation Params"
             },
-            "description": "Evaluation filters. Repeat param. Format: criteria_id:result. Example: eval=value_framing:success"
+            "description": "Evaluation filters. Repeat param. Format: criteria_id:result where result is one of success|failure|unknown. Example: eval=value_framing:success"
           },
           {
             "name": "data_collection_params",
@@ -18432,10 +18462,10 @@
                   "type": "null"
                 }
               ],
-              "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte. An empty value matches conversations where the field was not collected.",
+              "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in. For in, pipe-delimit values. An empty value matches conversations where the field was not collected (id:eq:), and neq with an empty value matches where it was (id:neq:). eq is exact equality. gt|gte|lt|lte require a numeric value.",
               "title": "Data Collection Params"
             },
-            "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte. An empty value matches conversations where the field was not collected."
+            "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in. For in, pipe-delimit values. An empty value matches conversations where the field was not collected (id:eq:), and neq with an empty value matches where it was (id:neq:). eq is exact equality. gt|gte|lt|lte require a numeric value."
           },
           {
             "name": "dynamic_variable_params",
@@ -18453,10 +18483,10 @@
                   "type": "null"
                 }
               ],
-              "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. An empty value matches conversations where the variable was not set. Names containing ':' cannot be expressed.",
+              "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|neq|gt|gte|lt|lte|in. For in, pipe-delimit values. An empty value matches conversations where the variable was not set (name:eq:), and neq with an empty value matches where it was (name:neq:). eq is exact equality. gt|gte|lt|lte require a numeric value. Names containing ':' cannot be expressed.",
               "title": "Dynamic Variable Params"
             },
-            "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. An empty value matches conversations where the variable was not set. Names containing ':' cannot be expressed."
+            "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|neq|gt|gte|lt|lte|in. For in, pipe-delimit values. An empty value matches conversations where the variable was not set (name:eq:), and neq with an empty value matches where it was (name:neq:). eq is exact equality. gt|gte|lt|lte require a numeric value. Names containing ':' cannot be expressed."
           },
           {
             "name": "data_collection_ids",
@@ -20028,10 +20058,10 @@
                   "type": "null"
                 }
               ],
-              "description": "Evaluation filters. Repeat param. Format: criteria_id:result. Example: eval=value_framing:success",
+              "description": "Evaluation filters. Repeat param. Format: criteria_id:result where result is one of success|failure|unknown. Example: eval=value_framing:success",
               "title": "Evaluation Params"
             },
-            "description": "Evaluation filters. Repeat param. Format: criteria_id:result. Example: eval=value_framing:success"
+            "description": "Evaluation filters. Repeat param. Format: criteria_id:result where result is one of success|failure|unknown. Example: eval=value_framing:success"
           },
           {
             "name": "data_collection_params",
@@ -20049,10 +20079,10 @@
                   "type": "null"
                 }
               ],
-              "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte. An empty value matches conversations where the field was not collected.",
+              "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in. For in, pipe-delimit values. An empty value matches conversations where the field was not collected (id:eq:), and neq with an empty value matches where it was (id:neq:). eq is exact equality. gt|gte|lt|lte require a numeric value.",
               "title": "Data Collection Params"
             },
-            "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|gt|gte|lt|lte. An empty value matches conversations where the field was not collected."
+            "description": "Data collection filters. Repeat param. Format: id:op:value where op is one of eq|neq|gt|gte|lt|lte|in. For in, pipe-delimit values. An empty value matches conversations where the field was not collected (id:eq:), and neq with an empty value matches where it was (id:neq:). eq is exact equality. gt|gte|lt|lte require a numeric value."
           },
           {
             "name": "dynamic_variable_params",
@@ -20070,10 +20100,10 @@
                   "type": "null"
                 }
               ],
-              "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. An empty value matches conversations where the variable was not set. Names containing ':' cannot be expressed.",
+              "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|neq|gt|gte|lt|lte|in. For in, pipe-delimit values. An empty value matches conversations where the variable was not set (name:eq:), and neq with an empty value matches where it was (name:neq:). eq is exact equality. gt|gte|lt|lte require a numeric value. Names containing ':' cannot be expressed.",
               "title": "Dynamic Variable Params"
             },
-            "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|gt|gte|lt|lte. Comparison operators require a numeric value. An empty value matches conversations where the variable was not set. Names containing ':' cannot be expressed."
+            "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|neq|gt|gte|lt|lte|in. For in, pipe-delimit values. An empty value matches conversations where the variable was not set (name:eq:), and neq with an empty value matches where it was (name:neq:). eq is exact equality. gt|gte|lt|lte require a numeric value. Names containing ':' cannot be expressed."
           },
           {
             "name": "tool_names",
@@ -20482,6 +20512,24 @@
               "title": "Agent Id"
             },
             "description": "Agent id (agent_…) or speech engine external id (seng_), resolved to the same underlying resource."
+          },
+          {
+            "name": "branch_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter conversations by branch ID.",
+              "title": "Branch Id"
+            },
+            "description": "Filter conversations by branch ID."
           },
           {
             "name": "page_size",
@@ -42219,42 +42267,20 @@
         "type": "object",
         "title": "AgentWorkspaceOverrides"
       },
-      "AlertingIntegrationNotifier": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/AlertingPagerDutyNotifier"
-          },
-          {
-            "$ref": "#/components/schemas/AlertingSlackNotifier"
-          }
-        ],
-        "discriminator": {
-          "propertyName": "integration_type",
-          "mapping": {
-            "pagerduty": "#/components/schemas/AlertingPagerDutyNotifier",
-            "slack": "#/components/schemas/AlertingSlackNotifier"
-          }
-        }
-      },
-      "AlertingIntegrationNotifierResponse": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/AlertingPagerDutyNotifierResponse"
-          },
-          {
-            "$ref": "#/components/schemas/AlertingSlackNotifierResponse"
-          }
-        ],
-        "discriminator": {
-          "propertyName": "integration_type",
-          "mapping": {
-            "pagerduty": "#/components/schemas/AlertingPagerDutyNotifierResponse",
-            "slack": "#/components/schemas/AlertingSlackNotifierResponse"
-          }
-        }
-      },
       "AlertingMonitorConfig": {
         "properties": {
+          "enabled": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enabled",
+            "description": "Whether this monitor is enabled and can notify"
+          },
           "threshold": {
             "anyOf": [
               {
@@ -42436,16 +42462,12 @@
                   "$ref": "#/components/schemas/AlertingWebhookNotifier"
                 },
                 {
-                  "$ref": "#/components/schemas/AlertingIntegrationNotifier"
+                  "$ref": "#/components/schemas/AlertingPagerDutyNotifier"
+                },
+                {
+                  "$ref": "#/components/schemas/AlertingSlackNotifier"
                 }
-              ],
-              "discriminator": {
-                "propertyName": "type",
-                "mapping": {
-                  "integration": "#/components/schemas/AlertingIntegrationNotifier",
-                  "webhook": "#/components/schemas/AlertingWebhookNotifier"
-                }
-              }
+              ]
             },
             "type": "array",
             "maxItems": 10,
@@ -42484,16 +42506,12 @@
                   "$ref": "#/components/schemas/AlertingWebhookNotifierResponse"
                 },
                 {
-                  "$ref": "#/components/schemas/AlertingIntegrationNotifierResponse"
+                  "$ref": "#/components/schemas/AlertingPagerDutyNotifierResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/AlertingSlackNotifierResponse"
                 }
-              ],
-              "discriminator": {
-                "propertyName": "type",
-                "mapping": {
-                  "integration": "#/components/schemas/AlertingIntegrationNotifierResponse",
-                  "webhook": "#/components/schemas/AlertingWebhookNotifierResponse"
-                }
-              }
+              ]
             },
             "type": "array",
             "title": "Notifiers"
@@ -45187,6 +45205,12 @@
             "type": "boolean",
             "title": "Auto Remove",
             "description": "Whether to remove the document if the URL becomes unavailable",
+            "default": false
+          },
+          "auto_discover": {
+            "type": "boolean",
+            "title": "Auto Discover",
+            "description": "Whether new pages discovered during a refresh are crawled and added. Set from the owning crawl job at creation; the crawl job remains the source of truth for the discovery logic.",
             "default": false
           },
           "consec_failures": {
@@ -50585,9 +50609,10 @@
           },
           "new_turns_limit": {
             "type": "integer",
+            "maximum": 100.0,
             "title": "New Turns Limit",
             "description": "Maximum number of new turns to generate in the conversation simulation",
-            "default": 10000
+            "default": 100
           }
         },
         "type": "object",
@@ -50619,9 +50644,10 @@
           },
           "new_turns_limit": {
             "type": "integer",
+            "maximum": 100.0,
             "title": "New Turns Limit",
             "description": "Maximum number of new turns to generate in the conversation simulation",
-            "default": 10000
+            "default": 100
           }
         },
         "type": "object",
@@ -51772,6 +51798,15 @@
               true
             ]
           },
+          "use_pvc_as_ivc": {
+            "type": "boolean",
+            "title": "Use Pvc As Ivc",
+            "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
+            "default": false,
+            "examples": [
+              true
+            ]
+          },
           "previous_request_ids": {
             "anyOf": [
               {
@@ -51939,6 +51974,15 @@
             "title": "Apply Text Normalization",
             "description": "This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.",
             "default": "auto",
+            "examples": [
+              true
+            ]
+          },
+          "use_pvc_as_ivc": {
+            "type": "boolean",
+            "title": "Use Pvc As Ivc",
+            "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
+            "default": false,
             "examples": [
               true
             ]
@@ -52963,6 +53007,42 @@
             ],
             "title": "Third Party Disable Allowed",
             "description": "Whether the holder of this key may disable it via the self-disable endpoint. On create, omit or pass null to use the workspace's default (enabled for non-Enterprise plans, disabled for Enterprise plans). On update, omit to leave it unchanged, or pass \"clear\" to reset it to the workspace default. Only honored for workspaces with self-disable access enabled."
+          },
+          "tts_concurrency_limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tts Concurrency Limit",
+            "description": "Maximum concurrent text-to-speech/speech-to-speech requests for this API key. Only available for enterprise customers."
+          },
+          "dubbing_concurrency_limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dubbing Concurrency Limit",
+            "description": "Maximum concurrent dubbing requests for this API key. Only available for enterprise customers."
+          },
+          "music_concurrency_limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Music Concurrency Limit",
+            "description": "Maximum concurrent music generation requests for this API key. Only available for enterprise customers."
           }
         },
         "type": "object",
@@ -53109,6 +53189,66 @@
             "title": "Third Party Disable Allowed",
             "description": "Whether the holder of this key may disable it via the self-disable endpoint. On create, omit or pass null to use the workspace's default (enabled for non-Enterprise plans, disabled for Enterprise plans). On update, omit to leave it unchanged, or pass \"clear\" to reset it to the workspace default. Only honored for workspaces with self-disable access enabled.",
             "default": "no_update"
+          },
+          "tts_concurrency_limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "no_update"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tts Concurrency Limit",
+            "description": "Maximum concurrent text-to-speech/speech-to-speech requests for this API key. Only available for enterprise customers.",
+            "default": "no_update"
+          },
+          "dubbing_concurrency_limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "no_update"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dubbing Concurrency Limit",
+            "description": "Maximum concurrent dubbing requests for this API key. Only available for enterprise customers.",
+            "default": "no_update"
+          },
+          "music_concurrency_limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "no_update"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Music Concurrency Limit",
+            "description": "Maximum concurrent music generation requests for this API key. Only available for enterprise customers.",
+            "default": "no_update"
           }
         },
         "type": "object",
@@ -53218,6 +53358,15 @@
             "title": "Apply Text Normalization",
             "description": "This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.",
             "default": "auto",
+            "examples": [
+              true
+            ]
+          },
+          "use_pvc_as_ivc": {
+            "type": "boolean",
+            "title": "Use Pvc As Ivc",
+            "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
+            "default": false,
             "examples": [
               true
             ]
@@ -53389,6 +53538,15 @@
             "title": "Apply Text Normalization",
             "description": "This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.",
             "default": "auto",
+            "examples": [
+              true
+            ]
+          },
+          "use_pvc_as_ivc": {
+            "type": "boolean",
+            "title": "Use Pvc As Ivc",
+            "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
+            "default": false,
             "examples": [
               true
             ]
@@ -53610,9 +53768,8 @@
           "use_pvc_as_ivc": {
             "type": "boolean",
             "title": "Use Pvc As Ivc",
-            "description": "If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.",
+            "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
             "default": false,
-            "deprecated": true,
             "examples": [
               true
             ]
@@ -53780,9 +53937,8 @@
           "use_pvc_as_ivc": {
             "type": "boolean",
             "title": "Use Pvc As Ivc",
-            "description": "If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.",
+            "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
             "default": false,
-            "deprecated": true,
             "examples": [
               true
             ]
@@ -53971,9 +54127,8 @@
           "use_pvc_as_ivc": {
             "type": "boolean",
             "title": "Use Pvc As Ivc",
-            "description": "If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.",
+            "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
             "default": false,
-            "deprecated": true,
             "examples": [
               true
             ]
@@ -54162,9 +54317,8 @@
           "use_pvc_as_ivc": {
             "type": "boolean",
             "title": "Use Pvc As Ivc",
-            "description": "If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.",
+            "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
             "default": false,
-            "deprecated": true,
             "examples": [
               true
             ]
@@ -63322,7 +63476,7 @@
               }
             ],
             "title": "Qa Comment",
-            "description": "The QA finding covering the whole conversation."
+            "description": "The issue this ticket is about, covering the whole conversation rather than a single turn."
           },
           "turn_comments": {
             "items": {
@@ -65552,6 +65706,12 @@
       },
       "CustomSIPHeaderWithDynamicVariable": {
         "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Value",
+            "description": "The dynamic variable name to resolve"
+          },
           "type": {
             "type": "string",
             "const": "dynamic",
@@ -65564,19 +65724,13 @@
             "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$",
             "title": "Key",
             "description": "The SIP header name (e.g., 'X-Customer-ID')"
-          },
-          "value": {
-            "type": "string",
-            "minLength": 1,
-            "title": "Value",
-            "description": "The dynamic variable name to resolve"
           }
         },
         "type": "object",
         "required": [
+          "value",
           "type",
-          "key",
-          "value"
+          "key"
         ],
         "title": "CustomSIPHeaderWithDynamicVariable",
         "description": "Custom SIP header for phone transfers with a dynamic variable reference.\nThe value is a variable name that will be resolved at runtime.\nValue is not validated here since it will be substituted with actual value later."
@@ -78520,6 +78674,8 @@
           "gpt-5.6-terra",
           "gpt-5.6-luna",
           "gpt-6-astra",
+          "gpt-6-sol",
+          "gpt-6-luna",
           "gpt-5-mini",
           "gpt-5-nano",
           "gpt-3.5-turbo",
@@ -78562,6 +78718,7 @@
           "gpt-oss-120b",
           "glm-45-air-fp8",
           "glm-52",
+          "deepseek-v41-flash",
           "gemini-2.5-flash-preview-09-2025",
           "gemini-2.5-flash-lite-preview-09-2025",
           "gemini-2.5-flash-preview-05-20",
@@ -87186,17 +87343,17 @@
       },
       "PostDialDigitsDynamicVariable": {
         "properties": {
-          "type": {
-            "type": "string",
-            "const": "dynamic",
-            "title": "Type",
-            "default": "dynamic"
-          },
           "value": {
             "type": "string",
             "minLength": 1,
             "title": "Value",
             "description": "The dynamic variable name to resolve"
+          },
+          "type": {
+            "type": "string",
+            "const": "dynamic",
+            "title": "Type",
+            "default": "dynamic"
           }
         },
         "type": "object",
@@ -102158,6 +102315,30 @@
             "title": "Repeat Count",
             "description": "Number of times each test was repeated in this invocation",
             "default": 1
+          },
+          "credits_used": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Credits Used",
+            "description": "Total credits billed across test runs in this invocation. None when no run has cost data."
+          },
+          "total_price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Price",
+            "description": "Total USD price across test runs in this invocation. None when no run has price data."
           }
         },
         "type": "object",

@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class AlertingIntegrationNotifierResponseDiscriminatorIntegrationTypeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.AlertingIntegrationNotifierResponseDiscriminatorIntegrationType>
+    public sealed class BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimitJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimit>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.AlertingIntegrationNotifierResponseDiscriminatorIntegrationType Read(
+        public override global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimit Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.AlertingIntegrationNotifierResponseDiscriminatorIntegrationTypeExtensions.ToEnum(stringValue) ?? default;
+                        return global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimitExtensions.ToEnum(stringValue) ?? default;
                     }
 
                     break;
@@ -26,11 +26,11 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.AlertingIntegrationNotifierResponseDiscriminatorIntegrationType)numValue;
+                    return (global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimit)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::ElevenLabs.AlertingIntegrationNotifierResponseDiscriminatorIntegrationType);
+                    return default(global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimit);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,12 +42,12 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.AlertingIntegrationNotifierResponseDiscriminatorIntegrationType value,
+            global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimit value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::ElevenLabs.AlertingIntegrationNotifierResponseDiscriminatorIntegrationTypeExtensions.ToValueString(value));
+            writer.WriteStringValue(global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimitExtensions.ToValueString(value));
         }
     }
 }

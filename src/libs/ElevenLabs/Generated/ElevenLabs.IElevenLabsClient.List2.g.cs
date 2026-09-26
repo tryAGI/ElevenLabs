@@ -11,6 +11,9 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Filter by agent ID
         /// </param>
+        /// <param name="branchId">
+        /// Filter by branch ID
+        /// </param>
         /// <param name="pageSize">
         /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
@@ -26,6 +29,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetTestInvocationsPageResponseModel> List2Async(
             string? agentId = default,
+            string? branchId = default,
             int? pageSize = default,
             string? search = default,
             string? cursor = default,
@@ -37,6 +41,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="agentId">
         /// Filter by agent ID
+        /// </param>
+        /// <param name="branchId">
+        /// Filter by branch ID
         /// </param>
         /// <param name="pageSize">
         /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
@@ -53,6 +60,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetTestInvocationsPageResponseModel>> List2AsResponseAsync(
             string? agentId = default,
+            string? branchId = default,
             int? pageSize = default,
             string? search = default,
             string? cursor = default,
@@ -65,6 +73,9 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// Filter by agent ID
         /// </param>
+        /// <param name="branchId">
+        /// Filter by branch ID
+        /// </param>
         /// <param name="pageSize">
         /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
@@ -76,6 +87,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.TestInvocationSummaryResponseModel> List2AutoPagingAsync(
               string? agentId = default,
+            string? branchId = default,
             int? pageSize = default,
             string? search = default,
             string? cursor = null,

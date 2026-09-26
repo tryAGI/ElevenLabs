@@ -95,6 +95,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        DeepseekV41Flash,
+        /// <summary>
+        ///
+        /// </summary>
         Gemini15Flash,
         /// <summary>
         ///
@@ -383,6 +387,14 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Gpt6Luna,
+        /// <summary>
+        ///
+        /// </summary>
+        Gpt6Sol,
+        /// <summary>
+        ///
+        /// </summary>
         GptOss120b,
         /// <summary>
         ///
@@ -451,6 +463,7 @@ namespace ElevenLabs
                 Llm.ClaudeSonnet4_20250514 => "claude-sonnet-4@20250514",
                 Llm.ClaudeSonnet5 => "claude-sonnet-5",
                 Llm.CustomLlm => "custom-llm",
+                Llm.DeepseekV41Flash => "deepseek-v41-flash",
                 Llm.Gemini15Flash => "gemini-1.5-flash",
                 Llm.Gemini15Flash001 => "gemini-1.5-flash-001",
                 Llm.Gemini15Flash002 => "gemini-1.5-flash-002",
@@ -523,6 +536,8 @@ namespace ElevenLabs
                 Llm.Gpt56Sol => "gpt-5.6-sol",
                 Llm.Gpt56Terra => "gpt-5.6-terra",
                 Llm.Gpt6Astra => "gpt-6-astra",
+                Llm.Gpt6Luna => "gpt-6-luna",
+                Llm.Gpt6Sol => "gpt-6-sol",
                 Llm.GptOss120b => "gpt-oss-120b",
                 Llm.GptOss20b => "gpt-oss-20b",
                 Llm.GrokBeta => "grok-beta",
@@ -563,6 +578,7 @@ namespace ElevenLabs
                 "claude-sonnet-4@20250514" => Llm.ClaudeSonnet4_20250514,
                 "claude-sonnet-5" => Llm.ClaudeSonnet5,
                 "custom-llm" => Llm.CustomLlm,
+                "deepseek-v41-flash" => Llm.DeepseekV41Flash,
                 "gemini-1.5-flash" => Llm.Gemini15Flash,
                 "gemini-1.5-flash-001" => Llm.Gemini15Flash001,
                 "gemini-1.5-flash-002" => Llm.Gemini15Flash002,
@@ -635,6 +651,8 @@ namespace ElevenLabs
                 "gpt-5.6-sol" => Llm.Gpt56Sol,
                 "gpt-5.6-terra" => Llm.Gpt56Terra,
                 "gpt-6-astra" => Llm.Gpt6Astra,
+                "gpt-6-luna" => Llm.Gpt6Luna,
+                "gpt-6-sol" => Llm.Gpt6Sol,
                 "gpt-oss-120b" => Llm.GptOss120b,
                 "gpt-oss-20b" => Llm.GptOss20b,
                 "grok-beta" => Llm.GrokBeta,
