@@ -68,6 +68,12 @@ namespace ElevenLabs
         public double? AudioDurationSecs { get; set; }
 
         /// <summary>
+        /// Result of the optional transcript edit: the edited text, or an error if it could not be produced. Absent when no edit was requested.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("edited_transcript")]
+        public global::ElevenLabs.EditedTranscriptVariant1? EditedTranscript { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -103,6 +109,9 @@ namespace ElevenLabs
         /// <param name="audioDurationSecs">
         /// The duration of the audio that was transcribed in seconds.
         /// </param>
+        /// <param name="editedTranscript">
+        /// Result of the optional transcript edit: the edited text, or an error if it could not be produced. Absent when no edit was requested.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -115,7 +124,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.AdditionalFormatResponseModel?>? additionalFormats,
             string? transcriptionId,
             global::System.Collections.Generic.IList<global::ElevenLabs.DetectedEntity>? entities,
-            double? audioDurationSecs)
+            double? audioDurationSecs,
+            global::ElevenLabs.EditedTranscriptVariant1? editedTranscript)
         {
             this.LanguageCode = languageCode ?? throw new global::System.ArgumentNullException(nameof(languageCode));
             this.LanguageProbability = languageProbability;
@@ -126,6 +136,7 @@ namespace ElevenLabs
             this.TranscriptionId = transcriptionId;
             this.Entities = entities;
             this.AudioDurationSecs = audioDurationSecs;
+            this.EditedTranscript = editedTranscript;
         }
 
         /// <summary>

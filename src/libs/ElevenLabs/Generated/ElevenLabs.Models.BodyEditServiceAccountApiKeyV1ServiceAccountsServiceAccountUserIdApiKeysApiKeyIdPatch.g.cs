@@ -55,6 +55,30 @@ namespace ElevenLabs
         public global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchThirdPartyDisableAllowed?>? ThirdPartyDisableAllowed { get; set; }
 
         /// <summary>
+        /// Maximum concurrent text-to-speech/speech-to-speech requests for this API key. Only available for enterprise customers.<br/>
+        /// Default Value: no_update
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tts_concurrency_limit")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimit?, object>))]
+        public global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimit?, object>? TtsConcurrencyLimit { get; set; }
+
+        /// <summary>
+        /// Maximum concurrent dubbing requests for this API key. Only available for enterprise customers.<br/>
+        /// Default Value: no_update
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dubbing_concurrency_limit")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchDubbingConcurrencyLimit?, object>))]
+        public global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchDubbingConcurrencyLimit?, object>? DubbingConcurrencyLimit { get; set; }
+
+        /// <summary>
+        /// Maximum concurrent music generation requests for this API key. Only available for enterprise customers.<br/>
+        /// Default Value: no_update
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("music_concurrency_limit")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchMusicConcurrencyLimit?, object>))]
+        public global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchMusicConcurrencyLimit?, object>? MusicConcurrencyLimit { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -86,6 +110,18 @@ namespace ElevenLabs
         /// Whether the holder of this key may disable it via the self-disable endpoint. On create, omit or pass null to use the workspace's default (enabled for non-Enterprise plans, disabled for Enterprise plans). On update, omit to leave it unchanged, or pass "clear" to reset it to the workspace default. Only honored for workspaces with self-disable access enabled.<br/>
         /// Default Value: no_update
         /// </param>
+        /// <param name="ttsConcurrencyLimit">
+        /// Maximum concurrent text-to-speech/speech-to-speech requests for this API key. Only available for enterprise customers.<br/>
+        /// Default Value: no_update
+        /// </param>
+        /// <param name="dubbingConcurrencyLimit">
+        /// Maximum concurrent dubbing requests for this API key. Only available for enterprise customers.<br/>
+        /// Default Value: no_update
+        /// </param>
+        /// <param name="musicConcurrencyLimit">
+        /// Maximum concurrent music generation requests for this API key. Only available for enterprise customers.<br/>
+        /// Default Value: no_update
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -95,7 +131,10 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchPermissions?>? permissions,
             global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchCharacterLimit?, object>? characterLimit,
             global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<string>, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchAllowedIps?>? allowedIps,
-            global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchThirdPartyDisableAllowed?>? thirdPartyDisableAllowed)
+            global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchThirdPartyDisableAllowed?>? thirdPartyDisableAllowed,
+            global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimit?, object>? ttsConcurrencyLimit,
+            global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchDubbingConcurrencyLimit?, object>? dubbingConcurrencyLimit,
+            global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchMusicConcurrencyLimit?, object>? musicConcurrencyLimit)
         {
             this.IsEnabled = isEnabled;
             this.Name = name;
@@ -103,6 +142,9 @@ namespace ElevenLabs
             this.CharacterLimit = characterLimit;
             this.AllowedIps = allowedIps;
             this.ThirdPartyDisableAllowed = thirdPartyDisableAllowed;
+            this.TtsConcurrencyLimit = ttsConcurrencyLimit;
+            this.DubbingConcurrencyLimit = dubbingConcurrencyLimit;
+            this.MusicConcurrencyLimit = musicConcurrencyLimit;
         }
 
         /// <summary>
