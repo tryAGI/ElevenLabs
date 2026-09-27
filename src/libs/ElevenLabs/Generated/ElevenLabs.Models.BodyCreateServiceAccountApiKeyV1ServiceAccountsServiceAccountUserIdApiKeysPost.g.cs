@@ -42,6 +42,24 @@ namespace ElevenLabs
         public bool? ThirdPartyDisableAllowed { get; set; }
 
         /// <summary>
+        /// Maximum concurrent text-to-speech/speech-to-speech requests for this API key. Only available for enterprise customers.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tts_concurrency_limit")]
+        public int? TtsConcurrencyLimit { get; set; }
+
+        /// <summary>
+        /// Maximum concurrent dubbing requests for this API key. Only available for enterprise customers.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dubbing_concurrency_limit")]
+        public int? DubbingConcurrencyLimit { get; set; }
+
+        /// <summary>
+        /// Maximum concurrent music generation requests for this API key. Only available for enterprise customers.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("music_concurrency_limit")]
+        public int? MusicConcurrencyLimit { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -63,6 +81,15 @@ namespace ElevenLabs
         /// <param name="thirdPartyDisableAllowed">
         /// Whether the holder of this key may disable it via the self-disable endpoint. On create, omit or pass null to use the workspace's default (enabled for non-Enterprise plans, disabled for Enterprise plans). On update, omit to leave it unchanged, or pass "clear" to reset it to the workspace default. Only honored for workspaces with self-disable access enabled.
         /// </param>
+        /// <param name="ttsConcurrencyLimit">
+        /// Maximum concurrent text-to-speech/speech-to-speech requests for this API key. Only available for enterprise customers.
+        /// </param>
+        /// <param name="dubbingConcurrencyLimit">
+        /// Maximum concurrent dubbing requests for this API key. Only available for enterprise customers.
+        /// </param>
+        /// <param name="musicConcurrencyLimit">
+        /// Maximum concurrent music generation requests for this API key. Only available for enterprise customers.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -71,13 +98,19 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>, string> permissions,
             int? characterLimit,
             global::System.Collections.Generic.IList<string>? allowedIps,
-            bool? thirdPartyDisableAllowed)
+            bool? thirdPartyDisableAllowed,
+            int? ttsConcurrencyLimit,
+            int? dubbingConcurrencyLimit,
+            int? musicConcurrencyLimit)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Permissions = permissions;
             this.CharacterLimit = characterLimit;
             this.AllowedIps = allowedIps;
             this.ThirdPartyDisableAllowed = thirdPartyDisableAllowed;
+            this.TtsConcurrencyLimit = ttsConcurrencyLimit;
+            this.DubbingConcurrencyLimit = dubbingConcurrencyLimit;
+            this.MusicConcurrencyLimit = musicConcurrencyLimit;
         }
 
         /// <summary>

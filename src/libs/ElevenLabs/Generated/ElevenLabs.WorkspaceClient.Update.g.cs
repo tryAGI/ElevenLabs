@@ -513,6 +513,18 @@ namespace ElevenLabs
         /// Whether the holder of this key may disable it via the self-disable endpoint. On create, omit or pass null to use the workspace's default (enabled for non-Enterprise plans, disabled for Enterprise plans). On update, omit to leave it unchanged, or pass "clear" to reset it to the workspace default. Only honored for workspaces with self-disable access enabled.<br/>
         /// Default Value: no_update
         /// </param>
+        /// <param name="ttsConcurrencyLimit">
+        /// Maximum concurrent text-to-speech/speech-to-speech requests for this API key. Only available for enterprise customers.<br/>
+        /// Default Value: no_update
+        /// </param>
+        /// <param name="dubbingConcurrencyLimit">
+        /// Maximum concurrent dubbing requests for this API key. Only available for enterprise customers.<br/>
+        /// Default Value: no_update
+        /// </param>
+        /// <param name="musicConcurrencyLimit">
+        /// Maximum concurrent music generation requests for this API key. Only available for enterprise customers.<br/>
+        /// Default Value: no_update
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -525,6 +537,9 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchCharacterLimit?, object>? characterLimit = default,
             global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<string>, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchAllowedIps?>? allowedIps = default,
             global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchThirdPartyDisableAllowed?>? thirdPartyDisableAllowed = default,
+            global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimit?, object>? ttsConcurrencyLimit = default,
+            global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchDubbingConcurrencyLimit?, object>? dubbingConcurrencyLimit = default,
+            global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchMusicConcurrencyLimit?, object>? musicConcurrencyLimit = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -536,6 +551,9 @@ namespace ElevenLabs
                 CharacterLimit = characterLimit,
                 AllowedIps = allowedIps,
                 ThirdPartyDisableAllowed = thirdPartyDisableAllowed,
+                TtsConcurrencyLimit = ttsConcurrencyLimit,
+                DubbingConcurrencyLimit = dubbingConcurrencyLimit,
+                MusicConcurrencyLimit = musicConcurrencyLimit,
             };
 
             return await UpdateAsync(

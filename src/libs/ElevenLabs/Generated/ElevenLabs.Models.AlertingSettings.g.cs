@@ -26,7 +26,7 @@ namespace ElevenLabs
         /// Delivery channels for alert lifecycle notifications. Stacked with other layers and deduped by ``webhook_id``, PagerDuty ``connection_id``, or Slack ``(connection_id, channel_id)``.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("notifiers")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.NotifiersItem>? Notifiers { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifier, global::ElevenLabs.AlertingPagerDutyNotifier, global::ElevenLabs.AlertingSlackNotifier>>? Notifiers { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -52,7 +52,7 @@ namespace ElevenLabs
         public AlertingSettings(
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AlertingMonitorConfig>? monitorConfigs,
             int? autoResolveAfterInactiveMinutes,
-            global::System.Collections.Generic.IList<global::ElevenLabs.NotifiersItem>? notifiers)
+            global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifier, global::ElevenLabs.AlertingPagerDutyNotifier, global::ElevenLabs.AlertingSlackNotifier>>? notifiers)
         {
             this.MonitorConfigs = monitorConfigs;
             this.AutoResolveAfterInactiveMinutes = autoResolveAfterInactiveMinutes;

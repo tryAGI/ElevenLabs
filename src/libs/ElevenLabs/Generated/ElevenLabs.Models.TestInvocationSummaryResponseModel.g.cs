@@ -103,6 +103,18 @@ namespace ElevenLabs
         public int? RepeatCount { get; set; }
 
         /// <summary>
+        /// Total credits billed across test runs in this invocation. None when no run has cost data.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("credits_used")]
+        public int? CreditsUsed { get; set; }
+
+        /// <summary>
+        /// Total USD price across test runs in this invocation. None when no run has price data.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("total_price")]
+        public double? TotalPrice { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -156,6 +168,12 @@ namespace ElevenLabs
         /// Number of times each test was repeated in this invocation<br/>
         /// Default Value: 1
         /// </param>
+        /// <param name="creditsUsed">
+        /// Total credits billed across test runs in this invocation. None when no run has cost data.
+        /// </param>
+        /// <param name="totalPrice">
+        /// Total USD price across test runs in this invocation. None when no run has price data.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -173,7 +191,9 @@ namespace ElevenLabs
             bool? ranAgainstDraft,
             bool? runsDivergedFromVersion,
             global::ElevenLabs.ResourceAccessInfo? accessInfo,
-            int? repeatCount)
+            int? repeatCount,
+            int? creditsUsed,
+            double? totalPrice)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.AgentId = agentId;
@@ -189,6 +209,8 @@ namespace ElevenLabs
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.AccessInfo = accessInfo;
             this.RepeatCount = repeatCount;
+            this.CreditsUsed = creditsUsed;
+            this.TotalPrice = totalPrice;
         }
 
         /// <summary>

@@ -36,6 +36,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>), TypeInfoPropertyName = "AnyOfStringIListStringObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DetectedEntity))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DocxExportOptions))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.EditedTranscript))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SegmentedJsonExportOptions))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PdfExportOptions))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TxtExportOptions))]
@@ -54,6 +55,10 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SpeechToTextWordResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.AdditionalFormatResponseModel?>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.DetectedEntity>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.EditedTranscriptVariant1))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TranscriptEditError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SpeechToTextChunkResponseModelEditedTranscriptVariant1Discriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SpeechToTextChunkResponseModelEditedTranscriptVariant1DiscriminatorKind), TypeInfoPropertyName = "SpeechToTextChunkResponseModelEditedTranscriptVariant1DiscriminatorKind2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SpeechToTextWebhookResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SpeechToTextWordResponseModelType), TypeInfoPropertyName = "SpeechToTextWordResponseModelType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextCharacterResponseModel>))]
@@ -71,6 +76,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, object, object>?), TypeInfoPropertyName = "NullableAnyOfStringObjectObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>?), TypeInfoPropertyName = "NullableAnyOfStringIListStringObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ExportOptionsDiscriminatorFormat?), TypeInfoPropertyName = "NullableExportOptionsDiscriminatorFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SpeechToTextChunkResponseModelEditedTranscriptVariant1DiscriminatorKind?), TypeInfoPropertyName = "NullableSpeechToTextChunkResponseModelEditedTranscriptVariant1DiscriminatorKind2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SpeechToTextWordResponseModelType?), TypeInfoPropertyName = "NullableSpeechToTextWordResponseModelType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<string, int?>?), TypeInfoPropertyName = "NullableAnyOfStringInt322")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.SpeechToTextChunkResponseModel, global::ElevenLabs.MultichannelSpeechToTextResponseModel, global::ElevenLabs.SpeechToTextWebhookResponseModel>?), TypeInfoPropertyName = "NullableAnyOfSpeechToTextChunkResponseModelMultichannelSpeechToTextResponseModelSpeechToTextWebhookResponseModel2")]
@@ -130,6 +136,7 @@ namespace ElevenLabs
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ExportOptionsJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.EditedTranscriptVariant1JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<double?, int?>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<double?, int?>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?, object>());
@@ -189,6 +196,10 @@ namespace ElevenLabs
 
                     || typeToConvert == typeof(global::ElevenLabs.ExportOptionsDiscriminatorFormat?)
 
+                    || typeToConvert == typeof(global::ElevenLabs.SpeechToTextChunkResponseModelEditedTranscriptVariant1DiscriminatorKind)
+
+                    || typeToConvert == typeof(global::ElevenLabs.SpeechToTextChunkResponseModelEditedTranscriptVariant1DiscriminatorKind?)
+
                     || typeToConvert == typeof(global::ElevenLabs.SpeechToTextWordResponseModelType)
 
                     || typeToConvert == typeof(global::ElevenLabs.SpeechToTextWordResponseModelType?);
@@ -236,6 +247,16 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.ExportOptionsDiscriminatorFormat?))
                 {
                     return new global::ElevenLabs.JsonConverters.ExportOptionsDiscriminatorFormatNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.SpeechToTextChunkResponseModelEditedTranscriptVariant1DiscriminatorKind))
+                {
+                    return new global::ElevenLabs.JsonConverters.SpeechToTextChunkResponseModelEditedTranscriptVariant1DiscriminatorKindJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.SpeechToTextChunkResponseModelEditedTranscriptVariant1DiscriminatorKind?))
+                {
+                    return new global::ElevenLabs.JsonConverters.SpeechToTextChunkResponseModelEditedTranscriptVariant1DiscriminatorKindNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.SpeechToTextWordResponseModelType))

@@ -73,6 +73,9 @@ namespace ElevenLabs
         /// <param name="languageCode">
         /// An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.
         /// </param>
+        /// <param name="transcriptEdit">
+        /// Natural-language instruction applied to the final transcript (max 2000 characters). The edited text is returned in 'edited_transcript' alongside the original transcript. Cannot be combined with entity_detection, entity_redaction or use_multi_channel. Usage of this parameter will incur an additional 30% surcharge on the base transcription cost, billed for at least 10 seconds of audio.
+        /// </param>
         /// <param name="tagAudioEvents">
         /// Whether to tag audio events like (laughter), (footsteps), etc. in the transcription.<br/>
         /// Default Value: true
@@ -161,6 +164,7 @@ namespace ElevenLabs
             byte[]? file = default,
             string? filename = default,
             string? languageCode = default,
+            string? transcriptEdit = default,
             bool? tagAudioEvents = default,
             int? numSpeakers = default,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? timestampsGranularity = default,
