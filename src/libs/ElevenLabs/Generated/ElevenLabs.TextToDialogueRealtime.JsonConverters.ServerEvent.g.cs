@@ -222,25 +222,25 @@ namespace ElevenLabs.TextToDialogueRealtime.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TextToDialogueWebsocketAudioChunk!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTextToDialogueWebsocketAudioChunk(), typeInfo);
             }
             else if (value.IsTextToDialogueWebsocketFinalAudioForTurn)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinalAudioForTurn), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinalAudioForTurn?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinalAudioForTurn).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TextToDialogueWebsocketFinalAudioForTurn!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTextToDialogueWebsocketFinalAudioForTurn(), typeInfo);
             }
             else if (value.IsTextToDialogueWebsocketFinal)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinal), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinal?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinal).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TextToDialogueWebsocketFinal!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTextToDialogueWebsocketFinal(), typeInfo);
             }
             else if (value.IsTextToDialogueWebsocketError)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TextToDialogueWebsocketError!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTextToDialogueWebsocketError(), typeInfo);
             }
         }
     }

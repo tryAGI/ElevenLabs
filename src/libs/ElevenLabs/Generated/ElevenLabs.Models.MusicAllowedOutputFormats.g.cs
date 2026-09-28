@@ -42,8 +42,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AllowedOutputFormats PickAllowedOutputFormats() => IsAllowedOutputFormats
-            ? AllowedOutputFormats!.Value
+        public global::ElevenLabs.AllowedOutputFormats PickAllowedOutputFormats() => AllowedOutputFormats is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'AllowedOutputFormats' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicOnlyOutputFormats PickOnly() => IsOnly
-            ? Only!.Value
+        public global::ElevenLabs.MusicOnlyOutputFormats PickOnly() => Only is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Only' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsAllowedOutputFormats && allowedOutputFormats != null)
+            if (AllowedOutputFormats is { } __value0 && allowedOutputFormats != null)
             {
-                return allowedOutputFormats(AllowedOutputFormats!);
+                return allowedOutputFormats(__value0);
             }
-            else if (IsOnly && only != null)
+            else if (Only is { } __value1 && only != null)
             {
-                return only(Only!);
+                return only(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsAllowedOutputFormats)
+            if (AllowedOutputFormats is { } __value0)
             {
-                allowedOutputFormats?.Invoke(AllowedOutputFormats!);
+                allowedOutputFormats?.Invoke(__value0);
             }
-            else if (IsOnly)
+            else if (Only is { } __value1)
             {
-                only?.Invoke(Only!);
+                only?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsAllowedOutputFormats)
+            if (AllowedOutputFormats is { } __value0)
             {
-                allowedOutputFormats?.Invoke(AllowedOutputFormats!);
+                allowedOutputFormats?.Invoke(__value0);
             }
-            else if (IsOnly)
+            else if (Only is { } __value1)
             {
-                only?.Invoke(Only!);
+                only?.Invoke(__value1);
             }
         }
 

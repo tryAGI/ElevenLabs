@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PairedLanguagesResponse PickPair() => IsPair
-            ? Pair!
+        public global::ElevenLabs.PairedLanguagesResponse PickPair() => Pair is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Pair' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SingleLanguagesResponse PickSingle() => IsSingle
-            ? Single!
+        public global::ElevenLabs.SingleLanguagesResponse PickSingle() => Single is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Single' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsPair && pair != null)
+            if (Pair is { } __value0 && pair != null)
             {
-                return pair(Pair!);
+                return pair(__value0);
             }
-            else if (IsSingle && single != null)
+            else if (Single is { } __value1 && single != null)
             {
-                return single(Single!);
+                return single(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsPair)
+            if (Pair is { } __value0)
             {
-                pair?.Invoke(Pair!);
+                pair?.Invoke(__value0);
             }
-            else if (IsSingle)
+            else if (Single is { } __value1)
             {
-                single?.Invoke(Single!);
+                single?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsPair)
+            if (Pair is { } __value0)
             {
-                pair?.Invoke(Pair!);
+                pair?.Invoke(__value0);
             }
-            else if (IsSingle)
+            else if (Single is { } __value1)
             {
-                single?.Invoke(Single!);
+                single?.Invoke(__value1);
             }
         }
 

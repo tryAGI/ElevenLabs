@@ -48,8 +48,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MediaGenerationInProgressResponse PickGenerating() => IsGenerating
-            ? Generating!
+        public global::ElevenLabs.MediaGenerationInProgressResponse PickGenerating() => Generating is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Generating' but the value was {ToString()}.");
 
         /// <summary>
@@ -86,8 +86,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MediaGenerationCompletedResponse PickCompleted() => IsCompleted
-            ? Completed!
+        public global::ElevenLabs.MediaGenerationCompletedResponse PickCompleted() => Completed is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Completed' but the value was {ToString()}.");
 
         /// <summary>
@@ -124,8 +124,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MediaGenerationFailedResponse PickFailed() => IsFailed
-            ? Failed!
+        public global::ElevenLabs.MediaGenerationFailedResponse PickFailed() => Failed is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Failed' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -253,17 +253,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsGenerating && generating != null)
+            if (Generating is { } __value0 && generating != null)
             {
-                return generating(Generating!);
+                return generating(__value0);
             }
-            else if (IsCompleted && completed != null)
+            else if (Completed is { } __value1 && completed != null)
             {
-                return completed(Completed!);
+                return completed(__value1);
             }
-            else if (IsFailed && failed != null)
+            else if (Failed is { } __value2 && failed != null)
             {
-                return failed(Failed!);
+                return failed(__value2);
             }
 
             return default(TResult);
@@ -285,17 +285,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsGenerating)
+            if (Generating is { } __value0)
             {
-                generating?.Invoke(Generating!);
+                generating?.Invoke(__value0);
             }
-            else if (IsCompleted)
+            else if (Completed is { } __value1)
             {
-                completed?.Invoke(Completed!);
+                completed?.Invoke(__value1);
             }
-            else if (IsFailed)
+            else if (Failed is { } __value2)
             {
-                failed?.Invoke(Failed!);
+                failed?.Invoke(__value2);
             }
         }
 
@@ -313,17 +313,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsGenerating)
+            if (Generating is { } __value0)
             {
-                generating?.Invoke(Generating!);
+                generating?.Invoke(__value0);
             }
-            else if (IsCompleted)
+            else if (Completed is { } __value1)
             {
-                completed?.Invoke(Completed!);
+                completed?.Invoke(__value1);
             }
-            else if (IsFailed)
+            else if (Failed is { } __value2)
             {
-                failed?.Invoke(Failed!);
+                failed?.Invoke(__value2);
             }
         }
 

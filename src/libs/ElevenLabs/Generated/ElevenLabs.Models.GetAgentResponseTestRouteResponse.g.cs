@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetResponseUnitTestResponseModel PickLlm() => IsLlm
-            ? Llm!
+        public global::ElevenLabs.GetResponseUnitTestResponseModel PickLlm() => Llm is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Llm' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetToolCallUnitTestResponseModel PickTool() => IsTool
-            ? Tool!
+        public global::ElevenLabs.GetToolCallUnitTestResponseModel PickTool() => Tool is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Tool' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetSimulationTestResponseModel PickSimulation() => IsSimulation
-            ? Simulation!
+        public global::ElevenLabs.GetSimulationTestResponseModel PickSimulation() => Simulation is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Simulation' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -250,17 +250,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsLlm && llm != null)
+            if (Llm is { } __value0 && llm != null)
             {
-                return llm(Llm!);
+                return llm(__value0);
             }
-            else if (IsTool && tool != null)
+            else if (Tool is { } __value1 && tool != null)
             {
-                return tool(Tool!);
+                return tool(__value1);
             }
-            else if (IsSimulation && simulation != null)
+            else if (Simulation is { } __value2 && simulation != null)
             {
-                return simulation(Simulation!);
+                return simulation(__value2);
             }
 
             return default(TResult);
@@ -282,17 +282,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsLlm)
+            if (Llm is { } __value0)
             {
-                llm?.Invoke(Llm!);
+                llm?.Invoke(__value0);
             }
-            else if (IsTool)
+            else if (Tool is { } __value1)
             {
-                tool?.Invoke(Tool!);
+                tool?.Invoke(__value1);
             }
-            else if (IsSimulation)
+            else if (Simulation is { } __value2)
             {
-                simulation?.Invoke(Simulation!);
+                simulation?.Invoke(__value2);
             }
         }
 
@@ -310,17 +310,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsLlm)
+            if (Llm is { } __value0)
             {
-                llm?.Invoke(Llm!);
+                llm?.Invoke(__value0);
             }
-            else if (IsTool)
+            else if (Tool is { } __value1)
             {
-                tool?.Invoke(Tool!);
+                tool?.Invoke(__value1);
             }
-            else if (IsSimulation)
+            else if (Simulation is { } __value2)
             {
-                simulation?.Invoke(Simulation!);
+                simulation?.Invoke(__value2);
             }
         }
 

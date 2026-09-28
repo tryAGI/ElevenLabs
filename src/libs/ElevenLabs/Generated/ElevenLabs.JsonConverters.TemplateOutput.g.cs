@@ -122,55 +122,55 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TemplateImageOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TemplateImageOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TemplateImageOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Image!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickImage(), typeInfo);
             }
             else if (value.IsVideo)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TemplateVideoOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TemplateVideoOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TemplateVideoOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Video!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickVideo(), typeInfo);
             }
             else if (value.IsAudio)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TemplateAudioOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TemplateAudioOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TemplateAudioOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Audio!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickAudio(), typeInfo);
             }
             else if (value.IsString)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TemplateStringOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TemplateStringOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TemplateStringOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.String!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickString(), typeInfo);
             }
             else if (value.IsInteger)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TemplateIntegerOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TemplateIntegerOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TemplateIntegerOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Integer!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickInteger(), typeInfo);
             }
             else if (value.IsNumber)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TemplateNumberOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TemplateNumberOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TemplateNumberOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Number!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickNumber(), typeInfo);
             }
             else if (value.IsBoolean)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TemplateBooleanOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TemplateBooleanOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TemplateBooleanOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Boolean!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickBoolean(), typeInfo);
             }
             else if (value.IsArray)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TemplateArrayOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TemplateArrayOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TemplateArrayOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Array!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickArray(), typeInfo);
             }
             else if (value.IsObjectValue)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TemplateObjectOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TemplateObjectOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TemplateObjectOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ObjectValue!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickObjectValue(), typeInfo);
             }
         }
     }

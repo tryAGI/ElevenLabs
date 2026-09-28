@@ -68,19 +68,19 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MediaGenerationInProgressResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MediaGenerationInProgressResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.MediaGenerationInProgressResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Generating!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickGenerating(), typeInfo);
             }
             else if (value.IsCompleted)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MediaGenerationCompletedResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MediaGenerationCompletedResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.MediaGenerationCompletedResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Completed!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickCompleted(), typeInfo);
             }
             else if (value.IsFailed)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MediaGenerationFailedResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MediaGenerationFailedResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.MediaGenerationFailedResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Failed!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickFailed(), typeInfo);
             }
         }
     }

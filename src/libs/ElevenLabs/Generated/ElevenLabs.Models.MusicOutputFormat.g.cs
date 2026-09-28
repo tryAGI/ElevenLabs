@@ -42,8 +42,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicAllowedOutputFormats PickAllowedFormats() => IsAllowedFormats
-            ? AllowedFormats!.Value
+        public global::ElevenLabs.MusicAllowedOutputFormats PickAllowedFormats() => AllowedFormats is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'AllowedFormats' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public string PickMusicOutputFormatVariant2() => IsMusicOutputFormatVariant2
-            ? MusicOutputFormatVariant2!
+        public string PickMusicOutputFormatVariant2() => MusicOutputFormatVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'MusicOutputFormatVariant2' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsAllowedFormats && allowedFormats != null)
+            if (AllowedFormats is { } __value0 && allowedFormats != null)
             {
-                return allowedFormats(AllowedFormats!);
+                return allowedFormats(__value0);
             }
-            else if (IsMusicOutputFormatVariant2 && musicOutputFormatVariant2 != null)
+            else if (MusicOutputFormatVariant2 is { } __value1 && musicOutputFormatVariant2 != null)
             {
-                return musicOutputFormatVariant2(MusicOutputFormatVariant2!);
+                return musicOutputFormatVariant2(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsAllowedFormats)
+            if (AllowedFormats is { } __value0)
             {
-                allowedFormats?.Invoke(AllowedFormats!);
+                allowedFormats?.Invoke(__value0);
             }
-            else if (IsMusicOutputFormatVariant2)
+            else if (MusicOutputFormatVariant2 is { } __value1)
             {
-                musicOutputFormatVariant2?.Invoke(MusicOutputFormatVariant2!);
+                musicOutputFormatVariant2?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsAllowedFormats)
+            if (AllowedFormats is { } __value0)
             {
-                allowedFormats?.Invoke(AllowedFormats!);
+                allowedFormats?.Invoke(__value0);
             }
-            else if (IsMusicOutputFormatVariant2)
+            else if (MusicOutputFormatVariant2 is { } __value1)
             {
-                musicOutputFormatVariant2?.Invoke(MusicOutputFormatVariant2!);
+                musicOutputFormatVariant2?.Invoke(__value1);
             }
         }
 

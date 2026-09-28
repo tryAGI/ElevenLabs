@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferBranchInfoTrafficSplit PickTrafficSplit() => IsTrafficSplit
-            ? TrafficSplit!
+        public global::ElevenLabs.TransferBranchInfoTrafficSplit PickTrafficSplit() => TrafficSplit is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TrafficSplit' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferBranchInfoDefaultingToMain PickDefaultingToMain() => IsDefaultingToMain
-            ? DefaultingToMain!
+        public global::ElevenLabs.TransferBranchInfoDefaultingToMain PickDefaultingToMain() => DefaultingToMain is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DefaultingToMain' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsTrafficSplit && trafficSplit != null)
+            if (TrafficSplit is { } __value0 && trafficSplit != null)
             {
-                return trafficSplit(TrafficSplit!);
+                return trafficSplit(__value0);
             }
-            else if (IsDefaultingToMain && defaultingToMain != null)
+            else if (DefaultingToMain is { } __value1 && defaultingToMain != null)
             {
-                return defaultingToMain(DefaultingToMain!);
+                return defaultingToMain(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsTrafficSplit)
+            if (TrafficSplit is { } __value0)
             {
-                trafficSplit?.Invoke(TrafficSplit!);
+                trafficSplit?.Invoke(__value0);
             }
-            else if (IsDefaultingToMain)
+            else if (DefaultingToMain is { } __value1)
             {
-                defaultingToMain?.Invoke(DefaultingToMain!);
+                defaultingToMain?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsTrafficSplit)
+            if (TrafficSplit is { } __value0)
             {
-                trafficSplit?.Invoke(TrafficSplit!);
+                trafficSplit?.Invoke(__value0);
             }
-            else if (IsDefaultingToMain)
+            else if (DefaultingToMain is { } __value1)
             {
-                defaultingToMain?.Invoke(DefaultingToMain!);
+                defaultingToMain?.Invoke(__value1);
             }
         }
 

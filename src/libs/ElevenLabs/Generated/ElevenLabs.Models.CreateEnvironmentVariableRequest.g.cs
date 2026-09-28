@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateStringEnvironmentVariableRequest PickString() => IsString
-            ? String!
+        public global::ElevenLabs.CreateStringEnvironmentVariableRequest PickString() => String is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'String' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateSecretEnvironmentVariableRequest PickSecret() => IsSecret
-            ? Secret!
+        public global::ElevenLabs.CreateSecretEnvironmentVariableRequest PickSecret() => Secret is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Secret' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest PickAuthConnection() => IsAuthConnection
-            ? AuthConnection!
+        public global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest PickAuthConnection() => AuthConnection is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'AuthConnection' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -250,17 +250,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsString && @string != null)
+            if (String is { } __value0 && @string != null)
             {
-                return @string(String!);
+                return @string(__value0);
             }
-            else if (IsSecret && secret != null)
+            else if (Secret is { } __value1 && secret != null)
             {
-                return secret(Secret!);
+                return secret(__value1);
             }
-            else if (IsAuthConnection && authConnection != null)
+            else if (AuthConnection is { } __value2 && authConnection != null)
             {
-                return authConnection(AuthConnection!);
+                return authConnection(__value2);
             }
 
             return default(TResult);
@@ -282,17 +282,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsString)
+            if (String is { } __value0)
             {
-                @string?.Invoke(String!);
+                @string?.Invoke(__value0);
             }
-            else if (IsSecret)
+            else if (Secret is { } __value1)
             {
-                secret?.Invoke(Secret!);
+                secret?.Invoke(__value1);
             }
-            else if (IsAuthConnection)
+            else if (AuthConnection is { } __value2)
             {
-                authConnection?.Invoke(AuthConnection!);
+                authConnection?.Invoke(__value2);
             }
         }
 
@@ -310,17 +310,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsString)
+            if (String is { } __value0)
             {
-                @string?.Invoke(String!);
+                @string?.Invoke(__value0);
             }
-            else if (IsSecret)
+            else if (Secret is { } __value1)
             {
-                secret?.Invoke(Secret!);
+                secret?.Invoke(__value1);
             }
-            else if (IsAuthConnection)
+            else if (AuthConnection is { } __value2)
             {
-                authConnection?.Invoke(AuthConnection!);
+                authConnection?.Invoke(__value2);
             }
         }
 

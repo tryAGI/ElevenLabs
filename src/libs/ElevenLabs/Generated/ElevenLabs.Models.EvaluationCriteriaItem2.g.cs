@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AttachedUserEvaluationRef PickUser() => IsUser
-            ? User!
+        public global::ElevenLabs.AttachedUserEvaluationRef PickUser() => User is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'User' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AttachedSystemEvaluationRef PickSystem() => IsSystem
-            ? System!
+        public global::ElevenLabs.AttachedSystemEvaluationRef PickSystem() => System is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'System' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsUser && user != null)
+            if (User is { } __value0 && user != null)
             {
-                return user(User!);
+                return user(__value0);
             }
-            else if (IsSystem && system != null)
+            else if (System is { } __value1 && system != null)
             {
-                return system(System!);
+                return system(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsUser)
+            if (User is { } __value0)
             {
-                user?.Invoke(User!);
+                user?.Invoke(__value0);
             }
-            else if (IsSystem)
+            else if (System is { } __value1)
             {
-                system?.Invoke(System!);
+                system?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsUser)
+            if (User is { } __value0)
             {
-                user?.Invoke(User!);
+                user?.Invoke(__value0);
             }
-            else if (IsSystem)
+            else if (System is { } __value1)
             {
-                system?.Invoke(System!);
+                system?.Invoke(__value1);
             }
         }
 

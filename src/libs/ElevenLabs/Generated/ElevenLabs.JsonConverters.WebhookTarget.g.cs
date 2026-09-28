@@ -59,13 +59,13 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WebhookTargetAll), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WebhookTargetAll?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WebhookTargetAll).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.All!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickAll(), typeInfo);
             }
             else if (value.IsIds)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WebhookTargetIds), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WebhookTargetIds?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WebhookTargetIds).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Ids!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickIds(), typeInfo);
             }
         }
     }

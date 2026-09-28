@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SongSourceContext PickMusicExploreSong1() => IsMusicExploreSong1
-            ? MusicExploreSong1!
+        public global::ElevenLabs.SongSourceContext PickMusicExploreSong1() => MusicExploreSong1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'MusicExploreSong1' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicExploreSongSourceContext PickMusicExploreSong2() => IsMusicExploreSong2
-            ? MusicExploreSong2!
+        public global::ElevenLabs.MusicExploreSongSourceContext PickMusicExploreSong2() => MusicExploreSong2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'MusicExploreSong2' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SfxSourceContext PickSfx() => IsSfx
-            ? Sfx!
+        public global::ElevenLabs.SfxSourceContext PickSfx() => Sfx is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Sfx' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -250,17 +250,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsMusicExploreSong1 && musicExploreSong1 != null)
+            if (MusicExploreSong1 is { } __value0 && musicExploreSong1 != null)
             {
-                return musicExploreSong1(MusicExploreSong1!);
+                return musicExploreSong1(__value0);
             }
-            else if (IsMusicExploreSong2 && musicExploreSong2 != null)
+            else if (MusicExploreSong2 is { } __value1 && musicExploreSong2 != null)
             {
-                return musicExploreSong2(MusicExploreSong2!);
+                return musicExploreSong2(__value1);
             }
-            else if (IsSfx && sfx != null)
+            else if (Sfx is { } __value2 && sfx != null)
             {
-                return sfx(Sfx!);
+                return sfx(__value2);
             }
 
             return default(TResult);
@@ -282,17 +282,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsMusicExploreSong1)
+            if (MusicExploreSong1 is { } __value0)
             {
-                musicExploreSong1?.Invoke(MusicExploreSong1!);
+                musicExploreSong1?.Invoke(__value0);
             }
-            else if (IsMusicExploreSong2)
+            else if (MusicExploreSong2 is { } __value1)
             {
-                musicExploreSong2?.Invoke(MusicExploreSong2!);
+                musicExploreSong2?.Invoke(__value1);
             }
-            else if (IsSfx)
+            else if (Sfx is { } __value2)
             {
-                sfx?.Invoke(Sfx!);
+                sfx?.Invoke(__value2);
             }
         }
 
@@ -310,17 +310,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsMusicExploreSong1)
+            if (MusicExploreSong1 is { } __value0)
             {
-                musicExploreSong1?.Invoke(MusicExploreSong1!);
+                musicExploreSong1?.Invoke(__value0);
             }
-            else if (IsMusicExploreSong2)
+            else if (MusicExploreSong2 is { } __value1)
             {
-                musicExploreSong2?.Invoke(MusicExploreSong2!);
+                musicExploreSong2?.Invoke(__value1);
             }
-            else if (IsSfx)
+            else if (Sfx is { } __value2)
             {
-                sfx?.Invoke(Sfx!);
+                sfx?.Invoke(__value2);
             }
         }
 

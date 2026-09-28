@@ -140,67 +140,67 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GPTImage1Request), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GPTImage1Request?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GPTImage1Request).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GptImage1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickGptImage1(), typeInfo);
             }
             else if (value.IsGptImage15)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GPTImage15Request), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GPTImage15Request?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GPTImage15Request).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GptImage15!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickGptImage15(), typeInfo);
             }
             else if (value.IsGptImage2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GPTImage2Request), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GPTImage2Request?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GPTImage2Request).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GptImage2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickGptImage2(), typeInfo);
             }
             else if (value.IsGptImage25Sunburst)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GPTImage25SunburstRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GPTImage25SunburstRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GPTImage25SunburstRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GptImage25Sunburst!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickGptImage25Sunburst(), typeInfo);
             }
             else if (value.IsGptImage25Flare)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GPTImage25FlareRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GPTImage25FlareRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GPTImage25FlareRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GptImage25Flare!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickGptImage25Flare(), typeInfo);
             }
             else if (value.IsGemini25FlashImage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.Gemini25FlashImageRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.Gemini25FlashImageRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.Gemini25FlashImageRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Gemini25FlashImage!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickGemini25FlashImage(), typeInfo);
             }
             else if (value.IsGemini3ProImage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.Gemini3ProImageRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.Gemini3ProImageRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.Gemini3ProImageRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Gemini3ProImage!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickGemini3ProImage(), typeInfo);
             }
             else if (value.IsGemini31FlashImage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.Gemini31FlashImageRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.Gemini31FlashImageRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.Gemini31FlashImageRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Gemini31FlashImage!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickGemini31FlashImage(), typeInfo);
             }
             else if (value.IsGemini31FlashLiteImage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.Gemini31FlashLiteImageRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.Gemini31FlashLiteImageRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.Gemini31FlashLiteImageRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Gemini31FlashLiteImage!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickGemini31FlashLiteImage(), typeInfo);
             }
             else if (value.IsBytedanceSeedream5Lite)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BytedanceSeedream5LiteRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BytedanceSeedream5LiteRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BytedanceSeedream5LiteRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.BytedanceSeedream5Lite!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickBytedanceSeedream5Lite(), typeInfo);
             }
             else if (value.IsBytedanceSeedream5Pro)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BytedanceSeedream5ProRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BytedanceSeedream5ProRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BytedanceSeedream5ProRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.BytedanceSeedream5Pro!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickBytedanceSeedream5Pro(), typeInfo);
             }
         }
     }

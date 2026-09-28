@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage1Request PickGptImage1() => IsGptImage1
-            ? GptImage1!
+        public global::ElevenLabs.GPTImage1Request PickGptImage1() => GptImage1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GptImage1' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage15Request PickGptImage15() => IsGptImage15
-            ? GptImage15!
+        public global::ElevenLabs.GPTImage15Request PickGptImage15() => GptImage15 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GptImage15' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage2Request PickGptImage2() => IsGptImage2
-            ? GptImage2!
+        public global::ElevenLabs.GPTImage2Request PickGptImage2() => GptImage2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GptImage2' but the value was {ToString()}.");
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage25SunburstRequest PickGptImage25Sunburst() => IsGptImage25Sunburst
-            ? GptImage25Sunburst!
+        public global::ElevenLabs.GPTImage25SunburstRequest PickGptImage25Sunburst() => GptImage25Sunburst is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GptImage25Sunburst' but the value was {ToString()}.");
 
         /// <summary>
@@ -195,8 +195,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage25FlareRequest PickGptImage25Flare() => IsGptImage25Flare
-            ? GptImage25Flare!
+        public global::ElevenLabs.GPTImage25FlareRequest PickGptImage25Flare() => GptImage25Flare is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GptImage25Flare' but the value was {ToString()}.");
 
         /// <summary>
@@ -232,8 +232,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Gemini25FlashImageRequest PickGemini25FlashImage() => IsGemini25FlashImage
-            ? Gemini25FlashImage!
+        public global::ElevenLabs.Gemini25FlashImageRequest PickGemini25FlashImage() => Gemini25FlashImage is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Gemini25FlashImage' but the value was {ToString()}.");
 
         /// <summary>
@@ -269,8 +269,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Gemini3ProImageRequest PickGemini3ProImage() => IsGemini3ProImage
-            ? Gemini3ProImage!
+        public global::ElevenLabs.Gemini3ProImageRequest PickGemini3ProImage() => Gemini3ProImage is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Gemini3ProImage' but the value was {ToString()}.");
 
         /// <summary>
@@ -306,8 +306,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Gemini31FlashImageRequest PickGemini31FlashImage() => IsGemini31FlashImage
-            ? Gemini31FlashImage!
+        public global::ElevenLabs.Gemini31FlashImageRequest PickGemini31FlashImage() => Gemini31FlashImage is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Gemini31FlashImage' but the value was {ToString()}.");
 
         /// <summary>
@@ -343,8 +343,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Gemini31FlashLiteImageRequest PickGemini31FlashLiteImage() => IsGemini31FlashLiteImage
-            ? Gemini31FlashLiteImage!
+        public global::ElevenLabs.Gemini31FlashLiteImageRequest PickGemini31FlashLiteImage() => Gemini31FlashLiteImage is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Gemini31FlashLiteImage' but the value was {ToString()}.");
 
         /// <summary>
@@ -382,8 +382,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedream5LiteRequest PickBytedanceSeedream5Lite() => IsBytedanceSeedream5Lite
-            ? BytedanceSeedream5Lite!
+        public global::ElevenLabs.BytedanceSeedream5LiteRequest PickBytedanceSeedream5Lite() => BytedanceSeedream5Lite is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'BytedanceSeedream5Lite' but the value was {ToString()}.");
 
         /// <summary>
@@ -421,8 +421,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedream5ProRequest PickBytedanceSeedream5Pro() => IsBytedanceSeedream5Pro
-            ? BytedanceSeedream5Pro!
+        public global::ElevenLabs.BytedanceSeedream5ProRequest PickBytedanceSeedream5Pro() => BytedanceSeedream5Pro is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'BytedanceSeedream5Pro' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -774,49 +774,49 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsGptImage1 && gptImage1 != null)
+            if (GptImage1 is { } __value0 && gptImage1 != null)
             {
-                return gptImage1(GptImage1!);
+                return gptImage1(__value0);
             }
-            else if (IsGptImage15 && gptImage15 != null)
+            else if (GptImage15 is { } __value1 && gptImage15 != null)
             {
-                return gptImage15(GptImage15!);
+                return gptImage15(__value1);
             }
-            else if (IsGptImage2 && gptImage2 != null)
+            else if (GptImage2 is { } __value2 && gptImage2 != null)
             {
-                return gptImage2(GptImage2!);
+                return gptImage2(__value2);
             }
-            else if (IsGptImage25Sunburst && gptImage25Sunburst != null)
+            else if (GptImage25Sunburst is { } __value3 && gptImage25Sunburst != null)
             {
-                return gptImage25Sunburst(GptImage25Sunburst!);
+                return gptImage25Sunburst(__value3);
             }
-            else if (IsGptImage25Flare && gptImage25Flare != null)
+            else if (GptImage25Flare is { } __value4 && gptImage25Flare != null)
             {
-                return gptImage25Flare(GptImage25Flare!);
+                return gptImage25Flare(__value4);
             }
-            else if (IsGemini25FlashImage && gemini25FlashImage != null)
+            else if (Gemini25FlashImage is { } __value5 && gemini25FlashImage != null)
             {
-                return gemini25FlashImage(Gemini25FlashImage!);
+                return gemini25FlashImage(__value5);
             }
-            else if (IsGemini3ProImage && gemini3ProImage != null)
+            else if (Gemini3ProImage is { } __value6 && gemini3ProImage != null)
             {
-                return gemini3ProImage(Gemini3ProImage!);
+                return gemini3ProImage(__value6);
             }
-            else if (IsGemini31FlashImage && gemini31FlashImage != null)
+            else if (Gemini31FlashImage is { } __value7 && gemini31FlashImage != null)
             {
-                return gemini31FlashImage(Gemini31FlashImage!);
+                return gemini31FlashImage(__value7);
             }
-            else if (IsGemini31FlashLiteImage && gemini31FlashLiteImage != null)
+            else if (Gemini31FlashLiteImage is { } __value8 && gemini31FlashLiteImage != null)
             {
-                return gemini31FlashLiteImage(Gemini31FlashLiteImage!);
+                return gemini31FlashLiteImage(__value8);
             }
-            else if (IsBytedanceSeedream5Lite && bytedanceSeedream5Lite != null)
+            else if (BytedanceSeedream5Lite is { } __value9 && bytedanceSeedream5Lite != null)
             {
-                return bytedanceSeedream5Lite(BytedanceSeedream5Lite!);
+                return bytedanceSeedream5Lite(__value9);
             }
-            else if (IsBytedanceSeedream5Pro && bytedanceSeedream5Pro != null)
+            else if (BytedanceSeedream5Pro is { } __value10 && bytedanceSeedream5Pro != null)
             {
-                return bytedanceSeedream5Pro(BytedanceSeedream5Pro!);
+                return bytedanceSeedream5Pro(__value10);
             }
 
             return default(TResult);
@@ -854,49 +854,49 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsGptImage1)
+            if (GptImage1 is { } __value0)
             {
-                gptImage1?.Invoke(GptImage1!);
+                gptImage1?.Invoke(__value0);
             }
-            else if (IsGptImage15)
+            else if (GptImage15 is { } __value1)
             {
-                gptImage15?.Invoke(GptImage15!);
+                gptImage15?.Invoke(__value1);
             }
-            else if (IsGptImage2)
+            else if (GptImage2 is { } __value2)
             {
-                gptImage2?.Invoke(GptImage2!);
+                gptImage2?.Invoke(__value2);
             }
-            else if (IsGptImage25Sunburst)
+            else if (GptImage25Sunburst is { } __value3)
             {
-                gptImage25Sunburst?.Invoke(GptImage25Sunburst!);
+                gptImage25Sunburst?.Invoke(__value3);
             }
-            else if (IsGptImage25Flare)
+            else if (GptImage25Flare is { } __value4)
             {
-                gptImage25Flare?.Invoke(GptImage25Flare!);
+                gptImage25Flare?.Invoke(__value4);
             }
-            else if (IsGemini25FlashImage)
+            else if (Gemini25FlashImage is { } __value5)
             {
-                gemini25FlashImage?.Invoke(Gemini25FlashImage!);
+                gemini25FlashImage?.Invoke(__value5);
             }
-            else if (IsGemini3ProImage)
+            else if (Gemini3ProImage is { } __value6)
             {
-                gemini3ProImage?.Invoke(Gemini3ProImage!);
+                gemini3ProImage?.Invoke(__value6);
             }
-            else if (IsGemini31FlashImage)
+            else if (Gemini31FlashImage is { } __value7)
             {
-                gemini31FlashImage?.Invoke(Gemini31FlashImage!);
+                gemini31FlashImage?.Invoke(__value7);
             }
-            else if (IsGemini31FlashLiteImage)
+            else if (Gemini31FlashLiteImage is { } __value8)
             {
-                gemini31FlashLiteImage?.Invoke(Gemini31FlashLiteImage!);
+                gemini31FlashLiteImage?.Invoke(__value8);
             }
-            else if (IsBytedanceSeedream5Lite)
+            else if (BytedanceSeedream5Lite is { } __value9)
             {
-                bytedanceSeedream5Lite?.Invoke(BytedanceSeedream5Lite!);
+                bytedanceSeedream5Lite?.Invoke(__value9);
             }
-            else if (IsBytedanceSeedream5Pro)
+            else if (BytedanceSeedream5Pro is { } __value10)
             {
-                bytedanceSeedream5Pro?.Invoke(BytedanceSeedream5Pro!);
+                bytedanceSeedream5Pro?.Invoke(__value10);
             }
         }
 
@@ -922,49 +922,49 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsGptImage1)
+            if (GptImage1 is { } __value0)
             {
-                gptImage1?.Invoke(GptImage1!);
+                gptImage1?.Invoke(__value0);
             }
-            else if (IsGptImage15)
+            else if (GptImage15 is { } __value1)
             {
-                gptImage15?.Invoke(GptImage15!);
+                gptImage15?.Invoke(__value1);
             }
-            else if (IsGptImage2)
+            else if (GptImage2 is { } __value2)
             {
-                gptImage2?.Invoke(GptImage2!);
+                gptImage2?.Invoke(__value2);
             }
-            else if (IsGptImage25Sunburst)
+            else if (GptImage25Sunburst is { } __value3)
             {
-                gptImage25Sunburst?.Invoke(GptImage25Sunburst!);
+                gptImage25Sunburst?.Invoke(__value3);
             }
-            else if (IsGptImage25Flare)
+            else if (GptImage25Flare is { } __value4)
             {
-                gptImage25Flare?.Invoke(GptImage25Flare!);
+                gptImage25Flare?.Invoke(__value4);
             }
-            else if (IsGemini25FlashImage)
+            else if (Gemini25FlashImage is { } __value5)
             {
-                gemini25FlashImage?.Invoke(Gemini25FlashImage!);
+                gemini25FlashImage?.Invoke(__value5);
             }
-            else if (IsGemini3ProImage)
+            else if (Gemini3ProImage is { } __value6)
             {
-                gemini3ProImage?.Invoke(Gemini3ProImage!);
+                gemini3ProImage?.Invoke(__value6);
             }
-            else if (IsGemini31FlashImage)
+            else if (Gemini31FlashImage is { } __value7)
             {
-                gemini31FlashImage?.Invoke(Gemini31FlashImage!);
+                gemini31FlashImage?.Invoke(__value7);
             }
-            else if (IsGemini31FlashLiteImage)
+            else if (Gemini31FlashLiteImage is { } __value8)
             {
-                gemini31FlashLiteImage?.Invoke(Gemini31FlashLiteImage!);
+                gemini31FlashLiteImage?.Invoke(__value8);
             }
-            else if (IsBytedanceSeedream5Lite)
+            else if (BytedanceSeedream5Lite is { } __value9)
             {
-                bytedanceSeedream5Lite?.Invoke(BytedanceSeedream5Lite!);
+                bytedanceSeedream5Lite?.Invoke(__value9);
             }
-            else if (IsBytedanceSeedream5Pro)
+            else if (BytedanceSeedream5Pro is { } __value10)
             {
-                bytedanceSeedream5Pro?.Invoke(BytedanceSeedream5Pro!);
+                bytedanceSeedream5Pro?.Invoke(__value10);
             }
         }
 

@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PostDialDigitsStatic PickStatic() => IsStatic
-            ? Static!
+        public global::ElevenLabs.PostDialDigitsStatic PickStatic() => Static is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Static' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PostDialDigitsDynamicVariable PickDynamic() => IsDynamic
-            ? Dynamic!
+        public global::ElevenLabs.PostDialDigitsDynamicVariable PickDynamic() => Dynamic is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Dynamic' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsStatic && @static != null)
+            if (Static is { } __value0 && @static != null)
             {
-                return @static(Static!);
+                return @static(__value0);
             }
-            else if (IsDynamic && dynamic != null)
+            else if (Dynamic is { } __value1 && dynamic != null)
             {
-                return dynamic(Dynamic!);
+                return dynamic(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsStatic)
+            if (Static is { } __value0)
             {
-                @static?.Invoke(Static!);
+                @static?.Invoke(__value0);
             }
-            else if (IsDynamic)
+            else if (Dynamic is { } __value1)
             {
-                dynamic?.Invoke(Dynamic!);
+                dynamic?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsStatic)
+            if (Static is { } __value0)
             {
-                @static?.Invoke(Static!);
+                @static?.Invoke(__value0);
             }
-            else if (IsDynamic)
+            else if (Dynamic is { } __value1)
             {
-                dynamic?.Invoke(Dynamic!);
+                dynamic?.Invoke(__value1);
             }
         }
 

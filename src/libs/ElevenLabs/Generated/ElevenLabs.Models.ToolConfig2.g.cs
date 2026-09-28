@@ -48,8 +48,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookToolConfigOutput PickWebhook() => IsWebhook
-            ? Webhook!
+        public global::ElevenLabs.WebhookToolConfigOutput PickWebhook() => Webhook is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Webhook' but the value was {ToString()}.");
 
         /// <summary>
@@ -86,8 +86,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ClientToolConfigOutput PickClient() => IsClient
-            ? Client!
+        public global::ElevenLabs.ClientToolConfigOutput PickClient() => Client is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Client' but the value was {ToString()}.");
 
         /// <summary>
@@ -123,8 +123,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SystemToolConfigOutput PickSystem() => IsSystem
-            ? System!
+        public global::ElevenLabs.SystemToolConfigOutput PickSystem() => System is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'System' but the value was {ToString()}.");
 
         /// <summary>
@@ -160,8 +160,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOutput PickMcp() => IsMcp
-            ? Mcp!
+        public global::ElevenLabs.MCPToolConfigOutput PickMcp() => Mcp is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Mcp' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -317,21 +317,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsWebhook && webhook != null)
+            if (Webhook is { } __value0 && webhook != null)
             {
-                return webhook(Webhook!);
+                return webhook(__value0);
             }
-            else if (IsClient && client != null)
+            else if (Client is { } __value1 && client != null)
             {
-                return client(Client!);
+                return client(__value1);
             }
-            else if (IsSystem && system != null)
+            else if (System is { } __value2 && system != null)
             {
-                return system(System!);
+                return system(__value2);
             }
-            else if (IsMcp && mcp != null)
+            else if (Mcp is { } __value3 && mcp != null)
             {
-                return mcp(Mcp!);
+                return mcp(__value3);
             }
 
             return default(TResult);
@@ -355,21 +355,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsWebhook)
+            if (Webhook is { } __value0)
             {
-                webhook?.Invoke(Webhook!);
+                webhook?.Invoke(__value0);
             }
-            else if (IsClient)
+            else if (Client is { } __value1)
             {
-                client?.Invoke(Client!);
+                client?.Invoke(__value1);
             }
-            else if (IsSystem)
+            else if (System is { } __value2)
             {
-                system?.Invoke(System!);
+                system?.Invoke(__value2);
             }
-            else if (IsMcp)
+            else if (Mcp is { } __value3)
             {
-                mcp?.Invoke(Mcp!);
+                mcp?.Invoke(__value3);
             }
         }
 
@@ -388,21 +388,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsWebhook)
+            if (Webhook is { } __value0)
             {
-                webhook?.Invoke(Webhook!);
+                webhook?.Invoke(__value0);
             }
-            else if (IsClient)
+            else if (Client is { } __value1)
             {
-                client?.Invoke(Client!);
+                client?.Invoke(__value1);
             }
-            else if (IsSystem)
+            else if (System is { } __value2)
             {
-                system?.Invoke(System!);
+                system?.Invoke(__value2);
             }
-            else if (IsMcp)
+            else if (Mcp is { } __value3)
             {
-                mcp?.Invoke(Mcp!);
+                mcp?.Invoke(__value3);
             }
         }
 

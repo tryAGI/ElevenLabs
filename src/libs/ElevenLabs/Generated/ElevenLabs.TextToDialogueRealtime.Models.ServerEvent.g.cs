@@ -42,8 +42,8 @@ namespace ElevenLabs.TextToDialogueRealtime
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk PickTextToDialogueWebsocketAudioChunk() => IsTextToDialogueWebsocketAudioChunk
-            ? TextToDialogueWebsocketAudioChunk!
+        public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk PickTextToDialogueWebsocketAudioChunk() => TextToDialogueWebsocketAudioChunk is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TextToDialogueWebsocketAudioChunk' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace ElevenLabs.TextToDialogueRealtime
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinalAudioForTurn PickTextToDialogueWebsocketFinalAudioForTurn() => IsTextToDialogueWebsocketFinalAudioForTurn
-            ? TextToDialogueWebsocketFinalAudioForTurn!
+        public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinalAudioForTurn PickTextToDialogueWebsocketFinalAudioForTurn() => TextToDialogueWebsocketFinalAudioForTurn is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TextToDialogueWebsocketFinalAudioForTurn' but the value was {ToString()}.");
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace ElevenLabs.TextToDialogueRealtime
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinal PickTextToDialogueWebsocketFinal() => IsTextToDialogueWebsocketFinal
-            ? TextToDialogueWebsocketFinal!
+        public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinal PickTextToDialogueWebsocketFinal() => TextToDialogueWebsocketFinal is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TextToDialogueWebsocketFinal' but the value was {ToString()}.");
 
         /// <summary>
@@ -153,8 +153,8 @@ namespace ElevenLabs.TextToDialogueRealtime
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError PickTextToDialogueWebsocketError() => IsTextToDialogueWebsocketError
-            ? TextToDialogueWebsocketError!
+        public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError PickTextToDialogueWebsocketError() => TextToDialogueWebsocketError is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TextToDialogueWebsocketError' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -307,21 +307,21 @@ namespace ElevenLabs.TextToDialogueRealtime
                 Validate();
             }
 
-            if (IsTextToDialogueWebsocketAudioChunk && textToDialogueWebsocketAudioChunk != null)
+            if (TextToDialogueWebsocketAudioChunk is { } __value0 && textToDialogueWebsocketAudioChunk != null)
             {
-                return textToDialogueWebsocketAudioChunk(TextToDialogueWebsocketAudioChunk!);
+                return textToDialogueWebsocketAudioChunk(__value0);
             }
-            else if (IsTextToDialogueWebsocketFinalAudioForTurn && textToDialogueWebsocketFinalAudioForTurn != null)
+            else if (TextToDialogueWebsocketFinalAudioForTurn is { } __value1 && textToDialogueWebsocketFinalAudioForTurn != null)
             {
-                return textToDialogueWebsocketFinalAudioForTurn(TextToDialogueWebsocketFinalAudioForTurn!);
+                return textToDialogueWebsocketFinalAudioForTurn(__value1);
             }
-            else if (IsTextToDialogueWebsocketFinal && textToDialogueWebsocketFinal != null)
+            else if (TextToDialogueWebsocketFinal is { } __value2 && textToDialogueWebsocketFinal != null)
             {
-                return textToDialogueWebsocketFinal(TextToDialogueWebsocketFinal!);
+                return textToDialogueWebsocketFinal(__value2);
             }
-            else if (IsTextToDialogueWebsocketError && textToDialogueWebsocketError != null)
+            else if (TextToDialogueWebsocketError is { } __value3 && textToDialogueWebsocketError != null)
             {
-                return textToDialogueWebsocketError(TextToDialogueWebsocketError!);
+                return textToDialogueWebsocketError(__value3);
             }
 
             return default(TResult);
@@ -345,21 +345,21 @@ namespace ElevenLabs.TextToDialogueRealtime
                 Validate();
             }
 
-            if (IsTextToDialogueWebsocketAudioChunk)
+            if (TextToDialogueWebsocketAudioChunk is { } __value0)
             {
-                textToDialogueWebsocketAudioChunk?.Invoke(TextToDialogueWebsocketAudioChunk!);
+                textToDialogueWebsocketAudioChunk?.Invoke(__value0);
             }
-            else if (IsTextToDialogueWebsocketFinalAudioForTurn)
+            else if (TextToDialogueWebsocketFinalAudioForTurn is { } __value1)
             {
-                textToDialogueWebsocketFinalAudioForTurn?.Invoke(TextToDialogueWebsocketFinalAudioForTurn!);
+                textToDialogueWebsocketFinalAudioForTurn?.Invoke(__value1);
             }
-            else if (IsTextToDialogueWebsocketFinal)
+            else if (TextToDialogueWebsocketFinal is { } __value2)
             {
-                textToDialogueWebsocketFinal?.Invoke(TextToDialogueWebsocketFinal!);
+                textToDialogueWebsocketFinal?.Invoke(__value2);
             }
-            else if (IsTextToDialogueWebsocketError)
+            else if (TextToDialogueWebsocketError is { } __value3)
             {
-                textToDialogueWebsocketError?.Invoke(TextToDialogueWebsocketError!);
+                textToDialogueWebsocketError?.Invoke(__value3);
             }
         }
 
@@ -378,21 +378,21 @@ namespace ElevenLabs.TextToDialogueRealtime
                 Validate();
             }
 
-            if (IsTextToDialogueWebsocketAudioChunk)
+            if (TextToDialogueWebsocketAudioChunk is { } __value0)
             {
-                textToDialogueWebsocketAudioChunk?.Invoke(TextToDialogueWebsocketAudioChunk!);
+                textToDialogueWebsocketAudioChunk?.Invoke(__value0);
             }
-            else if (IsTextToDialogueWebsocketFinalAudioForTurn)
+            else if (TextToDialogueWebsocketFinalAudioForTurn is { } __value1)
             {
-                textToDialogueWebsocketFinalAudioForTurn?.Invoke(TextToDialogueWebsocketFinalAudioForTurn!);
+                textToDialogueWebsocketFinalAudioForTurn?.Invoke(__value1);
             }
-            else if (IsTextToDialogueWebsocketFinal)
+            else if (TextToDialogueWebsocketFinal is { } __value2)
             {
-                textToDialogueWebsocketFinal?.Invoke(TextToDialogueWebsocketFinal!);
+                textToDialogueWebsocketFinal?.Invoke(__value2);
             }
-            else if (IsTextToDialogueWebsocketError)
+            else if (TextToDialogueWebsocketError is { } __value3)
             {
-                textToDialogueWebsocketError?.Invoke(TextToDialogueWebsocketError!);
+                textToDialogueWebsocketError?.Invoke(__value3);
             }
         }
 

@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OAuth2ClientCredsResponse PickOauth2ClientCredentials() => IsOauth2ClientCredentials
-            ? Oauth2ClientCredentials!
+        public global::ElevenLabs.OAuth2ClientCredsResponse PickOauth2ClientCredentials() => Oauth2ClientCredentials is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Oauth2ClientCredentials' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RefreshTokenAuthResponse PickRefreshTokenAuth() => IsRefreshTokenAuth
-            ? RefreshTokenAuth!
+        public global::ElevenLabs.RefreshTokenAuthResponse PickRefreshTokenAuth() => RefreshTokenAuth is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'RefreshTokenAuth' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BasicAuthResponse PickBasicAuth() => IsBasicAuth
-            ? BasicAuth!
+        public global::ElevenLabs.BasicAuthResponse PickBasicAuth() => BasicAuth is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'BasicAuth' but the value was {ToString()}.");
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BearerAuthResponse PickBearerAuth() => IsBearerAuth
-            ? BearerAuth!
+        public global::ElevenLabs.BearerAuthResponse PickBearerAuth() => BearerAuth is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'BearerAuth' but the value was {ToString()}.");
 
         /// <summary>
@@ -195,8 +195,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OAuth2JWTResponse PickOauth2Jwt() => IsOauth2Jwt
-            ? Oauth2Jwt!
+        public global::ElevenLabs.OAuth2JWTResponse PickOauth2Jwt() => Oauth2Jwt is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Oauth2Jwt' but the value was {ToString()}.");
 
         /// <summary>
@@ -232,8 +232,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PrivateKeyJWTResponse PickPrivateKeyJwt() => IsPrivateKeyJwt
-            ? PrivateKeyJwt!
+        public global::ElevenLabs.PrivateKeyJWTResponse PickPrivateKeyJwt() => PrivateKeyJwt is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'PrivateKeyJwt' but the value was {ToString()}.");
 
         /// <summary>
@@ -269,8 +269,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MTLSAuthResponse PickMtls() => IsMtls
-            ? Mtls!
+        public global::ElevenLabs.MTLSAuthResponse PickMtls() => Mtls is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Mtls' but the value was {ToString()}.");
 
         /// <summary>
@@ -306,8 +306,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomHeaderAuthResponse PickCustomHeaderAuth() => IsCustomHeaderAuth
-            ? CustomHeaderAuth!
+        public global::ElevenLabs.CustomHeaderAuthResponse PickCustomHeaderAuth() => CustomHeaderAuth is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CustomHeaderAuth' but the value was {ToString()}.");
 
         /// <summary>
@@ -343,8 +343,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse PickApiIntegrationOauth2AuthCode() => IsApiIntegrationOauth2AuthCode
-            ? ApiIntegrationOauth2AuthCode!
+        public global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse PickApiIntegrationOauth2AuthCode() => ApiIntegrationOauth2AuthCode is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ApiIntegrationOauth2AuthCode' but the value was {ToString()}.");
 
         /// <summary>
@@ -380,8 +380,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse PickApiIntegrationOauth2CustomApp() => IsApiIntegrationOauth2CustomApp
-            ? ApiIntegrationOauth2CustomApp!
+        public global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse PickApiIntegrationOauth2CustomApp() => ApiIntegrationOauth2CustomApp is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ApiIntegrationOauth2CustomApp' but the value was {ToString()}.");
 
         /// <summary>
@@ -417,8 +417,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppAuthResponse PickWhatsappAuth() => IsWhatsappAuth
-            ? WhatsappAuth!
+        public global::ElevenLabs.WhatsAppAuthResponse PickWhatsappAuth() => WhatsappAuth is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'WhatsappAuth' but the value was {ToString()}.");
 
         /// <summary>
@@ -454,8 +454,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SlackBotAuthResponse PickSlackBotAuth() => IsSlackBotAuth
-            ? SlackBotAuth!
+        public global::ElevenLabs.SlackBotAuthResponse PickSlackBotAuth() => SlackBotAuth is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'SlackBotAuth' but the value was {ToString()}.");
 
         /// <summary>
@@ -491,8 +491,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UrlSecretAuthResponse PickUrlSecret() => IsUrlSecret
-            ? UrlSecret!
+        public global::ElevenLabs.UrlSecretAuthResponse PickUrlSecret() => UrlSecret is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UrlSecret' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -900,57 +900,57 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsOauth2ClientCredentials && oauth2ClientCredentials != null)
+            if (Oauth2ClientCredentials is { } __value0 && oauth2ClientCredentials != null)
             {
-                return oauth2ClientCredentials(Oauth2ClientCredentials!);
+                return oauth2ClientCredentials(__value0);
             }
-            else if (IsRefreshTokenAuth && refreshTokenAuth != null)
+            else if (RefreshTokenAuth is { } __value1 && refreshTokenAuth != null)
             {
-                return refreshTokenAuth(RefreshTokenAuth!);
+                return refreshTokenAuth(__value1);
             }
-            else if (IsBasicAuth && basicAuth != null)
+            else if (BasicAuth is { } __value2 && basicAuth != null)
             {
-                return basicAuth(BasicAuth!);
+                return basicAuth(__value2);
             }
-            else if (IsBearerAuth && bearerAuth != null)
+            else if (BearerAuth is { } __value3 && bearerAuth != null)
             {
-                return bearerAuth(BearerAuth!);
+                return bearerAuth(__value3);
             }
-            else if (IsOauth2Jwt && oauth2Jwt != null)
+            else if (Oauth2Jwt is { } __value4 && oauth2Jwt != null)
             {
-                return oauth2Jwt(Oauth2Jwt!);
+                return oauth2Jwt(__value4);
             }
-            else if (IsPrivateKeyJwt && privateKeyJwt != null)
+            else if (PrivateKeyJwt is { } __value5 && privateKeyJwt != null)
             {
-                return privateKeyJwt(PrivateKeyJwt!);
+                return privateKeyJwt(__value5);
             }
-            else if (IsMtls && mtls != null)
+            else if (Mtls is { } __value6 && mtls != null)
             {
-                return mtls(Mtls!);
+                return mtls(__value6);
             }
-            else if (IsCustomHeaderAuth && customHeaderAuth != null)
+            else if (CustomHeaderAuth is { } __value7 && customHeaderAuth != null)
             {
-                return customHeaderAuth(CustomHeaderAuth!);
+                return customHeaderAuth(__value7);
             }
-            else if (IsApiIntegrationOauth2AuthCode && apiIntegrationOauth2AuthCode != null)
+            else if (ApiIntegrationOauth2AuthCode is { } __value8 && apiIntegrationOauth2AuthCode != null)
             {
-                return apiIntegrationOauth2AuthCode(ApiIntegrationOauth2AuthCode!);
+                return apiIntegrationOauth2AuthCode(__value8);
             }
-            else if (IsApiIntegrationOauth2CustomApp && apiIntegrationOauth2CustomApp != null)
+            else if (ApiIntegrationOauth2CustomApp is { } __value9 && apiIntegrationOauth2CustomApp != null)
             {
-                return apiIntegrationOauth2CustomApp(ApiIntegrationOauth2CustomApp!);
+                return apiIntegrationOauth2CustomApp(__value9);
             }
-            else if (IsWhatsappAuth && whatsappAuth != null)
+            else if (WhatsappAuth is { } __value10 && whatsappAuth != null)
             {
-                return whatsappAuth(WhatsappAuth!);
+                return whatsappAuth(__value10);
             }
-            else if (IsSlackBotAuth && slackBotAuth != null)
+            else if (SlackBotAuth is { } __value11 && slackBotAuth != null)
             {
-                return slackBotAuth(SlackBotAuth!);
+                return slackBotAuth(__value11);
             }
-            else if (IsUrlSecret && urlSecret != null)
+            else if (UrlSecret is { } __value12 && urlSecret != null)
             {
-                return urlSecret(UrlSecret!);
+                return urlSecret(__value12);
             }
 
             return default(TResult);
@@ -992,57 +992,57 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsOauth2ClientCredentials)
+            if (Oauth2ClientCredentials is { } __value0)
             {
-                oauth2ClientCredentials?.Invoke(Oauth2ClientCredentials!);
+                oauth2ClientCredentials?.Invoke(__value0);
             }
-            else if (IsRefreshTokenAuth)
+            else if (RefreshTokenAuth is { } __value1)
             {
-                refreshTokenAuth?.Invoke(RefreshTokenAuth!);
+                refreshTokenAuth?.Invoke(__value1);
             }
-            else if (IsBasicAuth)
+            else if (BasicAuth is { } __value2)
             {
-                basicAuth?.Invoke(BasicAuth!);
+                basicAuth?.Invoke(__value2);
             }
-            else if (IsBearerAuth)
+            else if (BearerAuth is { } __value3)
             {
-                bearerAuth?.Invoke(BearerAuth!);
+                bearerAuth?.Invoke(__value3);
             }
-            else if (IsOauth2Jwt)
+            else if (Oauth2Jwt is { } __value4)
             {
-                oauth2Jwt?.Invoke(Oauth2Jwt!);
+                oauth2Jwt?.Invoke(__value4);
             }
-            else if (IsPrivateKeyJwt)
+            else if (PrivateKeyJwt is { } __value5)
             {
-                privateKeyJwt?.Invoke(PrivateKeyJwt!);
+                privateKeyJwt?.Invoke(__value5);
             }
-            else if (IsMtls)
+            else if (Mtls is { } __value6)
             {
-                mtls?.Invoke(Mtls!);
+                mtls?.Invoke(__value6);
             }
-            else if (IsCustomHeaderAuth)
+            else if (CustomHeaderAuth is { } __value7)
             {
-                customHeaderAuth?.Invoke(CustomHeaderAuth!);
+                customHeaderAuth?.Invoke(__value7);
             }
-            else if (IsApiIntegrationOauth2AuthCode)
+            else if (ApiIntegrationOauth2AuthCode is { } __value8)
             {
-                apiIntegrationOauth2AuthCode?.Invoke(ApiIntegrationOauth2AuthCode!);
+                apiIntegrationOauth2AuthCode?.Invoke(__value8);
             }
-            else if (IsApiIntegrationOauth2CustomApp)
+            else if (ApiIntegrationOauth2CustomApp is { } __value9)
             {
-                apiIntegrationOauth2CustomApp?.Invoke(ApiIntegrationOauth2CustomApp!);
+                apiIntegrationOauth2CustomApp?.Invoke(__value9);
             }
-            else if (IsWhatsappAuth)
+            else if (WhatsappAuth is { } __value10)
             {
-                whatsappAuth?.Invoke(WhatsappAuth!);
+                whatsappAuth?.Invoke(__value10);
             }
-            else if (IsSlackBotAuth)
+            else if (SlackBotAuth is { } __value11)
             {
-                slackBotAuth?.Invoke(SlackBotAuth!);
+                slackBotAuth?.Invoke(__value11);
             }
-            else if (IsUrlSecret)
+            else if (UrlSecret is { } __value12)
             {
-                urlSecret?.Invoke(UrlSecret!);
+                urlSecret?.Invoke(__value12);
             }
         }
 
@@ -1070,57 +1070,57 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsOauth2ClientCredentials)
+            if (Oauth2ClientCredentials is { } __value0)
             {
-                oauth2ClientCredentials?.Invoke(Oauth2ClientCredentials!);
+                oauth2ClientCredentials?.Invoke(__value0);
             }
-            else if (IsRefreshTokenAuth)
+            else if (RefreshTokenAuth is { } __value1)
             {
-                refreshTokenAuth?.Invoke(RefreshTokenAuth!);
+                refreshTokenAuth?.Invoke(__value1);
             }
-            else if (IsBasicAuth)
+            else if (BasicAuth is { } __value2)
             {
-                basicAuth?.Invoke(BasicAuth!);
+                basicAuth?.Invoke(__value2);
             }
-            else if (IsBearerAuth)
+            else if (BearerAuth is { } __value3)
             {
-                bearerAuth?.Invoke(BearerAuth!);
+                bearerAuth?.Invoke(__value3);
             }
-            else if (IsOauth2Jwt)
+            else if (Oauth2Jwt is { } __value4)
             {
-                oauth2Jwt?.Invoke(Oauth2Jwt!);
+                oauth2Jwt?.Invoke(__value4);
             }
-            else if (IsPrivateKeyJwt)
+            else if (PrivateKeyJwt is { } __value5)
             {
-                privateKeyJwt?.Invoke(PrivateKeyJwt!);
+                privateKeyJwt?.Invoke(__value5);
             }
-            else if (IsMtls)
+            else if (Mtls is { } __value6)
             {
-                mtls?.Invoke(Mtls!);
+                mtls?.Invoke(__value6);
             }
-            else if (IsCustomHeaderAuth)
+            else if (CustomHeaderAuth is { } __value7)
             {
-                customHeaderAuth?.Invoke(CustomHeaderAuth!);
+                customHeaderAuth?.Invoke(__value7);
             }
-            else if (IsApiIntegrationOauth2AuthCode)
+            else if (ApiIntegrationOauth2AuthCode is { } __value8)
             {
-                apiIntegrationOauth2AuthCode?.Invoke(ApiIntegrationOauth2AuthCode!);
+                apiIntegrationOauth2AuthCode?.Invoke(__value8);
             }
-            else if (IsApiIntegrationOauth2CustomApp)
+            else if (ApiIntegrationOauth2CustomApp is { } __value9)
             {
-                apiIntegrationOauth2CustomApp?.Invoke(ApiIntegrationOauth2CustomApp!);
+                apiIntegrationOauth2CustomApp?.Invoke(__value9);
             }
-            else if (IsWhatsappAuth)
+            else if (WhatsappAuth is { } __value10)
             {
-                whatsappAuth?.Invoke(WhatsappAuth!);
+                whatsappAuth?.Invoke(__value10);
             }
-            else if (IsSlackBotAuth)
+            else if (SlackBotAuth is { } __value11)
             {
-                slackBotAuth?.Invoke(SlackBotAuth!);
+                slackBotAuth?.Invoke(__value11);
             }
-            else if (IsUrlSecret)
+            else if (UrlSecret is { } __value12)
             {
-                urlSecret?.Invoke(UrlSecret!);
+                urlSecret?.Invoke(__value12);
             }
         }
 

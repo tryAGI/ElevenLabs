@@ -149,13 +149,13 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.MusicAllowedOutputFormats), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.MusicAllowedOutputFormats> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.MusicAllowedOutputFormats).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AllowedFormats!.Value, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickAllowedFormats(), typeInfo);
             }
             else if (value.IsMusicOutputFormatVariant2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(string), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<string?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(string).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.MusicOutputFormatVariant2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickMusicOutputFormatVariant2(), typeInfo);
             }
         }
     }

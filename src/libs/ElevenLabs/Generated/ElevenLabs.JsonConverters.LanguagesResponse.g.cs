@@ -59,13 +59,13 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PairedLanguagesResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PairedLanguagesResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.PairedLanguagesResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Pair!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickPair(), typeInfo);
             }
             else if (value.IsSingle)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SingleLanguagesResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SingleLanguagesResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SingleLanguagesResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Single!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickSingle(), typeInfo);
             }
         }
     }

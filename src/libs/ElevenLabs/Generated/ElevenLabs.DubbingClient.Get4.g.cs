@@ -163,8 +163,8 @@ namespace ElevenLabs
                 PrepareGet4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    projectId: projectId!,
-                    languageId: languageId!);
+                    projectId: projectId,
+                    languageId: languageId);
 
                 return __httpRequest;
             }
@@ -186,7 +186,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/dubbing/project/{projectId}/language/{languageId}/transcript\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -220,7 +220,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/dubbing/project/{projectId}/language/{languageId}/transcript\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -261,7 +261,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/dubbing/project/{projectId}/language/{languageId}/transcript\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -309,7 +309,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/dubbing/project/{projectId}/language/{languageId}/transcript\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -331,7 +331,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/dubbing/project/{projectId}/language/{languageId}/transcript\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

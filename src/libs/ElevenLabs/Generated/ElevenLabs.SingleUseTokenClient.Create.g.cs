@@ -147,7 +147,7 @@ namespace ElevenLabs
                 PrepareCreateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    tokenType: tokenType!);
+                    tokenType: tokenType);
 
                 return __httpRequest;
             }
@@ -169,7 +169,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/single-use-token/{(global::System.Uri.EscapeDataString(tokenType.ToValueString()))}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -203,7 +203,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/single-use-token/{(global::System.Uri.EscapeDataString(tokenType.ToValueString()))}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -244,7 +244,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/single-use-token/{(global::System.Uri.EscapeDataString(tokenType.ToValueString()))}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -292,7 +292,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/single-use-token/{(global::System.Uri.EscapeDataString(tokenType.ToValueString()))}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -314,7 +314,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/single-use-token/{(global::System.Uri.EscapeDataString(tokenType.ToValueString()))}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

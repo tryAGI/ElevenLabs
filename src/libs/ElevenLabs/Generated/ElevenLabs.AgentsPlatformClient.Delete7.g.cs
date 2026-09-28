@@ -155,8 +155,8 @@ namespace ElevenLabs
                 PrepareDelete7Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    fileId: fileId!,
-                    conversationId: conversationId!);
+                    fileId: fileId,
+                    conversationId: conversationId);
 
                 return __httpRequest;
             }
@@ -178,7 +178,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -212,7 +212,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -253,7 +253,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -301,7 +301,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -323,7 +323,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

@@ -345,37 +345,37 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(string), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<string?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(string).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TemplateRunInputVariant1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTemplateRunInputVariant1(), typeInfo);
             }
             else if (value.IsTemplateRunInputVariant2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(bool), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<bool> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(bool).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TemplateRunInputVariant2!.Value, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTemplateRunInputVariant2(), typeInfo);
             }
             else if (value.IsTemplateRunInputVariant3)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(int), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<int> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(int).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TemplateRunInputVariant3!.Value, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTemplateRunInputVariant3(), typeInfo);
             }
             else if (value.IsTemplateRunInputVariant4)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(double), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<double> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(double).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TemplateRunInputVariant4!.Value, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTemplateRunInputVariant4(), typeInfo);
             }
             else if (value.IsReference)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TemplateInputReference), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TemplateInputReference> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TemplateInputReference).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Reference!.Value, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickReference(), typeInfo);
             }
             else if (value.IsTemplateRunInputVariant6)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.TemplateRunInput>), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::System.Collections.Generic.IList<global::ElevenLabs.TemplateRunInput>?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::System.Collections.Generic.IList<global::ElevenLabs.TemplateRunInput>).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TemplateRunInputVariant6!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTemplateRunInputVariant6(), typeInfo);
             }
         }
     }

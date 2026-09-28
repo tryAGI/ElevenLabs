@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateTextParam PickText() => IsText
-            ? Text!
+        public global::ElevenLabs.WhatsAppTemplateTextParam PickText() => Text is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateImageParam PickImage() => IsImage
-            ? Image!
+        public global::ElevenLabs.WhatsAppTemplateImageParam PickImage() => Image is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Image' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateDocumentParam PickDocument() => IsDocument
-            ? Document!
+        public global::ElevenLabs.WhatsAppTemplateDocumentParam PickDocument() => Document is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Document' but the value was {ToString()}.");
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateLocationParam PickLocation() => IsLocation
-            ? Location!
+        public global::ElevenLabs.WhatsAppTemplateLocationParam PickLocation() => Location is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Location' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -315,21 +315,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsText && text != null)
+            if (Text is { } __value0 && text != null)
             {
-                return text(Text!);
+                return text(__value0);
             }
-            else if (IsImage && image != null)
+            else if (Image is { } __value1 && image != null)
             {
-                return image(Image!);
+                return image(__value1);
             }
-            else if (IsDocument && document != null)
+            else if (Document is { } __value2 && document != null)
             {
-                return document(Document!);
+                return document(__value2);
             }
-            else if (IsLocation && location != null)
+            else if (Location is { } __value3 && location != null)
             {
-                return location(Location!);
+                return location(__value3);
             }
 
             return default(TResult);
@@ -353,21 +353,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsText)
+            if (Text is { } __value0)
             {
-                text?.Invoke(Text!);
+                text?.Invoke(__value0);
             }
-            else if (IsImage)
+            else if (Image is { } __value1)
             {
-                image?.Invoke(Image!);
+                image?.Invoke(__value1);
             }
-            else if (IsDocument)
+            else if (Document is { } __value2)
             {
-                document?.Invoke(Document!);
+                document?.Invoke(__value2);
             }
-            else if (IsLocation)
+            else if (Location is { } __value3)
             {
-                location?.Invoke(Location!);
+                location?.Invoke(__value3);
             }
         }
 
@@ -386,21 +386,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsText)
+            if (Text is { } __value0)
             {
-                text?.Invoke(Text!);
+                text?.Invoke(__value0);
             }
-            else if (IsImage)
+            else if (Image is { } __value1)
             {
-                image?.Invoke(Image!);
+                image?.Invoke(__value1);
             }
-            else if (IsDocument)
+            else if (Document is { } __value2)
             {
-                document?.Invoke(Document!);
+                document?.Invoke(__value2);
             }
-            else if (IsLocation)
+            else if (Location is { } __value3)
             {
-                location?.Invoke(Location!);
+                location?.Invoke(__value3);
             }
         }
 

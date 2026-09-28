@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EndCallToolResultModel PickEndCallSuccess() => IsEndCallSuccess
-            ? EndCallSuccess!
+        public global::ElevenLabs.EndCallToolResultModel PickEndCallSuccess() => EndCallSuccess is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'EndCallSuccess' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LanguageDetectionToolResultModel PickLanguageDetectionSuccess() => IsLanguageDetectionSuccess
-            ? LanguageDetectionSuccess!
+        public global::ElevenLabs.LanguageDetectionToolResultModel PickLanguageDetectionSuccess() => LanguageDetectionSuccess is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'LanguageDetectionSuccess' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput PickTransferToAgentSuccess() => IsTransferToAgentSuccess
-            ? TransferToAgentSuccess!
+        public global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput PickTransferToAgentSuccess() => TransferToAgentSuccess is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToAgentSuccess' but the value was {ToString()}.");
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToAgentToolResultErrorModel PickTransferToAgentError() => IsTransferToAgentError
-            ? TransferToAgentError!
+        public global::ElevenLabs.TransferToAgentToolResultErrorModel PickTransferToAgentError() => TransferToAgentError is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToAgentError' but the value was {ToString()}.");
 
         /// <summary>
@@ -195,8 +195,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToNumberResultTwilioSuccessModel PickTransferToNumberTwilioSuccess() => IsTransferToNumberTwilioSuccess
-            ? TransferToNumberTwilioSuccess!
+        public global::ElevenLabs.TransferToNumberResultTwilioSuccessModel PickTransferToNumberTwilioSuccess() => TransferToNumberTwilioSuccess is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToNumberTwilioSuccess' but the value was {ToString()}.");
 
         /// <summary>
@@ -232,8 +232,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToNumberResultSipSuccessModel PickTransferToNumberSipSuccess() => IsTransferToNumberSipSuccess
-            ? TransferToNumberSipSuccess!
+        public global::ElevenLabs.TransferToNumberResultSipSuccessModel PickTransferToNumberSipSuccess() => TransferToNumberSipSuccess is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToNumberSipSuccess' but the value was {ToString()}.");
 
         /// <summary>
@@ -269,8 +269,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToNumberResultExotelSuccessModel PickTransferToNumberExotelSuccess() => IsTransferToNumberExotelSuccess
-            ? TransferToNumberExotelSuccess!
+        public global::ElevenLabs.TransferToNumberResultExotelSuccessModel PickTransferToNumberExotelSuccess() => TransferToNumberExotelSuccess is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToNumberExotelSuccess' but the value was {ToString()}.");
 
         /// <summary>
@@ -306,8 +306,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToNumberResultErrorModel PickTransferToNumberError() => IsTransferToNumberError
-            ? TransferToNumberError!
+        public global::ElevenLabs.TransferToNumberResultErrorModel PickTransferToNumberError() => TransferToNumberError is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToNumberError' but the value was {ToString()}.");
 
         /// <summary>
@@ -343,8 +343,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SkipTurnToolResponseModel PickSkipTurnSuccess() => IsSkipTurnSuccess
-            ? SkipTurnSuccess!
+        public global::ElevenLabs.SkipTurnToolResponseModel PickSkipTurnSuccess() => SkipTurnSuccess is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'SkipTurnSuccess' but the value was {ToString()}.");
 
         /// <summary>
@@ -380,8 +380,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PlayDTMFResultSuccessModel PickPlayDtmfSuccess() => IsPlayDtmfSuccess
-            ? PlayDtmfSuccess!
+        public global::ElevenLabs.PlayDTMFResultSuccessModel PickPlayDtmfSuccess() => PlayDtmfSuccess is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'PlayDtmfSuccess' but the value was {ToString()}.");
 
         /// <summary>
@@ -417,8 +417,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PlayDTMFResultErrorModel PickPlayDtmfError() => IsPlayDtmfError
-            ? PlayDtmfError!
+        public global::ElevenLabs.PlayDTMFResultErrorModel PickPlayDtmfError() => PlayDtmfError is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'PlayDtmfError' but the value was {ToString()}.");
 
         /// <summary>
@@ -454,8 +454,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceMailDetectionResultSuccessModel PickVoicemailDetectionSuccess() => IsVoicemailDetectionSuccess
-            ? VoicemailDetectionSuccess!
+        public global::ElevenLabs.VoiceMailDetectionResultSuccessModel PickVoicemailDetectionSuccess() => VoicemailDetectionSuccess is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'VoicemailDetectionSuccess' but the value was {ToString()}.");
 
         /// <summary>
@@ -491,8 +491,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestToolResultModel PickTestingToolResult() => IsTestingToolResult
-            ? TestingToolResult!
+        public global::ElevenLabs.TestToolResultModel PickTestingToolResult() => TestingToolResult is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TestingToolResult' but the value was {ToString()}.");
 
         /// <summary>
@@ -528,8 +528,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseRagToolResultModel PickKnowledgeBaseRagSuccess() => IsKnowledgeBaseRagSuccess
-            ? KnowledgeBaseRagSuccess!
+        public global::ElevenLabs.KnowledgeBaseRagToolResultModel PickKnowledgeBaseRagSuccess() => KnowledgeBaseRagSuccess is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeBaseRagSuccess' but the value was {ToString()}.");
 
         /// <summary>
@@ -565,8 +565,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseToolResultModel PickKnowledgeBaseSuccess() => IsKnowledgeBaseSuccess
-            ? KnowledgeBaseSuccess!
+        public global::ElevenLabs.KnowledgeBaseToolResultModel PickKnowledgeBaseSuccess() => KnowledgeBaseSuccess is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeBaseSuccess' but the value was {ToString()}.");
 
         /// <summary>
@@ -602,8 +602,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StartProcedureToolResultSuccessModel PickStartProcedureSuccess() => IsStartProcedureSuccess
-            ? StartProcedureSuccess!
+        public global::ElevenLabs.StartProcedureToolResultSuccessModel PickStartProcedureSuccess() => StartProcedureSuccess is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'StartProcedureSuccess' but the value was {ToString()}.");
 
         /// <summary>
@@ -639,8 +639,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StartProcedureToolResultErrorModel PickStartProcedureError() => IsStartProcedureError
-            ? StartProcedureError!
+        public global::ElevenLabs.StartProcedureToolResultErrorModel PickStartProcedureError() => StartProcedureError is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'StartProcedureError' but the value was {ToString()}.");
 
         /// <summary>
@@ -676,8 +676,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EndProcedureToolResultSuccessModel PickEndProcedureSuccess() => IsEndProcedureSuccess
-            ? EndProcedureSuccess!
+        public global::ElevenLabs.EndProcedureToolResultSuccessModel PickEndProcedureSuccess() => EndProcedureSuccess is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'EndProcedureSuccess' but the value was {ToString()}.");
 
         /// <summary>
@@ -713,8 +713,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EndProcedureToolResultErrorModel PickEndProcedureError() => IsEndProcedureError
-            ? EndProcedureError!
+        public global::ElevenLabs.EndProcedureToolResultErrorModel PickEndProcedureError() => EndProcedureError is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'EndProcedureError' but the value was {ToString()}.");
 
         /// <summary>
@@ -750,8 +750,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DummyToolResultModel PickDummy() => IsDummy
-            ? Dummy!
+        public global::ElevenLabs.DummyToolResultModel PickDummy() => Dummy is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Dummy' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -1355,85 +1355,85 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsEndCallSuccess && endCallSuccess != null)
+            if (EndCallSuccess is { } __value0 && endCallSuccess != null)
             {
-                return endCallSuccess(EndCallSuccess!);
+                return endCallSuccess(__value0);
             }
-            else if (IsLanguageDetectionSuccess && languageDetectionSuccess != null)
+            else if (LanguageDetectionSuccess is { } __value1 && languageDetectionSuccess != null)
             {
-                return languageDetectionSuccess(LanguageDetectionSuccess!);
+                return languageDetectionSuccess(__value1);
             }
-            else if (IsTransferToAgentSuccess && transferToAgentSuccess != null)
+            else if (TransferToAgentSuccess is { } __value2 && transferToAgentSuccess != null)
             {
-                return transferToAgentSuccess(TransferToAgentSuccess!);
+                return transferToAgentSuccess(__value2);
             }
-            else if (IsTransferToAgentError && transferToAgentError != null)
+            else if (TransferToAgentError is { } __value3 && transferToAgentError != null)
             {
-                return transferToAgentError(TransferToAgentError!);
+                return transferToAgentError(__value3);
             }
-            else if (IsTransferToNumberTwilioSuccess && transferToNumberTwilioSuccess != null)
+            else if (TransferToNumberTwilioSuccess is { } __value4 && transferToNumberTwilioSuccess != null)
             {
-                return transferToNumberTwilioSuccess(TransferToNumberTwilioSuccess!);
+                return transferToNumberTwilioSuccess(__value4);
             }
-            else if (IsTransferToNumberSipSuccess && transferToNumberSipSuccess != null)
+            else if (TransferToNumberSipSuccess is { } __value5 && transferToNumberSipSuccess != null)
             {
-                return transferToNumberSipSuccess(TransferToNumberSipSuccess!);
+                return transferToNumberSipSuccess(__value5);
             }
-            else if (IsTransferToNumberExotelSuccess && transferToNumberExotelSuccess != null)
+            else if (TransferToNumberExotelSuccess is { } __value6 && transferToNumberExotelSuccess != null)
             {
-                return transferToNumberExotelSuccess(TransferToNumberExotelSuccess!);
+                return transferToNumberExotelSuccess(__value6);
             }
-            else if (IsTransferToNumberError && transferToNumberError != null)
+            else if (TransferToNumberError is { } __value7 && transferToNumberError != null)
             {
-                return transferToNumberError(TransferToNumberError!);
+                return transferToNumberError(__value7);
             }
-            else if (IsSkipTurnSuccess && skipTurnSuccess != null)
+            else if (SkipTurnSuccess is { } __value8 && skipTurnSuccess != null)
             {
-                return skipTurnSuccess(SkipTurnSuccess!);
+                return skipTurnSuccess(__value8);
             }
-            else if (IsPlayDtmfSuccess && playDtmfSuccess != null)
+            else if (PlayDtmfSuccess is { } __value9 && playDtmfSuccess != null)
             {
-                return playDtmfSuccess(PlayDtmfSuccess!);
+                return playDtmfSuccess(__value9);
             }
-            else if (IsPlayDtmfError && playDtmfError != null)
+            else if (PlayDtmfError is { } __value10 && playDtmfError != null)
             {
-                return playDtmfError(PlayDtmfError!);
+                return playDtmfError(__value10);
             }
-            else if (IsVoicemailDetectionSuccess && voicemailDetectionSuccess != null)
+            else if (VoicemailDetectionSuccess is { } __value11 && voicemailDetectionSuccess != null)
             {
-                return voicemailDetectionSuccess(VoicemailDetectionSuccess!);
+                return voicemailDetectionSuccess(__value11);
             }
-            else if (IsTestingToolResult && testingToolResult != null)
+            else if (TestingToolResult is { } __value12 && testingToolResult != null)
             {
-                return testingToolResult(TestingToolResult!);
+                return testingToolResult(__value12);
             }
-            else if (IsKnowledgeBaseRagSuccess && knowledgeBaseRagSuccess != null)
+            else if (KnowledgeBaseRagSuccess is { } __value13 && knowledgeBaseRagSuccess != null)
             {
-                return knowledgeBaseRagSuccess(KnowledgeBaseRagSuccess!);
+                return knowledgeBaseRagSuccess(__value13);
             }
-            else if (IsKnowledgeBaseSuccess && knowledgeBaseSuccess != null)
+            else if (KnowledgeBaseSuccess is { } __value14 && knowledgeBaseSuccess != null)
             {
-                return knowledgeBaseSuccess(KnowledgeBaseSuccess!);
+                return knowledgeBaseSuccess(__value14);
             }
-            else if (IsStartProcedureSuccess && startProcedureSuccess != null)
+            else if (StartProcedureSuccess is { } __value15 && startProcedureSuccess != null)
             {
-                return startProcedureSuccess(StartProcedureSuccess!);
+                return startProcedureSuccess(__value15);
             }
-            else if (IsStartProcedureError && startProcedureError != null)
+            else if (StartProcedureError is { } __value16 && startProcedureError != null)
             {
-                return startProcedureError(StartProcedureError!);
+                return startProcedureError(__value16);
             }
-            else if (IsEndProcedureSuccess && endProcedureSuccess != null)
+            else if (EndProcedureSuccess is { } __value17 && endProcedureSuccess != null)
             {
-                return endProcedureSuccess(EndProcedureSuccess!);
+                return endProcedureSuccess(__value17);
             }
-            else if (IsEndProcedureError && endProcedureError != null)
+            else if (EndProcedureError is { } __value18 && endProcedureError != null)
             {
-                return endProcedureError(EndProcedureError!);
+                return endProcedureError(__value18);
             }
-            else if (IsDummy && dummy != null)
+            else if (Dummy is { } __value19 && dummy != null)
             {
-                return dummy(Dummy!);
+                return dummy(__value19);
             }
 
             return default(TResult);
@@ -1489,85 +1489,85 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsEndCallSuccess)
+            if (EndCallSuccess is { } __value0)
             {
-                endCallSuccess?.Invoke(EndCallSuccess!);
+                endCallSuccess?.Invoke(__value0);
             }
-            else if (IsLanguageDetectionSuccess)
+            else if (LanguageDetectionSuccess is { } __value1)
             {
-                languageDetectionSuccess?.Invoke(LanguageDetectionSuccess!);
+                languageDetectionSuccess?.Invoke(__value1);
             }
-            else if (IsTransferToAgentSuccess)
+            else if (TransferToAgentSuccess is { } __value2)
             {
-                transferToAgentSuccess?.Invoke(TransferToAgentSuccess!);
+                transferToAgentSuccess?.Invoke(__value2);
             }
-            else if (IsTransferToAgentError)
+            else if (TransferToAgentError is { } __value3)
             {
-                transferToAgentError?.Invoke(TransferToAgentError!);
+                transferToAgentError?.Invoke(__value3);
             }
-            else if (IsTransferToNumberTwilioSuccess)
+            else if (TransferToNumberTwilioSuccess is { } __value4)
             {
-                transferToNumberTwilioSuccess?.Invoke(TransferToNumberTwilioSuccess!);
+                transferToNumberTwilioSuccess?.Invoke(__value4);
             }
-            else if (IsTransferToNumberSipSuccess)
+            else if (TransferToNumberSipSuccess is { } __value5)
             {
-                transferToNumberSipSuccess?.Invoke(TransferToNumberSipSuccess!);
+                transferToNumberSipSuccess?.Invoke(__value5);
             }
-            else if (IsTransferToNumberExotelSuccess)
+            else if (TransferToNumberExotelSuccess is { } __value6)
             {
-                transferToNumberExotelSuccess?.Invoke(TransferToNumberExotelSuccess!);
+                transferToNumberExotelSuccess?.Invoke(__value6);
             }
-            else if (IsTransferToNumberError)
+            else if (TransferToNumberError is { } __value7)
             {
-                transferToNumberError?.Invoke(TransferToNumberError!);
+                transferToNumberError?.Invoke(__value7);
             }
-            else if (IsSkipTurnSuccess)
+            else if (SkipTurnSuccess is { } __value8)
             {
-                skipTurnSuccess?.Invoke(SkipTurnSuccess!);
+                skipTurnSuccess?.Invoke(__value8);
             }
-            else if (IsPlayDtmfSuccess)
+            else if (PlayDtmfSuccess is { } __value9)
             {
-                playDtmfSuccess?.Invoke(PlayDtmfSuccess!);
+                playDtmfSuccess?.Invoke(__value9);
             }
-            else if (IsPlayDtmfError)
+            else if (PlayDtmfError is { } __value10)
             {
-                playDtmfError?.Invoke(PlayDtmfError!);
+                playDtmfError?.Invoke(__value10);
             }
-            else if (IsVoicemailDetectionSuccess)
+            else if (VoicemailDetectionSuccess is { } __value11)
             {
-                voicemailDetectionSuccess?.Invoke(VoicemailDetectionSuccess!);
+                voicemailDetectionSuccess?.Invoke(__value11);
             }
-            else if (IsTestingToolResult)
+            else if (TestingToolResult is { } __value12)
             {
-                testingToolResult?.Invoke(TestingToolResult!);
+                testingToolResult?.Invoke(__value12);
             }
-            else if (IsKnowledgeBaseRagSuccess)
+            else if (KnowledgeBaseRagSuccess is { } __value13)
             {
-                knowledgeBaseRagSuccess?.Invoke(KnowledgeBaseRagSuccess!);
+                knowledgeBaseRagSuccess?.Invoke(__value13);
             }
-            else if (IsKnowledgeBaseSuccess)
+            else if (KnowledgeBaseSuccess is { } __value14)
             {
-                knowledgeBaseSuccess?.Invoke(KnowledgeBaseSuccess!);
+                knowledgeBaseSuccess?.Invoke(__value14);
             }
-            else if (IsStartProcedureSuccess)
+            else if (StartProcedureSuccess is { } __value15)
             {
-                startProcedureSuccess?.Invoke(StartProcedureSuccess!);
+                startProcedureSuccess?.Invoke(__value15);
             }
-            else if (IsStartProcedureError)
+            else if (StartProcedureError is { } __value16)
             {
-                startProcedureError?.Invoke(StartProcedureError!);
+                startProcedureError?.Invoke(__value16);
             }
-            else if (IsEndProcedureSuccess)
+            else if (EndProcedureSuccess is { } __value17)
             {
-                endProcedureSuccess?.Invoke(EndProcedureSuccess!);
+                endProcedureSuccess?.Invoke(__value17);
             }
-            else if (IsEndProcedureError)
+            else if (EndProcedureError is { } __value18)
             {
-                endProcedureError?.Invoke(EndProcedureError!);
+                endProcedureError?.Invoke(__value18);
             }
-            else if (IsDummy)
+            else if (Dummy is { } __value19)
             {
-                dummy?.Invoke(Dummy!);
+                dummy?.Invoke(__value19);
             }
         }
 
@@ -1602,85 +1602,85 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsEndCallSuccess)
+            if (EndCallSuccess is { } __value0)
             {
-                endCallSuccess?.Invoke(EndCallSuccess!);
+                endCallSuccess?.Invoke(__value0);
             }
-            else if (IsLanguageDetectionSuccess)
+            else if (LanguageDetectionSuccess is { } __value1)
             {
-                languageDetectionSuccess?.Invoke(LanguageDetectionSuccess!);
+                languageDetectionSuccess?.Invoke(__value1);
             }
-            else if (IsTransferToAgentSuccess)
+            else if (TransferToAgentSuccess is { } __value2)
             {
-                transferToAgentSuccess?.Invoke(TransferToAgentSuccess!);
+                transferToAgentSuccess?.Invoke(__value2);
             }
-            else if (IsTransferToAgentError)
+            else if (TransferToAgentError is { } __value3)
             {
-                transferToAgentError?.Invoke(TransferToAgentError!);
+                transferToAgentError?.Invoke(__value3);
             }
-            else if (IsTransferToNumberTwilioSuccess)
+            else if (TransferToNumberTwilioSuccess is { } __value4)
             {
-                transferToNumberTwilioSuccess?.Invoke(TransferToNumberTwilioSuccess!);
+                transferToNumberTwilioSuccess?.Invoke(__value4);
             }
-            else if (IsTransferToNumberSipSuccess)
+            else if (TransferToNumberSipSuccess is { } __value5)
             {
-                transferToNumberSipSuccess?.Invoke(TransferToNumberSipSuccess!);
+                transferToNumberSipSuccess?.Invoke(__value5);
             }
-            else if (IsTransferToNumberExotelSuccess)
+            else if (TransferToNumberExotelSuccess is { } __value6)
             {
-                transferToNumberExotelSuccess?.Invoke(TransferToNumberExotelSuccess!);
+                transferToNumberExotelSuccess?.Invoke(__value6);
             }
-            else if (IsTransferToNumberError)
+            else if (TransferToNumberError is { } __value7)
             {
-                transferToNumberError?.Invoke(TransferToNumberError!);
+                transferToNumberError?.Invoke(__value7);
             }
-            else if (IsSkipTurnSuccess)
+            else if (SkipTurnSuccess is { } __value8)
             {
-                skipTurnSuccess?.Invoke(SkipTurnSuccess!);
+                skipTurnSuccess?.Invoke(__value8);
             }
-            else if (IsPlayDtmfSuccess)
+            else if (PlayDtmfSuccess is { } __value9)
             {
-                playDtmfSuccess?.Invoke(PlayDtmfSuccess!);
+                playDtmfSuccess?.Invoke(__value9);
             }
-            else if (IsPlayDtmfError)
+            else if (PlayDtmfError is { } __value10)
             {
-                playDtmfError?.Invoke(PlayDtmfError!);
+                playDtmfError?.Invoke(__value10);
             }
-            else if (IsVoicemailDetectionSuccess)
+            else if (VoicemailDetectionSuccess is { } __value11)
             {
-                voicemailDetectionSuccess?.Invoke(VoicemailDetectionSuccess!);
+                voicemailDetectionSuccess?.Invoke(__value11);
             }
-            else if (IsTestingToolResult)
+            else if (TestingToolResult is { } __value12)
             {
-                testingToolResult?.Invoke(TestingToolResult!);
+                testingToolResult?.Invoke(__value12);
             }
-            else if (IsKnowledgeBaseRagSuccess)
+            else if (KnowledgeBaseRagSuccess is { } __value13)
             {
-                knowledgeBaseRagSuccess?.Invoke(KnowledgeBaseRagSuccess!);
+                knowledgeBaseRagSuccess?.Invoke(__value13);
             }
-            else if (IsKnowledgeBaseSuccess)
+            else if (KnowledgeBaseSuccess is { } __value14)
             {
-                knowledgeBaseSuccess?.Invoke(KnowledgeBaseSuccess!);
+                knowledgeBaseSuccess?.Invoke(__value14);
             }
-            else if (IsStartProcedureSuccess)
+            else if (StartProcedureSuccess is { } __value15)
             {
-                startProcedureSuccess?.Invoke(StartProcedureSuccess!);
+                startProcedureSuccess?.Invoke(__value15);
             }
-            else if (IsStartProcedureError)
+            else if (StartProcedureError is { } __value16)
             {
-                startProcedureError?.Invoke(StartProcedureError!);
+                startProcedureError?.Invoke(__value16);
             }
-            else if (IsEndProcedureSuccess)
+            else if (EndProcedureSuccess is { } __value17)
             {
-                endProcedureSuccess?.Invoke(EndProcedureSuccess!);
+                endProcedureSuccess?.Invoke(__value17);
             }
-            else if (IsEndProcedureError)
+            else if (EndProcedureError is { } __value18)
             {
-                endProcedureError?.Invoke(EndProcedureError!);
+                endProcedureError?.Invoke(__value18);
             }
-            else if (IsDummy)
+            else if (Dummy is { } __value19)
             {
-                dummy?.Invoke(Dummy!);
+                dummy?.Invoke(__value19);
             }
         }
 
