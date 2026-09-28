@@ -897,9303 +897,9315 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WorkflowEdgeModelInput>? Type216 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ResourceAccessInfo>? Type216 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowEdgeModelInput? Type217 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WorkflowEdgeModelInput>? Type217 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Nodes? Type218 { get; set; }
+        public global::ElevenLabs.WorkflowEdgeModelInput? Type218 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowStartNodeModelInput? Type219 { get; set; }
+        public global::ElevenLabs.Nodes? Type219 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowEndNodeModelInput? Type220 { get; set; }
+        public global::ElevenLabs.WorkflowStartNodeModelInput? Type220 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInput? Type221 { get; set; }
+        public global::ElevenLabs.WorkflowEndNodeModelInput? Type221 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowOverrideAgentNodeModelInput? Type222 { get; set; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInput? Type222 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput? Type223 { get; set; }
+        public global::ElevenLabs.WorkflowOverrideAgentNodeModelInput? Type223 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolNodeModelInput? Type224 { get; set; }
+        public global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput? Type224 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AgentWorkflowRequestModelNodesDiscriminator? Type225 { get; set; }
+        public global::ElevenLabs.WorkflowToolNodeModelInput? Type225 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AgentWorkflowRequestModelNodesDiscriminatorType? Type226 { get; set; }
+        public global::ElevenLabs.AgentWorkflowRequestModelNodesDiscriminator? Type226 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AgentWorkflowResponseModel? Type227 { get; set; }
+        public global::ElevenLabs.AgentWorkflowRequestModelNodesDiscriminatorType? Type227 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WorkflowEdgeModelOutput>? Type228 { get; set; }
+        public global::ElevenLabs.AgentWorkflowResponseModel? Type228 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowEdgeModelOutput? Type229 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WorkflowEdgeModelOutput>? Type229 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Nodes2? Type230 { get; set; }
+        public global::ElevenLabs.WorkflowEdgeModelOutput? Type230 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowStartNodeModelOutput? Type231 { get; set; }
+        public global::ElevenLabs.Nodes2? Type231 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowEndNodeModelOutput? Type232 { get; set; }
+        public global::ElevenLabs.WorkflowStartNodeModelOutput? Type232 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutput? Type233 { get; set; }
+        public global::ElevenLabs.WorkflowEndNodeModelOutput? Type233 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowOverrideAgentNodeModelOutput? Type234 { get; set; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutput? Type234 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowStandaloneAgentNodeModelOutput? Type235 { get; set; }
+        public global::ElevenLabs.WorkflowOverrideAgentNodeModelOutput? Type235 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolNodeModelOutput? Type236 { get; set; }
+        public global::ElevenLabs.WorkflowStandaloneAgentNodeModelOutput? Type236 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AgentWorkflowResponseModelNodesDiscriminator? Type237 { get; set; }
+        public global::ElevenLabs.WorkflowToolNodeModelOutput? Type237 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AgentWorkflowResponseModelNodesDiscriminatorType? Type238 { get; set; }
+        public global::ElevenLabs.AgentWorkflowResponseModelNodesDiscriminator? Type238 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationInitiationClientDataWebhook? Type239 { get; set; }
+        public global::ElevenLabs.AgentWorkflowResponseModelNodesDiscriminatorType? Type239 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvAIWebhooks? Type240 { get; set; }
+        public global::ElevenLabs.ConversationInitiationClientDataWebhook? Type240 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AlertingMonitorConfig? Type241 { get; set; }
+        public global::ElevenLabs.ConvAIWebhooks? Type241 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AlertingPagerDutyNotifier? Type242 { get; set; }
+        public global::ElevenLabs.AlertingMonitorConfig? Type242 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AlertingPagerDutyNotifierResponse? Type243 { get; set; }
+        public global::ElevenLabs.AlertingPagerDutyNotifier? Type243 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AlertingMonitorConfig>? Type244 { get; set; }
+        public global::ElevenLabs.AlertingPagerDutyNotifierResponse? Type244 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifier, global::ElevenLabs.AlertingPagerDutyNotifier, global::ElevenLabs.AlertingSlackNotifier>>? Type245 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AlertingMonitorConfig>? Type245 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifier, global::ElevenLabs.AlertingPagerDutyNotifier, global::ElevenLabs.AlertingSlackNotifier>? Type246 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifier, global::ElevenLabs.AlertingPagerDutyNotifier, global::ElevenLabs.AlertingSlackNotifier>>? Type246 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AlertingWebhookNotifier? Type247 { get; set; }
+        public global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifier, global::ElevenLabs.AlertingPagerDutyNotifier, global::ElevenLabs.AlertingSlackNotifier>? Type247 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AlertingSlackNotifier? Type248 { get; set; }
+        public global::ElevenLabs.AlertingWebhookNotifier? Type248 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifierResponse, global::ElevenLabs.AlertingPagerDutyNotifierResponse, global::ElevenLabs.AlertingSlackNotifierResponse>>? Type249 { get; set; }
+        public global::ElevenLabs.AlertingSlackNotifier? Type249 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifierResponse, global::ElevenLabs.AlertingPagerDutyNotifierResponse, global::ElevenLabs.AlertingSlackNotifierResponse>? Type250 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifierResponse, global::ElevenLabs.AlertingPagerDutyNotifierResponse, global::ElevenLabs.AlertingSlackNotifierResponse>>? Type250 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AlertingWebhookNotifierResponse? Type251 { get; set; }
+        public global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifierResponse, global::ElevenLabs.AlertingPagerDutyNotifierResponse, global::ElevenLabs.AlertingSlackNotifierResponse>? Type251 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AlertingSlackNotifierResponse? Type252 { get; set; }
+        public global::ElevenLabs.AlertingWebhookNotifierResponse? Type252 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AlertingWebhookHeader? Type253 { get; set; }
+        public global::ElevenLabs.AlertingSlackNotifierResponse? Type253 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AlertingWebhookMethod? Type254 { get; set; }
+        public global::ElevenLabs.AlertingWebhookHeader? Type254 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AlertingWebhookSecretHeaderValue? Type255 { get; set; }
+        public global::ElevenLabs.AlertingWebhookMethod? Type255 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AllowedOutputFormats? Type256 { get; set; }
+        public global::ElevenLabs.AlertingWebhookSecretHeaderValue? Type256 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AllowedValues? Type257 { get; set; }
+        public global::ElevenLabs.AllowedOutputFormats? Type257 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AllowlistItem? Type258 { get; set; }
+        public global::ElevenLabs.AllowedValues? Type258 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnalysisCharging? Type259 { get; set; }
+        public global::ElevenLabs.AllowlistItem? Type259 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnalysisRunningTotal? Type260 { get; set; }
+        public global::ElevenLabs.AnalysisCharging? Type260 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnalysisRunSnapshot? Type261 { get; set; }
+        public global::ElevenLabs.AnalysisRunningTotal? Type261 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnalysisPropertyType? Type262 { get; set; }
+        public global::ElevenLabs.AnalysisRunSnapshot? Type262 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, object>? Type263 { get; set; }
+        public global::ElevenLabs.AnalysisPropertyType? Type263 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, int>? Type264 { get; set; }
+        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, object>? Type264 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnalysisType? Type265 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, int>? Type265 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse? Type266 { get; set; }
+        public global::ElevenLabs.AnalysisType? Type266 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponseScopeSeparator? Type267 { get; set; }
+        public global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponse? Type267 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AuthConnectionDependencies? Type268 { get; set; }
+        public global::ElevenLabs.ApiIntegrationOAuth2AuthCodeResponseScopeSeparator? Type268 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AuthConnectionStatus? Type269 { get; set; }
+        public global::ElevenLabs.AuthConnectionDependencies? Type269 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse? Type270 { get; set; }
+        public global::ElevenLabs.AuthConnectionStatus? Type270 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponseScopeSeparator? Type271 { get; set; }
+        public global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse? Type271 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ApiIntegrationWebhookOverrides? Type272 { get; set; }
+        public global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponseScopeSeparator? Type272 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SchemaOverridesVariant1? Type273 { get; set; }
+        public global::ElevenLabs.ApiIntegrationWebhookOverrides? Type273 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConstantSchemaOverride? Type274 { get; set; }
+        public global::ElevenLabs.SchemaOverridesVariant1? Type274 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DynamicVariableSchemaOverride? Type275 { get; set; }
+        public global::ElevenLabs.ConstantSchemaOverride? Type275 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMSchemaOverride? Type276 { get; set; }
+        public global::ElevenLabs.DynamicVariableSchemaOverride? Type276 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OmitSchemaOverride? Type277 { get; set; }
+        public global::ElevenLabs.LLMSchemaOverride? Type277 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ApiIntegrationWebhookOverridesSchemaOverridesDiscriminator? Type278 { get; set; }
+        public global::ElevenLabs.OmitSchemaOverride? Type278 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource? Type279 { get; set; }
+        public global::ElevenLabs.ApiIntegrationWebhookOverridesSchemaOverridesDiscriminator? Type279 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ResponseFilterMode? Type280 { get; set; }
+        public global::ElevenLabs.ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource? Type280 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, global::ElevenLabs.ConvAIDynamicVariable>? Type281 { get; set; }
+        public global::ElevenLabs.ResponseFilterMode? Type281 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvAIDynamicVariable? Type282 { get; set; }
+        public global::ElevenLabs.AnyOf<string, global::ElevenLabs.ConvAIDynamicVariable>? Type282 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ApiIntegrationWebhookToolConfigInput? Type283 { get; set; }
+        public global::ElevenLabs.ConvAIDynamicVariable? Type283 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolInterruptionMode? Type284 { get; set; }
+        public global::ElevenLabs.ApiIntegrationWebhookToolConfigInput? Type284 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PreToolSpeechMode? Type285 { get; set; }
+        public global::ElevenLabs.ToolInterruptionMode? Type285 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? Type286 { get; set; }
+        public global::ElevenLabs.PreToolSpeechMode? Type286 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DynamicVariableAssignment? Type287 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableAssignment>? Type287 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolCallSoundType? Type288 { get; set; }
+        public global::ElevenLabs.DynamicVariableAssignment? Type288 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolCallSoundBehavior? Type289 { get; set; }
+        public global::ElevenLabs.ToolCallSoundType? Type289 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolErrorHandlingMode? Type290 { get; set; }
+        public global::ElevenLabs.ToolCallSoundBehavior? Type290 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolExecutionMode? Type291 { get; set; }
+        public global::ElevenLabs.ToolErrorHandlingMode? Type291 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput? Type292 { get; set; }
+        public global::ElevenLabs.ToolExecutionMode? Type292 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ArrayJsonSchemaPropertyInput? Type293 { get; set; }
+        public global::ElevenLabs.ApiIntegrationWebhookToolConfigOutput? Type293 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ArrayJsonSchemaPropertyInputPropertyKind? Type294 { get; set; }
+        public global::ElevenLabs.ArchitectDispatchResponseModel? Type294 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<object>? Type295 { get; set; }
+        public global::ElevenLabs.ArrayJsonSchemaPropertyInput? Type295 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput>? Type296 { get; set; }
+        public global::ElevenLabs.ArrayJsonSchemaPropertyInputPropertyKind? Type296 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LiteralJsonSchemaProperty? Type297 { get; set; }
+        public global::System.Collections.Generic.IList<object>? Type297 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ObjectJsonSchemaPropertyInput? Type298 { get; set; }
+        public global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput>? Type298 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ArrayJsonSchemaPropertyOutput? Type299 { get; set; }
+        public global::ElevenLabs.LiteralJsonSchemaProperty? Type299 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyOutput, global::ElevenLabs.ArrayJsonSchemaPropertyOutput>? Type300 { get; set; }
+        public global::ElevenLabs.ObjectJsonSchemaPropertyInput? Type300 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ObjectJsonSchemaPropertyOutput? Type301 { get; set; }
+        public global::ElevenLabs.ArrayJsonSchemaPropertyOutput? Type301 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ArraySchema? Type302 { get; set; }
+        public global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyOutput, global::ElevenLabs.ArrayJsonSchemaPropertyOutput>? Type302 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ContentSchema? Type303 { get; set; }
+        public global::ElevenLabs.ObjectJsonSchemaPropertyOutput? Type303 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AssetListResponse? Type304 { get; set; }
+        public global::ElevenLabs.ArraySchema? Type304 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AssetResponse>? Type305 { get; set; }
+        public global::ElevenLabs.ContentSchema? Type305 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AssetResponse? Type306 { get; set; }
+        public global::ElevenLabs.AssetListResponse? Type306 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AssetTranscription? Type307 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AssetResponse>? Type307 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AssetTranscriptionStatus? Type308 { get; set; }
+        public global::ElevenLabs.AssetResponse? Type308 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AssetTranscriptionData? Type309 { get; set; }
+        public global::ElevenLabs.AssetTranscription? Type309 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<int>? Type310 { get; set; }
+        public global::ElevenLabs.AssetTranscriptionStatus? Type310 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AssignConversationTagsRequestModel? Type311 { get; set; }
+        public global::ElevenLabs.AssetTranscriptionData? Type311 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AssignableUserResponseModel? Type312 { get; set; }
+        public global::System.Collections.Generic.IList<int>? Type312 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AsyncConversationMetadata? Type313 { get; set; }
+        public global::ElevenLabs.AssignConversationTagsRequestModel? Type313 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AsyncConversationMetadataDeliveryStatus? Type314 { get; set; }
+        public global::ElevenLabs.AssignableUserResponseModel? Type314 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SystemDataCollectionId? Type315 { get; set; }
+        public global::ElevenLabs.AsyncConversationMetadata? Type315 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SystemEvaluationId? Type316 { get; set; }
+        public global::ElevenLabs.AsyncConversationMetadataDeliveryStatus? Type316 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioAnalysis? Type317 { get; set; }
+        public global::ElevenLabs.SystemDataCollectionId? Type317 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioAnalysisStatus? Type318 { get; set; }
+        public global::ElevenLabs.SystemEvaluationId? Type318 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioAnalysisResult? Type319 { get; set; }
+        public global::ElevenLabs.AudioAnalysis? Type319 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AudioSegment>? Type320 { get; set; }
+        public global::ElevenLabs.AudioAnalysisStatus? Type320 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioSegment? Type321 { get; set; }
+        public global::ElevenLabs.AudioAnalysisResult? Type321 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AudioKeyMoment>? Type322 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AudioSegment>? Type322 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioKeyMoment? Type323 { get; set; }
+        public global::ElevenLabs.AudioSegment? Type323 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioIsolationHistoryItemResponseModel? Type324 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AudioKeyMoment>? Type324 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioNativeCreateProjectResponseModel? Type325 { get; set; }
+        public global::ElevenLabs.AudioKeyMoment? Type325 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioNativeEditContentResponseModel? Type326 { get; set; }
+        public global::ElevenLabs.AudioIsolationHistoryItemResponseModel? Type326 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioNativeProjectSettingsResponseModel? Type327 { get; set; }
+        public global::ElevenLabs.AudioNativeCreateProjectResponseModel? Type327 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioNativeProjectSettingsResponseModelStatus? Type328 { get; set; }
+        public global::ElevenLabs.AudioNativeEditContentResponseModel? Type328 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioRefChunk? Type329 { get; set; }
+        public global::ElevenLabs.AudioNativeProjectSettingsResponseModel? Type329 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TimeRange? Type330 { get; set; }
+        public global::ElevenLabs.AudioNativeProjectSettingsResponseModelStatus? Type330 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioReference? Type331 { get; set; }
+        public global::ElevenLabs.AudioRefChunk? Type331 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GenerationReference? Type332 { get; set; }
+        public global::ElevenLabs.TimeRange? Type332 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StaticAssetReference? Type333 { get; set; }
+        public global::ElevenLabs.AudioReference? Type333 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InlineAudioReference? Type334 { get; set; }
+        public global::ElevenLabs.GenerationReference? Type334 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioReferenceDiscriminator? Type335 { get; set; }
+        public global::ElevenLabs.StaticAssetReference? Type335 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioReferenceDiscriminatorType? Type336 { get; set; }
+        public global::ElevenLabs.InlineAudioReference? Type336 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioSchema? Type337 { get; set; }
+        public global::ElevenLabs.AudioReferenceDiscriminator? Type337 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioWithTimestampsAndVoiceSegmentsResponseModel? Type338 { get; set; }
+        public global::ElevenLabs.AudioReferenceDiscriminatorType? Type338 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CharacterAlignmentResponseModel? Type339 { get; set; }
+        public global::ElevenLabs.AudioSchema? Type339 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VoiceSegment>? Type340 { get; set; }
+        public global::ElevenLabs.AudioWithTimestampsAndVoiceSegmentsResponseModel? Type340 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceSegment? Type341 { get; set; }
+        public global::ElevenLabs.CharacterAlignmentResponseModel? Type341 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioWithTimestampsResponseModel? Type342 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VoiceSegment>? Type342 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem>? Type343 { get; set; }
+        public global::ElevenLabs.VoiceSegment? Type343 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolsItem? Type344 { get; set; }
+        public global::ElevenLabs.AudioWithTimestampsResponseModel? Type344 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentAvailableToolIdentifier? Type345 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem>? Type345 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentUnknownToolIdentifier? Type346 { get; set; }
+        public global::ElevenLabs.ToolsItem? Type346 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AuthConnectionDependenciesToolDiscriminator? Type347 { get; set; }
+        public global::ElevenLabs.DependentAvailableToolIdentifier? Type347 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AuthConnectionDependenciesToolDiscriminatorType? Type348 { get; set; }
+        public global::ElevenLabs.DependentUnknownToolIdentifier? Type348 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.McpServersItem>? Type349 { get; set; }
+        public global::ElevenLabs.AuthConnectionDependenciesToolDiscriminator? Type349 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.McpServersItem? Type350 { get; set; }
+        public global::ElevenLabs.AuthConnectionDependenciesToolDiscriminatorType? Type350 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentAvailableMCPServerIdentifier? Type351 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.McpServersItem>? Type351 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentUnknownMCPServerIdentifier? Type352 { get; set; }
+        public global::ElevenLabs.McpServersItem? Type352 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AuthConnectionDependenciesMcpServerDiscriminator? Type353 { get; set; }
+        public global::ElevenLabs.DependentAvailableMCPServerIdentifier? Type353 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AuthConnectionDependenciesMcpServerDiscriminatorType? Type354 { get; set; }
+        public global::ElevenLabs.DependentUnknownMCPServerIdentifier? Type354 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentIntegrationConnectionIdentifier>? Type355 { get; set; }
+        public global::ElevenLabs.AuthConnectionDependenciesMcpServerDiscriminator? Type355 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentIntegrationConnectionIdentifier? Type356 { get; set; }
+        public global::ElevenLabs.AuthConnectionDependenciesMcpServerDiscriminatorType? Type356 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AuthConnectionLocator? Type357 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentIntegrationConnectionIdentifier>? Type357 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AllowlistItem>? Type358 { get; set; }
+        public global::ElevenLabs.DependentIntegrationConnectionIdentifier? Type358 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AuthorizationMethod? Type359 { get; set; }
+        public global::ElevenLabs.AuthConnectionLocator? Type359 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AutoGenerationMetadata? Type360 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AllowlistItem>? Type360 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AutoSyncInfo? Type361 { get; set; }
+        public global::ElevenLabs.AuthorizationMethod? Type361 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AvatarContextResponseModel? Type362 { get; set; }
+        public global::ElevenLabs.AutoGenerationMetadata? Type362 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BackgroundSoundConfig? Type363 { get; set; }
+        public global::ElevenLabs.AutoSyncInfo? Type363 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BackgroundSoundSourceType? Type364 { get; set; }
+        public global::ElevenLabs.AvatarContextResponseModel? Type364 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BackgroundSoundPresetId? Type365 { get; set; }
+        public global::ElevenLabs.BackgroundSoundConfig? Type365 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BackgroundSoundConfigWorkflowOverride? Type366 { get; set; }
+        public global::ElevenLabs.BackgroundSoundSourceType? Type366 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BackupLLMDefault? Type367 { get; set; }
+        public global::ElevenLabs.BackgroundSoundPresetId? Type367 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BackupLLMDisabled? Type368 { get; set; }
+        public global::ElevenLabs.BackgroundSoundConfigWorkflowOverride? Type368 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BackupLLMOverride? Type369 { get; set; }
+        public global::ElevenLabs.BackupLLMDefault? Type369 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.Llm>? Type370 { get; set; }
+        public global::ElevenLabs.BackupLLMDisabled? Type370 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BaseTurnConfig? Type371 { get; set; }
+        public global::ElevenLabs.BackupLLMOverride? Type371 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TurnMode? Type372 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.Llm>? Type372 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TurnEagerness? Type373 { get; set; }
+        public global::ElevenLabs.BaseTurnConfig? Type373 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpellingPatience? Type374 { get; set; }
+        public global::ElevenLabs.TurnMode? Type374 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TurnModel? Type375 { get; set; }
+        public global::ElevenLabs.TurnEagerness? Type375 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BasicAuthResponse? Type376 { get; set; }
+        public global::ElevenLabs.SpellingPatience? Type376 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BatchCallDetailedResponse? Type377 { get; set; }
+        public global::ElevenLabs.TurnModel? Type377 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TelephonyProvider? Type378 { get; set; }
+        public global::ElevenLabs.BasicAuthResponse? Type378 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BatchCallWhatsAppParams? Type379 { get; set; }
+        public global::ElevenLabs.BatchCallDetailedResponse? Type379 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BatchCallStatus? Type380 { get; set; }
+        public global::ElevenLabs.TelephonyProvider? Type380 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TelephonyCallConfigOutput? Type381 { get; set; }
+        public global::ElevenLabs.BatchCallWhatsAppParams? Type381 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipientResponseModel>? Type382 { get; set; }
+        public global::ElevenLabs.BatchCallStatus? Type382 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OutboundCallRecipientResponseModel? Type383 { get; set; }
+        public global::ElevenLabs.TelephonyCallConfigOutput? Type383 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BatchCallRecipientStatus? Type384 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipientResponseModel>? Type384 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BatchCallResponse? Type385 { get; set; }
+        public global::ElevenLabs.OutboundCallRecipientResponseModel? Type385 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BatchCallingCampaignInformation? Type386 { get; set; }
+        public global::ElevenLabs.BatchCallRecipientStatus? Type386 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BatchFailureResponseModel? Type387 { get; set; }
+        public global::ElevenLabs.BatchCallResponse? Type387 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BearerAuthResponse? Type388 { get; set; }
+        public global::ElevenLabs.BatchCallingCampaignInformation? Type388 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Verbosity? Type389 { get; set; }
+        public global::ElevenLabs.BatchFailureResponseModel? Type389 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OutputFormat? Type390 { get; set; }
+        public global::ElevenLabs.BearerAuthResponse? Type390 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InteractionBudget? Type391 { get; set; }
+        public global::ElevenLabs.Verbosity? Type391 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BillingPeriod? Type392 { get; set; }
+        public global::ElevenLabs.OutputFormat? Type392 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyAddALanguageToTheResourceV1DubbingResourceDubbingIdLanguagePost? Type393 { get; set; }
+        public global::ElevenLabs.InteractionBudget? Type393 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePost? Type394 { get; set; }
+        public global::ElevenLabs.BillingPeriod? Type394 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public byte[]? Type395 { get; set; }
+        public global::ElevenLabs.BodyAddALanguageToTheResourceV1DubbingResourceDubbingIdLanguagePost? Type395 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePostWorkspaceAccess? Type396 { get; set; }
+        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePost? Type396 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPost? Type397 { get; set; }
+        public byte[]? Type397 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModel>>? Type398 { get; set; }
+        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromFilePostWorkspaceAccess? Type398 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModel>? Type399 { get; set; }
+        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPost? Type399 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModel? Type400 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModel>>? Type400 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModel? Type401 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModel>? Type401 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPostWorkspaceAccess? Type402 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModel? Type402 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyAddMemberToUserGroupV1WorkspaceGroupsGroupIdMembersPost? Type403 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModel? Type403 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyAddRulesToThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdAddRulesPost? Type404 { get; set; }
+        public global::ElevenLabs.BodyAddAPronunciationDictionaryV1PronunciationDictionariesAddFromRulesPostWorkspaceAccess? Type404 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyAddSamplesToPvcVoiceV1VoicesPvcVoiceIdSamplesPost? Type405 { get; set; }
+        public global::ElevenLabs.BodyAddMemberToUserGroupV1WorkspaceGroupsGroupIdMembersPost? Type405 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<byte[]>? Type406 { get; set; }
+        public global::ElevenLabs.BodyAddRulesToThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdAddRulesPost? Type406 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyAddSharedVoiceV1VoicesAddPublicUserIdVoiceIdPost? Type407 { get; set; }
+        public global::ElevenLabs.BodyAddSamplesToPvcVoiceV1VoicesPvcVoiceIdSamplesPost? Type407 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyAddToKnowledgeBaseV1ConvaiKnowledgeBasePost? Type408 { get; set; }
+        public global::System.Collections.Generic.IList<byte[]>? Type408 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyAddVoiceV1VoicesAddPost? Type409 { get; set; }
+        public global::ElevenLabs.BodyAddSharedVoiceV1VoicesAddPublicUserIdVoiceIdPost? Type409 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? Type410 { get; set; }
+        public global::ElevenLabs.BodyAddToKnowledgeBaseV1ConvaiKnowledgeBasePost? Type410 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, string>? Type411 { get; set; }
+        public global::ElevenLabs.BodyAddVoiceV1VoicesAddPost? Type411 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPost? Type412 { get; set; }
+        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? Type412 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat? Type413 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, string>? Type413 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPost? Type414 { get; set; }
+        public global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPost? Type414 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat? Type415 { get; set; }
+        public global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat? Type415 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyBulkDeleteKnowledgeBaseDocumentsV1ConvaiKnowledgeBaseBulkDeletePost? Type416 { get; set; }
+        public global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPost? Type416 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyBulkMoveEntitiesToFolderV1ConvaiKnowledgeBaseBulkMovePost? Type417 { get; set; }
+        public global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat? Type417 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyBulkMoveTestsToFolderV1ConvaiAgentTestingBulkMovePost? Type418 { get; set; }
+        public global::ElevenLabs.BodyBulkDeleteKnowledgeBaseDocumentsV1ConvaiKnowledgeBaseBulkDeletePost? Type418 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPost? Type419 { get; set; }
+        public global::ElevenLabs.BodyBulkMoveEntitiesToFolderV1ConvaiKnowledgeBaseBulkMovePost? Type419 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicGenerationMode? Type420 { get; set; }
+        public global::ElevenLabs.BodyBulkMoveTestsToFolderV1ConvaiAgentTestingBulkMovePost? Type420 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicPrompt? Type421 { get; set; }
+        public global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPost? Type421 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OneOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>? Type422 { get; set; }
+        public global::ElevenLabs.MusicGenerationMode? Type422 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CompositionPlan? Type423 { get; set; }
+        public global::ElevenLabs.MusicPrompt? Type423 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicModelID? Type424 { get; set; }
+        public global::ElevenLabs.OneOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>? Type424 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix? Type425 { get; set; }
+        public global::ElevenLabs.CompositionPlan? Type425 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyComposeMusicV1MusicPost? Type426 { get; set; }
+        public global::ElevenLabs.MusicModelID? Type426 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyComputeRagIndexesInBatchV1ConvaiKnowledgeBaseRagIndexPost? Type427 { get; set; }
+        public global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix? Type427 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.GetOrCreateRAGIndexRequestModel>? Type428 { get; set; }
+        public global::ElevenLabs.BodyComposeMusicV1MusicPost? Type428 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetOrCreateRAGIndexRequestModel? Type429 { get; set; }
+        public global::ElevenLabs.BodyComputeRagIndexesInBatchV1ConvaiKnowledgeBaseRagIndexPost? Type429 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateAgentV1ConvaiAgentsCreatePost? Type430 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.GetOrCreateRAGIndexRequestModel>? Type430 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePost? Type431 { get; set; }
+        public global::ElevenLabs.GetOrCreateRAGIndexRequestModel? Type431 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceSettings? Type432 { get; set; }
+        public global::ElevenLabs.BodyCreateAgentV1ConvaiAgentsCreatePost? Type432 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPost? Type433 { get; set; }
+        public global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePost? Type433 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string, object>? Type434 { get; set; }
+        public global::ElevenLabs.VoiceSettings? Type434 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId? Type435 { get; set; }
+        public global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPost? Type435 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPost? Type436 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string, object>? Type436 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility? Type437 { get; set; }
+        public global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId? Type437 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreatePvcVoiceV1VoicesPvcPost? Type438 { get; set; }
+        public global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPost? Type438 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreatePronunciationDictionariesV1StudioProjectsProjectIdPronunciationDictionariesPost? Type439 { get; set; }
+        public global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility? Type439 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel>? Type440 { get; set; }
+        public global::ElevenLabs.BodyCreatePvcVoiceV1VoicesPvcPost? Type440 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel? Type441 { get; set; }
+        public global::ElevenLabs.BodyCreatePronunciationDictionariesV1StudioProjectsProjectIdPronunciationDictionariesPost? Type441 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPost? Type442 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel>? Type442 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.QualityPresetType? Type443 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel? Type443 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience? Type444 { get; set; }
+        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPost? Type444 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostFiction? Type445 { get; set; }
+        public global::ElevenLabs.QualityPresetType? Type445 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization? Type446 { get; set; }
+        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostTargetAudience? Type446 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostSourceType? Type447 { get; set; }
+        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostFiction? Type447 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateUrlDocumentV1ConvaiKnowledgeBaseUrlPost? Type448 { get; set; }
+        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostApplyTextNormalization? Type448 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost? Type449 { get; set; }
+        public global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostSourceType? Type449 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateANewSpeakerV1DubbingResourceDubbingIdSpeakerPost? Type450 { get; set; }
+        public global::ElevenLabs.BodyCreateUrlDocumentV1ConvaiKnowledgeBaseUrlPost? Type450 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateANewVoiceFromVoicePreviewV1TextToVoicePost? Type451 { get; set; }
+        public global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost? Type451 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateAgentDraftV1ConvaiAgentsAgentIdDraftsPost? Type452 { get; set; }
+        public global::ElevenLabs.BodyCreateANewSpeakerV1DubbingResourceDubbingIdSpeakerPost? Type452 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateAgentTestFolderV1ConvaiAgentTestingFoldersPost? Type453 { get; set; }
+        public global::ElevenLabs.BodyCreateANewVoiceFromVoicePreviewV1TextToVoicePost? Type453 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateChapterV1StudioProjectsProjectIdChaptersPost? Type454 { get; set; }
+        public global::ElevenLabs.BodyCreateAgentDraftV1ConvaiAgentsAgentIdDraftsPost? Type454 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateCrawlJobV1ConvaiKnowledgeBaseCrawlPost? Type455 { get; set; }
+        public global::ElevenLabs.BodyCreateAgentTestFolderV1ConvaiAgentTestingFoldersPost? Type455 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateFileDocumentV1ConvaiKnowledgeBaseFilePost? Type456 { get; set; }
+        public global::ElevenLabs.BodyCreateChapterV1StudioProjectsProjectIdChaptersPost? Type456 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateFolderV1ConvaiKnowledgeBaseFolderPost? Type457 { get; set; }
+        public global::ElevenLabs.BodyCreateCrawlJobV1ConvaiKnowledgeBaseCrawlPost? Type457 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateForcedAlignmentV1ForcedAlignmentPost? Type458 { get; set; }
+        public global::ElevenLabs.BodyCreateFileDocumentV1ConvaiKnowledgeBaseFilePost? Type458 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost? Type459 { get; set; }
+        public global::ElevenLabs.BodyCreateFolderV1ConvaiKnowledgeBaseFolderPost? Type459 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPost? Type460 { get; set; }
+        public global::ElevenLabs.BodyCreateForcedAlignmentV1ForcedAlignmentPost? Type460 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode>? Type461 { get; set; }
+        public global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost? Type461 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PodcastConversationMode? Type462 { get; set; }
+        public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPost? Type462 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PodcastBulletinMode? Type463 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastConversationMode, global::ElevenLabs.PodcastBulletinMode>? Type463 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>>? Type464 { get; set; }
+        public global::ElevenLabs.PodcastConversationMode? Type464 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PodcastTextSource? Type465 { get; set; }
+        public global::ElevenLabs.PodcastBulletinMode? Type465 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PodcastURLSource? Type466 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>>? Type466 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>? Type467 { get; set; }
+        public global::ElevenLabs.PodcastTextSource? Type467 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>? Type468 { get; set; }
+        public global::ElevenLabs.PodcastURLSource? Type468 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostDurationScale? Type469 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>? Type469 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization? Type470 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>? Type470 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateTextDocumentV1ConvaiKnowledgeBaseTextPost? Type471 { get; set; }
+        public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostDurationScale? Type471 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateWorkspaceWebhookV1WorkspaceWebhooksPost? Type472 { get; set; }
+        public global::ElevenLabs.BodyCreatePodcastV1StudioPodcastsPostApplyTextNormalization? Type472 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookHMACSettings? Type473 { get; set; }
+        public global::ElevenLabs.BodyCreateTextDocumentV1ConvaiKnowledgeBaseTextPost? Type473 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePost? Type474 { get; set; }
+        public global::ElevenLabs.BodyCreateWorkspaceWebhookV1WorkspaceWebhooksPost? Type474 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePostApplyTextNormalization? Type475 { get; set; }
+        public global::ElevenLabs.WebhookHMACSettings? Type475 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyDeleteExistingInvitationV1WorkspaceInvitesDelete? Type476 { get; set; }
+        public global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePost? Type476 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyDeleteMemberFromUserGroupV1WorkspaceGroupsGroupIdMembersRemovePost? Type477 { get; set; }
+        public global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePostApplyTextNormalization? Type477 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyDownloadHistoryItemsV1HistoryDownloadPost? Type478 { get; set; }
+        public global::ElevenLabs.BodyDeleteExistingInvitationV1WorkspaceInvitesDelete? Type478 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost? Type479 { get; set; }
+        public global::ElevenLabs.BodyDeleteMemberFromUserGroupV1WorkspaceGroupsGroupIdMembersRemovePost? Type479 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPostMode? Type480 { get; set; }
+        public global::ElevenLabs.BodyDownloadHistoryItemsV1HistoryDownloadPost? Type480 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyDubsAllOrSomeSegmentsAndLanguagesV1DubbingResourceDubbingIdDubPost? Type481 { get; set; }
+        public global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPost? Type481 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyDuplicateAgentV1ConvaiAgentsAgentIdDuplicatePost? Type482 { get; set; }
+        public global::ElevenLabs.BodyDubAVideoOrAnAudioFileV1DubbingPostMode? Type482 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost? Type483 { get; set; }
+        public global::ElevenLabs.BodyDubsAllOrSomeSegmentsAndLanguagesV1DubbingResourceDubbingIdDubPost? Type483 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyEditVoiceV1VoicesVoiceIdEditPost? Type484 { get; set; }
+        public global::ElevenLabs.BodyDuplicateAgentV1ConvaiAgentsAgentIdDuplicatePost? Type484 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPost? Type485 { get; set; }
+        public global::ElevenLabs.BodyEditPvcVoiceV1VoicesPvcVoiceIdPost? Type485 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan, object>? Type486 { get; set; }
+        public global::ElevenLabs.BodyEditVoiceV1VoicesVoiceIdEditPost? Type486 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePost? Type487 { get; set; }
+        public global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPost? Type487 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item>? Type488 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan, object>? Type488 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item? Type489 { get; set; }
+        public global::ElevenLabs.BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePost? Type489 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ColumnFilter>? Type490 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item>? Type490 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ColumnFilter? Type491 { get; set; }
+        public global::ElevenLabs.BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item? Type491 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyGetDependentAgentsForMultipleDocumentsV1ConvaiKnowledgeBaseDependentAgentsPost? Type492 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ColumnFilter>? Type492 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyGetSimilarLibraryVoicesV1SimilarVoicesPost? Type493 { get; set; }
+        public global::ElevenLabs.ColumnFilter? Type493 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyHandleAnOutboundCallViaExotelV1ConvaiExotelOutboundCallPost? Type494 { get; set; }
+        public global::ElevenLabs.BodyGetDependentAgentsForMultipleDocumentsV1ConvaiKnowledgeBaseDependentAgentsPost? Type494 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationInitiationClientDataRequestInput? Type495 { get; set; }
+        public global::ElevenLabs.BodyGetSimilarLibraryVoicesV1SimilarVoicesPost? Type495 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TelephonyCallConfigInput? Type496 { get; set; }
+        public global::ElevenLabs.BodyHandleAnOutboundCallViaExotelV1ConvaiExotelOutboundCallPost? Type496 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost? Type497 { get; set; }
+        public global::ElevenLabs.ConversationInitiationClientDataRequestInput? Type497 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyHandleAnOutboundCallViaTwilioV1ConvaiTwilioOutboundCallPost? Type498 { get; set; }
+        public global::ElevenLabs.TelephonyCallConfigInput? Type498 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyInviteMultipleUsersV1WorkspaceInvitesAddBulkPost? Type499 { get; set; }
+        public global::ElevenLabs.BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost? Type499 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SeatType? Type500 { get; set; }
+        public global::ElevenLabs.BodyHandleAnOutboundCallViaTwilioV1ConvaiTwilioOutboundCallPost? Type500 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPost? Type501 { get; set; }
+        public global::ElevenLabs.BodyInviteMultipleUsersV1WorkspaceInvitesAddBulkPost? Type501 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPost? Type502 { get; set; }
+        public global::ElevenLabs.SeatType? Type502 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPostSort? Type503 { get; set; }
+        public global::ElevenLabs.BodyInviteUserV1WorkspaceInvitesAddPost? Type503 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyMakeAnOutboundCallViaWhatsAppV1ConvaiWhatsappOutboundCallPost? Type504 { get; set; }
+        public global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPost? Type504 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyMergeABranchIntoATargetBranchV1ConvaiAgentsAgentIdBranchesSourceBranchIdMergePost? Type505 { get; set; }
+        public global::ElevenLabs.BodyListApiRequestsV1WorkspaceAnalyticsRequestsPostSort? Type505 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyMoveEntityToFolderV1ConvaiKnowledgeBaseDocumentIdMovePost? Type506 { get; set; }
+        public global::ElevenLabs.BodyMakeAnOutboundCallViaWhatsAppV1ConvaiWhatsappOutboundCallPost? Type506 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyMoveSegmentsBetweenSpeakersV1DubbingResourceDubbingIdMigrateSegmentsPost? Type507 { get; set; }
+        public global::ElevenLabs.BodyMergeABranchIntoATargetBranchV1ConvaiAgentsAgentIdBranchesSourceBranchIdMergePost? Type507 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch? Type508 { get; set; }
+        public global::ElevenLabs.BodyMoveEntityToFolderV1ConvaiKnowledgeBaseDocumentIdMovePost? Type508 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureVersionRef>? Type509 { get; set; }
+        public global::ElevenLabs.BodyMoveSegmentsBetweenSpeakersV1DubbingResourceDubbingIdMigrateSegmentsPost? Type509 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProcedureVersionRef? Type510 { get; set; }
+        public global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch? Type510 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyPostAgentAvatarV1ConvaiAgentsAgentIdAvatarPost? Type511 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureVersionRef>? Type511 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyPostAgentHoldAudioV1ConvaiAgentsAgentIdHoldAudioPost? Type512 { get; set; }
+        public global::ElevenLabs.ProcedureVersionRef? Type512 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyRegisterATwilioCallAndReturnTwiMLV1ConvaiTwilioRegisterCallPost? Type513 { get; set; }
+        public global::ElevenLabs.BodyPostAgentAvatarV1ConvaiAgentsAgentIdAvatarPost? Type513 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TelephonyDirection? Type514 { get; set; }
+        public global::ElevenLabs.BodyPostAgentHoldAudioV1ConvaiAgentsAgentIdHoldAudioPost? Type514 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost? Type515 { get; set; }
+        public global::ElevenLabs.BodyRegisterATwilioCallAndReturnTwiMLV1ConvaiTwilioRegisterCallPost? Type515 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyRemoveRulesFromThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdRemoveRulesPost? Type516 { get; set; }
+        public global::ElevenLabs.TelephonyDirection? Type516 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyRenderAudioOrVideoForTheGivenLanguageV1DubbingResourceDubbingIdRenderLanguagePost? Type517 { get; set; }
+        public global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost? Type517 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RenderType? Type518 { get; set; }
+        public global::ElevenLabs.BodyRemoveRulesFromThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdRemoveRulesPost? Type518 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyRequestManualVerificationV1VoicesPvcVoiceIdVerificationPost? Type519 { get; set; }
+        public global::ElevenLabs.BodyRenderAudioOrVideoForTheGivenLanguageV1DubbingResourceDubbingIdRenderLanguagePost? Type519 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyRunPvcTrainingV1VoicesPvcVoiceIdTrainPost? Type520 { get; set; }
+        public global::ElevenLabs.RenderType? Type520 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePost? Type521 { get; set; }
+        public global::ElevenLabs.BodyRequestManualVerificationV1VoicesPvcVoiceIdVerificationPost? Type521 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplateParamsItem>? Type522 { get; set; }
+        public global::ElevenLabs.BodyRunPvcTrainingV1VoicesPvcVoiceIdTrainPost? Type522 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateParamsItem? Type523 { get; set; }
+        public global::ElevenLabs.BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePost? Type523 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateHeaderComponentParams? Type524 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplateParamsItem>? Type524 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateBodyComponentParams? Type525 { get; set; }
+        public global::ElevenLabs.TemplateParamsItem? Type525 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateButtonComponentParams? Type526 { get; set; }
+        public global::ElevenLabs.WhatsAppTemplateHeaderComponentParams? Type526 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePostTemplateParamDiscriminator? Type527 { get; set; }
+        public global::ElevenLabs.WhatsAppTemplateBodyComponentParams? Type527 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePostTemplateParamDiscriminatorType? Type528 { get; set; }
+        public global::ElevenLabs.WhatsAppTemplateButtonComponentParams? Type528 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySetRulesOnThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdSetRulesPost? Type529 { get; set; }
+        public global::ElevenLabs.BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePostTemplateParamDiscriminator? Type529 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySetWorkspaceThirdPartyDisablingPolicyV1WorkspacesApiKeysThirdPartyDisablingPost? Type530 { get; set; }
+        public global::ElevenLabs.BodySendAnOutboundMessageViaWhatsAppV1ConvaiWhatsappOutboundMessagePostTemplateParamDiscriminatorType? Type530 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePost? Type531 { get; set; }
+        public global::ElevenLabs.BodySetRulesOnThePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdSetRulesPost? Type531 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostRole? Type532 { get; set; }
+        public global::ElevenLabs.BodySetWorkspaceThirdPartyDisablingPolicyV1WorkspacesApiKeysThirdPartyDisablingPost? Type532 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceResourceType? Type533 { get; set; }
+        public global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePost? Type533 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost? Type534 { get; set; }
+        public global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostRole? Type534 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationSimulationSpecification? Type535 { get; set; }
+        public global::ElevenLabs.WorkspaceResourceType? Type535 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PromptEvaluationCriteria>? Type536 { get; set; }
+        public global::ElevenLabs.BodySimulatesAConversationStreamV1ConvaiAgentsAgentIdSimulateConversationStreamPost? Type536 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PromptEvaluationCriteria? Type537 { get; set; }
+        public global::ElevenLabs.ConversationSimulationSpecification? Type537 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySimulatesAConversationV1ConvaiAgentsAgentIdSimulateConversationPost? Type538 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PromptEvaluationCriteria>? Type538 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost? Type539 { get; set; }
+        public global::ElevenLabs.PromptEvaluationCriteria? Type539 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SFXModelId? Type540 { get; set; }
+        public global::ElevenLabs.BodySimulatesAConversationV1ConvaiAgentsAgentIdSimulateConversationPost? Type540 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost? Type541 { get; set; }
+        public global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost? Type541 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat? Type542 { get; set; }
+        public global::ElevenLabs.SFXModelId? Type542 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost? Type543 { get; set; }
+        public global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost? Type543 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? Type544 { get; set; }
+        public global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat? Type544 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost? Type545 { get; set; }
+        public global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost? Type545 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? Type546 { get; set; }
+        public global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? Type546 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? Type547 { get; set; }
+        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPost? Type547 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle? Type548 { get; set; }
+        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity? Type548 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, object, object>? Type549 { get; set; }
+        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostFileFormat? Type549 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? Type550 { get; set; }
+        public global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle? Type550 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyStemSeparationV1MusicStemSeparationPost? Type551 { get; set; }
+        public global::ElevenLabs.AnyOf<string, object, object>? Type551 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyStemSeparationV1MusicStemSeparationPostStemVariationId? Type552 { get; set; }
+        public global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? Type552 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyStreamStudioProjectAudioV1StudioProjectsProjectIdSnapshotsProjectSnapshotIdStreamPost? Type553 { get; set; }
+        public global::ElevenLabs.BodyStemSeparationV1MusicStemSeparationPost? Type553 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyStreamChapterAudioV1StudioProjectsProjectIdChaptersChapterIdSnapshotsChapterSnapshotIdStreamPost? Type554 { get; set; }
+        public global::ElevenLabs.BodyStemSeparationV1MusicStemSeparationPostStemVariationId? Type554 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyStreamComposedMusicV1MusicStreamPost? Type555 { get; set; }
+        public global::ElevenLabs.BodyStreamStudioProjectAudioV1StudioProjectsProjectIdSnapshotsProjectSnapshotIdStreamPost? Type555 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyStreamComposedMusicWithADetailedResponseV1MusicDetailedStreamPost? Type556 { get; set; }
+        public global::ElevenLabs.BodyStreamChapterAudioV1StudioProjectsProjectIdChaptersChapterIdSnapshotsChapterSnapshotIdStreamPost? Type556 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost? Type557 { get; set; }
+        public global::ElevenLabs.BodyStreamComposedMusicV1MusicStreamPost? Type557 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipient>? Type558 { get; set; }
+        public global::ElevenLabs.BodyStreamComposedMusicWithADetailedResponseV1MusicDetailedStreamPost? Type558 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OutboundCallRecipient? Type559 { get; set; }
+        public global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost? Type559 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPost? Type560 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipient>? Type560 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInput>? Type561 { get; set; }
+        public global::ElevenLabs.OutboundCallRecipient? Type561 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DialogueInput? Type562 { get; set; }
+        public global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPost? Type562 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToDialogueSettingsResponseModel? Type563 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInput>? Type563 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? Type564 { get; set; }
+        public global::ElevenLabs.DialogueInput? Type564 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel? Type565 { get; set; }
+        public global::ElevenLabs.ToDialogueSettingsResponseModel? Type565 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostApplyTextNormalization? Type566 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? Type566 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePost? Type567 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel? Type567 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalization? Type568 { get; set; }
+        public global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostApplyTextNormalization? Type568 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTranscribesSegmentsV1DubbingResourceDubbingIdTranscribePost? Type569 { get; set; }
+        public global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePost? Type569 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTranslatesAllOrSomeSegmentsAndLanguagesV1DubbingResourceDubbingIdTranslatePost? Type570 { get; set; }
+        public global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalization? Type570 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUnshareWorkspaceResourceV1WorkspaceResourcesResourceIdUnsharePost? Type571 { get; set; }
+        public global::ElevenLabs.BodyTranscribesSegmentsV1DubbingResourceDubbingIdTranscribePost? Type571 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost? Type572 { get; set; }
+        public global::ElevenLabs.BodyTranslatesAllOrSomeSegmentsAndLanguagesV1DubbingResourceDubbingIdTranslatePost? Type572 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpdateStudioProjectContentV1StudioProjectsProjectIdContentPost? Type573 { get; set; }
+        public global::ElevenLabs.BodyUnshareWorkspaceResourceV1WorkspaceResourcesResourceIdUnsharePost? Type573 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpdateStudioProjectV1StudioProjectsProjectIdPost? Type574 { get; set; }
+        public global::ElevenLabs.BodyUpdatePvcVoiceSampleV1VoicesPvcVoiceIdSamplesSampleIdPost? Type574 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch? Type575 { get; set; }
+        public global::ElevenLabs.BodyUpdateStudioProjectContentV1StudioProjectsProjectIdContentPost? Type575 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpdateAgentTestFolderV1ConvaiAgentTestingFoldersFolderIdPatch? Type576 { get; set; }
+        public global::ElevenLabs.BodyUpdateStudioProjectV1StudioProjectsProjectIdPost? Type576 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost? Type577 { get; set; }
+        public global::ElevenLabs.BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch? Type577 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpdateAudioNativeContentFromUrlV1AudioNativeContentPost? Type578 { get; set; }
+        public global::ElevenLabs.BodyUpdateAgentTestFolderV1ConvaiAgentTestingFoldersFolderIdPatch? Type578 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpdateChapterV1StudioProjectsProjectIdChaptersChapterIdPost? Type579 { get; set; }
+        public global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost? Type579 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChapterContentInputModel? Type580 { get; set; }
+        public global::ElevenLabs.BodyUpdateAudioNativeContentFromUrlV1AudioNativeContentPost? Type580 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch? Type581 { get; set; }
+        public global::ElevenLabs.BodyUpdateChapterV1StudioProjectsProjectIdChaptersChapterIdPost? Type581 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpdateFileDocumentV1ConvaiKnowledgeBaseDocumentationIdUpdateFilePatch? Type582 { get; set; }
+        public global::ElevenLabs.ChapterContentInputModel? Type582 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpdateMemberV1WorkspaceMembersPost? Type583 { get; set; }
+        public global::ElevenLabs.BodyUpdateDocumentV1ConvaiKnowledgeBaseDocumentationIdPatch? Type583 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpdateMetadataForASpeakerV1DubbingResourceDubbingIdSpeakerSpeakerIdPatch? Type584 { get; set; }
+        public global::ElevenLabs.BodyUpdateFileDocumentV1ConvaiKnowledgeBaseDocumentationIdUpdateFilePatch? Type584 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpdateOrderV1ProductionsOrdersOrderIdPatch? Type585 { get; set; }
+        public global::ElevenLabs.BodyUpdateMemberV1WorkspaceMembersPost? Type585 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateOrderRequest? Type586 { get; set; }
+        public global::ElevenLabs.BodyUpdateMetadataForASpeakerV1DubbingResourceDubbingIdSpeakerSpeakerIdPatch? Type586 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpdatePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdPatch? Type587 { get; set; }
+        public global::ElevenLabs.BodyUpdateOrderV1ProductionsOrdersOrderIdPatch? Type587 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpdateWorkspaceWebhookV1WorkspaceWebhooksWebhookIdPatch? Type588 { get; set; }
+        public global::ElevenLabs.UpdateOrderRequest? Type588 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookEventType>? Type589 { get; set; }
+        public global::ElevenLabs.BodyUpdatePronunciationDictionaryV1PronunciationDictionariesPronunciationDictionaryIdPatch? Type589 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceWebhookEventType? Type590 { get; set; }
+        public global::ElevenLabs.BodyUpdateWorkspaceWebhookV1WorkspaceWebhooksWebhookIdPatch? Type590 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUploadAssetV1AssetsPost? Type591 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookEventType>? Type591 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost? Type592 { get; set; }
+        public global::ElevenLabs.WorkspaceWebhookEventType? Type592 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUploadMusicV1MusicUploadPost? Type593 { get; set; }
+        public global::ElevenLabs.BodyUploadAssetV1AssetsPost? Type593 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.MusicModelID?>? Type594 { get; set; }
+        public global::ElevenLabs.BodyUploadFileV1ConvaiConversationsConversationIdFilesPost? Type594 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyUpsertOrderItemV1ProductionsOrdersOrderIdItemsPost? Type595 { get; set; }
+        public global::ElevenLabs.BodyUploadMusicV1MusicUploadPost? Type595 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpsertOrderItemRequest? Type596 { get; set; }
+        public global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.MusicModelID?>? Type596 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyVerifyPvcVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost? Type597 { get; set; }
+        public global::ElevenLabs.BodyUpsertOrderItemV1ProductionsOrdersOrderIdItemsPost? Type597 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPost? Type598 { get; set; }
+        public global::ElevenLabs.UpsertOrderItemRequest? Type598 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPost? Type599 { get; set; }
+        public global::ElevenLabs.BodyVerifyPvcVoiceCaptchaV1VoicesPvcVoiceIdCaptchaPost? Type599 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>, string>? Type600 { get; set; }
+        public global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPost? Type600 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>? Type601 { get; set; }
+        public global::ElevenLabs.BodyCreateServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysPost? Type601 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PermissionType? Type602 { get; set; }
+        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>, string>? Type602 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyCreateServiceAccountV1ServiceAccountsPost? Type603 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>? Type603 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DefaultSharingGroupConfig>? Type604 { get; set; }
+        public global::ElevenLabs.PermissionType? Type604 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DefaultSharingGroupConfig? Type605 { get; set; }
+        public global::ElevenLabs.BodyCreateServiceAccountV1ServiceAccountsPost? Type605 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch? Type606 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DefaultSharingGroupConfig>? Type606 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<bool?, string>? Type607 { get; set; }
+        public global::ElevenLabs.DefaultSharingGroupConfig? Type607 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchPermissions? Type608 { get; set; }
+        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatch? Type608 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchCharacterLimit? Type609 { get; set; }
+        public global::ElevenLabs.AnyOf<bool?, string>? Type609 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<string>, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchAllowedIps?>? Type610 { get; set; }
+        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchPermissions? Type610 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchAllowedIps? Type611 { get; set; }
+        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchCharacterLimit? Type611 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchThirdPartyDisableAllowed? Type612 { get; set; }
+        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<string>, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchAllowedIps?>? Type612 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimit? Type613 { get; set; }
+        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchAllowedIps? Type613 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchDubbingConcurrencyLimit? Type614 { get; set; }
+        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchThirdPartyDisableAllowed? Type614 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchMusicConcurrencyLimit? Type615 { get; set; }
+        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimit? Type615 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToDialogueFullWithTimestamps? Type616 { get; set; }
+        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchDubbingConcurrencyLimit? Type616 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToDialogueFullWithTimestampsApplyTextNormalization? Type617 { get; set; }
+        public global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchMusicConcurrencyLimit? Type617 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToDialogueStreamWithTimestamps? Type618 { get; set; }
+        public global::ElevenLabs.BodyTextToDialogueFullWithTimestamps? Type618 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToDialogueStreamWithTimestampsApplyTextNormalization? Type619 { get; set; }
+        public global::ElevenLabs.BodyTextToDialogueFullWithTimestampsApplyTextNormalization? Type619 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechFull? Type620 { get; set; }
+        public global::ElevenLabs.BodyTextToDialogueStreamWithTimestamps? Type620 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceSettingsResponseModel? Type621 { get; set; }
+        public global::ElevenLabs.BodyTextToDialogueStreamWithTimestampsApplyTextNormalization? Type621 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechFullApplyTextNormalization? Type622 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechFull? Type622 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechFullWithTimestamps? Type623 { get; set; }
+        public global::ElevenLabs.VoiceSettingsResponseModel? Type623 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechFullWithTimestampsApplyTextNormalization? Type624 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechFullApplyTextNormalization? Type624 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechStream? Type625 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechFullWithTimestamps? Type625 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechStreamApplyTextNormalization? Type626 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechFullWithTimestampsApplyTextNormalization? Type626 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechStreamWithTimestamps? Type627 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechStream? Type627 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BodyTextToSpeechStreamWithTimestampsApplyTextNormalization? Type628 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechStreamApplyTextNormalization? Type628 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BooleanSchema? Type629 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechStreamWithTimestamps? Type629 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BreakdownTypes? Type630 { get; set; }
+        public global::ElevenLabs.BodyTextToSpeechStreamWithTimestampsApplyTextNormalization? Type630 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BucketingStatus? Type631 { get; set; }
+        public global::ElevenLabs.BooleanSchema? Type631 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BuiltInToolsInput? Type632 { get; set; }
+        public global::ElevenLabs.BreakdownTypes? Type632 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SystemToolConfigInput? Type633 { get; set; }
+        public global::ElevenLabs.BucketingStatus? Type633 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BuiltInToolsOutput? Type634 { get; set; }
+        public global::ElevenLabs.BuiltInToolsInput? Type634 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SystemToolConfigOutput? Type635 { get; set; }
+        public global::ElevenLabs.SystemToolConfigInput? Type635 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BuiltInToolsWorkflowOverrideInput? Type636 { get; set; }
+        public global::ElevenLabs.BuiltInToolsOutput? Type636 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BuiltInToolsWorkflowOverrideOutput? Type637 { get; set; }
+        public global::ElevenLabs.SystemToolConfigOutput? Type637 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance25Request? Type638 { get; set; }
+        public global::ElevenLabs.BuiltInToolsWorkflowOverrideInput? Type638 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookTarget? Type639 { get; set; }
+        public global::ElevenLabs.BuiltInToolsWorkflowOverrideOutput? Type639 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance25RequestAspectRatio? Type640 { get; set; }
+        public global::ElevenLabs.BytedanceSeedance25Request? Type640 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance25RequestResolution? Type641 { get; set; }
+        public global::ElevenLabs.WebhookTarget? Type641 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ImageReference? Type642 { get; set; }
+        public global::ElevenLabs.BytedanceSeedance25RequestAspectRatio? Type642 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ImageReference>? Type643 { get; set; }
+        public global::ElevenLabs.BytedanceSeedance25RequestResolution? Type643 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VideoReference>? Type644 { get; set; }
+        public global::ElevenLabs.ImageReference? Type644 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VideoReference? Type645 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ImageReference>? Type645 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AudioReference>? Type646 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VideoReference>? Type646 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance2FastRequest? Type647 { get; set; }
+        public global::ElevenLabs.VideoReference? Type647 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance2FastRequestAspectRatio? Type648 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AudioReference>? Type648 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance2FastRequestResolution? Type649 { get; set; }
+        public global::ElevenLabs.BytedanceSeedance2FastRequest? Type649 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance2MiniRequest? Type650 { get; set; }
+        public global::ElevenLabs.BytedanceSeedance2FastRequestAspectRatio? Type650 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance2MiniRequestAspectRatio? Type651 { get; set; }
+        public global::ElevenLabs.BytedanceSeedance2FastRequestResolution? Type651 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance2MiniRequestResolution? Type652 { get; set; }
+        public global::ElevenLabs.BytedanceSeedance2MiniRequest? Type652 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance2Request? Type653 { get; set; }
+        public global::ElevenLabs.BytedanceSeedance2MiniRequestAspectRatio? Type653 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance2RequestAspectRatio? Type654 { get; set; }
+        public global::ElevenLabs.BytedanceSeedance2MiniRequestResolution? Type654 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance2RequestResolution? Type655 { get; set; }
+        public global::ElevenLabs.BytedanceSeedance2Request? Type655 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedream5LiteRequest? Type656 { get; set; }
+        public global::ElevenLabs.BytedanceSeedance2RequestAspectRatio? Type656 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedream5LiteRequestAspectRatio? Type657 { get; set; }
+        public global::ElevenLabs.BytedanceSeedance2RequestResolution? Type657 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedream5LiteRequestResolution? Type658 { get; set; }
+        public global::ElevenLabs.BytedanceSeedream5LiteRequest? Type658 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedream5ProRequest? Type659 { get; set; }
+        public global::ElevenLabs.BytedanceSeedream5LiteRequestAspectRatio? Type659 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedream5ProRequestAspectRatio? Type660 { get; set; }
+        public global::ElevenLabs.BytedanceSeedream5LiteRequestResolution? Type660 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedream5ProRequestResolution? Type661 { get; set; }
+        public global::ElevenLabs.BytedanceSeedream5ProRequest? Type661 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CancelCalendarEventParams? Type662 { get; set; }
+        public global::ElevenLabs.BytedanceSeedream5ProRequestAspectRatio? Type662 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CancelGroupSessionForAllParams? Type663 { get; set; }
+        public global::ElevenLabs.BytedanceSeedream5ProRequestResolution? Type663 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CancelGroupSessionRegistrationParams? Type664 { get; set; }
+        public global::ElevenLabs.CancelCalendarEventParams? Type664 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CancelOrderParams? Type665 { get; set; }
+        public global::ElevenLabs.CancelGroupSessionForAllParams? Type665 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CanvasPlacement? Type666 { get; set; }
+        public global::ElevenLabs.CancelGroupSessionRegistrationParams? Type666 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleCharacterAnimationModel? Type667 { get; set; }
+        public global::ElevenLabs.CancelOrderParams? Type667 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleCharacterAnimationModelEnterType? Type668 { get; set; }
+        public global::ElevenLabs.CanvasPlacement? Type668 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleCharacterAnimationModelExitType? Type669 { get; set; }
+        public global::ElevenLabs.CaptionStyleCharacterAnimationModel? Type669 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleHorizontalPlacementModel? Type670 { get; set; }
+        public global::ElevenLabs.CaptionStyleCharacterAnimationModelEnterType? Type670 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleHorizontalPlacementModelAlign? Type671 { get; set; }
+        public global::ElevenLabs.CaptionStyleCharacterAnimationModelExitType? Type671 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleModel? Type672 { get; set; }
+        public global::ElevenLabs.CaptionStyleHorizontalPlacementModel? Type672 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleTemplateModel? Type673 { get; set; }
+        public global::ElevenLabs.CaptionStyleHorizontalPlacementModelAlign? Type673 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleModelTextAlign? Type674 { get; set; }
+        public global::ElevenLabs.CaptionStyleModel? Type674 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleModelTextStyle? Type675 { get; set; }
+        public global::ElevenLabs.CaptionStyleTemplateModel? Type675 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleModelTextWeight? Type676 { get; set; }
+        public global::ElevenLabs.CaptionStyleModelTextAlign? Type676 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleModelTextTransform? Type677 { get; set; }
+        public global::ElevenLabs.CaptionStyleModelTextStyle? Type677 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleModelTextBlendMode? Type678 { get; set; }
+        public global::ElevenLabs.CaptionStyleModelTextWeight? Type678 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StudioTextStyleShadowModel? Type679 { get; set; }
+        public global::ElevenLabs.CaptionStyleModelTextTransform? Type679 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StudioTextStyleOutlineModel? Type680 { get; set; }
+        public global::ElevenLabs.CaptionStyleModelTextBlendMode? Type680 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleSectionAnimationModel? Type681 { get; set; }
+        public global::ElevenLabs.StudioTextStyleShadowModel? Type681 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleWordAnimationModel? Type682 { get; set; }
+        public global::ElevenLabs.StudioTextStyleOutlineModel? Type682 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleVerticalPlacementModel? Type683 { get; set; }
+        public global::ElevenLabs.CaptionStyleSectionAnimationModel? Type683 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleSectionAnimationModelEnterType? Type684 { get; set; }
+        public global::ElevenLabs.CaptionStyleWordAnimationModel? Type684 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleSectionAnimationModelExitType? Type685 { get; set; }
+        public global::ElevenLabs.CaptionStyleVerticalPlacementModel? Type685 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleVerticalPlacementModelAlign? Type686 { get; set; }
+        public global::ElevenLabs.CaptionStyleSectionAnimationModelEnterType? Type686 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleWordAnimationModelEnterType? Type687 { get; set; }
+        public global::ElevenLabs.CaptionStyleSectionAnimationModelExitType? Type687 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CaptionStyleWordAnimationModelExitType? Type688 { get; set; }
+        public global::ElevenLabs.CaptionStyleVerticalPlacementModelAlign? Type688 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChapterContentBlockExtendableNodeResponseModel? Type689 { get; set; }
+        public global::ElevenLabs.CaptionStyleWordAnimationModelEnterType? Type689 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChapterContentBlockInputModel? Type690 { get; set; }
+        public global::ElevenLabs.CaptionStyleWordAnimationModelExitType? Type690 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChapterContentBlockInputModelSubType? Type691 { get; set; }
+        public global::ElevenLabs.ChapterContentBlockExtendableNodeResponseModel? Type691 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel>? Type692 { get; set; }
+        public global::ElevenLabs.ChapterContentBlockInputModel? Type692 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel? Type693 { get; set; }
+        public global::ElevenLabs.ChapterContentBlockInputModelSubType? Type693 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChapterContentBlockResponseModel? Type694 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel>? Type694 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.ChapterContentBlockTtsNodeResponseModel, global::ElevenLabs.ChapterContentBlockExtendableNodeResponseModel>>? Type695 { get; set; }
+        public global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel? Type695 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.ChapterContentBlockTtsNodeResponseModel, global::ElevenLabs.ChapterContentBlockExtendableNodeResponseModel>? Type696 { get; set; }
+        public global::ElevenLabs.ChapterContentBlockResponseModel? Type696 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChapterContentBlockTtsNodeResponseModel? Type697 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.ChapterContentBlockTtsNodeResponseModel, global::ElevenLabs.ChapterContentBlockExtendableNodeResponseModel>>? Type697 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentBlockInputModel>? Type698 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.ChapterContentBlockTtsNodeResponseModel, global::ElevenLabs.ChapterContentBlockExtendableNodeResponseModel>? Type698 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChapterContentResponseModel? Type699 { get; set; }
+        public global::ElevenLabs.ChapterContentBlockTtsNodeResponseModel? Type699 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentBlockResponseModel>? Type700 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentBlockInputModel>? Type700 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChapterResponseModel? Type701 { get; set; }
+        public global::ElevenLabs.ChapterContentResponseModel? Type701 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChapterResponseModelState? Type702 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterContentBlockResponseModel>? Type702 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChapterStatisticsResponseModel? Type703 { get; set; }
+        public global::ElevenLabs.ChapterResponseModel? Type703 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChapterSnapshotExtendedResponseModel? Type704 { get; set; }
+        public global::ElevenLabs.ChapterResponseModelState? Type704 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.CharacterAlignmentModel>? Type705 { get; set; }
+        public global::ElevenLabs.ChapterStatisticsResponseModel? Type705 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CharacterAlignmentModel? Type706 { get; set; }
+        public global::ElevenLabs.ChapterSnapshotExtendedResponseModel? Type706 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChapterSnapshotResponseModel? Type707 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.CharacterAlignmentModel>? Type707 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChapterSnapshotsResponseModel? Type708 { get; set; }
+        public global::ElevenLabs.CharacterAlignmentModel? Type708 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterSnapshotResponseModel>? Type709 { get; set; }
+        public global::ElevenLabs.ChapterSnapshotResponseModel? Type709 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VoiceStatisticsResponseModel>? Type710 { get; set; }
+        public global::ElevenLabs.ChapterSnapshotsResponseModel? Type710 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceStatisticsResponseModel? Type711 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterSnapshotResponseModel>? Type711 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChapterWithContentResponseModelState? Type712 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VoiceStatisticsResponseModel>? Type712 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CharacterAge? Type713 { get; set; }
+        public global::ElevenLabs.VoiceStatisticsResponseModel? Type713 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<double>? Type714 { get; set; }
+        public global::ElevenLabs.ChapterWithContentResponseModelState? Type714 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CharacterGender? Type715 { get; set; }
+        public global::ElevenLabs.CharacterAge? Type715 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CharacterMetadataResponseModel? Type716 { get; set; }
+        public global::System.Collections.Generic.IList<double>? Type716 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CharacterRole? Type717 { get; set; }
+        public global::ElevenLabs.CharacterGender? Type717 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CharacterRefreshPeriod? Type718 { get; set; }
+        public global::ElevenLabs.CharacterMetadataResponseModel? Type718 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CharacterResponseModel? Type719 { get; set; }
+        public global::ElevenLabs.CharacterRole? Type719 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChatSourceMedium? Type720 { get; set; }
+        public global::ElevenLabs.CharacterRefreshPeriod? Type720 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CheckServiceAvailabilityParams? Type721 { get; set; }
+        public global::ElevenLabs.CharacterResponseModel? Type721 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ClientEvent? Type722 { get; set; }
+        public global::ElevenLabs.ChatSourceMedium? Type722 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ClientToolConfigInput? Type723 { get; set; }
+        public global::ElevenLabs.CheckServiceAvailabilityParams? Type723 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ClientToolConfigOutput? Type724 { get; set; }
+        public global::ElevenLabs.ClientEvent? Type724 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ClipAnimation? Type725 { get; set; }
+        public global::ElevenLabs.ClientToolConfigInput? Type725 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ClipAnimationEnterEffect? Type726 { get; set; }
+        public global::ElevenLabs.ClientToolConfigOutput? Type726 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ClipAnimationExitEffect? Type727 { get; set; }
+        public global::ElevenLabs.ClipAnimation? Type727 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ColumnFilterOperation? Type728 { get; set; }
+        public global::ElevenLabs.ClipAnimationEnterEffect? Type728 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, global::System.DateTime?, bool?, object>>? Type729 { get; set; }
+        public global::ElevenLabs.ClipAnimationExitEffect? Type729 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, int?, double?, global::System.DateTime?, bool?, object>? Type730 { get; set; }
+        public global::ElevenLabs.ColumnFilterOperation? Type730 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.DateTime? Type731 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, global::System.DateTime?, bool?, object>>? Type731 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ColumnUnit? Type732 { get; set; }
+        public global::ElevenLabs.AnyOf<string, int?, double?, global::System.DateTime?, bool?, object>? Type732 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CompactionSettingsWorkflowOverride? Type733 { get; set; }
+        public global::System.DateTime? Type733 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CompileProceduresResponseModel? Type734 { get; set; }
+        public global::ElevenLabs.ColumnUnit? Type734 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CompileProceduresValidationErrorResponseModel? Type735 { get; set; }
+        public global::ElevenLabs.CompactionSettingsWorkflowOverride? Type735 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::ElevenLabs.ProcedureValidationError>>? Type736 { get; set; }
+        public global::ElevenLabs.CompileProceduresResponseModel? Type736 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ProcedureValidationError>? Type737 { get; set; }
+        public global::ElevenLabs.CompileProceduresValidationErrorResponseModel? Type737 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProcedureValidationError? Type738 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::ElevenLabs.ProcedureValidationError>>? Type738 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.GenerationChunkInput, global::ElevenLabs.AudioRefChunk>>? Type739 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ProcedureValidationError>? Type739 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OneOf<global::ElevenLabs.GenerationChunkInput, global::ElevenLabs.AudioRefChunk>? Type740 { get; set; }
+        public global::ElevenLabs.ProcedureValidationError? Type740 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GenerationChunkInput? Type741 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.GenerationChunkInput, global::ElevenLabs.AudioRefChunk>>? Type741 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ComputedUsagePlatformLimit? Type742 { get; set; }
+        public global::ElevenLabs.OneOf<global::ElevenLabs.GenerationChunkInput, global::ElevenLabs.AudioRefChunk>? Type742 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConfigEntityType? Type743 { get; set; }
+        public global::ElevenLabs.GenerationChunkInput? Type743 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConflictSection? Type744 { get; set; }
+        public global::ElevenLabs.ComputedUsagePlatformLimit? Type744 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.Collections.Generic.IList<object>, object, object>? Type745 { get; set; }
+        public global::ElevenLabs.ConfigEntityType? Type745 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ContentConfig? Type746 { get; set; }
+        public global::ElevenLabs.ConflictSection? Type746 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ContentThresholdGuardrail? Type747 { get; set; }
+        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.Collections.Generic.IList<object>, object, object>? Type747 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ContentGuardrailInput? Type748 { get; set; }
+        public global::ElevenLabs.ContentConfig? Type748 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GuardrailExecutionMode? Type749 { get; set; }
+        public global::ElevenLabs.ContentThresholdGuardrail? Type749 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TriggerAction? Type750 { get; set; }
+        public global::ElevenLabs.ContentGuardrailInput? Type750 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EndCallTriggerAction? Type751 { get; set; }
+        public global::ElevenLabs.GuardrailExecutionMode? Type751 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RetryTriggerAction? Type752 { get; set; }
+        public global::ElevenLabs.TriggerAction? Type752 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminator? Type753 { get; set; }
+        public global::ElevenLabs.EndCallTriggerAction? Type753 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminatorType? Type754 { get; set; }
+        public global::ElevenLabs.RetryTriggerAction? Type754 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ContentGuardrailOutput? Type755 { get; set; }
+        public global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminator? Type755 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TriggerAction2? Type756 { get; set; }
+        public global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminatorType? Type756 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ContentGuardrailOutputTriggerActionDiscriminator? Type757 { get; set; }
+        public global::ElevenLabs.ContentGuardrailOutput? Type757 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ContentGuardrailOutputTriggerActionDiscriminatorType? Type758 { get; set; }
+        public global::ElevenLabs.TriggerAction2? Type758 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StringSchema? Type759 { get; set; }
+        public global::ElevenLabs.ContentGuardrailOutputTriggerActionDiscriminator? Type759 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.NumberSchema? Type760 { get; set; }
+        public global::ElevenLabs.ContentGuardrailOutputTriggerActionDiscriminatorType? Type760 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.IntegerSchema? Type761 { get; set; }
+        public global::ElevenLabs.StringSchema? Type761 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ImageSchema? Type762 { get; set; }
+        public global::ElevenLabs.NumberSchema? Type762 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VideoSchema? Type763 { get; set; }
+        public global::ElevenLabs.IntegerSchema? Type763 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceSchema? Type764 { get; set; }
+        public global::ElevenLabs.ImageSchema? Type764 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ObjectSchema? Type765 { get; set; }
+        public global::ElevenLabs.VideoSchema? Type765 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ContentSchemaDiscriminator? Type766 { get; set; }
+        public global::ElevenLabs.VoiceSchema? Type766 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ContentSchemaDiscriminatorType? Type767 { get; set; }
+        public global::ElevenLabs.ObjectSchema? Type767 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<double?, global::ElevenLabs.ContentThresholdGuardrailThreshold?>? Type768 { get; set; }
+        public global::ElevenLabs.ContentSchemaDiscriminator? Type768 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ContentThresholdGuardrailThreshold? Type769 { get; set; }
+        public global::ElevenLabs.ContentSchemaDiscriminatorType? Type769 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ContextualUpdateInfo? Type770 { get; set; }
+        public global::ElevenLabs.AnyOf<double?, global::ElevenLabs.ContentThresholdGuardrailThreshold?>? Type770 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Contributor? Type771 { get; set; }
+        public global::ElevenLabs.ContentThresholdGuardrailThreshold? Type771 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvAIEnvVarLocator? Type772 { get; set; }
+        public global::ElevenLabs.ContextualUpdateInfo? Type772 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvAIFileUploadResponseModel? Type773 { get; set; }
+        public global::ElevenLabs.Contributor? Type773 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvAISecretLocator? Type774 { get; set; }
+        public global::ElevenLabs.ConvAIEnvVarLocator? Type774 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvAIStoredSecretDependencies? Type775 { get; set; }
+        public global::ElevenLabs.ConvAIFileUploadResponseModel? Type775 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem2>? Type776 { get; set; }
+        public global::ElevenLabs.ConvAISecretLocator? Type776 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolsItem2? Type777 { get; set; }
+        public global::ElevenLabs.ConvAIStoredSecretDependencies? Type777 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminator? Type778 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem2>? Type778 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminatorType? Type779 { get; set; }
+        public global::ElevenLabs.ToolsItem2? Type779 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem>? Type780 { get; set; }
+        public global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminator? Type780 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AgentsItem? Type781 { get; set; }
+        public global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminatorType? Type781 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentAvailableAgentIdentifier? Type782 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem>? Type782 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentUnknownAgentIdentifier? Type783 { get; set; }
+        public global::ElevenLabs.AgentsItem? Type783 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvAIStoredSecretDependenciesAgentDiscriminator? Type784 { get; set; }
+        public global::ElevenLabs.DependentAvailableAgentIdentifier? Type784 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvAIStoredSecretDependenciesAgentDiscriminatorType? Type785 { get; set; }
+        public global::ElevenLabs.DependentUnknownAgentIdentifier? Type785 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>? Type786 { get; set; }
+        public global::ElevenLabs.ConvAIStoredSecretDependenciesAgentDiscriminator? Type786 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentPhoneNumberIdentifier? Type787 { get; set; }
+        public global::ElevenLabs.ConvAIStoredSecretDependenciesAgentDiscriminatorType? Type787 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.McpServersItem2>? Type788 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>? Type788 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.McpServersItem2? Type789 { get; set; }
+        public global::ElevenLabs.DependentPhoneNumberIdentifier? Type789 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvAIStoredSecretDependenciesMcpServerDiscriminator? Type790 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.McpServersItem2>? Type790 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvAIStoredSecretDependenciesMcpServerDiscriminatorType? Type791 { get; set; }
+        public global::ElevenLabs.McpServersItem2? Type791 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SecretDependencyType>? Type792 { get; set; }
+        public global::ElevenLabs.ConvAIStoredSecretDependenciesMcpServerDiscriminator? Type792 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SecretDependencyType? Type793 { get; set; }
+        public global::ElevenLabs.ConvAIStoredSecretDependenciesMcpServerDiscriminatorType? Type793 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvAIUserSecretDBModel? Type794 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SecretDependencyType>? Type794 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WebhookEventType>? Type795 { get; set; }
+        public global::ElevenLabs.SecretDependencyType? Type795 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookEventType? Type796 { get; set; }
+        public global::ElevenLabs.ConvAIUserSecretDBModel? Type796 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookTranscriptFormat? Type797 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WebhookEventType>? Type797 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig? Type798 { get; set; }
+        public global::ElevenLabs.WebhookEventType? Type798 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationASRUsageModel? Type799 { get; set; }
+        public global::ElevenLabs.WebhookTranscriptFormat? Type799 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationChargingCommonModel? Type800 { get; set; }
+        public global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig? Type800 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMCategoryUsage? Type801 { get; set; }
+        public global::ElevenLabs.ConversationASRUsageModel? Type801 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PlatformUsage? Type802 { get; set; }
+        public global::ElevenLabs.ConversationChargingCommonModel? Type802 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationTTSUsageModel? Type803 { get; set; }
+        public global::ElevenLabs.LLMCategoryUsage? Type803 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationConfigInput? Type804 { get; set; }
+        public global::ElevenLabs.PlatformUsage? Type804 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? Type805 { get; set; }
+        public global::ElevenLabs.ConversationTTSUsageModel? Type805 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.FileInputConfig? Type806 { get; set; }
+        public global::ElevenLabs.ConversationConfigInput? Type806 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DTMFInputConfig? Type807 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ClientEvent>? Type807 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationConfigOutput? Type808 { get; set; }
+        public global::ElevenLabs.FileInputConfig? Type808 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationConfigClientOverrideInput? Type809 { get; set; }
+        public global::ElevenLabs.DTMFInputConfig? Type809 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TurnConfigOverride? Type810 { get; set; }
+        public global::ElevenLabs.ConversationConfigOutput? Type810 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TTSConversationalConfigOverride? Type811 { get; set; }
+        public global::ElevenLabs.ConversationConfigClientOverrideInput? Type811 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationConfigOverride? Type812 { get; set; }
+        public global::ElevenLabs.TurnConfigOverride? Type812 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationConfigClientOverrideOutput? Type813 { get; set; }
+        public global::ElevenLabs.TTSConversationalConfigOverride? Type813 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationConfigClientOverrideConfigInput? Type814 { get; set; }
+        public global::ElevenLabs.ConversationConfigOverride? Type814 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TurnConfigOverrideConfig? Type815 { get; set; }
+        public global::ElevenLabs.ConversationConfigClientOverrideOutput? Type815 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TTSConversationalConfigOverrideConfig? Type816 { get; set; }
+        public global::ElevenLabs.ConversationConfigClientOverrideConfigInput? Type816 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationConfigOverrideConfig? Type817 { get; set; }
+        public global::ElevenLabs.TurnConfigOverrideConfig? Type817 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationConfigClientOverrideConfigOutput? Type818 { get; set; }
+        public global::ElevenLabs.TTSConversationalConfigOverrideConfig? Type818 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationConfigWorkflowOverrideInput? Type819 { get; set; }
+        public global::ElevenLabs.ConversationConfigOverrideConfig? Type819 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.FileInputConfigWorkflowOverride? Type820 { get; set; }
+        public global::ElevenLabs.ConversationConfigClientOverrideConfigOutput? Type820 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationConfigWorkflowOverrideOutput? Type821 { get; set; }
+        public global::ElevenLabs.ConversationConfigWorkflowOverrideInput? Type821 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationDeletionSettings? Type822 { get; set; }
+        public global::ElevenLabs.FileInputConfigWorkflowOverride? Type822 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationErrorType? Type823 { get; set; }
+        public global::ElevenLabs.ConversationConfigWorkflowOverrideOutput? Type823 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationFeedbackRequestModel? Type824 { get; set; }
+        public global::ElevenLabs.ConversationDeletionSettings? Type824 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UserFeedbackScore? Type825 { get; set; }
+        public global::ElevenLabs.ConversationErrorType? Type825 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationFeedbackType? Type826 { get; set; }
+        public global::ElevenLabs.ConversationFeedbackRequestModel? Type826 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? Type827 { get; set; }
+        public global::ElevenLabs.UserFeedbackScore? Type827 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel? Type828 { get; set; }
+        public global::ElevenLabs.ConversationFeedbackType? Type828 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DataCollectionResultCommonModel>? Type829 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? Type829 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DataCollectionResultCommonModel? Type830 { get; set; }
+        public global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel? Type830 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? Type831 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DataCollectionResultCommonModel>? Type831 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DataCollectionResultCommonModel>? Type832 { get; set; }
+        public global::ElevenLabs.DataCollectionResultCommonModel? Type832 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EvaluationSuccessResult? Type833 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? Type833 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ScopedAnalysisResult>? Type834 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DataCollectionResultCommonModel>? Type834 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ScopedAnalysisResult? Type835 { get; set; }
+        public global::ElevenLabs.EvaluationSuccessResult? Type835 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryBatchCallModel? Type836 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ScopedAnalysisResult>? Type836 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryElevenAssistantCommonModel? Type837 { get; set; }
+        public global::ElevenLabs.ScopedAnalysisResult? Type837 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryErrorCommonModel? Type838 { get; set; }
+        public global::ElevenLabs.ConversationHistoryBatchCallModel? Type838 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CriteriaScoringMode? Type839 { get; set; }
+        public global::ElevenLabs.ConversationHistoryElevenAssistantCommonModel? Type839 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryExotelPhoneCallModel? Type840 { get; set; }
+        public global::ElevenLabs.ConversationHistoryErrorCommonModel? Type840 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryFeedbackCommonModel? Type841 { get; set; }
+        public global::ElevenLabs.CriteriaScoringMode? Type841 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryMetadataCommonModel? Type842 { get; set; }
+        public global::ElevenLabs.ConversationHistoryExotelPhoneCallModel? Type842 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PhoneCallVariant1? Type843 { get; set; }
+        public global::ElevenLabs.ConversationHistoryFeedbackCommonModel? Type843 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel? Type844 { get; set; }
+        public global::ElevenLabs.ConversationHistoryMetadataCommonModel? Type844 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel? Type845 { get; set; }
+        public global::ElevenLabs.PhoneCallVariant1? Type845 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryMetadataCommonModelPhoneCallVariant1Discriminator? Type846 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTwilioPhoneCallModel? Type846 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryMetadataCommonModelPhoneCallVariant1DiscriminatorType? Type847 { get; set; }
+        public global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModel? Type847 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryRagUsageCommonModel? Type848 { get; set; }
+        public global::ElevenLabs.ConversationHistoryMetadataCommonModelPhoneCallVariant1Discriminator? Type848 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.FeaturesUsageCommonModel? Type849 { get; set; }
+        public global::ElevenLabs.ConversationHistoryMetadataCommonModelPhoneCallVariant1DiscriminatorType? Type849 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationInitiationSource? Type850 { get; set; }
+        public global::ElevenLabs.ConversationHistoryRagUsageCommonModel? Type850 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppConversationInfo? Type851 { get; set; }
+        public global::ElevenLabs.FeaturesUsageCommonModel? Type851 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SMSConversationInfo? Type852 { get; set; }
+        public global::ElevenLabs.ConversationInitiationSource? Type852 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationVoiceRewardModel>? Type853 { get; set; }
+        public global::ElevenLabs.WhatsAppConversationInfo? Type853 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationVoiceRewardModel? Type854 { get; set; }
+        public global::ElevenLabs.SMSConversationInfo? Type854 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryMultivoiceMessageModel? Type855 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationVoiceRewardModel>? Type855 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryMultivoiceMessagePartModel>? Type856 { get; set; }
+        public global::ElevenLabs.ConversationVoiceRewardModel? Type856 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryMultivoiceMessagePartModel? Type857 { get; set; }
+        public global::ElevenLabs.ConversationHistoryMultivoiceMessageModel? Type857 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryRedactionConfig? Type858 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryMultivoiceMessagePartModel>? Type858 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConfigEntityType>? Type859 { get; set; }
+        public global::ElevenLabs.ConversationHistoryMultivoiceMessagePartModel? Type859 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput? Type860 { get; set; }
+        public global::ElevenLabs.ConversationHistoryRedactionConfig? Type860 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableUpdateCommonModel>? Type861 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConfigEntityType>? Type861 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DynamicVariableUpdateCommonModel? Type862 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput? Type862 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput? Type863 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DynamicVariableUpdateCommonModel>? Type863 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput? Type864 { get; set; }
+        public global::ElevenLabs.DynamicVariableUpdateCommonModel? Type864 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputRole? Type865 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput? Type865 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelInput>? Type866 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput? Type866 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelInput? Type867 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelInputRole? Type867 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel? Type868 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelInput>? Type868 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput? Type869 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelInput? Type869 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput? Type870 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel? Type870 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UserFeedback? Type871 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput? Type871 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationTurnMetrics? Type872 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput? Type872 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RagRetrievalInfo? Type873 { get; set; }
+        public global::ElevenLabs.UserFeedback? Type873 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMUsageInput? Type874 { get; set; }
+        public global::ElevenLabs.ConversationTurnMetrics? Type874 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationReasoningModel>? Type875 { get; set; }
+        public global::ElevenLabs.RagRetrievalInfo? Type875 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationReasoningModel? Type876 { get; set; }
+        public global::ElevenLabs.LLMUsageInput? Type876 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TriggeredGuardrailCommonModel>? Type877 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationReasoningModel>? Type877 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TriggeredGuardrailCommonModel? Type878 { get; set; }
+        public global::ElevenLabs.ConversationReasoningModel? Type878 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput? Type879 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TriggeredGuardrailCommonModel>? Type879 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutputRole? Type880 { get; set; }
+        public global::ElevenLabs.TriggeredGuardrailCommonModel? Type880 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelOutput>? Type881 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput? Type881 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelOutput? Type882 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutputRole? Type882 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput? Type883 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelOutput>? Type883 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput? Type884 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelOutput? Type884 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMUsageOutput? Type885 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput? Type885 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? Type886 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput? Type886 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModelType? Type887 { get; set; }
+        public global::ElevenLabs.LLMUsageOutput? Type887 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptResponseModelRole? Type888 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel? Type888 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel>? Type889 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModelType? Type889 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ResultVariant1? Type890 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptResponseModelRole? Type890 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EndCallToolResultModel? Type891 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel>? Type891 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LanguageDetectionToolResultModel? Type892 { get; set; }
+        public global::ElevenLabs.ResultVariant1? Type892 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToAgentToolResultSuccessModelInput? Type893 { get; set; }
+        public global::ElevenLabs.EndCallToolResultModel? Type893 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToAgentToolResultErrorModel? Type894 { get; set; }
+        public global::ElevenLabs.LanguageDetectionToolResultModel? Type894 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToNumberResultTwilioSuccessModel? Type895 { get; set; }
+        public global::ElevenLabs.TransferToAgentToolResultSuccessModelInput? Type895 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToNumberResultSipSuccessModel? Type896 { get; set; }
+        public global::ElevenLabs.TransferToAgentToolResultErrorModel? Type896 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToNumberResultExotelSuccessModel? Type897 { get; set; }
+        public global::ElevenLabs.TransferToNumberResultTwilioSuccessModel? Type897 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToNumberResultErrorModel? Type898 { get; set; }
+        public global::ElevenLabs.TransferToNumberResultSipSuccessModel? Type898 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SkipTurnToolResponseModel? Type899 { get; set; }
+        public global::ElevenLabs.TransferToNumberResultExotelSuccessModel? Type899 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PlayDTMFResultSuccessModel? Type900 { get; set; }
+        public global::ElevenLabs.TransferToNumberResultErrorModel? Type900 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PlayDTMFResultErrorModel? Type901 { get; set; }
+        public global::ElevenLabs.SkipTurnToolResponseModel? Type901 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceMailDetectionResultSuccessModel? Type902 { get; set; }
+        public global::ElevenLabs.PlayDTMFResultSuccessModel? Type902 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestToolResultModel? Type903 { get; set; }
+        public global::ElevenLabs.PlayDTMFResultErrorModel? Type903 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseRagToolResultModel? Type904 { get; set; }
+        public global::ElevenLabs.VoiceMailDetectionResultSuccessModel? Type904 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseToolResultModel? Type905 { get; set; }
+        public global::ElevenLabs.TestToolResultModel? Type905 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StartProcedureToolResultSuccessModel? Type906 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseRagToolResultModel? Type906 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StartProcedureToolResultErrorModel? Type907 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseToolResultModel? Type907 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EndProcedureToolResultSuccessModel? Type908 { get; set; }
+        public global::ElevenLabs.StartProcedureToolResultSuccessModel? Type908 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EndProcedureToolResultErrorModel? Type909 { get; set; }
+        public global::ElevenLabs.StartProcedureToolResultErrorModel? Type909 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DummyToolResultModel? Type910 { get; set; }
+        public global::ElevenLabs.EndProcedureToolResultSuccessModel? Type910 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1Discriminator? Type911 { get; set; }
+        public global::ElevenLabs.EndProcedureToolResultErrorModel? Type911 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType? Type912 { get; set; }
+        public global::ElevenLabs.DummyToolResultModel? Type912 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ResultVariant12? Type913 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1Discriminator? Type913 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput? Type914 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType? Type914 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1Discriminator? Type915 { get; set; }
+        public global::ElevenLabs.ResultVariant12? Type915 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType? Type916 { get; set; }
+        public global::ElevenLabs.TransferToAgentToolResultSuccessModelOutput? Type916 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsInput? Type917 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1Discriminator? Type917 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails? Type918 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType? Type918 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput? Type919 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsInput? Type919 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? Type920 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails? Type920 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolType? Type921 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput? Type921 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolDetailsVariant1? Type922 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails? Type922 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? Type923 { get; set; }
+        public global::ElevenLabs.ToolType? Type923 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelInputToolDetailsVariant1Discriminator? Type924 { get; set; }
+        public global::ElevenLabs.ToolDetailsVariant1? Type924 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelInputToolDetailsVariant1DiscriminatorType? Type925 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails? Type925 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolDetailsVariant12? Type926 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelInputToolDetailsVariant1Discriminator? Type926 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelOutputToolDetailsVariant1Discriminator? Type927 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelInputToolDetailsVariant1DiscriminatorType? Type927 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelOutputToolDetailsVariant1DiscriminatorType? Type928 { get; set; }
+        public global::ElevenLabs.ToolDetailsVariant12? Type928 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolResponseModelInput? Type929 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelOutputToolDetailsVariant1Discriminator? Type929 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolResponseModelOutput? Type930 { get; set; }
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelOutputToolDetailsVariant1DiscriminatorType? Type930 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationInitiationClientDataInternal? Type931 { get; set; }
+        public global::ElevenLabs.WorkflowToolResponseModelInput? Type931 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationInitiationSourceInfo? Type932 { get; set; }
+        public global::ElevenLabs.WorkflowToolResponseModelOutput? Type932 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DynamicVariableInternalValueType? Type933 { get; set; }
+        public global::ElevenLabs.ConversationInitiationClientDataInternal? Type933 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OrchestratorToolMockBehaviorConfig? Type934 { get; set; }
+        public global::ElevenLabs.ConversationInitiationSourceInfo? Type934 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigOutput>>? Type935 { get; set; }
+        public global::ElevenLabs.DynamicVariableInternalValueType? Type935 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigOutput>? Type936 { get; set; }
+        public global::ElevenLabs.OrchestratorToolMockBehaviorConfig? Type936 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolResponseMockConfigOutput? Type937 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigOutput>>? Type937 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationInitiationClientDataRequestOutput? Type938 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigOutput>? Type938 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, global::ElevenLabs.ConvAISecretLocator>? Type939 { get; set; }
+        public global::ElevenLabs.ToolResponseMockConfigOutput? Type939 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationProduct? Type940 { get; set; }
+        public global::ElevenLabs.ConversationInitiationClientDataRequestOutput? Type940 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationSentimentAnalysis? Type941 { get; set; }
+        public global::ElevenLabs.AnyOf<string, global::ElevenLabs.ConvAISecretLocator>? Type941 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationSentimentAnalysisOverallLabel? Type942 { get; set; }
+        public global::ElevenLabs.ConversationProduct? Type942 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationSignedUrlResponseModel? Type943 { get; set; }
+        public global::ElevenLabs.ConversationSentimentAnalysis? Type943 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ToolMockConfig>? Type944 { get; set; }
+        public global::ElevenLabs.ConversationSentimentAnalysisOverallLabel? Type944 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolMockConfig? Type945 { get; set; }
+        public global::ElevenLabs.ConversationSignedUrlResponseModel? Type945 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? Type946 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ToolMockConfig>? Type946 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationSource? Type947 { get; set; }
+        public global::ElevenLabs.ToolMockConfig? Type947 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationSummaryMessageModel? Type948 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? Type948 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationSummaryMessageModelRole? Type949 { get; set; }
+        public global::ElevenLabs.ConversationSource? Type949 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationSummaryResponseModel? Type950 { get; set; }
+        public global::ElevenLabs.ConversationSummaryMessageModel? Type950 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationSummaryResponseModelStatus? Type951 { get; set; }
+        public global::ElevenLabs.ConversationSummaryMessageModelRole? Type951 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EvaluationCriteriaSummaryResult>? Type952 { get; set; }
+        public global::ElevenLabs.ConversationSummaryResponseModel? Type952 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EvaluationCriteriaSummaryResult? Type953 { get; set; }
+        public global::ElevenLabs.ConversationSummaryResponseModelStatus? Type953 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationVoiceUsageModel>? Type954 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EvaluationCriteriaSummaryResult>? Type954 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationVoiceUsageModel? Type955 { get; set; }
+        public global::ElevenLabs.EvaluationCriteriaSummaryResult? Type955 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationTagResponseModel? Type956 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationVoiceUsageModel>? Type956 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationTokenPurpose? Type957 { get; set; }
+        public global::ElevenLabs.ConversationVoiceUsageModel? Type957 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationTokenResponseModel? Type958 { get; set; }
+        public global::ElevenLabs.ConversationTagResponseModel? Type958 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.MetricRecord>? Type959 { get; set; }
+        public global::ElevenLabs.ConversationTokenPurpose? Type959 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MetricRecord? Type960 { get; set; }
+        public global::ElevenLabs.ConversationTokenResponseModel? Type960 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationUserResponseModel? Type961 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.MetricRecord>? Type961 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SentimentAggregate? Type962 { get; set; }
+        public global::ElevenLabs.MetricRecord? Type962 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.FrustratedConversationRef>? Type963 { get; set; }
+        public global::ElevenLabs.ConversationUserResponseModel? Type963 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.FrustratedConversationRef? Type964 { get; set; }
+        public global::ElevenLabs.SentimentAggregate? Type964 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TurnConfig? Type965 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.FrustratedConversationRef>? Type965 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TTSConversationalConfigInput? Type966 { get; set; }
+        public global::ElevenLabs.FrustratedConversationRef? Type966 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LanguagePresetInput>? Type967 { get; set; }
+        public global::ElevenLabs.TurnConfig? Type967 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LanguagePresetInput? Type968 { get; set; }
+        public global::ElevenLabs.TTSConversationalConfigInput? Type968 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VADConfig? Type969 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LanguagePresetInput>? Type969 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationalConfigAPIModelOutput? Type970 { get; set; }
+        public global::ElevenLabs.LanguagePresetInput? Type970 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TTSConversationalConfigOutput? Type971 { get; set; }
+        public global::ElevenLabs.VADConfig? Type971 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LanguagePresetOutput>? Type972 { get; set; }
+        public global::ElevenLabs.ConversationalConfigAPIModelOutput? Type972 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LanguagePresetOutput? Type973 { get; set; }
+        public global::ElevenLabs.TTSConversationalConfigOutput? Type973 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationalConfigAPIModelWorkflowOverrideInput? Type974 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LanguagePresetOutput>? Type974 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TurnConfigWorkflowOverride? Type975 { get; set; }
+        public global::ElevenLabs.LanguagePresetOutput? Type975 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TTSConversationalConfigWorkflowOverrideInput? Type976 { get; set; }
+        public global::ElevenLabs.ConversationalConfigAPIModelWorkflowOverrideInput? Type976 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VADConfigWorkflowOverride? Type977 { get; set; }
+        public global::ElevenLabs.TurnConfigWorkflowOverride? Type977 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationalConfigAPIModelWorkflowOverrideOutput? Type978 { get; set; }
+        public global::ElevenLabs.TTSConversationalConfigWorkflowOverrideInput? Type978 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TTSConversationalConfigWorkflowOverrideOutput? Type979 { get; set; }
+        public global::ElevenLabs.VADConfigWorkflowOverride? Type979 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvertChapterResponseModel? Type980 { get; set; }
+        public global::ElevenLabs.ConversationalConfigAPIModelWorkflowOverrideOutput? Type980 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConvertProjectResponseModel? Type981 { get; set; }
+        public global::ElevenLabs.TTSConversationalConfigWorkflowOverrideOutput? Type981 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CrawlStatus? Type982 { get; set; }
+        public global::ElevenLabs.ConvertChapterResponseModel? Type982 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CrawlType? Type983 { get; set; }
+        public global::ElevenLabs.ConvertProjectResponseModel? Type983 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAgentBranchResponseModel? Type984 { get; set; }
+        public global::ElevenLabs.CrawlStatus? Type984 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAgentConversationTicketRequestModel? Type985 { get; set; }
+        public global::ElevenLabs.CrawlType? Type985 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TurnCommentRequestModel>? Type986 { get; set; }
+        public global::ElevenLabs.CreateAgentBranchResponseModel? Type986 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TurnCommentRequestModel? Type987 { get; set; }
+        public global::ElevenLabs.CreateAgentConversationTicketRequestModel? Type987 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAgentProcedureParams? Type988 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TurnCommentRequestModel>? Type988 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAgentResponseModel? Type989 { get; set; }
+        public global::ElevenLabs.TurnCommentRequestModel? Type989 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAgentRuleParams? Type990 { get; set; }
+        public global::ElevenLabs.CreateAgentProcedureParams? Type990 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAgentTestFolderResponseModel? Type991 { get; set; }
+        public global::ElevenLabs.CreateAgentResponseModel? Type991 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAgentTestResponseModel? Type992 { get; set; }
+        public global::ElevenLabs.CreateAgentRuleParams? Type992 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAssetParams? Type993 { get; set; }
+        public global::ElevenLabs.CreateAgentTestFolderResponseModel? Type993 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest? Type994 { get; set; }
+        public global::ElevenLabs.CreateAgentTestResponseModel? Type994 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableAuthConnectionValueRequest>? Type995 { get; set; }
+        public global::ElevenLabs.CreateAssetParams? Type995 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EnvironmentVariableAuthConnectionValueRequest? Type996 { get; set; }
+        public global::ElevenLabs.CreateAuthConnectionEnvironmentVariableRequest? Type996 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateBasicAuthRequest? Type997 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableAuthConnectionValueRequest>? Type997 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateBearerAuthRequest? Type998 { get; set; }
+        public global::ElevenLabs.EnvironmentVariableAuthConnectionValueRequest? Type998 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateClientAppointmentParams? Type999 { get; set; }
+        public global::ElevenLabs.CreateBasicAuthRequest? Type999 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateClientInteractionParams? Type1000 { get; set; }
+        public global::ElevenLabs.CreateBearerAuthRequest? Type1000 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateClientParams? Type1001 { get; set; }
+        public global::ElevenLabs.CreateClientAppointmentParams? Type1001 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateConversationTagRequestModel? Type1002 { get; set; }
+        public global::ElevenLabs.CreateClientInteractionParams? Type1002 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateCrawlJobResponseModel? Type1003 { get; set; }
+        public global::ElevenLabs.CreateClientParams? Type1003 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateCustomHeaderAuthRequest? Type1004 { get; set; }
+        public global::ElevenLabs.CreateConversationTagRequestModel? Type1004 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateExotelPhoneNumberRequest? Type1005 { get; set; }
+        public global::ElevenLabs.CreateCrawlJobResponseModel? Type1005 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ExotelApiSubdomain? Type1006 { get; set; }
+        public global::ElevenLabs.CreateCustomHeaderAuthRequest? Type1006 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateHolidayParams? Type1007 { get; set; }
+        public global::ElevenLabs.CreateExotelPhoneNumberRequest? Type1007 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateLocationParams? Type1008 { get; set; }
+        public global::ElevenLabs.ExotelApiSubdomain? Type1008 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateMTLSAuthRequest? Type1009 { get; set; }
+        public global::ElevenLabs.CreateHolidayParams? Type1009 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateManualTicketRequestModel? Type1010 { get; set; }
+        public global::ElevenLabs.CreateLocationParams? Type1010 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateOAuth2ClientCredsRequest? Type1011 { get; set; }
+        public global::ElevenLabs.CreateMTLSAuthRequest? Type1011 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateOAuth2JWTRequest? Type1012 { get; set; }
+        public global::ElevenLabs.CreateManualTicketRequestModel? Type1012 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateOAuth2JWTRequestAlgorithm? Type1013 { get; set; }
+        public global::ElevenLabs.CreateOAuth2ClientCredsRequest? Type1013 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateOAuth2JWTRequestTokenResponseField? Type1014 { get; set; }
+        public global::ElevenLabs.CreateOAuth2JWTRequest? Type1014 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateOrderParams? Type1015 { get; set; }
+        public global::ElevenLabs.CreateOAuth2JWTRequestAlgorithm? Type1015 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateOrderRequest? Type1016 { get; set; }
+        public global::ElevenLabs.CreateOAuth2JWTRequestTokenResponseField? Type1016 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateOrderResponse? Type1017 { get; set; }
+        public global::ElevenLabs.CreateOrderParams? Type1017 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreatePhoneNumberResponseModel? Type1018 { get; set; }
+        public global::ElevenLabs.CreateOrderRequest? Type1018 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreatePrivateKeyJWTRequest? Type1019 { get; set; }
+        public global::ElevenLabs.CreateOrderResponse? Type1019 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreatePrivateKeyJWTRequestAlgorithm? Type1020 { get; set; }
+        public global::ElevenLabs.CreatePhoneNumberResponseModel? Type1020 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateProcedureRequestModel? Type1021 { get; set; }
+        public global::ElevenLabs.CreatePrivateKeyJWTRequest? Type1021 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProcedureType? Type1022 { get; set; }
+        public global::ElevenLabs.CreatePrivateKeyJWTRequestAlgorithm? Type1022 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateProcedureResponseModel? Type1023 { get; set; }
+        public global::ElevenLabs.CreateProcedureRequestModel? Type1023 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateProductParams? Type1024 { get; set; }
+        public global::ElevenLabs.ProcedureType? Type1024 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateProductQuoteRequestParams? Type1025 { get; set; }
+        public global::ElevenLabs.CreateProcedureResponseModel? Type1025 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreatePronunciationDictionaryResponseModel? Type1026 { get; set; }
+        public global::ElevenLabs.CreateProductParams? Type1026 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateResponseUnitTestRequest? Type1027 { get; set; }
+        public global::ElevenLabs.CreateProductQuoteRequestParams? Type1027 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestFromConversationMetadataInput? Type1028 { get; set; }
+        public global::ElevenLabs.CreatePronunciationDictionaryResponseModel? Type1028 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentSuccessfulResponseExample>? Type1029 { get; set; }
+        public global::ElevenLabs.CreateResponseUnitTestRequest? Type1029 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentFailureResponseExample>? Type1030 { get; set; }
+        public global::ElevenLabs.TestFromConversationMetadataInput? Type1030 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2? Type1031 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentSuccessfulResponseExample>? Type1031 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InboundSIPTrunkConfigRequestModel? Type1032 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentFailureResponseExample>? Type1032 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OutboundSIPTrunkConfigRequestModel? Type1033 { get; set; }
+        public global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2? Type1033 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateSecretEnvironmentVariableRequest? Type1034 { get; set; }
+        public global::ElevenLabs.InboundSIPTrunkConfigRequestModel? Type1034 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableSecretValueRequest>? Type1035 { get; set; }
+        public global::ElevenLabs.OutboundSIPTrunkConfigRequestModel? Type1035 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EnvironmentVariableSecretValueRequest? Type1036 { get; set; }
+        public global::ElevenLabs.CreateSecretEnvironmentVariableRequest? Type1036 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateServiceParams? Type1037 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableSecretValueRequest>? Type1037 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateServiceQuoteRequestParams? Type1038 { get; set; }
+        public global::ElevenLabs.EnvironmentVariableSecretValueRequest? Type1038 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateSimulationTestRequest? Type1039 { get; set; }
+        public global::ElevenLabs.CreateServiceParams? Type1039 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SimulationToolMockBehaviorConfig? Type1040 { get; set; }
+        public global::ElevenLabs.CreateServiceQuoteRequestParams? Type1040 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>>? Type1041 { get; set; }
+        public global::ElevenLabs.CreateSimulationTestRequest? Type1041 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? Type1042 { get; set; }
+        public global::ElevenLabs.SimulationToolMockBehaviorConfig? Type1042 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolResponseMockConfigInput? Type1043 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>>? Type1043 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateSpeechEngineRequest? Type1044 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseMockConfigInput>? Type1044 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechEngineConfig? Type1045 { get; set; }
+        public global::ElevenLabs.ToolResponseMockConfigInput? Type1045 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechEngineConversationInitiationClientDataConfig? Type1046 { get; set; }
+        public global::ElevenLabs.CreateSpeechEngineRequest? Type1046 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateStaffParams? Type1047 { get; set; }
+        public global::ElevenLabs.SpeechEngineConfig? Type1047 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateStringEnvironmentVariableRequest? Type1048 { get; set; }
+        public global::ElevenLabs.SpeechEngineConversationInitiationClientDataConfig? Type1048 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateToolCallUnitTestRequest? Type1049 { get; set; }
+        public global::ElevenLabs.CreateStaffParams? Type1049 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UnitTestToolCallEvaluationModelInput? Type1050 { get; set; }
+        public global::ElevenLabs.CreateStringEnvironmentVariableRequest? Type1050 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateTransferRuleParams? Type1051 { get; set; }
+        public global::ElevenLabs.CreateToolCallUnitTestRequest? Type1051 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateTwilioPhoneNumberRequest? Type1052 { get; set; }
+        public global::ElevenLabs.UnitTestToolCallEvaluationModelInput? Type1052 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RegionConfigRequest? Type1053 { get; set; }
+        public global::ElevenLabs.CreateTransferRuleParams? Type1053 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreatifyAuroraRequest? Type1054 { get; set; }
+        public global::ElevenLabs.CreateTwilioPhoneNumberRequest? Type1054 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreatifyAuroraRequestResolution? Type1055 { get; set; }
+        public global::ElevenLabs.RegionConfigRequest? Type1055 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CueOptionsRequest? Type1056 { get; set; }
+        public global::ElevenLabs.CreatifyAuroraRequest? Type1056 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Currency? Type1057 { get; set; }
+        public global::ElevenLabs.CreatifyAuroraRequestResolution? Type1057 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomGuardrailInput? Type1058 { get; set; }
+        public global::ElevenLabs.CueOptionsRequest? Type1058 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomGuardrailsConfigInput? Type1059 { get; set; }
+        public global::ElevenLabs.Currency? Type1059 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomGuardrailOutput? Type1060 { get; set; }
+        public global::ElevenLabs.CustomGuardrailInput? Type1060 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomGuardrailsConfigOutput? Type1061 { get; set; }
+        public global::ElevenLabs.CustomGuardrailsConfigInput? Type1061 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomGuardrailConfig? Type1062 { get; set; }
+        public global::ElevenLabs.CustomGuardrailOutput? Type1062 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomGuardrailConfigModel? Type1063 { get; set; }
+        public global::ElevenLabs.CustomGuardrailsConfigOutput? Type1063 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TriggerAction3? Type1064 { get; set; }
+        public global::ElevenLabs.CustomGuardrailConfig? Type1064 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomGuardrailConfigTriggerActionDiscriminator? Type1065 { get; set; }
+        public global::ElevenLabs.CustomGuardrailConfigModel? Type1065 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomGuardrailConfigTriggerActionDiscriminatorType? Type1066 { get; set; }
+        public global::ElevenLabs.TriggerAction3? Type1066 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.CustomGuardrailConfig>? Type1067 { get; set; }
+        public global::ElevenLabs.CustomGuardrailConfigTriggerActionDiscriminator? Type1067 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomHeaderAuthResponse? Type1068 { get; set; }
+        public global::ElevenLabs.CustomGuardrailConfigTriggerActionDiscriminatorType? Type1068 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomLLM? Type1069 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.CustomGuardrailConfig>? Type1069 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIEnvVarLocator, object>? Type1070 { get; set; }
+        public global::ElevenLabs.CustomHeaderAuthResponse? Type1070 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? Type1071 { get; set; }
+        public global::ElevenLabs.CustomLLM? Type1071 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EnvironmentAuthConnectionLocator? Type1072 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIEnvVarLocator, object>? Type1072 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIDynamicVariable, global::ElevenLabs.ConvAIEnvVarLocator>? Type1073 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? Type1073 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomLLMAPIType? Type1074 { get; set; }
+        public global::ElevenLabs.EnvironmentAuthConnectionLocator? Type1074 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomSIPHeader? Type1075 { get; set; }
+        public global::ElevenLabs.AnyOf<string, global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIDynamicVariable, global::ElevenLabs.ConvAIEnvVarLocator>? Type1075 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomSIPHeaderWithDynamicVariable? Type1076 { get; set; }
+        public global::ElevenLabs.CustomLLMAPIType? Type1076 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DashboardCallSuccessChartModel? Type1077 { get; set; }
+        public global::ElevenLabs.CustomSIPHeader? Type1077 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DashboardCriteriaChartModel? Type1078 { get; set; }
+        public global::ElevenLabs.CustomSIPHeaderWithDynamicVariable? Type1078 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DashboardDataCollectionChartModel? Type1079 { get; set; }
+        public global::ElevenLabs.DashboardCallSuccessChartModel? Type1079 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DefaultSharingGroupConfigPermissionLevel? Type1080 { get; set; }
+        public global::ElevenLabs.DashboardCriteriaChartModel? Type1080 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DefaultSharingGroupResponseModel? Type1081 { get; set; }
+        public global::ElevenLabs.DashboardDataCollectionChartModel? Type1081 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceGroupResponseModel? Type1082 { get; set; }
+        public global::ElevenLabs.DefaultSharingGroupConfigPermissionLevel? Type1082 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DefaultSharingGroupResponseModelPermissionLevel? Type1083 { get; set; }
+        public global::ElevenLabs.DefaultSharingGroupResponseModel? Type1083 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteAgentHoldAudioResponseModel? Type1084 { get; set; }
+        public global::ElevenLabs.WorkspaceGroupResponseModel? Type1084 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteAgentProcedureParams? Type1085 { get; set; }
+        public global::ElevenLabs.DefaultSharingGroupResponseModelPermissionLevel? Type1085 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteAgentRuleParams? Type1086 { get; set; }
+        public global::ElevenLabs.DeleteAgentHoldAudioResponseModel? Type1086 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteAssetParams? Type1087 { get; set; }
+        public global::ElevenLabs.DeleteAgentProcedureParams? Type1087 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteCalendarEventParams? Type1088 { get; set; }
+        public global::ElevenLabs.DeleteAgentRuleParams? Type1088 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteChapterResponseModel? Type1089 { get; set; }
+        public global::ElevenLabs.DeleteAssetParams? Type1089 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteClientInteractionParams? Type1090 { get; set; }
+        public global::ElevenLabs.DeleteCalendarEventParams? Type1090 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteClientParams? Type1091 { get; set; }
+        public global::ElevenLabs.DeleteChapterResponseModel? Type1091 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteDubbingResponseModel? Type1092 { get; set; }
+        public global::ElevenLabs.DeleteClientInteractionParams? Type1092 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteGroupSessionParams? Type1093 { get; set; }
+        public global::ElevenLabs.DeleteClientParams? Type1093 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteHistoryItemResponse? Type1094 { get; set; }
+        public global::ElevenLabs.DeleteDubbingResponseModel? Type1094 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteHolidayParams? Type1095 { get; set; }
+        public global::ElevenLabs.DeleteGroupSessionParams? Type1095 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteLocationParams? Type1096 { get; set; }
+        public global::ElevenLabs.DeleteHistoryItemResponse? Type1096 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteProductParams? Type1097 { get; set; }
+        public global::ElevenLabs.DeleteHolidayParams? Type1097 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteProjectResponseModel? Type1098 { get; set; }
+        public global::ElevenLabs.DeleteLocationParams? Type1098 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteSampleResponseModel? Type1099 { get; set; }
+        public global::ElevenLabs.DeleteProductParams? Type1099 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteServiceParams? Type1100 { get; set; }
+        public global::ElevenLabs.DeleteProjectResponseModel? Type1100 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteStaffParams? Type1101 { get; set; }
+        public global::ElevenLabs.DeleteSampleResponseModel? Type1101 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteTransferRuleParams? Type1102 { get; set; }
+        public global::ElevenLabs.DeleteServiceParams? Type1102 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteVoiceResponseModel? Type1103 { get; set; }
+        public global::ElevenLabs.DeleteStaffParams? Type1103 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteVoiceSampleResponseModel? Type1104 { get; set; }
+        public global::ElevenLabs.DeleteTransferRuleParams? Type1104 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteWorkspaceGroupMemberResponseModel? Type1105 { get; set; }
+        public global::ElevenLabs.DeleteVoiceResponseModel? Type1105 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteWorkspaceInviteResponseModel? Type1106 { get; set; }
+        public global::ElevenLabs.DeleteVoiceSampleResponseModel? Type1106 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteWorkspaceWebhookResponseModel? Type1107 { get; set; }
+        public global::ElevenLabs.DeleteWorkspaceGroupMemberResponseModel? Type1107 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeliverableInfo? Type1108 { get; set; }
+        public global::ElevenLabs.DeleteWorkspaceInviteResponseModel? Type1108 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentAvailableAgentIdentifierAccessLevel? Type1109 { get; set; }
+        public global::ElevenLabs.DeleteWorkspaceWebhookResponseModel? Type1109 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentAvailableMCPServerIdentifierAccessLevel? Type1110 { get; set; }
+        public global::ElevenLabs.DeliverableInfo? Type1110 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentAvailableToolIdentifierAccessLevel? Type1111 { get; set; }
+        public global::ElevenLabs.DependentAvailableAgentIdentifierAccessLevel? Type1111 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentBranchInfo? Type1112 { get; set; }
+        public global::ElevenLabs.DependentAvailableMCPServerIdentifierAccessLevel? Type1112 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DetailedMusicResponse? Type1113 { get; set; }
+        public global::ElevenLabs.DependentAvailableToolIdentifierAccessLevel? Type1113 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>? Type1114 { get; set; }
+        public global::ElevenLabs.DependentBranchInfo? Type1114 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SongMetadata? Type1115 { get; set; }
+        public global::ElevenLabs.DetailedMusicResponse? Type1115 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WordTimestamp>? Type1116 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>? Type1116 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WordTimestamp? Type1117 { get; set; }
+        public global::ElevenLabs.SongMetadata? Type1117 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DetectedEntity? Type1118 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WordTimestamp>? Type1118 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeviceModel? Type1119 { get; set; }
+        public global::ElevenLabs.WordTimestamp? Type1119 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DialogueInputResponseModel? Type1120 { get; set; }
+        public global::ElevenLabs.DetectedEntity? Type1120 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DirectPublishingReadResponseModel? Type1121 { get; set; }
+        public global::ElevenLabs.DeviceModel? Type1121 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ReadMetadataChapterDBModel>? Type1122 { get; set; }
+        public global::ElevenLabs.DialogueInputResponseModel? Type1122 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ReadMetadataChapterDBModel? Type1123 { get; set; }
+        public global::ElevenLabs.DirectPublishingReadResponseModel? Type1123 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DirectPublishingReadResponseModelDisplayMode? Type1124 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ReadMetadataChapterDBModel>? Type1124 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DirectPublishingReadResponseModelGenreVariant1Item>? Type1125 { get; set; }
+        public global::ElevenLabs.ReadMetadataChapterDBModel? Type1125 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DirectPublishingReadResponseModelGenreVariant1Item? Type1126 { get; set; }
+        public global::ElevenLabs.DirectPublishingReadResponseModelDisplayMode? Type1126 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DirectPublishingReadResponseModelTargetAudience? Type1127 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DirectPublishingReadResponseModelGenreVariant1Item>? Type1127 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ReadLegalTerms? Type1128 { get; set; }
+        public global::ElevenLabs.DirectPublishingReadResponseModelGenreVariant1Item? Type1128 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.Contributor>? Type1129 { get; set; }
+        public global::ElevenLabs.DirectPublishingReadResponseModelTargetAudience? Type1129 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DirectPublishingReadResponseModelPayoutType? Type1130 { get; set; }
+        public global::ElevenLabs.ReadLegalTerms? Type1130 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PreviewAudioDBModel? Type1131 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.Contributor>? Type1131 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SampleConfigDBModel? Type1132 { get; set; }
+        public global::ElevenLabs.DirectPublishingReadResponseModelPayoutType? Type1132 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ReviewResponseModel? Type1133 { get; set; }
+        public global::ElevenLabs.PreviewAudioDBModel? Type1133 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DiscountResponseModel? Type1134 { get; set; }
+        public global::ElevenLabs.SampleConfigDBModel? Type1134 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DoDubbingResponseModel? Type1135 { get; set; }
+        public global::ElevenLabs.ReviewResponseModel? Type1135 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DocumentUsageModeEnum? Type1136 { get; set; }
+        public global::ElevenLabs.DiscountResponseModel? Type1136 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DocxExportOptions? Type1137 { get; set; }
+        public global::ElevenLabs.DoDubbingResponseModel? Type1137 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubOrderItemRequest? Type1138 { get; set; }
+        public global::ElevenLabs.DocumentUsageModeEnum? Type1138 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbedSegment? Type1139 { get; set; }
+        public global::ElevenLabs.DocxExportOptions? Type1139 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SegmentSubtitleFrame>? Type1140 { get; set; }
+        public global::ElevenLabs.DubOrderItemRequest? Type1140 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SegmentSubtitleFrame? Type1141 { get; set; }
+        public global::ElevenLabs.DubbedSegment? Type1141 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingMediaReference? Type1142 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SegmentSubtitleFrame>? Type1142 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingBulkSegmentUpdateRequest? Type1143 { get; set; }
+        public global::ElevenLabs.SegmentSubtitleFrame? Type1143 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DubbingSegmentUpdateRequest>? Type1144 { get; set; }
+        public global::ElevenLabs.DubbingMediaReference? Type1144 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingSegmentUpdateRequest? Type1145 { get; set; }
+        public global::ElevenLabs.DubbingBulkSegmentUpdateRequest? Type1145 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingBulkSourceSegmentUpdateResponse? Type1146 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DubbingSegmentUpdateRequest>? Type1146 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingTranscriptSegment>? Type1147 { get; set; }
+        public global::ElevenLabs.DubbingSegmentUpdateRequest? Type1147 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingTranscriptSegment? Type1148 { get; set; }
+        public global::ElevenLabs.DubbingBulkSourceSegmentUpdateResponse? Type1148 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingBulkTargetSegmentUpdateRequest? Type1149 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingTranscriptSegment>? Type1149 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DubbingTargetSegmentUpdateRequest>? Type1150 { get; set; }
+        public global::ElevenLabs.DubbingTranscriptSegment? Type1150 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingTargetSegmentUpdateRequest? Type1151 { get; set; }
+        public global::ElevenLabs.DubbingBulkTargetSegmentUpdateRequest? Type1151 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingBulkTargetSegmentUpdateResponse? Type1152 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DubbingTargetSegmentUpdateRequest>? Type1152 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingTargetTranscriptSegment>? Type1153 { get; set; }
+        public global::ElevenLabs.DubbingTargetSegmentUpdateRequest? Type1153 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingTargetTranscriptSegment? Type1154 { get; set; }
+        public global::ElevenLabs.DubbingBulkTargetSegmentUpdateResponse? Type1154 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingError? Type1155 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingTargetTranscriptSegment>? Type1155 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingLanguageListResponse? Type1156 { get; set; }
+        public global::ElevenLabs.DubbingTargetTranscriptSegment? Type1156 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingLanguageResponse>? Type1157 { get; set; }
+        public global::ElevenLabs.DubbingError? Type1157 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingLanguageResponse? Type1158 { get; set; }
+        public global::ElevenLabs.DubbingLanguageListResponse? Type1158 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingLanguageOutputs? Type1159 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingLanguageResponse>? Type1159 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingLanguageResponseStatus? Type1160 { get; set; }
+        public global::ElevenLabs.DubbingLanguageResponse? Type1160 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VoicesNotPermittedWarning>? Type1161 { get; set; }
+        public global::ElevenLabs.DubbingLanguageOutputs? Type1161 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoicesNotPermittedWarning? Type1162 { get; set; }
+        public global::ElevenLabs.DubbingLanguageResponseStatus? Type1162 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingMediaMetadata? Type1163 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VoicesNotPermittedWarning>? Type1163 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingMetadataPageResponseModel? Type1164 { get; set; }
+        public global::ElevenLabs.VoicesNotPermittedWarning? Type1164 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingMetadataResponse>? Type1165 { get; set; }
+        public global::ElevenLabs.DubbingMediaMetadata? Type1165 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingMetadataResponse? Type1166 { get; set; }
+        public global::ElevenLabs.DubbingMetadataPageResponseModel? Type1166 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingProjectListResponse? Type1167 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingMetadataResponse>? Type1167 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingProjectResponse>? Type1168 { get; set; }
+        public global::ElevenLabs.DubbingMetadataResponse? Type1168 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingProjectResponse? Type1169 { get; set; }
+        public global::ElevenLabs.DubbingProjectListResponse? Type1169 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingProjectResponseStatus? Type1170 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingProjectResponse>? Type1170 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingSourceMediaInfo? Type1171 { get; set; }
+        public global::ElevenLabs.DubbingProjectResponse? Type1171 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingRegenerateResponse? Type1172 { get; set; }
+        public global::ElevenLabs.DubbingProjectResponseStatus? Type1172 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingReleaseChannel? Type1173 { get; set; }
+        public global::ElevenLabs.DubbingSourceMediaInfo? Type1173 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingRenderResponseModel? Type1174 { get; set; }
+        public global::ElevenLabs.DubbingRegenerateResponse? Type1174 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingResource? Type1175 { get; set; }
+        public global::ElevenLabs.DubbingReleaseChannel? Type1175 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerTrack>? Type1176 { get; set; }
+        public global::ElevenLabs.DubbingRenderResponseModel? Type1176 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeakerTrack? Type1177 { get; set; }
+        public global::ElevenLabs.DubbingResource? Type1177 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerSegment>? Type1178 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerTrack>? Type1178 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeakerSegment? Type1179 { get; set; }
+        public global::ElevenLabs.SpeakerTrack? Type1179 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.Render>? Type1180 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerSegment>? Type1180 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Render? Type1181 { get; set; }
+        public global::ElevenLabs.SpeakerSegment? Type1181 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingSegmentCreateRequest? Type1182 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.Render>? Type1182 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingSourceSegmentUpdateResponse? Type1183 { get; set; }
+        public global::ElevenLabs.Render? Type1183 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingSourceTranscriptResponse? Type1184 { get; set; }
+        public global::ElevenLabs.DubbingSegmentCreateRequest? Type1184 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingTargetSegmentUpdateResponse? Type1185 { get; set; }
+        public global::ElevenLabs.DubbingSourceSegmentUpdateResponse? Type1185 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingTargetTranscriptResponse? Type1186 { get; set; }
+        public global::ElevenLabs.DubbingSourceTranscriptResponse? Type1186 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingTranscript? Type1187 { get; set; }
+        public global::ElevenLabs.DubbingTargetSegmentUpdateResponse? Type1187 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingTranscriptUtterance>? Type1188 { get; set; }
+        public global::ElevenLabs.DubbingTargetTranscriptResponse? Type1188 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingTranscriptUtterance? Type1189 { get; set; }
+        public global::ElevenLabs.DubbingTranscript? Type1189 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingTranscriptCharacter? Type1190 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingTranscriptUtterance>? Type1190 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingTranscriptResponseModel? Type1191 { get; set; }
+        public global::ElevenLabs.DubbingTranscriptUtterance? Type1191 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingTranscriptRevisionResponse? Type1192 { get; set; }
+        public global::ElevenLabs.DubbingTranscriptCharacter? Type1192 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingTranscriptWord>? Type1193 { get; set; }
+        public global::ElevenLabs.DubbingTranscriptResponseModel? Type1193 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingTranscriptWord? Type1194 { get; set; }
+        public global::ElevenLabs.DubbingTranscriptRevisionResponse? Type1194 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingTranscriptCharacter>? Type1195 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingTranscriptWord>? Type1195 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingTranscriptsResponseModel? Type1196 { get; set; }
+        public global::ElevenLabs.DubbingTranscriptWord? Type1196 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingTranscriptsResponseModelTranscriptFormat? Type1197 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DubbingTranscriptCharacter>? Type1197 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EditChapterResponseModel? Type1198 { get; set; }
+        public global::ElevenLabs.DubbingTranscriptsResponseModel? Type1198 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EditProjectResponseModel? Type1199 { get; set; }
+        public global::ElevenLabs.DubbingTranscriptsResponseModelTranscriptFormat? Type1199 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EditVoiceResponseModel? Type1200 { get; set; }
+        public global::ElevenLabs.EditChapterResponseModel? Type1200 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EditVoiceSettingsResponseModel? Type1201 { get; set; }
+        public global::ElevenLabs.EditProjectResponseModel? Type1201 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EditedTranscript? Type1202 { get; set; }
+        public global::ElevenLabs.EditVoiceResponseModel? Type1202 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EffectsSpecInput? Type1203 { get; set; }
+        public global::ElevenLabs.EditVoiceSettingsResponseModel? Type1203 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EffectsSpecOutput? Type1204 { get; set; }
+        public global::ElevenLabs.EditedTranscript? Type1204 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ElevenFlashV25Request? Type1205 { get; set; }
+        public global::ElevenLabs.EffectsSpecInput? Type1205 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ElevenFlashV25RequestOutputFormat? Type1206 { get; set; }
+        public global::ElevenLabs.EffectsSpecOutput? Type1206 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocator>? Type1207 { get; set; }
+        public global::ElevenLabs.ElevenFlashV25Request? Type1207 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryVersionLocator? Type1208 { get; set; }
+        public global::ElevenLabs.ElevenFlashV25RequestOutputFormat? Type1208 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ElevenFlashV25VoiceSettings? Type1209 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocator>? Type1209 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ElevenMultilingualV2Request? Type1210 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryVersionLocator? Type1210 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ElevenMultilingualV2RequestOutputFormat? Type1211 { get; set; }
+        public global::ElevenLabs.ElevenFlashV25VoiceSettings? Type1211 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TtsVoiceSettings? Type1212 { get; set; }
+        public global::ElevenLabs.ElevenMultilingualV2Request? Type1212 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ElevenV3Request? Type1213 { get; set; }
+        public global::ElevenLabs.ElevenMultilingualV2RequestOutputFormat? Type1213 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ElevenV3RequestOutputFormat? Type1214 { get; set; }
+        public global::ElevenLabs.TtsVoiceSettings? Type1214 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ElevenV3VoiceSettings? Type1215 { get; set; }
+        public global::ElevenLabs.ElevenV3Request? Type1215 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EmbedVariant? Type1216 { get; set; }
+        public global::ElevenLabs.ElevenV3RequestOutputFormat? Type1216 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EmbeddingModelEnum? Type1217 { get; set; }
+        public global::ElevenLabs.ElevenV3VoiceSettings? Type1217 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EndCallToolConfig? Type1218 { get; set; }
+        public global::ElevenLabs.EmbedVariant? Type1218 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EndProcedureToolConfig? Type1219 { get; set; }
+        public global::ElevenLabs.EmbeddingModelEnum? Type1219 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.ProcedureVersionRef, global::ElevenLabs.ProcedureDraftRef>? Type1220 { get; set; }
+        public global::ElevenLabs.EndCallToolConfig? Type1220 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProcedureDraftRef? Type1221 { get; set; }
+        public global::ElevenLabs.EndProcedureToolConfig? Type1221 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EndProcedureToolErrorStatus? Type1222 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.ProcedureVersionRef, global::ElevenLabs.ProcedureDraftRef>? Type1222 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EntryBehavior? Type1223 { get; set; }
+        public global::ElevenLabs.ProcedureDraftRef? Type1223 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EnvironmentVariableAuthConnectionValue? Type1224 { get; set; }
+        public global::ElevenLabs.EndProcedureToolErrorStatus? Type1224 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EnvironmentVariableResponse? Type1225 { get; set; }
+        public global::ElevenLabs.EntryBehavior? Type1225 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EnvironmentVariableResponseType? Type1226 { get; set; }
+        public global::ElevenLabs.EnvironmentVariableAuthConnectionValue? Type1226 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableSecretValue>? Type1227 { get; set; }
+        public global::ElevenLabs.EnvironmentVariableResponse? Type1227 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EnvironmentVariableSecretValue? Type1228 { get; set; }
+        public global::ElevenLabs.EnvironmentVariableResponseType? Type1228 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableAuthConnectionValue>? Type1229 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableSecretValue>? Type1229 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EnvironmentVariablesListResponse? Type1230 { get; set; }
+        public global::ElevenLabs.EnvironmentVariableSecretValue? Type1230 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.EnvironmentVariableResponse>? Type1231 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableAuthConnectionValue>? Type1231 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EvaluationResultFilter? Type1232 { get; set; }
+        public global::ElevenLabs.EnvironmentVariablesListResponse? Type1232 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ExactParameterEvaluationStrategy? Type1233 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.EnvironmentVariableResponse>? Type1233 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ExotelOutboundCallResponse? Type1234 { get; set; }
+        public global::ElevenLabs.EvaluationResultFilter? Type1234 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ExperimentAssignment? Type1235 { get; set; }
+        public global::ElevenLabs.ExactParameterEvaluationStrategy? Type1235 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ExperimentAssignmentSource? Type1236 { get; set; }
+        public global::ElevenLabs.ExotelOutboundCallResponse? Type1236 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SegmentedJsonExportOptions? Type1237 { get; set; }
+        public global::ElevenLabs.ExperimentAssignment? Type1237 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PdfExportOptions? Type1238 { get; set; }
+        public global::ElevenLabs.ExperimentAssignmentSource? Type1238 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TxtExportOptions? Type1239 { get; set; }
+        public global::ElevenLabs.SegmentedJsonExportOptions? Type1239 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.HtmlExportOptions? Type1240 { get; set; }
+        public global::ElevenLabs.PdfExportOptions? Type1240 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SrtExportOptions? Type1241 { get; set; }
+        public global::ElevenLabs.TxtExportOptions? Type1241 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ExportOptionsDiscriminator? Type1242 { get; set; }
+        public global::ElevenLabs.HtmlExportOptions? Type1242 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ExportOptionsDiscriminatorFormat? Type1243 { get; set; }
+        public global::ElevenLabs.SrtExportOptions? Type1243 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ExtendedSubscriptionResponseModel? Type1244 { get; set; }
+        public global::ElevenLabs.ExportOptionsDiscriminator? Type1244 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<int?, string>? Type1245 { get; set; }
+        public global::ElevenLabs.ExportOptionsDiscriminatorFormat? Type1245 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Price? Type1246 { get; set; }
+        public global::ElevenLabs.ExtendedSubscriptionResponseModel? Type1246 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SubscriptionStatusType? Type1247 { get; set; }
+        public global::ElevenLabs.AnyOf<int?, string>? Type1247 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InvoiceResponseModel? Type1248 { get; set; }
+        public global::ElevenLabs.Price? Type1248 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.InvoiceResponseModel>? Type1249 { get; set; }
+        public global::ElevenLabs.SubscriptionStatusType? Type1249 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.PendingSubscriptionSwitchResponseModel, global::ElevenLabs.PendingCancellationResponseModel, object>? Type1250 { get; set; }
+        public global::ElevenLabs.InvoiceResponseModel? Type1250 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PendingSubscriptionSwitchResponseModel? Type1251 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.InvoiceResponseModel>? Type1251 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PendingCancellationResponseModel? Type1252 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.PendingSubscriptionSwitchResponseModel, global::ElevenLabs.PendingCancellationResponseModel, object>? Type1252 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ExternalFileSyncInfo? Type1253 { get; set; }
+        public global::ElevenLabs.PendingSubscriptionSwitchResponseModel? Type1253 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ExternalSyncProvider? Type1254 { get; set; }
+        public global::ElevenLabs.PendingCancellationResponseModel? Type1254 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ExternalFolderSyncInfo? Type1255 { get; set; }
+        public global::ElevenLabs.ExternalFileSyncInfo? Type1255 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ExternalSyncJobTrigger? Type1256 { get; set; }
+        public global::ElevenLabs.ExternalSyncProvider? Type1256 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ExternalSyncJobType? Type1257 { get; set; }
+        public global::ElevenLabs.ExternalFolderSyncInfo? Type1257 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.FeatureStatusCommonModel? Type1258 { get; set; }
+        public global::ElevenLabs.ExternalSyncJobTrigger? Type1258 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowFeaturesUsageCommonModel? Type1259 { get; set; }
+        public global::ElevenLabs.ExternalSyncJobType? Type1259 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestsFeatureUsageCommonModel? Type1260 { get; set; }
+        public global::ElevenLabs.FeatureStatusCommonModel? Type1260 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.FieldConflict? Type1261 { get; set; }
+        public global::ElevenLabs.WorkflowFeaturesUsageCommonModel? Type1261 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.FileRefreshStatus? Type1262 { get; set; }
+        public global::ElevenLabs.TestsFeatureUsageCommonModel? Type1262 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.FineTuningResponseModel? Type1263 { get; set; }
+        public global::ElevenLabs.FieldConflict? Type1263 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.FineTuningResponseModelState2>? Type1264 { get; set; }
+        public global::ElevenLabs.FileRefreshStatus? Type1264 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.FineTuningResponseModelState2? Type1265 { get; set; }
+        public global::ElevenLabs.FineTuningResponseModel? Type1265 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VerificationAttemptResponseModel>? Type1266 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.FineTuningResponseModelState2>? Type1266 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VerificationAttemptResponseModel? Type1267 { get; set; }
+        public global::ElevenLabs.FineTuningResponseModelState2? Type1267 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ManualVerificationResponseModel? Type1268 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VerificationAttemptResponseModel>? Type1268 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.FinetuneCreatedBy? Type1269 { get; set; }
+        public global::ElevenLabs.VerificationAttemptResponseModel? Type1269 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.FinetuneVisibility? Type1270 { get; set; }
+        public global::ElevenLabs.ManualVerificationResponseModel? Type1270 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.FocusGuardrail? Type1271 { get; set; }
+        public global::ElevenLabs.FinetuneCreatedBy? Type1271 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ForcedAlignmentCharacterResponseModel? Type1272 { get; set; }
+        public global::ElevenLabs.FinetuneVisibility? Type1272 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ForcedAlignmentResponseModel? Type1273 { get; set; }
+        public global::ElevenLabs.FocusGuardrail? Type1273 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ForcedAlignmentCharacterResponseModel>? Type1274 { get; set; }
+        public global::ElevenLabs.ForcedAlignmentCharacterResponseModel? Type1274 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ForcedAlignmentWordResponseModel>? Type1275 { get; set; }
+        public global::ElevenLabs.ForcedAlignmentResponseModel? Type1275 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ForcedAlignmentWordResponseModel? Type1276 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ForcedAlignmentCharacterResponseModel>? Type1276 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.FrustratedConversationRefOverallLabel? Type1277 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ForcedAlignmentWordResponseModel>? Type1277 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage1Request? Type1278 { get; set; }
+        public global::ElevenLabs.ForcedAlignmentWordResponseModel? Type1278 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage1RequestQuality? Type1279 { get; set; }
+        public global::ElevenLabs.FrustratedConversationRefOverallLabel? Type1279 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage1RequestBackground? Type1280 { get; set; }
+        public global::ElevenLabs.GPTImage1Request? Type1280 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage1RequestAspectRatio? Type1281 { get; set; }
+        public global::ElevenLabs.GPTImage1RequestQuality? Type1281 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage15Request? Type1282 { get; set; }
+        public global::ElevenLabs.GPTImage1RequestBackground? Type1282 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage15RequestQuality? Type1283 { get; set; }
+        public global::ElevenLabs.GPTImage1RequestAspectRatio? Type1283 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage15RequestBackground? Type1284 { get; set; }
+        public global::ElevenLabs.GPTImage15Request? Type1284 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage15RequestAspectRatio? Type1285 { get; set; }
+        public global::ElevenLabs.GPTImage15RequestQuality? Type1285 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage25FlareRequest? Type1286 { get; set; }
+        public global::ElevenLabs.GPTImage15RequestBackground? Type1286 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage25FlareRequestQuality? Type1287 { get; set; }
+        public global::ElevenLabs.GPTImage15RequestAspectRatio? Type1287 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage25FlareRequestAspectRatio? Type1288 { get; set; }
+        public global::ElevenLabs.GPTImage25FlareRequest? Type1288 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage25FlareRequestResolution? Type1289 { get; set; }
+        public global::ElevenLabs.GPTImage25FlareRequestQuality? Type1289 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage25SunburstRequest? Type1290 { get; set; }
+        public global::ElevenLabs.GPTImage25FlareRequestAspectRatio? Type1290 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage25SunburstRequestQuality? Type1291 { get; set; }
+        public global::ElevenLabs.GPTImage25FlareRequestResolution? Type1291 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage25SunburstRequestAspectRatio? Type1292 { get; set; }
+        public global::ElevenLabs.GPTImage25SunburstRequest? Type1292 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage25SunburstRequestResolution? Type1293 { get; set; }
+        public global::ElevenLabs.GPTImage25SunburstRequestQuality? Type1293 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage2Request? Type1294 { get; set; }
+        public global::ElevenLabs.GPTImage25SunburstRequestAspectRatio? Type1294 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage2RequestQuality? Type1295 { get; set; }
+        public global::ElevenLabs.GPTImage25SunburstRequestResolution? Type1295 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage2RequestAspectRatio? Type1296 { get; set; }
+        public global::ElevenLabs.GPTImage2Request? Type1296 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GPTImage2RequestResolution? Type1297 { get; set; }
+        public global::ElevenLabs.GPTImage2RequestQuality? Type1297 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Gemini25FlashImageRequest? Type1298 { get; set; }
+        public global::ElevenLabs.GPTImage2RequestAspectRatio? Type1298 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Gemini25FlashImageRequestAspectRatio? Type1299 { get; set; }
+        public global::ElevenLabs.GPTImage2RequestResolution? Type1299 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Gemini31FlashImageRequest? Type1300 { get; set; }
+        public global::ElevenLabs.Gemini25FlashImageRequest? Type1300 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Gemini31FlashImageRequestAspectRatio? Type1301 { get; set; }
+        public global::ElevenLabs.Gemini25FlashImageRequestAspectRatio? Type1301 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Gemini31FlashImageRequestResolution? Type1302 { get; set; }
+        public global::ElevenLabs.Gemini31FlashImageRequest? Type1302 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Gemini31FlashLiteImageRequest? Type1303 { get; set; }
+        public global::ElevenLabs.Gemini31FlashImageRequestAspectRatio? Type1303 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Gemini31FlashLiteImageRequestAspectRatio? Type1304 { get; set; }
+        public global::ElevenLabs.Gemini31FlashImageRequestResolution? Type1304 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Gemini3ProImageRequest? Type1305 { get; set; }
+        public global::ElevenLabs.Gemini31FlashLiteImageRequest? Type1305 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Gemini3ProImageRequestAspectRatio? Type1306 { get; set; }
+        public global::ElevenLabs.Gemini31FlashLiteImageRequestAspectRatio? Type1306 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Gemini3ProImageRequestResolution? Type1307 { get; set; }
+        public global::ElevenLabs.Gemini3ProImageRequest? Type1307 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GenerationChunkInputContextAdherence? Type1308 { get; set; }
+        public global::ElevenLabs.Gemini3ProImageRequestAspectRatio? Type1308 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GenerationChunkInputConditionStrength? Type1309 { get; set; }
+        public global::ElevenLabs.Gemini3ProImageRequestResolution? Type1309 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GenerationChunkOutput? Type1310 { get; set; }
+        public global::ElevenLabs.GenerationChunkInputContextAdherence? Type1310 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GenerationChunkOutputContextAdherence? Type1311 { get; set; }
+        public global::ElevenLabs.GenerationChunkInputConditionStrength? Type1311 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GenerationChunkOutputConditionStrength? Type1312 { get; set; }
+        public global::ElevenLabs.GenerationChunkOutput? Type1312 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GenerationSourceContext? Type1313 { get; set; }
+        public global::ElevenLabs.GenerationChunkOutputContextAdherence? Type1313 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ReferenceVideo? Type1314 { get; set; }
+        public global::ElevenLabs.GenerationChunkOutputConditionStrength? Type1314 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GenesysBotOutcome? Type1315 { get; set; }
+        public global::ElevenLabs.GenerationSourceContext? Type1315 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GenesysRegion? Type1316 { get; set; }
+        public global::ElevenLabs.ReferenceVideo? Type1316 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentConversationTicketsPageResponseModel? Type1317 { get; set; }
+        public global::ElevenLabs.GenesysBotOutcome? Type1317 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketResponseModel>? Type1318 { get; set; }
+        public global::ElevenLabs.GenesysRegion? Type1318 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentEmbedResponseModel? Type1319 { get; set; }
+        public global::ElevenLabs.GetAgentConversationTicketsPageResponseModel? Type1319 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WidgetConfigResponseModel? Type1320 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketResponseModel>? Type1320 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentKnowledgebaseSizeResponseModel? Type1321 { get; set; }
+        public global::ElevenLabs.GetAgentEmbedResponseModel? Type1321 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentLinkResponseModel? Type1322 { get; set; }
+        public global::ElevenLabs.WidgetConfigResponseModel? Type1322 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentResponseModel? Type1323 { get; set; }
+        public global::ElevenLabs.GetAgentKnowledgebaseSizeResponseModel? Type1323 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem>? Type1324 { get; set; }
+        public global::ElevenLabs.GetAgentLinkResponseModel? Type1324 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PhoneNumbersItem? Type1325 { get; set; }
+        public global::ElevenLabs.GetAgentResponseModel? Type1325 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumberTwilioResponseModel? Type1326 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem>? Type1326 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumberExotelResponseModel? Type1327 { get; set; }
+        public global::ElevenLabs.PhoneNumbersItem? Type1327 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? Type1328 { get; set; }
+        public global::ElevenLabs.GetPhoneNumberTwilioResponseModel? Type1328 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentResponseModelPhoneNumberDiscriminator? Type1329 { get; set; }
+        public global::ElevenLabs.GetPhoneNumberExotelResponseModel? Type1329 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentResponseModelPhoneNumberDiscriminatorProvider? Type1330 { get; set; }
+        public global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? Type1330 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.GetWhatsAppAccountResponse>? Type1331 { get; set; }
+        public global::ElevenLabs.GetAgentResponseModelPhoneNumberDiscriminator? Type1331 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetWhatsAppAccountResponse? Type1332 { get; set; }
+        public global::ElevenLabs.GetAgentResponseModelPhoneNumberDiscriminatorProvider? Type1332 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureRefResponseModel>? Type1333 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.GetWhatsAppAccountResponse>? Type1333 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProcedureRefResponseModel? Type1334 { get; set; }
+        public global::ElevenLabs.GetWhatsAppAccountResponse? Type1334 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentTestFolderResponseModel? Type1335 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ProcedureRefResponseModel>? Type1335 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentTestFolderPathSegmentResponseModel>? Type1336 { get; set; }
+        public global::ElevenLabs.ProcedureRefResponseModel? Type1336 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentTopicsResponseModel? Type1337 { get; set; }
+        public global::ElevenLabs.GetAgentTestFolderResponseModel? Type1337 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentTopicResponseModel>? Type1338 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentTestFolderPathSegmentResponseModel>? Type1338 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentsPageResponseModel? Type1339 { get; set; }
+        public global::ElevenLabs.GetAgentTopicsResponseModel? Type1339 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentSummaryResponseModel>? Type1340 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentTopicResponseModel>? Type1340 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAnalyticsSummaryParams? Type1341 { get; set; }
+        public global::ElevenLabs.GetAgentsPageResponseModel? Type1341 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAppointmentByConfirmationNumberParams? Type1342 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentSummaryResponseModel>? Type1342 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAudioIsolationHistoryResponseModel? Type1343 { get; set; }
+        public global::ElevenLabs.GetAnalyticsSummaryParams? Type1343 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AudioIsolationHistoryItemResponseModel>? Type1344 { get; set; }
+        public global::ElevenLabs.GetAppointmentByConfirmationNumberParams? Type1344 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAudioNativeProjectSettingsResponseModel? Type1345 { get; set; }
+        public global::ElevenLabs.GetAudioIsolationHistoryResponseModel? Type1345 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetBookingPageSettingsParams? Type1346 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AudioIsolationHistoryItemResponseModel>? Type1346 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetBookingSlugStatusParams? Type1347 { get; set; }
+        public global::ElevenLabs.GetAudioNativeProjectSettingsResponseModel? Type1347 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetChaptersResponseModel? Type1348 { get; set; }
+        public global::ElevenLabs.GetBookingPageSettingsParams? Type1348 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterResponseModel>? Type1349 { get; set; }
+        public global::ElevenLabs.GetBookingSlugStatusParams? Type1349 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetClientAppointmentsParams? Type1350 { get; set; }
+        public global::ElevenLabs.GetChaptersResponseModel? Type1350 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetClientByPhoneParams? Type1351 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ChapterResponseModel>? Type1351 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetClientOrdersParams? Type1352 { get; set; }
+        public global::ElevenLabs.GetClientAppointmentsParams? Type1352 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetConvAIDashboardSettingsResponseModel? Type1353 { get; set; }
+        public global::ElevenLabs.GetClientByPhoneParams? Type1353 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ChartsItem>? Type1354 { get; set; }
+        public global::ElevenLabs.GetClientOrdersParams? Type1354 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChartsItem? Type1355 { get; set; }
+        public global::ElevenLabs.GetConvAIDashboardSettingsResponseModel? Type1355 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetConvAIDashboardSettingsResponseModelChartDiscriminator? Type1356 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ChartsItem>? Type1356 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetConvAIDashboardSettingsResponseModelChartDiscriminatorType? Type1357 { get; set; }
+        public global::ElevenLabs.ChartsItem? Type1357 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetConvAISettingsResponseModel? Type1358 { get; set; }
+        public global::ElevenLabs.GetConvAIDashboardSettingsResponseModelChartDiscriminator? Type1358 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LivekitStackType? Type1359 { get; set; }
+        public global::ElevenLabs.GetConvAIDashboardSettingsResponseModelChartDiscriminatorType? Type1359 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetConversationResponseModel? Type1360 { get; set; }
+        public global::ElevenLabs.GetConvAISettingsResponseModel? Type1360 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetConversationResponseModelStatus? Type1361 { get; set; }
+        public global::ElevenLabs.LivekitStackType? Type1361 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VisitedAgentRef>? Type1362 { get; set; }
+        public global::ElevenLabs.GetConversationResponseModel? Type1362 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VisitedAgentRef? Type1363 { get; set; }
+        public global::ElevenLabs.GetConversationResponseModelStatus? Type1363 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetConversationSummaryResponseModel? Type1364 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VisitedAgentRef>? Type1364 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetConversationSummaryResponseModelStatus? Type1365 { get; set; }
+        public global::ElevenLabs.VisitedAgentRef? Type1365 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationSummaryMessageModel>? Type1366 { get; set; }
+        public global::ElevenLabs.GetConversationSummaryResponseModel? Type1366 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetConversationTagsPageResponseModel? Type1367 { get; set; }
+        public global::ElevenLabs.GetConversationSummaryResponseModelStatus? Type1367 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationTagResponseModel>? Type1368 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationSummaryMessageModel>? Type1368 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetConversationUsersPageResponseModel? Type1369 { get; set; }
+        public global::ElevenLabs.GetConversationTagsPageResponseModel? Type1369 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationUserResponseModel>? Type1370 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationTagResponseModel>? Type1370 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetConversationsPageResponseModel? Type1371 { get; set; }
+        public global::ElevenLabs.GetConversationUsersPageResponseModel? Type1371 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationSummaryResponseModel>? Type1372 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationUserResponseModel>? Type1372 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetCrawlJobResponseModel? Type1373 { get; set; }
+        public global::ElevenLabs.GetConversationsPageResponseModel? Type1373 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseDependentAgentsResponseModel? Type1374 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationSummaryResponseModel>? Type1374 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem2>? Type1375 { get; set; }
+        public global::ElevenLabs.GetCrawlJobResponseModel? Type1375 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AgentsItem2? Type1376 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseDependentAgentsResponseModel? Type1376 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseDependentAgentsResponseModelAgentDiscriminator? Type1377 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem2>? Type1377 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseDependentAgentsResponseModelAgentDiscriminatorType? Type1378 { get; set; }
+        public global::ElevenLabs.AgentsItem2? Type1378 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentBranchInfo>? Type1379 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseDependentAgentsResponseModelAgentDiscriminator? Type1379 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseFileResponseModel? Type1380 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseDependentAgentsResponseModelAgentDiscriminatorType? Type1380 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel? Type1381 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentBranchInfo>? Type1381 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DocumentUsageModeEnum>? Type1382 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseFileResponseModel? Type1382 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? Type1383 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseDocumentMetadataResponseModel? Type1383 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel? Type1384 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DocumentUsageModeEnum>? Type1384 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseFolderResponseModel? Type1385 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? Type1385 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KbExternalSyncJob? Type1386 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel? Type1386 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseListResponseModel? Type1387 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseFolderResponseModel? Type1387 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DocumentsItem>? Type1388 { get; set; }
+        public global::ElevenLabs.KbExternalSyncJob? Type1388 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DocumentsItem? Type1389 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseListResponseModel? Type1389 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel? Type1390 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DocumentsItem>? Type1390 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel? Type1391 { get; set; }
+        public global::ElevenLabs.DocumentsItem? Type1391 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel? Type1392 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModel? Type1392 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel? Type1393 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel? Type1393 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseListResponseModelDocumentDiscriminator? Type1394 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModel? Type1394 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseListResponseModelDocumentDiscriminatorType? Type1395 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModel? Type1395 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem>? Type1396 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseListResponseModelDocumentDiscriminator? Type1396 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentAgentsItem? Type1397 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseListResponseModelDocumentDiscriminatorType? Type1397 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModelDependentAgentDiscriminator? Type1398 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem>? Type1398 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModelDependentAgentDiscriminatorType? Type1399 { get; set; }
+        public global::ElevenLabs.DependentAgentsItem? Type1399 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem2>? Type1400 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModelDependentAgentDiscriminator? Type1400 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentAgentsItem2? Type1401 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModelDependentAgentDiscriminatorType? Type1401 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModelDependentAgentDiscriminator? Type1402 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem2>? Type1402 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModelDependentAgentDiscriminatorType? Type1403 { get; set; }
+        public global::ElevenLabs.DependentAgentsItem2? Type1403 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem3>? Type1404 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModelDependentAgentDiscriminator? Type1404 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentAgentsItem3? Type1405 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseSummaryFolderResponseModelDependentAgentDiscriminatorType? Type1405 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModelDependentAgentDiscriminator? Type1406 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem3>? Type1406 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModelDependentAgentDiscriminatorType? Type1407 { get; set; }
+        public global::ElevenLabs.DependentAgentsItem3? Type1407 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem4>? Type1408 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModelDependentAgentDiscriminator? Type1408 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentAgentsItem4? Type1409 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseSummaryTextResponseModelDependentAgentDiscriminatorType? Type1409 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModelDependentAgentDiscriminator? Type1410 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem4>? Type1410 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModelDependentAgentDiscriminatorType? Type1411 { get; set; }
+        public global::ElevenLabs.DependentAgentsItem4? Type1411 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseTextResponseModel? Type1412 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModelDependentAgentDiscriminator? Type1412 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetKnowledgeBaseURLResponseModel? Type1413 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseSummaryURLResponseModelDependentAgentDiscriminatorType? Type1413 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetLibraryVoicesResponseModel? Type1414 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseTextResponseModel? Type1414 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.LibraryVoiceResponseModel>? Type1415 { get; set; }
+        public global::ElevenLabs.GetKnowledgeBaseURLResponseModel? Type1415 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LibraryVoiceResponseModel? Type1416 { get; set; }
+        public global::ElevenLabs.GetLibraryVoicesResponseModel? Type1416 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetLiveCountResponse? Type1417 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.LibraryVoiceResponseModel>? Type1417 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetOrderByConfirmationNumberParams? Type1418 { get; set; }
+        public global::ElevenLabs.LibraryVoiceResponseModel? Type1418 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PhoneNumberAgentInfo? Type1419 { get; set; }
+        public global::ElevenLabs.GetLiveCountResponse? Type1419 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumberInboundSIPTrunkConfigResponseModel? Type1420 { get; set; }
+        public global::ElevenLabs.GetOrderByConfirmationNumberParams? Type1420 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SIPMediaEncryptionEnum? Type1421 { get; set; }
+        public global::ElevenLabs.PhoneNumberAgentInfo? Type1421 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumberOutboundSIPTrunkConfigResponseModel? Type1422 { get; set; }
+        public global::ElevenLabs.GetPhoneNumberInboundSIPTrunkConfigResponseModel? Type1422 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SIPTrunkTransportEnum? Type1423 { get; set; }
+        public global::ElevenLabs.SIPMediaEncryptionEnum? Type1423 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.MediaCodec>? Type1424 { get; set; }
+        public global::ElevenLabs.GetPhoneNumberOutboundSIPTrunkConfigResponseModel? Type1424 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MediaCodec? Type1425 { get; set; }
+        public global::ElevenLabs.SIPTrunkTransportEnum? Type1425 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumbersPageResponseModel? Type1426 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.MediaCodec>? Type1426 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem2>? Type1427 { get; set; }
+        public global::ElevenLabs.MediaCodec? Type1427 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PhoneNumbersItem2? Type1428 { get; set; }
+        public global::ElevenLabs.GetPhoneNumbersPageResponseModel? Type1428 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumbersPageResponseModelPhoneNumberDiscriminator? Type1429 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem2>? Type1429 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumbersPageResponseModelPhoneNumberDiscriminatorProvider? Type1430 { get; set; }
+        public global::ElevenLabs.PhoneNumbersItem2? Type1430 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetProjectsResponseModel? Type1431 { get; set; }
+        public global::ElevenLabs.GetPhoneNumbersPageResponseModelPhoneNumberDiscriminator? Type1431 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ProjectResponseModel>? Type1432 { get; set; }
+        public global::ElevenLabs.GetPhoneNumbersPageResponseModelPhoneNumberDiscriminatorProvider? Type1432 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPronunciationDictionariesMetadataResponseModel? Type1433 { get; set; }
+        public global::ElevenLabs.GetProjectsResponseModel? Type1433 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel>? Type1434 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ProjectResponseModel>? Type1434 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel? Type1435 { get; set; }
+        public global::ElevenLabs.GetPronunciationDictionariesMetadataResponseModel? Type1435 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModelPermissionOnResource? Type1436 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel>? Type1436 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPronunciationDictionaryWithRulesResponseModel? Type1437 { get; set; }
+        public global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel? Type1437 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPronunciationDictionaryWithRulesResponseModelPermissionOnResource? Type1438 { get; set; }
+        public global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModelPermissionOnResource? Type1438 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleResponseModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleResponseModel>>? Type1439 { get; set; }
+        public global::ElevenLabs.GetPronunciationDictionaryWithRulesResponseModel? Type1439 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleResponseModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleResponseModel>? Type1440 { get; set; }
+        public global::ElevenLabs.GetPronunciationDictionaryWithRulesResponseModelPermissionOnResource? Type1440 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryAliasRuleResponseModel? Type1441 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleResponseModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleResponseModel>>? Type1441 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryPhonemeRuleResponseModel? Type1442 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleResponseModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleResponseModel>? Type1442 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetResponseUnitTestResponseModel? Type1443 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryAliasRuleResponseModel? Type1443 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestFromConversationMetadataOutput? Type1444 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryPhonemeRuleResponseModel? Type1444 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput>? Type1445 { get; set; }
+        public global::ElevenLabs.GetResponseUnitTestResponseModel? Type1445 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetSIPLogMessagesResponse? Type1446 { get; set; }
+        public global::ElevenLabs.TestFromConversationMetadataOutput? Type1446 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SIPLogMessage>? Type1447 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput>? Type1447 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SIPLogMessage? Type1448 { get; set; }
+        public global::ElevenLabs.GetSIPLogMessagesResponse? Type1448 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetScheduleParams? Type1449 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SIPLogMessage>? Type1449 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetSecretDependenciesResponseModel? Type1450 { get; set; }
+        public global::ElevenLabs.SIPLogMessage? Type1450 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant1Item>, global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant2Item>, global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>>? Type1451 { get; set; }
+        public global::ElevenLabs.GetScheduleParams? Type1451 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant1Item>? Type1452 { get; set; }
+        public global::ElevenLabs.GetSecretDependenciesResponseModel? Type1452 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependenciesVariant1Item? Type1453 { get; set; }
+        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant1Item>, global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant2Item>, global::System.Collections.Generic.IList<global::ElevenLabs.DependentPhoneNumberIdentifier>>? Type1453 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant1ItemDiscriminator? Type1454 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant1Item>? Type1454 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant1ItemDiscriminatorType? Type1455 { get; set; }
+        public global::ElevenLabs.DependenciesVariant1Item? Type1455 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant2Item>? Type1456 { get; set; }
+        public global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant1ItemDiscriminator? Type1456 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependenciesVariant2Item? Type1457 { get; set; }
+        public global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant1ItemDiscriminatorType? Type1457 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant2ItemDiscriminator? Type1458 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DependenciesVariant2Item>? Type1458 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant2ItemDiscriminatorType? Type1459 { get; set; }
+        public global::ElevenLabs.DependenciesVariant2Item? Type1459 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetSimulationTestResponseModel? Type1460 { get; set; }
+        public global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant2ItemDiscriminator? Type1460 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetSpeechHistoryResponseModel? Type1461 { get; set; }
+        public global::ElevenLabs.GetSecretDependenciesResponseModelDependenciesVariant2ItemDiscriminatorType? Type1461 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechHistoryItemResponseModel>? Type1462 { get; set; }
+        public global::ElevenLabs.GetSimulationTestResponseModel? Type1462 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechHistoryItemResponseModel? Type1463 { get; set; }
+        public global::ElevenLabs.GetSpeechHistoryResponseModel? Type1463 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetTestInvocationsPageResponseModel? Type1464 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechHistoryItemResponseModel>? Type1464 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListResponseMeta? Type1465 { get; set; }
+        public global::ElevenLabs.SpeechHistoryItemResponseModel? Type1465 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TestInvocationSummaryResponseModel>? Type1466 { get; set; }
+        public global::ElevenLabs.GetTestInvocationsPageResponseModel? Type1466 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestInvocationSummaryResponseModel? Type1467 { get; set; }
+        public global::ElevenLabs.ListResponseMeta? Type1467 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetTestSuiteInvocationResponseModel? Type1468 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TestInvocationSummaryResponseModel>? Type1468 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TestRunResultSummary>? Type1469 { get; set; }
+        public global::ElevenLabs.TestInvocationSummaryResponseModel? Type1469 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestRunResultSummary? Type1470 { get; set; }
+        public global::ElevenLabs.GetTestSuiteInvocationResponseModel? Type1470 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestRunResponseModel>? Type1471 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TestRunResultSummary>? Type1471 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UnitTestRunResponseModel? Type1472 { get; set; }
+        public global::ElevenLabs.TestRunResultSummary? Type1472 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetTestsPageResponseModel? Type1473 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestRunResponseModel>? Type1473 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestSummaryResponseModel>? Type1474 { get; set; }
+        public global::ElevenLabs.UnitTestRunResponseModel? Type1474 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UnitTestSummaryResponseModel? Type1475 { get; set; }
+        public global::ElevenLabs.GetTestsPageResponseModel? Type1475 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetTestsSummariesByIdsResponseModel? Type1476 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestSummaryResponseModel>? Type1476 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.UnitTestSummaryResponseModel>? Type1477 { get; set; }
+        public global::ElevenLabs.UnitTestSummaryResponseModel? Type1477 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetToolCallUnitTestResponseModel? Type1478 { get; set; }
+        public global::ElevenLabs.GetTestsSummariesByIdsResponseModel? Type1478 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UnitTestToolCallEvaluationModelOutput? Type1479 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.UnitTestSummaryResponseModel>? Type1479 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetToolDependentAgentsResponseModel? Type1480 { get; set; }
+        public global::ElevenLabs.GetToolCallUnitTestResponseModel? Type1480 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem3>? Type1481 { get; set; }
+        public global::ElevenLabs.UnitTestToolCallEvaluationModelOutput? Type1481 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AgentsItem3? Type1482 { get; set; }
+        public global::ElevenLabs.GetToolDependentAgentsResponseModel? Type1482 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetToolDependentAgentsResponseModelAgentDiscriminator? Type1483 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem3>? Type1483 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetToolDependentAgentsResponseModelAgentDiscriminatorType? Type1484 { get; set; }
+        public global::ElevenLabs.AgentsItem3? Type1484 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetToolExecutionsPageResponseModel? Type1485 { get; set; }
+        public global::ElevenLabs.GetToolDependentAgentsResponseModelAgentDiscriminator? Type1485 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolExecutionResponseModel>? Type1486 { get; set; }
+        public global::ElevenLabs.GetToolDependentAgentsResponseModelAgentDiscriminatorType? Type1486 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolExecutionResponseModel? Type1487 { get; set; }
+        public global::ElevenLabs.GetToolExecutionsPageResponseModel? Type1487 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetVoiceAccentsResponseModel? Type1488 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolExecutionResponseModel>? Type1488 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VoiceAccentResponseModel>? Type1489 { get; set; }
+        public global::ElevenLabs.ToolExecutionResponseModel? Type1489 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceAccentResponseModel? Type1490 { get; set; }
+        public global::ElevenLabs.GetVoiceAccentsResponseModel? Type1490 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetVoicesResponseModel? Type1491 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VoiceAccentResponseModel>? Type1491 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VoiceResponseModel>? Type1492 { get; set; }
+        public global::ElevenLabs.VoiceAccentResponseModel? Type1492 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceResponseModel? Type1493 { get; set; }
+        public global::ElevenLabs.GetVoicesResponseModel? Type1493 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetVoicesV2ResponseModel? Type1494 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VoiceResponseModel>? Type1494 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppAccountType? Type1495 { get; set; }
+        public global::ElevenLabs.VoiceResponseModel? Type1495 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetWorkspaceSecretsResponseModel? Type1496 { get; set; }
+        public global::ElevenLabs.GetVoicesV2ResponseModel? Type1496 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig>? Type1497 { get; set; }
+        public global::ElevenLabs.WhatsAppAccountType? Type1497 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GuardrailType? Type1498 { get; set; }
+        public global::ElevenLabs.GetWorkspaceSecretsResponseModel? Type1498 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GuardrailsResult? Type1499 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig>? Type1499 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PromptInjectionGuardrail? Type1500 { get; set; }
+        public global::ElevenLabs.GuardrailType? Type1500 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ModerationGuardrailInput? Type1501 { get; set; }
+        public global::ElevenLabs.GuardrailsResult? Type1501 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ModerationGuardrailOutput? Type1502 { get; set; }
+        public global::ElevenLabs.PromptInjectionGuardrail? Type1502 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.HTTPValidationError? Type1503 { get; set; }
+        public global::ElevenLabs.ModerationGuardrailInput? Type1503 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ValidationError>? Type1504 { get; set; }
+        public global::ElevenLabs.ModerationGuardrailOutput? Type1504 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ValidationError? Type1505 { get; set; }
+        public global::ElevenLabs.HTTPValidationError? Type1505 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.HidingReason? Type1506 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ValidationError>? Type1506 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.HistoryAlignmentResponseModel? Type1507 { get; set; }
+        public global::ElevenLabs.ValidationError? Type1507 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.HistoryAlignmentsResponseModel? Type1508 { get; set; }
+        public global::ElevenLabs.HidingReason? Type1508 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.HttpRequestModel? Type1509 { get; set; }
+        public global::ElevenLabs.HistoryAlignmentResponseModel? Type1509 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UrlModel? Type1510 { get; set; }
+        public global::ElevenLabs.HistoryAlignmentsResponseModel? Type1510 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Icon? Type1511 { get; set; }
+        public global::ElevenLabs.HttpRequestModel? Type1511 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.IconTheme? Type1512 { get; set; }
+        public global::ElevenLabs.UrlModel? Type1512 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ImageAnalysis? Type1513 { get; set; }
+        public global::ElevenLabs.Icon? Type1513 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ImageAnalysisStatus? Type1514 { get; set; }
+        public global::ElevenLabs.IconTheme? Type1514 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ImageAnalysisResult? Type1515 { get; set; }
+        public global::ElevenLabs.ImageAnalysis? Type1515 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ImageSubject>? Type1516 { get; set; }
+        public global::ElevenLabs.ImageAnalysisStatus? Type1516 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ImageSubject? Type1517 { get; set; }
+        public global::ElevenLabs.ImageAnalysisResult? Type1517 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ImageAvatar? Type1518 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ImageSubject>? Type1518 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ImageGenerationRequest? Type1519 { get; set; }
+        public global::ElevenLabs.ImageSubject? Type1519 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ImageGenerationRequestDiscriminator? Type1520 { get; set; }
+        public global::ElevenLabs.ImageAvatar? Type1520 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ImageGenerationRequestDiscriminatorModelId? Type1521 { get; set; }
+        public global::ElevenLabs.ImageGenerationRequest? Type1521 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InlineImageReference? Type1522 { get; set; }
+        public global::ElevenLabs.ImageGenerationRequestDiscriminator? Type1522 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ImageReferenceDiscriminator? Type1523 { get; set; }
+        public global::ElevenLabs.ImageGenerationRequestDiscriminatorModelId? Type1523 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ImageReferenceDiscriminatorType? Type1524 { get; set; }
+        public global::ElevenLabs.InlineImageReference? Type1524 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SIPTrunkCredentialsRequestModel? Type1525 { get; set; }
+        public global::ElevenLabs.ImageReferenceDiscriminator? Type1525 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InlineAudioReferenceMimeType? Type1526 { get; set; }
+        public global::ElevenLabs.ImageReferenceDiscriminatorType? Type1526 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InlineBase64Reference? Type1527 { get; set; }
+        public global::ElevenLabs.SIPTrunkCredentialsRequestModel? Type1527 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InlineBase64ReferenceMimeType? Type1528 { get; set; }
+        public global::ElevenLabs.InlineAudioReferenceMimeType? Type1528 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InlineImageReferenceMimeType? Type1529 { get; set; }
+        public global::ElevenLabs.InlineBase64Reference? Type1529 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InlineVideoReference? Type1530 { get; set; }
+        public global::ElevenLabs.InlineBase64ReferenceMimeType? Type1530 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InlineVideoReferenceMimeType? Type1531 { get; set; }
+        public global::ElevenLabs.InlineImageReferenceMimeType? Type1531 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.IntegrationType? Type1532 { get; set; }
+        public global::ElevenLabs.InlineVideoReference? Type1532 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InternalAlertingWebhookNotifier? Type1533 { get; set; }
+        public global::ElevenLabs.InlineVideoReferenceMimeType? Type1533 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AlertingWebhookHeader>? Type1534 { get; set; }
+        public global::ElevenLabs.IntegrationType? Type1534 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InternalSamplingConfigResponseModel? Type1535 { get; set; }
+        public global::ElevenLabs.InternalAlertingWebhookNotifier? Type1535 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DiscountResponseModel>? Type1536 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AlertingWebhookHeader>? Type1536 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InvoiceResponseModelPaymentIntentStatus? Type1537 { get; set; }
+        public global::ElevenLabs.InternalSamplingConfigResponseModel? Type1537 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.InvoiceResponseModelPaymentIntentStatusse>? Type1538 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DiscountResponseModel>? Type1538 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InvoiceResponseModelPaymentIntentStatusse? Type1539 { get; set; }
+        public global::ElevenLabs.InvoiceResponseModelPaymentIntentStatus? Type1539 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseBulkDeleteSuccessfulResponseModel? Type1540 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.InvoiceResponseModelPaymentIntentStatusse>? Type1540 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseDeletedResponseModel? Type1541 { get; set; }
+        public global::ElevenLabs.InvoiceResponseModelPaymentIntentStatusse? Type1541 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseContentSearchResponseModel? Type1542 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseBulkDeleteSuccessfulResponseModel? Type1542 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseContentSearchResult>? Type1543 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseDeletedResponseModel? Type1543 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseContentSearchResult? Type1544 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseContentSearchResponseModel? Type1544 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Document? Type1545 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseContentSearchResult>? Type1545 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseContentSearchResultDocumentDiscriminator? Type1546 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseContentSearchResult? Type1546 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseContentSearchResultDocumentDiscriminatorType? Type1547 { get; set; }
+        public global::ElevenLabs.Document? Type1547 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SearchHighlightSegment>? Type1548 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseContentSearchResultDocumentDiscriminator? Type1548 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SearchHighlightSegment? Type1549 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseContentSearchResultDocumentDiscriminatorType? Type1549 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseDependentType? Type1550 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SearchHighlightSegment>? Type1550 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel? Type1551 { get; set; }
+        public global::ElevenLabs.SearchHighlightSegment? Type1551 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseDocumentChunksResponseModel? Type1552 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseDependentType? Type1552 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel>? Type1553 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel? Type1553 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseLocator? Type1554 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseDocumentChunksResponseModel? Type1554 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseRagChunkModel? Type1555 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel>? Type1555 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseRagToolConfig? Type1556 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseLocator? Type1556 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseRagToolStatus? Type1557 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseRagChunkModel? Type1557 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseRagChunkModel>? Type1558 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseRagToolConfig? Type1558 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseSortBy? Type1559 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseRagToolStatus? Type1559 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseSourceFileUrlResponseModel? Type1560 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseRagChunkModel>? Type1560 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModel? Type1561 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseSortBy? Type1561 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Data? Type1562 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseSourceFileUrlResponseModel? Type1562 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModelDataDiscriminator? Type1563 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModel? Type1563 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModelDataDiscriminatorType? Type1564 { get; set; }
+        public global::ElevenLabs.Data? Type1564 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseToolConfig? Type1565 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModelDataDiscriminator? Type1565 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SearchStrategy>? Type1566 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModelDataDiscriminatorType? Type1566 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SearchStrategy? Type1567 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseToolConfig? Type1567 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseToolInfo? Type1568 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SearchStrategy>? Type1568 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseToolStatus? Type1569 { get; set; }
+        public global::ElevenLabs.SearchStrategy? Type1569 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMDeprecationConfigModel? Type1570 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseToolInfo? Type1570 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMDeprecationInfoModel? Type1571 { get; set; }
+        public global::ElevenLabs.KnowledgeBaseToolStatus? Type1571 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMInfoModel? Type1572 { get; set; }
+        public global::ElevenLabs.LLMDeprecationConfigModel? Type1572 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.LLMReasoningEffort>? Type1573 { get; set; }
+        public global::ElevenLabs.LLMDeprecationInfoModel? Type1573 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMReasoningEffort? Type1574 { get; set; }
+        public global::ElevenLabs.LLMInfoModel? Type1574 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RegionalProcessingSurchargeInfo? Type1575 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.LLMReasoningEffort>? Type1575 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMInputOutputTokensUsage? Type1576 { get; set; }
+        public global::ElevenLabs.LLMReasoningEffort? Type1576 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMTokensCategoryUsage? Type1577 { get; set; }
+        public global::ElevenLabs.RegionalProcessingSurchargeInfo? Type1577 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMListResponseModel? Type1578 { get; set; }
+        public global::ElevenLabs.LLMInputOutputTokensUsage? Type1578 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.LLMInfoModel>? Type1579 { get; set; }
+        public global::ElevenLabs.LLMTokensCategoryUsage? Type1579 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.LLMLiteralJsonSchemaPropertyType?, global::System.Collections.Generic.IList<string>>? Type1580 { get; set; }
+        public global::ElevenLabs.LLMListResponseModel? Type1580 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMLiteralJsonSchemaPropertyType? Type1581 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.LLMInfoModel>? Type1581 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMParameterEvaluationStrategy? Type1582 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.LLMLiteralJsonSchemaPropertyType?, global::System.Collections.Generic.IList<string>>? Type1582 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LLMInputOutputTokensUsage>? Type1583 { get; set; }
+        public global::ElevenLabs.LLMLiteralJsonSchemaPropertyType? Type1583 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMUsageCalculatorLLMResponseModel? Type1584 { get; set; }
+        public global::ElevenLabs.LLMParameterEvaluationStrategy? Type1584 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMUsageCalculatorPublicRequestModel? Type1585 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LLMInputOutputTokensUsage>? Type1585 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMUsageCalculatorRequestModel? Type1586 { get; set; }
+        public global::ElevenLabs.LLMUsageCalculatorLLMResponseModel? Type1586 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMUsageCalculatorResponseModel? Type1587 { get; set; }
+        public global::ElevenLabs.LLMUsageCalculatorPublicRequestModel? Type1587 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.LLMUsageCalculatorLLMResponseModel>? Type1588 { get; set; }
+        public global::ElevenLabs.LLMUsageCalculatorRequestModel? Type1588 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LanguageAddedResponse? Type1589 { get; set; }
+        public global::ElevenLabs.LLMUsageCalculatorResponseModel? Type1589 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LanguageDetectionToolConfig? Type1590 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.LLMUsageCalculatorLLMResponseModel>? Type1590 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LanguageInfo? Type1591 { get; set; }
+        public global::ElevenLabs.LanguageAddedResponse? Type1591 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LanguagePairInfo? Type1592 { get; set; }
+        public global::ElevenLabs.LanguageDetectionToolConfig? Type1592 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.LanguageInfo>? Type1593 { get; set; }
+        public global::ElevenLabs.LanguageInfo? Type1593 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LanguagePresetTranslation? Type1594 { get; set; }
+        public global::ElevenLabs.LanguagePairInfo? Type1594 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LanguageResponseModel? Type1595 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.LanguageInfo>? Type1595 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LanguagesResponse? Type1596 { get; set; }
+        public global::ElevenLabs.LanguagePresetTranslation? Type1596 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PairedLanguagesResponse? Type1597 { get; set; }
+        public global::ElevenLabs.LanguageResponseModel? Type1597 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SingleLanguagesResponse? Type1598 { get; set; }
+        public global::ElevenLabs.LanguagesResponse? Type1598 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LanguagesResponseDiscriminator? Type1599 { get; set; }
+        public global::ElevenLabs.PairedLanguagesResponse? Type1599 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LanguagesResponseDiscriminatorKind? Type1600 { get; set; }
+        public global::ElevenLabs.SingleLanguagesResponse? Type1600 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LeaveMessageParams? Type1601 { get; set; }
+        public global::ElevenLabs.LanguagesResponseDiscriminator? Type1601 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LibraryVoiceResponseModelCategory? Type1602 { get; set; }
+        public global::ElevenLabs.LanguagesResponseDiscriminatorKind? Type1602 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VerifiedVoiceLanguageResponseModel>? Type1603 { get; set; }
+        public global::ElevenLabs.LeaveMessageParams? Type1603 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VerifiedVoiceLanguageResponseModel? Type1604 { get; set; }
+        public global::ElevenLabs.LibraryVoiceResponseModelCategory? Type1604 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListAgentProceduresParams? Type1605 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VerifiedVoiceLanguageResponseModel>? Type1605 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListAgentReferencesParams? Type1606 { get; set; }
+        public global::ElevenLabs.VerifiedVoiceLanguageResponseModel? Type1606 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListAgentRulesParams? Type1607 { get; set; }
+        public global::ElevenLabs.ListAgentProceduresParams? Type1607 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListAssetsParams? Type1608 { get; set; }
+        public global::ElevenLabs.ListAgentReferencesParams? Type1608 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListAuthConnectionsResponse? Type1609 { get; set; }
+        public global::ElevenLabs.ListAgentRulesParams? Type1609 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AuthConnectionsItem>? Type1610 { get; set; }
+        public global::ElevenLabs.ListAssetsParams? Type1610 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AuthConnectionsItem? Type1611 { get; set; }
+        public global::ElevenLabs.ListAuthConnectionsResponse? Type1611 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OAuth2ClientCredsResponse? Type1612 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AuthConnectionsItem>? Type1612 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RefreshTokenAuthResponse? Type1613 { get; set; }
+        public global::ElevenLabs.AuthConnectionsItem? Type1613 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OAuth2JWTResponse? Type1614 { get; set; }
+        public global::ElevenLabs.OAuth2ClientCredsResponse? Type1614 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PrivateKeyJWTResponse? Type1615 { get; set; }
+        public global::ElevenLabs.RefreshTokenAuthResponse? Type1615 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MTLSAuthResponse? Type1616 { get; set; }
+        public global::ElevenLabs.OAuth2JWTResponse? Type1616 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppAuthResponse? Type1617 { get; set; }
+        public global::ElevenLabs.PrivateKeyJWTResponse? Type1617 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SlackBotAuthResponse? Type1618 { get; set; }
+        public global::ElevenLabs.MTLSAuthResponse? Type1618 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UrlSecretAuthResponse? Type1619 { get; set; }
+        public global::ElevenLabs.WhatsAppAuthResponse? Type1619 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListAuthConnectionsResponseAuthConnectionDiscriminator? Type1620 { get; set; }
+        public global::ElevenLabs.SlackBotAuthResponse? Type1620 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType? Type1621 { get; set; }
+        public global::ElevenLabs.UrlSecretAuthResponse? Type1621 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListCalendarEventsParams? Type1622 { get; set; }
+        public global::ElevenLabs.ListAuthConnectionsResponseAuthConnectionDiscriminator? Type1622 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListClientInteractionsParams? Type1623 { get; set; }
+        public global::ElevenLabs.ListAuthConnectionsResponseAuthConnectionDiscriminatorAuthType? Type1623 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListClientsParams? Type1624 { get; set; }
+        public global::ElevenLabs.ListCalendarEventsParams? Type1624 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListCrawlJobsResponseModel? Type1625 { get; set; }
+        public global::ElevenLabs.ListClientInteractionsParams? Type1625 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.GetCrawlJobResponseModel>? Type1626 { get; set; }
+        public global::ElevenLabs.ListClientsParams? Type1626 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListCustomerFacingAgentsParams? Type1627 { get; set; }
+        public global::ElevenLabs.ListCrawlJobsResponseModel? Type1627 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListGroupSessionsParams? Type1628 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.GetCrawlJobResponseModel>? Type1628 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListHolidaysParams? Type1629 { get; set; }
+        public global::ElevenLabs.ListCustomerFacingAgentsParams? Type1629 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListLocationsParams? Type1630 { get; set; }
+        public global::ElevenLabs.ListGroupSessionsParams? Type1630 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListMCPToolsResponseModel? Type1631 { get; set; }
+        public global::ElevenLabs.ListHolidaysParams? Type1631 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.Tool>? Type1632 { get; set; }
+        public global::ElevenLabs.ListLocationsParams? Type1632 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Tool? Type1633 { get; set; }
+        public global::ElevenLabs.ListMCPToolsResponseModel? Type1633 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolApprovalStatus>? Type1634 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.Tool>? Type1634 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolApprovalStatus? Type1635 { get; set; }
+        public global::ElevenLabs.Tool? Type1635 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListOrdersResponse? Type1636 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolApprovalStatus>? Type1636 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OrderSummary>? Type1637 { get; set; }
+        public global::ElevenLabs.MCPToolApprovalStatus? Type1637 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OrderSummary? Type1638 { get; set; }
+        public global::ElevenLabs.ListOrdersResponse? Type1638 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListProceduresResponseModel? Type1639 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OrderSummary>? Type1639 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ProcedureListItemResponseModel>? Type1640 { get; set; }
+        public global::ElevenLabs.OrderSummary? Type1640 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProcedureListItemResponseModel? Type1641 { get; set; }
+        public global::ElevenLabs.ListProceduresResponseModel? Type1641 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListProductsParams? Type1642 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ProcedureListItemResponseModel>? Type1642 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListResponseAgentBranchSummary? Type1643 { get; set; }
+        public global::ElevenLabs.ProcedureListItemResponseModel? Type1643 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentBranchSummary>? Type1644 { get; set; }
+        public global::ElevenLabs.ListProductsParams? Type1644 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListServicesParams? Type1645 { get; set; }
+        public global::ElevenLabs.ListResponseAgentBranchSummary? Type1645 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListSpeechEnginesResponse? Type1646 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentBranchSummary>? Type1646 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechEngineSummaryResponse>? Type1647 { get; set; }
+        public global::ElevenLabs.ListServicesParams? Type1647 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechEngineSummaryResponse? Type1648 { get; set; }
+        public global::ElevenLabs.ListSpeechEnginesResponse? Type1648 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListStaffParams? Type1649 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechEngineSummaryResponse>? Type1649 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListTestsByIdsRequestModel? Type1650 { get; set; }
+        public global::ElevenLabs.SpeechEngineSummaryResponse? Type1650 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListTransferRulesParams? Type1651 { get; set; }
+        public global::ElevenLabs.ListStaffParams? Type1651 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListWhatsAppAccountsResponse? Type1652 { get; set; }
+        public global::ElevenLabs.ListTestsByIdsRequestModel? Type1652 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.LiteralJsonSchemaPropertyType?, global::System.Collections.Generic.IList<string>>? Type1653 { get; set; }
+        public global::ElevenLabs.ListTransferRulesParams? Type1653 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LiteralJsonSchemaPropertyType? Type1654 { get; set; }
+        public global::ElevenLabs.ListWhatsAppAccountsResponse? Type1654 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LoadMemoryEntryToolErrorStatus? Type1655 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.LiteralJsonSchemaPropertyType?, global::System.Collections.Generic.IList<string>>? Type1655 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LoadableMemoryEntry? Type1656 { get; set; }
+        public global::ElevenLabs.LiteralJsonSchemaPropertyType? Type1656 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LockReason? Type1657 { get; set; }
+        public global::ElevenLabs.LoadMemoryEntryToolErrorStatus? Type1657 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPApprovalPolicy? Type1658 { get; set; }
+        public global::ElevenLabs.LoadableMemoryEntry? Type1658 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPApprovalPolicyUpdateRequestModel? Type1659 { get; set; }
+        public global::ElevenLabs.LockReason? Type1659 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPApprovedToolDefinition? Type1660 { get; set; }
+        public global::ElevenLabs.MCPApprovalPolicy? Type1660 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPServerConfigInput? Type1661 { get; set; }
+        public global::ElevenLabs.MCPApprovalPolicyUpdateRequestModel? Type1661 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolApprovalHash>? Type1662 { get; set; }
+        public global::ElevenLabs.MCPApprovedToolDefinition? Type1662 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolApprovalHash? Type1663 { get; set; }
+        public global::ElevenLabs.MCPServerConfigInput? Type1663 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPServerTransport? Type1664 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolApprovalHash>? Type1664 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIUserSecretDBModel, object>? Type1665 { get; set; }
+        public global::ElevenLabs.MCPToolApprovalHash? Type1665 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIDynamicVariable, global::ElevenLabs.ConvAIEnvVarLocator>? Type1666 { get; set; }
+        public global::ElevenLabs.MCPServerTransport? Type1666 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolConfigOverrideInput>? Type1667 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIUserSecretDBModel, object>? Type1667 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOverrideInput? Type1668 { get; set; }
+        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIDynamicVariable, global::ElevenLabs.ConvAIEnvVarLocator>? Type1668 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPServerConfigOutput? Type1669 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolConfigOverrideInput>? Type1669 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolConfigOverrideOutput>? Type1670 { get; set; }
+        public global::ElevenLabs.MCPToolConfigOverrideInput? Type1670 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOverrideOutput? Type1671 { get; set; }
+        public global::ElevenLabs.MCPServerConfigOutput? Type1671 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPServerConfigUpdateRequestModel? Type1672 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolConfigOverrideOutput>? Type1672 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPServerMetadataResponseModel? Type1673 { get; set; }
+        public global::ElevenLabs.MCPToolConfigOverrideOutput? Type1673 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPServerRequestModel? Type1674 { get; set; }
+        public global::ElevenLabs.MCPServerConfigUpdateRequestModel? Type1674 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPServerResponseModel? Type1675 { get; set; }
+        public global::ElevenLabs.MCPServerMetadataResponseModel? Type1675 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem5>? Type1676 { get; set; }
+        public global::ElevenLabs.MCPServerRequestModel? Type1676 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentAgentsItem5? Type1677 { get; set; }
+        public global::ElevenLabs.MCPServerResponseModel? Type1677 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPServerResponseModelDependentAgentDiscriminator? Type1678 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem5>? Type1678 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPServerResponseModelDependentAgentDiscriminatorType? Type1679 { get; set; }
+        public global::ElevenLabs.DependentAgentsItem5? Type1679 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPServersResponseModel? Type1680 { get; set; }
+        public global::ElevenLabs.MCPServerResponseModelDependentAgentDiscriminator? Type1680 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.MCPServerResponseModel>? Type1681 { get; set; }
+        public global::ElevenLabs.MCPServerResponseModelDependentAgentDiscriminatorType? Type1681 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolAddApprovalRequestModel? Type1682 { get; set; }
+        public global::ElevenLabs.MCPServersResponseModel? Type1682 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolApprovalPolicy? Type1683 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.MCPServerResponseModel>? Type1683 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolApprovalState? Type1684 { get; set; }
+        public global::ElevenLabs.MCPToolAddApprovalRequestModel? Type1684 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigInput? Type1685 { get; set; }
+        public global::ElevenLabs.MCPToolApprovalPolicy? Type1685 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InputOverridesVariant1? Type1686 { get; set; }
+        public global::ElevenLabs.MCPToolApprovalState? Type1686 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigInputInputOverridesDiscriminator? Type1687 { get; set; }
+        public global::ElevenLabs.MCPToolConfigInput? Type1687 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigInputInputOverridesDiscriminatorSource? Type1688 { get; set; }
+        public global::ElevenLabs.InputOverridesVariant1? Type1688 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOutput? Type1689 { get; set; }
+        public global::ElevenLabs.MCPToolConfigInputInputOverridesDiscriminator? Type1689 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InputOverridesVariant12? Type1690 { get; set; }
+        public global::ElevenLabs.MCPToolConfigInputInputOverridesDiscriminatorSource? Type1690 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOutputInputOverridesDiscriminator? Type1691 { get; set; }
+        public global::ElevenLabs.MCPToolConfigOutput? Type1691 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOutputInputOverridesDiscriminatorSource? Type1692 { get; set; }
+        public global::ElevenLabs.InputOverridesVariant12? Type1692 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.ToolCallSoundType?, string, object>? Type1693 { get; set; }
+        public global::ElevenLabs.MCPToolConfigOutputInputOverridesDiscriminator? Type1693 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InputOverridesVariant13? Type1694 { get; set; }
+        public global::ElevenLabs.MCPToolConfigOutputInputOverridesDiscriminatorSource? Type1694 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOverrideInputInputOverridesDiscriminator? Type1695 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.ToolCallSoundType?, string, object>? Type1695 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOverrideInputInputOverridesDiscriminatorSource? Type1696 { get; set; }
+        public global::ElevenLabs.InputOverridesVariant13? Type1696 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InputOverridesVariant14? Type1697 { get; set; }
+        public global::ElevenLabs.MCPToolConfigOverrideInputInputOverridesDiscriminator? Type1697 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOverrideOutputInputOverridesDiscriminator? Type1698 { get; set; }
+        public global::ElevenLabs.MCPToolConfigOverrideInputInputOverridesDiscriminatorSource? Type1698 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOverrideOutputInputOverridesDiscriminatorSource? Type1699 { get; set; }
+        public global::ElevenLabs.InputOverridesVariant14? Type1699 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel? Type1700 { get; set; }
+        public global::ElevenLabs.MCPToolConfigOverrideOutputInputOverridesDiscriminator? Type1700 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InputOverridesVariant15? Type1701 { get; set; }
+        public global::ElevenLabs.MCPToolConfigOverrideOutputInputOverridesDiscriminatorSource? Type1701 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOverrideCreateRequestModelInputOverridesDiscriminator? Type1702 { get; set; }
+        public global::ElevenLabs.MCPToolConfigOverrideCreateRequestModel? Type1702 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOverrideCreateRequestModelInputOverridesDiscriminatorSource? Type1703 { get; set; }
+        public global::ElevenLabs.InputOverridesVariant15? Type1703 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel? Type1704 { get; set; }
+        public global::ElevenLabs.MCPToolConfigOverrideCreateRequestModelInputOverridesDiscriminator? Type1704 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InputOverridesVariant16? Type1705 { get; set; }
+        public global::ElevenLabs.MCPToolConfigOverrideCreateRequestModelInputOverridesDiscriminatorSource? Type1705 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModelInputOverridesDiscriminator? Type1706 { get; set; }
+        public global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel? Type1706 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModelInputOverridesDiscriminatorSource? Type1707 { get; set; }
+        public global::ElevenLabs.InputOverridesVariant16? Type1707 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ManualSource? Type1708 { get; set; }
+        public global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModelInputOverridesDiscriminator? Type1708 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ManualVerificationFileResponseModel? Type1709 { get; set; }
+        public global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModelInputOverridesDiscriminatorSource? Type1709 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ManualVerificationFileResponseModel>? Type1710 { get; set; }
+        public global::ElevenLabs.ManualSource? Type1710 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MatchAnythingParameterEvaluationStrategy? Type1711 { get; set; }
+        public global::ElevenLabs.ManualVerificationFileResponseModel? Type1711 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MediaGenerationCompletedResponse? Type1712 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ManualVerificationFileResponseModel>? Type1712 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MediaGenerationCreateResponse? Type1713 { get; set; }
+        public global::ElevenLabs.MatchAnythingParameterEvaluationStrategy? Type1713 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MediaGenerationFailedResponse? Type1714 { get; set; }
+        public global::ElevenLabs.MediaGenerationCompletedResponse? Type1714 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MediaGenerationFailedResponseFailureReason? Type1715 { get; set; }
+        public global::ElevenLabs.MediaGenerationCreateResponse? Type1715 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MediaGenerationInProgressResponse? Type1716 { get; set; }
+        public global::ElevenLabs.MediaGenerationFailedResponse? Type1716 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MediaGenerationInProgressResponseStatus? Type1717 { get; set; }
+        public global::ElevenLabs.MediaGenerationFailedResponseFailureReason? Type1717 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MediaGenerationListResponse? Type1718 { get; set; }
+        public global::ElevenLabs.MediaGenerationInProgressResponse? Type1718 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.MediaGenerationResponse>? Type1719 { get; set; }
+        public global::ElevenLabs.MediaGenerationInProgressResponseStatus? Type1719 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MediaGenerationResponse? Type1720 { get; set; }
+        public global::ElevenLabs.MediaGenerationListResponse? Type1720 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MediaGenerationResponseDiscriminator? Type1721 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.MediaGenerationResponse>? Type1721 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MediaGenerationResponseDiscriminatorStatus? Type1722 { get; set; }
+        public global::ElevenLabs.MediaGenerationResponse? Type1722 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MemoryEntrySearchResult? Type1723 { get; set; }
+        public global::ElevenLabs.MediaGenerationResponseDiscriminator? Type1723 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.ConversationSource, global::ElevenLabs.ManualSource, object>? Type1724 { get; set; }
+        public global::ElevenLabs.MediaGenerationResponseDiscriminatorStatus? Type1724 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MergePreviewResponseModel? Type1725 { get; set; }
+        public global::ElevenLabs.MemoryEntrySearchResult? Type1725 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem3>? Type1726 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.ConversationSource, global::ElevenLabs.ManualSource, object>? Type1726 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PhoneNumbersItem3? Type1727 { get; set; }
+        public global::ElevenLabs.MergePreviewResponseModel? Type1727 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MergePreviewResponseModelPhoneNumberDiscriminator? Type1728 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem3>? Type1728 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MergePreviewResponseModelPhoneNumberDiscriminatorProvider? Type1729 { get; set; }
+        public global::ElevenLabs.PhoneNumbersItem3? Type1729 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.FieldConflict>? Type1730 { get; set; }
+        public global::ElevenLabs.MergePreviewResponseModelPhoneNumberDiscriminator? Type1730 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MessageSearchSortBy? Type1731 { get; set; }
+        public global::ElevenLabs.MergePreviewResponseModelPhoneNumberDiscriminatorProvider? Type1731 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MessagesSearchResponse? Type1732 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.FieldConflict>? Type1732 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.MessagesSearchResult>? Type1733 { get; set; }
+        public global::ElevenLabs.MessageSearchSortBy? Type1733 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MessagesSearchResult? Type1734 { get; set; }
+        public global::ElevenLabs.MessagesSearchResponse? Type1734 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MetricType? Type1735 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.MessagesSearchResult>? Type1735 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MockNoMatchBehavior? Type1736 { get; set; }
+        public global::ElevenLabs.MessagesSearchResult? Type1736 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MockingStrategy? Type1737 { get; set; }
+        public global::ElevenLabs.MetricType? Type1737 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ModelRatesResponseModel? Type1738 { get; set; }
+        public global::ElevenLabs.MockNoMatchBehavior? Type1738 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ModelResponseModel? Type1739 { get; set; }
+        public global::ElevenLabs.MockingStrategy? Type1739 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.LanguageResponseModel>? Type1740 { get; set; }
+        public global::ElevenLabs.ModelRatesResponseModel? Type1740 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ModerationConfig? Type1741 { get; set; }
+        public global::ElevenLabs.ModelResponseModel? Type1741 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ThresholdGuardrail? Type1742 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.LanguageResponseModel>? Type1742 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ModerationStatusResponseModel? Type1743 { get; set; }
+        public global::ElevenLabs.ModerationConfig? Type1743 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ModerationStatusResponseModelSafetyStatus? Type1744 { get; set; }
+        public global::ElevenLabs.ThresholdGuardrail? Type1744 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ModerationStatusResponseModelWarningStatus? Type1745 { get; set; }
+        public global::ElevenLabs.ModerationStatusResponseModel? Type1745 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MultichannelSpeechToTextResponseModel? Type1746 { get; set; }
+        public global::ElevenLabs.ModerationStatusResponseModelSafetyStatus? Type1746 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextChunkResponseModel>? Type1747 { get; set; }
+        public global::ElevenLabs.ModerationStatusResponseModelWarningStatus? Type1747 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechToTextChunkResponseModel? Type1748 { get; set; }
+        public global::ElevenLabs.MultichannelSpeechToTextResponseModel? Type1748 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MultipartMusicResponse? Type1749 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextChunkResponseModel>? Type1749 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicAllowedOutputFormats? Type1750 { get; set; }
+        public global::ElevenLabs.SpeechToTextChunkResponseModel? Type1750 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicOnlyOutputFormats? Type1751 { get; set; }
+        public global::ElevenLabs.MultipartMusicResponse? Type1751 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicExploreSongSourceContext? Type1752 { get; set; }
+        public global::ElevenLabs.MusicAllowedOutputFormats? Type1752 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicFinetuneFailureReason? Type1753 { get; set; }
+        public global::ElevenLabs.MusicOnlyOutputFormats? Type1753 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicFinetunePageResponseModel? Type1754 { get; set; }
+        public global::ElevenLabs.MusicExploreSongSourceContext? Type1754 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.MusicFinetuneResponseModel>? Type1755 { get; set; }
+        public global::ElevenLabs.MusicFinetuneFailureReason? Type1755 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicFinetuneResponseModel? Type1756 { get; set; }
+        public global::ElevenLabs.MusicFinetunePageResponseModel? Type1756 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicFinetuneStatus? Type1757 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.MusicFinetuneResponseModel>? Type1757 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicOutputFormat? Type1758 { get; set; }
+        public global::ElevenLabs.MusicFinetuneResponseModel? Type1758 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SongSection>? Type1759 { get; set; }
+        public global::ElevenLabs.MusicFinetuneStatus? Type1759 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SongSection? Type1760 { get; set; }
+        public global::ElevenLabs.MusicOutputFormat? Type1760 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicUploadResponse? Type1761 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SongSection>? Type1761 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.NonStreamingOutputFormats? Type1762 { get; set; }
+        public global::ElevenLabs.SongSection? Type1762 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.NumericDistributionAggregate? Type1763 { get; set; }
+        public global::ElevenLabs.MusicUploadResponse? Type1763 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OAuth2JWTResponseAlgorithm? Type1764 { get; set; }
+        public global::ElevenLabs.NonStreamingOutputFormats? Type1764 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OAuth2JWTResponseTokenResponseField? Type1765 { get; set; }
+        public global::ElevenLabs.NumericDistributionAggregate? Type1765 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OTelAttribute? Type1766 { get; set; }
+        public global::ElevenLabs.OAuth2JWTResponseAlgorithm? Type1766 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, bool?, double?>? Type1767 { get; set; }
+        public global::ElevenLabs.OAuth2JWTResponseTokenResponseField? Type1767 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OTelResource? Type1768 { get; set; }
+        public global::ElevenLabs.OTelAttribute? Type1768 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OTelAttribute>? Type1769 { get; set; }
+        public global::ElevenLabs.AnyOf<string, bool?, double?>? Type1769 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OTelResourceSpans? Type1770 { get; set; }
+        public global::ElevenLabs.OTelResource? Type1770 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OTelScopeSpans>? Type1771 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OTelAttribute>? Type1771 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OTelScopeSpans? Type1772 { get; set; }
+        public global::ElevenLabs.OTelResourceSpans? Type1772 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OTelScope? Type1773 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OTelScopeSpans>? Type1773 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OTelSpan>? Type1774 { get; set; }
+        public global::ElevenLabs.OTelScopeSpans? Type1774 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OTelSpan? Type1775 { get; set; }
+        public global::ElevenLabs.OTelScope? Type1775 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OTelStatus? Type1776 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OTelSpan>? Type1776 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OTelTracePayload? Type1777 { get; set; }
+        public global::ElevenLabs.OTelSpan? Type1777 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OTelResourceSpans>? Type1778 { get; set; }
+        public global::ElevenLabs.OTelStatus? Type1778 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ObjectJsonSchemaPropertyInputPropertyKind? Type1779 { get; set; }
+        public global::ElevenLabs.OTelTracePayload? Type1779 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RequiredConstraints? Type1780 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OTelResourceSpans>? Type1780 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ContentSchema>? Type1781 { get; set; }
+        public global::ElevenLabs.ObjectJsonSchemaPropertyInputPropertyKind? Type1781 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OpenerConfig? Type1782 { get; set; }
+        public global::ElevenLabs.RequiredConstraints? Type1782 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OptInSmsReminderParams? Type1783 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ContentSchema>? Type1783 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OptOutSmsReminderParams? Type1784 { get; set; }
+        public global::ElevenLabs.OpenerConfig? Type1784 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OrbAvatar? Type1785 { get; set; }
+        public global::ElevenLabs.OptInSmsReminderParams? Type1785 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OrderDeliverablesResponse? Type1786 { get; set; }
+        public global::ElevenLabs.OptOutSmsReminderParams? Type1786 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DeliverableInfo>? Type1787 { get; set; }
+        public global::ElevenLabs.OrbAvatar? Type1787 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OrderItemInfo? Type1788 { get; set; }
+        public global::ElevenLabs.OrderDeliverablesResponse? Type1788 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OrderItemRequestOutput? Type1789 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DeliverableInfo>? Type1789 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.QuoteInfo? Type1790 { get; set; }
+        public global::ElevenLabs.OrderItemInfo? Type1790 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OrderItemKind? Type1791 { get; set; }
+        public global::ElevenLabs.OrderItemRequestOutput? Type1791 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OrderItemRequestInput? Type1792 { get; set; }
+        public global::ElevenLabs.QuoteInfo? Type1792 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SubtitleOrderItemRequest? Type1793 { get; set; }
+        public global::ElevenLabs.OrderItemKind? Type1793 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TranscriptionOrderItemRequest? Type1794 { get; set; }
+        public global::ElevenLabs.OrderItemRequestInput? Type1794 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OrderItemRequestInputDiscriminator? Type1795 { get; set; }
+        public global::ElevenLabs.SubtitleOrderItemRequest? Type1795 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OrderItemRequestInputDiscriminatorKind? Type1796 { get; set; }
+        public global::ElevenLabs.TranscriptionOrderItemRequest? Type1796 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OrderItemRequestOutputDiscriminator? Type1797 { get; set; }
+        public global::ElevenLabs.OrderItemRequestInputDiscriminator? Type1797 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OrderItemRequestOutputDiscriminatorKind? Type1798 { get; set; }
+        public global::ElevenLabs.OrderItemRequestInputDiscriminatorKind? Type1798 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OrderMediaResponse? Type1799 { get; set; }
+        public global::ElevenLabs.OrderItemRequestOutputDiscriminator? Type1799 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OrderResponse? Type1800 { get; set; }
+        public global::ElevenLabs.OrderItemRequestOutputDiscriminatorKind? Type1800 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OrderState? Type1801 { get; set; }
+        public global::ElevenLabs.OrderMediaResponse? Type1801 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OrderItemInfo>? Type1802 { get; set; }
+        public global::ElevenLabs.OrderResponse? Type1802 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.LanguagePairInfo>? Type1803 { get; set; }
+        public global::ElevenLabs.OrderState? Type1803 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PatchAgentConversationTicketRequestModel? Type1804 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OrderItemInfo>? Type1804 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PatchConvAIDashboardSettingsRequest? Type1805 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.LanguagePairInfo>? Type1805 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ChartsItem2>? Type1806 { get; set; }
+        public global::ElevenLabs.PatchAgentConversationTicketRequestModel? Type1806 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ChartsItem2? Type1807 { get; set; }
+        public global::ElevenLabs.PatchConvAIDashboardSettingsRequest? Type1807 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PatchConvAIDashboardSettingsRequestChartDiscriminator? Type1808 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ChartsItem2>? Type1808 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PatchConvAIDashboardSettingsRequestChartDiscriminatorType? Type1809 { get; set; }
+        public global::ElevenLabs.ChartsItem2? Type1809 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PatchConvAISettingsRequest? Type1810 { get; set; }
+        public global::ElevenLabs.PatchConvAIDashboardSettingsRequestChartDiscriminator? Type1810 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PatchConversationTagRequestModel? Type1811 { get; set; }
+        public global::ElevenLabs.PatchConvAIDashboardSettingsRequestChartDiscriminatorType? Type1811 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PatchWorkspaceSecretRequest? Type1812 { get; set; }
+        public global::ElevenLabs.PatchConvAISettingsRequest? Type1812 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PatchWorkspaceWebhookResponseModel? Type1813 { get; set; }
+        public global::ElevenLabs.PatchConversationTagRequestModel? Type1813 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PendingBlocksMetadataModel? Type1814 { get; set; }
+        public global::ElevenLabs.PatchWorkspaceSecretRequest? Type1814 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PendingClipTask? Type1815 { get; set; }
+        public global::ElevenLabs.PatchWorkspaceWebhookResponseModel? Type1815 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PendingClipTaskType? Type1816 { get; set; }
+        public global::ElevenLabs.PendingBlocksMetadataModel? Type1816 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PendingExternalAudiosMetadataModel? Type1817 { get; set; }
+        public global::ElevenLabs.PendingClipTask? Type1817 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PendingSubscriptionSwitchResponseModelNextTier? Type1818 { get; set; }
+        public global::ElevenLabs.PendingClipTaskType? Type1818 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination? Type1819 { get; set; }
+        public global::ElevenLabs.PendingExternalAudiosMetadataModel? Type1819 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PhoneNumberSortBy? Type1820 { get; set; }
+        public global::ElevenLabs.PendingSubscriptionSwitchResponseModelNextTier? Type1820 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PhoneNumberTransfer? Type1821 { get; set; }
+        public global::ElevenLabs.PhoneNumberDynamicVariableTransferDestination? Type1821 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem>? Type1822 { get; set; }
+        public global::ElevenLabs.PhoneNumberSortBy? Type1822 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomSipHeadersItem? Type1823 { get; set; }
+        public global::ElevenLabs.PhoneNumberTransfer? Type1823 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PhoneNumberTransferCustomSipHeaderDiscriminator? Type1824 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem>? Type1824 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PhoneNumberTransferCustomSipHeaderDiscriminatorType? Type1825 { get; set; }
+        public global::ElevenLabs.CustomSipHeadersItem? Type1825 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferDestination? Type1826 { get; set; }
+        public global::ElevenLabs.PhoneNumberTransferCustomSipHeaderDiscriminator? Type1826 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PhoneNumberTransferDestination? Type1827 { get; set; }
+        public global::ElevenLabs.PhoneNumberTransferCustomSipHeaderDiscriminatorType? Type1827 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SIPUriTransferDestination? Type1828 { get; set; }
+        public global::ElevenLabs.TransferDestination? Type1828 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SIPUriDynamicVariableTransferDestination? Type1829 { get; set; }
+        public global::ElevenLabs.PhoneNumberTransferDestination? Type1829 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PhoneNumberTransferTransferDestinationDiscriminator? Type1830 { get; set; }
+        public global::ElevenLabs.SIPUriTransferDestination? Type1830 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PhoneNumberTransferTransferDestinationDiscriminatorType? Type1831 { get; set; }
+        public global::ElevenLabs.SIPUriDynamicVariableTransferDestination? Type1831 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferTypeEnum? Type1832 { get; set; }
+        public global::ElevenLabs.PhoneNumberTransferTransferDestinationDiscriminator? Type1832 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UUITransferConfig? Type1833 { get; set; }
+        public global::ElevenLabs.PhoneNumberTransferTransferDestinationDiscriminatorType? Type1833 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PostDialDigitsVariant1? Type1834 { get; set; }
+        public global::ElevenLabs.TransferTypeEnum? Type1834 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PostDialDigitsStatic? Type1835 { get; set; }
+        public global::ElevenLabs.UUITransferConfig? Type1835 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PostDialDigitsDynamicVariable? Type1836 { get; set; }
+        public global::ElevenLabs.PostDialDigitsVariant1? Type1836 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PhoneNumberTransferPostDialDigitsVariant1Discriminator? Type1837 { get; set; }
+        public global::ElevenLabs.PostDialDigitsStatic? Type1837 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PhoneNumberTransferPostDialDigitsVariant1DiscriminatorType? Type1838 { get; set; }
+        public global::ElevenLabs.PostDialDigitsDynamicVariable? Type1838 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PlatformCategory? Type1839 { get; set; }
+        public global::ElevenLabs.PhoneNumberTransferPostDialDigitsVariant1Discriminator? Type1839 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PlatformCategoryUsage? Type1840 { get; set; }
+        public global::ElevenLabs.PhoneNumberTransferPostDialDigitsVariant1DiscriminatorType? Type1840 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PlatformLimits? Type1841 { get; set; }
+        public global::ElevenLabs.PlatformCategory? Type1841 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StoredUsagePlatformLimit? Type1842 { get; set; }
+        public global::ElevenLabs.PlatformCategoryUsage? Type1842 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.PlatformCategoryUsage>? Type1843 { get; set; }
+        public global::ElevenLabs.PlatformLimits? Type1843 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PlayDTMFToolConfig? Type1844 { get; set; }
+        public global::ElevenLabs.StoredUsagePlatformLimit? Type1844 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PodcastBulletinModeData? Type1845 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.PlatformCategoryUsage>? Type1845 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PodcastConversationModeData? Type1846 { get; set; }
+        public global::ElevenLabs.PlayDTMFToolConfig? Type1846 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PodcastProjectResponseModel? Type1847 { get; set; }
+        public global::ElevenLabs.PodcastBulletinModeData? Type1847 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PositionInput? Type1848 { get; set; }
+        public global::ElevenLabs.PodcastConversationModeData? Type1848 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PositionOutput? Type1849 { get; set; }
+        public global::ElevenLabs.PodcastProjectResponseModel? Type1849 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PostAgentAvatarResponseModel? Type1850 { get; set; }
+        public global::ElevenLabs.PositionInput? Type1850 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PostAgentHoldAudioResponseModel? Type1851 { get; set; }
+        public global::ElevenLabs.PositionOutput? Type1851 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PostWorkspaceSecretRequest? Type1852 { get; set; }
+        public global::ElevenLabs.PostAgentAvatarResponseModel? Type1852 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PostWorkspaceSecretResponseModel? Type1853 { get; set; }
+        public global::ElevenLabs.PostAgentHoldAudioResponseModel? Type1853 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PrivateKeyJWTResponseAlgorithm? Type1854 { get; set; }
+        public global::ElevenLabs.PostWorkspaceSecretRequest? Type1854 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProcedureAtVersionResponseModel? Type1855 { get; set; }
+        public global::ElevenLabs.PostWorkspaceSecretResponseModel? Type1855 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProcedureDraftResponseModel? Type1856 { get; set; }
+        public global::ElevenLabs.PrivateKeyJWTResponseAlgorithm? Type1856 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectCreationMetaResponseModel? Type1857 { get; set; }
+        public global::ElevenLabs.ProcedureAtVersionResponseModel? Type1857 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectCreationMetaResponseModelStatus? Type1858 { get; set; }
+        public global::ElevenLabs.ProcedureDraftResponseModel? Type1858 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectCreationMetaType? Type1859 { get; set; }
+        public global::ElevenLabs.ProjectCreationMetaResponseModel? Type1859 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectExtendedResponseModel? Type1860 { get; set; }
+        public global::ElevenLabs.ProjectCreationMetaResponseModelStatus? Type1860 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectExtendedResponseModelTargetAudience? Type1861 { get; set; }
+        public global::ElevenLabs.ProjectCreationMetaType? Type1861 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectExtendedResponseModelState? Type1862 { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModel? Type1862 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectExtendedResponseModelAccessLevel? Type1863 { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelTargetAudience? Type1863 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectExtendedResponseModelFiction? Type1864 { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelState? Type1864 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectExtendedResponseModelSourceType? Type1865 { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelAccessLevel? Type1865 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.CaptionStyleModel>? Type1866 { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelFiction? Type1866 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectExtendedResponseModelAspectRatio? Type1867 { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelSourceType? Type1867 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StudioAgentSettingsModel? Type1868 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.CaptionStyleModel>? Type1868 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel>? Type1869 { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelAspectRatio? Type1869 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryVersionResponseModel? Type1870 { get; set; }
+        public global::ElevenLabs.StudioAgentSettingsModel? Type1870 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel>? Type1871 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionResponseModel>? Type1871 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryLocatorResponseModel? Type1872 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryVersionResponseModel? Type1872 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectExtendedResponseModelApplyTextNormalization? Type1873 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel>? Type1873 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.ProjectVideoResponseModel, global::ElevenLabs.ProjectExternalAudioResponseModel, global::ElevenLabs.ProjectImageResponseModel>>? Type1874 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryLocatorResponseModel? Type1874 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.ProjectVideoResponseModel, global::ElevenLabs.ProjectExternalAudioResponseModel, global::ElevenLabs.ProjectImageResponseModel>? Type1875 { get; set; }
+        public global::ElevenLabs.ProjectExtendedResponseModelApplyTextNormalization? Type1875 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectVideoResponseModel? Type1876 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.ProjectVideoResponseModel, global::ElevenLabs.ProjectExternalAudioResponseModel, global::ElevenLabs.ProjectImageResponseModel>>? Type1876 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectExternalAudioResponseModel? Type1877 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.ProjectVideoResponseModel, global::ElevenLabs.ProjectExternalAudioResponseModel, global::ElevenLabs.ProjectImageResponseModel>? Type1877 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectImageResponseModel? Type1878 { get; set; }
+        public global::ElevenLabs.ProjectVideoResponseModel? Type1878 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ProjectVoiceResponseModel>? Type1879 { get; set; }
+        public global::ElevenLabs.ProjectExternalAudioResponseModel? Type1879 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectVoiceResponseModel? Type1880 { get; set; }
+        public global::ElevenLabs.ProjectImageResponseModel? Type1880 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SourceContextVariant1? Type1881 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ProjectVoiceResponseModel>? Type1881 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SongSourceContext? Type1882 { get; set; }
+        public global::ElevenLabs.ProjectVoiceResponseModel? Type1882 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SfxSourceContext? Type1883 { get; set; }
+        public global::ElevenLabs.SourceContextVariant1? Type1883 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectExternalAudioResponseModelSourceContextVariant1Discriminator? Type1884 { get; set; }
+        public global::ElevenLabs.SongSourceContext? Type1884 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectExternalAudioResponseModelSourceContextVariant1DiscriminatorSourceType? Type1885 { get; set; }
+        public global::ElevenLabs.SfxSourceContext? Type1885 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectMutedTracksResponseModel? Type1886 { get; set; }
+        public global::ElevenLabs.ProjectExternalAudioResponseModelSourceContextVariant1Discriminator? Type1886 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectResponseModelTargetAudience? Type1887 { get; set; }
+        public global::ElevenLabs.ProjectExternalAudioResponseModelSourceContextVariant1DiscriminatorSourceType? Type1887 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectResponseModelState? Type1888 { get; set; }
+        public global::ElevenLabs.ProjectMutedTracksResponseModel? Type1888 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectResponseModelAccessLevel? Type1889 { get; set; }
+        public global::ElevenLabs.ProjectResponseModelTargetAudience? Type1889 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectResponseModelFiction? Type1890 { get; set; }
+        public global::ElevenLabs.ProjectResponseModelState? Type1890 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectResponseModelSourceType? Type1891 { get; set; }
+        public global::ElevenLabs.ProjectResponseModelAccessLevel? Type1891 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectResponseModelAspectRatio? Type1892 { get; set; }
+        public global::ElevenLabs.ProjectResponseModelFiction? Type1892 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectSnapshotExtendedResponseModel? Type1893 { get; set; }
+        public global::ElevenLabs.ProjectResponseModelSourceType? Type1893 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectSnapshotResponseModel? Type1894 { get; set; }
+        public global::ElevenLabs.ProjectResponseModelAspectRatio? Type1894 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectSnapshotsResponseModel? Type1895 { get; set; }
+        public global::ElevenLabs.ProjectSnapshotExtendedResponseModel? Type1895 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ProjectSnapshotResponseModel>? Type1896 { get; set; }
+        public global::ElevenLabs.ProjectSnapshotResponseModel? Type1896 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ProjectVideoThumbnailSheetResponseModel>? Type1897 { get; set; }
+        public global::ElevenLabs.ProjectSnapshotsResponseModel? Type1897 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ProjectVideoThumbnailSheetResponseModel? Type1898 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ProjectSnapshotResponseModel>? Type1898 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VideoAnalysis? Type1899 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ProjectVideoThumbnailSheetResponseModel>? Type1899 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? Type1900 { get; set; }
+        public global::ElevenLabs.ProjectVideoThumbnailSheetResponseModel? Type1900 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RagConfigInput? Type1901 { get; set; }
+        public global::ElevenLabs.VideoAnalysis? Type1901 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BackupLlmConfig? Type1902 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? Type1902 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PromptAgentAPIModelInputBackupLlmConfigDiscriminator? Type1903 { get; set; }
+        public global::ElevenLabs.RagConfigInput? Type1903 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PromptAgentAPIModelInputBackupLlmConfigDiscriminatorPreference? Type1904 { get; set; }
+        public global::ElevenLabs.BackupLlmConfig? Type1904 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem3>? Type1905 { get; set; }
+        public global::ElevenLabs.PromptAgentAPIModelInputBackupLlmConfigDiscriminator? Type1905 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolsItem3? Type1906 { get; set; }
+        public global::ElevenLabs.PromptAgentAPIModelInputBackupLlmConfigDiscriminatorPreference? Type1906 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookToolConfigInput? Type1907 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem3>? Type1907 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SMBToolConfig? Type1908 { get; set; }
+        public global::ElevenLabs.ToolsItem3? Type1908 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PromptAgentAPIModelInputToolDiscriminator? Type1909 { get; set; }
+        public global::ElevenLabs.WebhookToolConfigInput? Type1909 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PromptAgentAPIModelInputToolDiscriminatorType? Type1910 { get; set; }
+        public global::ElevenLabs.SMBToolConfig? Type1910 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RagConfigOutput? Type1911 { get; set; }
+        public global::ElevenLabs.PromptAgentAPIModelInputToolDiscriminator? Type1911 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BackupLlmConfig2? Type1912 { get; set; }
+        public global::ElevenLabs.PromptAgentAPIModelInputToolDiscriminatorType? Type1912 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminator? Type1913 { get; set; }
+        public global::ElevenLabs.RagConfigOutput? Type1913 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminatorPreference? Type1914 { get; set; }
+        public global::ElevenLabs.BackupLlmConfig2? Type1914 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem4>? Type1915 { get; set; }
+        public global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminator? Type1915 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolsItem4? Type1916 { get; set; }
+        public global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminatorPreference? Type1916 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookToolConfigOutput? Type1917 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem4>? Type1917 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PromptAgentAPIModelOutputToolDiscriminator? Type1918 { get; set; }
+        public global::ElevenLabs.ToolsItem4? Type1918 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PromptAgentAPIModelOutputToolDiscriminatorType? Type1919 { get; set; }
+        public global::ElevenLabs.WebhookToolConfigOutput? Type1919 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RagConfigWorkflowOverrideInput? Type1920 { get; set; }
+        public global::ElevenLabs.PromptAgentAPIModelOutputToolDiscriminator? Type1920 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.BackupLLMDefault, global::ElevenLabs.BackupLLMDisabled, global::ElevenLabs.BackupLLMOverride, object>? Type1921 { get; set; }
+        public global::ElevenLabs.PromptAgentAPIModelOutputToolDiscriminatorType? Type1921 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsVariant1Item>? Type1922 { get; set; }
+        public global::ElevenLabs.RagConfigWorkflowOverrideInput? Type1922 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolsVariant1Item? Type1923 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.BackupLLMDefault, global::ElevenLabs.BackupLLMDisabled, global::ElevenLabs.BackupLLMOverride, object>? Type1923 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminator? Type1924 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsVariant1Item>? Type1924 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType? Type1925 { get; set; }
+        public global::ElevenLabs.ToolsVariant1Item? Type1925 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RagConfigWorkflowOverrideOutput? Type1926 { get; set; }
+        public global::ElevenLabs.PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminator? Type1926 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsVariant1Item2>? Type1927 { get; set; }
+        public global::ElevenLabs.PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType? Type1927 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolsVariant1Item2? Type1928 { get; set; }
+        public global::ElevenLabs.RagConfigWorkflowOverrideOutput? Type1928 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PromptAgentAPIModelWorkflowOverrideOutputToolsVariant1ItemDiscriminator? Type1929 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsVariant1Item2>? Type1929 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PromptAgentAPIModelWorkflowOverrideOutputToolsVariant1ItemDiscriminatorType? Type1930 { get; set; }
+        public global::ElevenLabs.ToolsVariant1Item2? Type1930 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryRulesResponseModel? Type1931 { get; set; }
+        public global::ElevenLabs.PromptAgentAPIModelWorkflowOverrideOutputToolsVariant1ItemDiscriminator? Type1931 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PronunciationDictionaryVersionResponseModelPermissionOnResource? Type1932 { get; set; }
+        public global::ElevenLabs.PromptAgentAPIModelWorkflowOverrideOutputToolsVariant1ItemDiscriminatorType? Type1932 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator? Type1933 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryRulesResponseModel? Type1933 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.QueryParamsJsonSchemaInput? Type1934 { get; set; }
+        public global::ElevenLabs.PronunciationDictionaryVersionResponseModelPermissionOnResource? Type1934 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? Type1935 { get; set; }
+        public global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator? Type1935 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.QueryParamsJsonSchemaOutput? Type1936 { get; set; }
+        public global::ElevenLabs.QueryParamsJsonSchemaInput? Type1936 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RAGDocumentIndexResponseModel? Type1937 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty>? Type1937 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RAGIndexStatus? Type1938 { get; set; }
+        public global::ElevenLabs.QueryParamsJsonSchemaOutput? Type1938 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RAGDocumentIndexUsage? Type1939 { get; set; }
+        public global::ElevenLabs.RAGDocumentIndexResponseModel? Type1939 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RAGDocumentIndexesResponseModel? Type1940 { get; set; }
+        public global::ElevenLabs.RAGIndexStatus? Type1940 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.RAGDocumentIndexResponseModel>? Type1941 { get; set; }
+        public global::ElevenLabs.RAGDocumentIndexUsage? Type1941 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel? Type1942 { get; set; }
+        public global::ElevenLabs.RAGDocumentIndexesResponseModel? Type1942 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RAGIndexOverviewEmbeddingModelResponseModel? Type1943 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.RAGDocumentIndexResponseModel>? Type1943 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RAGIndexOverviewResponseModel? Type1944 { get; set; }
+        public global::ElevenLabs.RAGIndexBatchSuccessfulResponseModel? Type1944 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.RAGIndexOverviewEmbeddingModelResponseModel>? Type1945 { get; set; }
+        public global::ElevenLabs.RAGIndexOverviewEmbeddingModelResponseModel? Type1945 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RAGIndexRequestModel? Type1946 { get; set; }
+        public global::ElevenLabs.RAGIndexOverviewResponseModel? Type1946 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RagChunkMetadata? Type1947 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.RAGIndexOverviewEmbeddingModelResponseModel>? Type1947 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.RagChunkMetadata>? Type1948 { get; set; }
+        public global::ElevenLabs.RAGIndexRequestModel? Type1948 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ReaderResourceResponseModel? Type1949 { get; set; }
+        public global::ElevenLabs.RagChunkMetadata? Type1949 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ReaderResourceResponseModelResourceType? Type1950 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.RagChunkMetadata>? Type1950 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RecordingResponseModel? Type1951 { get; set; }
+        public global::ElevenLabs.ReaderResourceResponseModel? Type1951 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StudioClipLocator? Type1952 { get; set; }
+        public global::ElevenLabs.ReaderResourceResponseModelResourceType? Type1952 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ReferencedToolCommonModel? Type1953 { get; set; }
+        public global::ElevenLabs.RecordingResponseModel? Type1953 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ReferencedToolCommonModelType? Type1954 { get; set; }
+        public global::ElevenLabs.StudioClipLocator? Type1954 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RegexParameterEvaluationStrategy? Type1955 { get; set; }
+        public global::ElevenLabs.ReferencedToolCommonModel? Type1955 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TwilioRegionId? Type1956 { get; set; }
+        public global::ElevenLabs.ReferencedToolCommonModelType? Type1956 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TwilioEdgeLocation? Type1957 { get; set; }
+        public global::ElevenLabs.RegexParameterEvaluationStrategy? Type1957 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RegisterForGroupSessionParams? Type1958 { get; set; }
+        public global::ElevenLabs.TwilioRegionId? Type1958 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RegisterMediaResponse? Type1959 { get; set; }
+        public global::ElevenLabs.TwilioEdgeLocation? Type1959 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RemoveOrderItemResponse? Type1960 { get; set; }
+        public global::ElevenLabs.RegisterForGroupSessionParams? Type1960 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RenderStatus? Type1961 { get; set; }
+        public global::ElevenLabs.RegisterMediaResponse? Type1961 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ReplicateVoiceToIsolatedEnvironmentRequestModel? Type1962 { get; set; }
+        public global::ElevenLabs.RemoveOrderItemResponse? Type1962 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ReplicateVoiceToIsolatedEnvironmentResponseModel? Type1963 { get; set; }
+        public global::ElevenLabs.RenderStatus? Type1963 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ReportKnowledgeGapParams? Type1964 { get; set; }
+        public global::ElevenLabs.ReplicateVoiceToIsolatedEnvironmentRequestModel? Type1964 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RequestPVCManualVerificationResponseModel? Type1965 { get; set; }
+        public global::ElevenLabs.ReplicateVoiceToIsolatedEnvironmentResponseModel? Type1965 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RequiredConstraint? Type1966 { get; set; }
+        public global::ElevenLabs.ReportKnowledgeGapParams? Type1966 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.RequiredConstraint>? Type1967 { get; set; }
+        public global::ElevenLabs.RequestPVCManualVerificationResponseModel? Type1967 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ResourceAccessInfoRole? Type1968 { get; set; }
+        public global::ElevenLabs.RequiredConstraint? Type1968 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ResourceAccessInfoAnonymousAccessLevelOverride? Type1969 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.RequiredConstraint>? Type1969 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ResourceAccessInfoAccessSource? Type1970 { get; set; }
+        public global::ElevenLabs.ResourceAccessInfoRole? Type1970 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ResourceMetadataResponseModel? Type1971 { get; set; }
+        public global::ElevenLabs.ResourceAccessInfoAnonymousAccessLevelOverride? Type1971 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ResourceMetadataResponseModelAnonymousAccessLevelOverride? Type1972 { get; set; }
+        public global::ElevenLabs.ResourceAccessInfoAccessSource? Type1972 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>>? Type1973 { get; set; }
+        public global::ElevenLabs.ResourceMetadataResponseModel? Type1973 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ShareOptionResponseModel>? Type1974 { get; set; }
+        public global::ElevenLabs.ResourceMetadataResponseModelAnonymousAccessLevelOverride? Type1974 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ShareOptionResponseModel? Type1975 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>>? Type1975 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ResponseConversationErrorType? Type1976 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ShareOptionResponseModel>? Type1976 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ResponseFilter? Type1977 { get; set; }
+        public global::ElevenLabs.ShareOptionResponseModel? Type1977 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ResponseUnitTestModel? Type1978 { get; set; }
+        public global::ElevenLabs.ResponseConversationErrorType? Type1978 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RestoreCalendarEventParams? Type1979 { get; set; }
+        public global::ElevenLabs.ResponseFilter? Type1979 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ResubmitTestsRequestModel? Type1980 { get; set; }
+        public global::ElevenLabs.ResponseUnitTestModel? Type1980 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ReviewResponseModelReviewStatus? Type1981 { get; set; }
+        public global::ElevenLabs.RestoreCalendarEventParams? Type1981 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ReviewResponseModelRejectReasonsVariant1Item>? Type1982 { get; set; }
+        public global::ElevenLabs.ResubmitTestsRequestModel? Type1982 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ReviewResponseModelRejectReasonsVariant1Item? Type1983 { get; set; }
+        public global::ElevenLabs.ReviewResponseModelReviewStatus? Type1983 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RunAgentTestsRequestModel? Type1984 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ReviewResponseModelRejectReasonsVariant1Item>? Type1984 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SingleTestRunRequestModel>? Type1985 { get; set; }
+        public global::ElevenLabs.ReviewResponseModelRejectReasonsVariant1Item? Type1985 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SingleTestRunRequestModel? Type1986 { get; set; }
+        public global::ElevenLabs.RunAgentTestsRequestModel? Type1986 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RunConversationEvaluationsRequest? Type1987 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SingleTestRunRequestModel>? Type1987 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SIPLogMessageDirection? Type1988 { get; set; }
+        public global::ElevenLabs.SingleTestRunRequestModel? Type1988 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SIPTrunkOutboundCallResponse? Type1989 { get; set; }
+        public global::ElevenLabs.RunConversationEvaluationsRequest? Type1989 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SMBClientAccessConfig? Type1990 { get; set; }
+        public global::ElevenLabs.SIPLogMessageDirection? Type1990 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Params? Type1991 { get; set; }
+        public global::ElevenLabs.SIPTrunkOutboundCallResponse? Type1991 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SearchClientsParams? Type1992 { get; set; }
+        public global::ElevenLabs.SMBClientAccessConfig? Type1992 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SendCustomEmailParams? Type1993 { get; set; }
+        public global::ElevenLabs.Params? Type1993 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateClientParams? Type1994 { get; set; }
+        public global::ElevenLabs.SearchClientsParams? Type1994 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateStaffParams? Type1995 { get; set; }
+        public global::ElevenLabs.SendCustomEmailParams? Type1995 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateAssetParams? Type1996 { get; set; }
+        public global::ElevenLabs.UpdateClientParams? Type1996 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateServiceParams? Type1997 { get; set; }
+        public global::ElevenLabs.UpdateStaffParams? Type1997 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateProductParams? Type1998 { get; set; }
+        public global::ElevenLabs.UpdateAssetParams? Type1998 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateOrderParams? Type1999 { get; set; }
+        public global::ElevenLabs.UpdateServiceParams? Type1999 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ScheduleGroupSessionParams? Type2000 { get; set; }
+        public global::ElevenLabs.UpdateProductParams? Type2000 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateGroupSessionSeatsParams? Type2001 { get; set; }
+        public global::ElevenLabs.UpdateOrderParams? Type2001 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateCalendarEventParams? Type2002 { get; set; }
+        public global::ElevenLabs.ScheduleGroupSessionParams? Type2002 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateAgentRuleParams? Type2003 { get; set; }
+        public global::ElevenLabs.UpdateGroupSessionSeatsParams? Type2003 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateTransferRuleParams? Type2004 { get; set; }
+        public global::ElevenLabs.UpdateCalendarEventParams? Type2004 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateAgentProcedureParams? Type2005 { get; set; }
+        public global::ElevenLabs.UpdateAgentRuleParams? Type2005 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateHolidayParams? Type2006 { get; set; }
+        public global::ElevenLabs.UpdateTransferRuleParams? Type2006 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SubmitBusinessInfoParams? Type2007 { get; set; }
+        public global::ElevenLabs.UpdateAgentProcedureParams? Type2007 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateBusinessInfoParams? Type2008 { get; set; }
+        public global::ElevenLabs.UpdateHolidayParams? Type2008 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateCustomerFacingConfigParams? Type2009 { get; set; }
+        public global::ElevenLabs.SubmitBusinessInfoParams? Type2009 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateBookingPageSettingsParams? Type2010 { get; set; }
+        public global::ElevenLabs.UpdateBusinessInfoParams? Type2010 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateBookingPageAppearanceParams? Type2011 { get; set; }
+        public global::ElevenLabs.UpdateCustomerFacingConfigParams? Type2011 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SetBookingSlugParams? Type2012 { get; set; }
+        public global::ElevenLabs.UpdateBookingPageSettingsParams? Type2012 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateLocationParams? Type2013 { get; set; }
+        public global::ElevenLabs.UpdateBookingPageAppearanceParams? Type2013 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TriggerUserVerificationParams? Type2014 { get; set; }
+        public global::ElevenLabs.SetBookingSlugParams? Type2014 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ValidateUserVerificationCodeParams? Type2015 { get; set; }
+        public global::ElevenLabs.UpdateLocationParams? Type2015 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SMBToolConfigParamsDiscriminator? Type2016 { get; set; }
+        public global::ElevenLabs.TriggerUserVerificationParams? Type2016 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType? Type2017 { get; set; }
+        public global::ElevenLabs.ValidateUserVerificationCodeParams? Type2017 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SMSConversationInfoDirection? Type2018 { get; set; }
+        public global::ElevenLabs.SMBToolConfigParamsDiscriminator? Type2018 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SafetyCommonModelInput? Type2019 { get; set; }
+        public global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType? Type2019 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SafetyEvaluation? Type2020 { get; set; }
+        public global::ElevenLabs.SMSConversationInfoDirection? Type2020 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SafetyCommonModelOutput? Type2021 { get; set; }
+        public global::ElevenLabs.SafetyCommonModelInput? Type2021 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SafetyRule>? Type2022 { get; set; }
+        public global::ElevenLabs.SafetyEvaluation? Type2022 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SafetyRule? Type2023 { get; set; }
+        public global::ElevenLabs.SafetyCommonModelOutput? Type2023 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SampleConfigDBModelParentType? Type2024 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SafetyRule>? Type2024 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SampleResponseModel? Type2025 { get; set; }
+        public global::ElevenLabs.SafetyRule? Type2025 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeakerSeparationResponseModel? Type2026 { get; set; }
+        public global::ElevenLabs.SampleConfigDBModelParentType? Type2026 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SayNodeLiteralMessageInput? Type2027 { get; set; }
+        public global::ElevenLabs.SampleResponseModel? Type2027 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.TranslatedString>? Type2028 { get; set; }
+        public global::ElevenLabs.SpeakerSeparationResponseModel? Type2028 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TranslatedString? Type2029 { get; set; }
+        public global::ElevenLabs.SayNodeLiteralMessageInput? Type2029 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SayNodeLiteralMessageOutput? Type2030 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.TranslatedString>? Type2030 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SayNodePromptMessageInput? Type2031 { get; set; }
+        public global::ElevenLabs.TranslatedString? Type2031 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SayNodePromptMessageOutput? Type2032 { get; set; }
+        public global::ElevenLabs.SayNodeLiteralMessageOutput? Type2032 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ScimGroupResponseModel? Type2033 { get; set; }
+        public global::ElevenLabs.SayNodePromptMessageInput? Type2033 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SecretDependencyResourceType? Type2034 { get; set; }
+        public global::ElevenLabs.SayNodePromptMessageOutput? Type2034 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SectionSource? Type2035 { get; set; }
+        public global::ElevenLabs.ScimGroupResponseModel? Type2035 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TimeRange>? Type2036 { get; set; }
+        public global::ElevenLabs.SecretDependencyResourceType? Type2036 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SegmentCreatePayload? Type2037 { get; set; }
+        public global::ElevenLabs.SectionSource? Type2037 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SegmentCreateResponse? Type2038 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TimeRange>? Type2038 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SegmentDeleteResponse? Type2039 { get; set; }
+        public global::ElevenLabs.SegmentCreatePayload? Type2039 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SegmentDubResponse? Type2040 { get; set; }
+        public global::ElevenLabs.SegmentCreateResponse? Type2040 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SegmentMigrationResponse? Type2041 { get; set; }
+        public global::ElevenLabs.SegmentDeleteResponse? Type2041 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SegmentTranscriptionResponse? Type2042 { get; set; }
+        public global::ElevenLabs.SegmentDubResponse? Type2042 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SegmentTranslationResponse? Type2043 { get; set; }
+        public global::ElevenLabs.SegmentMigrationResponse? Type2043 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SegmentUpdatePayload? Type2044 { get; set; }
+        public global::ElevenLabs.SegmentTranscriptionResponse? Type2044 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SegmentUpdateResponse? Type2045 { get; set; }
+        public global::ElevenLabs.SegmentTranslationResponse? Type2045 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ShareOptionResponseModelType? Type2046 { get; set; }
+        public global::ElevenLabs.SegmentUpdatePayload? Type2046 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SimilarVoice? Type2047 { get; set; }
+        public global::ElevenLabs.SegmentUpdateResponse? Type2047 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceCategory? Type2048 { get; set; }
+        public global::ElevenLabs.ShareOptionResponseModelType? Type2048 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SimilarVoicesForSpeakerResponse? Type2049 { get; set; }
+        public global::ElevenLabs.SimilarVoice? Type2049 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SimilarVoice>? Type2050 { get; set; }
+        public global::ElevenLabs.VoiceCategory? Type2050 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SimulationLibrarySettings? Type2051 { get; set; }
+        public global::ElevenLabs.SimilarVoicesForSpeakerResponse? Type2051 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SimulationTestModel? Type2052 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SimilarVoice>? Type2052 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SingleUseTokenResponseModel? Type2053 { get; set; }
+        public global::ElevenLabs.SimulationLibrarySettings? Type2053 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SingleUseTokenType? Type2054 { get; set; }
+        public global::ElevenLabs.SimulationTestModel? Type2054 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SkipTurnToolConfig? Type2055 { get; set; }
+        public global::ElevenLabs.SingleUseTokenResponseModel? Type2055 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SoftTimeoutConfig? Type2056 { get; set; }
+        public global::ElevenLabs.SingleUseTokenType? Type2056 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SoftTimeoutConfigOverride? Type2057 { get; set; }
+        public global::ElevenLabs.SkipTurnToolConfig? Type2057 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SoftTimeoutConfigOverrideConfig? Type2058 { get; set; }
+        public global::ElevenLabs.SoftTimeoutConfig? Type2058 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SoftTimeoutConfigWorkflowOverride? Type2059 { get; set; }
+        public global::ElevenLabs.SoftTimeoutConfigOverride? Type2059 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SortDirection? Type2060 { get; set; }
+        public global::ElevenLabs.SoftTimeoutConfigOverrideConfig? Type2060 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeakerAudioResponseModel? Type2061 { get; set; }
+        public global::ElevenLabs.SoftTimeoutConfigWorkflowOverride? Type2061 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeakerCreatedResponse? Type2062 { get; set; }
+        public global::ElevenLabs.SortDirection? Type2062 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeakerResponseModel? Type2063 { get; set; }
+        public global::ElevenLabs.SpeakerAudioResponseModel? Type2063 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.UtteranceResponseModel>? Type2064 { get; set; }
+        public global::ElevenLabs.SpeakerCreatedResponse? Type2064 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UtteranceResponseModel? Type2065 { get; set; }
+        public global::ElevenLabs.SpeakerResponseModel? Type2065 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DubbedSegment>? Type2066 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.UtteranceResponseModel>? Type2066 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeakerSeparationResponseModelStatus? Type2067 { get; set; }
+        public global::ElevenLabs.UtteranceResponseModel? Type2067 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerResponseModel>? Type2068 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DubbedSegment>? Type2068 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeakerUpdatedResponse? Type2069 { get; set; }
+        public global::ElevenLabs.SpeakerSeparationResponseModelStatus? Type2069 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIDynamicVariable>? Type2070 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.SpeakerResponseModel>? Type2070 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechEngineResponse? Type2071 { get; set; }
+        public global::ElevenLabs.SpeakerUpdatedResponse? Type2071 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechHistoryItemResponseModelVoiceCategory? Type2072 { get; set; }
+        public global::ElevenLabs.AnyOf<string, global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIDynamicVariable>? Type2072 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechHistoryItemResponseModelState? Type2073 { get; set; }
+        public global::ElevenLabs.SpeechEngineResponse? Type2073 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechHistoryItemResponseModelSource? Type2074 { get; set; }
+        public global::ElevenLabs.SpeechHistoryItemResponseModelVoiceCategory? Type2074 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInputResponseModel>? Type2075 { get; set; }
+        public global::ElevenLabs.SpeechHistoryItemResponseModelState? Type2075 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechToTextCharacterResponseModel? Type2076 { get; set; }
+        public global::ElevenLabs.SpeechHistoryItemResponseModelSource? Type2076 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextWordResponseModel>? Type2077 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInputResponseModel>? Type2077 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechToTextWordResponseModel? Type2078 { get; set; }
+        public global::ElevenLabs.SpeechToTextCharacterResponseModel? Type2078 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AdditionalFormatResponseModel?>? Type2079 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextWordResponseModel>? Type2079 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DetectedEntity>? Type2080 { get; set; }
+        public global::ElevenLabs.SpeechToTextWordResponseModel? Type2080 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EditedTranscriptVariant1? Type2081 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AdditionalFormatResponseModel?>? Type2081 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TranscriptEditError? Type2082 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DetectedEntity>? Type2082 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechToTextChunkResponseModelEditedTranscriptVariant1Discriminator? Type2083 { get; set; }
+        public global::ElevenLabs.EditedTranscriptVariant1? Type2083 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechToTextChunkResponseModelEditedTranscriptVariant1DiscriminatorKind? Type2084 { get; set; }
+        public global::ElevenLabs.TranscriptEditError? Type2084 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechToTextWebhookResponseModel? Type2085 { get; set; }
+        public global::ElevenLabs.SpeechToTextChunkResponseModelEditedTranscriptVariant1Discriminator? Type2085 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechToTextWordResponseModelType? Type2086 { get; set; }
+        public global::ElevenLabs.SpeechToTextChunkResponseModelEditedTranscriptVariant1DiscriminatorKind? Type2086 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextCharacterResponseModel>? Type2087 { get; set; }
+        public global::ElevenLabs.SpeechToTextWebhookResponseModel? Type2087 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StartPVCVoiceTrainingResponseModel? Type2088 { get; set; }
+        public global::ElevenLabs.SpeechToTextWordResponseModelType? Type2088 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StartProcedureToolConfig? Type2089 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SpeechToTextCharacterResponseModel>? Type2089 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StartProcedureToolErrorStatus? Type2090 { get; set; }
+        public global::ElevenLabs.StartPVCVoiceTrainingResponseModel? Type2090 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StartSpeakerSeparationResponseModel? Type2091 { get; set; }
+        public global::ElevenLabs.StartProcedureToolConfig? Type2091 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StreamingAudioChunkWithTimestampsAndVoiceSegmentsResponseModel? Type2092 { get; set; }
+        public global::ElevenLabs.StartProcedureToolErrorStatus? Type2092 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StreamingAudioChunkWithTimestampsResponseModel? Type2093 { get; set; }
+        public global::ElevenLabs.StartSpeakerSeparationResponseModel? Type2093 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.StudioAgentToolSettingsModel>? Type2094 { get; set; }
+        public global::ElevenLabs.StreamingAudioChunkWithTimestampsAndVoiceSegmentsResponseModel? Type2094 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StudioAgentToolSettingsModel? Type2095 { get; set; }
+        public global::ElevenLabs.StreamingAudioChunkWithTimestampsResponseModel? Type2095 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StudioClipLocatorClipType? Type2096 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.StudioAgentToolSettingsModel>? Type2096 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SubmitOrderResponse? Type2097 { get; set; }
+        public global::ElevenLabs.StudioAgentToolSettingsModel? Type2097 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SubscriptionExtrasResponseModel? Type2098 { get; set; }
+        public global::ElevenLabs.StudioClipLocatorClipType? Type2098 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SubscriptionUsageResponseModel? Type2099 { get; set; }
+        public global::ElevenLabs.SubmitOrderResponse? Type2099 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SubscriptionResponseModel? Type2100 { get; set; }
+        public global::ElevenLabs.SubscriptionExtrasResponseModel? Type2100 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SuggestedAudioTag? Type2101 { get; set; }
+        public global::ElevenLabs.SubscriptionUsageResponseModel? Type2101 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SupportedVoice? Type2102 { get; set; }
+        public global::ElevenLabs.SubscriptionResponseModel? Type2102 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TTSModelFamily? Type2103 { get; set; }
+        public global::ElevenLabs.SuggestedAudioTag? Type2103 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SystemEvaluationCriteria? Type2104 { get; set; }
+        public global::ElevenLabs.SupportedVoice? Type2104 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Params2? Type2105 { get; set; }
+        public global::ElevenLabs.TTSModelFamily? Type2105 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToAgentToolConfigInput? Type2106 { get; set; }
+        public global::ElevenLabs.SystemEvaluationCriteria? Type2106 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToNumberToolConfigInput? Type2107 { get; set; }
+        public global::ElevenLabs.Params2? Type2107 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoicemailDetectionToolConfig? Type2108 { get; set; }
+        public global::ElevenLabs.TransferToAgentToolConfigInput? Type2108 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SystemToolConfigInputParamsDiscriminator? Type2109 { get; set; }
+        public global::ElevenLabs.TransferToNumberToolConfigInput? Type2109 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SystemToolConfigInputParamsDiscriminatorSystemToolType? Type2110 { get; set; }
+        public global::ElevenLabs.VoicemailDetectionToolConfig? Type2110 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Params3? Type2111 { get; set; }
+        public global::ElevenLabs.SystemToolConfigInputParamsDiscriminator? Type2111 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToAgentToolConfigOutput? Type2112 { get; set; }
+        public global::ElevenLabs.SystemToolConfigInputParamsDiscriminatorSystemToolType? Type2112 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToNumberToolConfigOutput? Type2113 { get; set; }
+        public global::ElevenLabs.Params3? Type2113 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SystemToolConfigOutputParamsDiscriminator? Type2114 { get; set; }
+        public global::ElevenLabs.TransferToAgentToolConfigOutput? Type2114 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType? Type2115 { get; set; }
+        public global::ElevenLabs.TransferToNumberToolConfigOutput? Type2115 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TTSConversationalModel? Type2116 { get; set; }
+        public global::ElevenLabs.SystemToolConfigOutputParamsDiscriminator? Type2116 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SupportedVoice>? Type2117 { get; set; }
+        public global::ElevenLabs.SystemToolConfigOutputParamsDiscriminatorSystemToolType? Type2117 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SuggestedAudioTag>? Type2118 { get; set; }
+        public global::ElevenLabs.TTSConversationalModel? Type2118 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TTSOutputFormat? Type2119 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SupportedVoice>? Type2119 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextNormalisationType? Type2120 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SuggestedAudioTag>? Type2120 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? Type2121 { get; set; }
+        public global::ElevenLabs.TTSOutputFormat? Type2121 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TwilioMachineDetectionConfig? Type2122 { get; set; }
+        public global::ElevenLabs.TextNormalisationType? Type2122 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateArrayOutput? Type2123 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? Type2123 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateRunStatus? Type2124 { get; set; }
+        public global::ElevenLabs.TwilioMachineDetectionConfig? Type2124 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateArrayOutputFailureReason? Type2125 { get; set; }
+        public global::ElevenLabs.TemplateArrayOutput? Type2125 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplateOutput>? Type2126 { get; set; }
+        public global::ElevenLabs.TemplateRunStatus? Type2126 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateOutput? Type2127 { get; set; }
+        public global::ElevenLabs.TemplateArrayOutputFailureReason? Type2127 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateAudioOutput? Type2128 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplateOutput>? Type2128 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateAudioOutputFailureReason? Type2129 { get; set; }
+        public global::ElevenLabs.TemplateOutput? Type2129 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateBooleanOutput? Type2130 { get; set; }
+        public global::ElevenLabs.TemplateAudioOutput? Type2130 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateBooleanOutputFailureReason? Type2131 { get; set; }
+        public global::ElevenLabs.TemplateAudioOutputFailureReason? Type2131 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateImageOutput? Type2132 { get; set; }
+        public global::ElevenLabs.TemplateBooleanOutput? Type2132 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateImageOutputFailureReason? Type2133 { get; set; }
+        public global::ElevenLabs.TemplateBooleanOutputFailureReason? Type2133 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateInputReference? Type2134 { get; set; }
+        public global::ElevenLabs.TemplateImageOutput? Type2134 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceReference? Type2135 { get; set; }
+        public global::ElevenLabs.TemplateImageOutputFailureReason? Type2135 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateInputReferenceDiscriminator? Type2136 { get; set; }
+        public global::ElevenLabs.TemplateInputReference? Type2136 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateInputReferenceDiscriminatorType? Type2137 { get; set; }
+        public global::ElevenLabs.VoiceReference? Type2137 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateIntegerOutput? Type2138 { get; set; }
+        public global::ElevenLabs.TemplateInputReferenceDiscriminator? Type2138 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateIntegerOutputFailureReason? Type2139 { get; set; }
+        public global::ElevenLabs.TemplateInputReferenceDiscriminatorType? Type2139 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateListResponse? Type2140 { get; set; }
+        public global::ElevenLabs.TemplateIntegerOutput? Type2140 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplateSummary>? Type2141 { get; set; }
+        public global::ElevenLabs.TemplateIntegerOutputFailureReason? Type2141 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateSummary? Type2142 { get; set; }
+        public global::ElevenLabs.TemplateListResponse? Type2142 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateNumberOutput? Type2143 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplateSummary>? Type2143 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateNumberOutputFailureReason? Type2144 { get; set; }
+        public global::ElevenLabs.TemplateSummary? Type2144 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateObjectOutput? Type2145 { get; set; }
+        public global::ElevenLabs.TemplateNumberOutput? Type2145 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateObjectOutputFailureReason? Type2146 { get; set; }
+        public global::ElevenLabs.TemplateNumberOutputFailureReason? Type2146 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.TemplateOutput>? Type2147 { get; set; }
+        public global::ElevenLabs.TemplateObjectOutput? Type2147 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateVideoOutput? Type2148 { get; set; }
+        public global::ElevenLabs.TemplateObjectOutputFailureReason? Type2148 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateStringOutput? Type2149 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.TemplateOutput>? Type2149 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateOutputDiscriminator? Type2150 { get; set; }
+        public global::ElevenLabs.TemplateVideoOutput? Type2150 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateOutputDiscriminatorType? Type2151 { get; set; }
+        public global::ElevenLabs.TemplateStringOutput? Type2151 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplatePort? Type2152 { get; set; }
+        public global::ElevenLabs.TemplateOutputDiscriminator? Type2152 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateRunCreateRequest? Type2153 { get; set; }
+        public global::ElevenLabs.TemplateOutputDiscriminatorType? Type2153 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.TemplateRunInput>? Type2154 { get; set; }
+        public global::ElevenLabs.TemplatePort? Type2154 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateRunInput? Type2155 { get; set; }
+        public global::ElevenLabs.TemplateRunCreateRequest? Type2155 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplateRunInput>? Type2156 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.TemplateRunInput>? Type2156 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateRunListResponse? Type2157 { get; set; }
+        public global::ElevenLabs.TemplateRunInput? Type2157 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplateRunResponse>? Type2158 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplateRunInput>? Type2158 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateRunResponse? Type2159 { get; set; }
+        public global::ElevenLabs.TemplateRunListResponse? Type2159 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateStringOutputFailureReason? Type2160 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplateRunResponse>? Type2160 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplateVersion>? Type2161 { get; set; }
+        public global::ElevenLabs.TemplateRunResponse? Type2161 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateVersion? Type2162 { get; set; }
+        public global::ElevenLabs.TemplateStringOutputFailureReason? Type2162 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplatePort>? Type2163 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplateVersion>? Type2163 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateVideoOutputFailureReason? Type2164 { get; set; }
+        public global::ElevenLabs.TemplateVersion? Type2164 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestConditionRationaleCommonModel? Type2165 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplatePort>? Type2165 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestConditionResultCommonModel? Type2166 { get; set; }
+        public global::ElevenLabs.TemplateVideoOutputFailureReason? Type2166 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestRunMetadata? Type2167 { get; set; }
+        public global::ElevenLabs.TestConditionRationaleCommonModel? Type2167 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestRunMetadataTestType? Type2168 { get; set; }
+        public global::ElevenLabs.TestConditionResultCommonModel? Type2168 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestRunResultBucket? Type2169 { get; set; }
+        public global::ElevenLabs.TestRunMetadata? Type2169 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestRunStatus? Type2170 { get; set; }
+        public global::ElevenLabs.TestRunMetadataTestType? Type2170 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TestRunResultBucket>? Type2171 { get; set; }
+        public global::ElevenLabs.TestRunResultBucket? Type2171 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestSharingMode? Type2172 { get; set; }
+        public global::ElevenLabs.TestRunStatus? Type2172 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestType? Type2173 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TestRunResultBucket>? Type2173 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToSpeechGenerationRequest? Type2174 { get; set; }
+        public global::ElevenLabs.TestSharingMode? Type2174 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToSpeechGenerationRequestDiscriminator? Type2175 { get; set; }
+        public global::ElevenLabs.TestType? Type2175 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToSpeechGenerationRequestDiscriminatorModelId? Type2176 { get; set; }
+        public global::ElevenLabs.TextToSpeechGenerationRequest? Type2176 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TokenResponseModel? Type2177 { get; set; }
+        public global::ElevenLabs.TextToSpeechGenerationRequestDiscriminator? Type2177 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolExecution? Type2178 { get; set; }
+        public global::ElevenLabs.TextToSpeechGenerationRequestDiscriminatorModelId? Type2178 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.Icon>? Type2179 { get; set; }
+        public global::ElevenLabs.TicketMergeProposalLinkResponseModel? Type2179 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolAnnotations? Type2180 { get; set; }
+        public global::ElevenLabs.TokenResponseModel? Type2180 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolCallUnitTestModel? Type2181 { get; set; }
+        public global::ElevenLabs.ToolExecution? Type2181 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolExecutionTaskSupport? Type2182 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.Icon>? Type2182 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolCallDetailsVariant1? Type2183 { get; set; }
+        public global::ElevenLabs.ToolAnnotations? Type2183 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolExecutionResponseModelToolCallDetailsVariant1Discriminator? Type2184 { get; set; }
+        public global::ElevenLabs.ToolCallUnitTestModel? Type2184 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolExecutionResponseModelToolCallDetailsVariant1DiscriminatorType? Type2185 { get; set; }
+        public global::ElevenLabs.ToolExecutionTaskSupport? Type2185 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolRequestModel? Type2186 { get; set; }
+        public global::ElevenLabs.ToolCallDetailsVariant1? Type2186 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolConfig? Type2187 { get; set; }
+        public global::ElevenLabs.ToolExecutionResponseModelToolCallDetailsVariant1Discriminator? Type2187 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolRequestModelToolConfigDiscriminator? Type2188 { get; set; }
+        public global::ElevenLabs.ToolExecutionResponseModelToolCallDetailsVariant1DiscriminatorType? Type2188 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolRequestModelToolConfigDiscriminatorType? Type2189 { get; set; }
+        public global::ElevenLabs.ToolRequestModel? Type2189 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestToolCallParameter>? Type2190 { get; set; }
+        public global::ElevenLabs.ToolConfig? Type2190 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UnitTestToolCallParameter? Type2191 { get; set; }
+        public global::ElevenLabs.ToolRequestModelToolConfigDiscriminator? Type2191 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolResponseModel? Type2192 { get; set; }
+        public global::ElevenLabs.ToolRequestModelToolConfigDiscriminatorType? Type2192 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolConfig2? Type2193 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestToolCallParameter>? Type2193 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolResponseModelToolConfigDiscriminator? Type2194 { get; set; }
+        public global::ElevenLabs.UnitTestToolCallParameter? Type2194 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolResponseModelToolConfigDiscriminatorType? Type2195 { get; set; }
+        public global::ElevenLabs.ToolResponseModel? Type2195 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolUsageStatsResponseModel? Type2196 { get; set; }
+        public global::ElevenLabs.ToolConfig2? Type2196 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolSortBy? Type2197 { get; set; }
+        public global::ElevenLabs.ToolResponseModelToolConfigDiscriminator? Type2197 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolTypeFilter? Type2198 { get; set; }
+        public global::ElevenLabs.ToolResponseModelToolConfigDiscriminatorType? Type2198 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ToolsResponseModel? Type2199 { get; set; }
+        public global::ElevenLabs.ToolUsageStatsResponseModel? Type2199 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseModel>? Type2200 { get; set; }
+        public global::ElevenLabs.ToolSortBy? Type2200 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TopicEvaluationCriteriaAggregate? Type2201 { get; set; }
+        public global::ElevenLabs.ToolTypeFilter? Type2201 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TopicSentimentAggregate? Type2202 { get; set; }
+        public global::ElevenLabs.ToolsResponseModel? Type2202 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TopicEvaluationCriteriaAggregate>? Type2203 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolResponseModel>? Type2203 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TopicSortBy? Type2204 { get; set; }
+        public global::ElevenLabs.TopicEvaluationCriteriaAggregate? Type2204 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferBranchInfoDefaultingToMain? Type2205 { get; set; }
+        public global::ElevenLabs.TopicSentimentAggregate? Type2205 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferBranchInfoTrafficSplit? Type2206 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TopicEvaluationCriteriaAggregate>? Type2206 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentTransferInput>? Type2207 { get; set; }
+        public global::ElevenLabs.TopicSortBy? Type2207 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentTransferOutput>? Type2208 { get; set; }
+        public global::ElevenLabs.TransferBranchInfoDefaultingToMain? Type2208 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BranchInfoVariant1? Type2209 { get; set; }
+        public global::ElevenLabs.TransferBranchInfoTrafficSplit? Type2209 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1Discriminator? Type2210 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentTransferInput>? Type2210 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReason? Type2211 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentTransferOutput>? Type2211 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BranchInfoVariant12? Type2212 { get; set; }
+        public global::ElevenLabs.BranchInfoVariant1? Type2212 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToAgentToolResultSuccessModelOutputBranchInfoVariant1Discriminator? Type2213 { get; set; }
+        public global::ElevenLabs.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1Discriminator? Type2213 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToAgentToolResultSuccessModelOutputBranchInfoVariant1DiscriminatorBranchReason? Type2214 { get; set; }
+        public global::ElevenLabs.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReason? Type2214 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumberTransfer>? Type2215 { get; set; }
+        public global::ElevenLabs.BranchInfoVariant12? Type2215 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TwilioMachineDetectionMode? Type2216 { get; set; }
+        public global::ElevenLabs.TransferToAgentToolResultSuccessModelOutputBranchInfoVariant1Discriminator? Type2216 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TwilioOutboundCallResponse? Type2217 { get; set; }
+        public global::ElevenLabs.TransferToAgentToolResultSuccessModelOutputBranchInfoVariant1DiscriminatorBranchReason? Type2217 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.URLAvatar? Type2218 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumberTransfer>? Type2218 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UUITransferConfigProtocolDiscriminatorMode? Type2219 { get; set; }
+        public global::ElevenLabs.TwilioMachineDetectionMode? Type2219 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TestInfoVariant1? Type2220 { get; set; }
+        public global::ElevenLabs.TwilioOutboundCallResponse? Type2220 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UnitTestRunResponseModelTestInfoVariant1Discriminator? Type2221 { get; set; }
+        public global::ElevenLabs.URLAvatar? Type2221 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UnitTestRunResponseModelTestInfoVariant1DiscriminatorType? Type2222 { get; set; }
+        public global::ElevenLabs.UUITransferConfigProtocolDiscriminatorMode? Type2222 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UnitTestWorkflowNodeTransitionEvaluationNodeId? Type2223 { get; set; }
+        public global::ElevenLabs.TestInfoVariant1? Type2223 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Eval? Type2224 { get; set; }
+        public global::ElevenLabs.UnitTestRunResponseModelTestInfoVariant1Discriminator? Type2224 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UnitTestToolCallParameterEvalDiscriminator? Type2225 { get; set; }
+        public global::ElevenLabs.UnitTestRunResponseModelTestInfoVariant1DiscriminatorType? Type2225 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UnitTestToolCallParameterEvalDiscriminatorType? Type2226 { get; set; }
+        public global::ElevenLabs.UnitTestWorkflowNodeTransitionEvaluationNodeId? Type2226 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateBasicAuthRequest? Type2227 { get; set; }
+        public global::ElevenLabs.Eval? Type2227 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateBearerAuthRequest? Type2228 { get; set; }
+        public global::ElevenLabs.UnitTestToolCallParameterEvalDiscriminator? Type2228 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateEnvironmentVariableRequest? Type2229 { get; set; }
+        public global::ElevenLabs.UnitTestToolCallParameterEvalDiscriminatorType? Type2229 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, global::ElevenLabs.EnvironmentVariableSecretValueRequest, global::ElevenLabs.EnvironmentVariableAuthConnectionValueRequest, object>? Type2230 { get; set; }
+        public global::ElevenLabs.UpdateBasicAuthRequest? Type2230 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateMusicFinetuneRequestModel? Type2231 { get; set; }
+        public global::ElevenLabs.UpdateBearerAuthRequest? Type2231 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateMusicFinetuneRequestModelVisibility? Type2232 { get; set; }
+        public global::ElevenLabs.UpdateEnvironmentVariableRequest? Type2232 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateOAuth2ClientCredsRequest? Type2233 { get; set; }
+        public global::ElevenLabs.AnyOf<string, global::ElevenLabs.EnvironmentVariableSecretValueRequest, global::ElevenLabs.EnvironmentVariableAuthConnectionValueRequest, object>? Type2233 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateOAuth2JWTRequest? Type2234 { get; set; }
+        public global::ElevenLabs.UpdateMusicFinetuneRequestModel? Type2234 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateOAuth2JWTRequestAlgorithm? Type2235 { get; set; }
+        public global::ElevenLabs.UpdateMusicFinetuneRequestModelVisibility? Type2235 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateOAuth2JWTRequestTokenResponseField? Type2236 { get; set; }
+        public global::ElevenLabs.UpdateOAuth2ClientCredsRequest? Type2236 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateOrderResponse? Type2237 { get; set; }
+        public global::ElevenLabs.UpdateOAuth2JWTRequest? Type2237 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdatePhoneNumberRequest? Type2238 { get; set; }
+        public global::ElevenLabs.UpdateOAuth2JWTRequestAlgorithm? Type2238 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateProcedureDraftRequestModel? Type2239 { get; set; }
+        public global::ElevenLabs.UpdateOAuth2JWTRequestTokenResponseField? Type2239 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateResponseUnitTestRequest? Type2240 { get; set; }
+        public global::ElevenLabs.UpdateOrderResponse? Type2240 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateSimulationTestRequest? Type2241 { get; set; }
+        public global::ElevenLabs.UpdatePhoneNumberRequest? Type2241 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateSpeechEngineRequest? Type2242 { get; set; }
+        public global::ElevenLabs.UpdateProcedureDraftRequestModel? Type2242 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateToolCallUnitTestRequest? Type2243 { get; set; }
+        public global::ElevenLabs.UpdateResponseUnitTestRequest? Type2243 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateWhatsAppAccountRequest? Type2244 { get; set; }
+        public global::ElevenLabs.UpdateSimulationTestRequest? Type2244 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateWorkspaceMemberResponseModel? Type2245 { get; set; }
+        public global::ElevenLabs.UpdateSpeechEngineRequest? Type2245 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpsertOrderItemResponse? Type2246 { get; set; }
+        public global::ElevenLabs.UpdateToolCallUnitTestRequest? Type2246 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UsageAggregationInterval? Type2247 { get; set; }
+        public global::ElevenLabs.UpdateWhatsAppAccountRequest? Type2247 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UsageCharactersResponseModel? Type2248 { get; set; }
+        public global::ElevenLabs.UpdateWorkspaceMemberResponseModel? Type2248 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<double>>? Type2249 { get; set; }
+        public global::ElevenLabs.UpsertOrderItemResponse? Type2249 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UserResponseModel? Type2250 { get; set; }
+        public global::ElevenLabs.UsageAggregationInterval? Type2250 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UsersSortBy? Type2251 { get; set; }
+        public global::ElevenLabs.UsageCharactersResponseModel? Type2251 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?>>? Type2252 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<double>>? Type2252 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, int?>? Type2253 { get; set; }
+        public global::ElevenLabs.UserResponseModel? Type2253 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Veo31FastRequest? Type2254 { get; set; }
+        public global::ElevenLabs.UsersSortBy? Type2254 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Veo31FastRequestAspectRatio? Type2255 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?>>? Type2255 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Veo31FastRequestResolution? Type2256 { get; set; }
+        public global::ElevenLabs.AnyOf<string, int?>? Type2256 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VeoImageReference>? Type2257 { get; set; }
+        public global::ElevenLabs.Veo31FastRequest? Type2257 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VeoImageReference? Type2258 { get; set; }
+        public global::ElevenLabs.Veo31FastRequestAspectRatio? Type2258 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Veo31Request? Type2259 { get; set; }
+        public global::ElevenLabs.Veo31FastRequestResolution? Type2259 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Veo31RequestAspectRatio? Type2260 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VeoImageReference>? Type2260 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Veo31RequestResolution? Type2261 { get; set; }
+        public global::ElevenLabs.VeoImageReference? Type2261 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VeoImageReferenceRole? Type2262 { get; set; }
+        public global::ElevenLabs.Veo31Request? Type2262 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VerifyPVCVoiceCaptchaResponseModel? Type2263 { get; set; }
+        public global::ElevenLabs.Veo31RequestAspectRatio? Type2263 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VideoAnalysisStatus? Type2264 { get; set; }
+        public global::ElevenLabs.Veo31RequestResolution? Type2264 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VideoAnalysisResult? Type2265 { get; set; }
+        public global::ElevenLabs.VeoImageReferenceRole? Type2265 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VideoSubject>? Type2266 { get; set; }
+        public global::ElevenLabs.VerifyPVCVoiceCaptchaResponseModel? Type2266 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VideoSubject? Type2267 { get; set; }
+        public global::ElevenLabs.VideoAnalysisStatus? Type2267 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VideoSegment>? Type2268 { get; set; }
+        public global::ElevenLabs.VideoAnalysisResult? Type2268 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VideoSegment? Type2269 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VideoSubject>? Type2269 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VideoKeyMoment>? Type2270 { get; set; }
+        public global::ElevenLabs.VideoSubject? Type2270 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VideoKeyMoment? Type2271 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VideoSegment>? Type2271 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VideoGenerationRequest? Type2272 { get; set; }
+        public global::ElevenLabs.VideoSegment? Type2272 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VideoGenerationRequestDiscriminator? Type2273 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VideoKeyMoment>? Type2273 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VideoGenerationRequestDiscriminatorModelId? Type2274 { get; set; }
+        public global::ElevenLabs.VideoKeyMoment? Type2274 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VideoReferenceDiscriminator? Type2275 { get; set; }
+        public global::ElevenLabs.VideoGenerationRequest? Type2275 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VideoReferenceDiscriminatorType? Type2276 { get; set; }
+        public global::ElevenLabs.VideoGenerationRequestDiscriminator? Type2276 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceDesignRequestModel? Type2277 { get; set; }
+        public global::ElevenLabs.VideoGenerationRequestDiscriminatorModelId? Type2277 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceDesignRequestModelModelId? Type2278 { get; set; }
+        public global::ElevenLabs.VideoReferenceDiscriminator? Type2278 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoicePreviewResponseModel? Type2279 { get; set; }
+        public global::ElevenLabs.VideoReferenceDiscriminatorType? Type2279 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoicePreviewsRequestModel? Type2280 { get; set; }
+        public global::ElevenLabs.VoiceDesignRequestModel? Type2280 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoicePreviewsResponseModel? Type2281 { get; set; }
+        public global::ElevenLabs.VoiceDesignRequestModelModelId? Type2281 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.VoicePreviewResponseModel>? Type2282 { get; set; }
+        public global::ElevenLabs.VoicePreviewResponseModel? Type2282 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceRemixRequestModel? Type2283 { get; set; }
+        public global::ElevenLabs.VoicePreviewsRequestModel? Type2283 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.SampleResponseModel>? Type2284 { get; set; }
+        public global::ElevenLabs.VoicePreviewsResponseModel? Type2284 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceResponseModelCategory? Type2285 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.VoicePreviewResponseModel>? Type2285 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceSharingResponseModel? Type2286 { get; set; }
+        public global::ElevenLabs.VoiceRemixRequestModel? Type2286 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceResponseModelSafetyControl? Type2287 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.SampleResponseModel>? Type2287 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceVerificationResponseModel? Type2288 { get; set; }
+        public global::ElevenLabs.VoiceResponseModelCategory? Type2288 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceResponseModelRecordingQuality? Type2289 { get; set; }
+        public global::ElevenLabs.VoiceSharingResponseModel? Type2289 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceResponseModelLabellingStatus? Type2290 { get; set; }
+        public global::ElevenLabs.VoiceResponseModelSafetyControl? Type2290 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceSamplePreviewResponseModel? Type2291 { get; set; }
+        public global::ElevenLabs.VoiceVerificationResponseModel? Type2291 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceSampleVisualWaveformResponseModel? Type2292 { get; set; }
+        public global::ElevenLabs.VoiceResponseModelRecordingQuality? Type2292 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceSharingModerationCheckResponseModel? Type2293 { get; set; }
+        public global::ElevenLabs.VoiceResponseModelLabellingStatus? Type2293 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceSharingResponseModelStatus? Type2294 { get; set; }
+        public global::ElevenLabs.VoiceSamplePreviewResponseModel? Type2294 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceSharingResponseModelCategory? Type2295 { get; set; }
+        public global::ElevenLabs.VoiceSampleVisualWaveformResponseModel? Type2295 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceSharingResponseModelReviewStatus? Type2296 { get; set; }
+        public global::ElevenLabs.VoiceSharingModerationCheckResponseModel? Type2296 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ReaderResourceResponseModel>? Type2297 { get; set; }
+        public global::ElevenLabs.VoiceSharingResponseModelStatus? Type2297 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookAuthMethodType? Type2298 { get; set; }
+        public global::ElevenLabs.VoiceSharingResponseModelCategory? Type2298 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookTargetAll? Type2299 { get; set; }
+        public global::ElevenLabs.VoiceSharingResponseModelReviewStatus? Type2299 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookTargetIds? Type2300 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ReaderResourceResponseModel>? Type2300 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookTargetDiscriminator? Type2301 { get; set; }
+        public global::ElevenLabs.WebhookAuthMethodType? Type2301 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookTargetDiscriminatorType? Type2302 { get; set; }
+        public global::ElevenLabs.WebhookTargetAll? Type2302 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookToolApiSchemaConfigInput? Type2303 { get; set; }
+        public global::ElevenLabs.WebhookTargetIds? Type2303 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookToolApiSchemaConfigInputMethod? Type2304 { get; set; }
+        public global::ElevenLabs.WebhookTargetDiscriminator? Type2304 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookToolApiSchemaConfigInputContentType? Type2305 { get; set; }
+        public global::ElevenLabs.WebhookTargetDiscriminatorType? Type2305 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookToolApiSchemaConfigOutput? Type2306 { get; set; }
+        public global::ElevenLabs.WebhookToolApiSchemaConfigInput? Type2306 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookToolApiSchemaConfigOutputMethod? Type2307 { get; set; }
+        public global::ElevenLabs.WebhookToolApiSchemaConfigInputMethod? Type2307 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookToolApiSchemaConfigOutputContentType? Type2308 { get; set; }
+        public global::ElevenLabs.WebhookToolApiSchemaConfigInputContentType? Type2308 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookUsageType? Type2309 { get; set; }
+        public global::ElevenLabs.WebhookToolApiSchemaConfigOutput? Type2309 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppConversationInfoDirection? Type2310 { get; set; }
+        public global::ElevenLabs.WebhookToolApiSchemaConfigOutputMethod? Type2310 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppOutboundCallResponse? Type2311 { get; set; }
+        public global::ElevenLabs.WebhookToolApiSchemaConfigOutputContentType? Type2311 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppOutboundMessageResponse? Type2312 { get; set; }
+        public global::ElevenLabs.WebhookUsageType? Type2312 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WhatsAppTemplateTextParam>? Type2313 { get; set; }
+        public global::ElevenLabs.WhatsAppConversationInfoDirection? Type2313 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateTextParam? Type2314 { get; set; }
+        public global::ElevenLabs.WhatsAppOutboundCallResponse? Type2314 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateDocumentParam? Type2315 { get; set; }
+        public global::ElevenLabs.WhatsAppOutboundMessageResponse? Type2315 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateDocumentParamDetails? Type2316 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WhatsAppTemplateTextParam>? Type2316 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ParametersItem>? Type2317 { get; set; }
+        public global::ElevenLabs.WhatsAppTemplateTextParam? Type2317 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ParametersItem? Type2318 { get; set; }
+        public global::ElevenLabs.WhatsAppTemplateDocumentParam? Type2318 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateImageParam? Type2319 { get; set; }
+        public global::ElevenLabs.WhatsAppTemplateDocumentParamDetails? Type2319 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateLocationParam? Type2320 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ParametersItem>? Type2320 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateHeaderComponentParamsParameterDiscriminator? Type2321 { get; set; }
+        public global::ElevenLabs.ParametersItem? Type2321 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateHeaderComponentParamsParameterDiscriminatorType? Type2322 { get; set; }
+        public global::ElevenLabs.WhatsAppTemplateImageParam? Type2322 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateImageParamDetails? Type2323 { get; set; }
+        public global::ElevenLabs.WhatsAppTemplateLocationParam? Type2323 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateLocationParamDetails? Type2324 { get; set; }
+        public global::ElevenLabs.WhatsAppTemplateHeaderComponentParamsParameterDiscriminator? Type2324 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WidgetPlacement? Type2325 { get; set; }
+        public global::ElevenLabs.WhatsAppTemplateHeaderComponentParamsParameterDiscriminatorType? Type2325 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WidgetExpandable? Type2326 { get; set; }
+        public global::ElevenLabs.WhatsAppTemplateImageParamDetails? Type2326 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.OrbAvatar, global::ElevenLabs.URLAvatar, global::ElevenLabs.ImageAvatar>? Type2327 { get; set; }
+        public global::ElevenLabs.WhatsAppTemplateLocationParamDetails? Type2327 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WidgetFeedbackMode? Type2328 { get; set; }
+        public global::ElevenLabs.WidgetPlacement? Type2328 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WidgetEndFeedbackConfig? Type2329 { get; set; }
+        public global::ElevenLabs.WidgetExpandable? Type2329 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WidgetConfigInputSyntaxHighlightTheme? Type2330 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.OrbAvatar, global::ElevenLabs.URLAvatar, global::ElevenLabs.ImageAvatar>? Type2330 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WidgetTextContents? Type2331 { get; set; }
+        public global::ElevenLabs.WidgetFeedbackMode? Type2331 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WidgetStyles? Type2332 { get; set; }
+        public global::ElevenLabs.WidgetEndFeedbackConfig? Type2332 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePreset>? Type2333 { get; set; }
+        public global::ElevenLabs.WidgetConfigInputSyntaxHighlightTheme? Type2333 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WidgetLanguagePreset? Type2334 { get; set; }
+        public global::ElevenLabs.WidgetTextContents? Type2334 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WidgetConfigOutputSyntaxHighlightTheme? Type2335 { get; set; }
+        public global::ElevenLabs.WidgetStyles? Type2335 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WidgetConfigResponseModelSyntaxHighlightTheme? Type2336 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePreset>? Type2336 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePresetResponse>? Type2337 { get; set; }
+        public global::ElevenLabs.WidgetLanguagePreset? Type2337 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WidgetLanguagePresetResponse? Type2338 { get; set; }
+        public global::ElevenLabs.WidgetConfigOutputSyntaxHighlightTheme? Type2338 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WidgetEndFeedbackType? Type2339 { get; set; }
+        public global::ElevenLabs.WidgetConfigResponseModelSyntaxHighlightTheme? Type2339 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WidgetTextContentsTranslation? Type2340 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePresetResponse>? Type2340 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WidgetTermsTranslation? Type2341 { get; set; }
+        public global::ElevenLabs.WidgetLanguagePresetResponse? Type2341 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ForwardConditionVariant1? Type2342 { get; set; }
+        public global::ElevenLabs.WidgetEndFeedbackType? Type2342 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowUnconditionalModelInput? Type2343 { get; set; }
+        public global::ElevenLabs.WidgetTextContentsTranslation? Type2343 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowLLMConditionModelInput? Type2344 { get; set; }
+        public global::ElevenLabs.WidgetTermsTranslation? Type2344 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowResultConditionModelInput? Type2345 { get; set; }
+        public global::ElevenLabs.ForwardConditionVariant1? Type2345 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowExpressionConditionModelInput? Type2346 { get; set; }
+        public global::ElevenLabs.WorkflowUnconditionalModelInput? Type2346 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowEdgeModelInputForwardConditionVariant1Discriminator? Type2347 { get; set; }
+        public global::ElevenLabs.WorkflowLLMConditionModelInput? Type2347 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowEdgeModelInputForwardConditionVariant1DiscriminatorType? Type2348 { get; set; }
+        public global::ElevenLabs.WorkflowResultConditionModelInput? Type2348 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BackwardConditionVariant1? Type2349 { get; set; }
+        public global::ElevenLabs.WorkflowExpressionConditionModelInput? Type2349 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowEdgeModelInputBackwardConditionVariant1Discriminator? Type2350 { get; set; }
+        public global::ElevenLabs.WorkflowEdgeModelInputForwardConditionVariant1Discriminator? Type2350 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowEdgeModelInputBackwardConditionVariant1DiscriminatorType? Type2351 { get; set; }
+        public global::ElevenLabs.WorkflowEdgeModelInputForwardConditionVariant1DiscriminatorType? Type2351 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ForwardConditionVariant12? Type2352 { get; set; }
+        public global::ElevenLabs.BackwardConditionVariant1? Type2352 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowUnconditionalModelOutput? Type2353 { get; set; }
+        public global::ElevenLabs.WorkflowEdgeModelInputBackwardConditionVariant1Discriminator? Type2353 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowLLMConditionModelOutput? Type2354 { get; set; }
+        public global::ElevenLabs.WorkflowEdgeModelInputBackwardConditionVariant1DiscriminatorType? Type2354 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowResultConditionModelOutput? Type2355 { get; set; }
+        public global::ElevenLabs.ForwardConditionVariant12? Type2355 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowExpressionConditionModelOutput? Type2356 { get; set; }
+        public global::ElevenLabs.WorkflowUnconditionalModelOutput? Type2356 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowEdgeModelOutputForwardConditionVariant1Discriminator? Type2357 { get; set; }
+        public global::ElevenLabs.WorkflowLLMConditionModelOutput? Type2357 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowEdgeModelOutputForwardConditionVariant1DiscriminatorType? Type2358 { get; set; }
+        public global::ElevenLabs.WorkflowResultConditionModelOutput? Type2358 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BackwardConditionVariant12? Type2359 { get; set; }
+        public global::ElevenLabs.WorkflowExpressionConditionModelOutput? Type2359 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowEdgeModelOutputBackwardConditionVariant1Discriminator? Type2360 { get; set; }
+        public global::ElevenLabs.WorkflowEdgeModelOutputForwardConditionVariant1Discriminator? Type2360 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorType? Type2361 { get; set; }
+        public global::ElevenLabs.WorkflowEdgeModelOutputForwardConditionVariant1DiscriminatorType? Type2361 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem2>? Type2362 { get; set; }
+        public global::ElevenLabs.BackwardConditionVariant12? Type2362 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomSipHeadersItem2? Type2363 { get; set; }
+        public global::ElevenLabs.WorkflowEdgeModelOutputBackwardConditionVariant1Discriminator? Type2363 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInputCustomSipHeaderDiscriminator? Type2364 { get; set; }
+        public global::ElevenLabs.WorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorType? Type2364 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInputCustomSipHeaderDiscriminatorType? Type2365 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem2>? Type2365 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferDestination2? Type2366 { get; set; }
+        public global::ElevenLabs.CustomSipHeadersItem2? Type2366 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInputTransferDestinationDiscriminator? Type2367 { get; set; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInputCustomSipHeaderDiscriminator? Type2367 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInputTransferDestinationDiscriminatorType? Type2368 { get; set; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInputCustomSipHeaderDiscriminatorType? Type2368 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PostDialDigitsVariant12? Type2369 { get; set; }
+        public global::ElevenLabs.TransferDestination2? Type2369 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInputPostDialDigitsVariant1Discriminator? Type2370 { get; set; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInputTransferDestinationDiscriminator? Type2370 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInputPostDialDigitsVariant1DiscriminatorType? Type2371 { get; set; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInputTransferDestinationDiscriminatorType? Type2371 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem3>? Type2372 { get; set; }
+        public global::ElevenLabs.PostDialDigitsVariant12? Type2372 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CustomSipHeadersItem3? Type2373 { get; set; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInputPostDialDigitsVariant1Discriminator? Type2373 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminator? Type2374 { get; set; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInputPostDialDigitsVariant1DiscriminatorType? Type2374 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminatorType? Type2375 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem3>? Type2375 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferDestination3? Type2376 { get; set; }
+        public global::ElevenLabs.CustomSipHeadersItem3? Type2376 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputTransferDestinationDiscriminator? Type2377 { get; set; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminator? Type2377 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputTransferDestinationDiscriminatorType? Type2378 { get; set; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminatorType? Type2378 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PostDialDigitsVariant13? Type2379 { get; set; }
+        public global::ElevenLabs.TransferDestination3? Type2379 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1Discriminator? Type2380 { get; set; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputTransferDestinationDiscriminator? Type2380 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1DiscriminatorType? Type2381 { get; set; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputTransferDestinationDiscriminatorType? Type2381 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolEdgeStepModel? Type2382 { get; set; }
+        public global::ElevenLabs.PostDialDigitsVariant13? Type2382 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolLocator? Type2383 { get; set; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1Discriminator? Type2383 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SchemaOverridesVariant12? Type2384 { get; set; }
+        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputPostDialDigitsVariant1DiscriminatorType? Type2384 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolLocatorSchemaOverridesDiscriminator? Type2385 { get; set; }
+        public global::ElevenLabs.WorkflowToolEdgeStepModel? Type2385 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolLocatorSchemaOverridesDiscriminatorSource? Type2386 { get; set; }
+        public global::ElevenLabs.WorkflowToolLocator? Type2386 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel? Type2387 { get; set; }
+        public global::ElevenLabs.SchemaOverridesVariant12? Type2387 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolNestedToolsStepModelInput? Type2388 { get; set; }
+        public global::ElevenLabs.WorkflowToolLocatorSchemaOverridesDiscriminator? Type2388 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput? Type2389 { get; set; }
+        public global::ElevenLabs.WorkflowToolLocatorSchemaOverridesDiscriminatorSource? Type2389 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkflowToolLocator>? Type2390 { get; set; }
+        public global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel? Type2390 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.StepsItem>? Type2391 { get; set; }
+        public global::ElevenLabs.WorkflowToolNestedToolsStepModelInput? Type2391 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StepsItem? Type2392 { get; set; }
+        public global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput? Type2392 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolResponseModelInputStepDiscriminator? Type2393 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkflowToolLocator>? Type2393 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolResponseModelInputStepDiscriminatorType? Type2394 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.StepsItem>? Type2394 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.StepsItem2>? Type2395 { get; set; }
+        public global::ElevenLabs.StepsItem? Type2395 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StepsItem2? Type2396 { get; set; }
+        public global::ElevenLabs.WorkflowToolResponseModelInputStepDiscriminator? Type2396 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolResponseModelOutputStepDiscriminator? Type2397 { get; set; }
+        public global::ElevenLabs.WorkflowToolResponseModelInputStepDiscriminatorType? Type2397 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolResponseModelOutputStepDiscriminatorType? Type2398 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.StepsItem2>? Type2398 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceAnalyticsQueryResponseModel? Type2399 { get; set; }
+        public global::ElevenLabs.StepsItem2? Type2399 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceAnalyticsQueryResponseModelColumnType>? Type2400 { get; set; }
+        public global::ElevenLabs.WorkflowToolResponseModelOutputStepDiscriminator? Type2400 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceAnalyticsQueryResponseModelColumnType? Type2401 { get; set; }
+        public global::ElevenLabs.WorkflowToolResponseModelOutputStepDiscriminatorType? Type2401 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>>>? Type2402 { get; set; }
+        public global::ElevenLabs.WorkspaceAnalyticsQueryResponseModel? Type2402 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>>? Type2403 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceAnalyticsQueryResponseModelColumnType>? Type2403 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>? Type2404 { get; set; }
+        public global::ElevenLabs.WorkspaceAnalyticsQueryResponseModelColumnType? Type2404 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ColumnUnit?>? Type2405 { get; set; }
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>>>? Type2405 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceApiKeyListResponseModel? Type2406 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>>? Type2406 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceApiKeyResponseModel>? Type2407 { get; set; }
+        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>? Type2407 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceApiKeyResponseModel? Type2408 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ColumnUnit?>? Type2408 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceAuditLogEntryResponse? Type2409 { get; set; }
+        public global::ElevenLabs.WorkspaceApiKeyListResponseModel? Type2409 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceAuditLogsPageResponse? Type2410 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceApiKeyResponseModel>? Type2410 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceAuditLogEntryResponse>? Type2411 { get; set; }
+        public global::ElevenLabs.WorkspaceApiKeyResponseModel? Type2411 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceBatchCallsResponse? Type2412 { get; set; }
+        public global::ElevenLabs.WorkspaceAuditLogEntryResponse? Type2412 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.BatchCallResponse>? Type2413 { get; set; }
+        public global::ElevenLabs.WorkspaceAuditLogsPageResponse? Type2413 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceCreateApiKeyResponseModel? Type2414 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceAuditLogEntryResponse>? Type2414 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceCreateServiceAccountResponseModel? Type2415 { get; set; }
+        public global::ElevenLabs.WorkspaceBatchCallsResponse? Type2415 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceCreateWebhookResponseModel? Type2416 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.BatchCallResponse>? Type2416 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceGroupByNameResponseModel? Type2417 { get; set; }
+        public global::ElevenLabs.WorkspaceCreateApiKeyResponseModel? Type2417 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceGroupPermission? Type2418 { get; set; }
+        public global::ElevenLabs.WorkspaceCreateServiceAccountResponseModel? Type2418 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceGroupPermission>? Type2419 { get; set; }
+        public global::ElevenLabs.WorkspaceCreateWebhookResponseModel? Type2419 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<int?, string, object>? Type2420 { get; set; }
+        public global::ElevenLabs.WorkspaceGroupByNameResponseModel? Type2420 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceMemberResponseModel? Type2421 { get; set; }
+        public global::ElevenLabs.WorkspaceGroupPermission? Type2421 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceServiceAccountListResponseModel? Type2422 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceGroupPermission>? Type2422 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceServiceAccountResponseModel>? Type2423 { get; set; }
+        public global::ElevenLabs.AnyOf<int?, string, object>? Type2423 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceServiceAccountResponseModel? Type2424 { get; set; }
+        public global::ElevenLabs.WorkspaceMemberResponseModel? Type2424 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DefaultSharingGroupResponseModel>? Type2425 { get; set; }
+        public global::ElevenLabs.WorkspaceServiceAccountListResponseModel? Type2425 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceWebhookListResponseModel? Type2426 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceServiceAccountResponseModel>? Type2426 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookResponseModel>? Type2427 { get; set; }
+        public global::ElevenLabs.WorkspaceServiceAccountResponseModel? Type2427 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceWebhookResponseModel? Type2428 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DefaultSharingGroupResponseModel>? Type2428 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookUsageResponseModel>? Type2429 { get; set; }
+        public global::ElevenLabs.WorkspaceWebhookListResponseModel? Type2429 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkspaceWebhookUsageResponseModel? Type2430 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookResponseModel>? Type2430 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GenerationNode? Type2431 { get; set; }
+        public global::ElevenLabs.WorkspaceWebhookResponseModel? Type2431 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateBearerAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest>? Type2432 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookUsageResponseModel>? Type2432 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.CreateResponseUnitTestRequest, global::ElevenLabs.CreateToolCallUnitTestRequest, global::ElevenLabs.CreateSimulationTestRequest>? Type2433 { get; set; }
+        public global::ElevenLabs.WorkspaceWebhookUsageResponseModel? Type2433 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateResponseUnitTestRequest, global::ElevenLabs.UpdateToolCallUnitTestRequest, global::ElevenLabs.UpdateSimulationTestRequest>? Type2434 { get; set; }
+        public global::ElevenLabs.GenerationNode? Type2434 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateExotelPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2>? Type2435 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateBearerAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest>? Type2435 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateEnvironmentVariableRequest? Type2436 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.CreateResponseUnitTestRequest, global::ElevenLabs.CreateToolCallUnitTestRequest, global::ElevenLabs.CreateSimulationTestRequest>? Type2436 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminator? Type2437 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.UpdateResponseUnitTestRequest, global::ElevenLabs.UpdateToolCallUnitTestRequest, global::ElevenLabs.UpdateSimulationTestRequest>? Type2437 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminatorType? Type2438 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateExotelPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2>? Type2438 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetSpeechHistorySortDirection? Type2439 { get; set; }
+        public global::ElevenLabs.CreateEnvironmentVariableRequest? Type2439 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetSpeechHistorySource? Type2440 { get; set; }
+        public global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminator? Type2440 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToSpeechFullOutputFormat? Type2441 { get; set; }
+        public global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminatorType? Type2441 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToSpeechFullWithTimestampsOutputFormat? Type2442 { get; set; }
+        public global::ElevenLabs.GetSpeechHistorySortDirection? Type2442 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToSpeechStreamOutputFormat? Type2443 { get; set; }
+        public global::ElevenLabs.GetSpeechHistorySource? Type2443 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToSpeechStreamWithTimestampsOutputFormat? Type2444 { get; set; }
+        public global::ElevenLabs.TextToSpeechFullOutputFormat? Type2444 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.NonStreamingOutputFormats?, global::ElevenLabs.AllowedOutputFormats?>? Type2445 { get; set; }
+        public global::ElevenLabs.TextToSpeechFullWithTimestampsOutputFormat? Type2445 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechToSpeechFullOutputFormat? Type2446 { get; set; }
+        public global::ElevenLabs.TextToSpeechStreamOutputFormat? Type2446 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SpeechToSpeechStreamOutputFormat? Type2447 { get; set; }
+        public global::ElevenLabs.TextToSpeechStreamWithTimestampsOutputFormat? Type2447 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubbingProjectListSortDirection? Type2448 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.NonStreamingOutputFormats?, global::ElevenLabs.AllowedOutputFormats?>? Type2448 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListDubsDubbingStatus? Type2449 { get; set; }
+        public global::ElevenLabs.SpeechToSpeechFullOutputFormat? Type2449 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingStatusesVariant1Item>? Type2450 { get; set; }
+        public global::ElevenLabs.SpeechToSpeechStreamOutputFormat? Type2450 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListDubsDubbingStatusesVariant1Item? Type2451 { get; set; }
+        public global::ElevenLabs.DubbingProjectListSortDirection? Type2451 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingModelsVariant1Item>? Type2452 { get; set; }
+        public global::ElevenLabs.ListDubsDubbingStatus? Type2452 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListDubsDubbingModelsVariant1Item? Type2453 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingStatusesVariant1Item>? Type2453 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsCreationSourcesVariant1Item>? Type2454 { get; set; }
+        public global::ElevenLabs.ListDubsDubbingStatusesVariant1Item? Type2454 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListDubsCreationSourcesVariant1Item? Type2455 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsDubbingModelsVariant1Item>? Type2455 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListDubsFilterByCreator? Type2456 { get; set; }
+        public global::ElevenLabs.ListDubsDubbingModelsVariant1Item? Type2456 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListDubsOrderBy? Type2457 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ListDubsCreationSourcesVariant1Item>? Type2457 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListDubsOrderDirection? Type2458 { get; set; }
+        public global::ElevenLabs.ListDubsCreationSourcesVariant1Item? Type2458 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetDubbedTranscriptFileFormatType? Type2459 { get; set; }
+        public global::ElevenLabs.ListDubsFilterByCreator? Type2459 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetDubbingTranscriptsFormatType? Type2460 { get; set; }
+        public global::ElevenLabs.ListDubsOrderBy? Type2460 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPronunciationDictionariesMetadataSort? Type2461 { get; set; }
+        public global::ElevenLabs.ListDubsOrderDirection? Type2461 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TestType>? Type2462 { get; set; }
+        public global::ElevenLabs.GetDubbedTranscriptFileFormatType? Type2462 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListChatResponseTestsRouteSortMode? Type2463 { get; set; }
+        public global::ElevenLabs.GetDubbingTranscriptsFormatType? Type2463 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? Type2464 { get; set; }
+        public global::ElevenLabs.GetPronunciationDictionariesMetadataSort? Type2464 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? Type2465 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TestType>? Type2465 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item? Type2466 { get; set; }
+        public global::ElevenLabs.ListChatResponseTestsRouteSortMode? Type2466 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.GuardrailType>? Type2467 { get; set; }
+        public global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? Type2467 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetConversationHistoryRouteFormat? Type2468 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? Type2468 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? Type2469 { get; set; }
+        public global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item? Type2469 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item? Type2470 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.GuardrailType>? Type2470 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? Type2471 { get; set; }
+        public global::ElevenLabs.GetConversationHistoryRouteFormat? Type2471 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? Type2472 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? Type2472 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? Type2473 { get; set; }
+        public global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item? Type2473 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? Type2474 { get; set; }
+        public global::ElevenLabs.TextSearchConversationMessagesRouteSummaryMode? Type2474 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListEnvironmentVariablesType? Type2475 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? Type2475 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GenerateOutputFormat? Type2476 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentType>? Type2476 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ComposeDetailedOutputFormat? Type2477 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? Type2477 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ComposeDetailedStreamOutputFormat? Type2478 { get; set; }
+        public global::ElevenLabs.ListEnvironmentVariablesType? Type2478 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StreamComposeOutputFormat? Type2479 { get; set; }
+        public global::ElevenLabs.GenerateOutputFormat? Type2479 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetFinetunesSort? Type2480 { get; set; }
+        public global::ElevenLabs.ComposeDetailedOutputFormat? Type2480 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetFinetunesSortDirection? Type2481 { get; set; }
+        public global::ElevenLabs.ComposeDetailedStreamOutputFormat? Type2481 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.OrderState>? Type2482 { get; set; }
+        public global::ElevenLabs.StreamComposeOutputFormat? Type2482 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListVideoGenerationsStatus? Type2483 { get; set; }
+        public global::ElevenLabs.GetFinetunesSort? Type2483 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListImageGenerationsStatus? Type2484 { get; set; }
+        public global::ElevenLabs.GetFinetunesSortDirection? Type2484 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListTextToSpeechGenerationsStatus? Type2485 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.OrderState>? Type2485 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DownloadSpeechHistoryItemsResponse? Type2486 { get; set; }
+        public global::ElevenLabs.ListVideoGenerationsStatus? Type2486 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.DubbingTranscriptResponseModel, string>? Type2487 { get; set; }
+        public global::ElevenLabs.ListImageGenerationsStatus? Type2487 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ModelResponseModel>? Type2488 { get; set; }
+        public global::ElevenLabs.ListTextToSpeechGenerationsStatus? Type2488 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAuthConnectionResponse? Type2489 { get; set; }
+        public global::ElevenLabs.DownloadSpeechHistoryItemsResponse? Type2489 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAuthConnectionResponseDiscriminator? Type2490 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.DubbingTranscriptResponseModel, string>? Type2490 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType? Type2491 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ModelResponseModel>? Type2491 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateAuthConnectionResponse? Type2492 { get; set; }
+        public global::ElevenLabs.CreateAuthConnectionResponse? Type2492 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateAuthConnectionResponseDiscriminator? Type2493 { get; set; }
+        public global::ElevenLabs.CreateAuthConnectionResponseDiscriminator? Type2493 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateAuthConnectionResponseDiscriminatorAuthType? Type2494 { get; set; }
+        public global::ElevenLabs.CreateAuthConnectionResponseDiscriminatorAuthType? Type2494 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WorkspaceGroupResponseModel>? Type2495 { get; set; }
+        public global::ElevenLabs.UpdateAuthConnectionResponse? Type2495 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceGroupByNameResponseModel>? Type2496 { get; set; }
+        public global::ElevenLabs.UpdateAuthConnectionResponseDiscriminator? Type2496 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>? Type2497 { get; set; }
+        public global::ElevenLabs.UpdateAuthConnectionResponseDiscriminatorAuthType? Type2497 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.SpeechToTextChunkResponseModel, global::ElevenLabs.MultichannelSpeechToTextResponseModel, global::ElevenLabs.SpeechToTextWebhookResponseModel>? Type2498 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WorkspaceGroupResponseModel>? Type2498 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.SpeechToTextChunkResponseModel, global::ElevenLabs.MultichannelSpeechToTextResponseModel>? Type2499 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceGroupByNameResponseModel>? Type2499 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentSummariesRouteResponse2? Type2500 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>? Type2500 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentSummariesRouteResponseDiscriminator? Type2501 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.SpeechToTextChunkResponseModel, global::ElevenLabs.MultichannelSpeechToTextResponseModel, global::ElevenLabs.SpeechToTextWebhookResponseModel>? Type2501 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentSummariesRouteResponseDiscriminatorStatus? Type2502 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.SpeechToTextChunkResponseModel, global::ElevenLabs.MultichannelSpeechToTextResponseModel>? Type2502 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentResponseTestRouteResponse? Type2503 { get; set; }
+        public global::ElevenLabs.GetAgentSummariesRouteResponse2? Type2503 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentResponseTestRouteResponseDiscriminator? Type2504 { get; set; }
+        public global::ElevenLabs.GetAgentSummariesRouteResponseDiscriminator? Type2504 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentResponseTestRouteResponseDiscriminatorType? Type2505 { get; set; }
+        public global::ElevenLabs.GetAgentSummariesRouteResponseDiscriminatorStatus? Type2505 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateAgentResponseTestRouteResponse? Type2506 { get; set; }
+        public global::ElevenLabs.GetAgentResponseTestRouteResponse? Type2506 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateAgentResponseTestRouteResponseDiscriminator? Type2507 { get; set; }
+        public global::ElevenLabs.GetAgentResponseTestRouteResponseDiscriminator? Type2507 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateAgentResponseTestRouteResponseDiscriminatorType? Type2508 { get; set; }
+        public global::ElevenLabs.GetAgentResponseTestRouteResponseDiscriminatorType? Type2508 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.AssignableUserResponseModel>? Type2509 { get; set; }
+        public global::ElevenLabs.UpdateAgentResponseTestRouteResponse? Type2509 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>? Type2510 { get; set; }
+        public global::ElevenLabs.UpdateAgentResponseTestRouteResponseDiscriminator? Type2510 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListPhoneNumbersRouteResponseItem? Type2511 { get; set; }
+        public global::ElevenLabs.UpdateAgentResponseTestRouteResponseDiscriminatorType? Type2511 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListPhoneNumbersRouteResponseItemDiscriminator? Type2512 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.AssignableUserResponseModel>? Type2512 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListPhoneNumbersRouteResponseItemDiscriminatorProvider? Type2513 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>? Type2513 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumberRouteResponse? Type2514 { get; set; }
+        public global::ElevenLabs.ListPhoneNumbersRouteResponseItem? Type2514 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumberRouteResponseDiscriminator? Type2515 { get; set; }
+        public global::ElevenLabs.ListPhoneNumbersRouteResponseItemDiscriminator? Type2515 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumberRouteResponseDiscriminatorProvider? Type2516 { get; set; }
+        public global::ElevenLabs.ListPhoneNumbersRouteResponseItemDiscriminatorProvider? Type2516 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdatePhoneNumberRouteResponse? Type2517 { get; set; }
+        public global::ElevenLabs.GetPhoneNumberRouteResponse? Type2517 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdatePhoneNumberRouteResponseDiscriminator? Type2518 { get; set; }
+        public global::ElevenLabs.GetPhoneNumberRouteResponseDiscriminator? Type2518 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdatePhoneNumberRouteResponseDiscriminatorProvider? Type2519 { get; set; }
+        public global::ElevenLabs.GetPhoneNumberRouteResponseDiscriminatorProvider? Type2519 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponse2? Type2520 { get; set; }
+        public global::ElevenLabs.UpdatePhoneNumberRouteResponse? Type2520 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponseDiscriminator? Type2521 { get; set; }
+        public global::ElevenLabs.UpdatePhoneNumberRouteResponseDiscriminator? Type2521 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponseDiscriminatorStatus? Type2522 { get; set; }
+        public global::ElevenLabs.UpdatePhoneNumberRouteResponseDiscriminatorProvider? Type2522 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateDocumentRouteResponse? Type2523 { get; set; }
+        public global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponse2? Type2523 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateDocumentRouteResponseDiscriminator? Type2524 { get; set; }
+        public global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponseDiscriminator? Type2524 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateDocumentRouteResponseDiscriminatorType? Type2525 { get; set; }
+        public global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponseDiscriminatorStatus? Type2525 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse? Type2526 { get; set; }
+        public global::ElevenLabs.UpdateDocumentRouteResponse? Type2526 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponseDiscriminator? Type2527 { get; set; }
+        public global::ElevenLabs.UpdateDocumentRouteResponseDiscriminator? Type2527 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponseDiscriminatorType? Type2528 { get; set; }
+        public global::ElevenLabs.UpdateDocumentRouteResponseDiscriminatorType? Type2528 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateFileDocumentRouteResponse? Type2529 { get; set; }
+        public global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse? Type2529 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateFileDocumentRouteResponseDiscriminator? Type2530 { get; set; }
+        public global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponseDiscriminator? Type2530 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateFileDocumentRouteResponseDiscriminatorType? Type2531 { get; set; }
+        public global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponseDiscriminatorType? Type2531 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetOrCreateRagIndexesResponse2? Type2532 { get; set; }
+        public global::ElevenLabs.UpdateFileDocumentRouteResponse? Type2532 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetOrCreateRagIndexesResponseDiscriminator? Type2533 { get; set; }
+        public global::ElevenLabs.UpdateFileDocumentRouteResponseDiscriminator? Type2533 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetOrCreateRagIndexesResponseDiscriminatorStatus? Type2534 { get; set; }
+        public global::ElevenLabs.UpdateFileDocumentRouteResponseDiscriminatorType? Type2534 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RefreshUrlDocumentRouteResponse? Type2535 { get; set; }
+        public global::ElevenLabs.GetOrCreateRagIndexesResponse2? Type2535 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RefreshUrlDocumentRouteResponseDiscriminator? Type2536 { get; set; }
+        public global::ElevenLabs.GetOrCreateRagIndexesResponseDiscriminator? Type2536 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RefreshUrlDocumentRouteResponseDiscriminatorType? Type2537 { get; set; }
+        public global::ElevenLabs.GetOrCreateRagIndexesResponseDiscriminatorStatus? Type2537 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PostKnowledgeBaseBulkDeleteRouteResponse2? Type2538 { get; set; }
+        public global::ElevenLabs.RefreshUrlDocumentRouteResponse? Type2538 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PostKnowledgeBaseBulkDeleteRouteResponseDiscriminator? Type2539 { get; set; }
+        public global::ElevenLabs.RefreshUrlDocumentRouteResponseDiscriminator? Type2539 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PostKnowledgeBaseBulkDeleteRouteResponseDiscriminatorStatus? Type2540 { get; set; }
+        public global::ElevenLabs.RefreshUrlDocumentRouteResponseDiscriminatorType? Type2540 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.PostKnowledgeBaseBulkDeleteRouteResponse2? Type2541 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.PostKnowledgeBaseBulkDeleteRouteResponseDiscriminator? Type2542 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.PostKnowledgeBaseBulkDeleteRouteResponseDiscriminatorStatus? Type2543 { get; set; }
 
         /// <summary>
         ///
@@ -10258,1126 +10270,1130 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifier, global::ElevenLabs.AlertingPagerDutyNotifier, global::ElevenLabs.AlertingSlackNotifier>>? ListType15 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ResourceAccessInfo>? ListType15 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifierResponse, global::ElevenLabs.AlertingPagerDutyNotifierResponse, global::ElevenLabs.AlertingSlackNotifierResponse>>? ListType16 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifier, global::ElevenLabs.AlertingPagerDutyNotifier, global::ElevenLabs.AlertingSlackNotifier>>? ListType16 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DynamicVariableAssignment>? ListType17 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifierResponse, global::ElevenLabs.AlertingPagerDutyNotifierResponse, global::ElevenLabs.AlertingSlackNotifierResponse>>? ListType17 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<object>? ListType18 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DynamicVariableAssignment>? ListType18 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AssetResponse>? ListType19 { get; set; }
+        public global::System.Collections.Generic.List<object>? ListType19 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<int>? ListType20 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AssetResponse>? ListType20 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AudioSegment>? ListType21 { get; set; }
+        public global::System.Collections.Generic.List<int>? ListType21 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AudioKeyMoment>? ListType22 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AudioSegment>? ListType22 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.VoiceSegment>? ListType23 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AudioKeyMoment>? ListType23 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ToolsItem>? ListType24 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.VoiceSegment>? ListType24 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.McpServersItem>? ListType25 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ToolsItem>? ListType25 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DependentIntegrationConnectionIdentifier>? ListType26 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.McpServersItem>? ListType26 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AllowlistItem>? ListType27 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DependentIntegrationConnectionIdentifier>? ListType27 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.Llm>? ListType28 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AllowlistItem>? ListType28 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.OutboundCallRecipientResponseModel>? ListType29 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.Llm>? ListType29 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModel>>? ListType30 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.OutboundCallRecipientResponseModel>? ListType30 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<byte[]>? ListType31 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleRequestModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleRequestModel>>? ListType31 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.GetOrCreateRAGIndexRequestModel>? ListType32 { get; set; }
+        public global::System.Collections.Generic.List<byte[]>? ListType32 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel>? ListType33 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.GetOrCreateRAGIndexRequestModel>? ListType33 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>>? ListType34 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel>? ListType34 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>? ListType35 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource, global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>>? ListType35 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item>? ListType36 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<global::ElevenLabs.PodcastTextSource, global::ElevenLabs.PodcastURLSource>>? ListType36 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ColumnFilter>? ListType37 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.BodyGetWorkspaceUsageV1WorkspaceAnalyticsQueryUsageByProductOverTimePostGroupByVariant1Item>? ListType37 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TemplateParamsItem>? ListType38 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ColumnFilter>? ListType38 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.PromptEvaluationCriteria>? ListType39 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TemplateParamsItem>? ListType39 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.List<string>, object>? ListType40 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.PromptEvaluationCriteria>? ListType40 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.OutboundCallRecipient>? ListType41 { get; set; }
+        public global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.List<string>, object>? ListType41 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DialogueInput>? ListType42 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.OutboundCallRecipient>? ListType42 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? ListType43 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DialogueInput>? ListType43 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceWebhookEventType>? ListType44 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? ListType44 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.List<global::ElevenLabs.PermissionType>, string>? ListType45 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceWebhookEventType>? ListType45 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.PermissionType>? ListType46 { get; set; }
+        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.List<global::ElevenLabs.PermissionType>, string>? ListType46 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DefaultSharingGroupConfig>? ListType47 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.PermissionType>? ListType47 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.List<string>, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchAllowedIps?>? ListType48 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DefaultSharingGroupConfig>? ListType48 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ImageReference>? ListType49 { get; set; }
+        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.List<string>, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchAllowedIps?>? ListType49 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.VideoReference>? ListType50 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ImageReference>? ListType50 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AudioReference>? ListType51 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.VideoReference>? ListType51 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel>? ListType52 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AudioReference>? ListType52 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<global::ElevenLabs.ChapterContentBlockTtsNodeResponseModel, global::ElevenLabs.ChapterContentBlockExtendableNodeResponseModel>>? ListType53 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ChapterContentParagraphTtsNodeInputModel>? ListType53 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ChapterContentBlockInputModel>? ListType54 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<global::ElevenLabs.ChapterContentBlockTtsNodeResponseModel, global::ElevenLabs.ChapterContentBlockExtendableNodeResponseModel>>? ListType54 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ChapterContentBlockResponseModel>? ListType55 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ChapterContentBlockInputModel>? ListType55 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.CharacterAlignmentModel>? ListType56 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ChapterContentBlockResponseModel>? ListType56 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ChapterSnapshotResponseModel>? ListType57 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.CharacterAlignmentModel>? ListType57 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.VoiceStatisticsResponseModel>? ListType58 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ChapterSnapshotResponseModel>? ListType58 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<double>? ListType59 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.VoiceStatisticsResponseModel>? ListType59 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?, double?, global::System.DateTime?, bool?, object>>? ListType60 { get; set; }
+        public global::System.Collections.Generic.List<double>? ListType60 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<global::ElevenLabs.ProcedureValidationError>>? ListType61 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?, double?, global::System.DateTime?, bool?, object>>? ListType61 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ProcedureValidationError>? ListType62 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<global::ElevenLabs.ProcedureValidationError>>? ListType62 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.GenerationChunkInput, global::ElevenLabs.AudioRefChunk>>? ListType63 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ProcedureValidationError>? ListType63 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.Collections.Generic.List<object>, object, object>? ListType64 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.GenerationChunkInput, global::ElevenLabs.AudioRefChunk>>? ListType64 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ToolsItem2>? ListType65 { get; set; }
+        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.Collections.Generic.List<object>, object, object>? ListType65 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AgentsItem>? ListType66 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ToolsItem2>? ListType66 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DependentPhoneNumberIdentifier>? ListType67 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AgentsItem>? ListType67 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.McpServersItem2>? ListType68 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DependentPhoneNumberIdentifier>? ListType68 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SecretDependencyType>? ListType69 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.McpServersItem2>? ListType69 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.WebhookEventType>? ListType70 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SecretDependencyType>? ListType70 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ClientEvent>? ListType71 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.WebhookEventType>? ListType71 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? ListType72 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ClientEvent>? ListType72 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DataCollectionResultCommonModel>? ListType73 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryEvaluationCriteriaResultCommonModel>? ListType73 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ScopedAnalysisResult>? ListType74 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DataCollectionResultCommonModel>? ListType74 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationVoiceRewardModel>? ListType75 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ScopedAnalysisResult>? ListType75 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryMultivoiceMessagePartModel>? ListType76 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationVoiceRewardModel>? ListType76 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConfigEntityType>? ListType77 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryMultivoiceMessagePartModel>? ListType77 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DynamicVariableUpdateCommonModel>? ListType78 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConfigEntityType>? ListType78 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelInput>? ListType79 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DynamicVariableUpdateCommonModel>? ListType79 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationReasoningModel>? ListType80 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelInput>? ListType80 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TriggeredGuardrailCommonModel>? ListType81 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationReasoningModel>? ListType81 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelOutput>? ListType82 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TriggeredGuardrailCommonModel>? ListType82 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel>? ListType83 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryTranscriptToolCallCommonModelOutput>? ListType83 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<global::ElevenLabs.ToolResponseMockConfigOutput>>? ListType84 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryTranscriptFileInputResponseModel>? ListType84 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ToolResponseMockConfigOutput>? ListType85 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<global::ElevenLabs.ToolResponseMockConfigOutput>>? ListType85 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? ListType86 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ToolResponseMockConfigOutput>? ListType86 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationVoiceUsageModel>? ListType87 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryTranscriptCommonModelInput>? ListType87 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.FrustratedConversationRef>? ListType88 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationVoiceUsageModel>? ListType88 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TurnCommentRequestModel>? ListType89 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.FrustratedConversationRef>? ListType89 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AgentSuccessfulResponseExample>? ListType90 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TurnCommentRequestModel>? ListType90 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AgentFailureResponseExample>? ListType91 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AgentSuccessfulResponseExample>? ListType91 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<global::ElevenLabs.ToolResponseMockConfigInput>>? ListType92 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AgentFailureResponseExample>? ListType92 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ToolResponseMockConfigInput>? ListType93 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<global::ElevenLabs.ToolResponseMockConfigInput>>? ListType93 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.CustomGuardrailConfig>? ListType94 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ToolResponseMockConfigInput>? ListType94 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.WordTimestamp>? ListType95 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.CustomGuardrailConfig>? ListType95 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ReadMetadataChapterDBModel>? ListType96 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.WordTimestamp>? ListType96 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DirectPublishingReadResponseModelGenreVariant1Item>? ListType97 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ReadMetadataChapterDBModel>? ListType97 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.Contributor>? ListType98 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DirectPublishingReadResponseModelGenreVariant1Item>? ListType98 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SegmentSubtitleFrame>? ListType99 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.Contributor>? ListType99 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingTranscriptSegment>? ListType100 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SegmentSubtitleFrame>? ListType100 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingTargetTranscriptSegment>? ListType101 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingTranscriptSegment>? ListType101 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingLanguageResponse>? ListType102 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingTargetTranscriptSegment>? ListType102 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.VoicesNotPermittedWarning>? ListType103 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingLanguageResponse>? ListType103 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingMetadataResponse>? ListType104 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.VoicesNotPermittedWarning>? ListType104 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingProjectResponse>? ListType105 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingMetadataResponse>? ListType105 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingTranscriptUtterance>? ListType106 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingProjectResponse>? ListType106 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingTranscriptWord>? ListType107 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingTranscriptUtterance>? ListType107 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingTranscriptCharacter>? ListType108 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingTranscriptWord>? ListType108 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.PronunciationDictionaryVersionLocator>? ListType109 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DubbingTranscriptCharacter>? ListType109 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.EnvironmentVariableResponse>? ListType110 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.PronunciationDictionaryVersionLocator>? ListType110 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.InvoiceResponseModel>? ListType111 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.EnvironmentVariableResponse>? ListType111 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.VerificationAttemptResponseModel>? ListType112 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.InvoiceResponseModel>? ListType112 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ForcedAlignmentCharacterResponseModel>? ListType113 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.VerificationAttemptResponseModel>? ListType113 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ForcedAlignmentWordResponseModel>? ListType114 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ForcedAlignmentCharacterResponseModel>? ListType114 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AgentConversationTicketResponseModel>? ListType115 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ForcedAlignmentWordResponseModel>? ListType115 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.PhoneNumbersItem>? ListType116 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AgentConversationTicketResponseModel>? ListType116 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.GetWhatsAppAccountResponse>? ListType117 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.PhoneNumbersItem>? ListType117 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AgentTestFolderPathSegmentResponseModel>? ListType118 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.GetWhatsAppAccountResponse>? ListType118 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AgentTopicResponseModel>? ListType119 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AgentTestFolderPathSegmentResponseModel>? ListType119 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AgentSummaryResponseModel>? ListType120 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AgentTopicResponseModel>? ListType120 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AudioIsolationHistoryItemResponseModel>? ListType121 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AgentSummaryResponseModel>? ListType121 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ChapterResponseModel>? ListType122 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AudioIsolationHistoryItemResponseModel>? ListType122 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ChartsItem>? ListType123 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ChapterResponseModel>? ListType123 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.VisitedAgentRef>? ListType124 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ChartsItem>? ListType124 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationSummaryMessageModel>? ListType125 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.VisitedAgentRef>? ListType125 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationTagResponseModel>? ListType126 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationSummaryMessageModel>? ListType126 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationUserResponseModel>? ListType127 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationTagResponseModel>? ListType127 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationSummaryResponseModel>? ListType128 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationUserResponseModel>? ListType128 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AgentsItem2>? ListType129 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationSummaryResponseModel>? ListType129 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DependentBranchInfo>? ListType130 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AgentsItem2>? ListType130 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DocumentUsageModeEnum>? ListType131 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DependentBranchInfo>? ListType131 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? ListType132 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DocumentUsageModeEnum>? ListType132 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DocumentsItem>? ListType133 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? ListType133 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DependentAgentsItem>? ListType134 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DocumentsItem>? ListType134 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DependentAgentsItem2>? ListType135 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DependentAgentsItem>? ListType135 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DependentAgentsItem3>? ListType136 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DependentAgentsItem2>? ListType136 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DependentAgentsItem4>? ListType137 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DependentAgentsItem3>? ListType137 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.LibraryVoiceResponseModel>? ListType138 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DependentAgentsItem4>? ListType138 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.MediaCodec>? ListType139 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.LibraryVoiceResponseModel>? ListType139 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.PhoneNumbersItem2>? ListType140 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.MediaCodec>? ListType140 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ProjectResponseModel>? ListType141 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.PhoneNumbersItem2>? ListType141 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel>? ListType142 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ProjectResponseModel>? ListType142 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleResponseModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleResponseModel>>? ListType143 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.GetPronunciationDictionaryMetadataResponseModel>? ListType143 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput>? ListType144 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleResponseModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleResponseModel>>? ListType144 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SIPLogMessage>? ListType145 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput>? ListType145 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.List<global::ElevenLabs.DependenciesVariant1Item>, global::System.Collections.Generic.List<global::ElevenLabs.DependenciesVariant2Item>, global::System.Collections.Generic.List<global::ElevenLabs.DependentPhoneNumberIdentifier>>? ListType146 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SIPLogMessage>? ListType146 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DependenciesVariant1Item>? ListType147 { get; set; }
+        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.List<global::ElevenLabs.DependenciesVariant1Item>, global::System.Collections.Generic.List<global::ElevenLabs.DependenciesVariant2Item>, global::System.Collections.Generic.List<global::ElevenLabs.DependentPhoneNumberIdentifier>>? ListType147 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DependenciesVariant2Item>? ListType148 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DependenciesVariant1Item>? ListType148 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SpeechHistoryItemResponseModel>? ListType149 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DependenciesVariant2Item>? ListType149 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TestInvocationSummaryResponseModel>? ListType150 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SpeechHistoryItemResponseModel>? ListType150 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TestRunResultSummary>? ListType151 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TestInvocationSummaryResponseModel>? ListType151 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.UnitTestRunResponseModel>? ListType152 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TestRunResultSummary>? ListType152 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.UnitTestSummaryResponseModel>? ListType153 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.UnitTestRunResponseModel>? ListType153 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AgentsItem3>? ListType154 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.UnitTestSummaryResponseModel>? ListType154 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ToolExecutionResponseModel>? ListType155 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AgentsItem3>? ListType155 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.VoiceAccentResponseModel>? ListType156 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ToolExecutionResponseModel>? ListType156 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.VoiceResponseModel>? ListType157 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.VoiceAccentResponseModel>? ListType157 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig>? ListType158 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.VoiceResponseModel>? ListType158 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ValidationError>? ListType159 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig>? ListType159 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ImageSubject>? ListType160 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ValidationError>? ListType160 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AlertingWebhookHeader>? ListType161 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ImageSubject>? ListType161 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DiscountResponseModel>? ListType162 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AlertingWebhookHeader>? ListType162 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.InvoiceResponseModelPaymentIntentStatusse>? ListType163 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DiscountResponseModel>? ListType163 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.KnowledgeBaseContentSearchResult>? ListType164 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.InvoiceResponseModelPaymentIntentStatusse>? ListType164 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SearchHighlightSegment>? ListType165 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.KnowledgeBaseContentSearchResult>? ListType165 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel>? ListType166 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SearchHighlightSegment>? ListType166 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.KnowledgeBaseRagChunkModel>? ListType167 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel>? ListType167 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SearchStrategy>? ListType168 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.KnowledgeBaseRagChunkModel>? ListType168 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.LLMReasoningEffort>? ListType169 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SearchStrategy>? ListType169 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.LLMInfoModel>? ListType170 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.LLMReasoningEffort>? ListType170 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.LLMLiteralJsonSchemaPropertyType?, global::System.Collections.Generic.List<string>>? ListType171 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.LLMInfoModel>? ListType171 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.LLMUsageCalculatorLLMResponseModel>? ListType172 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.LLMLiteralJsonSchemaPropertyType?, global::System.Collections.Generic.List<string>>? ListType172 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.LanguageInfo>? ListType173 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.LLMUsageCalculatorLLMResponseModel>? ListType173 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.VerifiedVoiceLanguageResponseModel>? ListType174 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.LanguageInfo>? ListType174 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AuthConnectionsItem>? ListType175 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.VerifiedVoiceLanguageResponseModel>? ListType175 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.GetCrawlJobResponseModel>? ListType176 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AuthConnectionsItem>? ListType176 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.Tool>? ListType177 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.GetCrawlJobResponseModel>? ListType177 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.MCPToolApprovalStatus>? ListType178 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.Tool>? ListType178 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.OrderSummary>? ListType179 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.MCPToolApprovalStatus>? ListType179 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ProcedureListItemResponseModel>? ListType180 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.OrderSummary>? ListType180 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AgentBranchSummary>? ListType181 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ProcedureListItemResponseModel>? ListType181 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SpeechEngineSummaryResponse>? ListType182 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AgentBranchSummary>? ListType182 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.LiteralJsonSchemaPropertyType?, global::System.Collections.Generic.List<string>>? ListType183 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SpeechEngineSummaryResponse>? ListType183 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.MCPToolApprovalHash>? ListType184 { get; set; }
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.LiteralJsonSchemaPropertyType?, global::System.Collections.Generic.List<string>>? ListType184 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.MCPToolConfigOverrideInput>? ListType185 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.MCPToolApprovalHash>? ListType185 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.MCPToolConfigOverrideOutput>? ListType186 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.MCPToolConfigOverrideInput>? ListType186 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DependentAgentsItem5>? ListType187 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.MCPToolConfigOverrideOutput>? ListType187 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.MCPServerResponseModel>? ListType188 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DependentAgentsItem5>? ListType188 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ManualVerificationFileResponseModel>? ListType189 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.MCPServerResponseModel>? ListType189 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.MediaGenerationResponse>? ListType190 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ManualVerificationFileResponseModel>? ListType190 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.PhoneNumbersItem3>? ListType191 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.MediaGenerationResponse>? ListType191 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.FieldConflict>? ListType192 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.PhoneNumbersItem3>? ListType192 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.MessagesSearchResult>? ListType193 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.FieldConflict>? ListType193 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.LanguageResponseModel>? ListType194 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.MessagesSearchResult>? ListType194 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SpeechToTextChunkResponseModel>? ListType195 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.LanguageResponseModel>? ListType195 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.MusicFinetuneResponseModel>? ListType196 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SpeechToTextChunkResponseModel>? ListType196 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SongSection>? ListType197 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.MusicFinetuneResponseModel>? ListType197 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.OTelAttribute>? ListType198 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SongSection>? ListType198 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.OTelScopeSpans>? ListType199 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.OTelAttribute>? ListType199 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.OTelSpan>? ListType200 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.OTelScopeSpans>? ListType200 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.OTelResourceSpans>? ListType201 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.OTelSpan>? ListType201 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DeliverableInfo>? ListType202 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.OTelResourceSpans>? ListType202 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.OrderItemInfo>? ListType203 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DeliverableInfo>? ListType203 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.LanguagePairInfo>? ListType204 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.OrderItemInfo>? ListType204 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ChartsItem2>? ListType205 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.LanguagePairInfo>? ListType205 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.CustomSipHeadersItem>? ListType206 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ChartsItem2>? ListType206 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.PronunciationDictionaryVersionResponseModel>? ListType207 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.CustomSipHeadersItem>? ListType207 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel>? ListType208 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.PronunciationDictionaryVersionResponseModel>? ListType208 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<global::ElevenLabs.ProjectVideoResponseModel, global::ElevenLabs.ProjectExternalAudioResponseModel, global::ElevenLabs.ProjectImageResponseModel>>? ListType209 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.PronunciationDictionaryLocatorResponseModel>? ListType209 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ProjectVoiceResponseModel>? ListType210 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<global::ElevenLabs.ProjectVideoResponseModel, global::ElevenLabs.ProjectExternalAudioResponseModel, global::ElevenLabs.ProjectImageResponseModel>>? ListType210 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ProjectSnapshotResponseModel>? ListType211 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ProjectVoiceResponseModel>? ListType211 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ProjectVideoThumbnailSheetResponseModel>? ListType212 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ProjectSnapshotResponseModel>? ListType212 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.KnowledgeBaseLocator>? ListType213 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ProjectVideoThumbnailSheetResponseModel>? ListType213 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ToolsItem3>? ListType214 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.KnowledgeBaseLocator>? ListType214 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ToolsItem4>? ListType215 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ToolsItem3>? ListType215 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ToolsVariant1Item>? ListType216 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ToolsItem4>? ListType216 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ToolsVariant1Item2>? ListType217 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ToolsVariant1Item>? ListType217 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.RAGDocumentIndexResponseModel>? ListType218 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ToolsVariant1Item2>? ListType218 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.RAGIndexOverviewEmbeddingModelResponseModel>? ListType219 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.RAGDocumentIndexResponseModel>? ListType219 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.RagChunkMetadata>? ListType220 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.RAGIndexOverviewEmbeddingModelResponseModel>? ListType220 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.RequiredConstraint>? ListType221 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.RagChunkMetadata>? ListType221 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>>? ListType222 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.RequiredConstraint>? ListType222 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ShareOptionResponseModel>? ListType223 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>>? ListType223 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ReviewResponseModelRejectReasonsVariant1Item>? ListType224 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ShareOptionResponseModel>? ListType224 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SingleTestRunRequestModel>? ListType225 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ReviewResponseModelRejectReasonsVariant1Item>? ListType225 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SafetyRule>? ListType226 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SingleTestRunRequestModel>? ListType226 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TimeRange>? ListType227 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SafetyRule>? ListType227 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SimilarVoice>? ListType228 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TimeRange>? ListType228 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.UtteranceResponseModel>? ListType229 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SimilarVoice>? ListType229 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DialogueInputResponseModel>? ListType230 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.UtteranceResponseModel>? ListType230 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SpeechToTextWordResponseModel>? ListType231 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DialogueInputResponseModel>? ListType231 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AdditionalFormatResponseModel?>? ListType232 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SpeechToTextWordResponseModel>? ListType232 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DetectedEntity>? ListType233 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AdditionalFormatResponseModel?>? ListType233 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SpeechToTextCharacterResponseModel>? ListType234 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DetectedEntity>? ListType234 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SupportedVoice>? ListType235 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SpeechToTextCharacterResponseModel>? ListType235 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SuggestedAudioTag>? ListType236 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SupportedVoice>? ListType236 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? ListType237 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SuggestedAudioTag>? ListType237 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TemplateOutput>? ListType238 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? ListType238 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TemplateSummary>? ListType239 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TemplateOutput>? ListType239 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TemplateRunInput>? ListType240 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TemplateSummary>? ListType240 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TemplateRunResponse>? ListType241 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TemplateRunInput>? ListType241 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TemplateVersion>? ListType242 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TemplateRunResponse>? ListType242 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TemplatePort>? ListType243 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TemplateVersion>? ListType243 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TestRunResultBucket>? ListType244 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TemplatePort>? ListType244 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.Icon>? ListType245 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TestRunResultBucket>? ListType245 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.UnitTestToolCallParameter>? ListType246 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.Icon>? ListType246 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ToolResponseModel>? ListType247 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.UnitTestToolCallParameter>? ListType247 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TopicEvaluationCriteriaAggregate>? ListType248 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ToolResponseModel>? ListType248 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AgentTransferInput>? ListType249 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TopicEvaluationCriteriaAggregate>? ListType249 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AgentTransferOutput>? ListType250 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AgentTransferInput>? ListType250 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.PhoneNumberTransfer>? ListType251 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AgentTransferOutput>? ListType251 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<double>>? ListType252 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.PhoneNumberTransfer>? ListType252 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?>>? ListType253 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<double>>? ListType253 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.VeoImageReference>? ListType254 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?>>? ListType254 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.VideoSubject>? ListType255 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.VeoImageReference>? ListType255 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.VideoSegment>? ListType256 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.VideoSubject>? ListType256 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.VideoKeyMoment>? ListType257 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.VideoSegment>? ListType257 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.VoicePreviewResponseModel>? ListType258 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.VideoKeyMoment>? ListType258 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.SampleResponseModel>? ListType259 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.VoicePreviewResponseModel>? ListType259 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ReaderResourceResponseModel>? ListType260 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.SampleResponseModel>? ListType260 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.WhatsAppTemplateTextParam>? ListType261 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ReaderResourceResponseModel>? ListType261 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ParametersItem>? ListType262 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.WhatsAppTemplateTextParam>? ListType262 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.CustomSipHeadersItem2>? ListType263 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ParametersItem>? ListType263 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.CustomSipHeadersItem3>? ListType264 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.CustomSipHeadersItem2>? ListType264 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.WorkflowToolLocator>? ListType265 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.CustomSipHeadersItem3>? ListType265 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.StepsItem>? ListType266 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.WorkflowToolLocator>? ListType266 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.StepsItem2>? ListType267 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.StepsItem>? ListType267 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceAnalyticsQueryResponseModelColumnType>? ListType268 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.StepsItem2>? ListType268 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>>>? ListType269 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceAnalyticsQueryResponseModelColumnType>? ListType269 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>>? ListType270 { get; set; }
+        public global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>>>? ListType270 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ColumnUnit?>? ListType271 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>>? ListType271 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceApiKeyResponseModel>? ListType272 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ColumnUnit?>? ListType272 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceAuditLogEntryResponse>? ListType273 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceApiKeyResponseModel>? ListType273 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.BatchCallResponse>? ListType274 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceAuditLogEntryResponse>? ListType274 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceGroupPermission>? ListType275 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.BatchCallResponse>? ListType275 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceServiceAccountResponseModel>? ListType276 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceGroupPermission>? ListType276 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.DefaultSharingGroupResponseModel>? ListType277 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceServiceAccountResponseModel>? ListType277 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceWebhookResponseModel>? ListType278 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.DefaultSharingGroupResponseModel>? ListType278 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceWebhookUsageResponseModel>? ListType279 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceWebhookResponseModel>? ListType279 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ListDubsDubbingStatusesVariant1Item>? ListType280 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceWebhookUsageResponseModel>? ListType280 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ListDubsDubbingModelsVariant1Item>? ListType281 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ListDubsDubbingStatusesVariant1Item>? ListType281 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ListDubsCreationSourcesVariant1Item>? ListType282 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ListDubsDubbingModelsVariant1Item>? ListType282 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TestType>? ListType283 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ListDubsCreationSourcesVariant1Item>? ListType283 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? ListType284 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TestType>? ListType284 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.GuardrailType>? ListType285 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.GetConversationHistoriesRouteExcludeStatusesVariant1Item>? ListType285 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? ListType286 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.GuardrailType>? ListType286 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AgentConversationTicketSource>? ListType287 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TextSearchConversationMessagesRouteExcludeStatusesVariant1Item>? ListType287 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.KnowledgeBaseDocumentType>? ListType288 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AgentConversationTicketSource>? ListType288 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ToolTypeFilter>? ListType289 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.KnowledgeBaseDocumentType>? ListType289 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.OrderState>? ListType290 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ToolTypeFilter>? ListType290 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ModelResponseModel>? ListType291 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.OrderState>? ListType291 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceGroupByNameResponseModel>? ListType292 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.ModelResponseModel>? ListType292 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceMemberResponseModel>? ListType293 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceGroupByNameResponseModel>? ListType293 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.AssignableUserResponseModel>? ListType294 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.WorkspaceMemberResponseModel>? ListType294 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>? ListType295 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.AssignableUserResponseModel>? ListType295 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.List<global::ElevenLabs.ListPhoneNumbersRouteResponseItem>? ListType296 { get; set; }
     }
 }

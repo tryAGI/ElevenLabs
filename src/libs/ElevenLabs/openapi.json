@@ -16675,7 +16675,7 @@
           "Agents Platform"
         ],
         "summary": "Simulates A Conversation",
-        "description": "Deprecated. Use the `/v1/convai/agent-testing/create` and `/v1/convai/agents/:agent_id/run-tests` endpoints to create and run simulations. Run a conversation between the agent and a simulated user.",
+        "description": "Deprecated. This endpoint will be removed on 31 Oct 2026. Use the `/v1/convai/agent-testing/create` and `/v1/convai/agents/:agent_id/run-tests` endpoints to create and run simulations. Run a conversation between the agent and a simulated user.",
         "operationId": "run_conversation_simulation_route",
         "deprecated": true,
         "parameters": [
@@ -16758,7 +16758,7 @@
           "Agents Platform"
         ],
         "summary": "Simulates A Conversation (Stream)",
-        "description": "Deprecated. Use the `/v1/convai/agent-testing/create` and `/v1/convai/agents/:agent_id/run-tests` endpoints to create and run simulations. Run a conversation between the agent and a simulated user and stream back the response. Response is streamed back as partial lists of messages that should be concatenated and once the conversation has complete a single final message with the conversation analysis will be sent.",
+        "description": "Deprecated. This endpoint will be removed on 31 Oct 2026. Use the `/v1/convai/agent-testing/create` and `/v1/convai/agents/:agent_id/run-tests` endpoints to create and run simulations. Run a conversation between the agent and a simulated user and stream back the response. Response is streamed back as partial lists of messages that should be concatenated and once the conversation has complete a single final message with the conversation analysis will be sent.",
         "operationId": "run_conversation_simulation_route_stream",
         "deprecated": true,
         "parameters": [
@@ -41045,7 +41045,7 @@
           "enabled": {
             "type": "boolean",
             "title": "Enabled",
-            "description": "Hold callers in a wait queue when the agent is at its concurrency limit, instead of rejecting them immediately",
+            "description": "Hold callers in a wait queue when the agent is at its concurrency limit, instead of rejecting them immediately. New agents are created with queueing enabled unless this field is set explicitly.",
             "default": false
           },
           "wait_timeout_seconds": {
@@ -41648,6 +41648,21 @@
                 "type": "null"
               }
             ]
+          },
+          "merged_authors": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ResourceAccessInfo"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Merged Authors",
+            "description": "For a merge into the main branch, the people who published the merged changes on the source branch (access_info is whoever ran the merge). Null when not recorded."
           }
         },
         "type": "object",
@@ -43550,6 +43565,29 @@
           "api_schema_overrides"
         ],
         "title": "ApiIntegrationWebhookToolConfig"
+      },
+      "ArchitectDispatchResponseModel": {
+        "properties": {
+          "architect_chat_id": {
+            "type": "string",
+            "title": "Architect Chat Id"
+          },
+          "user_id": {
+            "type": "string",
+            "title": "User Id"
+          },
+          "dispatched_at_unix_secs": {
+            "type": "integer",
+            "title": "Dispatched At Unix Secs"
+          }
+        },
+        "type": "object",
+        "required": [
+          "architect_chat_id",
+          "user_id",
+          "dispatched_at_unix_secs"
+        ],
+        "title": "ArchitectDispatchResponseModel"
       },
       "ArrayJsonSchemaProperty-Input": {
         "properties": {
@@ -102664,6 +102702,36 @@
           "owner_user_id"
         ],
         "title": "TicketCommentResponseModel"
+      },
+      "TicketMergeProposalLinkResponseModel": {
+        "properties": {
+          "merge_proposal_id": {
+            "type": "string",
+            "title": "Merge Proposal Id"
+          },
+          "linked_by_user_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Linked By User Id"
+          },
+          "linked_at_unix_secs": {
+            "type": "integer",
+            "title": "Linked At Unix Secs"
+          }
+        },
+        "type": "object",
+        "required": [
+          "merge_proposal_id",
+          "linked_by_user_id",
+          "linked_at_unix_secs"
+        ],
+        "title": "TicketMergeProposalLinkResponseModel"
       },
       "TimeRange": {
         "properties": {

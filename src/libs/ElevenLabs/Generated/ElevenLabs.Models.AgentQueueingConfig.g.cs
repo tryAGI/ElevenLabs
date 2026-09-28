@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class AgentQueueingConfig
     {
         /// <summary>
-        /// Hold callers in a wait queue when the agent is at its concurrency limit, instead of rejecting them immediately<br/>
+        /// Hold callers in a wait queue when the agent is at its concurrency limit, instead of rejecting them immediately. New agents are created with queueing enabled unless this field is set explicitly.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enabled")]
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="AgentQueueingConfig" /> class.
         /// </summary>
         /// <param name="enabled">
-        /// Hold callers in a wait queue when the agent is at its concurrency limit, instead of rejecting them immediately<br/>
+        /// Hold callers in a wait queue when the agent is at its concurrency limit, instead of rejecting them immediately. New agents are created with queueing enabled unless this field is set explicitly.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="waitTimeoutSeconds">

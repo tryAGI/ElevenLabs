@@ -64,6 +64,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ResourceAccessInfo? AccessInfo { get; set; }
 
         /// <summary>
+        /// For a merge into the main branch, the people who published the merged changes on the source branch (access_info is whoever ran the merge). Null when not recorded.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("merged_authors")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ResourceAccessInfo>? MergedAuthors { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -80,6 +86,9 @@ namespace ElevenLabs
         /// <param name="timeCommittedSecs"></param>
         /// <param name="parents"></param>
         /// <param name="accessInfo"></param>
+        /// <param name="mergedAuthors">
+        /// For a merge into the main branch, the people who published the merged changes on the source branch (access_info is whoever ran the merge). Null when not recorded.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -91,7 +100,8 @@ namespace ElevenLabs
             int seqNoInBranch,
             int timeCommittedSecs,
             global::ElevenLabs.AgentVersionParents parents,
-            global::ElevenLabs.ResourceAccessInfo? accessInfo)
+            global::ElevenLabs.ResourceAccessInfo? accessInfo,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ResourceAccessInfo>? mergedAuthors)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
@@ -101,6 +111,7 @@ namespace ElevenLabs
             this.TimeCommittedSecs = timeCommittedSecs;
             this.Parents = parents ?? throw new global::System.ArgumentNullException(nameof(parents));
             this.AccessInfo = accessInfo;
+            this.MergedAuthors = mergedAuthors;
         }
 
         /// <summary>
