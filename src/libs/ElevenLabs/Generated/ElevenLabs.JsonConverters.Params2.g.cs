@@ -140,67 +140,67 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndCallToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndCallToolConfig?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.EndCallToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.EndCall!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickEndCall(), typeInfo);
             }
             else if (value.IsLanguageDetection)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.LanguageDetectionToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.LanguageDetectionToolConfig?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.LanguageDetectionToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.LanguageDetection!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickLanguageDetection(), typeInfo);
             }
             else if (value.IsTransferToAgent)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToAgentToolConfigInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToAgentToolConfigInput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToAgentToolConfigInput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToAgent!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTransferToAgent(), typeInfo);
             }
             else if (value.IsTransferToNumber)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberToolConfigInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberToolConfigInput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToNumberToolConfigInput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TransferToNumber!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTransferToNumber(), typeInfo);
             }
             else if (value.IsSkipTurn)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SkipTurnToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SkipTurnToolConfig?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SkipTurnToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SkipTurn!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickSkipTurn(), typeInfo);
             }
             else if (value.IsPlayKeypadTouchTone)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PlayDTMFToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PlayDTMFToolConfig?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.PlayDTMFToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PlayKeypadTouchTone!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickPlayKeypadTouchTone(), typeInfo);
             }
             else if (value.IsVoicemailDetection)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.VoicemailDetectionToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.VoicemailDetectionToolConfig?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.VoicemailDetectionToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.VoicemailDetection!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickVoicemailDetection(), typeInfo);
             }
             else if (value.IsKnowledgeBaseRag)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseRagToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseRagToolConfig?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.KnowledgeBaseRagToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeBaseRag!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickKnowledgeBaseRag(), typeInfo);
             }
             else if (value.IsKnowledgeBase)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.KnowledgeBaseToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.KnowledgeBaseToolConfig?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.KnowledgeBaseToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeBase!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickKnowledgeBase(), typeInfo);
             }
             else if (value.IsStartProcedure)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.StartProcedureToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.StartProcedureToolConfig?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.StartProcedureToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StartProcedure!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickStartProcedure(), typeInfo);
             }
             else if (value.IsEndProcedure)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndProcedureToolConfig), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndProcedureToolConfig?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.EndProcedureToolConfig).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.EndProcedure!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickEndProcedure(), typeInfo);
             }
         }
     }

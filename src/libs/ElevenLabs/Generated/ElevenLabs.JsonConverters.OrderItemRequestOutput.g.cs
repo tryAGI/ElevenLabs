@@ -68,19 +68,19 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DubOrderItemRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DubOrderItemRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DubOrderItemRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Dub!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickDub(), typeInfo);
             }
             else if (value.IsSubtitles)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.SubtitleOrderItemRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.SubtitleOrderItemRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.SubtitleOrderItemRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Subtitles!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickSubtitles(), typeInfo);
             }
             else if (value.IsTranscription)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TranscriptionOrderItemRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TranscriptionOrderItemRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TranscriptionOrderItemRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Transcription!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTranscription(), typeInfo);
             }
         }
     }

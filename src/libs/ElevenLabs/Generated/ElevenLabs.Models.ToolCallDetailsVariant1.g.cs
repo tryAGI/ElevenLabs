@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails PickWebhook() => IsWebhook
-            ? Webhook!
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails PickWebhook() => Webhook is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Webhook' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails PickClient() => IsClient
-            ? Client!
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallClientDetails PickClient() => Client is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Client' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails PickMcp() => IsMcp
-            ? Mcp!
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetails PickMcp() => Mcp is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Mcp' but the value was {ToString()}.");
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput PickApiIntegrationWebhook() => IsApiIntegrationWebhook
-            ? ApiIntegrationWebhook!
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallApiIntegrationWebhookDetailsOutput PickApiIntegrationWebhook() => ApiIntegrationWebhook is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ApiIntegrationWebhook' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -315,21 +315,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsWebhook && webhook != null)
+            if (Webhook is { } __value0 && webhook != null)
             {
-                return webhook(Webhook!);
+                return webhook(__value0);
             }
-            else if (IsClient && client != null)
+            else if (Client is { } __value1 && client != null)
             {
-                return client(Client!);
+                return client(__value1);
             }
-            else if (IsMcp && mcp != null)
+            else if (Mcp is { } __value2 && mcp != null)
             {
-                return mcp(Mcp!);
+                return mcp(__value2);
             }
-            else if (IsApiIntegrationWebhook && apiIntegrationWebhook != null)
+            else if (ApiIntegrationWebhook is { } __value3 && apiIntegrationWebhook != null)
             {
-                return apiIntegrationWebhook(ApiIntegrationWebhook!);
+                return apiIntegrationWebhook(__value3);
             }
 
             return default(TResult);
@@ -353,21 +353,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsWebhook)
+            if (Webhook is { } __value0)
             {
-                webhook?.Invoke(Webhook!);
+                webhook?.Invoke(__value0);
             }
-            else if (IsClient)
+            else if (Client is { } __value1)
             {
-                client?.Invoke(Client!);
+                client?.Invoke(__value1);
             }
-            else if (IsMcp)
+            else if (Mcp is { } __value2)
             {
-                mcp?.Invoke(Mcp!);
+                mcp?.Invoke(__value2);
             }
-            else if (IsApiIntegrationWebhook)
+            else if (ApiIntegrationWebhook is { } __value3)
             {
-                apiIntegrationWebhook?.Invoke(ApiIntegrationWebhook!);
+                apiIntegrationWebhook?.Invoke(__value3);
             }
         }
 
@@ -386,21 +386,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsWebhook)
+            if (Webhook is { } __value0)
             {
-                webhook?.Invoke(Webhook!);
+                webhook?.Invoke(__value0);
             }
-            else if (IsClient)
+            else if (Client is { } __value1)
             {
-                client?.Invoke(Client!);
+                client?.Invoke(__value1);
             }
-            else if (IsMcp)
+            else if (Mcp is { } __value2)
             {
-                mcp?.Invoke(Mcp!);
+                mcp?.Invoke(__value2);
             }
-            else if (IsApiIntegrationWebhook)
+            else if (ApiIntegrationWebhook is { } __value3)
             {
-                apiIntegrationWebhook?.Invoke(ApiIntegrationWebhook!);
+                apiIntegrationWebhook?.Invoke(__value3);
             }
         }
 

@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DubOrderItemRequest PickDub() => IsDub
-            ? Dub!
+        public global::ElevenLabs.DubOrderItemRequest PickDub() => Dub is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Dub' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SubtitleOrderItemRequest PickSubtitles() => IsSubtitles
-            ? Subtitles!
+        public global::ElevenLabs.SubtitleOrderItemRequest PickSubtitles() => Subtitles is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Subtitles' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TranscriptionOrderItemRequest PickTranscription() => IsTranscription
-            ? Transcription!
+        public global::ElevenLabs.TranscriptionOrderItemRequest PickTranscription() => Transcription is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Transcription' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -250,17 +250,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsDub && dub != null)
+            if (Dub is { } __value0 && dub != null)
             {
-                return dub(Dub!);
+                return dub(__value0);
             }
-            else if (IsSubtitles && subtitles != null)
+            else if (Subtitles is { } __value1 && subtitles != null)
             {
-                return subtitles(Subtitles!);
+                return subtitles(__value1);
             }
-            else if (IsTranscription && transcription != null)
+            else if (Transcription is { } __value2 && transcription != null)
             {
-                return transcription(Transcription!);
+                return transcription(__value2);
             }
 
             return default(TResult);
@@ -282,17 +282,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsDub)
+            if (Dub is { } __value0)
             {
-                dub?.Invoke(Dub!);
+                dub?.Invoke(__value0);
             }
-            else if (IsSubtitles)
+            else if (Subtitles is { } __value1)
             {
-                subtitles?.Invoke(Subtitles!);
+                subtitles?.Invoke(__value1);
             }
-            else if (IsTranscription)
+            else if (Transcription is { } __value2)
             {
-                transcription?.Invoke(Transcription!);
+                transcription?.Invoke(__value2);
             }
         }
 
@@ -310,17 +310,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsDub)
+            if (Dub is { } __value0)
             {
-                dub?.Invoke(Dub!);
+                dub?.Invoke(__value0);
             }
-            else if (IsSubtitles)
+            else if (Subtitles is { } __value1)
             {
-                subtitles?.Invoke(Subtitles!);
+                subtitles?.Invoke(__value1);
             }
-            else if (IsTranscription)
+            else if (Transcription is { } __value2)
             {
-                transcription?.Invoke(Transcription!);
+                transcription?.Invoke(__value2);
             }
         }
 

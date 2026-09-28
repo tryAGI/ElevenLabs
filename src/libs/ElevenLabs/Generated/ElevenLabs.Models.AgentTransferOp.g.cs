@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AgentTransferOpReplace PickReplace() => IsReplace
-            ? Replace!
+        public global::ElevenLabs.AgentTransferOpReplace PickReplace() => Replace is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Replace' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AgentTransferOpPush PickPush() => IsPush
-            ? Push!
+        public global::ElevenLabs.AgentTransferOpPush PickPush() => Push is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Push' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AgentTransferOpPop PickPop() => IsPop
-            ? Pop!
+        public global::ElevenLabs.AgentTransferOpPop PickPop() => Pop is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Pop' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -250,17 +250,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsReplace && replace != null)
+            if (Replace is { } __value0 && replace != null)
             {
-                return replace(Replace!);
+                return replace(__value0);
             }
-            else if (IsPush && push != null)
+            else if (Push is { } __value1 && push != null)
             {
-                return push(Push!);
+                return push(__value1);
             }
-            else if (IsPop && pop != null)
+            else if (Pop is { } __value2 && pop != null)
             {
-                return pop(Pop!);
+                return pop(__value2);
             }
 
             return default(TResult);
@@ -282,17 +282,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsReplace)
+            if (Replace is { } __value0)
             {
-                replace?.Invoke(Replace!);
+                replace?.Invoke(__value0);
             }
-            else if (IsPush)
+            else if (Push is { } __value1)
             {
-                push?.Invoke(Push!);
+                push?.Invoke(__value1);
             }
-            else if (IsPop)
+            else if (Pop is { } __value2)
             {
-                pop?.Invoke(Pop!);
+                pop?.Invoke(__value2);
             }
         }
 
@@ -310,17 +310,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsReplace)
+            if (Replace is { } __value0)
             {
-                replace?.Invoke(Replace!);
+                replace?.Invoke(__value0);
             }
-            else if (IsPush)
+            else if (Push is { } __value1)
             {
-                push?.Invoke(Push!);
+                push?.Invoke(__value1);
             }
-            else if (IsPop)
+            else if (Pop is { } __value2)
             {
-                pop?.Invoke(Pop!);
+                pop?.Invoke(__value2);
             }
         }
 

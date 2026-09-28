@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ElevenFlashV25Request PickElevenFlashV25() => IsElevenFlashV25
-            ? ElevenFlashV25!
+        public global::ElevenLabs.ElevenFlashV25Request PickElevenFlashV25() => ElevenFlashV25 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ElevenFlashV25' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ElevenMultilingualV2Request PickElevenMultilingualV2() => IsElevenMultilingualV2
-            ? ElevenMultilingualV2!
+        public global::ElevenLabs.ElevenMultilingualV2Request PickElevenMultilingualV2() => ElevenMultilingualV2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ElevenMultilingualV2' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ElevenV3Request PickElevenV3() => IsElevenV3
-            ? ElevenV3!
+        public global::ElevenLabs.ElevenV3Request PickElevenV3() => ElevenV3 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ElevenV3' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -250,17 +250,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsElevenFlashV25 && elevenFlashV25 != null)
+            if (ElevenFlashV25 is { } __value0 && elevenFlashV25 != null)
             {
-                return elevenFlashV25(ElevenFlashV25!);
+                return elevenFlashV25(__value0);
             }
-            else if (IsElevenMultilingualV2 && elevenMultilingualV2 != null)
+            else if (ElevenMultilingualV2 is { } __value1 && elevenMultilingualV2 != null)
             {
-                return elevenMultilingualV2(ElevenMultilingualV2!);
+                return elevenMultilingualV2(__value1);
             }
-            else if (IsElevenV3 && elevenV3 != null)
+            else if (ElevenV3 is { } __value2 && elevenV3 != null)
             {
-                return elevenV3(ElevenV3!);
+                return elevenV3(__value2);
             }
 
             return default(TResult);
@@ -282,17 +282,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsElevenFlashV25)
+            if (ElevenFlashV25 is { } __value0)
             {
-                elevenFlashV25?.Invoke(ElevenFlashV25!);
+                elevenFlashV25?.Invoke(__value0);
             }
-            else if (IsElevenMultilingualV2)
+            else if (ElevenMultilingualV2 is { } __value1)
             {
-                elevenMultilingualV2?.Invoke(ElevenMultilingualV2!);
+                elevenMultilingualV2?.Invoke(__value1);
             }
-            else if (IsElevenV3)
+            else if (ElevenV3 is { } __value2)
             {
-                elevenV3?.Invoke(ElevenV3!);
+                elevenV3?.Invoke(__value2);
             }
         }
 
@@ -310,17 +310,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsElevenFlashV25)
+            if (ElevenFlashV25 is { } __value0)
             {
-                elevenFlashV25?.Invoke(ElevenFlashV25!);
+                elevenFlashV25?.Invoke(__value0);
             }
-            else if (IsElevenMultilingualV2)
+            else if (ElevenMultilingualV2 is { } __value1)
             {
-                elevenMultilingualV2?.Invoke(ElevenMultilingualV2!);
+                elevenMultilingualV2?.Invoke(__value1);
             }
-            else if (IsElevenV3)
+            else if (ElevenV3 is { } __value2)
             {
-                elevenV3?.Invoke(ElevenV3!);
+                elevenV3?.Invoke(__value2);
             }
         }
 

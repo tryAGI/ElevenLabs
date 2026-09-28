@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EditedTranscript PickTranscript() => IsTranscript
-            ? Transcript!
+        public global::ElevenLabs.EditedTranscript PickTranscript() => Transcript is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Transcript' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TranscriptEditError PickError() => IsError
-            ? Error!
+        public global::ElevenLabs.TranscriptEditError PickError() => Error is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Error' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsTranscript && transcript != null)
+            if (Transcript is { } __value0 && transcript != null)
             {
-                return transcript(Transcript!);
+                return transcript(__value0);
             }
-            else if (IsError && error != null)
+            else if (Error is { } __value1 && error != null)
             {
-                return error(Error!);
+                return error(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsTranscript)
+            if (Transcript is { } __value0)
             {
-                transcript?.Invoke(Transcript!);
+                transcript?.Invoke(__value0);
             }
-            else if (IsError)
+            else if (Error is { } __value1)
             {
-                error?.Invoke(Error!);
+                error?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsTranscript)
+            if (Transcript is { } __value0)
             {
-                transcript?.Invoke(Transcript!);
+                transcript?.Invoke(__value0);
             }
-            else if (IsError)
+            else if (Error is { } __value1)
             {
-                error?.Invoke(Error!);
+                error?.Invoke(__value1);
             }
         }
 

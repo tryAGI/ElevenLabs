@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BackupLLMDefault PickDefault() => IsDefault
-            ? Default!
+        public global::ElevenLabs.BackupLLMDefault PickDefault() => Default is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Default' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BackupLLMDisabled PickDisabled() => IsDisabled
-            ? Disabled!
+        public global::ElevenLabs.BackupLLMDisabled PickDisabled() => Disabled is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Disabled' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BackupLLMOverride PickOverride() => IsOverride
-            ? Override!
+        public global::ElevenLabs.BackupLLMOverride PickOverride() => Override is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Override' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -250,17 +250,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsDefault && @default != null)
+            if (Default is { } __value0 && @default != null)
             {
-                return @default(Default!);
+                return @default(__value0);
             }
-            else if (IsDisabled && disabled != null)
+            else if (Disabled is { } __value1 && disabled != null)
             {
-                return disabled(Disabled!);
+                return disabled(__value1);
             }
-            else if (IsOverride && @override != null)
+            else if (Override is { } __value2 && @override != null)
             {
-                return @override(Override!);
+                return @override(__value2);
             }
 
             return default(TResult);
@@ -282,17 +282,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsDefault)
+            if (Default is { } __value0)
             {
-                @default?.Invoke(Default!);
+                @default?.Invoke(__value0);
             }
-            else if (IsDisabled)
+            else if (Disabled is { } __value1)
             {
-                disabled?.Invoke(Disabled!);
+                disabled?.Invoke(__value1);
             }
-            else if (IsOverride)
+            else if (Override is { } __value2)
             {
-                @override?.Invoke(Override!);
+                @override?.Invoke(__value2);
             }
         }
 
@@ -310,17 +310,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsDefault)
+            if (Default is { } __value0)
             {
-                @default?.Invoke(Default!);
+                @default?.Invoke(__value0);
             }
-            else if (IsDisabled)
+            else if (Disabled is { } __value1)
             {
-                disabled?.Invoke(Disabled!);
+                disabled?.Invoke(__value1);
             }
-            else if (IsOverride)
+            else if (Override is { } __value2)
             {
-                @override?.Invoke(Override!);
+                @override?.Invoke(__value2);
             }
         }
 

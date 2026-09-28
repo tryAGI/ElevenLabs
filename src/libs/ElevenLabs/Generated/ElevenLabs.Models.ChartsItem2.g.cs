@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DashboardCallSuccessChartModel PickCallSuccess() => IsCallSuccess
-            ? CallSuccess!
+        public global::ElevenLabs.DashboardCallSuccessChartModel PickCallSuccess() => CallSuccess is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CallSuccess' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DashboardCriteriaChartModel PickCriteria() => IsCriteria
-            ? Criteria!
+        public global::ElevenLabs.DashboardCriteriaChartModel PickCriteria() => Criteria is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Criteria' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DashboardDataCollectionChartModel PickDataCollection() => IsDataCollection
-            ? DataCollection!
+        public global::ElevenLabs.DashboardDataCollectionChartModel PickDataCollection() => DataCollection is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DataCollection' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -250,17 +250,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsCallSuccess && callSuccess != null)
+            if (CallSuccess is { } __value0 && callSuccess != null)
             {
-                return callSuccess(CallSuccess!);
+                return callSuccess(__value0);
             }
-            else if (IsCriteria && criteria != null)
+            else if (Criteria is { } __value1 && criteria != null)
             {
-                return criteria(Criteria!);
+                return criteria(__value1);
             }
-            else if (IsDataCollection && dataCollection != null)
+            else if (DataCollection is { } __value2 && dataCollection != null)
             {
-                return dataCollection(DataCollection!);
+                return dataCollection(__value2);
             }
 
             return default(TResult);
@@ -282,17 +282,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsCallSuccess)
+            if (CallSuccess is { } __value0)
             {
-                callSuccess?.Invoke(CallSuccess!);
+                callSuccess?.Invoke(__value0);
             }
-            else if (IsCriteria)
+            else if (Criteria is { } __value1)
             {
-                criteria?.Invoke(Criteria!);
+                criteria?.Invoke(__value1);
             }
-            else if (IsDataCollection)
+            else if (DataCollection is { } __value2)
             {
-                dataCollection?.Invoke(DataCollection!);
+                dataCollection?.Invoke(__value2);
             }
         }
 
@@ -310,17 +310,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsCallSuccess)
+            if (CallSuccess is { } __value0)
             {
-                callSuccess?.Invoke(CallSuccess!);
+                callSuccess?.Invoke(__value0);
             }
-            else if (IsCriteria)
+            else if (Criteria is { } __value1)
             {
-                criteria?.Invoke(Criteria!);
+                criteria?.Invoke(__value1);
             }
-            else if (IsDataCollection)
+            else if (DataCollection is { } __value2)
             {
-                dataCollection?.Invoke(DataCollection!);
+                dataCollection?.Invoke(__value2);
             }
         }
 

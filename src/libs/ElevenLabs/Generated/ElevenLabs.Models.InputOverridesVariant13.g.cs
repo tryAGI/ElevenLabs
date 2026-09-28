@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ConstantSchemaOverride PickConstant() => IsConstant
-            ? Constant!
+        public global::ElevenLabs.ConstantSchemaOverride PickConstant() => Constant is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Constant' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DynamicVariableSchemaOverride PickDynamicVariable() => IsDynamicVariable
-            ? DynamicVariable!
+        public global::ElevenLabs.DynamicVariableSchemaOverride PickDynamicVariable() => DynamicVariable is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DynamicVariable' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMSchemaOverride PickLlm() => IsLlm
-            ? Llm!
+        public global::ElevenLabs.LLMSchemaOverride PickLlm() => Llm is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Llm' but the value was {ToString()}.");
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OmitSchemaOverride PickOmit() => IsOmit
-            ? Omit!
+        public global::ElevenLabs.OmitSchemaOverride PickOmit() => Omit is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Omit' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -315,21 +315,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsConstant && constant != null)
+            if (Constant is { } __value0 && constant != null)
             {
-                return constant(Constant!);
+                return constant(__value0);
             }
-            else if (IsDynamicVariable && dynamicVariable != null)
+            else if (DynamicVariable is { } __value1 && dynamicVariable != null)
             {
-                return dynamicVariable(DynamicVariable!);
+                return dynamicVariable(__value1);
             }
-            else if (IsLlm && llm != null)
+            else if (Llm is { } __value2 && llm != null)
             {
-                return llm(Llm!);
+                return llm(__value2);
             }
-            else if (IsOmit && omit != null)
+            else if (Omit is { } __value3 && omit != null)
             {
-                return omit(Omit!);
+                return omit(__value3);
             }
 
             return default(TResult);
@@ -353,21 +353,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsConstant)
+            if (Constant is { } __value0)
             {
-                constant?.Invoke(Constant!);
+                constant?.Invoke(__value0);
             }
-            else if (IsDynamicVariable)
+            else if (DynamicVariable is { } __value1)
             {
-                dynamicVariable?.Invoke(DynamicVariable!);
+                dynamicVariable?.Invoke(__value1);
             }
-            else if (IsLlm)
+            else if (Llm is { } __value2)
             {
-                llm?.Invoke(Llm!);
+                llm?.Invoke(__value2);
             }
-            else if (IsOmit)
+            else if (Omit is { } __value3)
             {
-                omit?.Invoke(Omit!);
+                omit?.Invoke(__value3);
             }
         }
 
@@ -386,21 +386,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsConstant)
+            if (Constant is { } __value0)
             {
-                constant?.Invoke(Constant!);
+                constant?.Invoke(__value0);
             }
-            else if (IsDynamicVariable)
+            else if (DynamicVariable is { } __value1)
             {
-                dynamicVariable?.Invoke(DynamicVariable!);
+                dynamicVariable?.Invoke(__value1);
             }
-            else if (IsLlm)
+            else if (Llm is { } __value2)
             {
-                llm?.Invoke(Llm!);
+                llm?.Invoke(__value2);
             }
-            else if (IsOmit)
+            else if (Omit is { } __value3)
             {
-                omit?.Invoke(Omit!);
+                omit?.Invoke(__value3);
             }
         }
 

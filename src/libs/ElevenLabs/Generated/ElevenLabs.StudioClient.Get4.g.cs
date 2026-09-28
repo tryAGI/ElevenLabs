@@ -175,9 +175,9 @@ namespace ElevenLabs
                 PrepareGet4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    projectId: projectId!,
-                    chapterId: chapterId!,
-                    chapterSnapshotId: chapterSnapshotId!);
+                    projectId: projectId,
+                    chapterId: chapterId,
+                    chapterSnapshotId: chapterSnapshotId);
 
                 return __httpRequest;
             }
@@ -199,7 +199,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/studio/projects/{projectId}/chapters/{chapterId}/snapshots/{chapterSnapshotId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -233,7 +233,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/studio/projects/{projectId}/chapters/{chapterId}/snapshots/{chapterSnapshotId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -274,7 +274,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/studio/projects/{projectId}/chapters/{chapterId}/snapshots/{chapterSnapshotId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -322,7 +322,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/studio/projects/{projectId}/chapters/{chapterId}/snapshots/{chapterSnapshotId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -344,7 +344,7 @@ namespace ElevenLabs
                                 pathTemplate: "$\"/v1/studio/projects/{projectId}/chapters/{chapterId}/snapshots/{chapterSnapshotId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

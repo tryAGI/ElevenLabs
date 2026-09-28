@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StringSchema PickString() => IsString
-            ? String!
+        public global::ElevenLabs.StringSchema PickString() => String is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'String' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.NumberSchema PickNumber() => IsNumber
-            ? Number!
+        public global::ElevenLabs.NumberSchema PickNumber() => Number is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Number' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.IntegerSchema PickInteger() => IsInteger
-            ? Integer!
+        public global::ElevenLabs.IntegerSchema PickInteger() => Integer is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Integer' but the value was {ToString()}.");
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BooleanSchema PickBoolean() => IsBoolean
-            ? Boolean!
+        public global::ElevenLabs.BooleanSchema PickBoolean() => Boolean is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Boolean' but the value was {ToString()}.");
 
         /// <summary>
@@ -195,8 +195,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ImageSchema PickImage() => IsImage
-            ? Image!
+        public global::ElevenLabs.ImageSchema PickImage() => Image is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Image' but the value was {ToString()}.");
 
         /// <summary>
@@ -232,8 +232,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VideoSchema PickVideo() => IsVideo
-            ? Video!
+        public global::ElevenLabs.VideoSchema PickVideo() => Video is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Video' but the value was {ToString()}.");
 
         /// <summary>
@@ -269,8 +269,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AudioSchema PickAudio() => IsAudio
-            ? Audio!
+        public global::ElevenLabs.AudioSchema PickAudio() => Audio is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Audio' but the value was {ToString()}.");
 
         /// <summary>
@@ -306,8 +306,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceSchema PickVoice() => IsVoice
-            ? Voice!
+        public global::ElevenLabs.VoiceSchema PickVoice() => Voice is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Voice' but the value was {ToString()}.");
 
         /// <summary>
@@ -343,8 +343,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ObjectSchema PickObjectValue() => IsObjectValue
-            ? ObjectValue!
+        public global::ElevenLabs.ObjectSchema PickObjectValue() => ObjectValue is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ObjectValue' but the value was {ToString()}.");
 
         /// <summary>
@@ -380,8 +380,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ArraySchema PickArray() => IsArray
-            ? Array!
+        public global::ElevenLabs.ArraySchema PickArray() => Array is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Array' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -705,45 +705,45 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsString && @string != null)
+            if (String is { } __value0 && @string != null)
             {
-                return @string(String!);
+                return @string(__value0);
             }
-            else if (IsNumber && number != null)
+            else if (Number is { } __value1 && number != null)
             {
-                return number(Number!);
+                return number(__value1);
             }
-            else if (IsInteger && integer != null)
+            else if (Integer is { } __value2 && integer != null)
             {
-                return integer(Integer!);
+                return integer(__value2);
             }
-            else if (IsBoolean && boolean != null)
+            else if (Boolean is { } __value3 && boolean != null)
             {
-                return boolean(Boolean!);
+                return boolean(__value3);
             }
-            else if (IsImage && image != null)
+            else if (Image is { } __value4 && image != null)
             {
-                return image(Image!);
+                return image(__value4);
             }
-            else if (IsVideo && video != null)
+            else if (Video is { } __value5 && video != null)
             {
-                return video(Video!);
+                return video(__value5);
             }
-            else if (IsAudio && audio != null)
+            else if (Audio is { } __value6 && audio != null)
             {
-                return audio(Audio!);
+                return audio(__value6);
             }
-            else if (IsVoice && voice != null)
+            else if (Voice is { } __value7 && voice != null)
             {
-                return voice(Voice!);
+                return voice(__value7);
             }
-            else if (IsObjectValue && objectValue != null)
+            else if (ObjectValue is { } __value8 && objectValue != null)
             {
-                return objectValue(ObjectValue!);
+                return objectValue(__value8);
             }
-            else if (IsArray && array != null)
+            else if (Array is { } __value9 && array != null)
             {
-                return array(Array!);
+                return array(__value9);
             }
 
             return default(TResult);
@@ -779,45 +779,45 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsString)
+            if (String is { } __value0)
             {
-                @string?.Invoke(String!);
+                @string?.Invoke(__value0);
             }
-            else if (IsNumber)
+            else if (Number is { } __value1)
             {
-                number?.Invoke(Number!);
+                number?.Invoke(__value1);
             }
-            else if (IsInteger)
+            else if (Integer is { } __value2)
             {
-                integer?.Invoke(Integer!);
+                integer?.Invoke(__value2);
             }
-            else if (IsBoolean)
+            else if (Boolean is { } __value3)
             {
-                boolean?.Invoke(Boolean!);
+                boolean?.Invoke(__value3);
             }
-            else if (IsImage)
+            else if (Image is { } __value4)
             {
-                image?.Invoke(Image!);
+                image?.Invoke(__value4);
             }
-            else if (IsVideo)
+            else if (Video is { } __value5)
             {
-                video?.Invoke(Video!);
+                video?.Invoke(__value5);
             }
-            else if (IsAudio)
+            else if (Audio is { } __value6)
             {
-                audio?.Invoke(Audio!);
+                audio?.Invoke(__value6);
             }
-            else if (IsVoice)
+            else if (Voice is { } __value7)
             {
-                voice?.Invoke(Voice!);
+                voice?.Invoke(__value7);
             }
-            else if (IsObjectValue)
+            else if (ObjectValue is { } __value8)
             {
-                objectValue?.Invoke(ObjectValue!);
+                objectValue?.Invoke(__value8);
             }
-            else if (IsArray)
+            else if (Array is { } __value9)
             {
-                array?.Invoke(Array!);
+                array?.Invoke(__value9);
             }
         }
 
@@ -842,45 +842,45 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsString)
+            if (String is { } __value0)
             {
-                @string?.Invoke(String!);
+                @string?.Invoke(__value0);
             }
-            else if (IsNumber)
+            else if (Number is { } __value1)
             {
-                number?.Invoke(Number!);
+                number?.Invoke(__value1);
             }
-            else if (IsInteger)
+            else if (Integer is { } __value2)
             {
-                integer?.Invoke(Integer!);
+                integer?.Invoke(__value2);
             }
-            else if (IsBoolean)
+            else if (Boolean is { } __value3)
             {
-                boolean?.Invoke(Boolean!);
+                boolean?.Invoke(__value3);
             }
-            else if (IsImage)
+            else if (Image is { } __value4)
             {
-                image?.Invoke(Image!);
+                image?.Invoke(__value4);
             }
-            else if (IsVideo)
+            else if (Video is { } __value5)
             {
-                video?.Invoke(Video!);
+                video?.Invoke(__value5);
             }
-            else if (IsAudio)
+            else if (Audio is { } __value6)
             {
-                audio?.Invoke(Audio!);
+                audio?.Invoke(__value6);
             }
-            else if (IsVoice)
+            else if (Voice is { } __value7)
             {
-                voice?.Invoke(Voice!);
+                voice?.Invoke(__value7);
             }
-            else if (IsObjectValue)
+            else if (ObjectValue is { } __value8)
             {
-                objectValue?.Invoke(ObjectValue!);
+                objectValue?.Invoke(__value8);
             }
-            else if (IsArray)
+            else if (Array is { } __value9)
             {
-                array?.Invoke(Array!);
+                array?.Invoke(__value9);
             }
         }
 

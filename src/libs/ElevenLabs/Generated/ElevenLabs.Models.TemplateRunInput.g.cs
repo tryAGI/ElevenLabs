@@ -51,8 +51,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public string PickTemplateRunInputVariant1() => IsTemplateRunInputVariant1
-            ? TemplateRunInputVariant1!
+        public string PickTemplateRunInputVariant1() => TemplateRunInputVariant1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TemplateRunInputVariant1' but the value was {ToString()}.");
 
         /// <summary>
@@ -88,8 +88,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public bool PickTemplateRunInputVariant2() => IsTemplateRunInputVariant2
-            ? TemplateRunInputVariant2!.Value
+        public bool PickTemplateRunInputVariant2() => TemplateRunInputVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TemplateRunInputVariant2' but the value was {ToString()}.");
 
         /// <summary>
@@ -125,8 +125,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public int PickTemplateRunInputVariant3() => IsTemplateRunInputVariant3
-            ? TemplateRunInputVariant3!.Value
+        public int PickTemplateRunInputVariant3() => TemplateRunInputVariant3 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TemplateRunInputVariant3' but the value was {ToString()}.");
 
         /// <summary>
@@ -162,8 +162,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public double PickTemplateRunInputVariant4() => IsTemplateRunInputVariant4
-            ? TemplateRunInputVariant4!.Value
+        public double PickTemplateRunInputVariant4() => TemplateRunInputVariant4 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TemplateRunInputVariant4' but the value was {ToString()}.");
 
         /// <summary>
@@ -199,8 +199,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TemplateInputReference PickReference() => IsReference
-            ? Reference!.Value
+        public global::ElevenLabs.TemplateInputReference PickReference() => Reference is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Reference' but the value was {ToString()}.");
 
         /// <summary>
@@ -236,8 +236,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplateRunInput> PickTemplateRunInputVariant6() => IsTemplateRunInputVariant6
-            ? TemplateRunInputVariant6!
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TemplateRunInput> PickTemplateRunInputVariant6() => TemplateRunInputVariant6 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TemplateRunInputVariant6' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -423,29 +423,29 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsTemplateRunInputVariant1 && templateRunInputVariant1 != null)
+            if (TemplateRunInputVariant1 is { } __value0 && templateRunInputVariant1 != null)
             {
-                return templateRunInputVariant1(TemplateRunInputVariant1!);
+                return templateRunInputVariant1(__value0);
             }
-            else if (IsTemplateRunInputVariant2 && templateRunInputVariant2 != null)
+            else if (TemplateRunInputVariant2 is { } __value1 && templateRunInputVariant2 != null)
             {
-                return templateRunInputVariant2(TemplateRunInputVariant2!);
+                return templateRunInputVariant2(__value1);
             }
-            else if (IsTemplateRunInputVariant3 && templateRunInputVariant3 != null)
+            else if (TemplateRunInputVariant3 is { } __value2 && templateRunInputVariant3 != null)
             {
-                return templateRunInputVariant3(TemplateRunInputVariant3!);
+                return templateRunInputVariant3(__value2);
             }
-            else if (IsTemplateRunInputVariant4 && templateRunInputVariant4 != null)
+            else if (TemplateRunInputVariant4 is { } __value3 && templateRunInputVariant4 != null)
             {
-                return templateRunInputVariant4(TemplateRunInputVariant4!);
+                return templateRunInputVariant4(__value3);
             }
-            else if (IsReference && reference != null)
+            else if (Reference is { } __value4 && reference != null)
             {
-                return reference(Reference!);
+                return reference(__value4);
             }
-            else if (IsTemplateRunInputVariant6 && templateRunInputVariant6 != null)
+            else if (TemplateRunInputVariant6 is { } __value5 && templateRunInputVariant6 != null)
             {
-                return templateRunInputVariant6(TemplateRunInputVariant6!);
+                return templateRunInputVariant6(__value5);
             }
 
             return default(TResult);
@@ -473,29 +473,29 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsTemplateRunInputVariant1)
+            if (TemplateRunInputVariant1 is { } __value0)
             {
-                templateRunInputVariant1?.Invoke(TemplateRunInputVariant1!);
+                templateRunInputVariant1?.Invoke(__value0);
             }
-            else if (IsTemplateRunInputVariant2)
+            else if (TemplateRunInputVariant2 is { } __value1)
             {
-                templateRunInputVariant2?.Invoke(TemplateRunInputVariant2!);
+                templateRunInputVariant2?.Invoke(__value1);
             }
-            else if (IsTemplateRunInputVariant3)
+            else if (TemplateRunInputVariant3 is { } __value2)
             {
-                templateRunInputVariant3?.Invoke(TemplateRunInputVariant3!);
+                templateRunInputVariant3?.Invoke(__value2);
             }
-            else if (IsTemplateRunInputVariant4)
+            else if (TemplateRunInputVariant4 is { } __value3)
             {
-                templateRunInputVariant4?.Invoke(TemplateRunInputVariant4!);
+                templateRunInputVariant4?.Invoke(__value3);
             }
-            else if (IsReference)
+            else if (Reference is { } __value4)
             {
-                reference?.Invoke(Reference!);
+                reference?.Invoke(__value4);
             }
-            else if (IsTemplateRunInputVariant6)
+            else if (TemplateRunInputVariant6 is { } __value5)
             {
-                templateRunInputVariant6?.Invoke(TemplateRunInputVariant6!);
+                templateRunInputVariant6?.Invoke(__value5);
             }
         }
 
@@ -516,29 +516,29 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsTemplateRunInputVariant1)
+            if (TemplateRunInputVariant1 is { } __value0)
             {
-                templateRunInputVariant1?.Invoke(TemplateRunInputVariant1!);
+                templateRunInputVariant1?.Invoke(__value0);
             }
-            else if (IsTemplateRunInputVariant2)
+            else if (TemplateRunInputVariant2 is { } __value1)
             {
-                templateRunInputVariant2?.Invoke(TemplateRunInputVariant2!);
+                templateRunInputVariant2?.Invoke(__value1);
             }
-            else if (IsTemplateRunInputVariant3)
+            else if (TemplateRunInputVariant3 is { } __value2)
             {
-                templateRunInputVariant3?.Invoke(TemplateRunInputVariant3!);
+                templateRunInputVariant3?.Invoke(__value2);
             }
-            else if (IsTemplateRunInputVariant4)
+            else if (TemplateRunInputVariant4 is { } __value3)
             {
-                templateRunInputVariant4?.Invoke(TemplateRunInputVariant4!);
+                templateRunInputVariant4?.Invoke(__value3);
             }
-            else if (IsReference)
+            else if (Reference is { } __value4)
             {
-                reference?.Invoke(Reference!);
+                reference?.Invoke(__value4);
             }
-            else if (IsTemplateRunInputVariant6)
+            else if (TemplateRunInputVariant6 is { } __value5)
             {
-                templateRunInputVariant6?.Invoke(TemplateRunInputVariant6!);
+                templateRunInputVariant6?.Invoke(__value5);
             }
         }
 

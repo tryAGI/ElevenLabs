@@ -68,19 +68,19 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ElevenFlashV25Request), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ElevenFlashV25Request?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ElevenFlashV25Request).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ElevenFlashV25!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickElevenFlashV25(), typeInfo);
             }
             else if (value.IsElevenMultilingualV2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ElevenMultilingualV2Request), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ElevenMultilingualV2Request?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ElevenMultilingualV2Request).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ElevenMultilingualV2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickElevenMultilingualV2(), typeInfo);
             }
             else if (value.IsElevenV3)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ElevenV3Request), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ElevenV3Request?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ElevenV3Request).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ElevenV3!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickElevenV3(), typeInfo);
             }
         }
     }

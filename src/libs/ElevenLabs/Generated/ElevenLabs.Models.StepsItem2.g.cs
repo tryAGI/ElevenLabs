@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolEdgeStepModel PickEdge() => IsEdge
-            ? Edge!
+        public global::ElevenLabs.WorkflowToolEdgeStepModel PickEdge() => Edge is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Edge' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput PickNestedTools() => IsNestedTools
-            ? NestedTools!
+        public global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput PickNestedTools() => NestedTools is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'NestedTools' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel PickMaxIterationsExceeded() => IsMaxIterationsExceeded
-            ? MaxIterationsExceeded!
+        public global::ElevenLabs.WorkflowToolMaxIterationsExceededStepModel PickMaxIterationsExceeded() => MaxIterationsExceeded is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'MaxIterationsExceeded' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -250,17 +250,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsEdge && edge != null)
+            if (Edge is { } __value0 && edge != null)
             {
-                return edge(Edge!);
+                return edge(__value0);
             }
-            else if (IsNestedTools && nestedTools != null)
+            else if (NestedTools is { } __value1 && nestedTools != null)
             {
-                return nestedTools(NestedTools!);
+                return nestedTools(__value1);
             }
-            else if (IsMaxIterationsExceeded && maxIterationsExceeded != null)
+            else if (MaxIterationsExceeded is { } __value2 && maxIterationsExceeded != null)
             {
-                return maxIterationsExceeded(MaxIterationsExceeded!);
+                return maxIterationsExceeded(__value2);
             }
 
             return default(TResult);
@@ -282,17 +282,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsEdge)
+            if (Edge is { } __value0)
             {
-                edge?.Invoke(Edge!);
+                edge?.Invoke(__value0);
             }
-            else if (IsNestedTools)
+            else if (NestedTools is { } __value1)
             {
-                nestedTools?.Invoke(NestedTools!);
+                nestedTools?.Invoke(__value1);
             }
-            else if (IsMaxIterationsExceeded)
+            else if (MaxIterationsExceeded is { } __value2)
             {
-                maxIterationsExceeded?.Invoke(MaxIterationsExceeded!);
+                maxIterationsExceeded?.Invoke(__value2);
             }
         }
 
@@ -310,17 +310,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsEdge)
+            if (Edge is { } __value0)
             {
-                edge?.Invoke(Edge!);
+                edge?.Invoke(__value0);
             }
-            else if (IsNestedTools)
+            else if (NestedTools is { } __value1)
             {
-                nestedTools?.Invoke(NestedTools!);
+                nestedTools?.Invoke(__value1);
             }
-            else if (IsMaxIterationsExceeded)
+            else if (MaxIterationsExceeded is { } __value2)
             {
-                maxIterationsExceeded?.Invoke(MaxIterationsExceeded!);
+                maxIterationsExceeded?.Invoke(__value2);
             }
         }
 

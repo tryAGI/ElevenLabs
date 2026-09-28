@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreatifyAuroraRequest PickCreatifyAurora() => IsCreatifyAurora
-            ? CreatifyAurora!
+        public global::ElevenLabs.CreatifyAuroraRequest PickCreatifyAurora() => CreatifyAurora is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreatifyAurora' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Veo31Request PickVeo31Generate001() => IsVeo31Generate001
-            ? Veo31Generate001!
+        public global::ElevenLabs.Veo31Request PickVeo31Generate001() => Veo31Generate001 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Veo31Generate001' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Veo31FastRequest PickVeo31FastGenerate001() => IsVeo31FastGenerate001
-            ? Veo31FastGenerate001!
+        public global::ElevenLabs.Veo31FastRequest PickVeo31FastGenerate001() => Veo31FastGenerate001 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Veo31FastGenerate001' but the value was {ToString()}.");
 
         /// <summary>
@@ -160,8 +160,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance2Request PickBytedanceSeedanceV2() => IsBytedanceSeedanceV2
-            ? BytedanceSeedanceV2!
+        public global::ElevenLabs.BytedanceSeedance2Request PickBytedanceSeedanceV2() => BytedanceSeedanceV2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'BytedanceSeedanceV2' but the value was {ToString()}.");
 
         /// <summary>
@@ -199,8 +199,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance2FastRequest PickBytedanceSeedanceV2Fast() => IsBytedanceSeedanceV2Fast
-            ? BytedanceSeedanceV2Fast!
+        public global::ElevenLabs.BytedanceSeedance2FastRequest PickBytedanceSeedanceV2Fast() => BytedanceSeedanceV2Fast is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'BytedanceSeedanceV2Fast' but the value was {ToString()}.");
 
         /// <summary>
@@ -238,8 +238,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance2MiniRequest PickBytedanceSeedanceV2Mini() => IsBytedanceSeedanceV2Mini
-            ? BytedanceSeedanceV2Mini!
+        public global::ElevenLabs.BytedanceSeedance2MiniRequest PickBytedanceSeedanceV2Mini() => BytedanceSeedanceV2Mini is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'BytedanceSeedanceV2Mini' but the value was {ToString()}.");
 
         /// <summary>
@@ -280,8 +280,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BytedanceSeedance25Request PickBytedanceSeedanceV25() => IsBytedanceSeedanceV25
-            ? BytedanceSeedanceV25!
+        public global::ElevenLabs.BytedanceSeedance25Request PickBytedanceSeedanceV25() => BytedanceSeedanceV25 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'BytedanceSeedanceV25' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -521,33 +521,33 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsCreatifyAurora && creatifyAurora != null)
+            if (CreatifyAurora is { } __value0 && creatifyAurora != null)
             {
-                return creatifyAurora(CreatifyAurora!);
+                return creatifyAurora(__value0);
             }
-            else if (IsVeo31Generate001 && veo31Generate001 != null)
+            else if (Veo31Generate001 is { } __value1 && veo31Generate001 != null)
             {
-                return veo31Generate001(Veo31Generate001!);
+                return veo31Generate001(__value1);
             }
-            else if (IsVeo31FastGenerate001 && veo31FastGenerate001 != null)
+            else if (Veo31FastGenerate001 is { } __value2 && veo31FastGenerate001 != null)
             {
-                return veo31FastGenerate001(Veo31FastGenerate001!);
+                return veo31FastGenerate001(__value2);
             }
-            else if (IsBytedanceSeedanceV2 && bytedanceSeedanceV2 != null)
+            else if (BytedanceSeedanceV2 is { } __value3 && bytedanceSeedanceV2 != null)
             {
-                return bytedanceSeedanceV2(BytedanceSeedanceV2!);
+                return bytedanceSeedanceV2(__value3);
             }
-            else if (IsBytedanceSeedanceV2Fast && bytedanceSeedanceV2Fast != null)
+            else if (BytedanceSeedanceV2Fast is { } __value4 && bytedanceSeedanceV2Fast != null)
             {
-                return bytedanceSeedanceV2Fast(BytedanceSeedanceV2Fast!);
+                return bytedanceSeedanceV2Fast(__value4);
             }
-            else if (IsBytedanceSeedanceV2Mini && bytedanceSeedanceV2Mini != null)
+            else if (BytedanceSeedanceV2Mini is { } __value5 && bytedanceSeedanceV2Mini != null)
             {
-                return bytedanceSeedanceV2Mini(BytedanceSeedanceV2Mini!);
+                return bytedanceSeedanceV2Mini(__value5);
             }
-            else if (IsBytedanceSeedanceV25 && bytedanceSeedanceV25 != null)
+            else if (BytedanceSeedanceV25 is { } __value6 && bytedanceSeedanceV25 != null)
             {
-                return bytedanceSeedanceV25(BytedanceSeedanceV25!);
+                return bytedanceSeedanceV25(__value6);
             }
 
             return default(TResult);
@@ -577,33 +577,33 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsCreatifyAurora)
+            if (CreatifyAurora is { } __value0)
             {
-                creatifyAurora?.Invoke(CreatifyAurora!);
+                creatifyAurora?.Invoke(__value0);
             }
-            else if (IsVeo31Generate001)
+            else if (Veo31Generate001 is { } __value1)
             {
-                veo31Generate001?.Invoke(Veo31Generate001!);
+                veo31Generate001?.Invoke(__value1);
             }
-            else if (IsVeo31FastGenerate001)
+            else if (Veo31FastGenerate001 is { } __value2)
             {
-                veo31FastGenerate001?.Invoke(Veo31FastGenerate001!);
+                veo31FastGenerate001?.Invoke(__value2);
             }
-            else if (IsBytedanceSeedanceV2)
+            else if (BytedanceSeedanceV2 is { } __value3)
             {
-                bytedanceSeedanceV2?.Invoke(BytedanceSeedanceV2!);
+                bytedanceSeedanceV2?.Invoke(__value3);
             }
-            else if (IsBytedanceSeedanceV2Fast)
+            else if (BytedanceSeedanceV2Fast is { } __value4)
             {
-                bytedanceSeedanceV2Fast?.Invoke(BytedanceSeedanceV2Fast!);
+                bytedanceSeedanceV2Fast?.Invoke(__value4);
             }
-            else if (IsBytedanceSeedanceV2Mini)
+            else if (BytedanceSeedanceV2Mini is { } __value5)
             {
-                bytedanceSeedanceV2Mini?.Invoke(BytedanceSeedanceV2Mini!);
+                bytedanceSeedanceV2Mini?.Invoke(__value5);
             }
-            else if (IsBytedanceSeedanceV25)
+            else if (BytedanceSeedanceV25 is { } __value6)
             {
-                bytedanceSeedanceV25?.Invoke(BytedanceSeedanceV25!);
+                bytedanceSeedanceV25?.Invoke(__value6);
             }
         }
 
@@ -625,33 +625,33 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsCreatifyAurora)
+            if (CreatifyAurora is { } __value0)
             {
-                creatifyAurora?.Invoke(CreatifyAurora!);
+                creatifyAurora?.Invoke(__value0);
             }
-            else if (IsVeo31Generate001)
+            else if (Veo31Generate001 is { } __value1)
             {
-                veo31Generate001?.Invoke(Veo31Generate001!);
+                veo31Generate001?.Invoke(__value1);
             }
-            else if (IsVeo31FastGenerate001)
+            else if (Veo31FastGenerate001 is { } __value2)
             {
-                veo31FastGenerate001?.Invoke(Veo31FastGenerate001!);
+                veo31FastGenerate001?.Invoke(__value2);
             }
-            else if (IsBytedanceSeedanceV2)
+            else if (BytedanceSeedanceV2 is { } __value3)
             {
-                bytedanceSeedanceV2?.Invoke(BytedanceSeedanceV2!);
+                bytedanceSeedanceV2?.Invoke(__value3);
             }
-            else if (IsBytedanceSeedanceV2Fast)
+            else if (BytedanceSeedanceV2Fast is { } __value4)
             {
-                bytedanceSeedanceV2Fast?.Invoke(BytedanceSeedanceV2Fast!);
+                bytedanceSeedanceV2Fast?.Invoke(__value4);
             }
-            else if (IsBytedanceSeedanceV2Mini)
+            else if (BytedanceSeedanceV2Mini is { } __value5)
             {
-                bytedanceSeedanceV2Mini?.Invoke(BytedanceSeedanceV2Mini!);
+                bytedanceSeedanceV2Mini?.Invoke(__value5);
             }
-            else if (IsBytedanceSeedanceV25)
+            else if (BytedanceSeedanceV25 is { } __value6)
             {
-                bytedanceSeedanceV25?.Invoke(BytedanceSeedanceV25!);
+                bytedanceSeedanceV25?.Invoke(__value6);
             }
         }
 

@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookTargetAll PickAll() => IsAll
-            ? All!
+        public global::ElevenLabs.WebhookTargetAll PickAll() => All is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'All' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WebhookTargetIds PickIds() => IsIds
-            ? Ids!
+        public global::ElevenLabs.WebhookTargetIds PickIds() => Ids is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Ids' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsAll && all != null)
+            if (All is { } __value0 && all != null)
             {
-                return all(All!);
+                return all(__value0);
             }
-            else if (IsIds && ids != null)
+            else if (Ids is { } __value1 && ids != null)
             {
-                return ids(Ids!);
+                return ids(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsAll)
+            if (All is { } __value0)
             {
-                all?.Invoke(All!);
+                all?.Invoke(__value0);
             }
-            else if (IsIds)
+            else if (Ids is { } __value1)
             {
-                ids?.Invoke(Ids!);
+                ids?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsAll)
+            if (All is { } __value0)
             {
-                all?.Invoke(All!);
+                all?.Invoke(__value0);
             }
-            else if (IsIds)
+            else if (Ids is { } __value1)
             {
-                ids?.Invoke(Ids!);
+                ids?.Invoke(__value1);
             }
         }
 

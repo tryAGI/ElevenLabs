@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SearchClientsParams PickSearchClients() => IsSearchClients
-            ? SearchClients!
+        public global::ElevenLabs.SearchClientsParams PickSearchClients() => SearchClients is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'SearchClients' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SendCustomEmailParams PickSendCustomEmail() => IsSendCustomEmail
-            ? SendCustomEmail!
+        public global::ElevenLabs.SendCustomEmailParams PickSendCustomEmail() => SendCustomEmail is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'SendCustomEmail' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListClientsParams PickListClients() => IsListClients
-            ? ListClients!
+        public global::ElevenLabs.ListClientsParams PickListClients() => ListClients is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListClients' but the value was {ToString()}.");
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetClientByPhoneParams PickGetClientByPhone() => IsGetClientByPhone
-            ? GetClientByPhone!
+        public global::ElevenLabs.GetClientByPhoneParams PickGetClientByPhone() => GetClientByPhone is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetClientByPhone' but the value was {ToString()}.");
 
         /// <summary>
@@ -195,8 +195,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateClientParams PickCreateClient() => IsCreateClient
-            ? CreateClient!
+        public global::ElevenLabs.CreateClientParams PickCreateClient() => CreateClient is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateClient' but the value was {ToString()}.");
 
         /// <summary>
@@ -232,8 +232,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateClientParams PickUpdateClient() => IsUpdateClient
-            ? UpdateClient!
+        public global::ElevenLabs.UpdateClientParams PickUpdateClient() => UpdateClient is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateClient' but the value was {ToString()}.");
 
         /// <summary>
@@ -269,8 +269,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteClientParams PickDeleteClient() => IsDeleteClient
-            ? DeleteClient!
+        public global::ElevenLabs.DeleteClientParams PickDeleteClient() => DeleteClient is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteClient' but the value was {ToString()}.");
 
         /// <summary>
@@ -306,8 +306,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListStaffParams PickListStaff() => IsListStaff
-            ? ListStaff!
+        public global::ElevenLabs.ListStaffParams PickListStaff() => ListStaff is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListStaff' but the value was {ToString()}.");
 
         /// <summary>
@@ -343,8 +343,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateStaffParams PickCreateStaff() => IsCreateStaff
-            ? CreateStaff!
+        public global::ElevenLabs.CreateStaffParams PickCreateStaff() => CreateStaff is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateStaff' but the value was {ToString()}.");
 
         /// <summary>
@@ -380,8 +380,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateStaffParams PickUpdateStaff() => IsUpdateStaff
-            ? UpdateStaff!
+        public global::ElevenLabs.UpdateStaffParams PickUpdateStaff() => UpdateStaff is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateStaff' but the value was {ToString()}.");
 
         /// <summary>
@@ -417,8 +417,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteStaffParams PickDeleteStaff() => IsDeleteStaff
-            ? DeleteStaff!
+        public global::ElevenLabs.DeleteStaffParams PickDeleteStaff() => DeleteStaff is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteStaff' but the value was {ToString()}.");
 
         /// <summary>
@@ -454,8 +454,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListAssetsParams PickListAssets() => IsListAssets
-            ? ListAssets!
+        public global::ElevenLabs.ListAssetsParams PickListAssets() => ListAssets is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListAssets' but the value was {ToString()}.");
 
         /// <summary>
@@ -491,8 +491,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAssetParams PickCreateAsset() => IsCreateAsset
-            ? CreateAsset!
+        public global::ElevenLabs.CreateAssetParams PickCreateAsset() => CreateAsset is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateAsset' but the value was {ToString()}.");
 
         /// <summary>
@@ -528,8 +528,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateAssetParams PickUpdateAsset() => IsUpdateAsset
-            ? UpdateAsset!
+        public global::ElevenLabs.UpdateAssetParams PickUpdateAsset() => UpdateAsset is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateAsset' but the value was {ToString()}.");
 
         /// <summary>
@@ -565,8 +565,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteAssetParams PickDeleteAsset() => IsDeleteAsset
-            ? DeleteAsset!
+        public global::ElevenLabs.DeleteAssetParams PickDeleteAsset() => DeleteAsset is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteAsset' but the value was {ToString()}.");
 
         /// <summary>
@@ -602,8 +602,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListServicesParams PickListServices() => IsListServices
-            ? ListServices!
+        public global::ElevenLabs.ListServicesParams PickListServices() => ListServices is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListServices' but the value was {ToString()}.");
 
         /// <summary>
@@ -639,8 +639,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateServiceParams PickCreateService() => IsCreateService
-            ? CreateService!
+        public global::ElevenLabs.CreateServiceParams PickCreateService() => CreateService is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateService' but the value was {ToString()}.");
 
         /// <summary>
@@ -676,8 +676,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateServiceParams PickUpdateService() => IsUpdateService
-            ? UpdateService!
+        public global::ElevenLabs.UpdateServiceParams PickUpdateService() => UpdateService is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateService' but the value was {ToString()}.");
 
         /// <summary>
@@ -713,8 +713,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteServiceParams PickDeleteService() => IsDeleteService
-            ? DeleteService!
+        public global::ElevenLabs.DeleteServiceParams PickDeleteService() => DeleteService is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteService' but the value was {ToString()}.");
 
         /// <summary>
@@ -750,8 +750,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListProductsParams PickListProducts() => IsListProducts
-            ? ListProducts!
+        public global::ElevenLabs.ListProductsParams PickListProducts() => ListProducts is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListProducts' but the value was {ToString()}.");
 
         /// <summary>
@@ -787,8 +787,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateProductParams PickCreateProduct() => IsCreateProduct
-            ? CreateProduct!
+        public global::ElevenLabs.CreateProductParams PickCreateProduct() => CreateProduct is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateProduct' but the value was {ToString()}.");
 
         /// <summary>
@@ -824,8 +824,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateProductParams PickUpdateProduct() => IsUpdateProduct
-            ? UpdateProduct!
+        public global::ElevenLabs.UpdateProductParams PickUpdateProduct() => UpdateProduct is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateProduct' but the value was {ToString()}.");
 
         /// <summary>
@@ -861,8 +861,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteProductParams PickDeleteProduct() => IsDeleteProduct
-            ? DeleteProduct!
+        public global::ElevenLabs.DeleteProductParams PickDeleteProduct() => DeleteProduct is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteProduct' but the value was {ToString()}.");
 
         /// <summary>
@@ -898,8 +898,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CheckServiceAvailabilityParams PickCheckServiceAvailability() => IsCheckServiceAvailability
-            ? CheckServiceAvailability!
+        public global::ElevenLabs.CheckServiceAvailabilityParams PickCheckServiceAvailability() => CheckServiceAvailability is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CheckServiceAvailability' but the value was {ToString()}.");
 
         /// <summary>
@@ -935,8 +935,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateClientAppointmentParams PickCreateClientAppointment() => IsCreateClientAppointment
-            ? CreateClientAppointment!
+        public global::ElevenLabs.CreateClientAppointmentParams PickCreateClientAppointment() => CreateClientAppointment is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateClientAppointment' but the value was {ToString()}.");
 
         /// <summary>
@@ -972,8 +972,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetClientAppointmentsParams PickGetClientAppointments() => IsGetClientAppointments
-            ? GetClientAppointments!
+        public global::ElevenLabs.GetClientAppointmentsParams PickGetClientAppointments() => GetClientAppointments is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetClientAppointments' but the value was {ToString()}.");
 
         /// <summary>
@@ -1013,8 +1013,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAppointmentByConfirmationNumberParams PickGetAppointmentByConfirmationNumber() => IsGetAppointmentByConfirmationNumber
-            ? GetAppointmentByConfirmationNumber!
+        public global::ElevenLabs.GetAppointmentByConfirmationNumberParams PickGetAppointmentByConfirmationNumber() => GetAppointmentByConfirmationNumber is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetAppointmentByConfirmationNumber' but the value was {ToString()}.");
 
         /// <summary>
@@ -1050,8 +1050,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateOrderParams PickCreateOrder() => IsCreateOrder
-            ? CreateOrder!
+        public global::ElevenLabs.CreateOrderParams PickCreateOrder() => CreateOrder is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateOrder' but the value was {ToString()}.");
 
         /// <summary>
@@ -1087,8 +1087,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetOrderByConfirmationNumberParams PickGetOrderByConfirmationNumber() => IsGetOrderByConfirmationNumber
-            ? GetOrderByConfirmationNumber!
+        public global::ElevenLabs.GetOrderByConfirmationNumberParams PickGetOrderByConfirmationNumber() => GetOrderByConfirmationNumber is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetOrderByConfirmationNumber' but the value was {ToString()}.");
 
         /// <summary>
@@ -1124,8 +1124,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetClientOrdersParams PickGetClientOrders() => IsGetClientOrders
-            ? GetClientOrders!
+        public global::ElevenLabs.GetClientOrdersParams PickGetClientOrders() => GetClientOrders is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetClientOrders' but the value was {ToString()}.");
 
         /// <summary>
@@ -1161,8 +1161,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateOrderParams PickUpdateOrder() => IsUpdateOrder
-            ? UpdateOrder!
+        public global::ElevenLabs.UpdateOrderParams PickUpdateOrder() => UpdateOrder is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateOrder' but the value was {ToString()}.");
 
         /// <summary>
@@ -1198,8 +1198,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CancelOrderParams PickCancelOrder() => IsCancelOrder
-            ? CancelOrder!
+        public global::ElevenLabs.CancelOrderParams PickCancelOrder() => CancelOrder is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CancelOrder' but the value was {ToString()}.");
 
         /// <summary>
@@ -1238,8 +1238,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListGroupSessionsParams PickListGroupSessions() => IsListGroupSessions
-            ? ListGroupSessions!
+        public global::ElevenLabs.ListGroupSessionsParams PickListGroupSessions() => ListGroupSessions is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListGroupSessions' but the value was {ToString()}.");
 
         /// <summary>
@@ -1279,8 +1279,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ScheduleGroupSessionParams PickScheduleGroupSession() => IsScheduleGroupSession
-            ? ScheduleGroupSession!
+        public global::ElevenLabs.ScheduleGroupSessionParams PickScheduleGroupSession() => ScheduleGroupSession is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ScheduleGroupSession' but the value was {ToString()}.");
 
         /// <summary>
@@ -1316,8 +1316,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RegisterForGroupSessionParams PickRegisterForGroupSession() => IsRegisterForGroupSession
-            ? RegisterForGroupSession!
+        public global::ElevenLabs.RegisterForGroupSessionParams PickRegisterForGroupSession() => RegisterForGroupSession is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'RegisterForGroupSession' but the value was {ToString()}.");
 
         /// <summary>
@@ -1353,8 +1353,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CancelGroupSessionRegistrationParams PickCancelGroupSessionRegistration() => IsCancelGroupSessionRegistration
-            ? CancelGroupSessionRegistration!
+        public global::ElevenLabs.CancelGroupSessionRegistrationParams PickCancelGroupSessionRegistration() => CancelGroupSessionRegistration is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CancelGroupSessionRegistration' but the value was {ToString()}.");
 
         /// <summary>
@@ -1390,8 +1390,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateGroupSessionSeatsParams PickUpdateGroupSessionSeats() => IsUpdateGroupSessionSeats
-            ? UpdateGroupSessionSeats!
+        public global::ElevenLabs.UpdateGroupSessionSeatsParams PickUpdateGroupSessionSeats() => UpdateGroupSessionSeats is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateGroupSessionSeats' but the value was {ToString()}.");
 
         /// <summary>
@@ -1429,8 +1429,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CancelGroupSessionForAllParams PickCancelGroupSessionForAll() => IsCancelGroupSessionForAll
-            ? CancelGroupSessionForAll!
+        public global::ElevenLabs.CancelGroupSessionForAllParams PickCancelGroupSessionForAll() => CancelGroupSessionForAll is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CancelGroupSessionForAll' but the value was {ToString()}.");
 
         /// <summary>
@@ -1472,8 +1472,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteGroupSessionParams PickDeleteGroupSession() => IsDeleteGroupSession
-            ? DeleteGroupSession!
+        public global::ElevenLabs.DeleteGroupSessionParams PickDeleteGroupSession() => DeleteGroupSession is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteGroupSession' but the value was {ToString()}.");
 
         /// <summary>
@@ -1509,8 +1509,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListCalendarEventsParams PickListCalendarEvents() => IsListCalendarEvents
-            ? ListCalendarEvents!
+        public global::ElevenLabs.ListCalendarEventsParams PickListCalendarEvents() => ListCalendarEvents is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListCalendarEvents' but the value was {ToString()}.");
 
         /// <summary>
@@ -1546,8 +1546,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateCalendarEventParams PickUpdateCalendarEvent() => IsUpdateCalendarEvent
-            ? UpdateCalendarEvent!
+        public global::ElevenLabs.UpdateCalendarEventParams PickUpdateCalendarEvent() => UpdateCalendarEvent is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateCalendarEvent' but the value was {ToString()}.");
 
         /// <summary>
@@ -1583,8 +1583,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CancelCalendarEventParams PickCancelCalendarEvent() => IsCancelCalendarEvent
-            ? CancelCalendarEvent!
+        public global::ElevenLabs.CancelCalendarEventParams PickCancelCalendarEvent() => CancelCalendarEvent is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CancelCalendarEvent' but the value was {ToString()}.");
 
         /// <summary>
@@ -1620,8 +1620,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RestoreCalendarEventParams PickRestoreCalendarEvent() => IsRestoreCalendarEvent
-            ? RestoreCalendarEvent!
+        public global::ElevenLabs.RestoreCalendarEventParams PickRestoreCalendarEvent() => RestoreCalendarEvent is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'RestoreCalendarEvent' but the value was {ToString()}.");
 
         /// <summary>
@@ -1660,8 +1660,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteCalendarEventParams PickDeleteCalendarEvent() => IsDeleteCalendarEvent
-            ? DeleteCalendarEvent!
+        public global::ElevenLabs.DeleteCalendarEventParams PickDeleteCalendarEvent() => DeleteCalendarEvent is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteCalendarEvent' but the value was {ToString()}.");
 
         /// <summary>
@@ -1701,8 +1701,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListCustomerFacingAgentsParams PickListCustomerFacingAgents() => IsListCustomerFacingAgents
-            ? ListCustomerFacingAgents!
+        public global::ElevenLabs.ListCustomerFacingAgentsParams PickListCustomerFacingAgents() => ListCustomerFacingAgents is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListCustomerFacingAgents' but the value was {ToString()}.");
 
         /// <summary>
@@ -1738,8 +1738,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListAgentRulesParams PickListAgentRules() => IsListAgentRules
-            ? ListAgentRules!
+        public global::ElevenLabs.ListAgentRulesParams PickListAgentRules() => ListAgentRules is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListAgentRules' but the value was {ToString()}.");
 
         /// <summary>
@@ -1775,8 +1775,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAgentRuleParams PickCreateAgentRule() => IsCreateAgentRule
-            ? CreateAgentRule!
+        public global::ElevenLabs.CreateAgentRuleParams PickCreateAgentRule() => CreateAgentRule is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateAgentRule' but the value was {ToString()}.");
 
         /// <summary>
@@ -1812,8 +1812,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateAgentRuleParams PickUpdateAgentRule() => IsUpdateAgentRule
-            ? UpdateAgentRule!
+        public global::ElevenLabs.UpdateAgentRuleParams PickUpdateAgentRule() => UpdateAgentRule is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateAgentRule' but the value was {ToString()}.");
 
         /// <summary>
@@ -1849,8 +1849,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteAgentRuleParams PickDeleteAgentRule() => IsDeleteAgentRule
-            ? DeleteAgentRule!
+        public global::ElevenLabs.DeleteAgentRuleParams PickDeleteAgentRule() => DeleteAgentRule is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteAgentRule' but the value was {ToString()}.");
 
         /// <summary>
@@ -1886,8 +1886,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListTransferRulesParams PickListTransferRules() => IsListTransferRules
-            ? ListTransferRules!
+        public global::ElevenLabs.ListTransferRulesParams PickListTransferRules() => ListTransferRules is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListTransferRules' but the value was {ToString()}.");
 
         /// <summary>
@@ -1923,8 +1923,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateTransferRuleParams PickCreateTransferRule() => IsCreateTransferRule
-            ? CreateTransferRule!
+        public global::ElevenLabs.CreateTransferRuleParams PickCreateTransferRule() => CreateTransferRule is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateTransferRule' but the value was {ToString()}.");
 
         /// <summary>
@@ -1960,8 +1960,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateTransferRuleParams PickUpdateTransferRule() => IsUpdateTransferRule
-            ? UpdateTransferRule!
+        public global::ElevenLabs.UpdateTransferRuleParams PickUpdateTransferRule() => UpdateTransferRule is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateTransferRule' but the value was {ToString()}.");
 
         /// <summary>
@@ -1997,8 +1997,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteTransferRuleParams PickDeleteTransferRule() => IsDeleteTransferRule
-            ? DeleteTransferRule!
+        public global::ElevenLabs.DeleteTransferRuleParams PickDeleteTransferRule() => DeleteTransferRule is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteTransferRule' but the value was {ToString()}.");
 
         /// <summary>
@@ -2034,8 +2034,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListAgentProceduresParams PickListAgentProcedures() => IsListAgentProcedures
-            ? ListAgentProcedures!
+        public global::ElevenLabs.ListAgentProceduresParams PickListAgentProcedures() => ListAgentProcedures is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListAgentProcedures' but the value was {ToString()}.");
 
         /// <summary>
@@ -2071,8 +2071,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListAgentReferencesParams PickListAgentReferences() => IsListAgentReferences
-            ? ListAgentReferences!
+        public global::ElevenLabs.ListAgentReferencesParams PickListAgentReferences() => ListAgentReferences is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListAgentReferences' but the value was {ToString()}.");
 
         /// <summary>
@@ -2108,8 +2108,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateAgentProcedureParams PickCreateAgentProcedure() => IsCreateAgentProcedure
-            ? CreateAgentProcedure!
+        public global::ElevenLabs.CreateAgentProcedureParams PickCreateAgentProcedure() => CreateAgentProcedure is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateAgentProcedure' but the value was {ToString()}.");
 
         /// <summary>
@@ -2145,8 +2145,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateAgentProcedureParams PickUpdateAgentProcedure() => IsUpdateAgentProcedure
-            ? UpdateAgentProcedure!
+        public global::ElevenLabs.UpdateAgentProcedureParams PickUpdateAgentProcedure() => UpdateAgentProcedure is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateAgentProcedure' but the value was {ToString()}.");
 
         /// <summary>
@@ -2182,8 +2182,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteAgentProcedureParams PickDeleteAgentProcedure() => IsDeleteAgentProcedure
-            ? DeleteAgentProcedure!
+        public global::ElevenLabs.DeleteAgentProcedureParams PickDeleteAgentProcedure() => DeleteAgentProcedure is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteAgentProcedure' but the value was {ToString()}.");
 
         /// <summary>
@@ -2219,8 +2219,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListHolidaysParams PickListHolidays() => IsListHolidays
-            ? ListHolidays!
+        public global::ElevenLabs.ListHolidaysParams PickListHolidays() => ListHolidays is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListHolidays' but the value was {ToString()}.");
 
         /// <summary>
@@ -2256,8 +2256,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateHolidayParams PickCreateHoliday() => IsCreateHoliday
-            ? CreateHoliday!
+        public global::ElevenLabs.CreateHolidayParams PickCreateHoliday() => CreateHoliday is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateHoliday' but the value was {ToString()}.");
 
         /// <summary>
@@ -2293,8 +2293,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateHolidayParams PickUpdateHoliday() => IsUpdateHoliday
-            ? UpdateHoliday!
+        public global::ElevenLabs.UpdateHolidayParams PickUpdateHoliday() => UpdateHoliday is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateHoliday' but the value was {ToString()}.");
 
         /// <summary>
@@ -2330,8 +2330,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteHolidayParams PickDeleteHoliday() => IsDeleteHoliday
-            ? DeleteHoliday!
+        public global::ElevenLabs.DeleteHolidayParams PickDeleteHoliday() => DeleteHoliday is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteHoliday' but the value was {ToString()}.");
 
         /// <summary>
@@ -2367,8 +2367,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetScheduleParams PickGetSchedule() => IsGetSchedule
-            ? GetSchedule!
+        public global::ElevenLabs.GetScheduleParams PickGetSchedule() => GetSchedule is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetSchedule' but the value was {ToString()}.");
 
         /// <summary>
@@ -2404,8 +2404,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SubmitBusinessInfoParams PickSubmitBusinessInfo() => IsSubmitBusinessInfo
-            ? SubmitBusinessInfo!
+        public global::ElevenLabs.SubmitBusinessInfoParams PickSubmitBusinessInfo() => SubmitBusinessInfo is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'SubmitBusinessInfo' but the value was {ToString()}.");
 
         /// <summary>
@@ -2441,8 +2441,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateBusinessInfoParams PickUpdateBusinessInfo() => IsUpdateBusinessInfo
-            ? UpdateBusinessInfo!
+        public global::ElevenLabs.UpdateBusinessInfoParams PickUpdateBusinessInfo() => UpdateBusinessInfo is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateBusinessInfo' but the value was {ToString()}.");
 
         /// <summary>
@@ -2478,8 +2478,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateCustomerFacingConfigParams PickUpdateCustomerFacingConfig() => IsUpdateCustomerFacingConfig
-            ? UpdateCustomerFacingConfig!
+        public global::ElevenLabs.UpdateCustomerFacingConfigParams PickUpdateCustomerFacingConfig() => UpdateCustomerFacingConfig is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateCustomerFacingConfig' but the value was {ToString()}.");
 
         /// <summary>
@@ -2515,8 +2515,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetAnalyticsSummaryParams PickGetAnalyticsSummary() => IsGetAnalyticsSummary
-            ? GetAnalyticsSummary!
+        public global::ElevenLabs.GetAnalyticsSummaryParams PickGetAnalyticsSummary() => GetAnalyticsSummary is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetAnalyticsSummary' but the value was {ToString()}.");
 
         /// <summary>
@@ -2552,8 +2552,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetBookingPageSettingsParams PickGetBookingPageSettings() => IsGetBookingPageSettings
-            ? GetBookingPageSettings!
+        public global::ElevenLabs.GetBookingPageSettingsParams PickGetBookingPageSettings() => GetBookingPageSettings is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetBookingPageSettings' but the value was {ToString()}.");
 
         /// <summary>
@@ -2589,8 +2589,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateBookingPageSettingsParams PickUpdateBookingPageSettings() => IsUpdateBookingPageSettings
-            ? UpdateBookingPageSettings!
+        public global::ElevenLabs.UpdateBookingPageSettingsParams PickUpdateBookingPageSettings() => UpdateBookingPageSettings is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateBookingPageSettings' but the value was {ToString()}.");
 
         /// <summary>
@@ -2626,8 +2626,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateBookingPageAppearanceParams PickUpdateBookingPageAppearance() => IsUpdateBookingPageAppearance
-            ? UpdateBookingPageAppearance!
+        public global::ElevenLabs.UpdateBookingPageAppearanceParams PickUpdateBookingPageAppearance() => UpdateBookingPageAppearance is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateBookingPageAppearance' but the value was {ToString()}.");
 
         /// <summary>
@@ -2663,8 +2663,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetBookingSlugStatusParams PickGetBookingSlugStatus() => IsGetBookingSlugStatus
-            ? GetBookingSlugStatus!
+        public global::ElevenLabs.GetBookingSlugStatusParams PickGetBookingSlugStatus() => GetBookingSlugStatus is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GetBookingSlugStatus' but the value was {ToString()}.");
 
         /// <summary>
@@ -2700,8 +2700,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SetBookingSlugParams PickSetBookingSlug() => IsSetBookingSlug
-            ? SetBookingSlug!
+        public global::ElevenLabs.SetBookingSlugParams PickSetBookingSlug() => SetBookingSlug is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'SetBookingSlug' but the value was {ToString()}.");
 
         /// <summary>
@@ -2737,8 +2737,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListClientInteractionsParams PickListClientInteractions() => IsListClientInteractions
-            ? ListClientInteractions!
+        public global::ElevenLabs.ListClientInteractionsParams PickListClientInteractions() => ListClientInteractions is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListClientInteractions' but the value was {ToString()}.");
 
         /// <summary>
@@ -2774,8 +2774,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateClientInteractionParams PickCreateClientInteraction() => IsCreateClientInteraction
-            ? CreateClientInteraction!
+        public global::ElevenLabs.CreateClientInteractionParams PickCreateClientInteraction() => CreateClientInteraction is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateClientInteraction' but the value was {ToString()}.");
 
         /// <summary>
@@ -2811,8 +2811,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteClientInteractionParams PickDeleteClientInteraction() => IsDeleteClientInteraction
-            ? DeleteClientInteraction!
+        public global::ElevenLabs.DeleteClientInteractionParams PickDeleteClientInteraction() => DeleteClientInteraction is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteClientInteraction' but the value was {ToString()}.");
 
         /// <summary>
@@ -2848,8 +2848,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ListLocationsParams PickListLocations() => IsListLocations
-            ? ListLocations!
+        public global::ElevenLabs.ListLocationsParams PickListLocations() => ListLocations is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ListLocations' but the value was {ToString()}.");
 
         /// <summary>
@@ -2885,8 +2885,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateLocationParams PickCreateLocation() => IsCreateLocation
-            ? CreateLocation!
+        public global::ElevenLabs.CreateLocationParams PickCreateLocation() => CreateLocation is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateLocation' but the value was {ToString()}.");
 
         /// <summary>
@@ -2922,8 +2922,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.UpdateLocationParams PickUpdateLocation() => IsUpdateLocation
-            ? UpdateLocation!
+        public global::ElevenLabs.UpdateLocationParams PickUpdateLocation() => UpdateLocation is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateLocation' but the value was {ToString()}.");
 
         /// <summary>
@@ -2959,8 +2959,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DeleteLocationParams PickDeleteLocation() => IsDeleteLocation
-            ? DeleteLocation!
+        public global::ElevenLabs.DeleteLocationParams PickDeleteLocation() => DeleteLocation is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeleteLocation' but the value was {ToString()}.");
 
         /// <summary>
@@ -2996,8 +2996,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LeaveMessageParams PickLeaveMessage() => IsLeaveMessage
-            ? LeaveMessage!
+        public global::ElevenLabs.LeaveMessageParams PickLeaveMessage() => LeaveMessage is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'LeaveMessage' but the value was {ToString()}.");
 
         /// <summary>
@@ -3033,8 +3033,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateServiceQuoteRequestParams PickCreateServiceQuoteRequest() => IsCreateServiceQuoteRequest
-            ? CreateServiceQuoteRequest!
+        public global::ElevenLabs.CreateServiceQuoteRequestParams PickCreateServiceQuoteRequest() => CreateServiceQuoteRequest is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateServiceQuoteRequest' but the value was {ToString()}.");
 
         /// <summary>
@@ -3070,8 +3070,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.CreateProductQuoteRequestParams PickCreateProductQuoteRequest() => IsCreateProductQuoteRequest
-            ? CreateProductQuoteRequest!
+        public global::ElevenLabs.CreateProductQuoteRequestParams PickCreateProductQuoteRequest() => CreateProductQuoteRequest is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateProductQuoteRequest' but the value was {ToString()}.");
 
         /// <summary>
@@ -3107,8 +3107,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ReportKnowledgeGapParams PickReportKnowledgeGap() => IsReportKnowledgeGap
-            ? ReportKnowledgeGap!
+        public global::ElevenLabs.ReportKnowledgeGapParams PickReportKnowledgeGap() => ReportKnowledgeGap is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ReportKnowledgeGap' but the value was {ToString()}.");
 
         /// <summary>
@@ -3144,8 +3144,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OptInSmsReminderParams PickOptInSmsReminder() => IsOptInSmsReminder
-            ? OptInSmsReminder!
+        public global::ElevenLabs.OptInSmsReminderParams PickOptInSmsReminder() => OptInSmsReminder is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'OptInSmsReminder' but the value was {ToString()}.");
 
         /// <summary>
@@ -3181,8 +3181,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.OptOutSmsReminderParams PickOptOutSmsReminder() => IsOptOutSmsReminder
-            ? OptOutSmsReminder!
+        public global::ElevenLabs.OptOutSmsReminderParams PickOptOutSmsReminder() => OptOutSmsReminder is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'OptOutSmsReminder' but the value was {ToString()}.");
 
         /// <summary>
@@ -3218,8 +3218,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TriggerUserVerificationParams PickTriggerUserVerification() => IsTriggerUserVerification
-            ? TriggerUserVerification!
+        public global::ElevenLabs.TriggerUserVerificationParams PickTriggerUserVerification() => TriggerUserVerification is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TriggerUserVerification' but the value was {ToString()}.");
 
         /// <summary>
@@ -3255,8 +3255,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ValidateUserVerificationCodeParams PickValidateUserVerificationCode() => IsValidateUserVerificationCode
-            ? ValidateUserVerificationCode!
+        public global::ElevenLabs.ValidateUserVerificationCodeParams PickValidateUserVerificationCode() => ValidateUserVerificationCode is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ValidateUserVerificationCode' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -5736,353 +5736,353 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsSearchClients && searchClients != null)
+            if (SearchClients is { } __value0 && searchClients != null)
             {
-                return searchClients(SearchClients!);
+                return searchClients(__value0);
             }
-            else if (IsSendCustomEmail && sendCustomEmail != null)
+            else if (SendCustomEmail is { } __value1 && sendCustomEmail != null)
             {
-                return sendCustomEmail(SendCustomEmail!);
+                return sendCustomEmail(__value1);
             }
-            else if (IsListClients && listClients != null)
+            else if (ListClients is { } __value2 && listClients != null)
             {
-                return listClients(ListClients!);
+                return listClients(__value2);
             }
-            else if (IsGetClientByPhone && getClientByPhone != null)
+            else if (GetClientByPhone is { } __value3 && getClientByPhone != null)
             {
-                return getClientByPhone(GetClientByPhone!);
+                return getClientByPhone(__value3);
             }
-            else if (IsCreateClient && createClient != null)
+            else if (CreateClient is { } __value4 && createClient != null)
             {
-                return createClient(CreateClient!);
+                return createClient(__value4);
             }
-            else if (IsUpdateClient && updateClient != null)
+            else if (UpdateClient is { } __value5 && updateClient != null)
             {
-                return updateClient(UpdateClient!);
+                return updateClient(__value5);
             }
-            else if (IsDeleteClient && deleteClient != null)
+            else if (DeleteClient is { } __value6 && deleteClient != null)
             {
-                return deleteClient(DeleteClient!);
+                return deleteClient(__value6);
             }
-            else if (IsListStaff && listStaff != null)
+            else if (ListStaff is { } __value7 && listStaff != null)
             {
-                return listStaff(ListStaff!);
+                return listStaff(__value7);
             }
-            else if (IsCreateStaff && createStaff != null)
+            else if (CreateStaff is { } __value8 && createStaff != null)
             {
-                return createStaff(CreateStaff!);
+                return createStaff(__value8);
             }
-            else if (IsUpdateStaff && updateStaff != null)
+            else if (UpdateStaff is { } __value9 && updateStaff != null)
             {
-                return updateStaff(UpdateStaff!);
+                return updateStaff(__value9);
             }
-            else if (IsDeleteStaff && deleteStaff != null)
+            else if (DeleteStaff is { } __value10 && deleteStaff != null)
             {
-                return deleteStaff(DeleteStaff!);
+                return deleteStaff(__value10);
             }
-            else if (IsListAssets && listAssets != null)
+            else if (ListAssets is { } __value11 && listAssets != null)
             {
-                return listAssets(ListAssets!);
+                return listAssets(__value11);
             }
-            else if (IsCreateAsset && createAsset != null)
+            else if (CreateAsset is { } __value12 && createAsset != null)
             {
-                return createAsset(CreateAsset!);
+                return createAsset(__value12);
             }
-            else if (IsUpdateAsset && updateAsset != null)
+            else if (UpdateAsset is { } __value13 && updateAsset != null)
             {
-                return updateAsset(UpdateAsset!);
+                return updateAsset(__value13);
             }
-            else if (IsDeleteAsset && deleteAsset != null)
+            else if (DeleteAsset is { } __value14 && deleteAsset != null)
             {
-                return deleteAsset(DeleteAsset!);
+                return deleteAsset(__value14);
             }
-            else if (IsListServices && listServices != null)
+            else if (ListServices is { } __value15 && listServices != null)
             {
-                return listServices(ListServices!);
+                return listServices(__value15);
             }
-            else if (IsCreateService && createService != null)
+            else if (CreateService is { } __value16 && createService != null)
             {
-                return createService(CreateService!);
+                return createService(__value16);
             }
-            else if (IsUpdateService && updateService != null)
+            else if (UpdateService is { } __value17 && updateService != null)
             {
-                return updateService(UpdateService!);
+                return updateService(__value17);
             }
-            else if (IsDeleteService && deleteService != null)
+            else if (DeleteService is { } __value18 && deleteService != null)
             {
-                return deleteService(DeleteService!);
+                return deleteService(__value18);
             }
-            else if (IsListProducts && listProducts != null)
+            else if (ListProducts is { } __value19 && listProducts != null)
             {
-                return listProducts(ListProducts!);
+                return listProducts(__value19);
             }
-            else if (IsCreateProduct && createProduct != null)
+            else if (CreateProduct is { } __value20 && createProduct != null)
             {
-                return createProduct(CreateProduct!);
+                return createProduct(__value20);
             }
-            else if (IsUpdateProduct && updateProduct != null)
+            else if (UpdateProduct is { } __value21 && updateProduct != null)
             {
-                return updateProduct(UpdateProduct!);
+                return updateProduct(__value21);
             }
-            else if (IsDeleteProduct && deleteProduct != null)
+            else if (DeleteProduct is { } __value22 && deleteProduct != null)
             {
-                return deleteProduct(DeleteProduct!);
+                return deleteProduct(__value22);
             }
-            else if (IsCheckServiceAvailability && checkServiceAvailability != null)
+            else if (CheckServiceAvailability is { } __value23 && checkServiceAvailability != null)
             {
-                return checkServiceAvailability(CheckServiceAvailability!);
+                return checkServiceAvailability(__value23);
             }
-            else if (IsCreateClientAppointment && createClientAppointment != null)
+            else if (CreateClientAppointment is { } __value24 && createClientAppointment != null)
             {
-                return createClientAppointment(CreateClientAppointment!);
+                return createClientAppointment(__value24);
             }
-            else if (IsGetClientAppointments && getClientAppointments != null)
+            else if (GetClientAppointments is { } __value25 && getClientAppointments != null)
             {
-                return getClientAppointments(GetClientAppointments!);
+                return getClientAppointments(__value25);
             }
-            else if (IsGetAppointmentByConfirmationNumber && getAppointmentByConfirmationNumber != null)
+            else if (GetAppointmentByConfirmationNumber is { } __value26 && getAppointmentByConfirmationNumber != null)
             {
-                return getAppointmentByConfirmationNumber(GetAppointmentByConfirmationNumber!);
+                return getAppointmentByConfirmationNumber(__value26);
             }
-            else if (IsCreateOrder && createOrder != null)
+            else if (CreateOrder is { } __value27 && createOrder != null)
             {
-                return createOrder(CreateOrder!);
+                return createOrder(__value27);
             }
-            else if (IsGetOrderByConfirmationNumber && getOrderByConfirmationNumber != null)
+            else if (GetOrderByConfirmationNumber is { } __value28 && getOrderByConfirmationNumber != null)
             {
-                return getOrderByConfirmationNumber(GetOrderByConfirmationNumber!);
+                return getOrderByConfirmationNumber(__value28);
             }
-            else if (IsGetClientOrders && getClientOrders != null)
+            else if (GetClientOrders is { } __value29 && getClientOrders != null)
             {
-                return getClientOrders(GetClientOrders!);
+                return getClientOrders(__value29);
             }
-            else if (IsUpdateOrder && updateOrder != null)
+            else if (UpdateOrder is { } __value30 && updateOrder != null)
             {
-                return updateOrder(UpdateOrder!);
+                return updateOrder(__value30);
             }
-            else if (IsCancelOrder && cancelOrder != null)
+            else if (CancelOrder is { } __value31 && cancelOrder != null)
             {
-                return cancelOrder(CancelOrder!);
+                return cancelOrder(__value31);
             }
-            else if (IsListGroupSessions && listGroupSessions != null)
+            else if (ListGroupSessions is { } __value32 && listGroupSessions != null)
             {
-                return listGroupSessions(ListGroupSessions!);
+                return listGroupSessions(__value32);
             }
-            else if (IsScheduleGroupSession && scheduleGroupSession != null)
+            else if (ScheduleGroupSession is { } __value33 && scheduleGroupSession != null)
             {
-                return scheduleGroupSession(ScheduleGroupSession!);
+                return scheduleGroupSession(__value33);
             }
-            else if (IsRegisterForGroupSession && registerForGroupSession != null)
+            else if (RegisterForGroupSession is { } __value34 && registerForGroupSession != null)
             {
-                return registerForGroupSession(RegisterForGroupSession!);
+                return registerForGroupSession(__value34);
             }
-            else if (IsCancelGroupSessionRegistration && cancelGroupSessionRegistration != null)
+            else if (CancelGroupSessionRegistration is { } __value35 && cancelGroupSessionRegistration != null)
             {
-                return cancelGroupSessionRegistration(CancelGroupSessionRegistration!);
+                return cancelGroupSessionRegistration(__value35);
             }
-            else if (IsUpdateGroupSessionSeats && updateGroupSessionSeats != null)
+            else if (UpdateGroupSessionSeats is { } __value36 && updateGroupSessionSeats != null)
             {
-                return updateGroupSessionSeats(UpdateGroupSessionSeats!);
+                return updateGroupSessionSeats(__value36);
             }
-            else if (IsCancelGroupSessionForAll && cancelGroupSessionForAll != null)
+            else if (CancelGroupSessionForAll is { } __value37 && cancelGroupSessionForAll != null)
             {
-                return cancelGroupSessionForAll(CancelGroupSessionForAll!);
+                return cancelGroupSessionForAll(__value37);
             }
-            else if (IsDeleteGroupSession && deleteGroupSession != null)
+            else if (DeleteGroupSession is { } __value38 && deleteGroupSession != null)
             {
-                return deleteGroupSession(DeleteGroupSession!);
+                return deleteGroupSession(__value38);
             }
-            else if (IsListCalendarEvents && listCalendarEvents != null)
+            else if (ListCalendarEvents is { } __value39 && listCalendarEvents != null)
             {
-                return listCalendarEvents(ListCalendarEvents!);
+                return listCalendarEvents(__value39);
             }
-            else if (IsUpdateCalendarEvent && updateCalendarEvent != null)
+            else if (UpdateCalendarEvent is { } __value40 && updateCalendarEvent != null)
             {
-                return updateCalendarEvent(UpdateCalendarEvent!);
+                return updateCalendarEvent(__value40);
             }
-            else if (IsCancelCalendarEvent && cancelCalendarEvent != null)
+            else if (CancelCalendarEvent is { } __value41 && cancelCalendarEvent != null)
             {
-                return cancelCalendarEvent(CancelCalendarEvent!);
+                return cancelCalendarEvent(__value41);
             }
-            else if (IsRestoreCalendarEvent && restoreCalendarEvent != null)
+            else if (RestoreCalendarEvent is { } __value42 && restoreCalendarEvent != null)
             {
-                return restoreCalendarEvent(RestoreCalendarEvent!);
+                return restoreCalendarEvent(__value42);
             }
-            else if (IsDeleteCalendarEvent && deleteCalendarEvent != null)
+            else if (DeleteCalendarEvent is { } __value43 && deleteCalendarEvent != null)
             {
-                return deleteCalendarEvent(DeleteCalendarEvent!);
+                return deleteCalendarEvent(__value43);
             }
-            else if (IsListCustomerFacingAgents && listCustomerFacingAgents != null)
+            else if (ListCustomerFacingAgents is { } __value44 && listCustomerFacingAgents != null)
             {
-                return listCustomerFacingAgents(ListCustomerFacingAgents!);
+                return listCustomerFacingAgents(__value44);
             }
-            else if (IsListAgentRules && listAgentRules != null)
+            else if (ListAgentRules is { } __value45 && listAgentRules != null)
             {
-                return listAgentRules(ListAgentRules!);
+                return listAgentRules(__value45);
             }
-            else if (IsCreateAgentRule && createAgentRule != null)
+            else if (CreateAgentRule is { } __value46 && createAgentRule != null)
             {
-                return createAgentRule(CreateAgentRule!);
+                return createAgentRule(__value46);
             }
-            else if (IsUpdateAgentRule && updateAgentRule != null)
+            else if (UpdateAgentRule is { } __value47 && updateAgentRule != null)
             {
-                return updateAgentRule(UpdateAgentRule!);
+                return updateAgentRule(__value47);
             }
-            else if (IsDeleteAgentRule && deleteAgentRule != null)
+            else if (DeleteAgentRule is { } __value48 && deleteAgentRule != null)
             {
-                return deleteAgentRule(DeleteAgentRule!);
+                return deleteAgentRule(__value48);
             }
-            else if (IsListTransferRules && listTransferRules != null)
+            else if (ListTransferRules is { } __value49 && listTransferRules != null)
             {
-                return listTransferRules(ListTransferRules!);
+                return listTransferRules(__value49);
             }
-            else if (IsCreateTransferRule && createTransferRule != null)
+            else if (CreateTransferRule is { } __value50 && createTransferRule != null)
             {
-                return createTransferRule(CreateTransferRule!);
+                return createTransferRule(__value50);
             }
-            else if (IsUpdateTransferRule && updateTransferRule != null)
+            else if (UpdateTransferRule is { } __value51 && updateTransferRule != null)
             {
-                return updateTransferRule(UpdateTransferRule!);
+                return updateTransferRule(__value51);
             }
-            else if (IsDeleteTransferRule && deleteTransferRule != null)
+            else if (DeleteTransferRule is { } __value52 && deleteTransferRule != null)
             {
-                return deleteTransferRule(DeleteTransferRule!);
+                return deleteTransferRule(__value52);
             }
-            else if (IsListAgentProcedures && listAgentProcedures != null)
+            else if (ListAgentProcedures is { } __value53 && listAgentProcedures != null)
             {
-                return listAgentProcedures(ListAgentProcedures!);
+                return listAgentProcedures(__value53);
             }
-            else if (IsListAgentReferences && listAgentReferences != null)
+            else if (ListAgentReferences is { } __value54 && listAgentReferences != null)
             {
-                return listAgentReferences(ListAgentReferences!);
+                return listAgentReferences(__value54);
             }
-            else if (IsCreateAgentProcedure && createAgentProcedure != null)
+            else if (CreateAgentProcedure is { } __value55 && createAgentProcedure != null)
             {
-                return createAgentProcedure(CreateAgentProcedure!);
+                return createAgentProcedure(__value55);
             }
-            else if (IsUpdateAgentProcedure && updateAgentProcedure != null)
+            else if (UpdateAgentProcedure is { } __value56 && updateAgentProcedure != null)
             {
-                return updateAgentProcedure(UpdateAgentProcedure!);
+                return updateAgentProcedure(__value56);
             }
-            else if (IsDeleteAgentProcedure && deleteAgentProcedure != null)
+            else if (DeleteAgentProcedure is { } __value57 && deleteAgentProcedure != null)
             {
-                return deleteAgentProcedure(DeleteAgentProcedure!);
+                return deleteAgentProcedure(__value57);
             }
-            else if (IsListHolidays && listHolidays != null)
+            else if (ListHolidays is { } __value58 && listHolidays != null)
             {
-                return listHolidays(ListHolidays!);
+                return listHolidays(__value58);
             }
-            else if (IsCreateHoliday && createHoliday != null)
+            else if (CreateHoliday is { } __value59 && createHoliday != null)
             {
-                return createHoliday(CreateHoliday!);
+                return createHoliday(__value59);
             }
-            else if (IsUpdateHoliday && updateHoliday != null)
+            else if (UpdateHoliday is { } __value60 && updateHoliday != null)
             {
-                return updateHoliday(UpdateHoliday!);
+                return updateHoliday(__value60);
             }
-            else if (IsDeleteHoliday && deleteHoliday != null)
+            else if (DeleteHoliday is { } __value61 && deleteHoliday != null)
             {
-                return deleteHoliday(DeleteHoliday!);
+                return deleteHoliday(__value61);
             }
-            else if (IsGetSchedule && getSchedule != null)
+            else if (GetSchedule is { } __value62 && getSchedule != null)
             {
-                return getSchedule(GetSchedule!);
+                return getSchedule(__value62);
             }
-            else if (IsSubmitBusinessInfo && submitBusinessInfo != null)
+            else if (SubmitBusinessInfo is { } __value63 && submitBusinessInfo != null)
             {
-                return submitBusinessInfo(SubmitBusinessInfo!);
+                return submitBusinessInfo(__value63);
             }
-            else if (IsUpdateBusinessInfo && updateBusinessInfo != null)
+            else if (UpdateBusinessInfo is { } __value64 && updateBusinessInfo != null)
             {
-                return updateBusinessInfo(UpdateBusinessInfo!);
+                return updateBusinessInfo(__value64);
             }
-            else if (IsUpdateCustomerFacingConfig && updateCustomerFacingConfig != null)
+            else if (UpdateCustomerFacingConfig is { } __value65 && updateCustomerFacingConfig != null)
             {
-                return updateCustomerFacingConfig(UpdateCustomerFacingConfig!);
+                return updateCustomerFacingConfig(__value65);
             }
-            else if (IsGetAnalyticsSummary && getAnalyticsSummary != null)
+            else if (GetAnalyticsSummary is { } __value66 && getAnalyticsSummary != null)
             {
-                return getAnalyticsSummary(GetAnalyticsSummary!);
+                return getAnalyticsSummary(__value66);
             }
-            else if (IsGetBookingPageSettings && getBookingPageSettings != null)
+            else if (GetBookingPageSettings is { } __value67 && getBookingPageSettings != null)
             {
-                return getBookingPageSettings(GetBookingPageSettings!);
+                return getBookingPageSettings(__value67);
             }
-            else if (IsUpdateBookingPageSettings && updateBookingPageSettings != null)
+            else if (UpdateBookingPageSettings is { } __value68 && updateBookingPageSettings != null)
             {
-                return updateBookingPageSettings(UpdateBookingPageSettings!);
+                return updateBookingPageSettings(__value68);
             }
-            else if (IsUpdateBookingPageAppearance && updateBookingPageAppearance != null)
+            else if (UpdateBookingPageAppearance is { } __value69 && updateBookingPageAppearance != null)
             {
-                return updateBookingPageAppearance(UpdateBookingPageAppearance!);
+                return updateBookingPageAppearance(__value69);
             }
-            else if (IsGetBookingSlugStatus && getBookingSlugStatus != null)
+            else if (GetBookingSlugStatus is { } __value70 && getBookingSlugStatus != null)
             {
-                return getBookingSlugStatus(GetBookingSlugStatus!);
+                return getBookingSlugStatus(__value70);
             }
-            else if (IsSetBookingSlug && setBookingSlug != null)
+            else if (SetBookingSlug is { } __value71 && setBookingSlug != null)
             {
-                return setBookingSlug(SetBookingSlug!);
+                return setBookingSlug(__value71);
             }
-            else if (IsListClientInteractions && listClientInteractions != null)
+            else if (ListClientInteractions is { } __value72 && listClientInteractions != null)
             {
-                return listClientInteractions(ListClientInteractions!);
+                return listClientInteractions(__value72);
             }
-            else if (IsCreateClientInteraction && createClientInteraction != null)
+            else if (CreateClientInteraction is { } __value73 && createClientInteraction != null)
             {
-                return createClientInteraction(CreateClientInteraction!);
+                return createClientInteraction(__value73);
             }
-            else if (IsDeleteClientInteraction && deleteClientInteraction != null)
+            else if (DeleteClientInteraction is { } __value74 && deleteClientInteraction != null)
             {
-                return deleteClientInteraction(DeleteClientInteraction!);
+                return deleteClientInteraction(__value74);
             }
-            else if (IsListLocations && listLocations != null)
+            else if (ListLocations is { } __value75 && listLocations != null)
             {
-                return listLocations(ListLocations!);
+                return listLocations(__value75);
             }
-            else if (IsCreateLocation && createLocation != null)
+            else if (CreateLocation is { } __value76 && createLocation != null)
             {
-                return createLocation(CreateLocation!);
+                return createLocation(__value76);
             }
-            else if (IsUpdateLocation && updateLocation != null)
+            else if (UpdateLocation is { } __value77 && updateLocation != null)
             {
-                return updateLocation(UpdateLocation!);
+                return updateLocation(__value77);
             }
-            else if (IsDeleteLocation && deleteLocation != null)
+            else if (DeleteLocation is { } __value78 && deleteLocation != null)
             {
-                return deleteLocation(DeleteLocation!);
+                return deleteLocation(__value78);
             }
-            else if (IsLeaveMessage && leaveMessage != null)
+            else if (LeaveMessage is { } __value79 && leaveMessage != null)
             {
-                return leaveMessage(LeaveMessage!);
+                return leaveMessage(__value79);
             }
-            else if (IsCreateServiceQuoteRequest && createServiceQuoteRequest != null)
+            else if (CreateServiceQuoteRequest is { } __value80 && createServiceQuoteRequest != null)
             {
-                return createServiceQuoteRequest(CreateServiceQuoteRequest!);
+                return createServiceQuoteRequest(__value80);
             }
-            else if (IsCreateProductQuoteRequest && createProductQuoteRequest != null)
+            else if (CreateProductQuoteRequest is { } __value81 && createProductQuoteRequest != null)
             {
-                return createProductQuoteRequest(CreateProductQuoteRequest!);
+                return createProductQuoteRequest(__value81);
             }
-            else if (IsReportKnowledgeGap && reportKnowledgeGap != null)
+            else if (ReportKnowledgeGap is { } __value82 && reportKnowledgeGap != null)
             {
-                return reportKnowledgeGap(ReportKnowledgeGap!);
+                return reportKnowledgeGap(__value82);
             }
-            else if (IsOptInSmsReminder && optInSmsReminder != null)
+            else if (OptInSmsReminder is { } __value83 && optInSmsReminder != null)
             {
-                return optInSmsReminder(OptInSmsReminder!);
+                return optInSmsReminder(__value83);
             }
-            else if (IsOptOutSmsReminder && optOutSmsReminder != null)
+            else if (OptOutSmsReminder is { } __value84 && optOutSmsReminder != null)
             {
-                return optOutSmsReminder(OptOutSmsReminder!);
+                return optOutSmsReminder(__value84);
             }
-            else if (IsTriggerUserVerification && triggerUserVerification != null)
+            else if (TriggerUserVerification is { } __value85 && triggerUserVerification != null)
             {
-                return triggerUserVerification(TriggerUserVerification!);
+                return triggerUserVerification(__value85);
             }
-            else if (IsValidateUserVerificationCode && validateUserVerificationCode != null)
+            else if (ValidateUserVerificationCode is { } __value86 && validateUserVerificationCode != null)
             {
-                return validateUserVerificationCode(ValidateUserVerificationCode!);
+                return validateUserVerificationCode(__value86);
             }
 
             return default(TResult);
@@ -6272,353 +6272,353 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsSearchClients)
+            if (SearchClients is { } __value0)
             {
-                searchClients?.Invoke(SearchClients!);
+                searchClients?.Invoke(__value0);
             }
-            else if (IsSendCustomEmail)
+            else if (SendCustomEmail is { } __value1)
             {
-                sendCustomEmail?.Invoke(SendCustomEmail!);
+                sendCustomEmail?.Invoke(__value1);
             }
-            else if (IsListClients)
+            else if (ListClients is { } __value2)
             {
-                listClients?.Invoke(ListClients!);
+                listClients?.Invoke(__value2);
             }
-            else if (IsGetClientByPhone)
+            else if (GetClientByPhone is { } __value3)
             {
-                getClientByPhone?.Invoke(GetClientByPhone!);
+                getClientByPhone?.Invoke(__value3);
             }
-            else if (IsCreateClient)
+            else if (CreateClient is { } __value4)
             {
-                createClient?.Invoke(CreateClient!);
+                createClient?.Invoke(__value4);
             }
-            else if (IsUpdateClient)
+            else if (UpdateClient is { } __value5)
             {
-                updateClient?.Invoke(UpdateClient!);
+                updateClient?.Invoke(__value5);
             }
-            else if (IsDeleteClient)
+            else if (DeleteClient is { } __value6)
             {
-                deleteClient?.Invoke(DeleteClient!);
+                deleteClient?.Invoke(__value6);
             }
-            else if (IsListStaff)
+            else if (ListStaff is { } __value7)
             {
-                listStaff?.Invoke(ListStaff!);
+                listStaff?.Invoke(__value7);
             }
-            else if (IsCreateStaff)
+            else if (CreateStaff is { } __value8)
             {
-                createStaff?.Invoke(CreateStaff!);
+                createStaff?.Invoke(__value8);
             }
-            else if (IsUpdateStaff)
+            else if (UpdateStaff is { } __value9)
             {
-                updateStaff?.Invoke(UpdateStaff!);
+                updateStaff?.Invoke(__value9);
             }
-            else if (IsDeleteStaff)
+            else if (DeleteStaff is { } __value10)
             {
-                deleteStaff?.Invoke(DeleteStaff!);
+                deleteStaff?.Invoke(__value10);
             }
-            else if (IsListAssets)
+            else if (ListAssets is { } __value11)
             {
-                listAssets?.Invoke(ListAssets!);
+                listAssets?.Invoke(__value11);
             }
-            else if (IsCreateAsset)
+            else if (CreateAsset is { } __value12)
             {
-                createAsset?.Invoke(CreateAsset!);
+                createAsset?.Invoke(__value12);
             }
-            else if (IsUpdateAsset)
+            else if (UpdateAsset is { } __value13)
             {
-                updateAsset?.Invoke(UpdateAsset!);
+                updateAsset?.Invoke(__value13);
             }
-            else if (IsDeleteAsset)
+            else if (DeleteAsset is { } __value14)
             {
-                deleteAsset?.Invoke(DeleteAsset!);
+                deleteAsset?.Invoke(__value14);
             }
-            else if (IsListServices)
+            else if (ListServices is { } __value15)
             {
-                listServices?.Invoke(ListServices!);
+                listServices?.Invoke(__value15);
             }
-            else if (IsCreateService)
+            else if (CreateService is { } __value16)
             {
-                createService?.Invoke(CreateService!);
+                createService?.Invoke(__value16);
             }
-            else if (IsUpdateService)
+            else if (UpdateService is { } __value17)
             {
-                updateService?.Invoke(UpdateService!);
+                updateService?.Invoke(__value17);
             }
-            else if (IsDeleteService)
+            else if (DeleteService is { } __value18)
             {
-                deleteService?.Invoke(DeleteService!);
+                deleteService?.Invoke(__value18);
             }
-            else if (IsListProducts)
+            else if (ListProducts is { } __value19)
             {
-                listProducts?.Invoke(ListProducts!);
+                listProducts?.Invoke(__value19);
             }
-            else if (IsCreateProduct)
+            else if (CreateProduct is { } __value20)
             {
-                createProduct?.Invoke(CreateProduct!);
+                createProduct?.Invoke(__value20);
             }
-            else if (IsUpdateProduct)
+            else if (UpdateProduct is { } __value21)
             {
-                updateProduct?.Invoke(UpdateProduct!);
+                updateProduct?.Invoke(__value21);
             }
-            else if (IsDeleteProduct)
+            else if (DeleteProduct is { } __value22)
             {
-                deleteProduct?.Invoke(DeleteProduct!);
+                deleteProduct?.Invoke(__value22);
             }
-            else if (IsCheckServiceAvailability)
+            else if (CheckServiceAvailability is { } __value23)
             {
-                checkServiceAvailability?.Invoke(CheckServiceAvailability!);
+                checkServiceAvailability?.Invoke(__value23);
             }
-            else if (IsCreateClientAppointment)
+            else if (CreateClientAppointment is { } __value24)
             {
-                createClientAppointment?.Invoke(CreateClientAppointment!);
+                createClientAppointment?.Invoke(__value24);
             }
-            else if (IsGetClientAppointments)
+            else if (GetClientAppointments is { } __value25)
             {
-                getClientAppointments?.Invoke(GetClientAppointments!);
+                getClientAppointments?.Invoke(__value25);
             }
-            else if (IsGetAppointmentByConfirmationNumber)
+            else if (GetAppointmentByConfirmationNumber is { } __value26)
             {
-                getAppointmentByConfirmationNumber?.Invoke(GetAppointmentByConfirmationNumber!);
+                getAppointmentByConfirmationNumber?.Invoke(__value26);
             }
-            else if (IsCreateOrder)
+            else if (CreateOrder is { } __value27)
             {
-                createOrder?.Invoke(CreateOrder!);
+                createOrder?.Invoke(__value27);
             }
-            else if (IsGetOrderByConfirmationNumber)
+            else if (GetOrderByConfirmationNumber is { } __value28)
             {
-                getOrderByConfirmationNumber?.Invoke(GetOrderByConfirmationNumber!);
+                getOrderByConfirmationNumber?.Invoke(__value28);
             }
-            else if (IsGetClientOrders)
+            else if (GetClientOrders is { } __value29)
             {
-                getClientOrders?.Invoke(GetClientOrders!);
+                getClientOrders?.Invoke(__value29);
             }
-            else if (IsUpdateOrder)
+            else if (UpdateOrder is { } __value30)
             {
-                updateOrder?.Invoke(UpdateOrder!);
+                updateOrder?.Invoke(__value30);
             }
-            else if (IsCancelOrder)
+            else if (CancelOrder is { } __value31)
             {
-                cancelOrder?.Invoke(CancelOrder!);
+                cancelOrder?.Invoke(__value31);
             }
-            else if (IsListGroupSessions)
+            else if (ListGroupSessions is { } __value32)
             {
-                listGroupSessions?.Invoke(ListGroupSessions!);
+                listGroupSessions?.Invoke(__value32);
             }
-            else if (IsScheduleGroupSession)
+            else if (ScheduleGroupSession is { } __value33)
             {
-                scheduleGroupSession?.Invoke(ScheduleGroupSession!);
+                scheduleGroupSession?.Invoke(__value33);
             }
-            else if (IsRegisterForGroupSession)
+            else if (RegisterForGroupSession is { } __value34)
             {
-                registerForGroupSession?.Invoke(RegisterForGroupSession!);
+                registerForGroupSession?.Invoke(__value34);
             }
-            else if (IsCancelGroupSessionRegistration)
+            else if (CancelGroupSessionRegistration is { } __value35)
             {
-                cancelGroupSessionRegistration?.Invoke(CancelGroupSessionRegistration!);
+                cancelGroupSessionRegistration?.Invoke(__value35);
             }
-            else if (IsUpdateGroupSessionSeats)
+            else if (UpdateGroupSessionSeats is { } __value36)
             {
-                updateGroupSessionSeats?.Invoke(UpdateGroupSessionSeats!);
+                updateGroupSessionSeats?.Invoke(__value36);
             }
-            else if (IsCancelGroupSessionForAll)
+            else if (CancelGroupSessionForAll is { } __value37)
             {
-                cancelGroupSessionForAll?.Invoke(CancelGroupSessionForAll!);
+                cancelGroupSessionForAll?.Invoke(__value37);
             }
-            else if (IsDeleteGroupSession)
+            else if (DeleteGroupSession is { } __value38)
             {
-                deleteGroupSession?.Invoke(DeleteGroupSession!);
+                deleteGroupSession?.Invoke(__value38);
             }
-            else if (IsListCalendarEvents)
+            else if (ListCalendarEvents is { } __value39)
             {
-                listCalendarEvents?.Invoke(ListCalendarEvents!);
+                listCalendarEvents?.Invoke(__value39);
             }
-            else if (IsUpdateCalendarEvent)
+            else if (UpdateCalendarEvent is { } __value40)
             {
-                updateCalendarEvent?.Invoke(UpdateCalendarEvent!);
+                updateCalendarEvent?.Invoke(__value40);
             }
-            else if (IsCancelCalendarEvent)
+            else if (CancelCalendarEvent is { } __value41)
             {
-                cancelCalendarEvent?.Invoke(CancelCalendarEvent!);
+                cancelCalendarEvent?.Invoke(__value41);
             }
-            else if (IsRestoreCalendarEvent)
+            else if (RestoreCalendarEvent is { } __value42)
             {
-                restoreCalendarEvent?.Invoke(RestoreCalendarEvent!);
+                restoreCalendarEvent?.Invoke(__value42);
             }
-            else if (IsDeleteCalendarEvent)
+            else if (DeleteCalendarEvent is { } __value43)
             {
-                deleteCalendarEvent?.Invoke(DeleteCalendarEvent!);
+                deleteCalendarEvent?.Invoke(__value43);
             }
-            else if (IsListCustomerFacingAgents)
+            else if (ListCustomerFacingAgents is { } __value44)
             {
-                listCustomerFacingAgents?.Invoke(ListCustomerFacingAgents!);
+                listCustomerFacingAgents?.Invoke(__value44);
             }
-            else if (IsListAgentRules)
+            else if (ListAgentRules is { } __value45)
             {
-                listAgentRules?.Invoke(ListAgentRules!);
+                listAgentRules?.Invoke(__value45);
             }
-            else if (IsCreateAgentRule)
+            else if (CreateAgentRule is { } __value46)
             {
-                createAgentRule?.Invoke(CreateAgentRule!);
+                createAgentRule?.Invoke(__value46);
             }
-            else if (IsUpdateAgentRule)
+            else if (UpdateAgentRule is { } __value47)
             {
-                updateAgentRule?.Invoke(UpdateAgentRule!);
+                updateAgentRule?.Invoke(__value47);
             }
-            else if (IsDeleteAgentRule)
+            else if (DeleteAgentRule is { } __value48)
             {
-                deleteAgentRule?.Invoke(DeleteAgentRule!);
+                deleteAgentRule?.Invoke(__value48);
             }
-            else if (IsListTransferRules)
+            else if (ListTransferRules is { } __value49)
             {
-                listTransferRules?.Invoke(ListTransferRules!);
+                listTransferRules?.Invoke(__value49);
             }
-            else if (IsCreateTransferRule)
+            else if (CreateTransferRule is { } __value50)
             {
-                createTransferRule?.Invoke(CreateTransferRule!);
+                createTransferRule?.Invoke(__value50);
             }
-            else if (IsUpdateTransferRule)
+            else if (UpdateTransferRule is { } __value51)
             {
-                updateTransferRule?.Invoke(UpdateTransferRule!);
+                updateTransferRule?.Invoke(__value51);
             }
-            else if (IsDeleteTransferRule)
+            else if (DeleteTransferRule is { } __value52)
             {
-                deleteTransferRule?.Invoke(DeleteTransferRule!);
+                deleteTransferRule?.Invoke(__value52);
             }
-            else if (IsListAgentProcedures)
+            else if (ListAgentProcedures is { } __value53)
             {
-                listAgentProcedures?.Invoke(ListAgentProcedures!);
+                listAgentProcedures?.Invoke(__value53);
             }
-            else if (IsListAgentReferences)
+            else if (ListAgentReferences is { } __value54)
             {
-                listAgentReferences?.Invoke(ListAgentReferences!);
+                listAgentReferences?.Invoke(__value54);
             }
-            else if (IsCreateAgentProcedure)
+            else if (CreateAgentProcedure is { } __value55)
             {
-                createAgentProcedure?.Invoke(CreateAgentProcedure!);
+                createAgentProcedure?.Invoke(__value55);
             }
-            else if (IsUpdateAgentProcedure)
+            else if (UpdateAgentProcedure is { } __value56)
             {
-                updateAgentProcedure?.Invoke(UpdateAgentProcedure!);
+                updateAgentProcedure?.Invoke(__value56);
             }
-            else if (IsDeleteAgentProcedure)
+            else if (DeleteAgentProcedure is { } __value57)
             {
-                deleteAgentProcedure?.Invoke(DeleteAgentProcedure!);
+                deleteAgentProcedure?.Invoke(__value57);
             }
-            else if (IsListHolidays)
+            else if (ListHolidays is { } __value58)
             {
-                listHolidays?.Invoke(ListHolidays!);
+                listHolidays?.Invoke(__value58);
             }
-            else if (IsCreateHoliday)
+            else if (CreateHoliday is { } __value59)
             {
-                createHoliday?.Invoke(CreateHoliday!);
+                createHoliday?.Invoke(__value59);
             }
-            else if (IsUpdateHoliday)
+            else if (UpdateHoliday is { } __value60)
             {
-                updateHoliday?.Invoke(UpdateHoliday!);
+                updateHoliday?.Invoke(__value60);
             }
-            else if (IsDeleteHoliday)
+            else if (DeleteHoliday is { } __value61)
             {
-                deleteHoliday?.Invoke(DeleteHoliday!);
+                deleteHoliday?.Invoke(__value61);
             }
-            else if (IsGetSchedule)
+            else if (GetSchedule is { } __value62)
             {
-                getSchedule?.Invoke(GetSchedule!);
+                getSchedule?.Invoke(__value62);
             }
-            else if (IsSubmitBusinessInfo)
+            else if (SubmitBusinessInfo is { } __value63)
             {
-                submitBusinessInfo?.Invoke(SubmitBusinessInfo!);
+                submitBusinessInfo?.Invoke(__value63);
             }
-            else if (IsUpdateBusinessInfo)
+            else if (UpdateBusinessInfo is { } __value64)
             {
-                updateBusinessInfo?.Invoke(UpdateBusinessInfo!);
+                updateBusinessInfo?.Invoke(__value64);
             }
-            else if (IsUpdateCustomerFacingConfig)
+            else if (UpdateCustomerFacingConfig is { } __value65)
             {
-                updateCustomerFacingConfig?.Invoke(UpdateCustomerFacingConfig!);
+                updateCustomerFacingConfig?.Invoke(__value65);
             }
-            else if (IsGetAnalyticsSummary)
+            else if (GetAnalyticsSummary is { } __value66)
             {
-                getAnalyticsSummary?.Invoke(GetAnalyticsSummary!);
+                getAnalyticsSummary?.Invoke(__value66);
             }
-            else if (IsGetBookingPageSettings)
+            else if (GetBookingPageSettings is { } __value67)
             {
-                getBookingPageSettings?.Invoke(GetBookingPageSettings!);
+                getBookingPageSettings?.Invoke(__value67);
             }
-            else if (IsUpdateBookingPageSettings)
+            else if (UpdateBookingPageSettings is { } __value68)
             {
-                updateBookingPageSettings?.Invoke(UpdateBookingPageSettings!);
+                updateBookingPageSettings?.Invoke(__value68);
             }
-            else if (IsUpdateBookingPageAppearance)
+            else if (UpdateBookingPageAppearance is { } __value69)
             {
-                updateBookingPageAppearance?.Invoke(UpdateBookingPageAppearance!);
+                updateBookingPageAppearance?.Invoke(__value69);
             }
-            else if (IsGetBookingSlugStatus)
+            else if (GetBookingSlugStatus is { } __value70)
             {
-                getBookingSlugStatus?.Invoke(GetBookingSlugStatus!);
+                getBookingSlugStatus?.Invoke(__value70);
             }
-            else if (IsSetBookingSlug)
+            else if (SetBookingSlug is { } __value71)
             {
-                setBookingSlug?.Invoke(SetBookingSlug!);
+                setBookingSlug?.Invoke(__value71);
             }
-            else if (IsListClientInteractions)
+            else if (ListClientInteractions is { } __value72)
             {
-                listClientInteractions?.Invoke(ListClientInteractions!);
+                listClientInteractions?.Invoke(__value72);
             }
-            else if (IsCreateClientInteraction)
+            else if (CreateClientInteraction is { } __value73)
             {
-                createClientInteraction?.Invoke(CreateClientInteraction!);
+                createClientInteraction?.Invoke(__value73);
             }
-            else if (IsDeleteClientInteraction)
+            else if (DeleteClientInteraction is { } __value74)
             {
-                deleteClientInteraction?.Invoke(DeleteClientInteraction!);
+                deleteClientInteraction?.Invoke(__value74);
             }
-            else if (IsListLocations)
+            else if (ListLocations is { } __value75)
             {
-                listLocations?.Invoke(ListLocations!);
+                listLocations?.Invoke(__value75);
             }
-            else if (IsCreateLocation)
+            else if (CreateLocation is { } __value76)
             {
-                createLocation?.Invoke(CreateLocation!);
+                createLocation?.Invoke(__value76);
             }
-            else if (IsUpdateLocation)
+            else if (UpdateLocation is { } __value77)
             {
-                updateLocation?.Invoke(UpdateLocation!);
+                updateLocation?.Invoke(__value77);
             }
-            else if (IsDeleteLocation)
+            else if (DeleteLocation is { } __value78)
             {
-                deleteLocation?.Invoke(DeleteLocation!);
+                deleteLocation?.Invoke(__value78);
             }
-            else if (IsLeaveMessage)
+            else if (LeaveMessage is { } __value79)
             {
-                leaveMessage?.Invoke(LeaveMessage!);
+                leaveMessage?.Invoke(__value79);
             }
-            else if (IsCreateServiceQuoteRequest)
+            else if (CreateServiceQuoteRequest is { } __value80)
             {
-                createServiceQuoteRequest?.Invoke(CreateServiceQuoteRequest!);
+                createServiceQuoteRequest?.Invoke(__value80);
             }
-            else if (IsCreateProductQuoteRequest)
+            else if (CreateProductQuoteRequest is { } __value81)
             {
-                createProductQuoteRequest?.Invoke(CreateProductQuoteRequest!);
+                createProductQuoteRequest?.Invoke(__value81);
             }
-            else if (IsReportKnowledgeGap)
+            else if (ReportKnowledgeGap is { } __value82)
             {
-                reportKnowledgeGap?.Invoke(ReportKnowledgeGap!);
+                reportKnowledgeGap?.Invoke(__value82);
             }
-            else if (IsOptInSmsReminder)
+            else if (OptInSmsReminder is { } __value83)
             {
-                optInSmsReminder?.Invoke(OptInSmsReminder!);
+                optInSmsReminder?.Invoke(__value83);
             }
-            else if (IsOptOutSmsReminder)
+            else if (OptOutSmsReminder is { } __value84)
             {
-                optOutSmsReminder?.Invoke(OptOutSmsReminder!);
+                optOutSmsReminder?.Invoke(__value84);
             }
-            else if (IsTriggerUserVerification)
+            else if (TriggerUserVerification is { } __value85)
             {
-                triggerUserVerification?.Invoke(TriggerUserVerification!);
+                triggerUserVerification?.Invoke(__value85);
             }
-            else if (IsValidateUserVerificationCode)
+            else if (ValidateUserVerificationCode is { } __value86)
             {
-                validateUserVerificationCode?.Invoke(ValidateUserVerificationCode!);
+                validateUserVerificationCode?.Invoke(__value86);
             }
         }
 
@@ -6720,353 +6720,353 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsSearchClients)
+            if (SearchClients is { } __value0)
             {
-                searchClients?.Invoke(SearchClients!);
+                searchClients?.Invoke(__value0);
             }
-            else if (IsSendCustomEmail)
+            else if (SendCustomEmail is { } __value1)
             {
-                sendCustomEmail?.Invoke(SendCustomEmail!);
+                sendCustomEmail?.Invoke(__value1);
             }
-            else if (IsListClients)
+            else if (ListClients is { } __value2)
             {
-                listClients?.Invoke(ListClients!);
+                listClients?.Invoke(__value2);
             }
-            else if (IsGetClientByPhone)
+            else if (GetClientByPhone is { } __value3)
             {
-                getClientByPhone?.Invoke(GetClientByPhone!);
+                getClientByPhone?.Invoke(__value3);
             }
-            else if (IsCreateClient)
+            else if (CreateClient is { } __value4)
             {
-                createClient?.Invoke(CreateClient!);
+                createClient?.Invoke(__value4);
             }
-            else if (IsUpdateClient)
+            else if (UpdateClient is { } __value5)
             {
-                updateClient?.Invoke(UpdateClient!);
+                updateClient?.Invoke(__value5);
             }
-            else if (IsDeleteClient)
+            else if (DeleteClient is { } __value6)
             {
-                deleteClient?.Invoke(DeleteClient!);
+                deleteClient?.Invoke(__value6);
             }
-            else if (IsListStaff)
+            else if (ListStaff is { } __value7)
             {
-                listStaff?.Invoke(ListStaff!);
+                listStaff?.Invoke(__value7);
             }
-            else if (IsCreateStaff)
+            else if (CreateStaff is { } __value8)
             {
-                createStaff?.Invoke(CreateStaff!);
+                createStaff?.Invoke(__value8);
             }
-            else if (IsUpdateStaff)
+            else if (UpdateStaff is { } __value9)
             {
-                updateStaff?.Invoke(UpdateStaff!);
+                updateStaff?.Invoke(__value9);
             }
-            else if (IsDeleteStaff)
+            else if (DeleteStaff is { } __value10)
             {
-                deleteStaff?.Invoke(DeleteStaff!);
+                deleteStaff?.Invoke(__value10);
             }
-            else if (IsListAssets)
+            else if (ListAssets is { } __value11)
             {
-                listAssets?.Invoke(ListAssets!);
+                listAssets?.Invoke(__value11);
             }
-            else if (IsCreateAsset)
+            else if (CreateAsset is { } __value12)
             {
-                createAsset?.Invoke(CreateAsset!);
+                createAsset?.Invoke(__value12);
             }
-            else if (IsUpdateAsset)
+            else if (UpdateAsset is { } __value13)
             {
-                updateAsset?.Invoke(UpdateAsset!);
+                updateAsset?.Invoke(__value13);
             }
-            else if (IsDeleteAsset)
+            else if (DeleteAsset is { } __value14)
             {
-                deleteAsset?.Invoke(DeleteAsset!);
+                deleteAsset?.Invoke(__value14);
             }
-            else if (IsListServices)
+            else if (ListServices is { } __value15)
             {
-                listServices?.Invoke(ListServices!);
+                listServices?.Invoke(__value15);
             }
-            else if (IsCreateService)
+            else if (CreateService is { } __value16)
             {
-                createService?.Invoke(CreateService!);
+                createService?.Invoke(__value16);
             }
-            else if (IsUpdateService)
+            else if (UpdateService is { } __value17)
             {
-                updateService?.Invoke(UpdateService!);
+                updateService?.Invoke(__value17);
             }
-            else if (IsDeleteService)
+            else if (DeleteService is { } __value18)
             {
-                deleteService?.Invoke(DeleteService!);
+                deleteService?.Invoke(__value18);
             }
-            else if (IsListProducts)
+            else if (ListProducts is { } __value19)
             {
-                listProducts?.Invoke(ListProducts!);
+                listProducts?.Invoke(__value19);
             }
-            else if (IsCreateProduct)
+            else if (CreateProduct is { } __value20)
             {
-                createProduct?.Invoke(CreateProduct!);
+                createProduct?.Invoke(__value20);
             }
-            else if (IsUpdateProduct)
+            else if (UpdateProduct is { } __value21)
             {
-                updateProduct?.Invoke(UpdateProduct!);
+                updateProduct?.Invoke(__value21);
             }
-            else if (IsDeleteProduct)
+            else if (DeleteProduct is { } __value22)
             {
-                deleteProduct?.Invoke(DeleteProduct!);
+                deleteProduct?.Invoke(__value22);
             }
-            else if (IsCheckServiceAvailability)
+            else if (CheckServiceAvailability is { } __value23)
             {
-                checkServiceAvailability?.Invoke(CheckServiceAvailability!);
+                checkServiceAvailability?.Invoke(__value23);
             }
-            else if (IsCreateClientAppointment)
+            else if (CreateClientAppointment is { } __value24)
             {
-                createClientAppointment?.Invoke(CreateClientAppointment!);
+                createClientAppointment?.Invoke(__value24);
             }
-            else if (IsGetClientAppointments)
+            else if (GetClientAppointments is { } __value25)
             {
-                getClientAppointments?.Invoke(GetClientAppointments!);
+                getClientAppointments?.Invoke(__value25);
             }
-            else if (IsGetAppointmentByConfirmationNumber)
+            else if (GetAppointmentByConfirmationNumber is { } __value26)
             {
-                getAppointmentByConfirmationNumber?.Invoke(GetAppointmentByConfirmationNumber!);
+                getAppointmentByConfirmationNumber?.Invoke(__value26);
             }
-            else if (IsCreateOrder)
+            else if (CreateOrder is { } __value27)
             {
-                createOrder?.Invoke(CreateOrder!);
+                createOrder?.Invoke(__value27);
             }
-            else if (IsGetOrderByConfirmationNumber)
+            else if (GetOrderByConfirmationNumber is { } __value28)
             {
-                getOrderByConfirmationNumber?.Invoke(GetOrderByConfirmationNumber!);
+                getOrderByConfirmationNumber?.Invoke(__value28);
             }
-            else if (IsGetClientOrders)
+            else if (GetClientOrders is { } __value29)
             {
-                getClientOrders?.Invoke(GetClientOrders!);
+                getClientOrders?.Invoke(__value29);
             }
-            else if (IsUpdateOrder)
+            else if (UpdateOrder is { } __value30)
             {
-                updateOrder?.Invoke(UpdateOrder!);
+                updateOrder?.Invoke(__value30);
             }
-            else if (IsCancelOrder)
+            else if (CancelOrder is { } __value31)
             {
-                cancelOrder?.Invoke(CancelOrder!);
+                cancelOrder?.Invoke(__value31);
             }
-            else if (IsListGroupSessions)
+            else if (ListGroupSessions is { } __value32)
             {
-                listGroupSessions?.Invoke(ListGroupSessions!);
+                listGroupSessions?.Invoke(__value32);
             }
-            else if (IsScheduleGroupSession)
+            else if (ScheduleGroupSession is { } __value33)
             {
-                scheduleGroupSession?.Invoke(ScheduleGroupSession!);
+                scheduleGroupSession?.Invoke(__value33);
             }
-            else if (IsRegisterForGroupSession)
+            else if (RegisterForGroupSession is { } __value34)
             {
-                registerForGroupSession?.Invoke(RegisterForGroupSession!);
+                registerForGroupSession?.Invoke(__value34);
             }
-            else if (IsCancelGroupSessionRegistration)
+            else if (CancelGroupSessionRegistration is { } __value35)
             {
-                cancelGroupSessionRegistration?.Invoke(CancelGroupSessionRegistration!);
+                cancelGroupSessionRegistration?.Invoke(__value35);
             }
-            else if (IsUpdateGroupSessionSeats)
+            else if (UpdateGroupSessionSeats is { } __value36)
             {
-                updateGroupSessionSeats?.Invoke(UpdateGroupSessionSeats!);
+                updateGroupSessionSeats?.Invoke(__value36);
             }
-            else if (IsCancelGroupSessionForAll)
+            else if (CancelGroupSessionForAll is { } __value37)
             {
-                cancelGroupSessionForAll?.Invoke(CancelGroupSessionForAll!);
+                cancelGroupSessionForAll?.Invoke(__value37);
             }
-            else if (IsDeleteGroupSession)
+            else if (DeleteGroupSession is { } __value38)
             {
-                deleteGroupSession?.Invoke(DeleteGroupSession!);
+                deleteGroupSession?.Invoke(__value38);
             }
-            else if (IsListCalendarEvents)
+            else if (ListCalendarEvents is { } __value39)
             {
-                listCalendarEvents?.Invoke(ListCalendarEvents!);
+                listCalendarEvents?.Invoke(__value39);
             }
-            else if (IsUpdateCalendarEvent)
+            else if (UpdateCalendarEvent is { } __value40)
             {
-                updateCalendarEvent?.Invoke(UpdateCalendarEvent!);
+                updateCalendarEvent?.Invoke(__value40);
             }
-            else if (IsCancelCalendarEvent)
+            else if (CancelCalendarEvent is { } __value41)
             {
-                cancelCalendarEvent?.Invoke(CancelCalendarEvent!);
+                cancelCalendarEvent?.Invoke(__value41);
             }
-            else if (IsRestoreCalendarEvent)
+            else if (RestoreCalendarEvent is { } __value42)
             {
-                restoreCalendarEvent?.Invoke(RestoreCalendarEvent!);
+                restoreCalendarEvent?.Invoke(__value42);
             }
-            else if (IsDeleteCalendarEvent)
+            else if (DeleteCalendarEvent is { } __value43)
             {
-                deleteCalendarEvent?.Invoke(DeleteCalendarEvent!);
+                deleteCalendarEvent?.Invoke(__value43);
             }
-            else if (IsListCustomerFacingAgents)
+            else if (ListCustomerFacingAgents is { } __value44)
             {
-                listCustomerFacingAgents?.Invoke(ListCustomerFacingAgents!);
+                listCustomerFacingAgents?.Invoke(__value44);
             }
-            else if (IsListAgentRules)
+            else if (ListAgentRules is { } __value45)
             {
-                listAgentRules?.Invoke(ListAgentRules!);
+                listAgentRules?.Invoke(__value45);
             }
-            else if (IsCreateAgentRule)
+            else if (CreateAgentRule is { } __value46)
             {
-                createAgentRule?.Invoke(CreateAgentRule!);
+                createAgentRule?.Invoke(__value46);
             }
-            else if (IsUpdateAgentRule)
+            else if (UpdateAgentRule is { } __value47)
             {
-                updateAgentRule?.Invoke(UpdateAgentRule!);
+                updateAgentRule?.Invoke(__value47);
             }
-            else if (IsDeleteAgentRule)
+            else if (DeleteAgentRule is { } __value48)
             {
-                deleteAgentRule?.Invoke(DeleteAgentRule!);
+                deleteAgentRule?.Invoke(__value48);
             }
-            else if (IsListTransferRules)
+            else if (ListTransferRules is { } __value49)
             {
-                listTransferRules?.Invoke(ListTransferRules!);
+                listTransferRules?.Invoke(__value49);
             }
-            else if (IsCreateTransferRule)
+            else if (CreateTransferRule is { } __value50)
             {
-                createTransferRule?.Invoke(CreateTransferRule!);
+                createTransferRule?.Invoke(__value50);
             }
-            else if (IsUpdateTransferRule)
+            else if (UpdateTransferRule is { } __value51)
             {
-                updateTransferRule?.Invoke(UpdateTransferRule!);
+                updateTransferRule?.Invoke(__value51);
             }
-            else if (IsDeleteTransferRule)
+            else if (DeleteTransferRule is { } __value52)
             {
-                deleteTransferRule?.Invoke(DeleteTransferRule!);
+                deleteTransferRule?.Invoke(__value52);
             }
-            else if (IsListAgentProcedures)
+            else if (ListAgentProcedures is { } __value53)
             {
-                listAgentProcedures?.Invoke(ListAgentProcedures!);
+                listAgentProcedures?.Invoke(__value53);
             }
-            else if (IsListAgentReferences)
+            else if (ListAgentReferences is { } __value54)
             {
-                listAgentReferences?.Invoke(ListAgentReferences!);
+                listAgentReferences?.Invoke(__value54);
             }
-            else if (IsCreateAgentProcedure)
+            else if (CreateAgentProcedure is { } __value55)
             {
-                createAgentProcedure?.Invoke(CreateAgentProcedure!);
+                createAgentProcedure?.Invoke(__value55);
             }
-            else if (IsUpdateAgentProcedure)
+            else if (UpdateAgentProcedure is { } __value56)
             {
-                updateAgentProcedure?.Invoke(UpdateAgentProcedure!);
+                updateAgentProcedure?.Invoke(__value56);
             }
-            else if (IsDeleteAgentProcedure)
+            else if (DeleteAgentProcedure is { } __value57)
             {
-                deleteAgentProcedure?.Invoke(DeleteAgentProcedure!);
+                deleteAgentProcedure?.Invoke(__value57);
             }
-            else if (IsListHolidays)
+            else if (ListHolidays is { } __value58)
             {
-                listHolidays?.Invoke(ListHolidays!);
+                listHolidays?.Invoke(__value58);
             }
-            else if (IsCreateHoliday)
+            else if (CreateHoliday is { } __value59)
             {
-                createHoliday?.Invoke(CreateHoliday!);
+                createHoliday?.Invoke(__value59);
             }
-            else if (IsUpdateHoliday)
+            else if (UpdateHoliday is { } __value60)
             {
-                updateHoliday?.Invoke(UpdateHoliday!);
+                updateHoliday?.Invoke(__value60);
             }
-            else if (IsDeleteHoliday)
+            else if (DeleteHoliday is { } __value61)
             {
-                deleteHoliday?.Invoke(DeleteHoliday!);
+                deleteHoliday?.Invoke(__value61);
             }
-            else if (IsGetSchedule)
+            else if (GetSchedule is { } __value62)
             {
-                getSchedule?.Invoke(GetSchedule!);
+                getSchedule?.Invoke(__value62);
             }
-            else if (IsSubmitBusinessInfo)
+            else if (SubmitBusinessInfo is { } __value63)
             {
-                submitBusinessInfo?.Invoke(SubmitBusinessInfo!);
+                submitBusinessInfo?.Invoke(__value63);
             }
-            else if (IsUpdateBusinessInfo)
+            else if (UpdateBusinessInfo is { } __value64)
             {
-                updateBusinessInfo?.Invoke(UpdateBusinessInfo!);
+                updateBusinessInfo?.Invoke(__value64);
             }
-            else if (IsUpdateCustomerFacingConfig)
+            else if (UpdateCustomerFacingConfig is { } __value65)
             {
-                updateCustomerFacingConfig?.Invoke(UpdateCustomerFacingConfig!);
+                updateCustomerFacingConfig?.Invoke(__value65);
             }
-            else if (IsGetAnalyticsSummary)
+            else if (GetAnalyticsSummary is { } __value66)
             {
-                getAnalyticsSummary?.Invoke(GetAnalyticsSummary!);
+                getAnalyticsSummary?.Invoke(__value66);
             }
-            else if (IsGetBookingPageSettings)
+            else if (GetBookingPageSettings is { } __value67)
             {
-                getBookingPageSettings?.Invoke(GetBookingPageSettings!);
+                getBookingPageSettings?.Invoke(__value67);
             }
-            else if (IsUpdateBookingPageSettings)
+            else if (UpdateBookingPageSettings is { } __value68)
             {
-                updateBookingPageSettings?.Invoke(UpdateBookingPageSettings!);
+                updateBookingPageSettings?.Invoke(__value68);
             }
-            else if (IsUpdateBookingPageAppearance)
+            else if (UpdateBookingPageAppearance is { } __value69)
             {
-                updateBookingPageAppearance?.Invoke(UpdateBookingPageAppearance!);
+                updateBookingPageAppearance?.Invoke(__value69);
             }
-            else if (IsGetBookingSlugStatus)
+            else if (GetBookingSlugStatus is { } __value70)
             {
-                getBookingSlugStatus?.Invoke(GetBookingSlugStatus!);
+                getBookingSlugStatus?.Invoke(__value70);
             }
-            else if (IsSetBookingSlug)
+            else if (SetBookingSlug is { } __value71)
             {
-                setBookingSlug?.Invoke(SetBookingSlug!);
+                setBookingSlug?.Invoke(__value71);
             }
-            else if (IsListClientInteractions)
+            else if (ListClientInteractions is { } __value72)
             {
-                listClientInteractions?.Invoke(ListClientInteractions!);
+                listClientInteractions?.Invoke(__value72);
             }
-            else if (IsCreateClientInteraction)
+            else if (CreateClientInteraction is { } __value73)
             {
-                createClientInteraction?.Invoke(CreateClientInteraction!);
+                createClientInteraction?.Invoke(__value73);
             }
-            else if (IsDeleteClientInteraction)
+            else if (DeleteClientInteraction is { } __value74)
             {
-                deleteClientInteraction?.Invoke(DeleteClientInteraction!);
+                deleteClientInteraction?.Invoke(__value74);
             }
-            else if (IsListLocations)
+            else if (ListLocations is { } __value75)
             {
-                listLocations?.Invoke(ListLocations!);
+                listLocations?.Invoke(__value75);
             }
-            else if (IsCreateLocation)
+            else if (CreateLocation is { } __value76)
             {
-                createLocation?.Invoke(CreateLocation!);
+                createLocation?.Invoke(__value76);
             }
-            else if (IsUpdateLocation)
+            else if (UpdateLocation is { } __value77)
             {
-                updateLocation?.Invoke(UpdateLocation!);
+                updateLocation?.Invoke(__value77);
             }
-            else if (IsDeleteLocation)
+            else if (DeleteLocation is { } __value78)
             {
-                deleteLocation?.Invoke(DeleteLocation!);
+                deleteLocation?.Invoke(__value78);
             }
-            else if (IsLeaveMessage)
+            else if (LeaveMessage is { } __value79)
             {
-                leaveMessage?.Invoke(LeaveMessage!);
+                leaveMessage?.Invoke(__value79);
             }
-            else if (IsCreateServiceQuoteRequest)
+            else if (CreateServiceQuoteRequest is { } __value80)
             {
-                createServiceQuoteRequest?.Invoke(CreateServiceQuoteRequest!);
+                createServiceQuoteRequest?.Invoke(__value80);
             }
-            else if (IsCreateProductQuoteRequest)
+            else if (CreateProductQuoteRequest is { } __value81)
             {
-                createProductQuoteRequest?.Invoke(CreateProductQuoteRequest!);
+                createProductQuoteRequest?.Invoke(__value81);
             }
-            else if (IsReportKnowledgeGap)
+            else if (ReportKnowledgeGap is { } __value82)
             {
-                reportKnowledgeGap?.Invoke(ReportKnowledgeGap!);
+                reportKnowledgeGap?.Invoke(__value82);
             }
-            else if (IsOptInSmsReminder)
+            else if (OptInSmsReminder is { } __value83)
             {
-                optInSmsReminder?.Invoke(OptInSmsReminder!);
+                optInSmsReminder?.Invoke(__value83);
             }
-            else if (IsOptOutSmsReminder)
+            else if (OptOutSmsReminder is { } __value84)
             {
-                optOutSmsReminder?.Invoke(OptOutSmsReminder!);
+                optOutSmsReminder?.Invoke(__value84);
             }
-            else if (IsTriggerUserVerification)
+            else if (TriggerUserVerification is { } __value85)
             {
-                triggerUserVerification?.Invoke(TriggerUserVerification!);
+                triggerUserVerification?.Invoke(__value85);
             }
-            else if (IsValidateUserVerificationCode)
+            else if (ValidateUserVerificationCode is { } __value86)
             {
-                validateUserVerificationCode?.Invoke(ValidateUserVerificationCode!);
+                validateUserVerificationCode?.Invoke(__value86);
             }
         }
 

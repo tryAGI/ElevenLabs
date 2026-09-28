@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LLMParameterEvaluationStrategy PickLlm() => IsLlm
-            ? Llm!
+        public global::ElevenLabs.LLMParameterEvaluationStrategy PickLlm() => Llm is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Llm' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RegexParameterEvaluationStrategy PickRegex() => IsRegex
-            ? Regex!
+        public global::ElevenLabs.RegexParameterEvaluationStrategy PickRegex() => Regex is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Regex' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ExactParameterEvaluationStrategy PickExact() => IsExact
-            ? Exact!
+        public global::ElevenLabs.ExactParameterEvaluationStrategy PickExact() => Exact is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Exact' but the value was {ToString()}.");
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MatchAnythingParameterEvaluationStrategy PickAnything() => IsAnything
-            ? Anything!
+        public global::ElevenLabs.MatchAnythingParameterEvaluationStrategy PickAnything() => Anything is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Anything' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -315,21 +315,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsLlm && llm != null)
+            if (Llm is { } __value0 && llm != null)
             {
-                return llm(Llm!);
+                return llm(__value0);
             }
-            else if (IsRegex && regex != null)
+            else if (Regex is { } __value1 && regex != null)
             {
-                return regex(Regex!);
+                return regex(__value1);
             }
-            else if (IsExact && exact != null)
+            else if (Exact is { } __value2 && exact != null)
             {
-                return exact(Exact!);
+                return exact(__value2);
             }
-            else if (IsAnything && anything != null)
+            else if (Anything is { } __value3 && anything != null)
             {
-                return anything(Anything!);
+                return anything(__value3);
             }
 
             return default(TResult);
@@ -353,21 +353,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsLlm)
+            if (Llm is { } __value0)
             {
-                llm?.Invoke(Llm!);
+                llm?.Invoke(__value0);
             }
-            else if (IsRegex)
+            else if (Regex is { } __value1)
             {
-                regex?.Invoke(Regex!);
+                regex?.Invoke(__value1);
             }
-            else if (IsExact)
+            else if (Exact is { } __value2)
             {
-                exact?.Invoke(Exact!);
+                exact?.Invoke(__value2);
             }
-            else if (IsAnything)
+            else if (Anything is { } __value3)
             {
-                anything?.Invoke(Anything!);
+                anything?.Invoke(__value3);
             }
         }
 
@@ -386,21 +386,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsLlm)
+            if (Llm is { } __value0)
             {
-                llm?.Invoke(Llm!);
+                llm?.Invoke(__value0);
             }
-            else if (IsRegex)
+            else if (Regex is { } __value1)
             {
-                regex?.Invoke(Regex!);
+                regex?.Invoke(__value1);
             }
-            else if (IsExact)
+            else if (Exact is { } __value2)
             {
-                exact?.Invoke(Exact!);
+                exact?.Invoke(__value2);
             }
-            else if (IsAnything)
+            else if (Anything is { } __value3)
             {
-                anything?.Invoke(Anything!);
+                anything?.Invoke(__value3);
             }
         }
 

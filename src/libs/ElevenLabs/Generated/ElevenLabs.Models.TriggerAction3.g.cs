@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EndCallTriggerAction PickEndCall() => IsEndCall
-            ? EndCall!
+        public global::ElevenLabs.EndCallTriggerAction PickEndCall() => EndCall is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'EndCall' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.RetryTriggerAction PickRetry() => IsRetry
-            ? Retry!
+        public global::ElevenLabs.RetryTriggerAction PickRetry() => Retry is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Retry' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsEndCall && endCall != null)
+            if (EndCall is { } __value0 && endCall != null)
             {
-                return endCall(EndCall!);
+                return endCall(__value0);
             }
-            else if (IsRetry && retry != null)
+            else if (Retry is { } __value1 && retry != null)
             {
-                return retry(Retry!);
+                return retry(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsEndCall)
+            if (EndCall is { } __value0)
             {
-                endCall?.Invoke(EndCall!);
+                endCall?.Invoke(__value0);
             }
-            else if (IsRetry)
+            else if (Retry is { } __value1)
             {
-                retry?.Invoke(Retry!);
+                retry?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsEndCall)
+            if (EndCall is { } __value0)
             {
-                endCall?.Invoke(EndCall!);
+                endCall?.Invoke(__value0);
             }
-            else if (IsRetry)
+            else if (Retry is { } __value1)
             {
-                retry?.Invoke(Retry!);
+                retry?.Invoke(__value1);
             }
         }
 

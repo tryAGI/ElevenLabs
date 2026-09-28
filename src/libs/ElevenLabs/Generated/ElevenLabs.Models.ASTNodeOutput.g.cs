@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTStringNodeOutput PickStringLiteral() => IsStringLiteral
-            ? StringLiteral!
+        public global::ElevenLabs.ASTStringNodeOutput PickStringLiteral() => StringLiteral is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'StringLiteral' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTNumberNodeOutput PickNumberLiteral() => IsNumberLiteral
-            ? NumberLiteral!
+        public global::ElevenLabs.ASTNumberNodeOutput PickNumberLiteral() => NumberLiteral is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'NumberLiteral' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTBooleanNodeOutput PickBooleanLiteral() => IsBooleanLiteral
-            ? BooleanLiteral!
+        public global::ElevenLabs.ASTBooleanNodeOutput PickBooleanLiteral() => BooleanLiteral is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'BooleanLiteral' but the value was {ToString()}.");
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTNullNodeOutput PickNullLiteral() => IsNullLiteral
-            ? NullLiteral!
+        public global::ElevenLabs.ASTNullNodeOutput PickNullLiteral() => NullLiteral is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'NullLiteral' but the value was {ToString()}.");
 
         /// <summary>
@@ -195,8 +195,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTLLMNodeOutput PickLlm() => IsLlm
-            ? Llm!
+        public global::ElevenLabs.ASTLLMNodeOutput PickLlm() => Llm is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Llm' but the value was {ToString()}.");
 
         /// <summary>
@@ -232,8 +232,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTDynamicVariableNodeOutput PickDynamicVariable() => IsDynamicVariable
-            ? DynamicVariable!
+        public global::ElevenLabs.ASTDynamicVariableNodeOutput PickDynamicVariable() => DynamicVariable is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DynamicVariable' but the value was {ToString()}.");
 
         /// <summary>
@@ -269,8 +269,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTOrOperatorNodeOutput PickOrOperator() => IsOrOperator
-            ? OrOperator!
+        public global::ElevenLabs.ASTOrOperatorNodeOutput PickOrOperator() => OrOperator is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'OrOperator' but the value was {ToString()}.");
 
         /// <summary>
@@ -306,8 +306,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTAndOperatorNodeOutput PickAndOperator() => IsAndOperator
-            ? AndOperator!
+        public global::ElevenLabs.ASTAndOperatorNodeOutput PickAndOperator() => AndOperator is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'AndOperator' but the value was {ToString()}.");
 
         /// <summary>
@@ -343,8 +343,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTEqualsOperatorNodeOutput PickEqOperator() => IsEqOperator
-            ? EqOperator!
+        public global::ElevenLabs.ASTEqualsOperatorNodeOutput PickEqOperator() => EqOperator is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'EqOperator' but the value was {ToString()}.");
 
         /// <summary>
@@ -380,8 +380,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTNotEqualsOperatorNodeOutput PickNeqOperator() => IsNeqOperator
-            ? NeqOperator!
+        public global::ElevenLabs.ASTNotEqualsOperatorNodeOutput PickNeqOperator() => NeqOperator is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'NeqOperator' but the value was {ToString()}.");
 
         /// <summary>
@@ -417,8 +417,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTGreaterThanOperatorNodeOutput PickGtOperator() => IsGtOperator
-            ? GtOperator!
+        public global::ElevenLabs.ASTGreaterThanOperatorNodeOutput PickGtOperator() => GtOperator is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GtOperator' but the value was {ToString()}.");
 
         /// <summary>
@@ -454,8 +454,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTLessThanOperatorNodeOutput PickLtOperator() => IsLtOperator
-            ? LtOperator!
+        public global::ElevenLabs.ASTLessThanOperatorNodeOutput PickLtOperator() => LtOperator is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'LtOperator' but the value was {ToString()}.");
 
         /// <summary>
@@ -491,8 +491,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeOutput PickGteOperator() => IsGteOperator
-            ? GteOperator!
+        public global::ElevenLabs.ASTGreaterThanOrEqualsOperatorNodeOutput PickGteOperator() => GteOperator is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'GteOperator' but the value was {ToString()}.");
 
         /// <summary>
@@ -528,8 +528,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutput PickLteOperator() => IsLteOperator
-            ? LteOperator!
+        public global::ElevenLabs.ASTLessThanOrEqualsOperatorNodeOutput PickLteOperator() => LteOperator is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'LteOperator' but the value was {ToString()}.");
 
         /// <summary>
@@ -565,8 +565,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTAdditionOperatorNodeOutput PickAddOperator() => IsAddOperator
-            ? AddOperator!
+        public global::ElevenLabs.ASTAdditionOperatorNodeOutput PickAddOperator() => AddOperator is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'AddOperator' but the value was {ToString()}.");
 
         /// <summary>
@@ -602,8 +602,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTSubtractionOperatorNodeOutput PickSubOperator() => IsSubOperator
-            ? SubOperator!
+        public global::ElevenLabs.ASTSubtractionOperatorNodeOutput PickSubOperator() => SubOperator is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'SubOperator' but the value was {ToString()}.");
 
         /// <summary>
@@ -639,8 +639,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTMultiplicationOperatorNodeOutput PickMulOperator() => IsMulOperator
-            ? MulOperator!
+        public global::ElevenLabs.ASTMultiplicationOperatorNodeOutput PickMulOperator() => MulOperator is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'MulOperator' but the value was {ToString()}.");
 
         /// <summary>
@@ -676,8 +676,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTDivisionOperatorNodeOutput PickDivOperator() => IsDivOperator
-            ? DivOperator!
+        public global::ElevenLabs.ASTDivisionOperatorNodeOutput PickDivOperator() => DivOperator is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DivOperator' but the value was {ToString()}.");
 
         /// <summary>
@@ -713,8 +713,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTConditionalOperatorNodeOutput PickConditionalOperator() => IsConditionalOperator
-            ? ConditionalOperator!
+        public global::ElevenLabs.ASTConditionalOperatorNodeOutput PickConditionalOperator() => ConditionalOperator is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ConditionalOperator' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -1290,81 +1290,81 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsStringLiteral && stringLiteral != null)
+            if (StringLiteral is { } __value0 && stringLiteral != null)
             {
-                return stringLiteral(StringLiteral!);
+                return stringLiteral(__value0);
             }
-            else if (IsNumberLiteral && numberLiteral != null)
+            else if (NumberLiteral is { } __value1 && numberLiteral != null)
             {
-                return numberLiteral(NumberLiteral!);
+                return numberLiteral(__value1);
             }
-            else if (IsBooleanLiteral && booleanLiteral != null)
+            else if (BooleanLiteral is { } __value2 && booleanLiteral != null)
             {
-                return booleanLiteral(BooleanLiteral!);
+                return booleanLiteral(__value2);
             }
-            else if (IsNullLiteral && nullLiteral != null)
+            else if (NullLiteral is { } __value3 && nullLiteral != null)
             {
-                return nullLiteral(NullLiteral!);
+                return nullLiteral(__value3);
             }
-            else if (IsLlm && llm != null)
+            else if (Llm is { } __value4 && llm != null)
             {
-                return llm(Llm!);
+                return llm(__value4);
             }
-            else if (IsDynamicVariable && dynamicVariable != null)
+            else if (DynamicVariable is { } __value5 && dynamicVariable != null)
             {
-                return dynamicVariable(DynamicVariable!);
+                return dynamicVariable(__value5);
             }
-            else if (IsOrOperator && orOperator != null)
+            else if (OrOperator is { } __value6 && orOperator != null)
             {
-                return orOperator(OrOperator!);
+                return orOperator(__value6);
             }
-            else if (IsAndOperator && andOperator != null)
+            else if (AndOperator is { } __value7 && andOperator != null)
             {
-                return andOperator(AndOperator!);
+                return andOperator(__value7);
             }
-            else if (IsEqOperator && eqOperator != null)
+            else if (EqOperator is { } __value8 && eqOperator != null)
             {
-                return eqOperator(EqOperator!);
+                return eqOperator(__value8);
             }
-            else if (IsNeqOperator && neqOperator != null)
+            else if (NeqOperator is { } __value9 && neqOperator != null)
             {
-                return neqOperator(NeqOperator!);
+                return neqOperator(__value9);
             }
-            else if (IsGtOperator && gtOperator != null)
+            else if (GtOperator is { } __value10 && gtOperator != null)
             {
-                return gtOperator(GtOperator!);
+                return gtOperator(__value10);
             }
-            else if (IsLtOperator && ltOperator != null)
+            else if (LtOperator is { } __value11 && ltOperator != null)
             {
-                return ltOperator(LtOperator!);
+                return ltOperator(__value11);
             }
-            else if (IsGteOperator && gteOperator != null)
+            else if (GteOperator is { } __value12 && gteOperator != null)
             {
-                return gteOperator(GteOperator!);
+                return gteOperator(__value12);
             }
-            else if (IsLteOperator && lteOperator != null)
+            else if (LteOperator is { } __value13 && lteOperator != null)
             {
-                return lteOperator(LteOperator!);
+                return lteOperator(__value13);
             }
-            else if (IsAddOperator && addOperator != null)
+            else if (AddOperator is { } __value14 && addOperator != null)
             {
-                return addOperator(AddOperator!);
+                return addOperator(__value14);
             }
-            else if (IsSubOperator && subOperator != null)
+            else if (SubOperator is { } __value15 && subOperator != null)
             {
-                return subOperator(SubOperator!);
+                return subOperator(__value15);
             }
-            else if (IsMulOperator && mulOperator != null)
+            else if (MulOperator is { } __value16 && mulOperator != null)
             {
-                return mulOperator(MulOperator!);
+                return mulOperator(__value16);
             }
-            else if (IsDivOperator && divOperator != null)
+            else if (DivOperator is { } __value17 && divOperator != null)
             {
-                return divOperator(DivOperator!);
+                return divOperator(__value17);
             }
-            else if (IsConditionalOperator && conditionalOperator != null)
+            else if (ConditionalOperator is { } __value18 && conditionalOperator != null)
             {
-                return conditionalOperator(ConditionalOperator!);
+                return conditionalOperator(__value18);
             }
 
             return default(TResult);
@@ -1418,81 +1418,81 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsStringLiteral)
+            if (StringLiteral is { } __value0)
             {
-                stringLiteral?.Invoke(StringLiteral!);
+                stringLiteral?.Invoke(__value0);
             }
-            else if (IsNumberLiteral)
+            else if (NumberLiteral is { } __value1)
             {
-                numberLiteral?.Invoke(NumberLiteral!);
+                numberLiteral?.Invoke(__value1);
             }
-            else if (IsBooleanLiteral)
+            else if (BooleanLiteral is { } __value2)
             {
-                booleanLiteral?.Invoke(BooleanLiteral!);
+                booleanLiteral?.Invoke(__value2);
             }
-            else if (IsNullLiteral)
+            else if (NullLiteral is { } __value3)
             {
-                nullLiteral?.Invoke(NullLiteral!);
+                nullLiteral?.Invoke(__value3);
             }
-            else if (IsLlm)
+            else if (Llm is { } __value4)
             {
-                llm?.Invoke(Llm!);
+                llm?.Invoke(__value4);
             }
-            else if (IsDynamicVariable)
+            else if (DynamicVariable is { } __value5)
             {
-                dynamicVariable?.Invoke(DynamicVariable!);
+                dynamicVariable?.Invoke(__value5);
             }
-            else if (IsOrOperator)
+            else if (OrOperator is { } __value6)
             {
-                orOperator?.Invoke(OrOperator!);
+                orOperator?.Invoke(__value6);
             }
-            else if (IsAndOperator)
+            else if (AndOperator is { } __value7)
             {
-                andOperator?.Invoke(AndOperator!);
+                andOperator?.Invoke(__value7);
             }
-            else if (IsEqOperator)
+            else if (EqOperator is { } __value8)
             {
-                eqOperator?.Invoke(EqOperator!);
+                eqOperator?.Invoke(__value8);
             }
-            else if (IsNeqOperator)
+            else if (NeqOperator is { } __value9)
             {
-                neqOperator?.Invoke(NeqOperator!);
+                neqOperator?.Invoke(__value9);
             }
-            else if (IsGtOperator)
+            else if (GtOperator is { } __value10)
             {
-                gtOperator?.Invoke(GtOperator!);
+                gtOperator?.Invoke(__value10);
             }
-            else if (IsLtOperator)
+            else if (LtOperator is { } __value11)
             {
-                ltOperator?.Invoke(LtOperator!);
+                ltOperator?.Invoke(__value11);
             }
-            else if (IsGteOperator)
+            else if (GteOperator is { } __value12)
             {
-                gteOperator?.Invoke(GteOperator!);
+                gteOperator?.Invoke(__value12);
             }
-            else if (IsLteOperator)
+            else if (LteOperator is { } __value13)
             {
-                lteOperator?.Invoke(LteOperator!);
+                lteOperator?.Invoke(__value13);
             }
-            else if (IsAddOperator)
+            else if (AddOperator is { } __value14)
             {
-                addOperator?.Invoke(AddOperator!);
+                addOperator?.Invoke(__value14);
             }
-            else if (IsSubOperator)
+            else if (SubOperator is { } __value15)
             {
-                subOperator?.Invoke(SubOperator!);
+                subOperator?.Invoke(__value15);
             }
-            else if (IsMulOperator)
+            else if (MulOperator is { } __value16)
             {
-                mulOperator?.Invoke(MulOperator!);
+                mulOperator?.Invoke(__value16);
             }
-            else if (IsDivOperator)
+            else if (DivOperator is { } __value17)
             {
-                divOperator?.Invoke(DivOperator!);
+                divOperator?.Invoke(__value17);
             }
-            else if (IsConditionalOperator)
+            else if (ConditionalOperator is { } __value18)
             {
-                conditionalOperator?.Invoke(ConditionalOperator!);
+                conditionalOperator?.Invoke(__value18);
             }
         }
 
@@ -1526,81 +1526,81 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsStringLiteral)
+            if (StringLiteral is { } __value0)
             {
-                stringLiteral?.Invoke(StringLiteral!);
+                stringLiteral?.Invoke(__value0);
             }
-            else if (IsNumberLiteral)
+            else if (NumberLiteral is { } __value1)
             {
-                numberLiteral?.Invoke(NumberLiteral!);
+                numberLiteral?.Invoke(__value1);
             }
-            else if (IsBooleanLiteral)
+            else if (BooleanLiteral is { } __value2)
             {
-                booleanLiteral?.Invoke(BooleanLiteral!);
+                booleanLiteral?.Invoke(__value2);
             }
-            else if (IsNullLiteral)
+            else if (NullLiteral is { } __value3)
             {
-                nullLiteral?.Invoke(NullLiteral!);
+                nullLiteral?.Invoke(__value3);
             }
-            else if (IsLlm)
+            else if (Llm is { } __value4)
             {
-                llm?.Invoke(Llm!);
+                llm?.Invoke(__value4);
             }
-            else if (IsDynamicVariable)
+            else if (DynamicVariable is { } __value5)
             {
-                dynamicVariable?.Invoke(DynamicVariable!);
+                dynamicVariable?.Invoke(__value5);
             }
-            else if (IsOrOperator)
+            else if (OrOperator is { } __value6)
             {
-                orOperator?.Invoke(OrOperator!);
+                orOperator?.Invoke(__value6);
             }
-            else if (IsAndOperator)
+            else if (AndOperator is { } __value7)
             {
-                andOperator?.Invoke(AndOperator!);
+                andOperator?.Invoke(__value7);
             }
-            else if (IsEqOperator)
+            else if (EqOperator is { } __value8)
             {
-                eqOperator?.Invoke(EqOperator!);
+                eqOperator?.Invoke(__value8);
             }
-            else if (IsNeqOperator)
+            else if (NeqOperator is { } __value9)
             {
-                neqOperator?.Invoke(NeqOperator!);
+                neqOperator?.Invoke(__value9);
             }
-            else if (IsGtOperator)
+            else if (GtOperator is { } __value10)
             {
-                gtOperator?.Invoke(GtOperator!);
+                gtOperator?.Invoke(__value10);
             }
-            else if (IsLtOperator)
+            else if (LtOperator is { } __value11)
             {
-                ltOperator?.Invoke(LtOperator!);
+                ltOperator?.Invoke(__value11);
             }
-            else if (IsGteOperator)
+            else if (GteOperator is { } __value12)
             {
-                gteOperator?.Invoke(GteOperator!);
+                gteOperator?.Invoke(__value12);
             }
-            else if (IsLteOperator)
+            else if (LteOperator is { } __value13)
             {
-                lteOperator?.Invoke(LteOperator!);
+                lteOperator?.Invoke(__value13);
             }
-            else if (IsAddOperator)
+            else if (AddOperator is { } __value14)
             {
-                addOperator?.Invoke(AddOperator!);
+                addOperator?.Invoke(__value14);
             }
-            else if (IsSubOperator)
+            else if (SubOperator is { } __value15)
             {
-                subOperator?.Invoke(SubOperator!);
+                subOperator?.Invoke(__value15);
             }
-            else if (IsMulOperator)
+            else if (MulOperator is { } __value16)
             {
-                mulOperator?.Invoke(MulOperator!);
+                mulOperator?.Invoke(__value16);
             }
-            else if (IsDivOperator)
+            else if (DivOperator is { } __value17)
             {
-                divOperator?.Invoke(DivOperator!);
+                divOperator?.Invoke(__value17);
             }
-            else if (IsConditionalOperator)
+            else if (ConditionalOperator is { } __value18)
             {
-                conditionalOperator?.Invoke(ConditionalOperator!);
+                conditionalOperator?.Invoke(__value18);
             }
         }
 

@@ -68,19 +68,19 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.AgentTransferOpReplace), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.AgentTransferOpReplace?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.AgentTransferOpReplace).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Replace!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickReplace(), typeInfo);
             }
             else if (value.IsPush)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.AgentTransferOpPush), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.AgentTransferOpPush?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.AgentTransferOpPush).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Push!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickPush(), typeInfo);
             }
             else if (value.IsPop)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.AgentTransferOpPop), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.AgentTransferOpPop?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.AgentTransferOpPop).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Pop!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickPop(), typeInfo);
             }
         }
     }

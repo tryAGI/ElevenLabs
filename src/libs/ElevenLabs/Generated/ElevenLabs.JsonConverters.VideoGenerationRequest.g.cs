@@ -104,43 +104,43 @@ namespace ElevenLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreatifyAuroraRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreatifyAuroraRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreatifyAuroraRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreatifyAurora!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickCreatifyAurora(), typeInfo);
             }
             else if (value.IsVeo31Generate001)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.Veo31Request), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.Veo31Request?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.Veo31Request).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Veo31Generate001!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickVeo31Generate001(), typeInfo);
             }
             else if (value.IsVeo31FastGenerate001)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.Veo31FastRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.Veo31FastRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.Veo31FastRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Veo31FastGenerate001!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickVeo31FastGenerate001(), typeInfo);
             }
             else if (value.IsBytedanceSeedanceV2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BytedanceSeedance2Request), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BytedanceSeedance2Request?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BytedanceSeedance2Request).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.BytedanceSeedanceV2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickBytedanceSeedanceV2(), typeInfo);
             }
             else if (value.IsBytedanceSeedanceV2Fast)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BytedanceSeedance2FastRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BytedanceSeedance2FastRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BytedanceSeedance2FastRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.BytedanceSeedanceV2Fast!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickBytedanceSeedanceV2Fast(), typeInfo);
             }
             else if (value.IsBytedanceSeedanceV2Mini)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BytedanceSeedance2MiniRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BytedanceSeedance2MiniRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BytedanceSeedance2MiniRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.BytedanceSeedanceV2Mini!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickBytedanceSeedanceV2Mini(), typeInfo);
             }
             else if (value.IsBytedanceSeedanceV25)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.BytedanceSeedance25Request), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.BytedanceSeedance25Request?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.BytedanceSeedance25Request).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.BytedanceSeedanceV25!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickBytedanceSeedanceV25(), typeInfo);
             }
         }
     }

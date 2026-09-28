@@ -47,8 +47,8 @@ namespace ElevenLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Realtime.SessionStartedPayload PickSessionStarted() => IsSessionStarted
-            ? SessionStarted!
+        public global::ElevenLabs.Realtime.SessionStartedPayload PickSessionStarted() => SessionStarted is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'SessionStarted' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Realtime.PartialTranscriptPayload PickPartialTranscript() => IsPartialTranscript
-            ? PartialTranscript!
+        public global::ElevenLabs.Realtime.PartialTranscriptPayload PickPartialTranscript() => PartialTranscript is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'PartialTranscript' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Realtime.CommittedTranscriptPayload PickCommittedTranscript() => IsCommittedTranscript
-            ? CommittedTranscript!
+        public global::ElevenLabs.Realtime.CommittedTranscriptPayload PickCommittedTranscript() => CommittedTranscript is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CommittedTranscript' but the value was {ToString()}.");
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace ElevenLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload PickCommittedTranscriptWithTimestamps() => IsCommittedTranscriptWithTimestamps
-            ? CommittedTranscriptWithTimestamps!
+        public global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload PickCommittedTranscriptWithTimestamps() => CommittedTranscriptWithTimestamps is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CommittedTranscriptWithTimestamps' but the value was {ToString()}.");
 
         /// <summary>
@@ -195,8 +195,8 @@ namespace ElevenLabs.Realtime
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.Realtime.ErrorPayload PickError() => IsError
-            ? Error!
+        public global::ElevenLabs.Realtime.ErrorPayload PickError() => Error is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Error' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -380,25 +380,25 @@ namespace ElevenLabs.Realtime
                 Validate();
             }
 
-            if (IsSessionStarted && sessionStarted != null)
+            if (SessionStarted is { } __value0 && sessionStarted != null)
             {
-                return sessionStarted(SessionStarted!);
+                return sessionStarted(__value0);
             }
-            else if (IsPartialTranscript && partialTranscript != null)
+            else if (PartialTranscript is { } __value1 && partialTranscript != null)
             {
-                return partialTranscript(PartialTranscript!);
+                return partialTranscript(__value1);
             }
-            else if (IsCommittedTranscript && committedTranscript != null)
+            else if (CommittedTranscript is { } __value2 && committedTranscript != null)
             {
-                return committedTranscript(CommittedTranscript!);
+                return committedTranscript(__value2);
             }
-            else if (IsCommittedTranscriptWithTimestamps && committedTranscriptWithTimestamps != null)
+            else if (CommittedTranscriptWithTimestamps is { } __value3 && committedTranscriptWithTimestamps != null)
             {
-                return committedTranscriptWithTimestamps(CommittedTranscriptWithTimestamps!);
+                return committedTranscriptWithTimestamps(__value3);
             }
-            else if (IsError && error != null)
+            else if (Error is { } __value4 && error != null)
             {
-                return error(Error!);
+                return error(__value4);
             }
 
             return default(TResult);
@@ -424,25 +424,25 @@ namespace ElevenLabs.Realtime
                 Validate();
             }
 
-            if (IsSessionStarted)
+            if (SessionStarted is { } __value0)
             {
-                sessionStarted?.Invoke(SessionStarted!);
+                sessionStarted?.Invoke(__value0);
             }
-            else if (IsPartialTranscript)
+            else if (PartialTranscript is { } __value1)
             {
-                partialTranscript?.Invoke(PartialTranscript!);
+                partialTranscript?.Invoke(__value1);
             }
-            else if (IsCommittedTranscript)
+            else if (CommittedTranscript is { } __value2)
             {
-                committedTranscript?.Invoke(CommittedTranscript!);
+                committedTranscript?.Invoke(__value2);
             }
-            else if (IsCommittedTranscriptWithTimestamps)
+            else if (CommittedTranscriptWithTimestamps is { } __value3)
             {
-                committedTranscriptWithTimestamps?.Invoke(CommittedTranscriptWithTimestamps!);
+                committedTranscriptWithTimestamps?.Invoke(__value3);
             }
-            else if (IsError)
+            else if (Error is { } __value4)
             {
-                error?.Invoke(Error!);
+                error?.Invoke(__value4);
             }
         }
 
@@ -462,25 +462,25 @@ namespace ElevenLabs.Realtime
                 Validate();
             }
 
-            if (IsSessionStarted)
+            if (SessionStarted is { } __value0)
             {
-                sessionStarted?.Invoke(SessionStarted!);
+                sessionStarted?.Invoke(__value0);
             }
-            else if (IsPartialTranscript)
+            else if (PartialTranscript is { } __value1)
             {
-                partialTranscript?.Invoke(PartialTranscript!);
+                partialTranscript?.Invoke(__value1);
             }
-            else if (IsCommittedTranscript)
+            else if (CommittedTranscript is { } __value2)
             {
-                committedTranscript?.Invoke(CommittedTranscript!);
+                committedTranscript?.Invoke(__value2);
             }
-            else if (IsCommittedTranscriptWithTimestamps)
+            else if (CommittedTranscriptWithTimestamps is { } __value3)
             {
-                committedTranscriptWithTimestamps?.Invoke(CommittedTranscriptWithTimestamps!);
+                committedTranscriptWithTimestamps?.Invoke(__value3);
             }
-            else if (IsError)
+            else if (Error is { } __value4)
             {
-                error?.Invoke(Error!);
+                error?.Invoke(__value4);
             }
         }
 

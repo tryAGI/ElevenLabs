@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModel PickSuccess() => IsSuccess
-            ? Success!
+        public global::ElevenLabs.KnowledgeBaseSummaryBatchSuccessfulResponseModel PickSuccess() => Success is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Success' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.BatchFailureResponseModel PickFailure() => IsFailure
-            ? Failure!
+        public global::ElevenLabs.BatchFailureResponseModel PickFailure() => Failure is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Failure' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsSuccess && success != null)
+            if (Success is { } __value0 && success != null)
             {
-                return success(Success!);
+                return success(__value0);
             }
-            else if (IsFailure && failure != null)
+            else if (Failure is { } __value1 && failure != null)
             {
-                return failure(Failure!);
+                return failure(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsSuccess)
+            if (Success is { } __value0)
             {
-                success?.Invoke(Success!);
+                success?.Invoke(__value0);
             }
-            else if (IsFailure)
+            else if (Failure is { } __value1)
             {
-                failure?.Invoke(Failure!);
+                failure?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsSuccess)
+            if (Success is { } __value0)
             {
-                success?.Invoke(Success!);
+                success?.Invoke(__value0);
             }
-            else if (IsFailure)
+            else if (Failure is { } __value1)
             {
-                failure?.Invoke(Failure!);
+                failure?.Invoke(__value1);
             }
         }
 

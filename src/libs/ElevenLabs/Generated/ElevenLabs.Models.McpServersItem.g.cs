@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentAvailableMCPServerIdentifier PickAvailable() => IsAvailable
-            ? Available!
+        public global::ElevenLabs.DependentAvailableMCPServerIdentifier PickAvailable() => Available is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Available' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentUnknownMCPServerIdentifier PickUnknown() => IsUnknown
-            ? Unknown!
+        public global::ElevenLabs.DependentUnknownMCPServerIdentifier PickUnknown() => Unknown is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Unknown' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsAvailable && available != null)
+            if (Available is { } __value0 && available != null)
             {
-                return available(Available!);
+                return available(__value0);
             }
-            else if (IsUnknown && unknown != null)
+            else if (Unknown is { } __value1 && unknown != null)
             {
-                return unknown(Unknown!);
+                return unknown(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsAvailable)
+            if (Available is { } __value0)
             {
-                available?.Invoke(Available!);
+                available?.Invoke(__value0);
             }
-            else if (IsUnknown)
+            else if (Unknown is { } __value1)
             {
-                unknown?.Invoke(Unknown!);
+                unknown?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsAvailable)
+            if (Available is { } __value0)
             {
-                available?.Invoke(Available!);
+                available?.Invoke(__value0);
             }
-            else if (IsUnknown)
+            else if (Unknown is { } __value1)
             {
-                unknown?.Invoke(Unknown!);
+                unknown?.Invoke(__value1);
             }
         }
 

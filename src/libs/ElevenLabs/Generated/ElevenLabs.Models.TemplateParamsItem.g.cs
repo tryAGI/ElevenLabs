@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateHeaderComponentParams PickHeader() => IsHeader
-            ? Header!
+        public global::ElevenLabs.WhatsAppTemplateHeaderComponentParams PickHeader() => Header is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Header' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateBodyComponentParams PickBody() => IsBody
-            ? Body!
+        public global::ElevenLabs.WhatsAppTemplateBodyComponentParams PickBody() => Body is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Body' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WhatsAppTemplateButtonComponentParams PickButton() => IsButton
-            ? Button!
+        public global::ElevenLabs.WhatsAppTemplateButtonComponentParams PickButton() => Button is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Button' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -250,17 +250,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsHeader && header != null)
+            if (Header is { } __value0 && header != null)
             {
-                return header(Header!);
+                return header(__value0);
             }
-            else if (IsBody && body != null)
+            else if (Body is { } __value1 && body != null)
             {
-                return body(Body!);
+                return body(__value1);
             }
-            else if (IsButton && button != null)
+            else if (Button is { } __value2 && button != null)
             {
-                return button(Button!);
+                return button(__value2);
             }
 
             return default(TResult);
@@ -282,17 +282,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsHeader)
+            if (Header is { } __value0)
             {
-                header?.Invoke(Header!);
+                header?.Invoke(__value0);
             }
-            else if (IsBody)
+            else if (Body is { } __value1)
             {
-                body?.Invoke(Body!);
+                body?.Invoke(__value1);
             }
-            else if (IsButton)
+            else if (Button is { } __value2)
             {
-                button?.Invoke(Button!);
+                button?.Invoke(__value2);
             }
         }
 
@@ -310,17 +310,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsHeader)
+            if (Header is { } __value0)
             {
-                header?.Invoke(Header!);
+                header?.Invoke(__value0);
             }
-            else if (IsBody)
+            else if (Body is { } __value1)
             {
-                body?.Invoke(Body!);
+                body?.Invoke(__value1);
             }
-            else if (IsButton)
+            else if (Button is { } __value2)
             {
-                button?.Invoke(Button!);
+                button?.Invoke(__value2);
             }
         }
 

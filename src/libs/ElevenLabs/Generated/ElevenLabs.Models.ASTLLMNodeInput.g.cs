@@ -42,8 +42,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTLLMNodeInputASTLLMNode PickASTLLMNode1() => IsASTLLMNode1
-            ? ASTLLMNode1!
+        public global::ElevenLabs.ASTLLMNodeInputASTLLMNode PickASTLLMNode1() => ASTLLMNode1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ASTLLMNode1' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ASTLLMNodeInputASTLLMNode2 PickASTLLMNode2() => IsASTLLMNode2
-            ? ASTLLMNode2!
+        public global::ElevenLabs.ASTLLMNodeInputASTLLMNode2 PickASTLLMNode2() => ASTLLMNode2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ASTLLMNode2' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsASTLLMNode1 && aSTLLMNode1 != null)
+            if (ASTLLMNode1 is { } __value0 && aSTLLMNode1 != null)
             {
-                return aSTLLMNode1(ASTLLMNode1!);
+                return aSTLLMNode1(__value0);
             }
-            else if (IsASTLLMNode2 && aSTLLMNode2 != null)
+            else if (ASTLLMNode2 is { } __value1 && aSTLLMNode2 != null)
             {
-                return aSTLLMNode2(ASTLLMNode2!);
+                return aSTLLMNode2(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsASTLLMNode1)
+            if (ASTLLMNode1 is { } __value0)
             {
-                aSTLLMNode1?.Invoke(ASTLLMNode1!);
+                aSTLLMNode1?.Invoke(__value0);
             }
-            else if (IsASTLLMNode2)
+            else if (ASTLLMNode2 is { } __value1)
             {
-                aSTLLMNode2?.Invoke(ASTLLMNode2!);
+                aSTLLMNode2?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsASTLLMNode1)
+            if (ASTLLMNode1 is { } __value0)
             {
-                aSTLLMNode1?.Invoke(ASTLLMNode1!);
+                aSTLLMNode1?.Invoke(__value0);
             }
-            else if (IsASTLLMNode2)
+            else if (ASTLLMNode2 is { } __value1)
             {
-                aSTLLMNode2?.Invoke(ASTLLMNode2!);
+                aSTLLMNode2?.Invoke(__value1);
             }
         }
 

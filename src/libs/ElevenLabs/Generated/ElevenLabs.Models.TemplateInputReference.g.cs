@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GenerationReference PickGeneration() => IsGeneration
-            ? Generation!
+        public global::ElevenLabs.GenerationReference PickGeneration() => Generation is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Generation' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StaticAssetReference PickAsset() => IsAsset
-            ? Asset!
+        public global::ElevenLabs.StaticAssetReference PickAsset() => Asset is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Asset' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoiceReference PickVoice() => IsVoice
-            ? Voice!
+        public global::ElevenLabs.VoiceReference PickVoice() => Voice is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Voice' but the value was {ToString()}.");
 
         /// <summary>
@@ -160,8 +160,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.InlineBase64Reference PickInlineBase64() => IsInlineBase64
-            ? InlineBase64!
+        public global::ElevenLabs.InlineBase64Reference PickInlineBase64() => InlineBase64 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'InlineBase64' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -317,21 +317,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsGeneration && generation != null)
+            if (Generation is { } __value0 && generation != null)
             {
-                return generation(Generation!);
+                return generation(__value0);
             }
-            else if (IsAsset && asset != null)
+            else if (Asset is { } __value1 && asset != null)
             {
-                return asset(Asset!);
+                return asset(__value1);
             }
-            else if (IsVoice && voice != null)
+            else if (Voice is { } __value2 && voice != null)
             {
-                return voice(Voice!);
+                return voice(__value2);
             }
-            else if (IsInlineBase64 && inlineBase64 != null)
+            else if (InlineBase64 is { } __value3 && inlineBase64 != null)
             {
-                return inlineBase64(InlineBase64!);
+                return inlineBase64(__value3);
             }
 
             return default(TResult);
@@ -355,21 +355,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsGeneration)
+            if (Generation is { } __value0)
             {
-                generation?.Invoke(Generation!);
+                generation?.Invoke(__value0);
             }
-            else if (IsAsset)
+            else if (Asset is { } __value1)
             {
-                asset?.Invoke(Asset!);
+                asset?.Invoke(__value1);
             }
-            else if (IsVoice)
+            else if (Voice is { } __value2)
             {
-                voice?.Invoke(Voice!);
+                voice?.Invoke(__value2);
             }
-            else if (IsInlineBase64)
+            else if (InlineBase64 is { } __value3)
             {
-                inlineBase64?.Invoke(InlineBase64!);
+                inlineBase64?.Invoke(__value3);
             }
         }
 
@@ -388,21 +388,21 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsGeneration)
+            if (Generation is { } __value0)
             {
-                generation?.Invoke(Generation!);
+                generation?.Invoke(__value0);
             }
-            else if (IsAsset)
+            else if (Asset is { } __value1)
             {
-                asset?.Invoke(Asset!);
+                asset?.Invoke(__value1);
             }
-            else if (IsVoice)
+            else if (Voice is { } __value2)
             {
-                voice?.Invoke(Voice!);
+                voice?.Invoke(__value2);
             }
-            else if (IsInlineBase64)
+            else if (InlineBase64 is { } __value3)
             {
-                inlineBase64?.Invoke(InlineBase64!);
+                inlineBase64?.Invoke(__value3);
             }
         }
 

@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EndCallToolConfig PickEndCall() => IsEndCall
-            ? EndCall!
+        public global::ElevenLabs.EndCallToolConfig PickEndCall() => EndCall is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'EndCall' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.LanguageDetectionToolConfig PickLanguageDetection() => IsLanguageDetection
-            ? LanguageDetection!
+        public global::ElevenLabs.LanguageDetectionToolConfig PickLanguageDetection() => LanguageDetection is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'LanguageDetection' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToAgentToolConfigOutput PickTransferToAgent() => IsTransferToAgent
-            ? TransferToAgent!
+        public global::ElevenLabs.TransferToAgentToolConfigOutput PickTransferToAgent() => TransferToAgent is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToAgent' but the value was {ToString()}.");
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TransferToNumberToolConfigOutput PickTransferToNumber() => IsTransferToNumber
-            ? TransferToNumber!
+        public global::ElevenLabs.TransferToNumberToolConfigOutput PickTransferToNumber() => TransferToNumber is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToNumber' but the value was {ToString()}.");
 
         /// <summary>
@@ -202,8 +202,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SkipTurnToolConfig PickSkipTurn() => IsSkipTurn
-            ? SkipTurn!
+        public global::ElevenLabs.SkipTurnToolConfig PickSkipTurn() => SkipTurn is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'SkipTurn' but the value was {ToString()}.");
 
         /// <summary>
@@ -241,8 +241,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PlayDTMFToolConfig PickPlayKeypadTouchTone() => IsPlayKeypadTouchTone
-            ? PlayKeypadTouchTone!
+        public global::ElevenLabs.PlayDTMFToolConfig PickPlayKeypadTouchTone() => PlayKeypadTouchTone is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'PlayKeypadTouchTone' but the value was {ToString()}.");
 
         /// <summary>
@@ -281,8 +281,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.VoicemailDetectionToolConfig PickVoicemailDetection() => IsVoicemailDetection
-            ? VoicemailDetection!
+        public global::ElevenLabs.VoicemailDetectionToolConfig PickVoicemailDetection() => VoicemailDetection is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'VoicemailDetection' but the value was {ToString()}.");
 
         /// <summary>
@@ -318,8 +318,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseRagToolConfig PickKnowledgeBaseRag() => IsKnowledgeBaseRag
-            ? KnowledgeBaseRag!
+        public global::ElevenLabs.KnowledgeBaseRagToolConfig PickKnowledgeBaseRag() => KnowledgeBaseRag is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeBaseRag' but the value was {ToString()}.");
 
         /// <summary>
@@ -355,8 +355,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.KnowledgeBaseToolConfig PickKnowledgeBase() => IsKnowledgeBase
-            ? KnowledgeBase!
+        public global::ElevenLabs.KnowledgeBaseToolConfig PickKnowledgeBase() => KnowledgeBase is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeBase' but the value was {ToString()}.");
 
         /// <summary>
@@ -392,8 +392,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.StartProcedureToolConfig PickStartProcedure() => IsStartProcedure
-            ? StartProcedure!
+        public global::ElevenLabs.StartProcedureToolConfig PickStartProcedure() => StartProcedure is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'StartProcedure' but the value was {ToString()}.");
 
         /// <summary>
@@ -429,8 +429,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.EndProcedureToolConfig PickEndProcedure() => IsEndProcedure
-            ? EndProcedure!
+        public global::ElevenLabs.EndProcedureToolConfig PickEndProcedure() => EndProcedure is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'EndProcedure' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -782,49 +782,49 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsEndCall && endCall != null)
+            if (EndCall is { } __value0 && endCall != null)
             {
-                return endCall(EndCall!);
+                return endCall(__value0);
             }
-            else if (IsLanguageDetection && languageDetection != null)
+            else if (LanguageDetection is { } __value1 && languageDetection != null)
             {
-                return languageDetection(LanguageDetection!);
+                return languageDetection(__value1);
             }
-            else if (IsTransferToAgent && transferToAgent != null)
+            else if (TransferToAgent is { } __value2 && transferToAgent != null)
             {
-                return transferToAgent(TransferToAgent!);
+                return transferToAgent(__value2);
             }
-            else if (IsTransferToNumber && transferToNumber != null)
+            else if (TransferToNumber is { } __value3 && transferToNumber != null)
             {
-                return transferToNumber(TransferToNumber!);
+                return transferToNumber(__value3);
             }
-            else if (IsSkipTurn && skipTurn != null)
+            else if (SkipTurn is { } __value4 && skipTurn != null)
             {
-                return skipTurn(SkipTurn!);
+                return skipTurn(__value4);
             }
-            else if (IsPlayKeypadTouchTone && playKeypadTouchTone != null)
+            else if (PlayKeypadTouchTone is { } __value5 && playKeypadTouchTone != null)
             {
-                return playKeypadTouchTone(PlayKeypadTouchTone!);
+                return playKeypadTouchTone(__value5);
             }
-            else if (IsVoicemailDetection && voicemailDetection != null)
+            else if (VoicemailDetection is { } __value6 && voicemailDetection != null)
             {
-                return voicemailDetection(VoicemailDetection!);
+                return voicemailDetection(__value6);
             }
-            else if (IsKnowledgeBaseRag && knowledgeBaseRag != null)
+            else if (KnowledgeBaseRag is { } __value7 && knowledgeBaseRag != null)
             {
-                return knowledgeBaseRag(KnowledgeBaseRag!);
+                return knowledgeBaseRag(__value7);
             }
-            else if (IsKnowledgeBase && knowledgeBase != null)
+            else if (KnowledgeBase is { } __value8 && knowledgeBase != null)
             {
-                return knowledgeBase(KnowledgeBase!);
+                return knowledgeBase(__value8);
             }
-            else if (IsStartProcedure && startProcedure != null)
+            else if (StartProcedure is { } __value9 && startProcedure != null)
             {
-                return startProcedure(StartProcedure!);
+                return startProcedure(__value9);
             }
-            else if (IsEndProcedure && endProcedure != null)
+            else if (EndProcedure is { } __value10 && endProcedure != null)
             {
-                return endProcedure(EndProcedure!);
+                return endProcedure(__value10);
             }
 
             return default(TResult);
@@ -862,49 +862,49 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsEndCall)
+            if (EndCall is { } __value0)
             {
-                endCall?.Invoke(EndCall!);
+                endCall?.Invoke(__value0);
             }
-            else if (IsLanguageDetection)
+            else if (LanguageDetection is { } __value1)
             {
-                languageDetection?.Invoke(LanguageDetection!);
+                languageDetection?.Invoke(__value1);
             }
-            else if (IsTransferToAgent)
+            else if (TransferToAgent is { } __value2)
             {
-                transferToAgent?.Invoke(TransferToAgent!);
+                transferToAgent?.Invoke(__value2);
             }
-            else if (IsTransferToNumber)
+            else if (TransferToNumber is { } __value3)
             {
-                transferToNumber?.Invoke(TransferToNumber!);
+                transferToNumber?.Invoke(__value3);
             }
-            else if (IsSkipTurn)
+            else if (SkipTurn is { } __value4)
             {
-                skipTurn?.Invoke(SkipTurn!);
+                skipTurn?.Invoke(__value4);
             }
-            else if (IsPlayKeypadTouchTone)
+            else if (PlayKeypadTouchTone is { } __value5)
             {
-                playKeypadTouchTone?.Invoke(PlayKeypadTouchTone!);
+                playKeypadTouchTone?.Invoke(__value5);
             }
-            else if (IsVoicemailDetection)
+            else if (VoicemailDetection is { } __value6)
             {
-                voicemailDetection?.Invoke(VoicemailDetection!);
+                voicemailDetection?.Invoke(__value6);
             }
-            else if (IsKnowledgeBaseRag)
+            else if (KnowledgeBaseRag is { } __value7)
             {
-                knowledgeBaseRag?.Invoke(KnowledgeBaseRag!);
+                knowledgeBaseRag?.Invoke(__value7);
             }
-            else if (IsKnowledgeBase)
+            else if (KnowledgeBase is { } __value8)
             {
-                knowledgeBase?.Invoke(KnowledgeBase!);
+                knowledgeBase?.Invoke(__value8);
             }
-            else if (IsStartProcedure)
+            else if (StartProcedure is { } __value9)
             {
-                startProcedure?.Invoke(StartProcedure!);
+                startProcedure?.Invoke(__value9);
             }
-            else if (IsEndProcedure)
+            else if (EndProcedure is { } __value10)
             {
-                endProcedure?.Invoke(EndProcedure!);
+                endProcedure?.Invoke(__value10);
             }
         }
 
@@ -930,49 +930,49 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsEndCall)
+            if (EndCall is { } __value0)
             {
-                endCall?.Invoke(EndCall!);
+                endCall?.Invoke(__value0);
             }
-            else if (IsLanguageDetection)
+            else if (LanguageDetection is { } __value1)
             {
-                languageDetection?.Invoke(LanguageDetection!);
+                languageDetection?.Invoke(__value1);
             }
-            else if (IsTransferToAgent)
+            else if (TransferToAgent is { } __value2)
             {
-                transferToAgent?.Invoke(TransferToAgent!);
+                transferToAgent?.Invoke(__value2);
             }
-            else if (IsTransferToNumber)
+            else if (TransferToNumber is { } __value3)
             {
-                transferToNumber?.Invoke(TransferToNumber!);
+                transferToNumber?.Invoke(__value3);
             }
-            else if (IsSkipTurn)
+            else if (SkipTurn is { } __value4)
             {
-                skipTurn?.Invoke(SkipTurn!);
+                skipTurn?.Invoke(__value4);
             }
-            else if (IsPlayKeypadTouchTone)
+            else if (PlayKeypadTouchTone is { } __value5)
             {
-                playKeypadTouchTone?.Invoke(PlayKeypadTouchTone!);
+                playKeypadTouchTone?.Invoke(__value5);
             }
-            else if (IsVoicemailDetection)
+            else if (VoicemailDetection is { } __value6)
             {
-                voicemailDetection?.Invoke(VoicemailDetection!);
+                voicemailDetection?.Invoke(__value6);
             }
-            else if (IsKnowledgeBaseRag)
+            else if (KnowledgeBaseRag is { } __value7)
             {
-                knowledgeBaseRag?.Invoke(KnowledgeBaseRag!);
+                knowledgeBaseRag?.Invoke(__value7);
             }
-            else if (IsKnowledgeBase)
+            else if (KnowledgeBase is { } __value8)
             {
-                knowledgeBase?.Invoke(KnowledgeBase!);
+                knowledgeBase?.Invoke(__value8);
             }
-            else if (IsStartProcedure)
+            else if (StartProcedure is { } __value9)
             {
-                startProcedure?.Invoke(StartProcedure!);
+                startProcedure?.Invoke(__value9);
             }
-            else if (IsEndProcedure)
+            else if (EndProcedure is { } __value10)
             {
-                endProcedure?.Invoke(EndProcedure!);
+                endProcedure?.Invoke(__value10);
             }
         }
 

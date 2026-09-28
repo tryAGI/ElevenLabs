@@ -47,8 +47,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumberTwilioResponseModel PickTwilio() => IsTwilio
-            ? Twilio!
+        public global::ElevenLabs.GetPhoneNumberTwilioResponseModel PickTwilio() => Twilio is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Twilio' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumberExotelResponseModel PickExotel() => IsExotel
-            ? Exotel!
+        public global::ElevenLabs.GetPhoneNumberExotelResponseModel PickExotel() => Exotel is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Exotel' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel PickSipTrunk() => IsSipTrunk
-            ? SipTrunk!
+        public global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel PickSipTrunk() => SipTrunk is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'SipTrunk' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -250,17 +250,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsTwilio && twilio != null)
+            if (Twilio is { } __value0 && twilio != null)
             {
-                return twilio(Twilio!);
+                return twilio(__value0);
             }
-            else if (IsExotel && exotel != null)
+            else if (Exotel is { } __value1 && exotel != null)
             {
-                return exotel(Exotel!);
+                return exotel(__value1);
             }
-            else if (IsSipTrunk && sipTrunk != null)
+            else if (SipTrunk is { } __value2 && sipTrunk != null)
             {
-                return sipTrunk(SipTrunk!);
+                return sipTrunk(__value2);
             }
 
             return default(TResult);
@@ -282,17 +282,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsTwilio)
+            if (Twilio is { } __value0)
             {
-                twilio?.Invoke(Twilio!);
+                twilio?.Invoke(__value0);
             }
-            else if (IsExotel)
+            else if (Exotel is { } __value1)
             {
-                exotel?.Invoke(Exotel!);
+                exotel?.Invoke(__value1);
             }
-            else if (IsSipTrunk)
+            else if (SipTrunk is { } __value2)
             {
-                sipTrunk?.Invoke(SipTrunk!);
+                sipTrunk?.Invoke(__value2);
             }
         }
 
@@ -310,17 +310,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (IsTwilio)
+            if (Twilio is { } __value0)
             {
-                twilio?.Invoke(Twilio!);
+                twilio?.Invoke(__value0);
             }
-            else if (IsExotel)
+            else if (Exotel is { } __value1)
             {
-                exotel?.Invoke(Exotel!);
+                exotel?.Invoke(__value1);
             }
-            else if (IsSipTrunk)
+            else if (SipTrunk is { } __value2)
             {
-                sipTrunk?.Invoke(SipTrunk!);
+                sipTrunk?.Invoke(__value2);
             }
         }
 
