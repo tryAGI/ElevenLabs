@@ -50913,7 +50913,8 @@
             "title": "Model Id",
             "description": "The ID of the model to use for transcription.",
             "examples": [
-              "scribe_v2"
+              "scribe_v2",
+              "scribe_v2_medical"
             ]
           },
           "file": {
@@ -51752,7 +51753,10 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models.",
+            "examples": [
+              "en"
+            ]
           },
           "settings": {
             "anyOf": [
@@ -51932,7 +51936,10 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models.",
+            "examples": [
+              "en"
+            ]
           },
           "settings": {
             "anyOf": [
@@ -53342,7 +53349,10 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models.",
+            "examples": [
+              "en"
+            ]
           },
           "settings": {
             "anyOf": [
@@ -53522,7 +53532,10 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models.",
+            "examples": [
+              "en"
+            ]
           },
           "settings": {
             "anyOf": [
@@ -53690,7 +53703,10 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models.",
+            "examples": [
+              "en"
+            ]
           },
           "voice_settings": {
             "anyOf": [
@@ -53880,7 +53896,10 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models.",
+            "examples": [
+              "en"
+            ]
           },
           "voice_settings": {
             "anyOf": [
@@ -54049,7 +54068,10 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models.",
+            "examples": [
+              "en"
+            ]
           },
           "voice_settings": {
             "anyOf": [
@@ -54239,7 +54261,10 @@
               }
             ],
             "title": "Language Code",
-            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models."
+            "description": "Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support the provided language code, it will be ignored. This parameter is not supported for multilingual_v2 models.",
+            "examples": [
+              "en"
+            ]
           },
           "voice_settings": {
             "anyOf": [
