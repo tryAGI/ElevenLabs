@@ -70,6 +70,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToNumberResultExotelSuccessModel)}");
                 transferToNumberExotelSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel? transferToNumberAmazonConnectSuccess = default;
+            if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToNumberAmazonConnectSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel)}");
+                transferToNumberAmazonConnectSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.TransferToNumberResultErrorModel? transferToNumberError = default;
             if (discriminator?.ResultType == global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType.TransferToNumberError)
             {
@@ -178,6 +185,8 @@ namespace ElevenLabs.JsonConverters
 
                 transferToNumberExotelSuccess,
 
+                transferToNumberAmazonConnectSuccess,
+
                 transferToNumberError,
 
                 skipTurnSuccess,
@@ -258,6 +267,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultExotelSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultExotelSuccessModel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToNumberResultExotelSuccessModel).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTransferToNumberExotelSuccess(), typeInfo);
+            }
+            else if (value.IsTransferToNumberAmazonConnectSuccess)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTransferToNumberAmazonConnectSuccess(), typeInfo);
             }
             else if (value.IsTransferToNumberError)
             {

@@ -277,6 +277,43 @@ namespace ElevenLabs
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
+        public global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel? TransferToNumberAmazonConnectSuccess { get; init; }
+#else
+        public global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel? TransferToNumberAmazonConnectSuccess { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TransferToNumberAmazonConnectSuccess))]
+#endif
+        public bool IsTransferToNumberAmazonConnectSuccess => TransferToNumberAmazonConnectSuccess != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickTransferToNumberAmazonConnectSuccess(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel? value)
+        {
+            value = TransferToNumberAmazonConnectSuccess;
+            return IsTransferToNumberAmazonConnectSuccess;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel PickTransferToNumberAmazonConnectSuccess() => TransferToNumberAmazonConnectSuccess is { } value
+            ? value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'TransferToNumberAmazonConnectSuccess' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferToNumberResultErrorModel? TransferToNumberError { get; init; }
 #else
         public global::ElevenLabs.TransferToNumberResultErrorModel? TransferToNumberError { get; }
@@ -917,6 +954,29 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        public static implicit operator ResultVariant1(global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel value) => new ResultVariant1((global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel?(ResultVariant1 @this) => @this.TransferToNumberAmazonConnectSuccess;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public ResultVariant1(global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel? value)
+        {
+            TransferToNumberAmazonConnectSuccess = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static ResultVariant1 FromTransferToNumberAmazonConnectSuccess(global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel? value) => new ResultVariant1(value);
+
+        /// <summary>
+        ///
+        /// </summary>
         public static implicit operator ResultVariant1(global::ElevenLabs.TransferToNumberResultErrorModel value) => new ResultVariant1((global::ElevenLabs.TransferToNumberResultErrorModel?)value);
 
         /// <summary>
@@ -1225,6 +1285,7 @@ namespace ElevenLabs
             global::ElevenLabs.TransferToNumberResultTwilioSuccessModel? transferToNumberTwilioSuccess,
             global::ElevenLabs.TransferToNumberResultSipSuccessModel? transferToNumberSipSuccess,
             global::ElevenLabs.TransferToNumberResultExotelSuccessModel? transferToNumberExotelSuccess,
+            global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel? transferToNumberAmazonConnectSuccess,
             global::ElevenLabs.TransferToNumberResultErrorModel? transferToNumberError,
             global::ElevenLabs.SkipTurnToolResponseModel? skipTurnSuccess,
             global::ElevenLabs.PlayDTMFResultSuccessModel? playDtmfSuccess,
@@ -1249,6 +1310,7 @@ namespace ElevenLabs
             TransferToNumberTwilioSuccess = transferToNumberTwilioSuccess;
             TransferToNumberSipSuccess = transferToNumberSipSuccess;
             TransferToNumberExotelSuccess = transferToNumberExotelSuccess;
+            TransferToNumberAmazonConnectSuccess = transferToNumberAmazonConnectSuccess;
             TransferToNumberError = transferToNumberError;
             SkipTurnSuccess = skipTurnSuccess;
             PlayDtmfSuccess = playDtmfSuccess;
@@ -1281,6 +1343,7 @@ namespace ElevenLabs
             PlayDtmfSuccess as object ??
             SkipTurnSuccess as object ??
             TransferToNumberError as object ??
+            TransferToNumberAmazonConnectSuccess as object ??
             TransferToNumberExotelSuccess as object ??
             TransferToNumberSipSuccess as object ??
             TransferToNumberTwilioSuccess as object ??
@@ -1301,6 +1364,7 @@ namespace ElevenLabs
             TransferToNumberTwilioSuccess?.ToString() ??
             TransferToNumberSipSuccess?.ToString() ??
             TransferToNumberExotelSuccess?.ToString() ??
+            TransferToNumberAmazonConnectSuccess?.ToString() ??
             TransferToNumberError?.ToString() ??
             SkipTurnSuccess?.ToString() ??
             PlayDtmfSuccess?.ToString() ??
@@ -1321,7 +1385,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && IsDummy;
+            return IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && IsEndProcedureSuccess && !IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && IsEndProcedureError && !IsDummy || !IsEndCallSuccess && !IsLanguageDetectionSuccess && !IsTransferToAgentSuccess && !IsTransferToAgentError && !IsTransferToNumberTwilioSuccess && !IsTransferToNumberSipSuccess && !IsTransferToNumberExotelSuccess && !IsTransferToNumberAmazonConnectSuccess && !IsTransferToNumberError && !IsSkipTurnSuccess && !IsPlayDtmfSuccess && !IsPlayDtmfError && !IsVoicemailDetectionSuccess && !IsTestingToolResult && !IsKnowledgeBaseRagSuccess && !IsKnowledgeBaseSuccess && !IsStartProcedureSuccess && !IsStartProcedureError && !IsEndProcedureSuccess && !IsEndProcedureError && IsDummy;
         }
 
         /// <summary>
@@ -1335,6 +1399,7 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.TransferToNumberResultTwilioSuccessModel, TResult>? transferToNumberTwilioSuccess = null,
             global::System.Func<global::ElevenLabs.TransferToNumberResultSipSuccessModel, TResult>? transferToNumberSipSuccess = null,
             global::System.Func<global::ElevenLabs.TransferToNumberResultExotelSuccessModel, TResult>? transferToNumberExotelSuccess = null,
+            global::System.Func<global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel, TResult>? transferToNumberAmazonConnectSuccess = null,
             global::System.Func<global::ElevenLabs.TransferToNumberResultErrorModel, TResult>? transferToNumberError = null,
             global::System.Func<global::ElevenLabs.SkipTurnToolResponseModel, TResult>? skipTurnSuccess = null,
             global::System.Func<global::ElevenLabs.PlayDTMFResultSuccessModel, TResult>? playDtmfSuccess = null,
@@ -1383,57 +1448,61 @@ namespace ElevenLabs
             {
                 return transferToNumberExotelSuccess(__value6);
             }
-            else if (TransferToNumberError is { } __value7 && transferToNumberError != null)
+            else if (TransferToNumberAmazonConnectSuccess is { } __value7 && transferToNumberAmazonConnectSuccess != null)
             {
-                return transferToNumberError(__value7);
+                return transferToNumberAmazonConnectSuccess(__value7);
             }
-            else if (SkipTurnSuccess is { } __value8 && skipTurnSuccess != null)
+            else if (TransferToNumberError is { } __value8 && transferToNumberError != null)
             {
-                return skipTurnSuccess(__value8);
+                return transferToNumberError(__value8);
             }
-            else if (PlayDtmfSuccess is { } __value9 && playDtmfSuccess != null)
+            else if (SkipTurnSuccess is { } __value9 && skipTurnSuccess != null)
             {
-                return playDtmfSuccess(__value9);
+                return skipTurnSuccess(__value9);
             }
-            else if (PlayDtmfError is { } __value10 && playDtmfError != null)
+            else if (PlayDtmfSuccess is { } __value10 && playDtmfSuccess != null)
             {
-                return playDtmfError(__value10);
+                return playDtmfSuccess(__value10);
             }
-            else if (VoicemailDetectionSuccess is { } __value11 && voicemailDetectionSuccess != null)
+            else if (PlayDtmfError is { } __value11 && playDtmfError != null)
             {
-                return voicemailDetectionSuccess(__value11);
+                return playDtmfError(__value11);
             }
-            else if (TestingToolResult is { } __value12 && testingToolResult != null)
+            else if (VoicemailDetectionSuccess is { } __value12 && voicemailDetectionSuccess != null)
             {
-                return testingToolResult(__value12);
+                return voicemailDetectionSuccess(__value12);
             }
-            else if (KnowledgeBaseRagSuccess is { } __value13 && knowledgeBaseRagSuccess != null)
+            else if (TestingToolResult is { } __value13 && testingToolResult != null)
             {
-                return knowledgeBaseRagSuccess(__value13);
+                return testingToolResult(__value13);
             }
-            else if (KnowledgeBaseSuccess is { } __value14 && knowledgeBaseSuccess != null)
+            else if (KnowledgeBaseRagSuccess is { } __value14 && knowledgeBaseRagSuccess != null)
             {
-                return knowledgeBaseSuccess(__value14);
+                return knowledgeBaseRagSuccess(__value14);
             }
-            else if (StartProcedureSuccess is { } __value15 && startProcedureSuccess != null)
+            else if (KnowledgeBaseSuccess is { } __value15 && knowledgeBaseSuccess != null)
             {
-                return startProcedureSuccess(__value15);
+                return knowledgeBaseSuccess(__value15);
             }
-            else if (StartProcedureError is { } __value16 && startProcedureError != null)
+            else if (StartProcedureSuccess is { } __value16 && startProcedureSuccess != null)
             {
-                return startProcedureError(__value16);
+                return startProcedureSuccess(__value16);
             }
-            else if (EndProcedureSuccess is { } __value17 && endProcedureSuccess != null)
+            else if (StartProcedureError is { } __value17 && startProcedureError != null)
             {
-                return endProcedureSuccess(__value17);
+                return startProcedureError(__value17);
             }
-            else if (EndProcedureError is { } __value18 && endProcedureError != null)
+            else if (EndProcedureSuccess is { } __value18 && endProcedureSuccess != null)
             {
-                return endProcedureError(__value18);
+                return endProcedureSuccess(__value18);
             }
-            else if (Dummy is { } __value19 && dummy != null)
+            else if (EndProcedureError is { } __value19 && endProcedureError != null)
             {
-                return dummy(__value19);
+                return endProcedureError(__value19);
+            }
+            else if (Dummy is { } __value20 && dummy != null)
+            {
+                return dummy(__value20);
             }
 
             return default(TResult);
@@ -1457,6 +1526,8 @@ namespace ElevenLabs
 
             global::System.Action<global::ElevenLabs.TransferToNumberResultExotelSuccessModel>? transferToNumberExotelSuccess = null,
 
+            global::System.Action<global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel>? transferToNumberAmazonConnectSuccess = null,
+
             global::System.Action<global::ElevenLabs.TransferToNumberResultErrorModel>? transferToNumberError = null,
 
             global::System.Action<global::ElevenLabs.SkipTurnToolResponseModel>? skipTurnSuccess = null,
@@ -1517,57 +1588,61 @@ namespace ElevenLabs
             {
                 transferToNumberExotelSuccess?.Invoke(__value6);
             }
-            else if (TransferToNumberError is { } __value7)
+            else if (TransferToNumberAmazonConnectSuccess is { } __value7)
             {
-                transferToNumberError?.Invoke(__value7);
+                transferToNumberAmazonConnectSuccess?.Invoke(__value7);
             }
-            else if (SkipTurnSuccess is { } __value8)
+            else if (TransferToNumberError is { } __value8)
             {
-                skipTurnSuccess?.Invoke(__value8);
+                transferToNumberError?.Invoke(__value8);
             }
-            else if (PlayDtmfSuccess is { } __value9)
+            else if (SkipTurnSuccess is { } __value9)
             {
-                playDtmfSuccess?.Invoke(__value9);
+                skipTurnSuccess?.Invoke(__value9);
             }
-            else if (PlayDtmfError is { } __value10)
+            else if (PlayDtmfSuccess is { } __value10)
             {
-                playDtmfError?.Invoke(__value10);
+                playDtmfSuccess?.Invoke(__value10);
             }
-            else if (VoicemailDetectionSuccess is { } __value11)
+            else if (PlayDtmfError is { } __value11)
             {
-                voicemailDetectionSuccess?.Invoke(__value11);
+                playDtmfError?.Invoke(__value11);
             }
-            else if (TestingToolResult is { } __value12)
+            else if (VoicemailDetectionSuccess is { } __value12)
             {
-                testingToolResult?.Invoke(__value12);
+                voicemailDetectionSuccess?.Invoke(__value12);
             }
-            else if (KnowledgeBaseRagSuccess is { } __value13)
+            else if (TestingToolResult is { } __value13)
             {
-                knowledgeBaseRagSuccess?.Invoke(__value13);
+                testingToolResult?.Invoke(__value13);
             }
-            else if (KnowledgeBaseSuccess is { } __value14)
+            else if (KnowledgeBaseRagSuccess is { } __value14)
             {
-                knowledgeBaseSuccess?.Invoke(__value14);
+                knowledgeBaseRagSuccess?.Invoke(__value14);
             }
-            else if (StartProcedureSuccess is { } __value15)
+            else if (KnowledgeBaseSuccess is { } __value15)
             {
-                startProcedureSuccess?.Invoke(__value15);
+                knowledgeBaseSuccess?.Invoke(__value15);
             }
-            else if (StartProcedureError is { } __value16)
+            else if (StartProcedureSuccess is { } __value16)
             {
-                startProcedureError?.Invoke(__value16);
+                startProcedureSuccess?.Invoke(__value16);
             }
-            else if (EndProcedureSuccess is { } __value17)
+            else if (StartProcedureError is { } __value17)
             {
-                endProcedureSuccess?.Invoke(__value17);
+                startProcedureError?.Invoke(__value17);
             }
-            else if (EndProcedureError is { } __value18)
+            else if (EndProcedureSuccess is { } __value18)
             {
-                endProcedureError?.Invoke(__value18);
+                endProcedureSuccess?.Invoke(__value18);
             }
-            else if (Dummy is { } __value19)
+            else if (EndProcedureError is { } __value19)
             {
-                dummy?.Invoke(__value19);
+                endProcedureError?.Invoke(__value19);
+            }
+            else if (Dummy is { } __value20)
+            {
+                dummy?.Invoke(__value20);
             }
         }
 
@@ -1582,6 +1657,7 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.TransferToNumberResultTwilioSuccessModel>? transferToNumberTwilioSuccess = null,
             global::System.Action<global::ElevenLabs.TransferToNumberResultSipSuccessModel>? transferToNumberSipSuccess = null,
             global::System.Action<global::ElevenLabs.TransferToNumberResultExotelSuccessModel>? transferToNumberExotelSuccess = null,
+            global::System.Action<global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel>? transferToNumberAmazonConnectSuccess = null,
             global::System.Action<global::ElevenLabs.TransferToNumberResultErrorModel>? transferToNumberError = null,
             global::System.Action<global::ElevenLabs.SkipTurnToolResponseModel>? skipTurnSuccess = null,
             global::System.Action<global::ElevenLabs.PlayDTMFResultSuccessModel>? playDtmfSuccess = null,
@@ -1630,57 +1706,61 @@ namespace ElevenLabs
             {
                 transferToNumberExotelSuccess?.Invoke(__value6);
             }
-            else if (TransferToNumberError is { } __value7)
+            else if (TransferToNumberAmazonConnectSuccess is { } __value7)
             {
-                transferToNumberError?.Invoke(__value7);
+                transferToNumberAmazonConnectSuccess?.Invoke(__value7);
             }
-            else if (SkipTurnSuccess is { } __value8)
+            else if (TransferToNumberError is { } __value8)
             {
-                skipTurnSuccess?.Invoke(__value8);
+                transferToNumberError?.Invoke(__value8);
             }
-            else if (PlayDtmfSuccess is { } __value9)
+            else if (SkipTurnSuccess is { } __value9)
             {
-                playDtmfSuccess?.Invoke(__value9);
+                skipTurnSuccess?.Invoke(__value9);
             }
-            else if (PlayDtmfError is { } __value10)
+            else if (PlayDtmfSuccess is { } __value10)
             {
-                playDtmfError?.Invoke(__value10);
+                playDtmfSuccess?.Invoke(__value10);
             }
-            else if (VoicemailDetectionSuccess is { } __value11)
+            else if (PlayDtmfError is { } __value11)
             {
-                voicemailDetectionSuccess?.Invoke(__value11);
+                playDtmfError?.Invoke(__value11);
             }
-            else if (TestingToolResult is { } __value12)
+            else if (VoicemailDetectionSuccess is { } __value12)
             {
-                testingToolResult?.Invoke(__value12);
+                voicemailDetectionSuccess?.Invoke(__value12);
             }
-            else if (KnowledgeBaseRagSuccess is { } __value13)
+            else if (TestingToolResult is { } __value13)
             {
-                knowledgeBaseRagSuccess?.Invoke(__value13);
+                testingToolResult?.Invoke(__value13);
             }
-            else if (KnowledgeBaseSuccess is { } __value14)
+            else if (KnowledgeBaseRagSuccess is { } __value14)
             {
-                knowledgeBaseSuccess?.Invoke(__value14);
+                knowledgeBaseRagSuccess?.Invoke(__value14);
             }
-            else if (StartProcedureSuccess is { } __value15)
+            else if (KnowledgeBaseSuccess is { } __value15)
             {
-                startProcedureSuccess?.Invoke(__value15);
+                knowledgeBaseSuccess?.Invoke(__value15);
             }
-            else if (StartProcedureError is { } __value16)
+            else if (StartProcedureSuccess is { } __value16)
             {
-                startProcedureError?.Invoke(__value16);
+                startProcedureSuccess?.Invoke(__value16);
             }
-            else if (EndProcedureSuccess is { } __value17)
+            else if (StartProcedureError is { } __value17)
             {
-                endProcedureSuccess?.Invoke(__value17);
+                startProcedureError?.Invoke(__value17);
             }
-            else if (EndProcedureError is { } __value18)
+            else if (EndProcedureSuccess is { } __value18)
             {
-                endProcedureError?.Invoke(__value18);
+                endProcedureSuccess?.Invoke(__value18);
             }
-            else if (Dummy is { } __value19)
+            else if (EndProcedureError is { } __value19)
             {
-                dummy?.Invoke(__value19);
+                endProcedureError?.Invoke(__value19);
+            }
+            else if (Dummy is { } __value20)
+            {
+                dummy?.Invoke(__value20);
             }
         }
 
@@ -1705,6 +1785,8 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.TransferToNumberResultSipSuccessModel),
                 TransferToNumberExotelSuccess,
                 typeof(global::ElevenLabs.TransferToNumberResultExotelSuccessModel),
+                TransferToNumberAmazonConnectSuccess,
+                typeof(global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel),
                 TransferToNumberError,
                 typeof(global::ElevenLabs.TransferToNumberResultErrorModel),
                 SkipTurnSuccess,
@@ -1754,6 +1836,7 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberResultTwilioSuccessModel?>.Default.Equals(TransferToNumberTwilioSuccess, other.TransferToNumberTwilioSuccess) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberResultSipSuccessModel?>.Default.Equals(TransferToNumberSipSuccess, other.TransferToNumberSipSuccess) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberResultExotelSuccessModel?>.Default.Equals(TransferToNumberExotelSuccess, other.TransferToNumberExotelSuccess) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberResultAmazonConnectSuccessModel?>.Default.Equals(TransferToNumberAmazonConnectSuccess, other.TransferToNumberAmazonConnectSuccess) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferToNumberResultErrorModel?>.Default.Equals(TransferToNumberError, other.TransferToNumberError) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SkipTurnToolResponseModel?>.Default.Equals(SkipTurnSuccess, other.SkipTurnSuccess) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.PlayDTMFResultSuccessModel?>.Default.Equals(PlayDtmfSuccess, other.PlayDtmfSuccess) &&
