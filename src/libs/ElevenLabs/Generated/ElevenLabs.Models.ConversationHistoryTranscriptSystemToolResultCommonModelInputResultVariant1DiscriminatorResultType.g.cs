@@ -71,6 +71,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        TransferToNumberAmazonConnectSuccess,
+        /// <summary>
+        ///
+        /// </summary>
         TransferToNumberError,
         /// <summary>
         ///
@@ -117,6 +121,7 @@ namespace ElevenLabs
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TestingToolResult => "testing_tool_result",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToAgentError => "transfer_to_agent_error",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToAgentSuccess => "transfer_to_agent_success",
+                ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberAmazonConnectSuccess => "transfer_to_number_amazon_connect_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberError => "transfer_to_number_error",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberExotelSuccess => "transfer_to_number_exotel_success",
                 ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberSipSuccess => "transfer_to_number_sip_success",
@@ -147,6 +152,7 @@ namespace ElevenLabs
                 "testing_tool_result" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TestingToolResult,
                 "transfer_to_agent_error" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToAgentError,
                 "transfer_to_agent_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToAgentSuccess,
+                "transfer_to_number_amazon_connect_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberAmazonConnectSuccess,
                 "transfer_to_number_error" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberError,
                 "transfer_to_number_exotel_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberExotelSuccess,
                 "transfer_to_number_sip_success" => ConversationHistoryTranscriptSystemToolResultCommonModelInputResultVariant1DiscriminatorResultType.TransferToNumberSipSuccess,
