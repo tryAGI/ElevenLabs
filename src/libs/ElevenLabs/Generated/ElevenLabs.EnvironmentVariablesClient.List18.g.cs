@@ -3,11 +3,11 @@
 
 namespace ElevenLabs
 {
-    public partial class AgentsPlatformClient
+    public partial class EnvironmentVariablesClient
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_List16SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_List18SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,72 +21,72 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_List16SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_List18SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_List16SecurityRequirement0,
+            {                s_List18SecurityRequirement0,
             };
-        partial void PrepareList16Arguments(
+        partial void PrepareList18Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            ref global::ElevenLabs.MergeProposalStatus? status,
-            ref string? search,
+            ref string? cursor,
             ref int? pageSize,
-            ref string? cursor);
-        partial void PrepareList16Request(
+            ref string? label,
+            ref string? environment,
+            ref global::ElevenLabs.ListEnvironmentVariablesType? type);
+        partial void PrepareList18Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            global::ElevenLabs.MergeProposalStatus? status,
-            string? search,
+            string? cursor,
             int? pageSize,
-            string? cursor);
-        partial void ProcessList16Response(
+            string? label,
+            string? environment,
+            global::ElevenLabs.ListEnvironmentVariablesType? type);
+        partial void ProcessList18Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessList16ResponseContent(
+        partial void ProcessList18ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// List Proposals<br/>
-        /// List the proposals for an agent, newest first.
+        /// List Environment Variables<br/>
+        /// List all environment variables for the workspace with optional filtering
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="status">
-        /// Only return proposals with this status.
-        /// </param>
-        /// <param name="search">
-        /// Case-insensitive substring match over title and description.
+        /// <param name="cursor">
+        /// Pagination cursor from previous response
         /// </param>
         /// <param name="pageSize">
-        /// How many results at most should be returned<br/>
+        /// Number of items to return (1-100)<br/>
         /// Default Value: 100
         /// </param>
-        /// <param name="cursor">
-        /// Used for fetching next page. Cursor is returned in the response.
+        /// <param name="label">
+        /// Filter by exact label match
+        /// </param>
+        /// <param name="environment">
+        /// Filter to only return variables that have this environment. When specified, the values dict in the response will only contain this environment.
+        /// </param>
+        /// <param name="type">
+        /// Filter by variable type
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse> List16Async(
-            string agentId,
-            global::ElevenLabs.MergeProposalStatus? status = default,
-            string? search = default,
-            int? pageSize = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariablesListResponse> List18Async(
             string? cursor = default,
+            int? pageSize = default,
+            string? label = default,
+            string? environment = default,
+            global::ElevenLabs.ListEnvironmentVariablesType? type = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await List16AsResponseAsync(
-                agentId: agentId,
-                status: status,
-                search: search,
-                pageSize: pageSize,
+            var __response = await List18AsResponseAsync(
                 cursor: cursor,
+                pageSize: pageSize,
+                label: label,
+                environment: environment,
+                type: type,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -94,52 +94,52 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// List Proposals<br/>
-        /// List the proposals for an agent, newest first.
+        /// List Environment Variables<br/>
+        /// List all environment variables for the workspace with optional filtering
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="status">
-        /// Only return proposals with this status.
-        /// </param>
-        /// <param name="search">
-        /// Case-insensitive substring match over title and description.
+        /// <param name="cursor">
+        /// Pagination cursor from previous response
         /// </param>
         /// <param name="pageSize">
-        /// How many results at most should be returned<br/>
+        /// Number of items to return (1-100)<br/>
         /// Default Value: 100
         /// </param>
-        /// <param name="cursor">
-        /// Used for fetching next page. Cursor is returned in the response.
+        /// <param name="label">
+        /// Filter by exact label match
+        /// </param>
+        /// <param name="environment">
+        /// Filter to only return variables that have this environment. When specified, the values dict in the response will only contain this environment.
+        /// </param>
+        /// <param name="type">
+        /// Filter by variable type
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse>> List16AsResponseAsync(
-            string agentId,
-            global::ElevenLabs.MergeProposalStatus? status = default,
-            string? search = default,
-            int? pageSize = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariablesListResponse>> List18AsResponseAsync(
             string? cursor = default,
+            int? pageSize = default,
+            string? label = default,
+            string? environment = default,
+            global::ElevenLabs.ListEnvironmentVariablesType? type = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareList16Arguments(
+            PrepareList18Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
-                status: ref status,
-                search: ref search,
+                cursor: ref cursor,
                 pageSize: ref pageSize,
-                cursor: ref cursor);
+                label: ref label,
+                environment: ref environment,
+                type: ref type);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_List16SecurityRequirements,
-                operationName: "List16Async");
+                securityRequirements: s_List18SecurityRequirements,
+                operationName: "List18Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -159,13 +159,14 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/merge-proposals",
+                                path: "/v1/convai/environment-variables",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("status", status?.ToValueString())
-                                .AddOptionalParameter("search", search)
-                                .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("cursor", cursor)
+                                .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("label", label)
+                                .AddOptionalParameter("environment", environment)
+                                .AddOptionalParameter("type", type?.ToValueString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -204,14 +205,14 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareList16Request(
+                PrepareList18Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
-                    status: status,
-                    search: search,
+                    cursor: cursor,
                     pageSize: pageSize,
-                    cursor: cursor);
+                    label: label,
+                    environment: environment,
+                    type: type);
 
                 return __httpRequest;
             }
@@ -228,9 +229,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
+                                operationId: "List18",
+                                methodName: "List18Async",
+                                pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -262,9 +263,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
+                                operationId: "List18",
+                                methodName: "List18Async",
+                                pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -303,9 +304,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
+                                operationId: "List18",
+                                methodName: "List18Async",
+                                pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -343,7 +344,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessList16Response(
+                ProcessList18Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -351,9 +352,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
+                                operationId: "List18",
+                                methodName: "List18Async",
+                                pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -373,9 +374,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
+                                operationId: "List18",
+                                methodName: "List18Async",
+                                pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -390,6 +391,38 @@ namespace ElevenLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
+                            //
+                            if ((int)__response.StatusCode == 400)
+                            {
+                                string? __content_400 = null;
+                                global::System.Exception? __exception_400 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                    else
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_400 = __ex;
+                                }
+
+
+                                throw global::ElevenLabs.ApiException.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_400,
+                                    responseBody: __content_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
                             // Validation Error
                             if ((int)__response.StatusCode == 422)
                             {
@@ -440,7 +473,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessList16ResponseContent(
+                                ProcessList18ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -449,9 +482,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.PaginatedResultAgentMergeProposalResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.EnvironmentVariablesListResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariablesListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -481,9 +514,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.PaginatedResultAgentMergeProposalResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.EnvironmentVariablesListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariablesListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -525,41 +558,42 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Wraps List16Async as an IAsyncEnumerable&lt;global::ElevenLabs.AgentMergeProposalResponse&gt; that auto-pages over the response.
+        /// Wraps List18Async as an IAsyncEnumerable&lt;global::ElevenLabs.EnvironmentVariableResponse&gt; that auto-pages over the response.
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="status">
-        /// Only return proposals with this status.
-        /// </param>
-        /// <param name="search">
-        /// Case-insensitive substring match over title and description.
-        /// </param>
         /// <param name="pageSize">
-        /// How many results at most should be returned<br/>
+        /// Number of items to return (1-100)<br/>
         /// Default Value: 100
+        /// </param>
+        /// <param name="label">
+        /// Filter by exact label match
+        /// </param>
+        /// <param name="environment">
+        /// Filter to only return variables that have this environment. When specified, the values dict in the response will only contain this environment.
+        /// </param>
+        /// <param name="type">
+        /// Filter by variable type
         /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
-        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentMergeProposalResponse> List16AutoPagingAsync(
-            string agentId,             global::ElevenLabs.MergeProposalStatus? status = default,
-            string? search = default,
-            int? pageSize = default,
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.EnvironmentVariableResponse> List18AutoPagingAsync(
+              int? pageSize = default,
+            string? label = default,
+            string? environment = default,
+            global::ElevenLabs.ListEnvironmentVariablesType? type = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse, global::ElevenLabs.AgentMergeProposalResponse>(
-                fetchPage: (__cursor, __ct) => List16Async(
-                    agentId: agentId,
-                    status: status,
-                    search: search,
-                    pageSize: pageSize,
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.EnvironmentVariablesListResponse, global::ElevenLabs.EnvironmentVariableResponse>(
+                fetchPage: (__cursor, __ct) => List18Async(
                     cursor: __cursor,
+                    pageSize: pageSize,
+                    label: label,
+                    environment: environment,
+                    type: type,
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null
                     ? null
-                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.AgentMergeProposalResponse>?)__response.Results,
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.EnvironmentVariableResponse>?)__response.EnvironmentVariables,
                 extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
                 initialCursor: cursor,
                 cancellationToken: cancellationToken);

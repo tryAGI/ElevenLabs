@@ -30764,6 +30764,700 @@
         "x-fern-sdk-method-name": "delete"
       }
     },
+    "/v1/convai/agents/{agent_id}/merge-proposals": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Create A Merge Proposal",
+        "description": "Record a request to merge a source branch into a target branch. Anyone with edit access can open one; merging it later is gated on write access to the target branch, so this is how a change reaches a protected branch the author cannot merge into themselves.",
+        "operationId": "create_merge_proposal_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Create_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAgentMergeProposalResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "merge_proposals"
+        ],
+        "x-fern-sdk-method-name": "create"
+      },
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "List Proposals",
+        "description": "List the proposals for an agent, newest first.",
+        "operationId": "list_merge_proposals_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/MergeProposalStatus"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only return proposals with this status.",
+              "title": "Status"
+            },
+            "description": "Only return proposals with this status."
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 140
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Case-insensitive substring match over title and description.",
+              "title": "Search"
+            },
+            "description": "Case-insensitive substring match over title and description."
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "How many results at most should be returned",
+              "default": 100,
+              "title": "Page Size"
+            },
+            "description": "How many results at most should be returned"
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Used for fetching next page. Cursor is returned in the response.",
+              "title": "Cursor"
+            },
+            "description": "Used for fetching next page. Cursor is returned in the response."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginatedResult_AgentMergeProposalResponse_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "merge_proposals"
+        ],
+        "x-fern-sdk-method-name": "list"
+      }
+    },
+    "/v1/convai/agents/{agent_id}/merge-proposals/{merge_proposal_id}": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Get A Merge Proposal",
+        "description": "Get a single merge_proposal.",
+        "operationId": "get_merge_proposal_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "merge_proposal_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Unique identifier for the merge_proposal.",
+              "examples": [
+                "agtmprop_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "title": "Merge Proposal Id"
+            },
+            "description": "Unique identifier for the merge_proposal."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeProposalResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "merge_proposals"
+        ],
+        "x-fern-sdk-method-name": "get"
+      },
+      "patch": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Update A Merge Proposal",
+        "description": "Edit an open merge_proposal's title or description, or close it. The author closing it is recorded as withdrawn; anyone else as rejected.",
+        "operationId": "update_merge_proposal_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "merge_proposal_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Unique identifier for the merge_proposal.",
+              "examples": [
+                "agtmprop_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "title": "Merge Proposal Id"
+            },
+            "description": "Unique identifier for the merge_proposal."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Update_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals__merge_proposal_id__patch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeProposalResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "merge_proposals"
+        ],
+        "x-fern-sdk-method-name": "update"
+      }
+    },
+    "/v1/convai/agents/{agent_id}/merge-proposals/{merge_proposal_id}/reviews": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Review A Merge Proposal",
+        "description": "Approve a merge_proposal or request changes on it. A user's latest review replaces their previous one. Non-admins need an approval from another user before the merge is allowed.",
+        "operationId": "submit_merge_proposal_review_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "merge_proposal_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Unique identifier for the merge_proposal.",
+              "examples": [
+                "agtmprop_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "title": "Merge Proposal Id"
+            },
+            "description": "Unique identifier for the merge_proposal."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Review_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals__merge_proposal_id__reviews_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeProposalResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "merge_proposals"
+        ],
+        "x-fern-sdk-method-name": "submit_review"
+      }
+    },
+    "/v1/convai/agents/{agent_id}/merge-proposals/{merge_proposal_id}/comments": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Comment On A Merge Proposal",
+        "description": "Leave a comment on a merge_proposal without recording a review verdict. Unlike reviews, comments accumulate and can still be added once the merge_proposal is merged or closed.",
+        "operationId": "add_merge_proposal_comment_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "merge_proposal_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Unique identifier for the merge_proposal.",
+              "examples": [
+                "agtmprop_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "title": "Merge Proposal Id"
+            },
+            "description": "Unique identifier for the merge_proposal."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Comment_on_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals__merge_proposal_id__comments_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeProposalResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "merge_proposals"
+        ],
+        "x-fern-sdk-method-name": "add_comment"
+      }
+    },
+    "/v1/convai/agents/{agent_id}/merge-proposals/{merge_proposal_id}/merge": {
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Merge A Merge Proposal",
+        "description": "Execute the merge. The caller must have write access to the target branch (admins only, for a protected branch), so this is where a reviewer approves and merges a request opened by someone who could not.",
+        "operationId": "accept_merge_proposal_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "merge_proposal_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Unique identifier for the merge_proposal.",
+              "examples": [
+                "agtmprop_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "title": "Merge Proposal Id"
+            },
+            "description": "Unique identifier for the merge_proposal."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Merge_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals__merge_proposal_id__merge_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeProposalResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "merge_proposals"
+        ],
+        "x-fern-sdk-method-name": "merge"
+      }
+    },
     "/v1/speech-engine": {
       "get": {
         "tags": [
@@ -40667,6 +41361,125 @@
           "retrieval_query": "How do I reset my password?"
         }
       },
+      "AgentMergeProposalResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
+          },
+          "source_branch_id": {
+            "type": "string",
+            "title": "Source Branch Id"
+          },
+          "target_branch_id": {
+            "type": "string",
+            "title": "Target Branch Id"
+          },
+          "source_tip_version_id_at_creation": {
+            "type": "string",
+            "title": "Source Tip Version Id At Creation"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "default": ""
+          },
+          "requested_reviewer_user_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Requested Reviewer User Ids"
+          },
+          "reviews": {
+            "items": {
+              "$ref": "#/components/schemas/MergeProposalReview"
+            },
+            "type": "array",
+            "title": "Reviews"
+          },
+          "comments": {
+            "items": {
+              "$ref": "#/components/schemas/MergeProposalComment"
+            },
+            "type": "array",
+            "title": "Comments"
+          },
+          "outcome": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OpenOutcome"
+              },
+              {
+                "$ref": "#/components/schemas/MergedOutcome"
+              },
+              {
+                "$ref": "#/components/schemas/ClosedOutcome"
+              }
+            ],
+            "title": "Outcome",
+            "discriminator": {
+              "propertyName": "status",
+              "mapping": {
+                "closed": "#/components/schemas/ClosedOutcome",
+                "merged": "#/components/schemas/MergedOutcome",
+                "open": "#/components/schemas/OpenOutcome"
+              }
+            }
+          },
+          "created_at": {
+            "type": "integer",
+            "title": "Created At"
+          },
+          "updated_at": {
+            "type": "integer",
+            "title": "Updated At"
+          },
+          "author_user_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Author User Id",
+            "description": "User ID of the merge_proposal's author."
+          },
+          "access_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResourceAccessInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Access information for the merge_proposal, including creator."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "agent_id",
+          "source_branch_id",
+          "target_branch_id",
+          "source_tip_version_id_at_creation",
+          "title",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "AgentMergeProposalResponse"
+      },
       "AgentMetadata": {
         "properties": {
           "agent_id": {
@@ -46778,6 +47591,22 @@
         ],
         "title": "Body_Bulk_move_tests_to_folder_v1_convai_agent_testing_bulk_move_post"
       },
+      "Body_Comment_on_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals__merge_proposal_id__comments_post": {
+        "properties": {
+          "body": {
+            "type": "string",
+            "maxLength": 4096,
+            "minLength": 1,
+            "title": "Body",
+            "description": "The comment text. Markdown is supported."
+          }
+        },
+        "type": "object",
+        "required": [
+          "body"
+        ],
+        "title": "Body_Comment_on_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals__merge_proposal_id__comments_post"
+      },
       "Body_Compose_Music_with_a_detailed_response_v1_music_detailed_post": {
         "properties": {
           "prompt": {
@@ -48012,6 +48841,69 @@
           "url"
         ],
         "title": "Body_Create_URL_document_v1_convai_knowledge_base_url_post"
+      },
+      "Body_Create_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals_post": {
+        "properties": {
+          "source_branch_id": {
+            "type": "string",
+            "title": "Source Branch Id",
+            "description": "Branch whose changes should be merged."
+          },
+          "target_branch_id": {
+            "type": "string",
+            "title": "Target Branch Id",
+            "description": "Branch that should receive the changes."
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 140,
+            "minLength": 1,
+            "title": "Title",
+            "description": "Short title for the merge_proposal."
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 4096,
+            "title": "Description",
+            "description": "Optional longer description for reviewers.",
+            "default": ""
+          },
+          "requested_reviewer_user_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "maxItems": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Requested Reviewer User Ids",
+            "description": "User IDs to request a review from."
+          },
+          "triage_ticket_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Triage Ticket Id",
+            "description": "Triage ticket of this agent that the merge_proposal resolves. Merging it resolves the ticket if still open."
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_branch_id",
+          "target_branch_id",
+          "title"
+        ],
+        "title": "Body_Create_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals_post"
       },
       "Body_Create_a_new_branch_v1_convai_agents__agent_id__branches_post": {
         "properties": {
@@ -50081,6 +50973,24 @@
         "type": "object",
         "title": "Body_Merge_a_branch_into_a_target_branch_v1_convai_agents__agent_id__branches__source_branch_id__merge_post"
       },
+      "Body_Merge_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals__merge_proposal_id__merge_post": {
+        "properties": {
+          "archive_source_branch": {
+            "type": "boolean",
+            "title": "Archive Source Branch",
+            "description": "Whether to archive the source branch after merging.",
+            "default": true
+          },
+          "force": {
+            "type": "boolean",
+            "title": "Force",
+            "description": "Force source branch changes onto the target, overriding timestamp-based conflict resolution.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "Body_Merge_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals__merge_proposal_id__merge_post"
+      },
       "Body_Move_entity_to_folder_v1_convai_knowledge_base__document_id__move_post": {
         "properties": {
           "move_to": {
@@ -50427,6 +51337,26 @@
           "files"
         ],
         "title": "Body_Request_manual_verification_v1_voices_pvc__voice_id__verification_post"
+      },
+      "Body_Review_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals__merge_proposal_id__reviews_post": {
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/MergeProposalReviewState",
+            "description": "The review verdict."
+          },
+          "comment": {
+            "type": "string",
+            "maxLength": 4096,
+            "title": "Comment",
+            "description": "Optional comment to leave with the review.",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "state"
+        ],
+        "title": "Body_Review_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals__merge_proposal_id__reviews_post"
       },
       "Body_Run_PVC_training_v1_voices_pvc__voice_id__train_post": {
         "properties": {
@@ -52394,6 +53324,61 @@
           "default_paragraph_voice_id"
         ],
         "title": "Body_Update_Studio_project_v1_studio_projects__project_id__post"
+      },
+      "Body_Update_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals__merge_proposal_id__patch": {
+        "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 140,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title",
+            "description": "New title for the merge_proposal."
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 4096
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "New description for the merge_proposal."
+          },
+          "requested_reviewer_user_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "maxItems": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Requested Reviewer User Ids",
+            "description": "Replacement list of user IDs to request a review from."
+          },
+          "close": {
+            "type": "boolean",
+            "title": "Close",
+            "description": "When true, close the merge_proposal without merging.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "Body_Update_a_merge_proposal_v1_convai_agents__agent_id__merge_proposals__merge_proposal_id__patch"
       },
       "Body_Update_agent_branch_v1_convai_agents__agent_id__branches__branch_id__patch": {
         "properties": {
@@ -57533,6 +58518,42 @@
         },
         "type": "object",
         "title": "ClipAnimation"
+      },
+      "ClosedOutcome": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "const": "closed",
+            "title": "Status",
+            "default": "closed"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/MergeProposalCloseReason"
+          },
+          "at": {
+            "type": "integer",
+            "title": "At"
+          },
+          "by_user_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "By User Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "reason",
+          "at",
+          "by_user_id"
+        ],
+        "title": "ClosedOutcome"
       },
       "ColumnFilter": {
         "properties": {
@@ -63576,6 +64597,20 @@
           "conversation_id"
         ],
         "title": "CreateAgentConversationTicketRequestModel"
+      },
+      "CreateAgentMergeProposalResponseModel": {
+        "properties": {
+          "created_merge_proposal_id": {
+            "type": "string",
+            "title": "Created Merge Proposal Id",
+            "description": "ID of the created merge_proposal"
+          }
+        },
+        "type": "object",
+        "required": [
+          "created_merge_proposal_id"
+        ],
+        "title": "CreateAgentMergeProposalResponseModel"
       },
       "CreateAgentProcedureParams": {
         "properties": {
@@ -78807,6 +79842,7 @@
           "claude-opus-5-5",
           "claude-sonnet-4-6",
           "claude-sonnet-5",
+          "claude-sonnet-5-5",
           "claude-sonnet-4",
           "claude-haiku-4-5",
           "claude-3-7-sonnet",
@@ -83706,6 +84742,141 @@
           }
         }
       },
+      "MergeProposalCloseReason": {
+        "type": "string",
+        "enum": [
+          "withdrawn",
+          "rejected",
+          "branch_archived"
+        ],
+        "title": "MergeProposalCloseReason"
+      },
+      "MergeProposalComment": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "user_id": {
+            "type": "string",
+            "title": "User Id"
+          },
+          "body": {
+            "type": "string",
+            "title": "Body"
+          },
+          "created_at": {
+            "type": "integer",
+            "title": "Created At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "user_id",
+          "body",
+          "created_at"
+        ],
+        "title": "MergeProposalComment"
+      },
+      "MergeProposalReview": {
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "title": "User Id"
+          },
+          "state": {
+            "$ref": "#/components/schemas/MergeProposalReviewState"
+          },
+          "submitted_at": {
+            "type": "integer",
+            "title": "Submitted At"
+          },
+          "comment": {
+            "type": "string",
+            "title": "Comment",
+            "default": ""
+          },
+          "reviewer_role": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "admin",
+                  "editor",
+                  "commenter",
+                  "viewer"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reviewer Role"
+          }
+        },
+        "type": "object",
+        "required": [
+          "user_id",
+          "state",
+          "submitted_at"
+        ],
+        "title": "MergeProposalReview"
+      },
+      "MergeProposalReviewState": {
+        "type": "string",
+        "enum": [
+          "approved",
+          "changes_requested"
+        ],
+        "title": "MergeProposalReviewState"
+      },
+      "MergeProposalStatus": {
+        "type": "string",
+        "enum": [
+          "open",
+          "merged",
+          "closed"
+        ],
+        "title": "MergeProposalStatus"
+      },
+      "MergedOutcome": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "const": "merged",
+            "title": "Status",
+            "default": "merged"
+          },
+          "version_id": {
+            "type": "string",
+            "title": "Version Id"
+          },
+          "at": {
+            "type": "integer",
+            "title": "At"
+          },
+          "by_user_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "By User Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "version_id",
+          "at",
+          "by_user_id"
+        ],
+        "title": "MergedOutcome"
+      },
       "MessageSearchSortBy": {
         "type": "string",
         "enum": [
@@ -85585,6 +86756,19 @@
         "type": "object",
         "title": "OmitSchemaOverride"
       },
+      "OpenOutcome": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "const": "open",
+            "title": "Status",
+            "default": "open"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "OpenOutcome"
+      },
       "OpenerConfig": {
         "properties": {
           "llm": {
@@ -86301,6 +87485,40 @@
           "markdown"
         ],
         "title": "OutputFormat"
+      },
+      "PaginatedResult_AgentMergeProposalResponse_": {
+        "properties": {
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/AgentMergeProposalResponse"
+            },
+            "type": "array",
+            "title": "Results"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor"
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More",
+            "readOnly": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "results",
+          "next_cursor",
+          "has_more"
+        ],
+        "title": "PaginatedResult[AgentMergeProposalResponse]"
       },
       "PairedLanguagesResponse": {
         "properties": {
@@ -100704,7 +101922,9 @@
           "eleven_flash_v2",
           "eleven_flash_v2_5",
           "eleven_multilingual_v2",
-          "eleven_v3_conversational"
+          "eleven_v3_conversational",
+          "eleven_v4",
+          "eleven_v4_turbo"
         ],
         "title": "TTSConversationalModel",
         "x-fern-enum": {
@@ -100725,7 +101945,9 @@
           "turbo",
           "flash",
           "multilingual",
-          "v3_conversational"
+          "v3_conversational",
+          "v4",
+          "v4_turbo"
         ],
         "title": "TTSModelFamily",
         "x-fern-enum": {

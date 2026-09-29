@@ -5,39 +5,47 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Get A Merge Proposal<br/>
-        /// Get a single merge_proposal.
+        /// Get Procedure Draft<br/>
+        /// Get user's draft for a procedure
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// Agent ID to get the procedure draft from
         /// </param>
-        /// <param name="mergeProposalId">
-        /// Unique identifier for the merge_proposal.
+        /// <param name="branchId">
+        /// Branch ID to get the procedure draft from
+        /// </param>
+        /// <param name="procedureId">
+        /// The procedure ID
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AgentMergeProposalResponse> Get25Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ProcedureDraftResponseModel> Get27Async(
             string agentId,
-            string mergeProposalId,
+            string branchId,
+            string procedureId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get A Merge Proposal<br/>
-        /// Get a single merge_proposal.
+        /// Get Procedure Draft<br/>
+        /// Get user's draft for a procedure
         /// </summary>
         /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// Agent ID to get the procedure draft from
         /// </param>
-        /// <param name="mergeProposalId">
-        /// Unique identifier for the merge_proposal.
+        /// <param name="branchId">
+        /// Branch ID to get the procedure draft from
+        /// </param>
+        /// <param name="procedureId">
+        /// The procedure ID
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentMergeProposalResponse>> Get25AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureDraftResponseModel>> Get27AsResponseAsync(
             string agentId,
-            string mergeProposalId,
+            string branchId,
+            string procedureId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
