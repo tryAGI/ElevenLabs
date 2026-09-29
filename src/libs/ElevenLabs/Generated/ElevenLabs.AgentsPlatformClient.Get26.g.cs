@@ -29,13 +29,17 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
             ref string branchId,
-            ref string procedureId);
+            ref string procedureId,
+            ref string? versionId,
+            ref string? agentVersionId);
         partial void PrepareGet26Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
             string branchId,
-            string procedureId);
+            string procedureId,
+            string? versionId,
+            string? agentVersionId);
         partial void ProcessGet26Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,8 +50,8 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Procedure Draft<br/>
-        /// Get user's draft for a procedure
+        /// Get Procedure<br/>
+        /// Retrieve a procedure at a specific version or the current branch HEAD.
         /// </summary>
         /// <param name="agentId">
         /// Agent ID to get the procedure draft from
@@ -58,13 +62,21 @@ namespace ElevenLabs
         /// <param name="procedureId">
         /// The procedure ID
         /// </param>
+        /// <param name="versionId">
+        /// The version ID to retrieve. If omitted, returns the version at branch HEAD.
+        /// </param>
+        /// <param name="agentVersionId">
+        /// The agent version ID to retrieve the procedure for.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ProcedureDraftResponseModel> Get26Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ProcedureAtVersionResponseModel> Get26Async(
             string agentId,
             string branchId,
             string procedureId,
+            string? versionId = default,
+            string? agentVersionId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -72,6 +84,8 @@ namespace ElevenLabs
                 agentId: agentId,
                 branchId: branchId,
                 procedureId: procedureId,
+                versionId: versionId,
+                agentVersionId: agentVersionId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -79,8 +93,8 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Procedure Draft<br/>
-        /// Get user's draft for a procedure
+        /// Get Procedure<br/>
+        /// Retrieve a procedure at a specific version or the current branch HEAD.
         /// </summary>
         /// <param name="agentId">
         /// Agent ID to get the procedure draft from
@@ -91,13 +105,21 @@ namespace ElevenLabs
         /// <param name="procedureId">
         /// The procedure ID
         /// </param>
+        /// <param name="versionId">
+        /// The version ID to retrieve. If omitted, returns the version at branch HEAD.
+        /// </param>
+        /// <param name="agentVersionId">
+        /// The agent version ID to retrieve the procedure for.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureDraftResponseModel>> Get26AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureAtVersionResponseModel>> Get26AsResponseAsync(
             string agentId,
             string branchId,
             string procedureId,
+            string? versionId = default,
+            string? agentVersionId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -107,7 +129,9 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 agentId: ref agentId,
                 branchId: ref branchId,
-                procedureId: ref procedureId);
+                procedureId: ref procedureId,
+                versionId: ref versionId,
+                agentVersionId: ref agentVersionId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -133,8 +157,12 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft",
+                                path: $"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("version_id", versionId)
+                                .AddOptionalParameter("agent_version_id", agentVersionId)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -177,7 +205,9 @@ namespace ElevenLabs
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
                     branchId: branchId,
-                    procedureId: procedureId);
+                    procedureId: procedureId,
+                    versionId: versionId,
+                    agentVersionId: agentVersionId);
 
                 return __httpRequest;
             }
@@ -196,7 +226,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get26",
                                 methodName: "Get26Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -230,7 +260,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get26",
                                 methodName: "Get26Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -271,7 +301,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get26",
                                 methodName: "Get26Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -319,7 +349,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get26",
                                 methodName: "Get26Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -341,7 +371,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get26",
                                 methodName: "Get26Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -415,9 +445,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ProcedureDraftResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ProcedureAtVersionResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureDraftResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureAtVersionResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -447,9 +477,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ProcedureDraftResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ProcedureAtVersionResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureDraftResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureAtVersionResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

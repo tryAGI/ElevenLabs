@@ -5,8 +5,8 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Update A Merge Proposal<br/>
-        /// Edit an open merge_proposal's title or description, or close it. The author closing it is recorded as withdrawn; anyone else as rejected.
+        /// Comment On A Merge Proposal<br/>
+        /// Leave a comment on a merge_proposal without recording a review verdict. Unlike reviews, comments accumulate and can still be added once the merge_proposal is merged or closed.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -18,16 +18,16 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AgentMergeProposalResponse> Update15Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AgentMergeProposalResponse> AddCommentAsync(
             string agentId,
             string mergeProposalId,
 
-            global::ElevenLabs.BodyUpdateAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdPatch request,
+            global::ElevenLabs.BodyCommentOnAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdCommentsPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update A Merge Proposal<br/>
-        /// Edit an open merge_proposal's title or description, or close it. The author closing it is recorded as withdrawn; anyone else as rejected.
+        /// Comment On A Merge Proposal<br/>
+        /// Leave a comment on a merge_proposal without recording a review verdict. Unlike reviews, comments accumulate and can still be added once the merge_proposal is merged or closed.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -39,16 +39,16 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentMergeProposalResponse>> Update15AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentMergeProposalResponse>> AddCommentAsResponseAsync(
             string agentId,
             string mergeProposalId,
 
-            global::ElevenLabs.BodyUpdateAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdPatch request,
+            global::ElevenLabs.BodyCommentOnAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdCommentsPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update A Merge Proposal<br/>
-        /// Edit an open merge_proposal's title or description, or close it. The author closing it is recorded as withdrawn; anyone else as rejected.
+        /// Comment On A Merge Proposal<br/>
+        /// Leave a comment on a merge_proposal without recording a review verdict. Unlike reviews, comments accumulate and can still be added once the merge_proposal is merged or closed.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -56,29 +56,16 @@ namespace ElevenLabs
         /// <param name="mergeProposalId">
         /// Unique identifier for the merge_proposal.
         /// </param>
-        /// <param name="title">
-        /// New title for the merge_proposal.
-        /// </param>
-        /// <param name="description">
-        /// New description for the merge_proposal.
-        /// </param>
-        /// <param name="requestedReviewerUserIds">
-        /// Replacement list of user IDs to request a review from.
-        /// </param>
-        /// <param name="close">
-        /// When true, close the merge_proposal without merging.<br/>
-        /// Default Value: false
+        /// <param name="body">
+        /// The comment text. Markdown is supported.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AgentMergeProposalResponse> Update15Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AgentMergeProposalResponse> AddCommentAsync(
             string agentId,
             string mergeProposalId,
-            string? title = default,
-            string? description = default,
-            global::System.Collections.Generic.IList<string>? requestedReviewerUserIds = default,
-            bool? close = default,
+            string body,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

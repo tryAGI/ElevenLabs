@@ -5,8 +5,8 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Get Procedure<br/>
-        /// Retrieve a procedure at a specific version or the current branch HEAD.
+        /// List Procedures<br/>
+        /// List the procedures attached to this agent branch. By default, unpublished drafts take precedence over the latest committed version. Pass agent_version_id to list a published snapshot instead. has_draft is true when a procedure has unpublished draft changes on this branch. Procedure content is not included; use Get Procedure to read a procedure's body.
         /// </summary>
         /// <param name="agentId">
         /// Agent ID to get the procedure draft from
@@ -14,29 +14,21 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Branch ID to get the procedure draft from
         /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
-        /// </param>
-        /// <param name="versionId">
-        /// The version ID to retrieve. If omitted, returns the version at branch HEAD.
-        /// </param>
         /// <param name="agentVersionId">
         /// The agent version ID to retrieve the procedure for.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ProcedureAtVersionResponseModel> Get26Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ListProceduresResponseModel> List17Async(
             string agentId,
             string branchId,
-            string procedureId,
-            string? versionId = default,
             string? agentVersionId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get Procedure<br/>
-        /// Retrieve a procedure at a specific version or the current branch HEAD.
+        /// List Procedures<br/>
+        /// List the procedures attached to this agent branch. By default, unpublished drafts take precedence over the latest committed version. Pass agent_version_id to list a published snapshot instead. has_draft is true when a procedure has unpublished draft changes on this branch. Procedure content is not included; use Get Procedure to read a procedure's body.
         /// </summary>
         /// <param name="agentId">
         /// Agent ID to get the procedure draft from
@@ -44,23 +36,15 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Branch ID to get the procedure draft from
         /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
-        /// </param>
-        /// <param name="versionId">
-        /// The version ID to retrieve. If omitted, returns the version at branch HEAD.
-        /// </param>
         /// <param name="agentVersionId">
         /// The agent version ID to retrieve the procedure for.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureAtVersionResponseModel>> Get26AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListProceduresResponseModel>> List17AsResponseAsync(
             string agentId,
             string branchId,
-            string procedureId,
-            string? versionId = default,
             string? agentVersionId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

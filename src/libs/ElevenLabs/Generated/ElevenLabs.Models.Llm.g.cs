@@ -91,6 +91,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        ClaudeSonnet55,
+        /// <summary>
+        ///
+        /// </summary>
         CustomLlm,
         /// <summary>
         ///
@@ -462,6 +466,7 @@ namespace ElevenLabs
                 Llm.ClaudeSonnet46 => "claude-sonnet-4-6",
                 Llm.ClaudeSonnet4_20250514 => "claude-sonnet-4@20250514",
                 Llm.ClaudeSonnet5 => "claude-sonnet-5",
+                Llm.ClaudeSonnet55 => "claude-sonnet-5-5",
                 Llm.CustomLlm => "custom-llm",
                 Llm.DeepseekV41Flash => "deepseek-v41-flash",
                 Llm.Gemini15Flash => "gemini-1.5-flash",
@@ -577,6 +582,7 @@ namespace ElevenLabs
                 "claude-sonnet-4-6" => Llm.ClaudeSonnet46,
                 "claude-sonnet-4@20250514" => Llm.ClaudeSonnet4_20250514,
                 "claude-sonnet-5" => Llm.ClaudeSonnet5,
+                "claude-sonnet-5-5" => Llm.ClaudeSonnet55,
                 "custom-llm" => Llm.CustomLlm,
                 "deepseek-v41-flash" => Llm.DeepseekV41Flash,
                 "gemini-1.5-flash" => Llm.Gemini15Flash,

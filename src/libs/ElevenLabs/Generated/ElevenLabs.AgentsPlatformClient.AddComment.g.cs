@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_List16SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_AddCommentSecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,72 +21,57 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_List16SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_AddCommentSecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_List16SecurityRequirement0,
+            {                s_AddCommentSecurityRequirement0,
             };
-        partial void PrepareList16Arguments(
+        partial void PrepareAddCommentArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref global::ElevenLabs.MergeProposalStatus? status,
-            ref string? search,
-            ref int? pageSize,
-            ref string? cursor);
-        partial void PrepareList16Request(
+            ref string mergeProposalId,
+            global::ElevenLabs.BodyCommentOnAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdCommentsPost request);
+        partial void PrepareAddCommentRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            global::ElevenLabs.MergeProposalStatus? status,
-            string? search,
-            int? pageSize,
-            string? cursor);
-        partial void ProcessList16Response(
+            string mergeProposalId,
+            global::ElevenLabs.BodyCommentOnAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdCommentsPost request);
+        partial void ProcessAddCommentResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessList16ResponseContent(
+        partial void ProcessAddCommentResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// List Proposals<br/>
-        /// List the proposals for an agent, newest first.
+        /// Comment On A Merge Proposal<br/>
+        /// Leave a comment on a merge_proposal without recording a review verdict. Unlike reviews, comments accumulate and can still be added once the merge_proposal is merged or closed.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="status">
-        /// Only return proposals with this status.
+        /// <param name="mergeProposalId">
+        /// Unique identifier for the merge_proposal.
         /// </param>
-        /// <param name="search">
-        /// Case-insensitive substring match over title and description.
-        /// </param>
-        /// <param name="pageSize">
-        /// How many results at most should be returned<br/>
-        /// Default Value: 100
-        /// </param>
-        /// <param name="cursor">
-        /// Used for fetching next page. Cursor is returned in the response.
-        /// </param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse> List16Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentMergeProposalResponse> AddCommentAsync(
             string agentId,
-            global::ElevenLabs.MergeProposalStatus? status = default,
-            string? search = default,
-            int? pageSize = default,
-            string? cursor = default,
+            string mergeProposalId,
+
+            global::ElevenLabs.BodyCommentOnAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdCommentsPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await List16AsResponseAsync(
+            var __response = await AddCommentAsResponseAsync(
                 agentId: agentId,
-                status: status,
-                search: search,
-                pageSize: pageSize,
-                cursor: cursor,
+                mergeProposalId: mergeProposalId,
+
+                request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -94,52 +79,42 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// List Proposals<br/>
-        /// List the proposals for an agent, newest first.
+        /// Comment On A Merge Proposal<br/>
+        /// Leave a comment on a merge_proposal without recording a review verdict. Unlike reviews, comments accumulate and can still be added once the merge_proposal is merged or closed.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="status">
-        /// Only return proposals with this status.
+        /// <param name="mergeProposalId">
+        /// Unique identifier for the merge_proposal.
         /// </param>
-        /// <param name="search">
-        /// Case-insensitive substring match over title and description.
-        /// </param>
-        /// <param name="pageSize">
-        /// How many results at most should be returned<br/>
-        /// Default Value: 100
-        /// </param>
-        /// <param name="cursor">
-        /// Used for fetching next page. Cursor is returned in the response.
-        /// </param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse>> List16AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentMergeProposalResponse>> AddCommentAsResponseAsync(
             string agentId,
-            global::ElevenLabs.MergeProposalStatus? status = default,
-            string? search = default,
-            int? pageSize = default,
-            string? cursor = default,
+            string mergeProposalId,
+
+            global::ElevenLabs.BodyCommentOnAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdCommentsPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
-            PrepareList16Arguments(
+            PrepareAddCommentArguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                status: ref status,
-                search: ref search,
-                pageSize: ref pageSize,
-                cursor: ref cursor);
+                mergeProposalId: ref mergeProposalId,
+                request: request);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_List16SecurityRequirements,
-                operationName: "List16Async");
+                securityRequirements: s_AddCommentSecurityRequirements,
+                operationName: "AddCommentAsync");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -159,21 +134,15 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/merge-proposals",
+                                path: $"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}/comments",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddOptionalParameter("status", status?.ToValueString())
-                                .AddOptionalParameter("search", search)
-                                .AddOptionalParameter("page_size", pageSize?.ToString())
-                                .AddOptionalParameter("cursor", cursor)
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Get,
+                    method: global::System.Net.Http.HttpMethod.Post,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -196,6 +165,12 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -204,14 +179,12 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareList16Request(
+                PrepareAddCommentRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
-                    status: status,
-                    search: search,
-                    pageSize: pageSize,
-                    cursor: cursor);
+                    mergeProposalId: mergeProposalId,
+                    request: request);
 
                 return __httpRequest;
             }
@@ -228,10 +201,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
-                                httpMethod: "GET",
+                                operationId: "AddComment",
+                                methodName: "AddCommentAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}/comments\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -262,10 +235,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
-                                httpMethod: "GET",
+                                operationId: "AddComment",
+                                methodName: "AddCommentAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}/comments\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -303,10 +276,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
-                                httpMethod: "GET",
+                                operationId: "AddComment",
+                                methodName: "AddCommentAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}/comments\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -343,7 +316,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessList16Response(
+                ProcessAddCommentResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -351,10 +324,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
-                                httpMethod: "GET",
+                                operationId: "AddComment",
+                                methodName: "AddCommentAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}/comments\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -373,10 +346,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
-                                httpMethod: "GET",
+                                operationId: "AddComment",
+                                methodName: "AddCommentAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}/comments\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -440,7 +413,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessList16ResponseContent(
+                                ProcessAddCommentResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -449,9 +422,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.PaginatedResultAgentMergeProposalResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.AgentMergeProposalResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentMergeProposalResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -481,9 +454,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.PaginatedResultAgentMergeProposalResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.AgentMergeProposalResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentMergeProposalResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -523,47 +496,40 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
-
         /// <summary>
-        /// Wraps List16Async as an IAsyncEnumerable&lt;global::ElevenLabs.AgentMergeProposalResponse&gt; that auto-pages over the response.
+        /// Comment On A Merge Proposal<br/>
+        /// Leave a comment on a merge_proposal without recording a review verdict. Unlike reviews, comments accumulate and can still be added once the merge_proposal is merged or closed.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="status">
-        /// Only return proposals with this status.
+        /// <param name="mergeProposalId">
+        /// Unique identifier for the merge_proposal.
         /// </param>
-        /// <param name="search">
-        /// Case-insensitive substring match over title and description.
+        /// <param name="body">
+        /// The comment text. Markdown is supported.
         /// </param>
-        /// <param name="pageSize">
-        /// How many results at most should be returned<br/>
-        /// Default Value: 100
-        /// </param>
-        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
-        /// <param name="cancellationToken"></param>
-        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentMergeProposalResponse> List16AutoPagingAsync(
-            string agentId,             global::ElevenLabs.MergeProposalStatus? status = default,
-            string? search = default,
-            int? pageSize = default,
-            string? cursor = null,
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentMergeProposalResponse> AddCommentAsync(
+            string agentId,
+            string mergeProposalId,
+            string body,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse, global::ElevenLabs.AgentMergeProposalResponse>(
-                fetchPage: (__cursor, __ct) => List16Async(
-                    agentId: agentId,
-                    status: status,
-                    search: search,
-                    pageSize: pageSize,
-                    cursor: __cursor,
-                    cancellationToken: __ct),
-                extractItems: static __response => __response is null
-                    ? null
-                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.AgentMergeProposalResponse>?)__response.Results,
-                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
-                initialCursor: cursor,
-                cancellationToken: cancellationToken);
-        }
+            var __request = new global::ElevenLabs.BodyCommentOnAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdCommentsPost
+            {
+                Body = body,
+            };
 
+            return await AddCommentAsync(
+                agentId: agentId,
+                mergeProposalId: mergeProposalId,
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
+        }
     }
 }

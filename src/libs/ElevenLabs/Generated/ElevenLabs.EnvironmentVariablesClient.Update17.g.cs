@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Get27SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Update17SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,41 +21,48 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Get27SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Update17SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_Get27SecurityRequirement0,
+            {                s_Update17SecurityRequirement0,
             };
-        partial void PrepareGet27Arguments(
+        partial void PrepareUpdate17Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string envVarId);
-        partial void PrepareGet27Request(
+            ref string envVarId,
+            global::ElevenLabs.UpdateEnvironmentVariableRequest request);
+        partial void PrepareUpdate17Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string envVarId);
-        partial void ProcessGet27Response(
+            string envVarId,
+            global::ElevenLabs.UpdateEnvironmentVariableRequest request);
+        partial void ProcessUpdate17Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGet27ResponseContent(
+        partial void ProcessUpdate17ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Environment Variable<br/>
-        /// Get a specific environment variable by ID
+        /// Update Environment Variable<br/>
+        /// Replace an environment variable's values. Use null to remove an environment (except production).
         /// </summary>
         /// <param name="envVarId"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Get27Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Update17Async(
             string envVarId,
+
+            global::ElevenLabs.UpdateEnvironmentVariableRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Get27AsResponseAsync(
+            var __response = await Update17AsResponseAsync(
                 envVarId: envVarId,
+
+                request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -63,29 +70,35 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Environment Variable<br/>
-        /// Get a specific environment variable by ID
+        /// Update Environment Variable<br/>
+        /// Replace an environment variable's values. Use null to remove an environment (except production).
         /// </summary>
         /// <param name="envVarId"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariableResponse>> Get27AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariableResponse>> Update17AsResponseAsync(
             string envVarId,
+
+            global::ElevenLabs.UpdateEnvironmentVariableRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
-            PrepareGet27Arguments(
+            PrepareUpdate17Arguments(
                 httpClient: HttpClient,
-                envVarId: ref envVarId);
+                envVarId: ref envVarId,
+                request: request);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Get27SecurityRequirements,
-                operationName: "Get27Async");
+                securityRequirements: s_Update17SecurityRequirements,
+                operationName: "Update17Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -113,7 +126,7 @@ namespace ElevenLabs
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Get,
+                    method: new global::System.Net.Http.HttpMethod("PATCH"),
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -136,6 +149,12 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -144,10 +163,11 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGet27Request(
+                PrepareUpdate17Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    envVarId: envVarId);
+                    envVarId: envVarId,
+                    request: request);
 
                 return __httpRequest;
             }
@@ -164,10 +184,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get27",
-                                methodName: "Get27Async",
+                                operationId: "Update17",
+                                methodName: "Update17Async",
                                 pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
-                                httpMethod: "GET",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -198,10 +218,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get27",
-                                methodName: "Get27Async",
+                                operationId: "Update17",
+                                methodName: "Update17Async",
                                 pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
-                                httpMethod: "GET",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -239,10 +259,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get27",
-                                methodName: "Get27Async",
+                                operationId: "Update17",
+                                methodName: "Update17Async",
                                 pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
-                                httpMethod: "GET",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -279,7 +299,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGet27Response(
+                ProcessUpdate17Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -287,10 +307,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get27",
-                                methodName: "Get27Async",
+                                operationId: "Update17",
+                                methodName: "Update17Async",
                                 pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
-                                httpMethod: "GET",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -309,10 +329,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get27",
-                                methodName: "Get27Async",
+                                operationId: "Update17",
+                                methodName: "Update17Async",
                                 pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
-                                httpMethod: "GET",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -326,6 +346,38 @@ namespace ElevenLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
+                            //
+                            if ((int)__response.StatusCode == 400)
+                            {
+                                string? __content_400 = null;
+                                global::System.Exception? __exception_400 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                    else
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_400 = __ex;
+                                }
+
+
+                                throw global::ElevenLabs.ApiException.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_400,
+                                    responseBody: __content_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
                             //
                             if ((int)__response.StatusCode == 404)
                             {
@@ -408,7 +460,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGet27ResponseContent(
+                                ProcessUpdate17ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -490,6 +542,34 @@ namespace ElevenLabs
             {
                 __httpRequest?.Dispose();
             }
+        }
+        /// <summary>
+        /// Update Environment Variable<br/>
+        /// Replace an environment variable's values. Use null to remove an environment (except production).
+        /// </summary>
+        /// <param name="envVarId"></param>
+        /// <param name="values">
+        /// Values to replace. Set to null to remove an environment (except 'production').
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Update17Async(
+            string envVarId,
+            object values,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::ElevenLabs.UpdateEnvironmentVariableRequest
+            {
+                Values = values,
+            };
+
+            return await Update17Async(
+                envVarId: envVarId,
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

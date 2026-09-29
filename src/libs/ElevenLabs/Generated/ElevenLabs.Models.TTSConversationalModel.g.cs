@@ -32,6 +32,14 @@ namespace ElevenLabs
         ///
         /// </summary>
         ElevenV3Conversational,
+        /// <summary>
+        ///
+        /// </summary>
+        ElevenV4,
+        /// <summary>
+        ///
+        /// </summary>
+        ElevenV4Turbo,
     }
 
     /// <summary>
@@ -52,6 +60,8 @@ namespace ElevenLabs
                 TTSConversationalModel.ElevenTurboV2 => "eleven_turbo_v2",
                 TTSConversationalModel.ElevenTurboV25 => "eleven_turbo_v2_5",
                 TTSConversationalModel.ElevenV3Conversational => "eleven_v3_conversational",
+                TTSConversationalModel.ElevenV4 => "eleven_v4",
+                TTSConversationalModel.ElevenV4Turbo => "eleven_v4_turbo",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -68,6 +78,8 @@ namespace ElevenLabs
                 "eleven_turbo_v2" => TTSConversationalModel.ElevenTurboV2,
                 "eleven_turbo_v2_5" => TTSConversationalModel.ElevenTurboV25,
                 "eleven_v3_conversational" => TTSConversationalModel.ElevenV3Conversational,
+                "eleven_v4" => TTSConversationalModel.ElevenV4,
+                "eleven_v4_turbo" => TTSConversationalModel.ElevenV4Turbo,
                 _ => null,
             };
         }

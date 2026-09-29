@@ -5,49 +5,39 @@ namespace ElevenLabs
     public partial interface IEnvironmentVariablesClient
     {
         /// <summary>
-        /// Update Environment Variable<br/>
-        /// Replace an environment variable's values. Use null to remove an environment (except production).
+        /// Create Environment Variable<br/>
+        /// Create a new environment variable for the workspace
         /// </summary>
-        /// <param name="envVarId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Update16Async(
-            string envVarId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Create20Async(
 
-            global::ElevenLabs.UpdateEnvironmentVariableRequest request,
+            global::ElevenLabs.CreateEnvironmentVariableRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update Environment Variable<br/>
-        /// Replace an environment variable's values. Use null to remove an environment (except production).
+        /// Create Environment Variable<br/>
+        /// Create a new environment variable for the workspace
         /// </summary>
-        /// <param name="envVarId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariableResponse>> Update16AsResponseAsync(
-            string envVarId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariableResponse>> Create20AsResponseAsync(
 
-            global::ElevenLabs.UpdateEnvironmentVariableRequest request,
+            global::ElevenLabs.CreateEnvironmentVariableRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update Environment Variable<br/>
-        /// Replace an environment variable's values. Use null to remove an environment (except production).
+        /// Create Environment Variable<br/>
+        /// Create a new environment variable for the workspace
         /// </summary>
-        /// <param name="envVarId"></param>
-        /// <param name="values">
-        /// Values to replace. Set to null to remove an environment (except 'production').
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Update16Async(
-            string envVarId,
-            object values,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Create20Async(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

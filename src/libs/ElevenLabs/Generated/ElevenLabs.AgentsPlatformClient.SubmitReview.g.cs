@@ -3,11 +3,11 @@
 
 namespace ElevenLabs
 {
-    public partial class EnvironmentVariablesClient
+    public partial class AgentsPlatformClient
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Update16SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_SubmitReviewSecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,46 +21,55 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Update16SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_SubmitReviewSecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_Update16SecurityRequirement0,
+            {                s_SubmitReviewSecurityRequirement0,
             };
-        partial void PrepareUpdate16Arguments(
+        partial void PrepareSubmitReviewArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string envVarId,
-            global::ElevenLabs.UpdateEnvironmentVariableRequest request);
-        partial void PrepareUpdate16Request(
+            ref string agentId,
+            ref string mergeProposalId,
+            global::ElevenLabs.BodyReviewAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdReviewsPost request);
+        partial void PrepareSubmitReviewRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string envVarId,
-            global::ElevenLabs.UpdateEnvironmentVariableRequest request);
-        partial void ProcessUpdate16Response(
+            string agentId,
+            string mergeProposalId,
+            global::ElevenLabs.BodyReviewAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdReviewsPost request);
+        partial void ProcessSubmitReviewResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessUpdate16ResponseContent(
+        partial void ProcessSubmitReviewResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Update Environment Variable<br/>
-        /// Replace an environment variable's values. Use null to remove an environment (except production).
+        /// Review A Merge Proposal<br/>
+        /// Approve a merge_proposal or request changes on it. A user's latest review replaces their previous one. Non-admins need an approval from another user before the merge is allowed.
         /// </summary>
-        /// <param name="envVarId"></param>
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="mergeProposalId">
+        /// Unique identifier for the merge_proposal.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Update16Async(
-            string envVarId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentMergeProposalResponse> SubmitReviewAsync(
+            string agentId,
+            string mergeProposalId,
 
-            global::ElevenLabs.UpdateEnvironmentVariableRequest request,
+            global::ElevenLabs.BodyReviewAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdReviewsPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Update16AsResponseAsync(
-                envVarId: envVarId,
+            var __response = await SubmitReviewAsResponseAsync(
+                agentId: agentId,
+                mergeProposalId: mergeProposalId,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -70,18 +79,24 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Update Environment Variable<br/>
-        /// Replace an environment variable's values. Use null to remove an environment (except production).
+        /// Review A Merge Proposal<br/>
+        /// Approve a merge_proposal or request changes on it. A user's latest review replaces their previous one. Non-admins need an approval from another user before the merge is allowed.
         /// </summary>
-        /// <param name="envVarId"></param>
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="mergeProposalId">
+        /// Unique identifier for the merge_proposal.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariableResponse>> Update16AsResponseAsync(
-            string envVarId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentMergeProposalResponse>> SubmitReviewAsResponseAsync(
+            string agentId,
+            string mergeProposalId,
 
-            global::ElevenLabs.UpdateEnvironmentVariableRequest request,
+            global::ElevenLabs.BodyReviewAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdReviewsPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -89,16 +104,17 @@ namespace ElevenLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareUpdate16Arguments(
+            PrepareSubmitReviewArguments(
                 httpClient: HttpClient,
-                envVarId: ref envVarId,
+                agentId: ref agentId,
+                mergeProposalId: ref mergeProposalId,
                 request: request);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Update16SecurityRequirements,
-                operationName: "Update16Async");
+                securityRequirements: s_SubmitReviewSecurityRequirements,
+                operationName: "SubmitReviewAsync");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -118,7 +134,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/environment-variables/{envVarId}",
+                                path: $"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}/reviews",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -126,7 +142,7 @@ namespace ElevenLabs
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: new global::System.Net.Http.HttpMethod("PATCH"),
+                    method: global::System.Net.Http.HttpMethod.Post,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -163,10 +179,11 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareUpdate16Request(
+                PrepareSubmitReviewRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    envVarId: envVarId,
+                    agentId: agentId,
+                    mergeProposalId: mergeProposalId,
                     request: request);
 
                 return __httpRequest;
@@ -184,10 +201,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update16",
-                                methodName: "Update16Async",
-                                pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "SubmitReview",
+                                methodName: "SubmitReviewAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}/reviews\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -218,10 +235,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update16",
-                                methodName: "Update16Async",
-                                pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "SubmitReview",
+                                methodName: "SubmitReviewAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}/reviews\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -259,10 +276,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update16",
-                                methodName: "Update16Async",
-                                pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "SubmitReview",
+                                methodName: "SubmitReviewAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}/reviews\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -299,7 +316,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessUpdate16Response(
+                ProcessSubmitReviewResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -307,10 +324,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update16",
-                                methodName: "Update16Async",
-                                pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "SubmitReview",
+                                methodName: "SubmitReviewAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}/reviews\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -329,10 +346,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update16",
-                                methodName: "Update16Async",
-                                pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "SubmitReview",
+                                methodName: "SubmitReviewAsync",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}/reviews\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -346,70 +363,6 @@ namespace ElevenLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            //
-                            if ((int)__response.StatusCode == 400)
-                            {
-                                string? __content_400 = null;
-                                global::System.Exception? __exception_400 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_400 = __ex;
-                                }
-
-
-                                throw global::ElevenLabs.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_400,
-                                    responseBody: __content_400,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
-                            //
-                            if ((int)__response.StatusCode == 404)
-                            {
-                                string? __content_404 = null;
-                                global::System.Exception? __exception_404 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_404 = __ex;
-                                }
-
-
-                                throw global::ElevenLabs.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_404,
-                                    responseBody: __content_404,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
                             // Validation Error
                             if ((int)__response.StatusCode == 422)
                             {
@@ -460,7 +413,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessUpdate16ResponseContent(
+                                ProcessSubmitReviewResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -469,9 +422,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.EnvironmentVariableResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.AgentMergeProposalResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariableResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentMergeProposalResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -501,9 +454,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.EnvironmentVariableResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.AgentMergeProposalResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariableResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentMergeProposalResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -544,29 +497,41 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Environment Variable<br/>
-        /// Replace an environment variable's values. Use null to remove an environment (except production).
+        /// Review A Merge Proposal<br/>
+        /// Approve a merge_proposal or request changes on it. A user's latest review replaces their previous one. Non-admins need an approval from another user before the merge is allowed.
         /// </summary>
-        /// <param name="envVarId"></param>
-        /// <param name="values">
-        /// Values to replace. Set to null to remove an environment (except 'production').
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="mergeProposalId">
+        /// Unique identifier for the merge_proposal.
+        /// </param>
+        /// <param name="state">
+        /// The review verdict.
+        /// </param>
+        /// <param name="comment">
+        /// Optional comment to leave with the review.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariableResponse> Update16Async(
-            string envVarId,
-            object values,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentMergeProposalResponse> SubmitReviewAsync(
+            string agentId,
+            string mergeProposalId,
+            global::ElevenLabs.MergeProposalReviewState state,
+            string? comment = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.UpdateEnvironmentVariableRequest
+            var __request = new global::ElevenLabs.BodyReviewAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdReviewsPost
             {
-                Values = values,
+                State = state,
+                Comment = comment,
             };
 
-            return await Update16Async(
-                envVarId: envVarId,
+            return await SubmitReviewAsync(
+                agentId: agentId,
+                mergeProposalId: mergeProposalId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

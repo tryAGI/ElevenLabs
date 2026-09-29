@@ -24,6 +24,14 @@ namespace ElevenLabs
         ///
         /// </summary>
         V3Conversational,
+        /// <summary>
+        ///
+        /// </summary>
+        V4,
+        /// <summary>
+        ///
+        /// </summary>
+        V4Turbo,
     }
 
     /// <summary>
@@ -42,6 +50,8 @@ namespace ElevenLabs
                 TTSModelFamily.Multilingual => "multilingual",
                 TTSModelFamily.Turbo => "turbo",
                 TTSModelFamily.V3Conversational => "v3_conversational",
+                TTSModelFamily.V4 => "v4",
+                TTSModelFamily.V4Turbo => "v4_turbo",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -56,6 +66,8 @@ namespace ElevenLabs
                 "multilingual" => TTSModelFamily.Multilingual,
                 "turbo" => TTSModelFamily.Turbo,
                 "v3_conversational" => TTSModelFamily.V3Conversational,
+                "v4" => TTSModelFamily.V4,
+                "v4_turbo" => TTSModelFamily.V4Turbo,
                 _ => null,
             };
         }
