@@ -105,6 +105,18 @@ namespace ElevenLabs
         public string? ChattingStatus { get; set; }
 
         /// <summary>
+        /// Status displayed while waiting in the queue for an available agent.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("queue_waiting_status")]
+        public string? QueueWaitingStatus { get; set; }
+
+        /// <summary>
+        /// Short status displayed while waiting for an available agent.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("queue_waiting_status_short")]
+        public string? QueueWaitingStatusShort { get; set; }
+
+        /// <summary>
         /// ARIA label for the text message input.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_label")]
@@ -151,6 +163,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error_occurred")]
         public string? ErrorOccurred { get; set; }
+
+        /// <summary>
+        /// Error message displayed when the queue wait times out.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("queue_timed_out")]
+        public string? QueueTimedOut { get; set; }
 
         /// <summary>
         /// Text and ARIA label used for the copy ID button.
@@ -309,6 +327,12 @@ namespace ElevenLabs
         public string? TypingIndicator { get; set; }
 
         /// <summary>
+        /// Fallback message displayed when rich content cannot be rendered.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rich_content_unavailable")]
+        public string? RichContentUnavailable { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -365,6 +389,12 @@ namespace ElevenLabs
         /// <param name="chattingStatus">
         /// Status displayed when the agent is chatting (text only)
         /// </param>
+        /// <param name="queueWaitingStatus">
+        /// Status displayed while waiting in the queue for an available agent.
+        /// </param>
+        /// <param name="queueWaitingStatusShort">
+        /// Short status displayed while waiting for an available agent.
+        /// </param>
         /// <param name="inputLabel">
         /// ARIA label for the text message input.
         /// </param>
@@ -388,6 +418,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="errorOccurred">
         /// Text label used when an error occurs.
+        /// </param>
+        /// <param name="queueTimedOut">
+        /// Error message displayed when the queue wait times out.
         /// </param>
         /// <param name="copyId">
         /// Text and ARIA label used for the copy ID button.
@@ -467,6 +500,9 @@ namespace ElevenLabs
         /// <param name="typingIndicator">
         /// Status text displayed while the agent is typing.
         /// </param>
+        /// <param name="richContentUnavailable">
+        /// Fallback message displayed when rich content cannot be rendered.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -487,6 +523,8 @@ namespace ElevenLabs
             string? speakingStatus,
             string? connectingStatus,
             string? chattingStatus,
+            string? queueWaitingStatus,
+            string? queueWaitingStatusShort,
             string? inputLabel,
             string? inputPlaceholder,
             string? inputPlaceholderTextOnly,
@@ -495,6 +533,7 @@ namespace ElevenLabs
             string? agentEndedConversation,
             string? conversationId,
             string? errorOccurred,
+            string? queueTimedOut,
             string? copyId,
             string? initiateFeedback,
             string? requestFollowUpFeedback,
@@ -520,7 +559,8 @@ namespace ElevenLabs
             string? fileTypeUnsupported,
             string? fileTooLarge,
             string? fileLimitReached,
-            string? typingIndicator)
+            string? typingIndicator,
+            string? richContentUnavailable)
         {
             this.MainLabel = mainLabel;
             this.StartCall = startCall;
@@ -538,6 +578,8 @@ namespace ElevenLabs
             this.SpeakingStatus = speakingStatus;
             this.ConnectingStatus = connectingStatus;
             this.ChattingStatus = chattingStatus;
+            this.QueueWaitingStatus = queueWaitingStatus;
+            this.QueueWaitingStatusShort = queueWaitingStatusShort;
             this.InputLabel = inputLabel;
             this.InputPlaceholder = inputPlaceholder;
             this.InputPlaceholderTextOnly = inputPlaceholderTextOnly;
@@ -546,6 +588,7 @@ namespace ElevenLabs
             this.AgentEndedConversation = agentEndedConversation;
             this.ConversationId = conversationId;
             this.ErrorOccurred = errorOccurred;
+            this.QueueTimedOut = queueTimedOut;
             this.CopyId = copyId;
             this.InitiateFeedback = initiateFeedback;
             this.RequestFollowUpFeedback = requestFollowUpFeedback;
@@ -572,6 +615,7 @@ namespace ElevenLabs
             this.FileTooLarge = fileTooLarge;
             this.FileLimitReached = fileLimitReached;
             this.TypingIndicator = typingIndicator;
+            this.RichContentUnavailable = richContentUnavailable;
         }
 
         /// <summary>

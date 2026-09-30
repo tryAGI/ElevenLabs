@@ -114856,6 +114856,30 @@
             "title": "Chatting Status",
             "description": "Status displayed when the agent is chatting (text only)"
           },
+          "queue_waiting_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Queue Waiting Status",
+            "description": "Status displayed while waiting in the queue for an available agent."
+          },
+          "queue_waiting_status_short": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Queue Waiting Status Short",
+            "description": "Short status displayed while waiting for an available agent."
+          },
           "input_label": {
             "anyOf": [
               {
@@ -114951,6 +114975,18 @@
             ],
             "title": "Error Occurred",
             "description": "Text label used when an error occurs."
+          },
+          "queue_timed_out": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Queue Timed Out",
+            "description": "Error message displayed when the queue wait times out."
           },
           "copy_id": {
             "anyOf": [
@@ -115263,6 +115299,18 @@
             ],
             "title": "Typing Indicator",
             "description": "Status text displayed while the agent is typing."
+          },
+          "rich_content_unavailable": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rich Content Unavailable",
+            "description": "Fallback message displayed when rich content cannot be rendered."
           }
         },
         "type": "object",
