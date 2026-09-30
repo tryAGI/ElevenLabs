@@ -43,6 +43,9 @@ namespace ElevenLabs
         /// <param name="turnComments">
         /// Optional turn-level comments on what went wrong.
         /// </param>
+        /// <param name="priority">
+        /// How urgently the ticket needs attention. If the conversation already has an open ticket, it is raised to this priority when lower.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -50,6 +53,7 @@ namespace ElevenLabs
             string conversationId,
             string? qaComment = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.TurnCommentRequestModel>? turnComments = default,
+            global::ElevenLabs.AgentConversationTicketPriority? priority = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

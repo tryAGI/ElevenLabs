@@ -106,6 +106,19 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("priority")]
+        public global::ElevenLabs.AgentConversationTicketPriority? Priority { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("priority_changes")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.TicketPriorityChangeResponseModel> PriorityChanges { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AgentConversationTicketSourceJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -150,6 +163,7 @@ namespace ElevenLabs
         /// <param name="ticketComments"></param>
         /// <param name="turnComments"></param>
         /// <param name="status"></param>
+        /// <param name="priorityChanges"></param>
         /// <param name="source"></param>
         /// <param name="createdAtUnixSecs"></param>
         /// <param name="updatedAtUnixSecs"></param>
@@ -157,6 +171,7 @@ namespace ElevenLabs
         /// <param name="firstSeenUnixSecs"></param>
         /// <param name="lastSeenUnixSecs"></param>
         /// <param name="qaComment"></param>
+        /// <param name="priority"></param>
         /// <param name="assigneeUserId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -172,6 +187,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.TicketCommentResponseModel> ticketComments,
             global::System.Collections.Generic.IList<global::ElevenLabs.TurnCommentResponseModel> turnComments,
             global::ElevenLabs.AgentConversationTicketStatus status,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TicketPriorityChangeResponseModel> priorityChanges,
             global::ElevenLabs.AgentConversationTicketSource source,
             int createdAtUnixSecs,
             int updatedAtUnixSecs,
@@ -179,6 +195,7 @@ namespace ElevenLabs
             int? firstSeenUnixSecs,
             int? lastSeenUnixSecs,
             string? qaComment,
+            global::ElevenLabs.AgentConversationTicketPriority? priority,
             string? assigneeUserId)
         {
             this.AgentqaTicketId = agentqaTicketId ?? throw new global::System.ArgumentNullException(nameof(agentqaTicketId));
@@ -195,6 +212,8 @@ namespace ElevenLabs
             this.TicketComments = ticketComments ?? throw new global::System.ArgumentNullException(nameof(ticketComments));
             this.TurnComments = turnComments ?? throw new global::System.ArgumentNullException(nameof(turnComments));
             this.Status = status;
+            this.Priority = priority;
+            this.PriorityChanges = priorityChanges ?? throw new global::System.ArgumentNullException(nameof(priorityChanges));
             this.Source = source;
             this.AssigneeUserId = assigneeUserId;
             this.CreatedAtUnixSecs = createdAtUnixSecs;

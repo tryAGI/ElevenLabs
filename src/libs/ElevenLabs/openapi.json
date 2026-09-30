@@ -21113,7 +21113,7 @@
     "/v1/convai/agents/{agent_id}/triage-tickets": {
       "get": {
         "summary": "List Agent Conversation Tickets",
-        "description": "List an agent's conversation triage tickets, ordered by most recently created first. These are tickets about the agent's own performance on a conversation (for triage with Architect), not tickets an agent opens for end users.",
+        "description": "List an agent's conversation triage tickets, ordered by most recently created first unless sorted by priority. These are tickets about the agent's own performance on a conversation (for triage with Architect), not tickets an agent opens for end users.",
         "operationId": "list_agent_conversation_tickets_route",
         "parameters": [
           {
@@ -21195,6 +21195,38 @@
               "title": "Sources"
             },
             "description": "Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources."
+          },
+          {
+            "name": "priorities",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AgentConversationTicketPriority"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tickets by priority. Repeat the parameter to filter by multiple priorities.",
+              "title": "Priorities"
+            },
+            "description": "Filter tickets by priority. Repeat the parameter to filter by multiple priorities."
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/AgentConversationTicketSortBy",
+              "description": "Order by most recently created, or by priority (most urgent first, then most recently created).",
+              "default": "created_at"
+            },
+            "description": "Order by most recently created, or by priority (most urgent first, then most recently created)."
           },
           {
             "name": "owner_user_id",
@@ -21722,7 +21754,7 @@
       },
       "patch": {
         "summary": "Update Agent Conversation Ticket",
-        "description": "Update a ticket's comment, status, and/or assignee. Requires editor access to the ticket's agent.",
+        "description": "Update a ticket's comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.",
         "operationId": "update_agent_conversation_ticket_route",
         "parameters": [
           {
@@ -40872,6 +40904,16 @@
         ],
         "title": "AgentConversationTicketIssueType"
       },
+      "AgentConversationTicketPriority": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high",
+          "urgent"
+        ],
+        "title": "AgentConversationTicketPriority"
+      },
       "AgentConversationTicketResponseModel": {
         "properties": {
           "agentqa_ticket_id": {
@@ -40968,6 +41010,23 @@
           "status": {
             "$ref": "#/components/schemas/AgentConversationTicketStatus"
           },
+          "priority": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentConversationTicketPriority"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "priority_changes": {
+            "items": {
+              "$ref": "#/components/schemas/TicketPriorityChangeResponseModel"
+            },
+            "type": "array",
+            "title": "Priority Changes"
+          },
           "source": {
             "$ref": "#/components/schemas/AgentConversationTicketSource"
           },
@@ -41007,12 +41066,22 @@
           "ticket_comments",
           "turn_comments",
           "status",
+          "priority",
+          "priority_changes",
           "source",
           "assignee_user_id",
           "created_at_unix_secs",
           "updated_at_unix_secs"
         ],
         "title": "AgentConversationTicketResponseModel"
+      },
+      "AgentConversationTicketSortBy": {
+        "type": "string",
+        "enum": [
+          "created_at",
+          "priority"
+        ],
+        "title": "AgentConversationTicketSortBy"
       },
       "AgentConversationTicketSource": {
         "type": "string",
@@ -64590,6 +64659,17 @@
             "maxItems": 200,
             "title": "Turn Comments",
             "description": "Optional turn-level comments on what went wrong."
+          },
+          "priority": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentConversationTicketPriority"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "How urgently the ticket needs attention. If the conversation already has an open ticket, it is raised to this priority when lower."
           }
         },
         "type": "object",
@@ -65123,6 +65203,17 @@
             "minLength": 1,
             "title": "Qa Comment",
             "description": "What the ticket is about, e.g. a follow-up task for the agent. This is shown as the ticket title."
+          },
+          "priority": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentConversationTicketPriority"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "How urgently the ticket needs attention."
           }
         },
         "type": "object",
@@ -75056,13 +75147,6 @@
               }
             ],
             "title": "Pattern"
-          },
-          "max_depth": {
-            "type": "integer",
-            "title": "Max Depth",
-            "description": "Deprecated - this field is a no-op and will be removed in a future version.",
-            "default": 3,
-            "deprecated": true
           },
           "max_pages": {
             "type": "integer",
@@ -87605,6 +87689,17 @@
             ],
             "title": "Assignee User Id",
             "description": "If provided, updates who is responsible for resolving this ticket. Must be a workspace member with at least viewer access to the agent. Pass null to unassign. Omit to leave unchanged."
+          },
+          "priority": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentConversationTicketPriority"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "If provided, updates how urgently the ticket needs attention. Pass null to clear it. Omit to leave unchanged."
           }
         },
         "type": "object",
@@ -103987,6 +104082,35 @@
           "linked_at_unix_secs"
         ],
         "title": "TicketMergeProposalLinkResponseModel"
+      },
+      "TicketPriorityChangeResponseModel": {
+        "properties": {
+          "priority": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentConversationTicketPriority"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "changed_by_user_id": {
+            "type": "string",
+            "title": "Changed By User Id"
+          },
+          "changed_at_unix_secs": {
+            "type": "integer",
+            "title": "Changed At Unix Secs"
+          }
+        },
+        "type": "object",
+        "required": [
+          "priority",
+          "changed_by_user_id",
+          "changed_at_unix_secs"
+        ],
+        "title": "TicketPriorityChangeResponseModel"
       },
       "TimeRange": {
         "properties": {

@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace ElevenLabs
@@ -29,14 +27,6 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pattern")]
         public string? Pattern { get; set; }
-
-        /// <summary>
-        /// Deprecated - this field is a no-op and will be removed in a future version.<br/>
-        /// Default Value: 3
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("max_depth")]
-        [global::System.Obsolete("This property marked as deprecated.")]
-        public int? MaxDepth { get; set; }
 
         /// <summary>
         ///

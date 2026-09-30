@@ -28,6 +28,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.TurnCommentRequestModel>? TurnComments { get; set; }
 
         /// <summary>
+        /// How urgently the ticket needs attention. If the conversation already has an open ticket, it is raised to this priority when lower.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("priority")]
+        public global::ElevenLabs.AgentConversationTicketPriority? Priority { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -45,17 +51,22 @@ namespace ElevenLabs
         /// <param name="turnComments">
         /// Optional turn-level comments on what went wrong.
         /// </param>
+        /// <param name="priority">
+        /// How urgently the ticket needs attention. If the conversation already has an open ticket, it is raised to this priority when lower.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateAgentConversationTicketRequestModel(
             string conversationId,
             string? qaComment,
-            global::System.Collections.Generic.IList<global::ElevenLabs.TurnCommentRequestModel>? turnComments)
+            global::System.Collections.Generic.IList<global::ElevenLabs.TurnCommentRequestModel>? turnComments,
+            global::ElevenLabs.AgentConversationTicketPriority? priority)
         {
             this.ConversationId = conversationId ?? throw new global::System.ArgumentNullException(nameof(conversationId));
             this.QaComment = qaComment;
             this.TurnComments = turnComments;
+            this.Priority = priority;
         }
 
         /// <summary>
