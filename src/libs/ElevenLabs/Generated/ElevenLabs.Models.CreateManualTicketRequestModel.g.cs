@@ -16,6 +16,12 @@ namespace ElevenLabs
         public required string QaComment { get; set; }
 
         /// <summary>
+        /// How urgently the ticket needs attention.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("priority")]
+        public global::ElevenLabs.AgentConversationTicketPriority? Priority { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -27,13 +33,18 @@ namespace ElevenLabs
         /// <param name="qaComment">
         /// What the ticket is about, e.g. a follow-up task for the agent. This is shown as the ticket title.
         /// </param>
+        /// <param name="priority">
+        /// How urgently the ticket needs attention.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateManualTicketRequestModel(
-            string qaComment)
+            string qaComment,
+            global::ElevenLabs.AgentConversationTicketPriority? priority)
         {
             this.QaComment = qaComment ?? throw new global::System.ArgumentNullException(nameof(qaComment));
+            this.Priority = priority;
         }
 
         /// <summary>

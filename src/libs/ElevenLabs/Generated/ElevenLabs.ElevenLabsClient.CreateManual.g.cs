@@ -487,18 +487,23 @@ namespace ElevenLabs
         /// <param name="qaComment">
         /// What the ticket is about, e.g. a follow-up task for the agent. This is shown as the ticket title.
         /// </param>
+        /// <param name="priority">
+        /// How urgently the ticket needs attention.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> CreateManualAsync(
             string agentId,
             string qaComment,
+            global::ElevenLabs.AgentConversationTicketPriority? priority = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.CreateManualTicketRequestModel
             {
                 QaComment = qaComment,
+                Priority = priority,
             };
 
             return await CreateManualAsync(

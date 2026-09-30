@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// List Agent Conversation Tickets<br/>
-        /// List an agent's conversation triage tickets, ordered by most recently created first. These are tickets about the agent's own performance on a conversation (for triage with Architect), not tickets an agent opens for end users.
+        /// List an agent's conversation triage tickets, ordered by most recently created first unless sorted by priority. These are tickets about the agent's own performance on a conversation (for triage with Architect), not tickets an agent opens for end users.
         /// </summary>
         /// <param name="agentId"></param>
         /// <param name="pageSize">
@@ -21,6 +21,13 @@ namespace ElevenLabs
         /// </param>
         /// <param name="sources">
         /// Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
+        /// </param>
+        /// <param name="priorities">
+        /// Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
+        /// </param>
+        /// <param name="sortBy">
+        /// Order by most recently created, or by priority (most urgent first, then most recently created).<br/>
+        /// Default Value: created_at
         /// </param>
         /// <param name="ownerUserId">
         /// Filter tickets by creator. Use 'agent' for agent-raised tickets.
@@ -46,6 +53,8 @@ namespace ElevenLabs
             string? conversationId = default,
             global::ElevenLabs.AgentConversationTicketStatus? status = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketPriority>? priorities = default,
+            global::ElevenLabs.AgentConversationTicketSortBy? sortBy = default,
             string? ownerUserId = default,
             string? assigneeUserId = default,
             global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
@@ -55,7 +64,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Agent Conversation Tickets<br/>
-        /// List an agent's conversation triage tickets, ordered by most recently created first. These are tickets about the agent's own performance on a conversation (for triage with Architect), not tickets an agent opens for end users.
+        /// List an agent's conversation triage tickets, ordered by most recently created first unless sorted by priority. These are tickets about the agent's own performance on a conversation (for triage with Architect), not tickets an agent opens for end users.
         /// </summary>
         /// <param name="agentId"></param>
         /// <param name="pageSize">
@@ -70,6 +79,13 @@ namespace ElevenLabs
         /// </param>
         /// <param name="sources">
         /// Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
+        /// </param>
+        /// <param name="priorities">
+        /// Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
+        /// </param>
+        /// <param name="sortBy">
+        /// Order by most recently created, or by priority (most urgent first, then most recently created).<br/>
+        /// Default Value: created_at
         /// </param>
         /// <param name="ownerUserId">
         /// Filter tickets by creator. Use 'agent' for agent-raised tickets.
@@ -95,6 +111,8 @@ namespace ElevenLabs
             string? conversationId = default,
             global::ElevenLabs.AgentConversationTicketStatus? status = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketPriority>? priorities = default,
+            global::ElevenLabs.AgentConversationTicketSortBy? sortBy = default,
             string? ownerUserId = default,
             string? assigneeUserId = default,
             global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
@@ -120,6 +138,13 @@ namespace ElevenLabs
         /// <param name="sources">
         /// Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
         /// </param>
+        /// <param name="priorities">
+        /// Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
+        /// </param>
+        /// <param name="sortBy">
+        /// Order by most recently created, or by priority (most urgent first, then most recently created).<br/>
+        /// Default Value: created_at
+        /// </param>
         /// <param name="ownerUserId">
         /// Filter tickets by creator. Use 'agent' for agent-raised tickets.
         /// </param>
@@ -139,6 +164,8 @@ namespace ElevenLabs
             string? conversationId = default,
             global::ElevenLabs.AgentConversationTicketStatus? status = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketPriority>? priorities = default,
+            global::ElevenLabs.AgentConversationTicketSortBy? sortBy = default,
             string? ownerUserId = default,
             string? assigneeUserId = default,
             global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
