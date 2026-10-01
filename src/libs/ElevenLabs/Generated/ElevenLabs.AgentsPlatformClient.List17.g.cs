@@ -28,14 +28,18 @@ namespace ElevenLabs
         partial void PrepareList17Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref string branchId,
-            ref string? agentVersionId);
+            ref global::ElevenLabs.MergeProposalStatus? status,
+            ref string? search,
+            ref int? pageSize,
+            ref string? cursor);
         partial void PrepareList17Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            string branchId,
-            string? agentVersionId);
+            global::ElevenLabs.MergeProposalStatus? status,
+            string? search,
+            int? pageSize,
+            string? cursor);
         partial void ProcessList17Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,32 +50,43 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// List Procedures<br/>
-        /// List the procedures attached to this agent branch. By default, unpublished drafts take precedence over the latest committed version. Pass agent_version_id to list a published snapshot instead. has_draft is true when a procedure has unpublished draft changes on this branch. Procedure content is not included; use Get Procedure to read a procedure's body.
+        /// List Proposals<br/>
+        /// List the proposals for an agent, newest first.
         /// </summary>
         /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
+        /// <param name="status">
+        /// Only return proposals with this status.
         /// </param>
-        /// <param name="agentVersionId">
-        /// The agent version ID to retrieve the procedure for.
+        /// <param name="search">
+        /// Case-insensitive substring match over title and description.
+        /// </param>
+        /// <param name="pageSize">
+        /// How many results at most should be returned<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListProceduresResponseModel> List17Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse> List17Async(
             string agentId,
-            string branchId,
-            string? agentVersionId = default,
+            global::ElevenLabs.MergeProposalStatus? status = default,
+            string? search = default,
+            int? pageSize = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List17AsResponseAsync(
                 agentId: agentId,
-                branchId: branchId,
-                agentVersionId: agentVersionId,
+                status: status,
+                search: search,
+                pageSize: pageSize,
+                cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -79,25 +94,34 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// List Procedures<br/>
-        /// List the procedures attached to this agent branch. By default, unpublished drafts take precedence over the latest committed version. Pass agent_version_id to list a published snapshot instead. has_draft is true when a procedure has unpublished draft changes on this branch. Procedure content is not included; use Get Procedure to read a procedure's body.
+        /// List Proposals<br/>
+        /// List the proposals for an agent, newest first.
         /// </summary>
         /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
+        /// <param name="status">
+        /// Only return proposals with this status.
         /// </param>
-        /// <param name="agentVersionId">
-        /// The agent version ID to retrieve the procedure for.
+        /// <param name="search">
+        /// Case-insensitive substring match over title and description.
+        /// </param>
+        /// <param name="pageSize">
+        /// How many results at most should be returned<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListProceduresResponseModel>> List17AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse>> List17AsResponseAsync(
             string agentId,
-            string branchId,
-            string? agentVersionId = default,
+            global::ElevenLabs.MergeProposalStatus? status = default,
+            string? search = default,
+            int? pageSize = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -106,8 +130,10 @@ namespace ElevenLabs
             PrepareList17Arguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                branchId: ref branchId,
-                agentVersionId: ref agentVersionId);
+                status: ref status,
+                search: ref search,
+                pageSize: ref pageSize,
+                cursor: ref cursor);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -133,10 +159,13 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/branches/{branchId}/procedures",
+                                path: $"/v1/convai/agents/{agentId}/merge-proposals",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("agent_version_id", agentVersionId)
+                                .AddOptionalParameter("status", status?.ToValueString())
+                                .AddOptionalParameter("search", search)
+                                .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -179,8 +208,10 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
-                    branchId: branchId,
-                    agentVersionId: agentVersionId);
+                    status: status,
+                    search: search,
+                    pageSize: pageSize,
+                    cursor: cursor);
 
                 return __httpRequest;
             }
@@ -199,7 +230,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List17",
                                 methodName: "List17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -233,7 +264,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List17",
                                 methodName: "List17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -274,7 +305,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List17",
                                 methodName: "List17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -322,7 +353,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List17",
                                 methodName: "List17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -344,7 +375,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List17",
                                 methodName: "List17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -418,9 +449,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ListProceduresResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.PaginatedResultAgentMergeProposalResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListProceduresResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -450,9 +481,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ListProceduresResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.PaginatedResultAgentMergeProposalResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListProceduresResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -492,5 +523,47 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps List17Async as an IAsyncEnumerable&lt;global::ElevenLabs.AgentMergeProposalResponse&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="status">
+        /// Only return proposals with this status.
+        /// </param>
+        /// <param name="search">
+        /// Case-insensitive substring match over title and description.
+        /// </param>
+        /// <param name="pageSize">
+        /// How many results at most should be returned<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentMergeProposalResponse> List17AutoPagingAsync(
+            string agentId,             global::ElevenLabs.MergeProposalStatus? status = default,
+            string? search = default,
+            int? pageSize = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse, global::ElevenLabs.AgentMergeProposalResponse>(
+                fetchPage: (__cursor, __ct) => List17Async(
+                    agentId: agentId,
+                    status: status,
+                    search: search,
+                    pageSize: pageSize,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.AgentMergeProposalResponse>?)__response.Results,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

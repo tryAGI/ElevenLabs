@@ -4,52 +4,46 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Default Value: scribe_realtime
+    ///
     /// </summary>
-    public enum ASRProvider
+    public enum AgentDeploymentSource
     {
         /// <summary>
-        /// Deprecated: Use scribe_realtime instead.
+        ///
         /// </summary>
-        Elevenlabs,
+        BranchMerge,
         /// <summary>
         ///
         /// </summary>
-        ScribeRealtime,
-        /// <summary>
-        ///
-        /// </summary>
-        ScribeV2Turbo,
+        Manual,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class ASRProviderExtensions
+    public static class AgentDeploymentSourceExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this ASRProvider value)
+        public static string ToValueString(this AgentDeploymentSource value)
         {
             return value switch
             {
-                ASRProvider.Elevenlabs => "elevenlabs",
-                ASRProvider.ScribeRealtime => "scribe_realtime",
-                ASRProvider.ScribeV2Turbo => "scribe_v2_turbo",
+                AgentDeploymentSource.BranchMerge => "branch_merge",
+                AgentDeploymentSource.Manual => "manual",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static ASRProvider? ToEnum(string value)
+        public static AgentDeploymentSource? ToEnum(string value)
         {
             return value switch
             {
-                "elevenlabs" => ASRProvider.Elevenlabs,
-                "scribe_realtime" => ASRProvider.ScribeRealtime,
-                "scribe_v2_turbo" => ASRProvider.ScribeV2Turbo,
+                "branch_merge" => AgentDeploymentSource.BranchMerge,
+                "manual" => AgentDeploymentSource.Manual,
                 _ => null,
             };
         }
