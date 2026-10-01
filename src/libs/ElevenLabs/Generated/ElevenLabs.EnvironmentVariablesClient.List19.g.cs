@@ -3,11 +3,11 @@
 
 namespace ElevenLabs
 {
-    public partial class AgentsPlatformClient
+    public partial class EnvironmentVariablesClient
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_List16SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_List19SecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,59 +21,72 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_List16SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_List19SecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_List16SecurityRequirement0,
+            {                s_List19SecurityRequirement0,
             };
-        partial void PrepareList16Arguments(
+        partial void PrepareList19Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            ref int? page,
-            ref int? pageSize);
-        partial void PrepareList16Request(
+            ref string? cursor,
+            ref int? pageSize,
+            ref string? label,
+            ref string? environment,
+            ref global::ElevenLabs.ListEnvironmentVariablesType? type);
+        partial void PrepareList19Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            int? page,
-            int? pageSize);
-        partial void ProcessList16Response(
+            string? cursor,
+            int? pageSize,
+            string? label,
+            string? environment,
+            global::ElevenLabs.ListEnvironmentVariablesType? type);
+        partial void ProcessList19Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessList16ResponseContent(
+        partial void ProcessList19ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// List Agent Deployments<br/>
-        /// List the traffic split history of an agent, newest first
+        /// List Environment Variables<br/>
+        /// List all environment variables for the workspace with optional filtering
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="page">
-        /// Page number, starting at 1<br/>
-        /// Default Value: 1
+        /// <param name="cursor">
+        /// Pagination cursor from previous response
         /// </param>
         /// <param name="pageSize">
-        /// How many results at most should be returned<br/>
-        /// Default Value: 30
+        /// Number of items to return (1-100)<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="label">
+        /// Filter by exact label match
+        /// </param>
+        /// <param name="environment">
+        /// Filter to only return variables that have this environment. When specified, the values dict in the response will only contain this environment.
+        /// </param>
+        /// <param name="type">
+        /// Filter by variable type
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListResponseAgentDeploymentHistoryItem> List16Async(
-            string agentId,
-            int? page = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariablesListResponse> List19Async(
+            string? cursor = default,
             int? pageSize = default,
+            string? label = default,
+            string? environment = default,
+            global::ElevenLabs.ListEnvironmentVariablesType? type = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await List16AsResponseAsync(
-                agentId: agentId,
-                page: page,
+            var __response = await List19AsResponseAsync(
+                cursor: cursor,
                 pageSize: pageSize,
+                label: label,
+                environment: environment,
+                type: type,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -81,43 +94,52 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// List Agent Deployments<br/>
-        /// List the traffic split history of an agent, newest first
+        /// List Environment Variables<br/>
+        /// List all environment variables for the workspace with optional filtering
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="page">
-        /// Page number, starting at 1<br/>
-        /// Default Value: 1
+        /// <param name="cursor">
+        /// Pagination cursor from previous response
         /// </param>
         /// <param name="pageSize">
-        /// How many results at most should be returned<br/>
-        /// Default Value: 30
+        /// Number of items to return (1-100)<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="label">
+        /// Filter by exact label match
+        /// </param>
+        /// <param name="environment">
+        /// Filter to only return variables that have this environment. When specified, the values dict in the response will only contain this environment.
+        /// </param>
+        /// <param name="type">
+        /// Filter by variable type
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentDeploymentHistoryItem>> List16AsResponseAsync(
-            string agentId,
-            int? page = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariablesListResponse>> List19AsResponseAsync(
+            string? cursor = default,
             int? pageSize = default,
+            string? label = default,
+            string? environment = default,
+            global::ElevenLabs.ListEnvironmentVariablesType? type = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareList16Arguments(
+            PrepareList19Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
-                page: ref page,
-                pageSize: ref pageSize);
+                cursor: ref cursor,
+                pageSize: ref pageSize,
+                label: ref label,
+                environment: ref environment,
+                type: ref type);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_List16SecurityRequirements,
-                operationName: "List16Async");
+                securityRequirements: s_List19SecurityRequirements,
+                operationName: "List19Async");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -137,11 +159,14 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/deployments",
+                                path: "/v1/convai/environment-variables",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("page", page?.ToString())
+                                .AddOptionalParameter("cursor", cursor)
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("label", label)
+                                .AddOptionalParameter("environment", environment)
+                                .AddOptionalParameter("type", type?.ToValueString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -180,12 +205,14 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareList16Request(
+                PrepareList19Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
-                    page: page,
-                    pageSize: pageSize);
+                    cursor: cursor,
+                    pageSize: pageSize,
+                    label: label,
+                    environment: environment,
+                    type: type);
 
                 return __httpRequest;
             }
@@ -202,9 +229,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                operationId: "List19",
+                                methodName: "List19Async",
+                                pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -236,9 +263,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                operationId: "List19",
+                                methodName: "List19Async",
+                                pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -277,9 +304,9 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                operationId: "List19",
+                                methodName: "List19Async",
+                                pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -317,7 +344,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessList16Response(
+                ProcessList19Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -325,9 +352,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                operationId: "List19",
+                                methodName: "List19Async",
+                                pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -347,9 +374,9 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                operationId: "List19",
+                                methodName: "List19Async",
+                                pathTemplate: "\"/v1/convai/environment-variables\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -364,6 +391,38 @@ namespace ElevenLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
+                            //
+                            if ((int)__response.StatusCode == 400)
+                            {
+                                string? __content_400 = null;
+                                global::System.Exception? __exception_400 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                    else
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_400 = __ex;
+                                }
+
+
+                                throw global::ElevenLabs.ApiException.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_400,
+                                    responseBody: __content_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
                             // Validation Error
                             if ((int)__response.StatusCode == 422)
                             {
@@ -414,7 +473,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessList16ResponseContent(
+                                ProcessList19ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -423,9 +482,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ListResponseAgentDeploymentHistoryItem.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.EnvironmentVariablesListResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentDeploymentHistoryItem>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariablesListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -455,9 +514,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ListResponseAgentDeploymentHistoryItem.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.EnvironmentVariablesListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentDeploymentHistoryItem>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariablesListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -499,32 +558,44 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Wraps List16Async as an IAsyncEnumerable&lt;global::ElevenLabs.AgentDeploymentHistoryItem&gt; that auto-pages over the response.
+        /// Wraps List19Async as an IAsyncEnumerable&lt;global::ElevenLabs.EnvironmentVariableResponse&gt; that auto-pages over the response.
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
         /// <param name="pageSize">
-        /// How many results at most should be returned<br/>
-        /// Default Value: 30
+        /// Number of items to return (1-100)<br/>
+        /// Default Value: 100
         /// </param>
-        /// <param name="page">Initial page number to start enumerating from. Defaults to 1.</param>
+        /// <param name="label">
+        /// Filter by exact label match
+        /// </param>
+        /// <param name="environment">
+        /// Filter to only return variables that have this environment. When specified, the values dict in the response will only contain this environment.
+        /// </param>
+        /// <param name="type">
+        /// Filter by variable type
+        /// </param>
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
-        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentDeploymentHistoryItem> List16AutoPagingAsync(
-            string agentId,             int? pageSize = default,
-            int? page = null,
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.EnvironmentVariableResponse> List19AutoPagingAsync(
+              int? pageSize = default,
+            string? label = default,
+            string? environment = default,
+            global::ElevenLabs.ListEnvironmentVariablesType? type = default,
+            string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            return global::ElevenLabs.AutoSDKPager.OffsetAsync<global::ElevenLabs.ListResponseAgentDeploymentHistoryItem, global::ElevenLabs.AgentDeploymentHistoryItem>(
-                fetchPage: (__page, __ct) => List16Async(
-                    agentId: agentId,
-                    page: __page,
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.EnvironmentVariablesListResponse, global::ElevenLabs.EnvironmentVariableResponse>(
+                fetchPage: (__cursor, __ct) => List19Async(
+                    cursor: __cursor,
                     pageSize: pageSize,
+                    label: label,
+                    environment: environment,
+                    type: type,
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null
                     ? null
-                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.AgentDeploymentHistoryItem>?)__response.Results,
-                initialPage: page ?? 1,
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.EnvironmentVariableResponse>?)__response.EnvironmentVariables,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
                 cancellationToken: cancellationToken);
         }
 

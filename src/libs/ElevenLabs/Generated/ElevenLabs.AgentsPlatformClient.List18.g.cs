@@ -3,7 +3,7 @@
 
 namespace ElevenLabs
 {
-    public partial class EnvironmentVariablesClient
+    public partial class AgentsPlatformClient
     {
 
 
@@ -27,19 +27,15 @@ namespace ElevenLabs
             };
         partial void PrepareList18Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? cursor,
-            ref int? pageSize,
-            ref string? label,
-            ref string? environment,
-            ref global::ElevenLabs.ListEnvironmentVariablesType? type);
+            ref string agentId,
+            ref string branchId,
+            ref string? agentVersionId);
         partial void PrepareList18Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? cursor,
-            int? pageSize,
-            string? label,
-            string? environment,
-            global::ElevenLabs.ListEnvironmentVariablesType? type);
+            string agentId,
+            string branchId,
+            string? agentVersionId);
         partial void ProcessList18Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -50,43 +46,32 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// List Environment Variables<br/>
-        /// List all environment variables for the workspace with optional filtering
+        /// List Procedures<br/>
+        /// List the procedures attached to this agent branch. By default, unpublished drafts take precedence over the latest committed version. Pass agent_version_id to list a published snapshot instead. has_draft is true when a procedure has unpublished draft changes on this branch. Procedure content is not included; use Get Procedure to read a procedure's body.
         /// </summary>
-        /// <param name="cursor">
-        /// Pagination cursor from previous response
+        /// <param name="agentId">
+        /// Agent ID to get the procedure draft from
         /// </param>
-        /// <param name="pageSize">
-        /// Number of items to return (1-100)<br/>
-        /// Default Value: 100
+        /// <param name="branchId">
+        /// Branch ID to get the procedure draft from
         /// </param>
-        /// <param name="label">
-        /// Filter by exact label match
-        /// </param>
-        /// <param name="environment">
-        /// Filter to only return variables that have this environment. When specified, the values dict in the response will only contain this environment.
-        /// </param>
-        /// <param name="type">
-        /// Filter by variable type
+        /// <param name="agentVersionId">
+        /// The agent version ID to retrieve the procedure for.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EnvironmentVariablesListResponse> List18Async(
-            string? cursor = default,
-            int? pageSize = default,
-            string? label = default,
-            string? environment = default,
-            global::ElevenLabs.ListEnvironmentVariablesType? type = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListProceduresResponseModel> List18Async(
+            string agentId,
+            string branchId,
+            string? agentVersionId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List18AsResponseAsync(
-                cursor: cursor,
-                pageSize: pageSize,
-                label: label,
-                environment: environment,
-                type: type,
+                agentId: agentId,
+                branchId: branchId,
+                agentVersionId: agentVersionId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -94,34 +79,25 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// List Environment Variables<br/>
-        /// List all environment variables for the workspace with optional filtering
+        /// List Procedures<br/>
+        /// List the procedures attached to this agent branch. By default, unpublished drafts take precedence over the latest committed version. Pass agent_version_id to list a published snapshot instead. has_draft is true when a procedure has unpublished draft changes on this branch. Procedure content is not included; use Get Procedure to read a procedure's body.
         /// </summary>
-        /// <param name="cursor">
-        /// Pagination cursor from previous response
+        /// <param name="agentId">
+        /// Agent ID to get the procedure draft from
         /// </param>
-        /// <param name="pageSize">
-        /// Number of items to return (1-100)<br/>
-        /// Default Value: 100
+        /// <param name="branchId">
+        /// Branch ID to get the procedure draft from
         /// </param>
-        /// <param name="label">
-        /// Filter by exact label match
-        /// </param>
-        /// <param name="environment">
-        /// Filter to only return variables that have this environment. When specified, the values dict in the response will only contain this environment.
-        /// </param>
-        /// <param name="type">
-        /// Filter by variable type
+        /// <param name="agentVersionId">
+        /// The agent version ID to retrieve the procedure for.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariablesListResponse>> List18AsResponseAsync(
-            string? cursor = default,
-            int? pageSize = default,
-            string? label = default,
-            string? environment = default,
-            global::ElevenLabs.ListEnvironmentVariablesType? type = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListProceduresResponseModel>> List18AsResponseAsync(
+            string agentId,
+            string branchId,
+            string? agentVersionId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -129,11 +105,9 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareList18Arguments(
                 httpClient: HttpClient,
-                cursor: ref cursor,
-                pageSize: ref pageSize,
-                label: ref label,
-                environment: ref environment,
-                type: ref type);
+                agentId: ref agentId,
+                branchId: ref branchId,
+                agentVersionId: ref agentVersionId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -159,14 +133,10 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/environment-variables",
+                                path: $"/v1/convai/agents/{agentId}/branches/{branchId}/procedures",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("cursor", cursor)
-                                .AddOptionalParameter("page_size", pageSize?.ToString())
-                                .AddOptionalParameter("label", label)
-                                .AddOptionalParameter("environment", environment)
-                                .AddOptionalParameter("type", type?.ToValueString())
+                                .AddOptionalParameter("agent_version_id", agentVersionId)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -208,11 +178,9 @@ namespace ElevenLabs
                 PrepareList18Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    cursor: cursor,
-                    pageSize: pageSize,
-                    label: label,
-                    environment: environment,
-                    type: type);
+                    agentId: agentId,
+                    branchId: branchId,
+                    agentVersionId: agentVersionId);
 
                 return __httpRequest;
             }
@@ -231,7 +199,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List18",
                                 methodName: "List18Async",
-                                pathTemplate: "\"/v1/convai/environment-variables\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -265,7 +233,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List18",
                                 methodName: "List18Async",
-                                pathTemplate: "\"/v1/convai/environment-variables\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -306,7 +274,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List18",
                                 methodName: "List18Async",
-                                pathTemplate: "\"/v1/convai/environment-variables\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -354,7 +322,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List18",
                                 methodName: "List18Async",
-                                pathTemplate: "\"/v1/convai/environment-variables\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -376,7 +344,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List18",
                                 methodName: "List18Async",
-                                pathTemplate: "\"/v1/convai/environment-variables\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -391,38 +359,6 @@ namespace ElevenLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            //
-                            if ((int)__response.StatusCode == 400)
-                            {
-                                string? __content_400 = null;
-                                global::System.Exception? __exception_400 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_400 = __ex;
-                                }
-
-
-                                throw global::ElevenLabs.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_400,
-                                    responseBody: __content_400,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
                             // Validation Error
                             if ((int)__response.StatusCode == 422)
                             {
@@ -482,9 +418,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.EnvironmentVariablesListResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ListProceduresResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariablesListResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListProceduresResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -514,9 +450,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.EnvironmentVariablesListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ListProceduresResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EnvironmentVariablesListResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListProceduresResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -556,48 +492,5 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
-
-        /// <summary>
-        /// Wraps List18Async as an IAsyncEnumerable&lt;global::ElevenLabs.EnvironmentVariableResponse&gt; that auto-pages over the response.
-        /// </summary>
-        /// <param name="pageSize">
-        /// Number of items to return (1-100)<br/>
-        /// Default Value: 100
-        /// </param>
-        /// <param name="label">
-        /// Filter by exact label match
-        /// </param>
-        /// <param name="environment">
-        /// Filter to only return variables that have this environment. When specified, the values dict in the response will only contain this environment.
-        /// </param>
-        /// <param name="type">
-        /// Filter by variable type
-        /// </param>
-        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
-        /// <param name="cancellationToken"></param>
-        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.EnvironmentVariableResponse> List18AutoPagingAsync(
-              int? pageSize = default,
-            string? label = default,
-            string? environment = default,
-            global::ElevenLabs.ListEnvironmentVariablesType? type = default,
-            string? cursor = null,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.EnvironmentVariablesListResponse, global::ElevenLabs.EnvironmentVariableResponse>(
-                fetchPage: (__cursor, __ct) => List18Async(
-                    cursor: __cursor,
-                    pageSize: pageSize,
-                    label: label,
-                    environment: environment,
-                    type: type,
-                    cancellationToken: __ct),
-                extractItems: static __response => __response is null
-                    ? null
-                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.EnvironmentVariableResponse>?)__response.EnvironmentVariables,
-                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
-                initialCursor: cursor,
-                cancellationToken: cancellationToken);
-        }
-
     }
 }

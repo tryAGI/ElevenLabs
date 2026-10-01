@@ -30614,6 +30614,104 @@
           "deployments"
         ],
         "x-fern-sdk-method-name": "create"
+      },
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "List Agent Deployments",
+        "description": "List the traffic split history of an agent, newest first",
+        "operationId": "list_agent_deployments_route",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of an agent. This is returned on agent creation.",
+              "examples": [
+                "agent_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "embed": true,
+              "title": "Agent Id"
+            },
+            "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number, starting at 1",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number, starting at 1"
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "How many results at most should be returned",
+              "default": 30,
+              "title": "Page Size"
+            },
+            "description": "How many results at most should be returned"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListResponse_AgentDeploymentHistoryItem_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "agents",
+          "deployments"
+        ],
+        "x-fern-sdk-method-name": "list"
       }
     },
     "/v1/convai/agents/{agent_id}/drafts": {
@@ -31885,6 +31983,91 @@
         },
         "x-fern-sdk-group-name": "speech_engine",
         "x-fern-sdk-method-name": "delete"
+      }
+    },
+    "/v1/speech-engine/{speech_engine_id}/duplicate": {
+      "post": {
+        "tags": [
+          "Speech Engine"
+        ],
+        "summary": "Duplicate Speech Engine",
+        "description": "Create a new Speech Engine resource by duplicating an existing one",
+        "operationId": "duplicate_speech_engine",
+        "parameters": [
+          {
+            "name": "speech_engine_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The speech engine ID (accepts seng_ or agent_ prefix)",
+              "examples": [
+                "seng_3701k3ttaq12ewp8b7qv5rfyszkz"
+              ],
+              "title": "Speech Engine Id"
+            },
+            "description": "The speech engine ID (accepts seng_ or agent_ prefix)"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/DuplicateSpeechEngineRequest"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Speech Engine Request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpeechEngineResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "speech_engine",
+        "x-fern-sdk-method-name": "duplicate"
       }
     },
     "/v1/convai/agents/{agent_id}/branches/{branch_id}/procedures": {
@@ -38362,7 +38545,8 @@
         "type": "string",
         "enum": [
           "elevenlabs",
-          "scribe_realtime"
+          "scribe_realtime",
+          "scribe_v2_turbo"
         ],
         "title": "ASRProvider",
         "x-fern-enum": {
@@ -41114,6 +41298,67 @@
         "title": "AgentDefinitionSource",
         "default": "unknown"
       },
+      "AgentDeploymentHistoryItem": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "ID of the deployment"
+          },
+          "traffic_percentage_branch_id_map": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Traffic Percentage Branch Id Map",
+            "description": "Map of branch IDs to traffic percentages",
+            "examples": [
+              {
+                "agtbrch_8901k4t9z5defmb8vh3e9361y7nj": 50.0
+              }
+            ]
+          },
+          "deployed_at_unix_secs": {
+            "type": "integer",
+            "title": "Deployed At Unix Secs",
+            "description": "Unix timestamp of when the traffic split was applied"
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active",
+            "description": "Whether this is the live traffic split"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentDeploymentSource"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "What caused this traffic split change. Null for deployments created before this was recorded."
+          },
+          "access_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResourceAccessInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Access information for the deployment, including who created it"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "deployed_at_unix_secs",
+          "is_active"
+        ],
+        "title": "AgentDeploymentHistoryItem"
+      },
       "AgentDeploymentPercentageStrategy": {
         "properties": {
           "type": {
@@ -41213,6 +41458,14 @@
         },
         "type": "object",
         "title": "AgentDeploymentResponse"
+      },
+      "AgentDeploymentSource": {
+        "type": "string",
+        "enum": [
+          "manual",
+          "branch_merge"
+        ],
+        "title": "AgentDeploymentSource"
       },
       "AgentFailureResponseExample": {
         "properties": {
@@ -70261,6 +70514,24 @@
         "type": "object",
         "title": "DummyToolResultModel"
       },
+      "DuplicateSpeechEngineRequest": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name",
+            "description": "Name for the duplicated speech engine. Defaults to the source name."
+          }
+        },
+        "type": "object",
+        "title": "DuplicateSpeechEngineRequest"
+      },
       "DynamicVariableAssignment": {
         "properties": {
           "source": {
@@ -79900,6 +80171,7 @@
           "gpt-6-astra",
           "gpt-6-sol",
           "gpt-6-luna",
+          "gpt-6.1-sol",
           "gpt-5-mini",
           "gpt-5-nano",
           "gpt-3.5-turbo",
@@ -81623,6 +81895,26 @@
           "results"
         ],
         "title": "ListResponse[AgentBranchSummary]"
+      },
+      "ListResponse_AgentDeploymentHistoryItem_": {
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/ListResponseMeta",
+            "default": {}
+          },
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/AgentDeploymentHistoryItem"
+            },
+            "type": "array",
+            "title": "Results"
+          }
+        },
+        "type": "object",
+        "required": [
+          "results"
+        ],
+        "title": "ListResponse[AgentDeploymentHistoryItem]"
       },
       "ListServicesParams": {
         "properties": {
@@ -101210,7 +101502,7 @@
           "model_id": {
             "$ref": "#/components/schemas/TTSConversationalModel",
             "description": "The model to use for TTS",
-            "default": "eleven_flash_v2",
+            "default": "eleven_v4_turbo",
             "x-convai-client-override": true
           },
           "voice_id": {
@@ -101335,7 +101627,7 @@
           "model_id": {
             "$ref": "#/components/schemas/TTSConversationalModel",
             "description": "The model to use for TTS",
-            "default": "eleven_flash_v2",
+            "default": "eleven_v4_turbo",
             "x-convai-client-override": true
           },
           "voice_id": {
@@ -102032,7 +102324,7 @@
             "deprecated": true
           }
         },
-        "default": "eleven_flash_v2"
+        "default": "eleven_v4_turbo"
       },
       "TTSModelFamily": {
         "type": "string",

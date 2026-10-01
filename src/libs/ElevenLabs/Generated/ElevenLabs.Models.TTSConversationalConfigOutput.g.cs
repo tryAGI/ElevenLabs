@@ -10,7 +10,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// The model to use for TTS<br/>
-        /// Default Value: eleven_flash_v2
+        /// Default Value: eleven_v4_turbo
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TTSConversationalModelJsonConverter))]
@@ -116,7 +116,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="modelId">
         /// The model to use for TTS<br/>
-        /// Default Value: eleven_flash_v2
+        /// Default Value: eleven_v4_turbo
         /// </param>
         /// <param name="voiceId">
         /// The voice ID to use for TTS<br/>

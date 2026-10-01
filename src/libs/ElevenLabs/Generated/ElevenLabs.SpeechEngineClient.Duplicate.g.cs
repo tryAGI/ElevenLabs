@@ -3,11 +3,11 @@
 
 namespace ElevenLabs
 {
-    public partial class AgentsPlatformClient
+    public partial class SpeechEngineClient
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_List16SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_DuplicateSecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,59 +21,50 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_List16SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_DuplicateSecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_List16SecurityRequirement0,
+            {                s_DuplicateSecurityRequirement0,
             };
-        partial void PrepareList16Arguments(
+        partial void PrepareDuplicateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            ref int? page,
-            ref int? pageSize);
-        partial void PrepareList16Request(
+            ref string speechEngineId,
+            global::ElevenLabs.DuplicateSpeechEngineRequest request);
+        partial void PrepareDuplicateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            int? page,
-            int? pageSize);
-        partial void ProcessList16Response(
+            string speechEngineId,
+            global::ElevenLabs.DuplicateSpeechEngineRequest request);
+        partial void ProcessDuplicateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessList16ResponseContent(
+        partial void ProcessDuplicateResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// List Agent Deployments<br/>
-        /// List the traffic split history of an agent, newest first
+        /// Duplicate Speech Engine<br/>
+        /// Create a new Speech Engine resource by duplicating an existing one
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="speechEngineId">
+        /// The speech engine ID (accepts seng_ or agent_ prefix)
         /// </param>
-        /// <param name="page">
-        /// Page number, starting at 1<br/>
-        /// Default Value: 1
-        /// </param>
-        /// <param name="pageSize">
-        /// How many results at most should be returned<br/>
-        /// Default Value: 30
-        /// </param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListResponseAgentDeploymentHistoryItem> List16Async(
-            string agentId,
-            int? page = default,
-            int? pageSize = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechEngineResponse> DuplicateAsync(
+            string speechEngineId,
+
+            global::ElevenLabs.DuplicateSpeechEngineRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await List16AsResponseAsync(
-                agentId: agentId,
-                page: page,
-                pageSize: pageSize,
+            var __response = await DuplicateAsResponseAsync(
+                speechEngineId: speechEngineId,
+
+                request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -81,43 +72,37 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// List Agent Deployments<br/>
-        /// List the traffic split history of an agent, newest first
+        /// Duplicate Speech Engine<br/>
+        /// Create a new Speech Engine resource by duplicating an existing one
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="speechEngineId">
+        /// The speech engine ID (accepts seng_ or agent_ prefix)
         /// </param>
-        /// <param name="page">
-        /// Page number, starting at 1<br/>
-        /// Default Value: 1
-        /// </param>
-        /// <param name="pageSize">
-        /// How many results at most should be returned<br/>
-        /// Default Value: 30
-        /// </param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentDeploymentHistoryItem>> List16AsResponseAsync(
-            string agentId,
-            int? page = default,
-            int? pageSize = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SpeechEngineResponse>> DuplicateAsResponseAsync(
+            string speechEngineId,
+
+            global::ElevenLabs.DuplicateSpeechEngineRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
-            PrepareList16Arguments(
+            PrepareDuplicateArguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
-                page: ref page,
-                pageSize: ref pageSize);
+                speechEngineId: ref speechEngineId,
+                request: request);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_List16SecurityRequirements,
-                operationName: "List16Async");
+                securityRequirements: s_DuplicateSecurityRequirements,
+                operationName: "DuplicateAsync");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -137,19 +122,15 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/deployments",
+                                path: $"/v1/speech-engine/{speechEngineId}/duplicate",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddOptionalParameter("page", page?.ToString())
-                                .AddOptionalParameter("page_size", pageSize?.ToString())
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Get,
+                    method: global::System.Net.Http.HttpMethod.Post,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -172,6 +153,12 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -180,12 +167,11 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareList16Request(
+                PrepareDuplicateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
-                    page: page,
-                    pageSize: pageSize);
+                    speechEngineId: speechEngineId,
+                    request: request);
 
                 return __httpRequest;
             }
@@ -202,10 +188,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
-                                httpMethod: "GET",
+                                operationId: "Duplicate",
+                                methodName: "DuplicateAsync",
+                                pathTemplate: "$\"/v1/speech-engine/{speechEngineId}/duplicate\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -236,10 +222,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
-                                httpMethod: "GET",
+                                operationId: "Duplicate",
+                                methodName: "DuplicateAsync",
+                                pathTemplate: "$\"/v1/speech-engine/{speechEngineId}/duplicate\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -277,10 +263,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
-                                httpMethod: "GET",
+                                operationId: "Duplicate",
+                                methodName: "DuplicateAsync",
+                                pathTemplate: "$\"/v1/speech-engine/{speechEngineId}/duplicate\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -317,7 +303,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessList16Response(
+                ProcessDuplicateResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -325,10 +311,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
-                                httpMethod: "GET",
+                                operationId: "Duplicate",
+                                methodName: "DuplicateAsync",
+                                pathTemplate: "$\"/v1/speech-engine/{speechEngineId}/duplicate\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -347,10 +333,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List16",
-                                methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
-                                httpMethod: "GET",
+                                operationId: "Duplicate",
+                                methodName: "DuplicateAsync",
+                                pathTemplate: "$\"/v1/speech-engine/{speechEngineId}/duplicate\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -414,7 +400,7 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessList16ResponseContent(
+                                ProcessDuplicateResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -423,9 +409,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ListResponseAgentDeploymentHistoryItem.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.SpeechEngineResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentDeploymentHistoryItem>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SpeechEngineResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -455,9 +441,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ListResponseAgentDeploymentHistoryItem.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.SpeechEngineResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentDeploymentHistoryItem>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SpeechEngineResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -497,36 +483,30 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
-
         /// <summary>
-        /// Wraps List16Async as an IAsyncEnumerable&lt;global::ElevenLabs.AgentDeploymentHistoryItem&gt; that auto-pages over the response.
+        /// Duplicate Speech Engine<br/>
+        /// Create a new Speech Engine resource by duplicating an existing one
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
+        /// <param name="speechEngineId">
+        /// The speech engine ID (accepts seng_ or agent_ prefix)
         /// </param>
-        /// <param name="pageSize">
-        /// How many results at most should be returned<br/>
-        /// Default Value: 30
-        /// </param>
-        /// <param name="page">Initial page number to start enumerating from. Defaults to 1.</param>
-        /// <param name="cancellationToken"></param>
-        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentDeploymentHistoryItem> List16AutoPagingAsync(
-            string agentId,             int? pageSize = default,
-            int? page = null,
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SpeechEngineResponse> DuplicateAsync(
+            string speechEngineId,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            return global::ElevenLabs.AutoSDKPager.OffsetAsync<global::ElevenLabs.ListResponseAgentDeploymentHistoryItem, global::ElevenLabs.AgentDeploymentHistoryItem>(
-                fetchPage: (__page, __ct) => List16Async(
-                    agentId: agentId,
-                    page: __page,
-                    pageSize: pageSize,
-                    cancellationToken: __ct),
-                extractItems: static __response => __response is null
-                    ? null
-                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.AgentDeploymentHistoryItem>?)__response.Results,
-                initialPage: page ?? 1,
-                cancellationToken: cancellationToken);
-        }
+            var __request = new global::ElevenLabs.DuplicateSpeechEngineRequest
+            {
+            };
 
+            return await DuplicateAsync(
+                speechEngineId: speechEngineId,
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
+        }
     }
 }
