@@ -3,12 +3,12 @@
 
 #pragma warning disable CS0618 // Type or member is obsolete
 
-namespace ElevenLabs.TextToDialogueRealtime
+namespace ElevenLabs.TextToDialogueMultiContextRealtime
 {
     /// <summary>
     ///
     /// </summary>
-    public sealed partial class JsonSerializerContextTypes
+    public sealed partial class TextToDialogueMultiContextRealtimeJsonContextTypes
     {
         /// <summary>
         ///
@@ -33,7 +33,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToDialogueRealtime.DialogueTextAlignment? Type0 { get; set; }
+        public global::ElevenLabs.TextToDialogueMultiContextRealtime.DialogueTextAlignment? Type0 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -53,11 +53,11 @@ namespace ElevenLabs.TextToDialogueRealtime
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk? Type5 { get; set; }
+        public global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueWebsocketAudioChunkMulti? Type5 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinalAudioForTurn? Type6 { get; set; }
+        public global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueWebsocketFinalAudioForTurnMulti? Type6 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -65,19 +65,19 @@ namespace ElevenLabs.TextToDialogueRealtime
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinal? Type8 { get; set; }
+        public global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueWebsocketFinalMulti? Type8 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError? Type9 { get; set; }
+        public global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueWebsocketError? Type9 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketVoiceInput? Type10 { get; set; }
+        public global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueWebsocketVoiceInput? Type10 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketVoiceSettings? Type11 { get; set; }
+        public global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueWebsocketVoiceSettings? Type11 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -85,23 +85,23 @@ namespace ElevenLabs.TextToDialogueRealtime
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToDialogueRealtime.PronunciationDictionaryLocator? Type13 { get; set; }
+        public global::ElevenLabs.TextToDialogueMultiContextRealtime.PronunciationDictionaryLocator? Type13 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketClientMessage? Type14 { get; set; }
+        public global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueWebsocketClientMessageMulti? Type14 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketVoiceInput>? Type15 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueWebsocketVoiceInput>? Type15 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::ElevenLabs.TextToDialogueRealtime.PronunciationDictionaryLocator>? Type16 { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TextToDialogueMultiContextRealtime.PronunciationDictionaryLocator>? Type16 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.TextToDialogueRealtime.ServerEvent? Type17 { get; set; }
+        public global::ElevenLabs.TextToDialogueMultiContextRealtime.ServerEvent? Type17 { get; set; }
 
         /// <summary>
         ///
@@ -114,10 +114,10 @@ namespace ElevenLabs.TextToDialogueRealtime
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketVoiceInput>? ListType2 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueWebsocketVoiceInput>? ListType2 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::ElevenLabs.TextToDialogueRealtime.PronunciationDictionaryLocator>? ListType3 { get; set; }
+        public global::System.Collections.Generic.List<global::ElevenLabs.TextToDialogueMultiContextRealtime.PronunciationDictionaryLocator>? ListType3 { get; set; }
     }
 }
