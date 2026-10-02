@@ -11,6 +11,12 @@ namespace ElevenLabs
     public sealed partial class GetSimulationTestResponseModel
     {
         /// <summary>
+        /// The access information for the requesting user on this test.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
+        public global::ElevenLabs.ResourceAccessInfo? AccessInfo { get; set; }
+
+        /// <summary>
         /// Metadata of a conversation this test was created from (if applicable).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_conversation_metadata")]
@@ -129,6 +135,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="id"></param>
         /// <param name="name"></param>
+        /// <param name="accessInfo">
+        /// The access information for the requesting user on this test.
+        /// </param>
         /// <param name="fromConversationMetadata">
         /// Metadata of a conversation this test was created from (if applicable).
         /// </param>
@@ -178,6 +187,7 @@ namespace ElevenLabs
         public GetSimulationTestResponseModel(
             string id,
             string name,
+            global::ElevenLabs.ResourceAccessInfo? accessInfo,
             global::ElevenLabs.TestFromConversationMetadataOutput? fromConversationMetadata,
             object? dynamicVariables,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput>? chatHistory,
@@ -193,6 +203,7 @@ namespace ElevenLabs
             global::ElevenLabs.Llm? evaluationModel,
             global::ElevenLabs.Llm? simulatedUserModel)
         {
+            this.AccessInfo = accessInfo;
             this.FromConversationMetadata = fromConversationMetadata;
             this.DynamicVariables = dynamicVariables;
             this.ChatHistory = chatHistory;

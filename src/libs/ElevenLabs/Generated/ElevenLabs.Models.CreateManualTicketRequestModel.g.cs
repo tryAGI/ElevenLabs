@@ -9,7 +9,13 @@ namespace ElevenLabs
     public sealed partial class CreateManualTicketRequestModel
     {
         /// <summary>
-        /// What the ticket is about, e.g. a follow-up task for the agent. This is shown as the ticket title.
+        /// One-line headline shown in the triage list. Defaults to one derived from qa_comment.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("title")]
+        public string? Title { get; set; }
+
+        /// <summary>
+        /// What the ticket is about, e.g. a follow-up task for the agent.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("qa_comment")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -31,7 +37,10 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="CreateManualTicketRequestModel" /> class.
         /// </summary>
         /// <param name="qaComment">
-        /// What the ticket is about, e.g. a follow-up task for the agent. This is shown as the ticket title.
+        /// What the ticket is about, e.g. a follow-up task for the agent.
+        /// </param>
+        /// <param name="title">
+        /// One-line headline shown in the triage list. Defaults to one derived from qa_comment.
         /// </param>
         /// <param name="priority">
         /// How urgently the ticket needs attention.
@@ -41,8 +50,10 @@ namespace ElevenLabs
 #endif
         public CreateManualTicketRequestModel(
             string qaComment,
+            string? title,
             global::ElevenLabs.AgentConversationTicketPriority? priority)
         {
+            this.Title = title;
             this.QaComment = qaComment ?? throw new global::System.ArgumentNullException(nameof(qaComment));
             this.Priority = priority;
         }

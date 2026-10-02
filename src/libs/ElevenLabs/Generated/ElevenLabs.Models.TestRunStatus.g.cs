@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Cancelled,
+        /// <summary>
+        ///
+        /// </summary>
         Failed,
         /// <summary>
         ///
@@ -34,6 +38,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                TestRunStatus.Cancelled => "cancelled",
                 TestRunStatus.Failed => "failed",
                 TestRunStatus.Passed => "passed",
                 TestRunStatus.Pending => "pending",
@@ -47,6 +52,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "cancelled" => TestRunStatus.Cancelled,
                 "failed" => TestRunStatus.Failed,
                 "passed" => TestRunStatus.Passed,
                 "pending" => TestRunStatus.Pending,

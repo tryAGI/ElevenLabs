@@ -18066,6 +18066,66 @@
         "x-fern-sdk-method-name": "get"
       }
     },
+    "/v1/convai/test-invocations/{test_invocation_id}/cancel": {
+      "post": {
+        "summary": "Cancel Test Invocation",
+        "description": "Cancels all pending runs in a test invocation.",
+        "operationId": "cancel_test_invocation_route",
+        "parameters": [
+          {
+            "name": "test_invocation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of a test invocation. This is returned when tests are run.",
+              "embed": true,
+              "title": "Test Invocation Id"
+            },
+            "description": "The id of a test invocation. This is returned when tests are run."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "tests",
+          "invocations"
+        ],
+        "x-fern-sdk-method-name": "cancel"
+      }
+    },
     "/v1/convai/test-invocations/{test_invocation_id}/resubmit": {
       "post": {
         "summary": "Resubmit Tests",
@@ -21367,7 +21427,7 @@
       },
       "post": {
         "summary": "Create Manual Agent Ticket",
-        "description": "Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). The comment is shown as the ticket title. Requires viewer access to the agent.",
+        "description": "Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.",
         "operationId": "create_manual_agent_ticket_route",
         "parameters": [
           {
@@ -21754,7 +21814,7 @@
       },
       "patch": {
         "summary": "Update Agent Conversation Ticket",
-        "description": "Update a ticket's comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.",
+        "description": "Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.",
         "operationId": "update_agent_conversation_ticket_route",
         "parameters": [
           {
@@ -31018,6 +31078,42 @@
             "description": "Only return proposals with this status."
           },
           {
+            "name": "source_branch_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only return proposals with this source branch.",
+              "title": "Source Branch Id"
+            },
+            "description": "Only return proposals with this source branch."
+          },
+          {
+            "name": "target_branch_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only return proposals with this target branch.",
+              "title": "Target Branch Id"
+            },
+            "description": "Only return proposals with this target branch."
+          },
+          {
             "name": "search",
             "in": "query",
             "required": false,
@@ -32283,8 +32379,8 @@
         "tags": [
           "Agents Platform"
         ],
-        "summary": "Compile Procedures",
-        "description": "Compile procedure drafts into a workflow.",
+        "summary": "Legacy: Compile Procedures",
+        "description": "Legacy. Do not use. Saving an agent draft (`POST /v1/convai/agents/{agent_id}/drafts`) and publishing an agent (`PATCH /v1/convai/agents/{agent_id}`) compile structured procedures into workflow nodes and edges, save the compiled workflow with the draft or version, and return validation errors, so a separate compile call is no longer needed. This endpoint remains available for the time being so existing callers do not break, as a dry-run that compiles the current procedure drafts into a workflow without persisting anything. It will eventually be deprecated.",
         "operationId": "compile_procedures_route",
         "parameters": [
           {
@@ -32366,6 +32462,7 @@
             }
           }
         },
+        "x-legacy": true,
         "x-fern-sdk-group-name": [
           "conversational_ai",
           "agents",
@@ -41120,6 +41217,18 @@
             "type": "boolean",
             "title": "Needs Clustering"
           },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title",
+            "description": "One-line headline for the ticket. None only on tickets created before titles existed."
+          },
           "issue_type": {
             "anyOf": [
               {
@@ -41241,6 +41350,7 @@
           "owner_user_id",
           "agent_id",
           "needs_clustering",
+          "title",
           "issue_type",
           "labels",
           "conversation_ids",
@@ -42591,6 +42701,12 @@
             "title": "Preserve Client Tts Overrides",
             "description": "Defines whether TTS client overrides should be carried over to the transferred agent.",
             "default": false
+          },
+          "preserve_voice_settings": {
+            "type": "boolean",
+            "title": "Preserve Voice Settings",
+            "description": "Defines whether the base voice, TTS model and voice settings should be carried over to the transferred agent.",
+            "default": false
           }
         },
         "type": "object",
@@ -42657,6 +42773,12 @@
             "type": "boolean",
             "title": "Preserve Client Tts Overrides",
             "description": "Defines whether TTS client overrides should be carried over to the transferred agent.",
+            "default": false
+          },
+          "preserve_voice_settings": {
+            "type": "boolean",
+            "title": "Preserve Voice Settings",
+            "description": "Defines whether the base voice, TTS model and voice settings should be carried over to the transferred agent.",
             "default": false
           }
         },
@@ -43333,6 +43455,7 @@
                 "y": 0.0
               },
               "preserve_client_tts_overrides": false,
+              "preserve_voice_settings": false,
               "type": "standalone_agent"
             },
             "tool_node_a": {
@@ -59699,6 +59822,12 @@
             "description": "Format for transcript webhooks.",
             "default": "json"
           },
+          "exclude_transcript": {
+            "type": "boolean",
+            "title": "Exclude Transcript",
+            "description": "When true, JSON post-call transcription webhooks omit the turn-by-turn transcript. Analysis, metadata, and other conversation fields are still sent. Ignored for OpenTelemetry transcript format.",
+            "default": false
+          },
           "send_audio": {
             "anyOf": [
               {
@@ -64890,6 +65019,20 @@
             "title": "Conversation Id",
             "description": "Conversation this ticket is about."
           },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 120,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title",
+            "description": "One-line headline shown in the triage list. Defaults to one derived from the comments, falling back to the conversation's summary title. Ignored when the comment is added to the conversation's open ticket."
+          },
           "qa_comment": {
             "anyOf": [
               {
@@ -65450,12 +65593,26 @@
       },
       "CreateManualTicketRequestModel": {
         "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 120,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title",
+            "description": "One-line headline shown in the triage list. Defaults to one derived from qa_comment."
+          },
           "qa_comment": {
             "type": "string",
             "maxLength": 10000,
             "minLength": 1,
             "title": "Qa Comment",
-            "description": "What the ticket is about, e.g. a follow-up task for the agent. This is shown as the ticket title."
+            "description": "What the ticket is about, e.g. a follow-up task for the agent."
           },
           "priority": {
             "anyOf": [
@@ -72123,6 +72280,12 @@
             "title": "Has Used Creator Coupon On Account",
             "description": "True if any workspace owned by this user's auth account has redeemed the creator first-month discount coupon.",
             "default": false
+          },
+          "is_eligible_for_starter_promo": {
+            "type": "boolean",
+            "title": "Is Eligible For Starter Promo",
+            "description": "True if this user's auth account qualifies for the Starter first-month promo, using the same check as checkout. The starter_discount feature flag still decides whether the promo is offered.",
+            "default": false
           }
         },
         "type": "object",
@@ -72167,6 +72330,7 @@
           "has_open_invoices": true,
           "has_used_creator_coupon_on_account": false,
           "has_used_starter_coupon_on_account": false,
+          "is_eligible_for_starter_promo": false,
           "max_character_limit_extension": 10000,
           "max_credit_limit_extension": 10000,
           "next_character_count_reset_unix": 1738356858,
@@ -74571,6 +74735,7 @@
                   "y": 0.0
                 },
                 "preserve_client_tts_overrides": false,
+                "preserve_voice_settings": false,
                 "type": "standalone_agent"
               },
               "tool_node_a": {
@@ -77291,6 +77456,17 @@
       },
       "GetResponseUnitTestResponseModel": {
         "properties": {
+          "access_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResourceAccessInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The access information for the requesting user on this test."
+          },
           "from_conversation_metadata": {
             "anyOf": [
               {
@@ -77508,6 +77684,17 @@
       },
       "GetSimulationTestResponseModel": {
         "properties": {
+          "access_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResourceAccessInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The access information for the requesting user on this test."
+          },
           "from_conversation_metadata": {
             "anyOf": [
               {
@@ -77842,6 +78029,11 @@
             "title": "Repeat Count",
             "default": 1
           },
+          "cancelled": {
+            "type": "boolean",
+            "title": "Cancelled",
+            "default": false
+          },
           "bucketing_status": {
             "anyOf": [
               {
@@ -77926,6 +78118,17 @@
       },
       "GetToolCallUnitTestResponseModel": {
         "properties": {
+          "access_info": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResourceAccessInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The access information for the requesting user on this test."
+          },
           "from_conversation_metadata": {
             "anyOf": [
               {
@@ -85073,6 +85276,7 @@
                   "y": 0.0
                 },
                 "preserve_client_tts_overrides": false,
+                "preserve_voice_settings": false,
                 "type": "standalone_agent"
               },
               "tool_node_a": {
@@ -87959,6 +88163,20 @@
       },
       "PatchAgentConversationTicketRequestModel": {
         "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 120,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title",
+            "description": "If provided, updates the ticket title. Omit to leave unchanged."
+          },
           "status": {
             "anyOf": [
               {
@@ -104034,6 +104252,11 @@
             "title": "Pending Count",
             "description": "Number of test runs that are pending"
           },
+          "cancelled_count": {
+            "type": "integer",
+            "title": "Cancelled Count",
+            "description": "Number of test runs that were cancelled"
+          },
           "title": {
             "type": "string",
             "title": "Title",
@@ -104055,6 +104278,12 @@
             "title": "Repeat Count",
             "description": "Number of times each test was repeated in this invocation",
             "default": 1
+          },
+          "cancelled": {
+            "type": "boolean",
+            "title": "Cancelled",
+            "description": "Whether this test invocation was cancelled",
+            "default": false
           },
           "credits_used": {
             "anyOf": [
@@ -104089,6 +104318,7 @@
           "passed_count",
           "failed_count",
           "pending_count",
+          "cancelled_count",
           "title"
         ],
         "title": "TestInvocationSummaryResponseModel"
@@ -104200,7 +104430,8 @@
         "enum": [
           "pending",
           "passed",
-          "failed"
+          "failed",
+          "cancelled"
         ],
         "title": "TestRunStatus"
       },
@@ -105608,6 +105839,11 @@
             "type": "boolean",
             "title": "Preserve Client Tts Overrides",
             "default": false
+          },
+          "preserve_voice_settings": {
+            "type": "boolean",
+            "title": "Preserve Voice Settings",
+            "default": false
           }
         },
         "type": "object",
@@ -105704,6 +105940,11 @@
           "preserve_client_tts_overrides": {
             "type": "boolean",
             "title": "Preserve Client Tts Overrides",
+            "default": false
+          },
+          "preserve_voice_settings": {
+            "type": "boolean",
+            "title": "Preserve Voice Settings",
             "default": false
           }
         },
@@ -116106,6 +116347,9 @@
           },
           "end_node": {
             "$ref": "#/components/schemas/FeatureStatusCommonModel"
+          },
+          "override_agent_node": {
+            "$ref": "#/components/schemas/FeatureStatusCommonModel"
           }
         },
         "type": "object",
@@ -116711,6 +116955,12 @@
             "title": "Preserve Client Tts Overrides",
             "description": "Defines whether TTS client overrides should be carried over to the transferred agent.",
             "default": false
+          },
+          "preserve_voice_settings": {
+            "type": "boolean",
+            "title": "Preserve Voice Settings",
+            "description": "Defines whether the base voice, TTS model and voice settings should be carried over to the transferred agent.",
+            "default": false
           }
         },
         "type": "object",
@@ -116790,6 +117040,12 @@
             "title": "Preserve Client Tts Overrides",
             "description": "Defines whether TTS client overrides should be carried over to the transferred agent.",
             "default": false
+          },
+          "preserve_voice_settings": {
+            "type": "boolean",
+            "title": "Preserve Voice Settings",
+            "description": "Defines whether the base voice, TTS model and voice settings should be carried over to the transferred agent.",
+            "default": false
           }
         },
         "type": "object",
@@ -116802,7 +117058,8 @@
           "delay_ms",
           "transfer_message",
           "enable_transferred_agent_first_message",
-          "preserve_client_tts_overrides"
+          "preserve_client_tts_overrides",
+          "preserve_voice_settings"
         ],
         "title": "WorkflowStandaloneAgentNodeModel"
       },

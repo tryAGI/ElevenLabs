@@ -477,6 +477,9 @@ namespace ElevenLabs
         /// <param name="conversationId">
         /// Conversation this ticket is about.
         /// </param>
+        /// <param name="title">
+        /// One-line headline shown in the triage list. Defaults to one derived from the comments, falling back to the conversation's summary title. Ignored when the comment is added to the conversation's open ticket.
+        /// </param>
         /// <param name="qaComment">
         /// The issue this ticket is about, covering the whole conversation rather than a single turn.
         /// </param>
@@ -491,6 +494,7 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> Create2Async(
             string conversationId,
+            string? title = default,
             string? qaComment = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.TurnCommentRequestModel>? turnComments = default,
             global::ElevenLabs.AgentConversationTicketPriority? priority = default,
@@ -500,6 +504,7 @@ namespace ElevenLabs
             var __request = new global::ElevenLabs.CreateAgentConversationTicketRequestModel
             {
                 ConversationId = conversationId,
+                Title = title,
                 QaComment = qaComment,
                 TurnComments = turnComments,
                 Priority = priority,

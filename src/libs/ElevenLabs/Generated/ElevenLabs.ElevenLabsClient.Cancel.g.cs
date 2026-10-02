@@ -7,7 +7,7 @@ namespace ElevenLabs
     {
 
 
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_Update2SecurityRequirement0 =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement s_CancelSecurityRequirement0 =
             new global::ElevenLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::ElevenLabs.EndPointAuthorizationRequirement[]
@@ -21,84 +21,68 @@ namespace ElevenLabs
                     },
                 },
             };
-        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_Update2SecurityRequirements =
+        private static readonly global::ElevenLabs.EndPointSecurityRequirement[] s_CancelSecurityRequirements =
             new global::ElevenLabs.EndPointSecurityRequirement[]
-            {                s_Update2SecurityRequirement0,
+            {                s_CancelSecurityRequirement0,
             };
-        partial void PrepareUpdate2Arguments(
+        partial void PrepareCancelArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentqaTicketId,
-            global::ElevenLabs.PatchAgentConversationTicketRequestModel request);
-        partial void PrepareUpdate2Request(
+            ref string testInvocationId);
+        partial void PrepareCancelRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentqaTicketId,
-            global::ElevenLabs.PatchAgentConversationTicketRequestModel request);
-        partial void ProcessUpdate2Response(
+            string testInvocationId);
+        partial void ProcessCancelResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessUpdate2ResponseContent(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
-
         /// <summary>
-        /// Update Agent Conversation Ticket<br/>
-        /// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+        /// Cancel Test Invocation<br/>
+        /// Cancels all pending runs in a test invocation.
         /// </summary>
-        /// <param name="agentqaTicketId"></param>
-        /// <param name="request"></param>
+        /// <param name="testInvocationId">
+        /// The id of a test invocation. This is returned when tests are run.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> Update2Async(
-            string agentqaTicketId,
-
-            global::ElevenLabs.PatchAgentConversationTicketRequestModel request,
+        public async global::System.Threading.Tasks.Task CancelAsync(
+            string testInvocationId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Update2AsResponseAsync(
-                agentqaTicketId: agentqaTicketId,
-
-                request: request,
+            await CancelAsResponseAsync(
+                testInvocationId: testInvocationId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
-
-            return __response.Body;
         }
         /// <summary>
-        /// Update Agent Conversation Ticket<br/>
-        /// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+        /// Cancel Test Invocation<br/>
+        /// Cancels all pending runs in a test invocation.
         /// </summary>
-        /// <param name="agentqaTicketId"></param>
-        /// <param name="request"></param>
+        /// <param name="testInvocationId">
+        /// The id of a test invocation. This is returned when tests are run.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentConversationTicketResponseModel>> Update2AsResponseAsync(
-            string agentqaTicketId,
-
-            global::ElevenLabs.PatchAgentConversationTicketRequestModel request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse> CancelAsResponseAsync(
+            string testInvocationId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareUpdate2Arguments(
+            PrepareCancelArguments(
                 httpClient: HttpClient,
-                agentqaTicketId: ref agentqaTicketId,
-                request: request);
+                testInvocationId: ref testInvocationId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Update2SecurityRequirements,
-                operationName: "Update2Async");
+                securityRequirements: s_CancelSecurityRequirements,
+                operationName: "CancelAsync");
 
             using var __timeoutCancellationTokenSource = global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -118,7 +102,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/triage-tickets/{agentqaTicketId}",
+                                path: $"/v1/convai/test-invocations/{testInvocationId}/cancel",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -126,7 +110,7 @@ namespace ElevenLabs
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: new global::System.Net.Http.HttpMethod("PATCH"),
+                    method: global::System.Net.Http.HttpMethod.Post,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -149,12 +133,6 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
-                            __httpRequest.Content = __httpRequestContent;
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -163,11 +141,10 @@ namespace ElevenLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareUpdate2Request(
+                PrepareCancelRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentqaTicketId: agentqaTicketId,
-                    request: request);
+                    testInvocationId: testInvocationId);
 
                 return __httpRequest;
             }
@@ -184,10 +161,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update2",
-                                methodName: "Update2Async",
-                                pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "Cancel",
+                                methodName: "CancelAsync",
+                                pathTemplate: "$\"/v1/convai/test-invocations/{testInvocationId}/cancel\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -218,10 +195,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update2",
-                                methodName: "Update2Async",
-                                pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "Cancel",
+                                methodName: "CancelAsync",
+                                pathTemplate: "$\"/v1/convai/test-invocations/{testInvocationId}/cancel\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -259,10 +236,10 @@ namespace ElevenLabs
                         await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update2",
-                                methodName: "Update2Async",
-                                pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "Cancel",
+                                methodName: "CancelAsync",
+                                pathTemplate: "$\"/v1/convai/test-invocations/{testInvocationId}/cancel\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -299,7 +276,7 @@ namespace ElevenLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessUpdate2Response(
+                ProcessCancelResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -307,10 +284,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update2",
-                                methodName: "Update2Async",
-                                pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "Cancel",
+                                methodName: "CancelAsync",
+                                pathTemplate: "$\"/v1/convai/test-invocations/{testInvocationId}/cancel\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -329,10 +306,10 @@ namespace ElevenLabs
                     await global::ElevenLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Update2",
-                                methodName: "Update2Async",
-                                pathTemplate: "$\"/v1/convai/triage-tickets/{agentqaTicketId}\"",
-                                httpMethod: "PATCH",
+                                operationId: "Cancel",
+                                methodName: "CancelAsync",
+                                pathTemplate: "$\"/v1/convai/test-invocations/{testInvocationId}/cancel\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -396,22 +373,15 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessUpdate2ResponseContent(
-                                    httpClient: HttpClient,
-                                    httpResponseMessage: __response,
-                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.AgentConversationTicketResponseModel.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentConversationTicketResponseModel>(
+                return new global::ElevenLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -431,19 +401,10 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
-                #if NET5_0_OR_GREATER
-                                        __effectiveCancellationToken
-                #endif
-                                    ).ConfigureAwait(false);
-
-                                    var __value = await global::ElevenLabs.AgentConversationTicketResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentConversationTicketResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -478,49 +439,6 @@ namespace ElevenLabs
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// Update Agent Conversation Ticket<br/>
-        /// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
-        /// </summary>
-        /// <param name="agentqaTicketId"></param>
-        /// <param name="title">
-        /// If provided, updates the ticket title. Omit to leave unchanged.
-        /// </param>
-        /// <param name="status">
-        /// If provided, updates the ticket status. Omit to leave unchanged.
-        /// </param>
-        /// <param name="assigneeUserId">
-        /// If provided, updates who is responsible for resolving this ticket. Must be a workspace member with at least viewer access to the agent. Pass null to unassign. Omit to leave unchanged.
-        /// </param>
-        /// <param name="priority">
-        /// If provided, updates how urgently the ticket needs attention. Pass null to clear it. Omit to leave unchanged.
-        /// </param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> Update2Async(
-            string agentqaTicketId,
-            string? title = default,
-            global::ElevenLabs.AgentConversationTicketStatus? status = default,
-            string? assigneeUserId = default,
-            global::ElevenLabs.AgentConversationTicketPriority? priority = default,
-            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::ElevenLabs.PatchAgentConversationTicketRequestModel
-            {
-                Title = title,
-                Status = status,
-                AssigneeUserId = assigneeUserId,
-                Priority = priority,
-            };
-
-            return await Update2Async(
-                agentqaTicketId: agentqaTicketId,
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

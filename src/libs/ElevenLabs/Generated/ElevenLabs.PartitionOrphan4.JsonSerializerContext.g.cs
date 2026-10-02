@@ -17,14 +17,16 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DeleteSampleResponseModel))]
-    internal sealed partial class SamplesSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SFXModelId), TypeInfoPropertyName = "SFXModelId2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SFXModelId?), TypeInfoPropertyName = "NullableSFXModelId2")]
+    internal sealed partial class PartitionOrphan4SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
     /// <summary>
     ///
     /// </summary>
-    public sealed partial class SamplesSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
+    public sealed partial class PartitionOrphan4SourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {
         private static readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver Resolver = new LazyChunkResolver();
 
@@ -37,9 +39,9 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public static SamplesSourceGenerationContext Default { get; } = new(DefaultOptions);
+        public static PartitionOrphan4SourceGenerationContext Default { get; } = new(DefaultOptions);
 
-        private SamplesSourceGenerationContext(global::System.Text.Json.JsonSerializerOptions options)
+        private PartitionOrphan4SourceGenerationContext(global::System.Text.Json.JsonSerializerOptions options)
             : base(options)
         {
         }
@@ -66,6 +68,7 @@ namespace ElevenLabs
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
             global::ElevenLabs.PartitionCoreSourceGenerationContext.AddConverters(options);
+            options.Converters.Add(new LazyEnumJsonConverterFactory());
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -78,6 +81,34 @@ namespace ElevenLabs
             AddConverters(options);
 
             return options;
+        }
+
+
+        private sealed class LazyEnumJsonConverterFactory : global::System.Text.Json.Serialization.JsonConverterFactory
+        {
+            public override bool CanConvert(global::System.Type typeToConvert)
+            {
+                return
+                    typeToConvert == typeof(global::ElevenLabs.SFXModelId)
+
+                    || typeToConvert == typeof(global::ElevenLabs.SFXModelId?);
+            }
+
+            public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
+                global::System.Type typeToConvert,
+                global::System.Text.Json.JsonSerializerOptions options)
+            {
+                if (typeToConvert == typeof(global::ElevenLabs.SFXModelId))
+                {
+                    return new global::ElevenLabs.JsonConverters.SFXModelIdJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.SFXModelId?))
+                {
+                    return new global::ElevenLabs.JsonConverters.SFXModelIdNullableJsonConverter();
+                }
+                throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
+            }
         }
 
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
@@ -119,7 +150,7 @@ namespace ElevenLabs
             {
                 return index switch
                 {
-                    0 => new SamplesSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => new PartitionOrphan4SourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
 
                     1 => global::ElevenLabs.PartitionCoreSourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),

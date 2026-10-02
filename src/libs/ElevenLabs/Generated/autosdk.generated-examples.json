@@ -13,11 +13,11 @@
     },
     {
       "Order": 2,
-      "Title": "Compile Procedures",
+      "Title": "Legacy: Compile Procedures",
       "Slug": "compile-procedures-route",
-      "Description": "Compile procedure drafts into a workflow.",
+      "Description": "Legacy. Do not use. Saving an agent draft (\u0060POST /v1/convai/agents/{agent_id}/drafts\u0060) and publishing an agent (\u0060PATCH /v1/convai/agents/{agent_id}\u0060) compile structured procedures into workflow nodes and edges, save the compiled workflow with the draft or version, and return validation errors, so a separate compile call is no longer needed. This endpoint remains available for the time being so existing callers do not break, as a dry-run that compiles the current procedure drafts into a workflow without persisting anything. It will eventually be deprecated.",
       "Language": "http",
-      "Code": "### Compile Procedures\n# @name compile_procedures_route\nPOST {{host}}/v1/convai/agents/{{agent_id}}/branches/{{branch_id}}/procedures/compile\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 400\n# Description: Structured procedure validation failed.\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Legacy: Compile Procedures\n# @name compile_procedures_route\nPOST {{host}}/v1/convai/agents/{{agent_id}}/branches/{{branch_id}}/procedures/compile\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 400\n# Description: Structured procedure validation failed.\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "compile_procedures_route",
       "Setup": null

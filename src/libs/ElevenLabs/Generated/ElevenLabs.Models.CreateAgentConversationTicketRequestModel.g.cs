@@ -16,6 +16,12 @@ namespace ElevenLabs
         public required string ConversationId { get; set; }
 
         /// <summary>
+        /// One-line headline shown in the triage list. Defaults to one derived from the comments, falling back to the conversation's summary title. Ignored when the comment is added to the conversation's open ticket.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("title")]
+        public string? Title { get; set; }
+
+        /// <summary>
         /// The issue this ticket is about, covering the whole conversation rather than a single turn.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("qa_comment")]
@@ -45,6 +51,9 @@ namespace ElevenLabs
         /// <param name="conversationId">
         /// Conversation this ticket is about.
         /// </param>
+        /// <param name="title">
+        /// One-line headline shown in the triage list. Defaults to one derived from the comments, falling back to the conversation's summary title. Ignored when the comment is added to the conversation's open ticket.
+        /// </param>
         /// <param name="qaComment">
         /// The issue this ticket is about, covering the whole conversation rather than a single turn.
         /// </param>
@@ -59,11 +68,13 @@ namespace ElevenLabs
 #endif
         public CreateAgentConversationTicketRequestModel(
             string conversationId,
+            string? title,
             string? qaComment,
             global::System.Collections.Generic.IList<global::ElevenLabs.TurnCommentRequestModel>? turnComments,
             global::ElevenLabs.AgentConversationTicketPriority? priority)
         {
             this.ConversationId = conversationId ?? throw new global::System.ArgumentNullException(nameof(conversationId));
+            this.Title = title;
             this.QaComment = qaComment;
             this.TurnComments = turnComments;
             this.Priority = priority;

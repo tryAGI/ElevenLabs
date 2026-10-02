@@ -44,8 +44,8 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Compile Procedures<br/>
-        /// Compile procedure drafts into a workflow.
+        /// Legacy: Compile Procedures<br/>
+        /// Legacy. Do not use. Saving an agent draft (`POST /v1/convai/agents/{agent_id}/drafts`) and publishing an agent (`PATCH /v1/convai/agents/{agent_id}`) compile structured procedures into workflow nodes and edges, save the compiled workflow with the draft or version, and return validation errors, so a separate compile call is no longer needed. This endpoint remains available for the time being so existing callers do not break, as a dry-run that compiles the current procedure drafts into a workflow without persisting anything. It will eventually be deprecated.
         /// </summary>
         /// <param name="agentId">
         /// Agent ID to get the procedure draft from
@@ -72,8 +72,8 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Compile Procedures<br/>
-        /// Compile procedure drafts into a workflow.
+        /// Legacy: Compile Procedures<br/>
+        /// Legacy. Do not use. Saving an agent draft (`POST /v1/convai/agents/{agent_id}/drafts`) and publishing an agent (`PATCH /v1/convai/agents/{agent_id}`) compile structured procedures into workflow nodes and edges, save the compiled workflow with the draft or version, and return validation errors, so a separate compile call is no longer needed. This endpoint remains available for the time being so existing callers do not break, as a dry-run that compiles the current procedure drafts into a workflow without persisting anything. It will eventually be deprecated.
         /// </summary>
         /// <param name="agentId">
         /// Agent ID to get the procedure draft from

@@ -2,7 +2,47 @@
 #nullable enable
 
 namespace ElevenLabs
-{    /// <summary>
+{
+    /// <summary>
+    ///
+    /// </summary>
+    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
+        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+    )]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>), TypeInfoPropertyName = "IListString_System_Collections_Generic_IList_string")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string?>), TypeInfoPropertyName = "IListString_System_Collections_Generic_IList_string_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>), TypeInfoPropertyName = "ListString_System_Collections_Generic_List_string")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string?>), TypeInfoPropertyName = "ListString_System_Collections_Generic_List_string_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPost))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility), TypeInfoPropertyName = "BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FinetuneCreatedBy), TypeInfoPropertyName = "FinetuneCreatedBy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FinetuneVisibility), TypeInfoPropertyName = "FinetuneVisibility2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicFinetuneFailureReason), TypeInfoPropertyName = "MusicFinetuneFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicFinetunePageResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.MusicFinetuneResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicFinetuneResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicFinetuneStatus), TypeInfoPropertyName = "MusicFinetuneStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateMusicFinetuneRequestModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateMusicFinetuneRequestModelVisibility), TypeInfoPropertyName = "UpdateMusicFinetuneRequestModelVisibility2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetFinetunesSort), TypeInfoPropertyName = "GetFinetunesSort2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetFinetunesSortDirection), TypeInfoPropertyName = "GetFinetunesSortDirection2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility?), TypeInfoPropertyName = "NullableBodyCreateMusicFinetuneV1MusicFinetunesPostVisibility2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FinetuneCreatedBy?), TypeInfoPropertyName = "NullableFinetuneCreatedBy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.FinetuneVisibility?), TypeInfoPropertyName = "NullableFinetuneVisibility2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicFinetuneFailureReason?), TypeInfoPropertyName = "NullableMusicFinetuneFailureReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.MusicFinetuneStatus?), TypeInfoPropertyName = "NullableMusicFinetuneStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateMusicFinetuneRequestModelVisibility?), TypeInfoPropertyName = "NullableUpdateMusicFinetuneRequestModelVisibility2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetFinetunesSort?), TypeInfoPropertyName = "NullableGetFinetunesSort2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetFinetunesSortDirection?), TypeInfoPropertyName = "NullableGetFinetunesSortDirection2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.MusicFinetuneResponseModel>))]
+    internal sealed partial class MusicFinetunesSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
+    {
+    }
+    /// <summary>
     ///
     /// </summary>
     public sealed partial class MusicFinetunesSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -46,7 +86,8 @@ namespace ElevenLabs
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            global::ElevenLabs.SourceGenerationContext.AddConverters(options);
+            global::ElevenLabs.PartitionCoreSourceGenerationContext.AddConverters(options);
+            options.Converters.Add(new LazyEnumJsonConverterFactory());
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -61,10 +102,136 @@ namespace ElevenLabs
             return options;
         }
 
+
+        private sealed class LazyEnumJsonConverterFactory : global::System.Text.Json.Serialization.JsonConverterFactory
+        {
+            public override bool CanConvert(global::System.Type typeToConvert)
+            {
+                return
+                    typeToConvert == typeof(global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility)
+
+                    || typeToConvert == typeof(global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.FinetuneCreatedBy)
+
+                    || typeToConvert == typeof(global::ElevenLabs.FinetuneCreatedBy?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.FinetuneVisibility)
+
+                    || typeToConvert == typeof(global::ElevenLabs.FinetuneVisibility?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.MusicFinetuneFailureReason)
+
+                    || typeToConvert == typeof(global::ElevenLabs.MusicFinetuneFailureReason?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.MusicFinetuneStatus)
+
+                    || typeToConvert == typeof(global::ElevenLabs.MusicFinetuneStatus?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.UpdateMusicFinetuneRequestModelVisibility)
+
+                    || typeToConvert == typeof(global::ElevenLabs.UpdateMusicFinetuneRequestModelVisibility?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GetFinetunesSort)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GetFinetunesSort?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GetFinetunesSortDirection)
+
+                    || typeToConvert == typeof(global::ElevenLabs.GetFinetunesSortDirection?);
+            }
+
+            public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
+                global::System.Type typeToConvert,
+                global::System.Text.Json.JsonSerializerOptions options)
+            {
+                if (typeToConvert == typeof(global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility))
+                {
+                    return new global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibilityJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibility?))
+                {
+                    return new global::ElevenLabs.JsonConverters.BodyCreateMusicFinetuneV1MusicFinetunesPostVisibilityNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.FinetuneCreatedBy))
+                {
+                    return new global::ElevenLabs.JsonConverters.FinetuneCreatedByJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.FinetuneCreatedBy?))
+                {
+                    return new global::ElevenLabs.JsonConverters.FinetuneCreatedByNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.FinetuneVisibility))
+                {
+                    return new global::ElevenLabs.JsonConverters.FinetuneVisibilityJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.FinetuneVisibility?))
+                {
+                    return new global::ElevenLabs.JsonConverters.FinetuneVisibilityNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.MusicFinetuneFailureReason))
+                {
+                    return new global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.MusicFinetuneFailureReason?))
+                {
+                    return new global::ElevenLabs.JsonConverters.MusicFinetuneFailureReasonNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.MusicFinetuneStatus))
+                {
+                    return new global::ElevenLabs.JsonConverters.MusicFinetuneStatusJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.MusicFinetuneStatus?))
+                {
+                    return new global::ElevenLabs.JsonConverters.MusicFinetuneStatusNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.UpdateMusicFinetuneRequestModelVisibility))
+                {
+                    return new global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibilityJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.UpdateMusicFinetuneRequestModelVisibility?))
+                {
+                    return new global::ElevenLabs.JsonConverters.UpdateMusicFinetuneRequestModelVisibilityNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GetFinetunesSort))
+                {
+                    return new global::ElevenLabs.JsonConverters.GetFinetunesSortJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GetFinetunesSort?))
+                {
+                    return new global::ElevenLabs.JsonConverters.GetFinetunesSortNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GetFinetunesSortDirection))
+                {
+                    return new global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.GetFinetunesSortDirection?))
+                {
+                    return new global::ElevenLabs.JsonConverters.GetFinetunesSortDirectionNullableJsonConverter();
+                }
+                throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
+            }
+        }
+
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
         {
             private readonly object _gate = new();
-            private readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver?[] _resolvers = new global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver?[1];
+            private readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver?[] _resolvers = new global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver?[2];
 
             public global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? GetTypeInfo(
                 global::System.Type type,
@@ -100,7 +267,9 @@ namespace ElevenLabs
             {
                 return index switch
                 {
-                    0 => global::ElevenLabs.SourceGenerationContext.TypeInfoResolver,
+                    0 => new MusicFinetunesSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+
+                    1 => global::ElevenLabs.PartitionCoreSourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

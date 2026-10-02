@@ -44,6 +44,12 @@ namespace ElevenLabs
         public required bool NeedsClustering { get; set; }
 
         /// <summary>
+        /// One-line headline for the ticket. None only on tickets created before titles existed.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("title")]
+        public string? Title { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("issue_type")]
@@ -167,6 +173,9 @@ namespace ElevenLabs
         /// <param name="source"></param>
         /// <param name="createdAtUnixSecs"></param>
         /// <param name="updatedAtUnixSecs"></param>
+        /// <param name="title">
+        /// One-line headline for the ticket. None only on tickets created before titles existed.
+        /// </param>
         /// <param name="issueType"></param>
         /// <param name="firstSeenUnixSecs"></param>
         /// <param name="lastSeenUnixSecs"></param>
@@ -191,6 +200,7 @@ namespace ElevenLabs
             global::ElevenLabs.AgentConversationTicketSource source,
             int createdAtUnixSecs,
             int updatedAtUnixSecs,
+            string? title,
             global::ElevenLabs.AgentConversationTicketIssueType? issueType,
             int? firstSeenUnixSecs,
             int? lastSeenUnixSecs,
@@ -203,6 +213,7 @@ namespace ElevenLabs
             this.OwnerUserId = ownerUserId ?? throw new global::System.ArgumentNullException(nameof(ownerUserId));
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.NeedsClustering = needsClustering;
+            this.Title = title;
             this.IssueType = issueType;
             this.Labels = labels ?? throw new global::System.ArgumentNullException(nameof(labels));
             this.ConversationIds = conversationIds ?? throw new global::System.ArgumentNullException(nameof(conversationIds));

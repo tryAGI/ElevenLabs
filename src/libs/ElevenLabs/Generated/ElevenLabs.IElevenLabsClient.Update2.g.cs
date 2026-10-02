@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Update Agent Conversation Ticket<br/>
-        /// Update a ticket's comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+        /// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="request"></param>
@@ -21,7 +21,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Agent Conversation Ticket<br/>
-        /// Update a ticket's comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+        /// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="request"></param>
@@ -36,9 +36,12 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Agent Conversation Ticket<br/>
-        /// Update a ticket's comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+        /// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
+        /// <param name="title">
+        /// If provided, updates the ticket title. Omit to leave unchanged.
+        /// </param>
         /// <param name="status">
         /// If provided, updates the ticket status. Omit to leave unchanged.
         /// </param>
@@ -53,6 +56,7 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> Update2Async(
             string agentqaTicketId,
+            string? title = default,
             global::ElevenLabs.AgentConversationTicketStatus? status = default,
             string? assigneeUserId = default,
             global::ElevenLabs.AgentConversationTicketPriority? priority = default,
