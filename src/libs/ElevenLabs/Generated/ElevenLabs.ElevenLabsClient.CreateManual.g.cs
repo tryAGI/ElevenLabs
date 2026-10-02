@@ -45,7 +45,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Create Manual Agent Ticket<br/>
-        /// Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). The comment is shown as the ticket title. Requires viewer access to the agent.
+        /// Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
         /// </summary>
         /// <param name="agentId"></param>
         /// <param name="request"></param>
@@ -71,7 +71,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Create Manual Agent Ticket<br/>
-        /// Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). The comment is shown as the ticket title. Requires viewer access to the agent.
+        /// Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
         /// </summary>
         /// <param name="agentId"></param>
         /// <param name="request"></param>
@@ -481,11 +481,14 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Create Manual Agent Ticket<br/>
-        /// Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). The comment is shown as the ticket title. Requires viewer access to the agent.
+        /// Manually raise a follow-up ticket against an agent, not tied to any conversation (for example a task like 'add the KB about X'). Without a title, one is derived from the comment. Requires viewer access to the agent.
         /// </summary>
         /// <param name="agentId"></param>
+        /// <param name="title">
+        /// One-line headline shown in the triage list. Defaults to one derived from qa_comment.
+        /// </param>
         /// <param name="qaComment">
-        /// What the ticket is about, e.g. a follow-up task for the agent. This is shown as the ticket title.
+        /// What the ticket is about, e.g. a follow-up task for the agent.
         /// </param>
         /// <param name="priority">
         /// How urgently the ticket needs attention.
@@ -496,12 +499,14 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> CreateManualAsync(
             string agentId,
             string qaComment,
+            string? title = default,
             global::ElevenLabs.AgentConversationTicketPriority? priority = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::ElevenLabs.CreateManualTicketRequestModel
             {
+                Title = title,
                 QaComment = qaComment,
                 Priority = priority,
             };

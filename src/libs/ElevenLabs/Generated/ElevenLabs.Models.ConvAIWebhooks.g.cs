@@ -31,6 +31,13 @@ namespace ElevenLabs
         public global::ElevenLabs.WebhookTranscriptFormat? TranscriptFormat { get; set; }
 
         /// <summary>
+        /// When true, JSON post-call transcription webhooks omit the turn-by-turn transcript. Analysis, metadata, and other conversation fields are still sent. Ignored for OpenTelemetry transcript format.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("exclude_transcript")]
+        public bool? ExcludeTranscript { get; set; }
+
+        /// <summary>
         /// DEPRECATED: Use 'events' field instead. Whether to send audio data with post-call webhooks for ConvAI conversations
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("send_audio")]
@@ -54,17 +61,23 @@ namespace ElevenLabs
         /// Format for transcript webhooks.<br/>
         /// Default Value: json
         /// </param>
+        /// <param name="excludeTranscript">
+        /// When true, JSON post-call transcription webhooks omit the turn-by-turn transcript. Analysis, metadata, and other conversation fields are still sent. Ignored for OpenTelemetry transcript format.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConvAIWebhooks(
             string? postCallWebhookId,
             global::System.Collections.Generic.IList<global::ElevenLabs.WebhookEventType>? events,
-            global::ElevenLabs.WebhookTranscriptFormat? transcriptFormat)
+            global::ElevenLabs.WebhookTranscriptFormat? transcriptFormat,
+            bool? excludeTranscript)
         {
             this.PostCallWebhookId = postCallWebhookId;
             this.Events = events;
             this.TranscriptFormat = transcriptFormat;
+            this.ExcludeTranscript = excludeTranscript;
         }
 
         /// <summary>

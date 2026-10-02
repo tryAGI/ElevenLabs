@@ -14,6 +14,12 @@ namespace ElevenLabs
         /// <param name="status">
         /// Only return proposals with this status.
         /// </param>
+        /// <param name="sourceBranchId">
+        /// Only return proposals with this source branch.
+        /// </param>
+        /// <param name="targetBranchId">
+        /// Only return proposals with this target branch.
+        /// </param>
         /// <param name="search">
         /// Case-insensitive substring match over title and description.
         /// </param>
@@ -30,6 +36,8 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse> List17Async(
             string agentId,
             global::ElevenLabs.MergeProposalStatus? status = default,
+            string? sourceBranchId = default,
+            string? targetBranchId = default,
             string? search = default,
             int? pageSize = default,
             string? cursor = default,
@@ -44,6 +52,12 @@ namespace ElevenLabs
         /// </param>
         /// <param name="status">
         /// Only return proposals with this status.
+        /// </param>
+        /// <param name="sourceBranchId">
+        /// Only return proposals with this source branch.
+        /// </param>
+        /// <param name="targetBranchId">
+        /// Only return proposals with this target branch.
         /// </param>
         /// <param name="search">
         /// Case-insensitive substring match over title and description.
@@ -61,6 +75,8 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PaginatedResultAgentMergeProposalResponse>> List17AsResponseAsync(
             string agentId,
             global::ElevenLabs.MergeProposalStatus? status = default,
+            string? sourceBranchId = default,
+            string? targetBranchId = default,
             string? search = default,
             int? pageSize = default,
             string? cursor = default,
@@ -76,6 +92,12 @@ namespace ElevenLabs
         /// <param name="status">
         /// Only return proposals with this status.
         /// </param>
+        /// <param name="sourceBranchId">
+        /// Only return proposals with this source branch.
+        /// </param>
+        /// <param name="targetBranchId">
+        /// Only return proposals with this target branch.
+        /// </param>
         /// <param name="search">
         /// Case-insensitive substring match over title and description.
         /// </param>
@@ -87,6 +109,8 @@ namespace ElevenLabs
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentMergeProposalResponse> List17AutoPagingAsync(
             string agentId,             global::ElevenLabs.MergeProposalStatus? status = default,
+            string? sourceBranchId = default,
+            string? targetBranchId = default,
             string? search = default,
             int? pageSize = default,
             string? cursor = null,

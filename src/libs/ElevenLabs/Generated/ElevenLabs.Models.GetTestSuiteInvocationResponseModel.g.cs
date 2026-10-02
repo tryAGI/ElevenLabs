@@ -58,6 +58,12 @@ namespace ElevenLabs
         public int? RepeatCount { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cancelled")]
+        public bool? Cancelled { get; set; }
+
+        /// <summary>
         /// None when repeat_count==1 (no bucketing). Otherwise tracks bucketing lifecycle.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("bucketing_status")]
@@ -98,6 +104,9 @@ namespace ElevenLabs
         /// <param name="repeatCount">
         /// Default Value: 1
         /// </param>
+        /// <param name="cancelled">
+        /// Default Value: false
+        /// </param>
         /// <param name="bucketingStatus">
         /// None when repeat_count==1 (no bucketing). Otherwise tracks bucketing lifecycle.
         /// </param>
@@ -115,6 +124,7 @@ namespace ElevenLabs
             int? createdAt,
             string? folderId,
             int? repeatCount,
+            bool? cancelled,
             global::ElevenLabs.BucketingStatus? bucketingStatus,
             global::System.Collections.Generic.IList<global::ElevenLabs.TestRunResultSummary>? resultGroups)
         {
@@ -126,6 +136,7 @@ namespace ElevenLabs
             this.CreatedAt = createdAt;
             this.FolderId = folderId;
             this.RepeatCount = repeatCount;
+            this.Cancelled = cancelled;
             this.BucketingStatus = bucketingStatus;
             this.ResultGroups = resultGroups;
             this.TestRuns = testRuns ?? throw new global::System.ArgumentNullException(nameof(testRuns));

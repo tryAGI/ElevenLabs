@@ -39,6 +39,12 @@ namespace ElevenLabs
         public global::ElevenLabs.FeatureStatusCommonModel? EndNode { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("override_agent_node")]
+        public global::ElevenLabs.FeatureStatusCommonModel? OverrideAgentNode { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -54,6 +60,7 @@ namespace ElevenLabs
         /// <param name="standaloneAgentNode"></param>
         /// <param name="phoneNumberNode"></param>
         /// <param name="endNode"></param>
+        /// <param name="overrideAgentNode"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -62,13 +69,15 @@ namespace ElevenLabs
             global::ElevenLabs.FeatureStatusCommonModel? toolNode,
             global::ElevenLabs.FeatureStatusCommonModel? standaloneAgentNode,
             global::ElevenLabs.FeatureStatusCommonModel? phoneNumberNode,
-            global::ElevenLabs.FeatureStatusCommonModel? endNode)
+            global::ElevenLabs.FeatureStatusCommonModel? endNode,
+            global::ElevenLabs.FeatureStatusCommonModel? overrideAgentNode)
         {
             this.Enabled = enabled;
             this.ToolNode = toolNode;
             this.StandaloneAgentNode = standaloneAgentNode;
             this.PhoneNumberNode = phoneNumberNode;
             this.EndNode = endNode;
+            this.OverrideAgentNode = overrideAgentNode;
         }
 
         /// <summary>

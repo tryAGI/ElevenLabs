@@ -83,6 +83,13 @@ namespace ElevenLabs
         public required int PendingCount { get; set; }
 
         /// <summary>
+        /// Number of test runs that were cancelled
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cancelled_count")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int CancelledCount { get; set; }
+
+        /// <summary>
         /// Title of the test invocation - the folder name for folder runs, otherwise the single test name or count of tests
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
@@ -101,6 +108,13 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("repeat_count")]
         public int? RepeatCount { get; set; }
+
+        /// <summary>
+        /// Whether this test invocation was cancelled<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cancelled")]
+        public bool? Cancelled { get; set; }
 
         /// <summary>
         /// Total credits billed across test runs in this invocation. None when no run has cost data.
@@ -141,6 +155,9 @@ namespace ElevenLabs
         /// <param name="pendingCount">
         /// Number of test runs that are pending
         /// </param>
+        /// <param name="cancelledCount">
+        /// Number of test runs that were cancelled
+        /// </param>
         /// <param name="title">
         /// Title of the test invocation - the folder name for folder runs, otherwise the single test name or count of tests
         /// </param>
@@ -168,6 +185,10 @@ namespace ElevenLabs
         /// Number of times each test was repeated in this invocation<br/>
         /// Default Value: 1
         /// </param>
+        /// <param name="cancelled">
+        /// Whether this test invocation was cancelled<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="creditsUsed">
         /// Total credits billed across test runs in this invocation. None when no run has cost data.
         /// </param>
@@ -184,6 +205,7 @@ namespace ElevenLabs
             int passedCount,
             int failedCount,
             int pendingCount,
+            int cancelledCount,
             string title,
             string? agentId,
             string? branchId,
@@ -192,6 +214,7 @@ namespace ElevenLabs
             bool? runsDivergedFromVersion,
             global::ElevenLabs.ResourceAccessInfo? accessInfo,
             int? repeatCount,
+            bool? cancelled,
             int? creditsUsed,
             double? totalPrice)
         {
@@ -206,9 +229,11 @@ namespace ElevenLabs
             this.PassedCount = passedCount;
             this.FailedCount = failedCount;
             this.PendingCount = pendingCount;
+            this.CancelledCount = cancelledCount;
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.AccessInfo = accessInfo;
             this.RepeatCount = repeatCount;
+            this.Cancelled = cancelled;
             this.CreditsUsed = creditsUsed;
             this.TotalPrice = totalPrice;
         }

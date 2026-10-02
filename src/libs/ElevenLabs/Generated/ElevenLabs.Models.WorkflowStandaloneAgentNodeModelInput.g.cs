@@ -66,6 +66,13 @@ namespace ElevenLabs
         public bool? PreserveClientTtsOverrides { get; set; }
 
         /// <summary>
+        /// Defines whether the base voice, TTS model and voice settings should be carried over to the transferred agent.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("preserve_voice_settings")]
+        public bool? PreserveVoiceSettings { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -104,6 +111,10 @@ namespace ElevenLabs
         /// Defines whether TTS client overrides should be carried over to the transferred agent.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="preserveVoiceSettings">
+        /// Defines whether the base voice, TTS model and voice settings should be carried over to the transferred agent.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -116,7 +127,8 @@ namespace ElevenLabs
             int? delayMs,
             string? transferMessage,
             bool? enableTransferredAgentFirstMessage,
-            bool? preserveClientTtsOverrides)
+            bool? preserveClientTtsOverrides,
+            bool? preserveVoiceSettings)
         {
             this.Type = type;
             this.Position = position;
@@ -127,6 +139,7 @@ namespace ElevenLabs
             this.TransferMessage = transferMessage;
             this.EnableTransferredAgentFirstMessage = enableTransferredAgentFirstMessage;
             this.PreserveClientTtsOverrides = preserveClientTtsOverrides;
+            this.PreserveVoiceSettings = preserveVoiceSettings;
         }
 
         /// <summary>
