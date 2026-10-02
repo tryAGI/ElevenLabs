@@ -27,11 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareExportArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string batchId);
+            ref string batchId,
+            int? limit);
         partial void PrepareExportRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string batchId);
+            string batchId,
+            int? limit);
         partial void ProcessExportResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,16 +48,21 @@ namespace ElevenLabs
         /// Download all recipients and conversation results for a terminal batch call as CSV.
         /// </summary>
         /// <param name="batchId"></param>
+        /// <param name="limit">
+        /// Only export the first N recipients; used to preview the columns. Omit to export every recipient.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> ExportAsync(
             string batchId,
+            int? limit = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ExportAsResponseAsync(
                 batchId: batchId,
+                limit: limit,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -67,11 +74,15 @@ namespace ElevenLabs
         /// Download all recipients and conversation results for a terminal batch call as CSV.
         /// </summary>
         /// <param name="batchId"></param>
+        /// <param name="limit">
+        /// Only export the first N recipients; used to preview the columns. Omit to export every recipient.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.IO.Stream> ExportAsStreamAsync(
             string batchId,
+            int? limit = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -79,7 +90,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareExportArguments(
                 httpClient: HttpClient,
-                batchId: ref batchId);
+                batchId: ref batchId,
+                limit: limit);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -107,6 +119,9 @@ namespace ElevenLabs
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: $"/v1/convai/batch-calling/{batchId}/export",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("limit", limit?.ToString())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -147,7 +162,8 @@ namespace ElevenLabs
                 PrepareExportRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    batchId: batchId);
+                    batchId: batchId,
+                    limit: limit);
 
                 return __httpRequest;
             }
@@ -419,11 +435,15 @@ namespace ElevenLabs
         /// Download all recipients and conversation results for a terminal batch call as CSV.
         /// </summary>
         /// <param name="batchId"></param>
+        /// <param name="limit">
+        /// Only export the first N recipients; used to preview the columns. Omit to export every recipient.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<byte[]>> ExportAsResponseAsync(
             string batchId,
+            int? limit = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -431,7 +451,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareExportArguments(
                 httpClient: HttpClient,
-                batchId: ref batchId);
+                batchId: ref batchId,
+                limit: limit);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -459,6 +480,9 @@ namespace ElevenLabs
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: $"/v1/convai/batch-calling/{batchId}/export",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("limit", limit?.ToString())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -499,7 +523,8 @@ namespace ElevenLabs
                 PrepareExportRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    batchId: batchId);
+                    batchId: batchId,
+                    limit: limit);
 
                 return __httpRequest;
             }
