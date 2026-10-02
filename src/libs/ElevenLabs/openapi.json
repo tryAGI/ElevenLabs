@@ -28330,6 +28330,25 @@
             }
           },
           {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only export the first N recipients; used to preview the columns. Omit to export every recipient.",
+              "title": "Limit"
+            },
+            "description": "Only export the first N recipients; used to preview the columns. Omit to export every recipient."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -41392,6 +41411,7 @@
           "open",
           "in_progress",
           "resolved",
+          "cancelled",
           "merged"
         ],
         "title": "AgentConversationTicketStatus"
@@ -61484,6 +61504,15 @@
             "type": "array",
             "title": "Entities",
             "description": "The entities to redact from the conversation transcript, audio and analysis. Use top-level types like 'name', 'email_address', or dot notation for specific subtypes like 'name.full_name'."
+          },
+          "excluded_data_collection_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "title": "Excluded Data Collection Ids",
+            "description": "Data collection item IDs whose extracted values are not redacted. Their rationales are still redacted."
           }
         },
         "type": "object",

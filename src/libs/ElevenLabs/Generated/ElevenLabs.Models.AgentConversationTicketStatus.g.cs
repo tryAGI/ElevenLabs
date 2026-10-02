@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Cancelled,
+        /// <summary>
+        ///
+        /// </summary>
         InProgress,
         /// <summary>
         ///
@@ -38,6 +42,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                AgentConversationTicketStatus.Cancelled => "cancelled",
                 AgentConversationTicketStatus.InProgress => "in_progress",
                 AgentConversationTicketStatus.Merged => "merged",
                 AgentConversationTicketStatus.Open => "open",
@@ -52,6 +57,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "cancelled" => AgentConversationTicketStatus.Cancelled,
                 "in_progress" => AgentConversationTicketStatus.InProgress,
                 "merged" => AgentConversationTicketStatus.Merged,
                 "open" => AgentConversationTicketStatus.Open,
