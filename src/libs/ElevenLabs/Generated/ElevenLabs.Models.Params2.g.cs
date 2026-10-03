@@ -168,9 +168,8 @@ namespace ElevenLabs
         /// to think or take a short pause before continuing the conversation—e.g. when<br/>
         /// they say: "Give me a second", "Let me think", or "One moment please".  After<br/>
         /// calling this tool, the assistant should not speak until the user speaks<br/>
-        /// again, or another normal turn-taking condition is met.  The tool itself has<br/>
-        /// no parameters and performs no side-effects other than informing the backend<br/>
-        /// that the current turn generation is complete.
+        /// again, or if wait_timeout_secs is set, until that wait elapses and the<br/>
+        /// agent generates a check-in.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.SkipTurnToolConfig? SkipTurn { get; init; }
