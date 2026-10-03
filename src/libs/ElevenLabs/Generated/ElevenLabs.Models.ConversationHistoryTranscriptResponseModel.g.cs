@@ -104,6 +104,12 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("platform_event")]
+        public global::ElevenLabs.TranscriptPlatformEvent? PlatformEvent { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("original_message")]
         public string? OriginalMessage { get; set; }
 
@@ -201,6 +207,7 @@ namespace ElevenLabs
         /// <param name="ignoredAsBackchannel">
         /// Default Value: false
         /// </param>
+        /// <param name="platformEvent"></param>
         /// <param name="originalMessage"></param>
         /// <param name="reasoning"></param>
         /// <param name="sourceMedium"></param>
@@ -238,6 +245,7 @@ namespace ElevenLabs
             global::ElevenLabs.LLMUsageOutput? llmUsage,
             bool? interrupted,
             bool? ignoredAsBackchannel,
+            global::ElevenLabs.TranscriptPlatformEvent? platformEvent,
             string? originalMessage,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationReasoningModel>? reasoning,
             global::ElevenLabs.ChatSourceMedium? sourceMedium,
@@ -266,6 +274,7 @@ namespace ElevenLabs
             this.LlmUsage = llmUsage;
             this.Interrupted = interrupted;
             this.IgnoredAsBackchannel = ignoredAsBackchannel;
+            this.PlatformEvent = platformEvent;
             this.OriginalMessage = originalMessage;
             this.Reasoning = reasoning;
             this.SourceMedium = sourceMedium;

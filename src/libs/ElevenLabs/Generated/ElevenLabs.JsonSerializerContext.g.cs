@@ -2021,6 +2021,10 @@ namespace ElevenLabs
 
                     || typeToConvert == typeof(global::ElevenLabs.TopicSortBy?)
 
+                    || typeToConvert == typeof(global::ElevenLabs.TranscriptPlatformEvent)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TranscriptPlatformEvent?)
+
                     || typeToConvert == typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReason)
 
                     || typeToConvert == typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReason?)
@@ -6826,6 +6830,16 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.TopicSortBy?))
                 {
                     return new global::ElevenLabs.JsonConverters.TopicSortByNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TranscriptPlatformEvent))
+                {
+                    return new global::ElevenLabs.JsonConverters.TranscriptPlatformEventJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TranscriptPlatformEvent?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TranscriptPlatformEventNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReason))
