@@ -61888,6 +61888,16 @@
             "title": "Ignored As Backchannel",
             "default": false
           },
+          "platform_event": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TranscriptPlatformEvent"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "original_message": {
             "anyOf": [
               {
@@ -62114,6 +62124,16 @@
             "type": "boolean",
             "title": "Ignored As Backchannel",
             "default": false
+          },
+          "platform_event": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TranscriptPlatformEvent"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "original_message": {
             "anyOf": [
@@ -62446,6 +62466,16 @@
             "type": "boolean",
             "title": "Ignored As Backchannel",
             "default": false
+          },
+          "platform_event": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TranscriptPlatformEvent"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "original_message": {
             "anyOf": [
@@ -105611,6 +105641,14 @@
         ],
         "title": "TranscriptEditError",
         "description": "An error returned in place of an edited transcript when the edit could not be produced."
+      },
+      "TranscriptPlatformEvent": {
+        "type": "string",
+        "enum": [
+          "user_turn_timeout",
+          "skip_turn_wait_elapsed"
+        ],
+        "title": "TranscriptPlatformEvent"
       },
       "TranscriptionOrderItemRequest": {
         "properties": {
