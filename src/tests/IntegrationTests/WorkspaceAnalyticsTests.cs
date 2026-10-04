@@ -50,4 +50,30 @@ public partial class Tests
         response.GetCreditUsageByUtcDay().Should().Equal(
             new WorkspaceCreditUsage(new DateOnly(2026, 9, 1), 4));
     }
+
+    [TestMethod]
+    [DataRow(true)]
+    [DataRow(false)]
+    public void WorkspaceAnalytics_RejectsNullRequiredCells(bool nullTimestamp)
+    {
+        var response = new WorkspaceAnalyticsQueryResponseModel
+        {
+            Columns = ["timestamp", "credits_used"],
+            ColumnTypes =
+            [
+                WorkspaceAnalyticsQueryResponseModelColumnType.DateTime,
+                WorkspaceAnalyticsQueryResponseModelColumnType.Float,
+            ],
+            ColumnUnits = [ColumnUnit.S, ColumnUnit.Credits],
+            Rows = [["2026-09-01T03:00:00Z", 12.5]],
+        };
+        var json = response.ToJson().Replace(
+            nullTimestamp ? "\"2026-09-01T03:00:00Z\"" : "12.5",
+            "null", StringComparison.Ordinal);
+        var parsed = WorkspaceAnalyticsQueryResponseModel.FromJson(json)!;
+
+        var action = () => parsed.GetCreditUsageByUtcDay();
+        action.Should().Throw<InvalidDataException>();
+    }
+
 }

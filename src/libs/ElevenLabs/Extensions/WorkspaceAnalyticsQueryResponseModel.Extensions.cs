@@ -33,8 +33,12 @@ public static class WorkspaceAnalyticsQueryResponseModelExtensions
                     $"ElevenLabs workspace usage row had {row.Count} values for {response.Columns.Count} columns.");
             }
 
-            var day = DateOnly.FromDateTime(ReadTimestamp(row[timestampIndex]).UtcDateTime);
-            creditsByDay[day] = creditsByDay.GetValueOrDefault(day) + ReadDouble(row[creditsIndex]);
+            var timestamp = RequireCell(row[timestampIndex]);
+            var credits = RequireCell(row[creditsIndex]);
+
+            var day = DateOnly.FromDateTime(ReadTimestamp(timestamp.Value5, timestamp.Value1).UtcDateTime);
+            creditsByDay[day] = creditsByDay.GetValueOrDefault(day) +
+                ReadDouble(credits.Value3, credits.Value2, credits.Value1);
         }
 
         return creditsByDay
@@ -97,15 +101,21 @@ public static class WorkspaceAnalyticsQueryResponseModelExtensions
         return -1;
     }
 
+    // Accept both required and nullable generated cells without depending on union arity.
+    private static T RequireCell<T>(T value) where T : struct => value;
+
+    private static T RequireCell<T>(T? value) where T : struct =>
+        value ?? throw new InvalidDataException("ElevenLabs workspace usage timestamp or credits value was null.");
+
     private static DateTimeOffset ReadTimestamp(
-        AnyOf<string, int?, double?, bool?, DateTime?, object> value)
+        DateTime? date, string? text)
     {
-        if (value.Value5 is DateTime dateTime)
+        if (date is DateTime dateTime)
         {
             return new DateTimeOffset(DateTime.SpecifyKind(dateTime, DateTimeKind.Utc));
         }
 
-        if (value.Value1 is string text && DateTimeOffset.TryParse(
+        if (text is not null && DateTimeOffset.TryParse(
                 text,
                 CultureInfo.InvariantCulture,
                 DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal,
@@ -115,23 +125,23 @@ public static class WorkspaceAnalyticsQueryResponseModelExtensions
         }
 
         throw new InvalidDataException(
-            $"ElevenLabs workspace usage timestamp '{value}' was not an ISO-8601 value.");
+            $"ElevenLabs workspace usage timestamp '{text}' was not an ISO-8601 value.");
     }
 
     private static double ReadDouble(
-        AnyOf<string, int?, double?, bool?, DateTime?, object> value)
+        double? number, int? integer, string? text)
     {
-        if (value.Value3 is double doubleValue)
+        if (number is double doubleValue)
         {
             return doubleValue;
         }
 
-        if (value.Value2 is int intValue)
+        if (integer is int intValue)
         {
             return intValue;
         }
 
-        if (value.Value1 is string text && double.TryParse(
+        if (text is not null && double.TryParse(
                 text,
                 NumberStyles.Float,
                 CultureInfo.InvariantCulture,
@@ -141,6 +151,6 @@ public static class WorkspaceAnalyticsQueryResponseModelExtensions
         }
 
         throw new InvalidDataException(
-            $"ElevenLabs workspace usage credits value '{value}' was not numeric.");
+            $"ElevenLabs workspace usage credits value '{text}' was not numeric.");
     }
 }
