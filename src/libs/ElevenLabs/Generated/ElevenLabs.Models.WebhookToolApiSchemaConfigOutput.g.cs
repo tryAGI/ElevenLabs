@@ -77,8 +77,8 @@ namespace ElevenLabs
         /// Optional auth connection to use for authentication with this webhook
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_connection")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>))]
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? AuthConnection { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>? AuthConnection { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -138,7 +138,7 @@ namespace ElevenLabs
             global::ElevenLabs.ResponseFilter? responseFilter,
             global::ElevenLabs.WebhookToolApiSchemaConfigOutputContentType? contentType,
             global::System.Collections.Generic.IList<string>? authResolvedParams,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection)
+            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>? authConnection)
         {
             this.RequestHeaders = requestHeaders;
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));

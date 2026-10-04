@@ -20,7 +20,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateDubbingLanguageTargetV1DubbingProjectProjectIdLanguagePost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceSettings))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPost))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string, object>), TypeInfoPropertyName = "AnyOfBodyCreateDubbingProjectV1DubbingProjectPostModelIdStringObject2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string>), TypeInfoPropertyName = "AnyOfBodyCreateDubbingProjectV1DubbingProjectPostModelIdString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId), TypeInfoPropertyName = "BodyCreateDubbingProjectV1DubbingProjectPostModelId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DubbingBulkSegmentUpdateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.DubbingSegmentUpdateRequest>))]
@@ -55,7 +55,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DubbingTargetTranscriptResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DubbingTranscriptRevisionResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DubbingProjectListSortDirection), TypeInfoPropertyName = "DubbingProjectListSortDirection2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string, object>?), TypeInfoPropertyName = "NullableAnyOfBodyCreateDubbingProjectV1DubbingProjectPostModelIdStringObject2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string>?), TypeInfoPropertyName = "NullableAnyOfBodyCreateDubbingProjectV1DubbingProjectPostModelIdString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?), TypeInfoPropertyName = "NullableBodyCreateDubbingProjectV1DubbingProjectPostModelId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DubbingLanguageResponseStatus?), TypeInfoPropertyName = "NullableDubbingLanguageResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DubbingProjectResponseStatus?), TypeInfoPropertyName = "NullableDubbingProjectResponseStatus2")]
@@ -113,7 +113,7 @@ namespace ElevenLabs
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
             global::ElevenLabs.PartitionCoreSourceGenerationContext.AddConverters(options);
-            options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string, object>());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string>());
             options.Converters.Add(new LazyEnumJsonConverterFactory());
         }
 

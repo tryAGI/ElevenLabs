@@ -146,15 +146,15 @@ namespace ElevenLabs
         /// Optional metadata to be included in the webhook response. This should be a JSON string representing an object with a maximum depth of 2 levels and maximum size of 16KB. Useful for tracking internal IDs, job references, or other contextual information.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("webhook_metadata")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, object, object>))]
-        public global::ElevenLabs.AnyOf<string, object, object>? WebhookMetadata { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, object>))]
+        public global::ElevenLabs.AnyOf<string, object>? WebhookMetadata { get; set; }
 
         /// <summary>
         /// Detect entities in the transcript. Can be 'all' to detect all entities, a single entity type or category string, or a list of entity types/categories. Categories include 'pii', 'phi', 'pci', 'other', 'offensive_language'. When enabled, detected entities will be returned in the 'entities' field with their text, type, and character positions. Usage of this parameter will incur an additional 30% surcharge on the base transcription cost.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("entity_detection")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>))]
-        public global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? EntityDetection { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
+        public global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>>? EntityDetection { get; set; }
 
         /// <summary>
         /// If true, the transcription will not have any filler words, false starts and non-speech sounds. Only supported with scribe_v2 model.<br/>
@@ -181,8 +181,8 @@ namespace ElevenLabs
         /// Redact entities from the transcript text. Accepts the same format as entity_detection: 'all', a category ('pii', 'phi'), or specific entity types. Must be a subset of entity_detection. When redaction is enabled, the entities field will not be returned. Usage of this parameter will incur an additional 30% surcharge on the base transcription cost.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("entity_redaction")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>))]
-        public global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? EntityRedaction { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
+        public global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>>? EntityRedaction { get; set; }
 
         /// <summary>
         /// How to format redacted entities. 'redacted' replaces with {REDACTED}, 'entity_type' replaces with {ENTITY_TYPE}, 'enumerated_entity_type' replaces with {ENTITY_TYPE_N} where N enumerates each occurrence. Only used when entity_redaction is set.<br/>
@@ -323,12 +323,12 @@ namespace ElevenLabs
             int? seed,
             bool? useMultiChannel,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle? multichannelOutputStyle,
-            global::ElevenLabs.AnyOf<string, object, object>? webhookMetadata,
-            global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityDetection,
+            global::ElevenLabs.AnyOf<string, object>? webhookMetadata,
+            global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>>? entityDetection,
             bool? noVerbatim,
             bool? useSpeakerLibrary,
             bool? detectSpeakerRoles,
-            global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityRedaction,
+            global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>>? entityRedaction,
             string? entityRedactionMode,
             global::System.Collections.Generic.IList<string>? keyterms)
         {

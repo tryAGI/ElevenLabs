@@ -40,8 +40,8 @@ namespace ElevenLabs
         /// Overrides the server's tool_call_sound setting for this tool. A sound name plays that sound; 'off' overrides to no sound (silence); null means do not override (inherit the server default).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_call_sound")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.ToolCallSoundType?, string, object>))]
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.ToolCallSoundType?, string, object>? ToolCallSound { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.ToolCallSoundType?, string>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.ToolCallSoundType?, string>? ToolCallSound { get; set; }
 
         /// <summary>
         /// If set, overrides the server's tool_call_sound_behavior setting for this tool
@@ -132,7 +132,7 @@ namespace ElevenLabs
             string toolName,
             global::ElevenLabs.PreToolSpeechMode? preToolSpeech,
             global::ElevenLabs.ToolInterruptionMode? interruptionMode,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.ToolCallSoundType?, string, object>? toolCallSound,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.ToolCallSoundType?, string>? toolCallSound,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior,
             global::ElevenLabs.ToolExecutionMode? executionMode,
             int? responseTimeoutSecs,

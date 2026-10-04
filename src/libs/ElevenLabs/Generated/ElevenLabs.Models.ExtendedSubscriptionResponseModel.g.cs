@@ -189,8 +189,8 @@ namespace ElevenLabs
         /// The pending change for the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pending_change")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.PendingSubscriptionSwitchResponseModel, global::ElevenLabs.PendingCancellationResponseModel, object>))]
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.PendingSubscriptionSwitchResponseModel, global::ElevenLabs.PendingCancellationResponseModel, object>? PendingChange { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.PendingSubscriptionSwitchResponseModel, global::ElevenLabs.PendingCancellationResponseModel>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.PendingSubscriptionSwitchResponseModel, global::ElevenLabs.PendingCancellationResponseModel>? PendingChange { get; set; }
 
         /// <summary>
         /// True if any workspace owned by this user's auth account has redeemed the starter first-month discount coupon.<br/>
@@ -345,7 +345,7 @@ namespace ElevenLabs
             global::ElevenLabs.BillingPeriod? billingPeriod,
             global::ElevenLabs.CharacterRefreshPeriod? characterRefreshPeriod,
             global::ElevenLabs.InvoiceResponseModel? nextInvoice,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.PendingSubscriptionSwitchResponseModel, global::ElevenLabs.PendingCancellationResponseModel, object>? pendingChange,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.PendingSubscriptionSwitchResponseModel, global::ElevenLabs.PendingCancellationResponseModel>? pendingChange,
             bool? hasUsedStarterCouponOnAccount,
             bool? hasUsedCreatorCouponOnAccount,
             bool? isEligibleForStarterPromo)

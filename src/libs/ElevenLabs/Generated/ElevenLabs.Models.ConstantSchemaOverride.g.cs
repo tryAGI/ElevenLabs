@@ -18,9 +18,8 @@ namespace ElevenLabs
         /// The constant value to use
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("constant_value")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?, global::System.Collections.Generic.IList<object>, object, object>))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.Collections.Generic.IList<object>, object, object> ConstantValue { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?, global::System.Collections.Generic.IList<object>, object>))]
+        public global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.Collections.Generic.IList<object>, object>? ConstantValue { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,18 +30,18 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstantSchemaOverride" /> class.
         /// </summary>
-        /// <param name="constantValue">
-        /// The constant value to use
-        /// </param>
         /// <param name="source">
         /// Default Value: constant
+        /// </param>
+        /// <param name="constantValue">
+        /// The constant value to use
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConstantSchemaOverride(
-            global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.Collections.Generic.IList<object>, object, object> constantValue,
-            string? source)
+            string? source,
+            global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.Collections.Generic.IList<object>, object>? constantValue)
         {
             this.Source = source;
             this.ConstantValue = constantValue;

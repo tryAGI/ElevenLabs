@@ -539,7 +539,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<byte[]> files,
             bool? removeBackgroundNoise = default,
             string? description = default,
-            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? labels = default,
+            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string>? labels = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -590,7 +590,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IReadOnlyList<string>? filesFileNames = default,
             bool? removeBackgroundNoise = default,
             string? description = default,
-            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? labels = default,
+            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string>? labels = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -1091,7 +1091,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IReadOnlyList<string>? filesFileNames = default,
             bool? removeBackgroundNoise = default,
             string? description = default,
-            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? labels = default,
+            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string>? labels = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

@@ -114,8 +114,8 @@ namespace ElevenLabs
         /// Configuration for backup LLM cascading. Can be disabled, use system defaults, or specify custom order.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("backup_llm_config")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.BackupLLMDefault, global::ElevenLabs.BackupLLMDisabled, global::ElevenLabs.BackupLLMOverride, object>))]
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.BackupLLMDefault, global::ElevenLabs.BackupLLMDisabled, global::ElevenLabs.BackupLLMOverride, object>? BackupLlmConfig { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.BackupLLMDefault, global::ElevenLabs.BackupLLMDisabled, global::ElevenLabs.BackupLLMOverride>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.BackupLLMDefault, global::ElevenLabs.BackupLLMDisabled, global::ElevenLabs.BackupLLMOverride>? BackupLlmConfig { get; set; }
 
         /// <summary>
         /// Time in seconds before cascading to backup LLM. Must be between 2 and 15 seconds.
@@ -219,7 +219,7 @@ namespace ElevenLabs
             bool? ignoreDefaultPersonality,
             global::ElevenLabs.RagConfigWorkflowOverrideOutput? rag,
             string? timezone,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.BackupLLMDefault, global::ElevenLabs.BackupLLMDisabled, global::ElevenLabs.BackupLLMOverride, object>? backupLlmConfig,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.BackupLLMDefault, global::ElevenLabs.BackupLLMDisabled, global::ElevenLabs.BackupLLMOverride>? backupLlmConfig,
             double? cascadeTimeoutSeconds,
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolsVariant1Item2>? tools)
         {

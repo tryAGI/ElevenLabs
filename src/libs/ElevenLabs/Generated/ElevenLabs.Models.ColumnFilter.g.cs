@@ -28,7 +28,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("values")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, global::System.DateTime?, bool?, object>> Values { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, global::System.DateTime?, bool?>?> Values { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -48,7 +48,7 @@ namespace ElevenLabs
         public ColumnFilter(
             string column,
             global::ElevenLabs.ColumnFilterOperation operation,
-            global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, global::System.DateTime?, bool?, object>> values)
+            global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, global::System.DateTime?, bool?>?> values)
         {
             this.Column = column ?? throw new global::System.ArgumentNullException(nameof(column));
             this.Operation = operation;

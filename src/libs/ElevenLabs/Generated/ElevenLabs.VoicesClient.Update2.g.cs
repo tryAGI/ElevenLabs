@@ -572,7 +572,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<byte[]>? files = default,
             bool? removeBackgroundNoise = default,
             string? description = default,
-            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? labels = default,
+            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string>? labels = default,
             bool? moderateMetadata = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
