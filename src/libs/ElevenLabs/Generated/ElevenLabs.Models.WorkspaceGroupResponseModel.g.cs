@@ -39,15 +39,15 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("group_usage_limit")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string, object>))]
-        public global::ElevenLabs.AnyOf<int?, string, object>? GroupUsageLimit { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string>))]
+        public global::ElevenLabs.AnyOf<int?, string>? GroupUsageLimit { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("group_pvc_limit")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string, object>))]
-        public global::ElevenLabs.AnyOf<int?, string, object>? GroupPvcLimit { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string>))]
+        public global::ElevenLabs.AnyOf<int?, string>? GroupPvcLimit { get; set; }
 
         /// <summary>
         ///
@@ -104,8 +104,8 @@ namespace ElevenLabs
             string id,
             global::System.Collections.Generic.IList<string> members,
             global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceGroupPermission>? permissions,
-            global::ElevenLabs.AnyOf<int?, string, object>? groupUsageLimit,
-            global::ElevenLabs.AnyOf<int?, string, object>? groupPvcLimit,
+            global::ElevenLabs.AnyOf<int?, string>? groupUsageLimit,
+            global::ElevenLabs.AnyOf<int?, string>? groupPvcLimit,
             int? characterCount,
             bool? isScimSynced,
             global::ElevenLabs.ScimGroupResponseModel? scimGroup,

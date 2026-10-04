@@ -598,7 +598,7 @@ namespace ElevenLabs
             string? environment = default,
             global::ElevenLabs.PreToolSpeechMode? preToolSpeech = default,
             global::ElevenLabs.ToolInterruptionMode? interruptionMode = default,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.ToolCallSoundType?, string, object>? toolCallSound = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.ToolCallSoundType?, string>? toolCallSound = default,
             global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
             global::ElevenLabs.ToolExecutionMode? executionMode = default,
             int? responseTimeoutSecs = default,

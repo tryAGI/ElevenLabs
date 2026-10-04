@@ -27,7 +27,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rows")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>>> Rows { get; set; }
+        public required global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?>?>> Rows { get; set; }
 
         /// <summary>
         ///
@@ -55,7 +55,7 @@ namespace ElevenLabs
         public WorkspaceAnalyticsQueryResponseModel(
             global::System.Collections.Generic.IList<string> columns,
             global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceAnalyticsQueryResponseModelColumnType> columnTypes,
-            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?, object>>> rows,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<string, int?, double?, bool?, global::System.DateTime?>?>> rows,
             global::System.Collections.Generic.IList<global::ElevenLabs.ColumnUnit?> columnUnits)
         {
             this.Columns = columns ?? throw new global::System.ArgumentNullException(nameof(columns));

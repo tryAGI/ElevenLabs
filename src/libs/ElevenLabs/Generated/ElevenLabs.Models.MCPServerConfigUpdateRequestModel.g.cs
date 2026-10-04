@@ -94,8 +94,8 @@ namespace ElevenLabs
         /// Optional auth connection to use for authentication with this MCP server
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_connection")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>))]
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? AuthConnection { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>? AuthConnection { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -157,7 +157,7 @@ namespace ElevenLabs
             object? requestMeta,
             bool? disableCompression,
             global::ElevenLabs.ConvAISecretLocator? secretToken,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection)
+            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>? authConnection)
         {
             this.ApprovalPolicy = approvalPolicy;
             this.PreToolSpeech = preToolSpeech;

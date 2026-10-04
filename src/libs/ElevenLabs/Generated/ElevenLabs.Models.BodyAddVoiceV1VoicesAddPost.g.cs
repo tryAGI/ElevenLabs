@@ -39,8 +39,8 @@ namespace ElevenLabs
         /// Labels for the voice. Keys can be language, accent, gender, or age.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.Dictionary<string, string>, string, object>))]
-        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? Labels { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.Dictionary<string, string>, string>))]
+        public global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string>? Labels { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -75,7 +75,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<byte[]> files,
             bool? removeBackgroundNoise,
             string? description,
-            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string, object>? labels)
+            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string>? labels)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Files = files ?? throw new global::System.ArgumentNullException(nameof(files));

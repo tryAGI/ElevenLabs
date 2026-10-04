@@ -387,14 +387,6 @@ namespace ElevenLabs
                                             name: "\"entity_detection\"");
                                     }
                                 }
-                                else if ((request.EntityDetection).GetValueOrDefault().TryPickValue3(out var __valueEntityDetection3))
-                                {
-
-                                    var __contentEntityDetection3 = new global::System.Net.Http.StringContent((__valueEntityDetection3!).ToString() ?? string.Empty);
-                                    __httpRequestContent.Add(
-                                        content: __contentEntityDetection3,
-                                        name: "\"entity_detection\"");
-                                }
                             }
 
                             if (request.NoVerbatim != default)
@@ -442,14 +434,6 @@ namespace ElevenLabs
                                             content: __contentEntityRedaction2Item,
                                             name: "\"entity_redaction\"");
                                     }
-                                }
-                                else if ((request.EntityRedaction).GetValueOrDefault().TryPickValue3(out var __valueEntityRedaction3))
-                                {
-
-                                    var __contentEntityRedaction3 = new global::System.Net.Http.StringContent((__valueEntityRedaction3!).ToString() ?? string.Empty);
-                                    __httpRequestContent.Add(
-                                        content: __contentEntityRedaction3,
-                                        name: "\"entity_redaction\"");
                                 }
                             }
 
@@ -926,12 +910,12 @@ namespace ElevenLabs
             int? seed = default,
             bool? useMultiChannel = default,
             global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle? multichannelOutputStyle = default,
-            global::ElevenLabs.AnyOf<string, object, object>? webhookMetadata = default,
-            global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityDetection = default,
+            global::ElevenLabs.AnyOf<string, object>? webhookMetadata = default,
+            global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>>? entityDetection = default,
             bool? noVerbatim = default,
             bool? useSpeakerLibrary = default,
             bool? detectSpeakerRoles = default,
-            global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? entityRedaction = default,
+            global::ElevenLabs.AnyOf<string, global::System.Collections.Generic.IList<string>>? entityRedaction = default,
             string? entityRedactionMode = default,
             global::System.Collections.Generic.IList<string>? keyterms = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,

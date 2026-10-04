@@ -99,7 +99,7 @@ namespace ElevenLabs
             object? requestMeta = default,
             bool? disableCompression = default,
             global::ElevenLabs.ConvAISecretLocator? secretToken = default,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>? authConnection = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

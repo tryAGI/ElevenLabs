@@ -44,8 +44,8 @@ namespace ElevenLabs
         /// The secret token (Authorization header) stored as a workspace secret or in-place secret
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("secret_token")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIUserSecretDBModel, object>))]
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIUserSecretDBModel, object>? SecretToken { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIUserSecretDBModel>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIUserSecretDBModel>? SecretToken { get; set; }
 
         /// <summary>
         /// The headers included in the request
@@ -63,8 +63,8 @@ namespace ElevenLabs
         /// Optional auth connection to use for authentication with this MCP server
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_connection")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>))]
-        public global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? AuthConnection { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>? AuthConnection { get; set; }
 
         /// <summary>
         ///
@@ -229,10 +229,10 @@ namespace ElevenLabs
             global::ElevenLabs.MCPApprovalPolicy? approvalPolicy,
             global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolApprovalHash>? toolApprovalHashes,
             global::ElevenLabs.MCPServerTransport? transport,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIUserSecretDBModel, object>? secretToken,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIUserSecretDBModel>? secretToken,
             object? requestHeaders,
             object? requestMeta,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator, object>? authConnection,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>? authConnection,
             string? description,
             global::ElevenLabs.PreToolSpeechMode? preToolSpeech,
             global::ElevenLabs.ToolInterruptionMode? interruptionMode,

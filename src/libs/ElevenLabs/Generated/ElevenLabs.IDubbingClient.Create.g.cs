@@ -85,7 +85,7 @@ namespace ElevenLabs
             string? sourceUrl = default,
             string? reference = default,
             string? sourceLanguage = default,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string, object>? modelId = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.BodyCreateDubbingProjectV1DubbingProjectPostModelId?, string>? modelId = default,
             global::System.Collections.Generic.IList<string>? keyterms = default,
             global::System.Collections.Generic.IList<string>? webhookIds = default,
             string? targetLanguage = default,
