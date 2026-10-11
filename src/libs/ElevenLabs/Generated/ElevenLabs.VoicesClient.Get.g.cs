@@ -27,11 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string voiceId);
+            ref string collectionId);
         partial void PrepareGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string voiceId);
+            string collectionId);
         partial void ProcessGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,22 +42,22 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Voice Settings<br/>
-        /// Returns the settings for a specific voice. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
+        /// Get Voice Collection<br/>
+        /// Returns a voice collection the user has access to.
         /// </summary>
-        /// <param name="voiceId">
-        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+        /// <param name="collectionId">
+        /// Collection ID.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoiceSettingsResponseModel> GetAsync(
-            string voiceId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.UserVoiceCollectionResponseModel> GetAsync(
+            string collectionId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await GetAsResponseAsync(
-                voiceId: voiceId,
+                collectionId: collectionId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -65,17 +65,17 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Voice Settings<br/>
-        /// Returns the settings for a specific voice. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
+        /// Get Voice Collection<br/>
+        /// Returns a voice collection the user has access to.
         /// </summary>
-        /// <param name="voiceId">
-        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+        /// <param name="collectionId">
+        /// Collection ID.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.VoiceSettingsResponseModel>> GetAsResponseAsync(
-            string voiceId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.UserVoiceCollectionResponseModel>> GetAsResponseAsync(
+            string collectionId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -83,7 +83,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGetArguments(
                 httpClient: HttpClient,
-                voiceId: ref voiceId);
+                collectionId: ref collectionId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -109,7 +109,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/voices/{voiceId}/settings",
+                                path: $"/v1/voices/collections/{collectionId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -151,7 +151,7 @@ namespace ElevenLabs
                 PrepareGetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    voiceId: voiceId);
+                    collectionId: collectionId);
 
                 return __httpRequest;
             }
@@ -170,7 +170,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get",
                                 methodName: "GetAsync",
-                                pathTemplate: "$\"/v1/voices/{voiceId}/settings\"",
+                                pathTemplate: "$\"/v1/voices/collections/{collectionId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -204,7 +204,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get",
                                 methodName: "GetAsync",
-                                pathTemplate: "$\"/v1/voices/{voiceId}/settings\"",
+                                pathTemplate: "$\"/v1/voices/collections/{collectionId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -245,7 +245,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get",
                                 methodName: "GetAsync",
-                                pathTemplate: "$\"/v1/voices/{voiceId}/settings\"",
+                                pathTemplate: "$\"/v1/voices/collections/{collectionId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -293,7 +293,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get",
                                 methodName: "GetAsync",
-                                pathTemplate: "$\"/v1/voices/{voiceId}/settings\"",
+                                pathTemplate: "$\"/v1/voices/collections/{collectionId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -315,7 +315,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get",
                                 methodName: "GetAsync",
-                                pathTemplate: "$\"/v1/voices/{voiceId}/settings\"",
+                                pathTemplate: "$\"/v1/voices/collections/{collectionId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -389,9 +389,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.VoiceSettingsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.UserVoiceCollectionResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.VoiceSettingsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.UserVoiceCollectionResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -421,9 +421,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.VoiceSettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.UserVoiceCollectionResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.VoiceSettingsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.UserVoiceCollectionResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

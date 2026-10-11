@@ -41,6 +41,12 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("call_result")]
+        public global::ElevenLabs.CallResult? CallResult { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         /// <default>"sip_trunking"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         public string Type { get; set; } = "sip_trunking";
@@ -80,6 +86,7 @@ namespace ElevenLabs
         /// <param name="agentNumber"></param>
         /// <param name="externalNumber"></param>
         /// <param name="callSid"></param>
+        /// <param name="callResult"></param>
         /// <param name="callId"></param>
         /// <param name="sipHeaderDynamicVariables"></param>
         /// <param name="type"></param>
@@ -92,6 +99,7 @@ namespace ElevenLabs
             string agentNumber,
             string externalNumber,
             string callSid,
+            global::ElevenLabs.CallResult? callResult,
             string? callId,
             global::System.Collections.Generic.Dictionary<string, string>? sipHeaderDynamicVariables,
             string type = "sip_trunking")
@@ -100,6 +108,7 @@ namespace ElevenLabs
             this.PhoneNumberId = phoneNumberId ?? throw new global::System.ArgumentNullException(nameof(phoneNumberId));
             this.AgentNumber = agentNumber ?? throw new global::System.ArgumentNullException(nameof(agentNumber));
             this.ExternalNumber = externalNumber ?? throw new global::System.ArgumentNullException(nameof(externalNumber));
+            this.CallResult = callResult;
             this.Type = type;
             this.CallId = callId;
             this.CallSid = callSid ?? throw new global::System.ArgumentNullException(nameof(callSid));

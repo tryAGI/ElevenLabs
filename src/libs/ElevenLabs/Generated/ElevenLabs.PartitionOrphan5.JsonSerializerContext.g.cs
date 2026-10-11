@@ -17,22 +17,9 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyDownloadHistoryItemsV1HistoryDownloadPost))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DeleteHistoryItemResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DialogueInputResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSpeechHistoryResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SpeechHistoryItemResponseModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SpeechHistoryItemResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.HistoryAlignmentResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.HistoryAlignmentsResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInputResponseModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSpeechHistorySortDirection), TypeInfoPropertyName = "GetSpeechHistorySortDirection2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSpeechHistorySource), TypeInfoPropertyName = "GetSpeechHistorySource2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DownloadSpeechHistoryItemsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSpeechHistorySortDirection?), TypeInfoPropertyName = "NullableGetSpeechHistorySortDirection2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSpeechHistorySource?), TypeInfoPropertyName = "NullableGetSpeechHistorySource2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.SpeechHistoryItemResponseModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DialogueInputResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SFXModelId), TypeInfoPropertyName = "SFXModelId2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SFXModelId?), TypeInfoPropertyName = "NullableSFXModelId2")]
     internal sealed partial class PartitionOrphan5SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -102,37 +89,23 @@ namespace ElevenLabs
             public override bool CanConvert(global::System.Type typeToConvert)
             {
                 return
-                    typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySortDirection)
+                    typeToConvert == typeof(global::ElevenLabs.SFXModelId)
 
-                    || typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySortDirection?)
-
-                    || typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySource)
-
-                    || typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySource?);
+                    || typeToConvert == typeof(global::ElevenLabs.SFXModelId?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
                 global::System.Type typeToConvert,
                 global::System.Text.Json.JsonSerializerOptions options)
             {
-                if (typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySortDirection))
+                if (typeToConvert == typeof(global::ElevenLabs.SFXModelId))
                 {
-                    return new global::ElevenLabs.JsonConverters.GetSpeechHistorySortDirectionJsonConverter();
+                    return new global::ElevenLabs.JsonConverters.SFXModelIdJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySortDirection?))
+                if (typeToConvert == typeof(global::ElevenLabs.SFXModelId?))
                 {
-                    return new global::ElevenLabs.JsonConverters.GetSpeechHistorySortDirectionNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySource))
-                {
-                    return new global::ElevenLabs.JsonConverters.GetSpeechHistorySourceJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySource?))
-                {
-                    return new global::ElevenLabs.JsonConverters.GetSpeechHistorySourceNullableJsonConverter();
+                    return new global::ElevenLabs.JsonConverters.SFXModelIdNullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }

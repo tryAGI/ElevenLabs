@@ -167,6 +167,14 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        VoiceCollectionsRead,
+        /// <summary>
+        ///
+        /// </summary>
+        VoiceCollectionsWrite,
+        /// <summary>
+        ///
+        /// </summary>
         VoiceGeneration,
         /// <summary>
         ///
@@ -257,6 +265,8 @@ namespace ElevenLabs
                 PermissionType.TextToSpeech => "text_to_speech",
                 PermissionType.UserRead => "user_read",
                 PermissionType.UserWrite => "user_write",
+                PermissionType.VoiceCollectionsRead => "voice_collections_read",
+                PermissionType.VoiceCollectionsWrite => "voice_collections_write",
                 PermissionType.VoiceGeneration => "voice_generation",
                 PermissionType.VoicesRead => "voices_read",
                 PermissionType.VoicesWrite => "voices_write",
@@ -316,6 +326,8 @@ namespace ElevenLabs
                 "text_to_speech" => PermissionType.TextToSpeech,
                 "user_read" => PermissionType.UserRead,
                 "user_write" => PermissionType.UserWrite,
+                "voice_collections_read" => PermissionType.VoiceCollectionsRead,
+                "voice_collections_write" => PermissionType.VoiceCollectionsWrite,
                 "voice_generation" => PermissionType.VoiceGeneration,
                 "voices_read" => PermissionType.VoicesRead,
                 "voices_write" => PermissionType.VoicesWrite,

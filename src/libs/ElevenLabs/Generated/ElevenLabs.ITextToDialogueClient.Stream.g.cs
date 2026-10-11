@@ -101,6 +101,9 @@ namespace ElevenLabs
         /// <param name="nextRequestIds">
         /// A list of request_ids of dialogue generations that come after this one. Useful for maintaining continuity when regenerating a clip in the middle of a sequence. A maximum of 3 request_ids can be sent. The first request_id is the audio which is closest to the current request. Not supported by every model.
         /// </param>
+        /// <param name="audioEffects">
+        /// Audio effects applied to the generated audio. Unknown IDs return 404 with `param` naming the field. Reverb (`environment_id` with `send_level` above 0) and a non-zero `pan` produce stereo audio and are rejected with 400 for `ulaw_*`, `alaw_*`, and `pcm_*` output formats. Effects don't change the cost of the request.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -119,6 +122,7 @@ namespace ElevenLabs
             bool? usePvcAsIvc = default,
             global::System.Collections.Generic.IList<string>? previousRequestIds = default,
             global::System.Collections.Generic.IList<string>? nextRequestIds = default,
+            global::ElevenLabs.EffectsSpecInput? audioEffects = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

@@ -41,6 +41,12 @@ namespace ElevenLabs
         /// <param name="label">
         /// Filter tickets by an exact label.
         /// </param>
+        /// <param name="mergedIntoTicketId">
+        /// Filter tickets merged into this ticket.
+        /// </param>
+        /// <param name="search">
+        /// Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -59,6 +65,8 @@ namespace ElevenLabs
             string? assigneeUserId = default,
             global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
             string? label = default,
+            string? mergedIntoTicketId = default,
+            string? search = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -99,6 +107,12 @@ namespace ElevenLabs
         /// <param name="label">
         /// Filter tickets by an exact label.
         /// </param>
+        /// <param name="mergedIntoTicketId">
+        /// Filter tickets merged into this ticket.
+        /// </param>
+        /// <param name="search">
+        /// Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -117,6 +131,8 @@ namespace ElevenLabs
             string? assigneeUserId = default,
             global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
             string? label = default,
+            string? mergedIntoTicketId = default,
+            string? search = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -157,6 +173,12 @@ namespace ElevenLabs
         /// <param name="label">
         /// Filter tickets by an exact label.
         /// </param>
+        /// <param name="mergedIntoTicketId">
+        /// Filter tickets merged into this ticket.
+        /// </param>
+        /// <param name="search">
+        /// Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentConversationTicketResponseModel> List3AutoPagingAsync(
@@ -170,6 +192,8 @@ namespace ElevenLabs
             string? assigneeUserId = default,
             global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
             string? label = default,
+            string? mergedIntoTicketId = default,
+            string? search = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default);
 

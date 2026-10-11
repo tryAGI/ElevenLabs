@@ -73,6 +73,11 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        public AudioEffectsClient AudioEffects { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
         public AudioIsolationClient AudioIsolation { get; }
 
         /// <summary>

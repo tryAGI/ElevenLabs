@@ -14,6 +14,18 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter by branch ID
         /// </param>
+        /// <param name="testId">
+        /// Filter to invocations that include a run of this test id
+        /// </param>
+        /// <param name="startTime">
+        /// Inclusive lower bound on created_at, in unix seconds
+        /// </param>
+        /// <param name="endTime">
+        /// Inclusive upper bound on created_at, in unix seconds
+        /// </param>
+        /// <param name="versionId">
+        /// Filter by the agent version the tests ran against
+        /// </param>
         /// <param name="pageSize">
         /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
@@ -30,6 +42,10 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetTestInvocationsPageResponseModel> List2Async(
             string? agentId = default,
             string? branchId = default,
+            string? testId = default,
+            int? startTime = default,
+            int? endTime = default,
+            string? versionId = default,
             int? pageSize = default,
             string? search = default,
             string? cursor = default,
@@ -44,6 +60,18 @@ namespace ElevenLabs
         /// </param>
         /// <param name="branchId">
         /// Filter by branch ID
+        /// </param>
+        /// <param name="testId">
+        /// Filter to invocations that include a run of this test id
+        /// </param>
+        /// <param name="startTime">
+        /// Inclusive lower bound on created_at, in unix seconds
+        /// </param>
+        /// <param name="endTime">
+        /// Inclusive upper bound on created_at, in unix seconds
+        /// </param>
+        /// <param name="versionId">
+        /// Filter by the agent version the tests ran against
         /// </param>
         /// <param name="pageSize">
         /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
@@ -61,6 +89,10 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetTestInvocationsPageResponseModel>> List2AsResponseAsync(
             string? agentId = default,
             string? branchId = default,
+            string? testId = default,
+            int? startTime = default,
+            int? endTime = default,
+            string? versionId = default,
             int? pageSize = default,
             string? search = default,
             string? cursor = default,
@@ -76,6 +108,18 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter by branch ID
         /// </param>
+        /// <param name="testId">
+        /// Filter to invocations that include a run of this test id
+        /// </param>
+        /// <param name="startTime">
+        /// Inclusive lower bound on created_at, in unix seconds
+        /// </param>
+        /// <param name="endTime">
+        /// Inclusive upper bound on created_at, in unix seconds
+        /// </param>
+        /// <param name="versionId">
+        /// Filter by the agent version the tests ran against
+        /// </param>
         /// <param name="pageSize">
         /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
@@ -88,6 +132,10 @@ namespace ElevenLabs
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.TestInvocationSummaryResponseModel> List2AutoPagingAsync(
               string? agentId = default,
             string? branchId = default,
+            string? testId = default,
+            int? startTime = default,
+            int? endTime = default,
+            string? versionId = default,
             int? pageSize = default,
             string? search = default,
             string? cursor = null,

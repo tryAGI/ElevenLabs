@@ -37,6 +37,13 @@ namespace ElevenLabs
         public global::ElevenLabs.SeatType? WorkspaceSeatType { get; set; }
 
         /// <summary>
+        /// When unlocking a user whose original seat type has no seats available but a basic seat is available, downgrade the user to a basic seat instead of failing.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("allow_downgrade_to_basic_seat")]
+        public bool? AllowDowngradeToBasicSeat { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -54,17 +61,23 @@ namespace ElevenLabs
         /// <param name="workspaceSeatType">
         /// The workspace seat type
         /// </param>
+        /// <param name="allowDowngradeToBasicSeat">
+        /// When unlocking a user whose original seat type has no seats available but a basic seat is available, downgrade the user to a basic seat instead of failing.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyUpdateMemberV1WorkspaceMembersPost(
             string email,
             bool? isLocked,
-            global::ElevenLabs.SeatType? workspaceSeatType)
+            global::ElevenLabs.SeatType? workspaceSeatType,
+            bool? allowDowngradeToBasicSeat)
         {
             this.Email = email ?? throw new global::System.ArgumentNullException(nameof(email));
             this.IsLocked = isLocked;
             this.WorkspaceSeatType = workspaceSeatType;
+            this.AllowDowngradeToBasicSeat = allowDowngradeToBasicSeat;
         }
 
         /// <summary>

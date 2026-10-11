@@ -65,6 +65,12 @@ namespace ElevenLabs
         public global::ElevenLabs.BranchProtectionStatus? ProtectionStatus { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auto_rebase")]
+        public bool? AutoRebase { get; set; }
+
+        /// <summary>
         /// Access information for the branch
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
@@ -108,6 +114,9 @@ namespace ElevenLabs
         /// <param name="protectionStatus">
         /// Default Value: writer_perms_required
         /// </param>
+        /// <param name="autoRebase">
+        /// Default Value: false
+        /// </param>
         /// <param name="accessInfo">
         /// Access information for the branch
         /// </param>
@@ -133,6 +142,7 @@ namespace ElevenLabs
             int lastCommittedAt,
             bool isArchived,
             global::ElevenLabs.BranchProtectionStatus? protectionStatus,
+            bool? autoRebase,
             global::ElevenLabs.ResourceAccessInfo? accessInfo,
             double? currentLivePercentage,
             global::ElevenLabs.AgentBranchBasicInfo? parentBranch,
@@ -146,6 +156,7 @@ namespace ElevenLabs
             this.LastCommittedAt = lastCommittedAt;
             this.IsArchived = isArchived;
             this.ProtectionStatus = protectionStatus;
+            this.AutoRebase = autoRebase;
             this.AccessInfo = accessInfo;
             this.CurrentLivePercentage = currentLivePercentage;
             this.ParentBranch = parentBranch;

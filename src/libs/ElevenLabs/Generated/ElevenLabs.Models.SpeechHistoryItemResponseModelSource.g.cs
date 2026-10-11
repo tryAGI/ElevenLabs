@@ -52,6 +52,10 @@ namespace ElevenLabs
         ///
         /// </summary>
         VoiceGeneration,
+        /// <summary>
+        ///
+        /// </summary>
+        VoicePreview,
     }
 
     /// <summary>
@@ -77,6 +81,7 @@ namespace ElevenLabs
                 SpeechHistoryItemResponseModelSource.Sts => "STS",
                 SpeechHistoryItemResponseModelSource.Tts => "TTS",
                 SpeechHistoryItemResponseModelSource.VoiceGeneration => "VoiceGeneration",
+                SpeechHistoryItemResponseModelSource.VoicePreview => "VoicePreview",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -98,6 +103,7 @@ namespace ElevenLabs
                 "STS" => SpeechHistoryItemResponseModelSource.Sts,
                 "TTS" => SpeechHistoryItemResponseModelSource.Tts,
                 "VoiceGeneration" => SpeechHistoryItemResponseModelSource.VoiceGeneration,
+                "VoicePreview" => SpeechHistoryItemResponseModelSource.VoicePreview,
                 _ => null,
             };
         }

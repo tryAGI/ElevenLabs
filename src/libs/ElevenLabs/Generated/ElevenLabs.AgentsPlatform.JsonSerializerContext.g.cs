@@ -758,6 +758,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackwardConditionVariant12))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowEdgeModelOutputBackwardConditionVariant1Discriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorType), TypeInfoPropertyName = "WorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowEndNodeOutcome), TypeInfoPropertyName = "WorkflowEndNodeOutcome2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem2>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CustomSipHeadersItem2), TypeInfoPropertyName = "CustomSipHeadersItem22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelInputCustomSipHeaderDiscriminator))]
@@ -988,6 +989,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowEdgeModelInputBackwardConditionVariant1DiscriminatorType?), TypeInfoPropertyName = "NullableWorkflowEdgeModelInputBackwardConditionVariant1DiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowEdgeModelOutputForwardConditionVariant1DiscriminatorType?), TypeInfoPropertyName = "NullableWorkflowEdgeModelOutputForwardConditionVariant1DiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorType?), TypeInfoPropertyName = "NullableWorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowEndNodeOutcome?), TypeInfoPropertyName = "NullableWorkflowEndNodeOutcome2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CustomSipHeadersItem2?), TypeInfoPropertyName = "NullableCustomSipHeadersItem22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelInputCustomSipHeaderDiscriminatorType?), TypeInfoPropertyName = "NullableWorkflowPhoneNumberNodeModelInputCustomSipHeaderDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TransferDestination2?), TypeInfoPropertyName = "NullableTransferDestination22")]
@@ -1027,8 +1029,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateFileDocumentRouteResponseDiscriminatorType?), TypeInfoPropertyName = "NullableUpdateFileDocumentRouteResponseDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetOrCreateRagIndexesResponse2?), TypeInfoPropertyName = "NullableGetOrCreateRagIndexesResponse22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetOrCreateRagIndexesResponseDiscriminatorStatus?), TypeInfoPropertyName = "NullableGetOrCreateRagIndexesResponseDiscriminatorStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.RefreshUrlDocumentRouteResponse?), TypeInfoPropertyName = "NullableRefreshUrlDocumentRouteResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.RefreshUrlDocumentRouteResponseDiscriminatorType?), TypeInfoPropertyName = "NullableRefreshUrlDocumentRouteResponseDiscriminatorType2")]
     internal sealed partial class AgentsPlatformSourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1045,6 +1045,8 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableSecretValue>, global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableAuthConnectionValue>>?), TypeInfoPropertyName = "EnvironmentVariableAuthConnectionValue_a6ccb8fc0ba4a327")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>), TypeInfoPropertyName = "ListString_System_Collections_Generic_List_string")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string?>), TypeInfoPropertyName = "ListString_System_Collections_Generic_List_string_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.RefreshUrlDocumentRouteResponse?), TypeInfoPropertyName = "NullableRefreshUrlDocumentRouteResponse2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.RefreshUrlDocumentRouteResponseDiscriminatorType?), TypeInfoPropertyName = "NullableRefreshUrlDocumentRouteResponseDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PostKnowledgeBaseBulkDeleteRouteResponse2?), TypeInfoPropertyName = "NullablePostKnowledgeBaseBulkDeleteRouteResponse22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PostKnowledgeBaseBulkDeleteRouteResponseDiscriminatorStatus?), TypeInfoPropertyName = "NullablePostKnowledgeBaseBulkDeleteRouteResponseDiscriminatorStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ASTNodeInput>))]
@@ -1706,6 +1708,10 @@ namespace ElevenLabs
                     || typeToConvert == typeof(global::ElevenLabs.WorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorType)
 
                     || typeToConvert == typeof(global::ElevenLabs.WorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorType?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.WorkflowEndNodeOutcome)
+
+                    || typeToConvert == typeof(global::ElevenLabs.WorkflowEndNodeOutcome?)
 
                     || typeToConvert == typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelInputCustomSipHeaderDiscriminatorType)
 
@@ -2870,6 +2876,16 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.WorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorType?))
                 {
                     return new global::ElevenLabs.JsonConverters.WorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.WorkflowEndNodeOutcome))
+                {
+                    return new global::ElevenLabs.JsonConverters.WorkflowEndNodeOutcomeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.WorkflowEndNodeOutcome?))
+                {
+                    return new global::ElevenLabs.JsonConverters.WorkflowEndNodeOutcomeNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelInputCustomSipHeaderDiscriminatorType))

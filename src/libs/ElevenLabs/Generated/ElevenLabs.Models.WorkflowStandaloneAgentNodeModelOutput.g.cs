@@ -36,6 +36,12 @@ namespace ElevenLabs
         public string? AgentId { get; set; }
 
         /// <summary>
+        /// Optional branch ID for the target agent. None follows the target agent's traffic deployment, or uses its main branch when node_id is set.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("branch_id")]
+        public string? BranchId { get; set; }
+
+        /// <summary>
         /// Optional target node ID in the destination agent's workflow. When set, the transfer starts at this node instead of the default entry node.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("node_id")]
@@ -113,6 +119,9 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// The ID of the agent to transfer the conversation to. None means transfer within the current agent.
         /// </param>
+        /// <param name="branchId">
+        /// Optional branch ID for the target agent. None follows the target agent's traffic deployment, or uses its main branch when node_id is set.
+        /// </param>
         /// <param name="nodeId">
         /// Optional target node ID in the destination agent's workflow. When set, the transfer starts at this node instead of the default entry node.
         /// </param>
@@ -133,6 +142,7 @@ namespace ElevenLabs
             bool preserveClientTtsOverrides,
             bool preserveVoiceSettings,
             string? agentId,
+            string? branchId,
             string? nodeId,
             string? transferMessage,
             string type = "standalone_agent")
@@ -141,6 +151,7 @@ namespace ElevenLabs
             this.Position = position ?? throw new global::System.ArgumentNullException(nameof(position));
             this.EdgeOrder = edgeOrder ?? throw new global::System.ArgumentNullException(nameof(edgeOrder));
             this.AgentId = agentId;
+            this.BranchId = branchId;
             this.NodeId = nodeId;
             this.DelayMs = delayMs;
             this.TransferMessage = transferMessage;

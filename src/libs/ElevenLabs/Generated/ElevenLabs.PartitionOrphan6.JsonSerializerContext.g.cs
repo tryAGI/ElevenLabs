@@ -17,16 +17,22 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat), TypeInfoPropertyName = "BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat), TypeInfoPropertyName = "BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SpeechToSpeechFullOutputFormat), TypeInfoPropertyName = "SpeechToSpeechFullOutputFormat2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SpeechToSpeechStreamOutputFormat), TypeInfoPropertyName = "SpeechToSpeechStreamOutputFormat2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat?), TypeInfoPropertyName = "NullableBodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat?), TypeInfoPropertyName = "NullableBodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SpeechToSpeechFullOutputFormat?), TypeInfoPropertyName = "NullableSpeechToSpeechFullOutputFormat2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SpeechToSpeechStreamOutputFormat?), TypeInfoPropertyName = "NullableSpeechToSpeechStreamOutputFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyDownloadHistoryItemsV1HistoryDownloadPost))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DeleteHistoryItemResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DialogueInputResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSpeechHistoryResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SpeechHistoryItemResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SpeechHistoryItemResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.HistoryAlignmentResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.HistoryAlignmentsResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.DialogueInputResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSpeechHistorySortDirection), TypeInfoPropertyName = "GetSpeechHistorySortDirection2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSpeechHistorySource), TypeInfoPropertyName = "GetSpeechHistorySource2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DownloadSpeechHistoryItemsResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSpeechHistorySortDirection?), TypeInfoPropertyName = "NullableGetSpeechHistorySortDirection2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetSpeechHistorySource?), TypeInfoPropertyName = "NullableGetSpeechHistorySource2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.SpeechHistoryItemResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DialogueInputResponseModel>))]
     internal sealed partial class PartitionOrphan6SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -96,65 +102,37 @@ namespace ElevenLabs
             public override bool CanConvert(global::System.Type typeToConvert)
             {
                 return
-                    typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat)
+                    typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySortDirection)
 
-                    || typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat?)
+                    || typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySortDirection?)
 
-                    || typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat)
+                    || typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySource)
 
-                    || typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat?)
-
-                    || typeToConvert == typeof(global::ElevenLabs.SpeechToSpeechFullOutputFormat)
-
-                    || typeToConvert == typeof(global::ElevenLabs.SpeechToSpeechFullOutputFormat?)
-
-                    || typeToConvert == typeof(global::ElevenLabs.SpeechToSpeechStreamOutputFormat)
-
-                    || typeToConvert == typeof(global::ElevenLabs.SpeechToSpeechStreamOutputFormat?);
+                    || typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySource?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
                 global::System.Type typeToConvert,
                 global::System.Text.Json.JsonSerializerOptions options)
             {
-                if (typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat))
+                if (typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySortDirection))
                 {
-                    return new global::ElevenLabs.JsonConverters.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormatJsonConverter();
+                    return new global::ElevenLabs.JsonConverters.GetSpeechHistorySortDirectionJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat?))
+                if (typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySortDirection?))
                 {
-                    return new global::ElevenLabs.JsonConverters.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormatNullableJsonConverter();
+                    return new global::ElevenLabs.JsonConverters.GetSpeechHistorySortDirectionNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat))
+                if (typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySource))
                 {
-                    return new global::ElevenLabs.JsonConverters.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormatJsonConverter();
+                    return new global::ElevenLabs.JsonConverters.GetSpeechHistorySourceJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat?))
+                if (typeToConvert == typeof(global::ElevenLabs.GetSpeechHistorySource?))
                 {
-                    return new global::ElevenLabs.JsonConverters.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormatNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.SpeechToSpeechFullOutputFormat))
-                {
-                    return new global::ElevenLabs.JsonConverters.SpeechToSpeechFullOutputFormatJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.SpeechToSpeechFullOutputFormat?))
-                {
-                    return new global::ElevenLabs.JsonConverters.SpeechToSpeechFullOutputFormatNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.SpeechToSpeechStreamOutputFormat))
-                {
-                    return new global::ElevenLabs.JsonConverters.SpeechToSpeechStreamOutputFormatJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.SpeechToSpeechStreamOutputFormat?))
-                {
-                    return new global::ElevenLabs.JsonConverters.SpeechToSpeechStreamOutputFormatNullableJsonConverter();
+                    return new global::ElevenLabs.JsonConverters.GetSpeechHistorySourceNullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }

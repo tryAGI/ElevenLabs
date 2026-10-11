@@ -30,6 +30,13 @@ namespace ElevenLabs
         public bool? ToolIds { get; set; }
 
         /// <summary>
+        /// Whether to allow overriding the tool_ids_strict field.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_ids_strict")]
+        public bool? ToolIdsStrict { get; set; }
+
+        /// <summary>
         /// Whether to allow overriding the native_mcp_server_ids field.<br/>
         /// Default Value: false
         /// </summary>
@@ -64,6 +71,10 @@ namespace ElevenLabs
         /// Whether to allow overriding the tool_ids field.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="toolIdsStrict">
+        /// Whether to allow overriding the tool_ids_strict field.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="nativeMcpServerIds">
         /// Whether to allow overriding the native_mcp_server_ids field.<br/>
         /// Default Value: false
@@ -79,12 +90,14 @@ namespace ElevenLabs
             bool? prompt,
             bool? llm,
             bool? toolIds,
+            bool? toolIdsStrict,
             bool? nativeMcpServerIds,
             bool? knowledgeBase)
         {
             this.Prompt = prompt;
             this.Llm = llm;
             this.ToolIds = toolIds;
+            this.ToolIdsStrict = toolIdsStrict;
             this.NativeMcpServerIds = nativeMcpServerIds;
             this.KnowledgeBase = knowledgeBase;
         }
