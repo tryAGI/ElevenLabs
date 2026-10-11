@@ -709,6 +709,14 @@ namespace ElevenLabs
 
                     || typeToConvert == typeof(global::ElevenLabs.BytedanceSeedream5ProRequestResolution?)
 
+                    || typeToConvert == typeof(global::ElevenLabs.CallResult)
+
+                    || typeToConvert == typeof(global::ElevenLabs.CallResult?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.CampaignConversationType)
+
+                    || typeToConvert == typeof(global::ElevenLabs.CampaignConversationType?)
+
                     || typeToConvert == typeof(global::ElevenLabs.CaptionStyleCharacterAnimationModelEnterType)
 
                     || typeToConvert == typeof(global::ElevenLabs.CaptionStyleCharacterAnimationModelEnterType?)
@@ -812,6 +820,10 @@ namespace ElevenLabs
                     || typeToConvert == typeof(global::ElevenLabs.ColumnUnit)
 
                     || typeToConvert == typeof(global::ElevenLabs.ColumnUnit?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.ConditionStrength)
+
+                    || typeToConvert == typeof(global::ElevenLabs.ConditionStrength?)
 
                     || typeToConvert == typeof(global::ElevenLabs.ConfigEntityType)
 
@@ -1189,17 +1201,9 @@ namespace ElevenLabs
 
                     || typeToConvert == typeof(global::ElevenLabs.GenerationChunkInputContextAdherence?)
 
-                    || typeToConvert == typeof(global::ElevenLabs.GenerationChunkInputConditionStrength)
-
-                    || typeToConvert == typeof(global::ElevenLabs.GenerationChunkInputConditionStrength?)
-
                     || typeToConvert == typeof(global::ElevenLabs.GenerationChunkOutputContextAdherence)
 
                     || typeToConvert == typeof(global::ElevenLabs.GenerationChunkOutputContextAdherence?)
-
-                    || typeToConvert == typeof(global::ElevenLabs.GenerationChunkOutputConditionStrength)
-
-                    || typeToConvert == typeof(global::ElevenLabs.GenerationChunkOutputConditionStrength?)
 
                     || typeToConvert == typeof(global::ElevenLabs.GenesysBotOutcome)
 
@@ -1969,6 +1973,10 @@ namespace ElevenLabs
 
                     || typeToConvert == typeof(global::ElevenLabs.TextToSpeechGenerationRequestDiscriminatorModelId?)
 
+                    || typeToConvert == typeof(global::ElevenLabs.TicketSearchMatchField)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TicketSearchMatchField?)
+
                     || typeToConvert == typeof(global::ElevenLabs.ToolCallSoundBehavior)
 
                     || typeToConvert == typeof(global::ElevenLabs.ToolCallSoundBehavior?)
@@ -2092,6 +2100,10 @@ namespace ElevenLabs
                     || typeToConvert == typeof(global::ElevenLabs.UserFeedbackScore)
 
                     || typeToConvert == typeof(global::ElevenLabs.UserFeedbackScore?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResource)
+
+                    || typeToConvert == typeof(global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResource?)
 
                     || typeToConvert == typeof(global::ElevenLabs.UsersSortBy)
 
@@ -2260,6 +2272,10 @@ namespace ElevenLabs
                     || typeToConvert == typeof(global::ElevenLabs.WorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorType)
 
                     || typeToConvert == typeof(global::ElevenLabs.WorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorType?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.WorkflowEndNodeOutcome)
+
+                    || typeToConvert == typeof(global::ElevenLabs.WorkflowEndNodeOutcome?)
 
                     || typeToConvert == typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelInputCustomSipHeaderDiscriminatorType)
 
@@ -3552,6 +3568,26 @@ namespace ElevenLabs
                     return new global::ElevenLabs.JsonConverters.BytedanceSeedream5ProRequestResolutionNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::ElevenLabs.CallResult))
+                {
+                    return new global::ElevenLabs.JsonConverters.CallResultJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.CallResult?))
+                {
+                    return new global::ElevenLabs.JsonConverters.CallResultNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.CampaignConversationType))
+                {
+                    return new global::ElevenLabs.JsonConverters.CampaignConversationTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.CampaignConversationType?))
+                {
+                    return new global::ElevenLabs.JsonConverters.CampaignConversationTypeNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::ElevenLabs.CaptionStyleCharacterAnimationModelEnterType))
                 {
                     return new global::ElevenLabs.JsonConverters.CaptionStyleCharacterAnimationModelEnterTypeJsonConverter();
@@ -3810,6 +3846,16 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.ColumnUnit?))
                 {
                     return new global::ElevenLabs.JsonConverters.ColumnUnitNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.ConditionStrength))
+                {
+                    return new global::ElevenLabs.JsonConverters.ConditionStrengthJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.ConditionStrength?))
+                {
+                    return new global::ElevenLabs.JsonConverters.ConditionStrengthNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.ConfigEntityType))
@@ -4752,16 +4798,6 @@ namespace ElevenLabs
                     return new global::ElevenLabs.JsonConverters.GenerationChunkInputContextAdherenceNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::ElevenLabs.GenerationChunkInputConditionStrength))
-                {
-                    return new global::ElevenLabs.JsonConverters.GenerationChunkInputConditionStrengthJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.GenerationChunkInputConditionStrength?))
-                {
-                    return new global::ElevenLabs.JsonConverters.GenerationChunkInputConditionStrengthNullableJsonConverter();
-                }
-
                 if (typeToConvert == typeof(global::ElevenLabs.GenerationChunkOutputContextAdherence))
                 {
                     return new global::ElevenLabs.JsonConverters.GenerationChunkOutputContextAdherenceJsonConverter();
@@ -4770,16 +4806,6 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.GenerationChunkOutputContextAdherence?))
                 {
                     return new global::ElevenLabs.JsonConverters.GenerationChunkOutputContextAdherenceNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.GenerationChunkOutputConditionStrength))
-                {
-                    return new global::ElevenLabs.JsonConverters.GenerationChunkOutputConditionStrengthJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.GenerationChunkOutputConditionStrength?))
-                {
-                    return new global::ElevenLabs.JsonConverters.GenerationChunkOutputConditionStrengthNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.GenesysBotOutcome))
@@ -6702,6 +6728,16 @@ namespace ElevenLabs
                     return new global::ElevenLabs.JsonConverters.TextToSpeechGenerationRequestDiscriminatorModelIdNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::ElevenLabs.TicketSearchMatchField))
+                {
+                    return new global::ElevenLabs.JsonConverters.TicketSearchMatchFieldJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TicketSearchMatchField?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TicketSearchMatchFieldNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::ElevenLabs.ToolCallSoundBehavior))
                 {
                     return new global::ElevenLabs.JsonConverters.ToolCallSoundBehaviorJsonConverter();
@@ -7010,6 +7046,16 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.UserFeedbackScore?))
                 {
                     return new global::ElevenLabs.JsonConverters.UserFeedbackScoreNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResource))
+                {
+                    return new global::ElevenLabs.JsonConverters.UserVoiceCollectionResponseModelPermissionOnResourceJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResource?))
+                {
+                    return new global::ElevenLabs.JsonConverters.UserVoiceCollectionResponseModelPermissionOnResourceNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.UsersSortBy))
@@ -7430,6 +7476,16 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.WorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorType?))
                 {
                     return new global::ElevenLabs.JsonConverters.WorkflowEdgeModelOutputBackwardConditionVariant1DiscriminatorTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.WorkflowEndNodeOutcome))
+                {
+                    return new global::ElevenLabs.JsonConverters.WorkflowEndNodeOutcomeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.WorkflowEndNodeOutcome?))
+                {
+                    return new global::ElevenLabs.JsonConverters.WorkflowEndNodeOutcomeNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.WorkflowPhoneNumberNodeModelInputCustomSipHeaderDiscriminatorType))
@@ -8078,7 +8134,7 @@ namespace ElevenLabs
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
         {
             private readonly object _gate = new();
-            private readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver?[] _resolvers = new global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver?[31];
+            private readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver?[] _resolvers = new global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver?[32];
 
             public global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? GetTypeInfo(
                 global::System.Type type,
@@ -8140,41 +8196,43 @@ namespace ElevenLabs
 
                     12 => global::ElevenLabs.PartitionOrphan1SourceGenerationContext.TypeInfoResolver,
 
-                    13 => global::ElevenLabs.PartitionOrphan2SourceGenerationContext.TypeInfoResolver,
+                    13 => global::ElevenLabs.PartitionOrphan10SourceGenerationContext.TypeInfoResolver,
 
-                    14 => global::ElevenLabs.PartitionOrphan3SourceGenerationContext.TypeInfoResolver,
+                    14 => global::ElevenLabs.PartitionOrphan2SourceGenerationContext.TypeInfoResolver,
 
-                    15 => global::ElevenLabs.PartitionOrphan4SourceGenerationContext.TypeInfoResolver,
+                    15 => global::ElevenLabs.PartitionOrphan3SourceGenerationContext.TypeInfoResolver,
 
-                    16 => global::ElevenLabs.PartitionOrphan5SourceGenerationContext.TypeInfoResolver,
+                    16 => global::ElevenLabs.PartitionOrphan4SourceGenerationContext.TypeInfoResolver,
 
-                    17 => global::ElevenLabs.PartitionOrphan6SourceGenerationContext.TypeInfoResolver,
+                    17 => global::ElevenLabs.PartitionOrphan5SourceGenerationContext.TypeInfoResolver,
 
-                    18 => global::ElevenLabs.PartitionOrphan7SourceGenerationContext.TypeInfoResolver,
+                    18 => global::ElevenLabs.PartitionOrphan6SourceGenerationContext.TypeInfoResolver,
 
-                    19 => global::ElevenLabs.PartitionOrphan8SourceGenerationContext.TypeInfoResolver,
+                    19 => global::ElevenLabs.PartitionOrphan7SourceGenerationContext.TypeInfoResolver,
 
-                    20 => global::ElevenLabs.PartitionOrphan9SourceGenerationContext.TypeInfoResolver,
+                    20 => global::ElevenLabs.PartitionOrphan8SourceGenerationContext.TypeInfoResolver,
 
-                    21 => global::ElevenLabs.ProductionsSourceGenerationContext.TypeInfoResolver,
+                    21 => global::ElevenLabs.PartitionOrphan9SourceGenerationContext.TypeInfoResolver,
 
-                    22 => global::ElevenLabs.PronunciationDictionarySourceGenerationContext.TypeInfoResolver,
+                    22 => global::ElevenLabs.ProductionsSourceGenerationContext.TypeInfoResolver,
 
-                    23 => global::ElevenLabs.PvcVoicesSourceGenerationContext.TypeInfoResolver,
+                    23 => global::ElevenLabs.PronunciationDictionarySourceGenerationContext.TypeInfoResolver,
 
-                    24 => global::ElevenLabs.SamplesSourceGenerationContext.TypeInfoResolver,
+                    24 => global::ElevenLabs.PvcVoicesSourceGenerationContext.TypeInfoResolver,
 
-                    25 => global::ElevenLabs.SingleUseTokenSourceGenerationContext.TypeInfoResolver,
+                    25 => global::ElevenLabs.SamplesSourceGenerationContext.TypeInfoResolver,
 
-                    26 => global::ElevenLabs.SpeechToTextSourceGenerationContext.TypeInfoResolver,
+                    26 => global::ElevenLabs.SingleUseTokenSourceGenerationContext.TypeInfoResolver,
 
-                    27 => global::ElevenLabs.StudioSourceGenerationContext.TypeInfoResolver,
+                    27 => global::ElevenLabs.SpeechToTextSourceGenerationContext.TypeInfoResolver,
 
-                    28 => global::ElevenLabs.TextToVoiceSourceGenerationContext.TypeInfoResolver,
+                    28 => global::ElevenLabs.StudioSourceGenerationContext.TypeInfoResolver,
 
-                    29 => global::ElevenLabs.VoicesSourceGenerationContext.TypeInfoResolver,
+                    29 => global::ElevenLabs.TextToVoiceSourceGenerationContext.TypeInfoResolver,
 
-                    30 => global::ElevenLabs.WorkspaceSourceGenerationContext.TypeInfoResolver,
+                    30 => global::ElevenLabs.VoicesSourceGenerationContext.TypeInfoResolver,
+
+                    31 => global::ElevenLabs.WorkspaceSourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

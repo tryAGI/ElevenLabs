@@ -37,6 +37,9 @@ namespace ElevenLabs
         /// Filter test visibility. Use `shared_with_me` to return only tests/folders shared with the current user that they did not create.<br/>
         /// Default Value: all
         /// </param>
+        /// <param name="createdByUserId">
+        /// Filter tests and folders by creator user ID. Use '@me' to refer to the authenticated user.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -49,6 +52,7 @@ namespace ElevenLabs
             bool? includeFolders = default,
             global::ElevenLabs.ListChatResponseTestsRouteSortMode? sortMode = default,
             global::ElevenLabs.TestSharingMode? sharingMode = default,
+            string? createdByUserId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -82,6 +86,9 @@ namespace ElevenLabs
         /// Filter test visibility. Use `shared_with_me` to return only tests/folders shared with the current user that they did not create.<br/>
         /// Default Value: all
         /// </param>
+        /// <param name="createdByUserId">
+        /// Filter tests and folders by creator user ID. Use '@me' to refer to the authenticated user.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -94,6 +101,7 @@ namespace ElevenLabs
             bool? includeFolders = default,
             global::ElevenLabs.ListChatResponseTestsRouteSortMode? sortMode = default,
             global::ElevenLabs.TestSharingMode? sharingMode = default,
+            string? createdByUserId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -124,6 +132,9 @@ namespace ElevenLabs
         /// Filter test visibility. Use `shared_with_me` to return only tests/folders shared with the current user that they did not create.<br/>
         /// Default Value: all
         /// </param>
+        /// <param name="createdByUserId">
+        /// Filter tests and folders by creator user ID. Use '@me' to refer to the authenticated user.
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.UnitTestSummaryResponseModel> ListAutoPagingAsync(
@@ -134,6 +145,7 @@ namespace ElevenLabs
             bool? includeFolders = default,
             global::ElevenLabs.ListChatResponseTestsRouteSortMode? sortMode = default,
             global::ElevenLabs.TestSharingMode? sharingMode = default,
+            string? createdByUserId = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default);
 

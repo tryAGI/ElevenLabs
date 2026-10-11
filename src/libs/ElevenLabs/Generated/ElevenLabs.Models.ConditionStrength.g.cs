@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     ///
     /// </summary>
-    public enum GenerationChunkOutputConditionStrength
+    public enum ConditionStrength
     {
         /// <summary>
         ///
@@ -29,33 +29,33 @@ namespace ElevenLabs
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class GenerationChunkOutputConditionStrengthExtensions
+    public static class ConditionStrengthExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this GenerationChunkOutputConditionStrength value)
+        public static string ToValueString(this ConditionStrength value)
         {
             return value switch
             {
-                GenerationChunkOutputConditionStrength.High => "high",
-                GenerationChunkOutputConditionStrength.Low => "low",
-                GenerationChunkOutputConditionStrength.Medium => "medium",
-                GenerationChunkOutputConditionStrength.Xhigh => "xhigh",
+                ConditionStrength.High => "high",
+                ConditionStrength.Low => "low",
+                ConditionStrength.Medium => "medium",
+                ConditionStrength.Xhigh => "xhigh",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static GenerationChunkOutputConditionStrength? ToEnum(string value)
+        public static ConditionStrength? ToEnum(string value)
         {
             return value switch
             {
-                "high" => GenerationChunkOutputConditionStrength.High,
-                "low" => GenerationChunkOutputConditionStrength.Low,
-                "medium" => GenerationChunkOutputConditionStrength.Medium,
-                "xhigh" => GenerationChunkOutputConditionStrength.Xhigh,
+                "high" => ConditionStrength.High,
+                "low" => ConditionStrength.Low,
+                "medium" => ConditionStrength.Medium,
+                "xhigh" => ConditionStrength.Xhigh,
                 _ => null,
             };
         }

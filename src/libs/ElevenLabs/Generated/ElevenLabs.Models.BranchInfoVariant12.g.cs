@@ -18,6 +18,43 @@ namespace ElevenLabs
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
+        public global::ElevenLabs.TransferBranchInfoConfigured? Configured { get; init; }
+#else
+        public global::ElevenLabs.TransferBranchInfoConfigured? Configured { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Configured))]
+#endif
+        public bool IsConfigured => Configured != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickConfigured(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.TransferBranchInfoConfigured? value)
+        {
+            value = Configured;
+            return IsConfigured;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.TransferBranchInfoConfigured PickConfigured() => Configured is { } value
+            ? value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Configured' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
         public global::ElevenLabs.TransferBranchInfoTrafficSplit? TrafficSplit { get; init; }
 #else
         public global::ElevenLabs.TransferBranchInfoTrafficSplit? TrafficSplit { get; }
@@ -90,6 +127,29 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        public static implicit operator BranchInfoVariant12(global::ElevenLabs.TransferBranchInfoConfigured value) => new BranchInfoVariant12((global::ElevenLabs.TransferBranchInfoConfigured?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.TransferBranchInfoConfigured?(BranchInfoVariant12 @this) => @this.Configured;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public BranchInfoVariant12(global::ElevenLabs.TransferBranchInfoConfigured? value)
+        {
+            Configured = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static BranchInfoVariant12 FromConfigured(global::ElevenLabs.TransferBranchInfoConfigured? value) => new BranchInfoVariant12(value);
+
+        /// <summary>
+        ///
+        /// </summary>
         public static implicit operator BranchInfoVariant12(global::ElevenLabs.TransferBranchInfoTrafficSplit value) => new BranchInfoVariant12((global::ElevenLabs.TransferBranchInfoTrafficSplit?)value);
 
         /// <summary>
@@ -138,12 +198,14 @@ namespace ElevenLabs
         /// </summary>
         public BranchInfoVariant12(
             global::ElevenLabs.TransferToAgentToolResultSuccessModelOutputBranchInfoVariant1DiscriminatorBranchReason? branchReason,
+            global::ElevenLabs.TransferBranchInfoConfigured? configured,
             global::ElevenLabs.TransferBranchInfoTrafficSplit? trafficSplit,
             global::ElevenLabs.TransferBranchInfoDefaultingToMain? defaultingToMain
             )
         {
             BranchReason = branchReason;
 
+            Configured = configured;
             TrafficSplit = trafficSplit;
             DefaultingToMain = defaultingToMain;
         }
@@ -153,13 +215,15 @@ namespace ElevenLabs
         /// </summary>
         public object? Object =>
             DefaultingToMain as object ??
-            TrafficSplit as object
+            TrafficSplit as object ??
+            Configured as object
             ;
 
         /// <summary>
         ///
         /// </summary>
         public override string? ToString() =>
+            Configured?.ToString() ??
             TrafficSplit?.ToString() ??
             DefaultingToMain?.ToString()
             ;
@@ -169,13 +233,14 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsTrafficSplit && !IsDefaultingToMain || !IsTrafficSplit && IsDefaultingToMain;
+            return IsConfigured && !IsTrafficSplit && !IsDefaultingToMain || !IsConfigured && IsTrafficSplit && !IsDefaultingToMain || !IsConfigured && !IsTrafficSplit && IsDefaultingToMain;
         }
 
         /// <summary>
         ///
         /// </summary>
         public TResult? Match<TResult>(
+            global::System.Func<global::ElevenLabs.TransferBranchInfoConfigured, TResult>? configured = null,
             global::System.Func<global::ElevenLabs.TransferBranchInfoTrafficSplit, TResult>? trafficSplit = null,
             global::System.Func<global::ElevenLabs.TransferBranchInfoDefaultingToMain, TResult>? defaultingToMain = null,
             bool validate = true)
@@ -185,13 +250,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (TrafficSplit is { } __value0 && trafficSplit != null)
+            if (Configured is { } __value0 && configured != null)
             {
-                return trafficSplit(__value0);
+                return configured(__value0);
             }
-            else if (DefaultingToMain is { } __value1 && defaultingToMain != null)
+            else if (TrafficSplit is { } __value1 && trafficSplit != null)
             {
-                return defaultingToMain(__value1);
+                return trafficSplit(__value1);
+            }
+            else if (DefaultingToMain is { } __value2 && defaultingToMain != null)
+            {
+                return defaultingToMain(__value2);
             }
 
             return default(TResult);
@@ -201,6 +270,8 @@ namespace ElevenLabs
         ///
         /// </summary>
         public void Match(
+            global::System.Action<global::ElevenLabs.TransferBranchInfoConfigured>? configured = null,
+
             global::System.Action<global::ElevenLabs.TransferBranchInfoTrafficSplit>? trafficSplit = null,
 
             global::System.Action<global::ElevenLabs.TransferBranchInfoDefaultingToMain>? defaultingToMain = null,
@@ -211,13 +282,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (TrafficSplit is { } __value0)
+            if (Configured is { } __value0)
             {
-                trafficSplit?.Invoke(__value0);
+                configured?.Invoke(__value0);
             }
-            else if (DefaultingToMain is { } __value1)
+            else if (TrafficSplit is { } __value1)
             {
-                defaultingToMain?.Invoke(__value1);
+                trafficSplit?.Invoke(__value1);
+            }
+            else if (DefaultingToMain is { } __value2)
+            {
+                defaultingToMain?.Invoke(__value2);
             }
         }
 
@@ -225,6 +300,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         public void Switch(
+            global::System.Action<global::ElevenLabs.TransferBranchInfoConfigured>? configured = null,
             global::System.Action<global::ElevenLabs.TransferBranchInfoTrafficSplit>? trafficSplit = null,
             global::System.Action<global::ElevenLabs.TransferBranchInfoDefaultingToMain>? defaultingToMain = null,
             bool validate = true)
@@ -234,13 +310,17 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (TrafficSplit is { } __value0)
+            if (Configured is { } __value0)
             {
-                trafficSplit?.Invoke(__value0);
+                configured?.Invoke(__value0);
             }
-            else if (DefaultingToMain is { } __value1)
+            else if (TrafficSplit is { } __value1)
             {
-                defaultingToMain?.Invoke(__value1);
+                trafficSplit?.Invoke(__value1);
+            }
+            else if (DefaultingToMain is { } __value2)
+            {
+                defaultingToMain?.Invoke(__value2);
             }
         }
 
@@ -251,6 +331,8 @@ namespace ElevenLabs
         {
             var fields = new object?[]
             {
+                Configured,
+                typeof(global::ElevenLabs.TransferBranchInfoConfigured),
                 TrafficSplit,
                 typeof(global::ElevenLabs.TransferBranchInfoTrafficSplit),
                 DefaultingToMain,
@@ -271,6 +353,7 @@ namespace ElevenLabs
         public bool Equals(BranchInfoVariant12 other)
         {
             return
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferBranchInfoConfigured?>.Default.Equals(Configured, other.Configured) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferBranchInfoTrafficSplit?>.Default.Equals(TrafficSplit, other.TrafficSplit) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.TransferBranchInfoDefaultingToMain?>.Default.Equals(DefaultingToMain, other.DefaultingToMain)
                 ;

@@ -33,7 +33,7 @@ namespace ElevenLabs
         public required string Description { get; set; }
 
         /// <summary>
-        /// The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive).<br/>
+        /// The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive), or -1 to wait for the client's response indefinitely (requires expects_response).<br/>
         /// Default Value: 20
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_timeout_secs")]
@@ -146,7 +146,7 @@ namespace ElevenLabs
         /// Default Value: client
         /// </param>
         /// <param name="responseTimeoutSecs">
-        /// The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive).<br/>
+        /// The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive), or -1 to wait for the client's response indefinitely (requires expects_response).<br/>
         /// Default Value: 20
         /// </param>
         /// <param name="interruptionMode">

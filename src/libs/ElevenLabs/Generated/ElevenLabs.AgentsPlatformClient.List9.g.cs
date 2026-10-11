@@ -36,6 +36,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types,
             ref global::ElevenLabs.SortDirection? sortDirection,
             ref global::ElevenLabs.ToolSortBy? sortBy,
+            ref string? usedByAgentId,
             ref string? cursor);
         partial void PrepareList9Request(
             global::System.Net.Http.HttpClient httpClient,
@@ -47,6 +48,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types,
             global::ElevenLabs.SortDirection? sortDirection,
             global::ElevenLabs.ToolSortBy? sortBy,
+            string? usedByAgentId,
             string? cursor);
         partial void ProcessList9Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -84,6 +86,9 @@ namespace ElevenLabs
         /// <param name="sortBy">
         /// The field to sort the results by
         /// </param>
+        /// <param name="usedByAgentId">
+        /// Filter to tools referenced by this agent's main branch: tools attached to the agent, tools on authored workflow nodes, and tools referenced by procedures.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -98,6 +103,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types = default,
             global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.ToolSortBy? sortBy = default,
+            string? usedByAgentId = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -110,6 +116,7 @@ namespace ElevenLabs
                 types: types,
                 sortDirection: sortDirection,
                 sortBy: sortBy,
+                usedByAgentId: usedByAgentId,
                 cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -144,6 +151,9 @@ namespace ElevenLabs
         /// <param name="sortBy">
         /// The field to sort the results by
         /// </param>
+        /// <param name="usedByAgentId">
+        /// Filter to tools referenced by this agent's main branch: tools attached to the agent, tools on authored workflow nodes, and tools referenced by procedures.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -158,6 +168,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types = default,
             global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.ToolSortBy? sortBy = default,
+            string? usedByAgentId = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -173,6 +184,7 @@ namespace ElevenLabs
                 types: types,
                 sortDirection: ref sortDirection,
                 sortBy: ref sortBy,
+                usedByAgentId: ref usedByAgentId,
                 cursor: ref cursor);
 
 
@@ -209,6 +221,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("types", types, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                                 .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
                                 .AddOptionalParameter("sort_by", sortBy?.ToValueString())
+                                .AddOptionalParameter("used_by_agent_id", usedByAgentId)
                                 .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -258,6 +271,7 @@ namespace ElevenLabs
                     types: types,
                     sortDirection: sortDirection,
                     sortBy: sortBy,
+                    usedByAgentId: usedByAgentId,
                     cursor: cursor);
 
                 return __httpRequest;
@@ -597,6 +611,9 @@ namespace ElevenLabs
         /// <param name="sortBy">
         /// The field to sort the results by
         /// </param>
+        /// <param name="usedByAgentId">
+        /// Filter to tools referenced by this agent's main branch: tools attached to the agent, tools on authored workflow nodes, and tools referenced by procedures.
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ToolResponseModel> List9AutoPagingAsync(
@@ -607,6 +624,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types = default,
             global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.ToolSortBy? sortBy = default,
+            string? usedByAgentId = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -619,6 +637,7 @@ namespace ElevenLabs
                     types: types,
                     sortDirection: sortDirection,
                     sortBy: sortBy,
+                    usedByAgentId: usedByAgentId,
                     cursor: __cursor,
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null

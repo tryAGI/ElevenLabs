@@ -5,39 +5,31 @@ namespace ElevenLabs
     public partial interface IVoicesClient
     {
         /// <summary>
-        /// Get Voice Accents<br/>
-        /// Gets the list of available accents in the shared voice library.
+        /// Get Voice Settings<br/>
+        /// Returns the settings for a specific voice. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
         /// </summary>
-        /// <param name="language">
-        /// If provided, only accents for this language code are returned.
-        /// </param>
-        /// <param name="modelId">
-        /// If provided, returns the accents available for this model. Defaults to the most complete accent list when omitted.
+        /// <param name="voiceId">
+        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.GetVoiceAccentsResponseModel> Get2Async(
-            string? language = default,
-            string? modelId = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.VoiceSettingsResponseModel> Get2Async(
+            string voiceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get Voice Accents<br/>
-        /// Gets the list of available accents in the shared voice library.
+        /// Get Voice Settings<br/>
+        /// Returns the settings for a specific voice. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
         /// </summary>
-        /// <param name="language">
-        /// If provided, only accents for this language code are returned.
-        /// </param>
-        /// <param name="modelId">
-        /// If provided, returns the accents available for this model. Defaults to the most complete accent list when omitted.
+        /// <param name="voiceId">
+        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetVoiceAccentsResponseModel>> Get2AsResponseAsync(
-            string? language = default,
-            string? modelId = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.VoiceSettingsResponseModel>> Get2AsResponseAsync(
+            string voiceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

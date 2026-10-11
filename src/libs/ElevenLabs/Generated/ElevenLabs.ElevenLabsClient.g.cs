@@ -95,6 +95,15 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        public AudioEffectsClient AudioEffects => new AudioEffectsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+        };
+
+        /// <summary>
+        ///
+        /// </summary>
         public AudioIsolationClient AudioIsolation => new AudioIsolationClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,

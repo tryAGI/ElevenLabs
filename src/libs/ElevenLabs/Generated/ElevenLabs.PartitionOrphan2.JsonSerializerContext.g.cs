@@ -17,17 +17,16 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AudioNativeCreateProjectResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AudioNativeEditContentResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AudioNativeProjectSettingsResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AudioNativeProjectSettingsResponseModelStatus), TypeInfoPropertyName = "AudioNativeProjectSettingsResponseModelStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePost))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePostApplyTextNormalization), TypeInfoPropertyName = "BodyCreatesAudioNativeEnabledProjectV1AudioNativePostApplyTextNormalization2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyUpdateAudioNativeProjectContentV1AudioNativeProjectIdContentPost))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyUpdateAudioNativeContentFromUrlV1AudioNativeContentPost))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetAudioNativeProjectSettingsResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AudioNativeProjectSettingsResponseModelStatus?), TypeInfoPropertyName = "NullableAudioNativeProjectSettingsResponseModelStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePostApplyTextNormalization?), TypeInfoPropertyName = "NullableBodyCreatesAudioNativeEnabledProjectV1AudioNativePostApplyTextNormalization2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AudioIsolationHistoryItemResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPost))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat), TypeInfoPropertyName = "BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPost))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat), TypeInfoPropertyName = "BodyAudioIsolationV1AudioIsolationPostFileFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetAudioIsolationHistoryResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.AudioIsolationHistoryItemResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat?), TypeInfoPropertyName = "NullableBodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat?), TypeInfoPropertyName = "NullableBodyAudioIsolationV1AudioIsolationPostFileFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AudioIsolationHistoryItemResponseModel>))]
     internal sealed partial class PartitionOrphan2SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -97,37 +96,37 @@ namespace ElevenLabs
             public override bool CanConvert(global::System.Type typeToConvert)
             {
                 return
-                    typeToConvert == typeof(global::ElevenLabs.AudioNativeProjectSettingsResponseModelStatus)
+                    typeToConvert == typeof(global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat)
 
-                    || typeToConvert == typeof(global::ElevenLabs.AudioNativeProjectSettingsResponseModelStatus?)
+                    || typeToConvert == typeof(global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat?)
 
-                    || typeToConvert == typeof(global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePostApplyTextNormalization)
+                    || typeToConvert == typeof(global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat)
 
-                    || typeToConvert == typeof(global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePostApplyTextNormalization?);
+                    || typeToConvert == typeof(global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
                 global::System.Type typeToConvert,
                 global::System.Text.Json.JsonSerializerOptions options)
             {
-                if (typeToConvert == typeof(global::ElevenLabs.AudioNativeProjectSettingsResponseModelStatus))
+                if (typeToConvert == typeof(global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat))
                 {
-                    return new global::ElevenLabs.JsonConverters.AudioNativeProjectSettingsResponseModelStatusJsonConverter();
+                    return new global::ElevenLabs.JsonConverters.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormatJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::ElevenLabs.AudioNativeProjectSettingsResponseModelStatus?))
+                if (typeToConvert == typeof(global::ElevenLabs.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormat?))
                 {
-                    return new global::ElevenLabs.JsonConverters.AudioNativeProjectSettingsResponseModelStatusNullableJsonConverter();
+                    return new global::ElevenLabs.JsonConverters.BodyAudioIsolationStreamV1AudioIsolationStreamPostFileFormatNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePostApplyTextNormalization))
+                if (typeToConvert == typeof(global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat))
                 {
-                    return new global::ElevenLabs.JsonConverters.BodyCreatesAudioNativeEnabledProjectV1AudioNativePostApplyTextNormalizationJsonConverter();
+                    return new global::ElevenLabs.JsonConverters.BodyAudioIsolationV1AudioIsolationPostFileFormatJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::ElevenLabs.BodyCreatesAudioNativeEnabledProjectV1AudioNativePostApplyTextNormalization?))
+                if (typeToConvert == typeof(global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat?))
                 {
-                    return new global::ElevenLabs.JsonConverters.BodyCreatesAudioNativeEnabledProjectV1AudioNativePostApplyTextNormalizationNullableJsonConverter();
+                    return new global::ElevenLabs.JsonConverters.BodyAudioIsolationV1AudioIsolationPostFileFormatNullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }

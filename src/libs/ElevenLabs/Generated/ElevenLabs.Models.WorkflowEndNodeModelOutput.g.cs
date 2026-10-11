@@ -30,6 +30,16 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<string> EdgeOrder { get; set; }
 
         /// <summary>
+        /// Whether reaching this End node ends the conversation as a success or a failure.<br/>
+        /// Default Value: success
+        /// </summary>
+        /// <default>global::ElevenLabs.WorkflowEndNodeOutcome.Success</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("outcome")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WorkflowEndNodeOutcomeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.WorkflowEndNodeOutcome Outcome { get; set; } = global::ElevenLabs.WorkflowEndNodeOutcome.Success;
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -44,6 +54,10 @@ namespace ElevenLabs
         /// <param name="edgeOrder">
         /// The ids of outgoing edges in the order they should be evaluated.
         /// </param>
+        /// <param name="outcome">
+        /// Whether reaching this End node ends the conversation as a success or a failure.<br/>
+        /// Default Value: success
+        /// </param>
         /// <param name="type">
         /// Default Value: end
         /// </param>
@@ -53,11 +67,13 @@ namespace ElevenLabs
         public WorkflowEndNodeModelOutput(
             global::ElevenLabs.PositionOutput position,
             global::System.Collections.Generic.IList<string> edgeOrder,
+            global::ElevenLabs.WorkflowEndNodeOutcome outcome,
             string type = "end")
         {
             this.Type = type;
             this.Position = position ?? throw new global::System.ArgumentNullException(nameof(position));
             this.EdgeOrder = edgeOrder ?? throw new global::System.ArgumentNullException(nameof(edgeOrder));
+            this.Outcome = outcome;
         }
 
         /// <summary>

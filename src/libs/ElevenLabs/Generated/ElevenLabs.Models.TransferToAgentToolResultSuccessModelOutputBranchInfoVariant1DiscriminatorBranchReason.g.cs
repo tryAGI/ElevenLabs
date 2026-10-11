@@ -11,6 +11,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Configured,
+        /// <summary>
+        ///
+        /// </summary>
         DefaultingToMain,
         /// <summary>
         ///
@@ -30,6 +34,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                TransferToAgentToolResultSuccessModelOutputBranchInfoVariant1DiscriminatorBranchReason.Configured => "configured",
                 TransferToAgentToolResultSuccessModelOutputBranchInfoVariant1DiscriminatorBranchReason.DefaultingToMain => "defaulting_to_main",
                 TransferToAgentToolResultSuccessModelOutputBranchInfoVariant1DiscriminatorBranchReason.TrafficSplit => "traffic_split",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -42,6 +47,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "configured" => TransferToAgentToolResultSuccessModelOutputBranchInfoVariant1DiscriminatorBranchReason.Configured,
                 "defaulting_to_main" => TransferToAgentToolResultSuccessModelOutputBranchInfoVariant1DiscriminatorBranchReason.DefaultingToMain,
                 "traffic_split" => TransferToAgentToolResultSuccessModelOutputBranchInfoVariant1DiscriminatorBranchReason.TrafficSplit,
                 _ => null,

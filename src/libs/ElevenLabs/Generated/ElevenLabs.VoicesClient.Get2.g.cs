@@ -27,13 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareGet2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? language,
-            ref string? modelId);
+            ref string voiceId);
         partial void PrepareGet2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? language,
-            string? modelId);
+            string voiceId);
         partial void ProcessGet2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,27 +42,22 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Voice Accents<br/>
-        /// Gets the list of available accents in the shared voice library.
+        /// Get Voice Settings<br/>
+        /// Returns the settings for a specific voice. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
         /// </summary>
-        /// <param name="language">
-        /// If provided, only accents for this language code are returned.
-        /// </param>
-        /// <param name="modelId">
-        /// If provided, returns the accents available for this model. Defaults to the most complete accent list when omitted.
+        /// <param name="voiceId">
+        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetVoiceAccentsResponseModel> Get2Async(
-            string? language = default,
-            string? modelId = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.VoiceSettingsResponseModel> Get2Async(
+            string voiceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get2AsResponseAsync(
-                language: language,
-                modelId: modelId,
+                voiceId: voiceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -72,21 +65,17 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Voice Accents<br/>
-        /// Gets the list of available accents in the shared voice library.
+        /// Get Voice Settings<br/>
+        /// Returns the settings for a specific voice. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
         /// </summary>
-        /// <param name="language">
-        /// If provided, only accents for this language code are returned.
-        /// </param>
-        /// <param name="modelId">
-        /// If provided, returns the accents available for this model. Defaults to the most complete accent list when omitted.
+        /// <param name="voiceId">
+        /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetVoiceAccentsResponseModel>> Get2AsResponseAsync(
-            string? language = default,
-            string? modelId = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.VoiceSettingsResponseModel>> Get2AsResponseAsync(
+            string voiceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -94,8 +83,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet2Arguments(
                 httpClient: HttpClient,
-                language: ref language,
-                modelId: ref modelId);
+                voiceId: ref voiceId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -121,12 +109,8 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/voices/accents",
+                                path: $"/v1/voices/{voiceId}/settings",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddOptionalParameter("language", language)
-                                .AddOptionalParameter("model_id", modelId)
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -167,8 +151,7 @@ namespace ElevenLabs
                 PrepareGet2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    language: language,
-                    modelId: modelId);
+                    voiceId: voiceId);
 
                 return __httpRequest;
             }
@@ -187,7 +170,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get2",
                                 methodName: "Get2Async",
-                                pathTemplate: "\"/v1/voices/accents\"",
+                                pathTemplate: "$\"/v1/voices/{voiceId}/settings\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -221,7 +204,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get2",
                                 methodName: "Get2Async",
-                                pathTemplate: "\"/v1/voices/accents\"",
+                                pathTemplate: "$\"/v1/voices/{voiceId}/settings\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -262,7 +245,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get2",
                                 methodName: "Get2Async",
-                                pathTemplate: "\"/v1/voices/accents\"",
+                                pathTemplate: "$\"/v1/voices/{voiceId}/settings\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -310,7 +293,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get2",
                                 methodName: "Get2Async",
-                                pathTemplate: "\"/v1/voices/accents\"",
+                                pathTemplate: "$\"/v1/voices/{voiceId}/settings\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -332,7 +315,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get2",
                                 methodName: "Get2Async",
-                                pathTemplate: "\"/v1/voices/accents\"",
+                                pathTemplate: "$\"/v1/voices/{voiceId}/settings\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -406,9 +389,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.GetVoiceAccentsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.VoiceSettingsResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetVoiceAccentsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.VoiceSettingsResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -438,9 +421,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.GetVoiceAccentsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.VoiceSettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetVoiceAccentsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.VoiceSettingsResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

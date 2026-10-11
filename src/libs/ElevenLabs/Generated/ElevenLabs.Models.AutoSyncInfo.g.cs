@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -23,10 +25,11 @@ namespace ElevenLabs
         public bool? AutoRemove { get; set; }
 
         /// <summary>
-        /// Whether new pages discovered during a refresh are crawled and added. Set from the owning crawl job at creation; the crawl job remains the source of truth for the discovery logic.<br/>
+        /// Deprecated. This field no longer has any effect and will be removed in a future release.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auto_discover")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? AutoDiscover { get; set; }
 
         /// <summary>
@@ -59,10 +62,6 @@ namespace ElevenLabs
         /// Whether to remove the document if the URL becomes unavailable<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="autoDiscover">
-        /// Whether new pages discovered during a refresh are crawled and added. Set from the owning crawl job at creation; the crawl job remains the source of truth for the discovery logic.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="consecFailures">
         /// Number of consecutive sync failures<br/>
         /// Default Value: 0
@@ -76,13 +75,11 @@ namespace ElevenLabs
         public AutoSyncInfo(
             int? minimumFrequencyDays,
             bool? autoRemove,
-            bool? autoDiscover,
             int? consecFailures,
             int? nextRefreshBy)
         {
             this.MinimumFrequencyDays = minimumFrequencyDays;
             this.AutoRemove = autoRemove;
-            this.AutoDiscover = autoDiscover;
             this.ConsecFailures = consecFailures;
             this.NextRefreshBy = nextRefreshBy;
         }

@@ -926,6 +926,60 @@
         "x-fern-streaming": true
       }
     },
+    "/v1/audio-effects/catalog": {
+      "get": {
+        "tags": [
+          "audio-effects"
+        ],
+        "summary": "Get Audio Effects Catalog",
+        "description": "Lists the filter presets, reverb environments, and background noises that `audio_effects` can reference in Text to Speech, Text to Dialogue, and agent configurations.",
+        "operationId": "get_audio_effects_catalog",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AudioEffectsCatalogResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "audio_effects",
+        "x-fern-sdk-method-name": "get_catalog"
+      }
+    },
     "/v1/voices/{voice_id}/samples/{sample_id}": {
       "delete": {
         "tags": [
@@ -3029,6 +3083,499 @@
           "subscription"
         ],
         "x-fern-sdk-method-name": "get"
+      }
+    },
+    "/v1/voices/collections": {
+      "get": {
+        "tags": [
+          "voices"
+        ],
+        "summary": "List Voice Collections",
+        "description": "Returns all the voice collections the user has access to, sorted by title.",
+        "operationId": "get_user_voice_collections",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserVoiceCollectionsResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "voices",
+          "collections"
+        ],
+        "x-fern-sdk-method-name": "list"
+      },
+      "post": {
+        "tags": [
+          "voices"
+        ],
+        "summary": "Create Voice Collection",
+        "description": "Creates a new voice collection. The caller becomes its admin.",
+        "operationId": "create_or_update_user_voice_collection",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Create_voice_collection_v1_voices_collections_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserVoiceCollectionResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "voices",
+          "collections"
+        ],
+        "x-fern-sdk-method-name": "create"
+      }
+    },
+    "/v1/voices/collections/{collection_id}": {
+      "get": {
+        "tags": [
+          "voices"
+        ],
+        "summary": "Get Voice Collection",
+        "description": "Returns a voice collection the user has access to.",
+        "operationId": "get_user_voice_collection",
+        "parameters": [
+          {
+            "name": "collection_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Collection ID.",
+              "title": "Collection Id"
+            },
+            "description": "Collection ID."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserVoiceCollectionResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "voices",
+          "collections"
+        ],
+        "x-fern-sdk-method-name": "get"
+      },
+      "patch": {
+        "tags": [
+          "voices"
+        ],
+        "summary": "Update Voice Collection",
+        "description": "Updates the title and icon of a voice collection. Fields that are omitted are left unchanged. Requires editor access to the collection.",
+        "operationId": "update_user_voice_collection",
+        "parameters": [
+          {
+            "name": "collection_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Collection ID.",
+              "title": "Collection Id"
+            },
+            "description": "Collection ID."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Update_voice_collection_v1_voices_collections__collection_id__patch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserVoiceCollectionResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "voices",
+          "collections"
+        ],
+        "x-fern-sdk-method-name": "update"
+      },
+      "delete": {
+        "tags": [
+          "voices"
+        ],
+        "summary": "Delete Voice Collection",
+        "description": "Deletes a voice collection. The voices in it are not deleted. Requires admin access to the collection.",
+        "operationId": "delete_user_voice_collection",
+        "parameters": [
+          {
+            "name": "collection_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Collection ID.",
+              "title": "Collection Id"
+            },
+            "description": "Collection ID."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteUserVoiceCollectionResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "voices",
+          "collections"
+        ],
+        "x-fern-sdk-method-name": "delete"
+      }
+    },
+    "/v1/voices/collections/{collection_id}/voice/{voice_id}": {
+      "post": {
+        "tags": [
+          "voices"
+        ],
+        "summary": "Add Voice To Collection",
+        "description": "Adds a voice to a voice collection. Adding a voice that is already in the collection succeeds without changes. Requires editor access to the collection.",
+        "operationId": "add_voice_to_user_voice_collection",
+        "parameters": [
+          {
+            "name": "collection_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Collection ID.",
+              "title": "Collection Id"
+            },
+            "description": "Collection ID."
+          },
+          {
+            "name": "voice_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.",
+              "examples": [
+                "21m00Tcm4TlvDq8ikWAM"
+              ],
+              "title": "Voice Id"
+            },
+            "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddVoiceToUserVoiceCollectionResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "voices",
+          "collections"
+        ],
+        "x-fern-sdk-method-name": "add_voice"
+      },
+      "delete": {
+        "tags": [
+          "voices"
+        ],
+        "summary": "Remove Voice From Collection",
+        "description": "Removes a voice from a voice collection. The voice itself is not deleted. Requires editor access to the collection.",
+        "operationId": "remove_voice_from_user_voice_collection",
+        "parameters": [
+          {
+            "name": "collection_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Collection ID.",
+              "title": "Collection Id"
+            },
+            "description": "Collection ID."
+          },
+          {
+            "name": "voice_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.",
+              "examples": [
+                "21m00Tcm4TlvDq8ikWAM"
+              ],
+              "title": "Voice Id"
+            },
+            "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoveVoiceFromUserVoiceCollectionResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "voices",
+          "collections"
+        ],
+        "x-fern-sdk-method-name": "remove_voice"
       }
     },
     "/v1/voices/settings/default": {
@@ -14056,6 +14603,14 @@
                   "format": "binary"
                 }
               }
+            },
+            "headers": {
+              "song-id": {
+                "description": "Unique identifier for the generated song",
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "403": {
@@ -17732,6 +18287,24 @@
             "description": "Filter test visibility. Use `shared_with_me` to return only tests/folders shared with the current user that they did not create."
           },
           {
+            "name": "created_by_user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tests and folders by creator user ID. Use '@me' to refer to the authenticated user.",
+              "title": "Created By User Id"
+            },
+            "description": "Filter tests and folders by creator user ID. Use '@me' to refer to the authenticated user."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -17820,6 +18393,78 @@
               "title": "Branch Id"
             },
             "description": "Filter by branch ID"
+          },
+          {
+            "name": "test_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter to invocations that include a run of this test id",
+              "title": "Test Id"
+            },
+            "description": "Filter to invocations that include a run of this test id"
+          },
+          {
+            "name": "start_time",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Inclusive lower bound on created_at, in unix seconds",
+              "title": "Start Time"
+            },
+            "description": "Inclusive lower bound on created_at, in unix seconds"
+          },
+          {
+            "name": "end_time",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Inclusive upper bound on created_at, in unix seconds",
+              "title": "End Time"
+            },
+            "description": "Inclusive upper bound on created_at, in unix seconds"
+          },
+          {
+            "name": "version_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by the agent version the tests ran against",
+              "title": "Version Id"
+            },
+            "description": "Filter by the agent version the tests ran against"
           },
           {
             "name": "page_size",
@@ -21361,6 +22006,43 @@
             "description": "Filter tickets by an exact label."
           },
           {
+            "name": "merged_into_ticket_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tickets merged into this ticket.",
+              "title": "Merged Into Ticket Id"
+            },
+            "description": "Filter tickets merged into this ticket."
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 200
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.",
+              "title": "Search"
+            },
+            "description": "Case-insensitive free-text search across the ticket's title, description, comments, and turn comments."
+          },
+          {
             "name": "cursor",
             "in": "query",
             "required": false,
@@ -21501,7 +22183,7 @@
     "/v1/convai/triage-tickets": {
       "get": {
         "summary": "List Workspace Conversation Tickets",
-        "description": "List conversation triage tickets across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, tickets assigned to the caller); for a single agent's tickets, use the per-agent endpoint instead. Tickets for agents the caller cannot access are omitted.",
+        "description": "List conversation triage tickets across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, tickets assigned to the caller). Supports the same filters, sorting and search as the per-agent endpoint. Tickets for agents the caller cannot access are omitted.",
         "operationId": "list_workspace_conversation_tickets_route",
         "parameters": [
           {
@@ -21517,6 +22199,24 @@
               "title": "Page Size"
             },
             "description": "How many agent conversation tickets to return. Can not exceed 100."
+          },
+          {
+            "name": "agent_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only tickets for this agent.",
+              "title": "Agent Id"
+            },
+            "description": "Only tickets for this agent."
           },
           {
             "name": "status",
@@ -21537,6 +22237,77 @@
             "description": "Filter tickets by status."
           },
           {
+            "name": "sources",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AgentConversationTicketSource"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.",
+              "title": "Sources"
+            },
+            "description": "Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources."
+          },
+          {
+            "name": "priorities",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AgentConversationTicketPriority"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tickets by priority. Repeat the parameter to filter by multiple priorities.",
+              "title": "Priorities"
+            },
+            "description": "Filter tickets by priority. Repeat the parameter to filter by multiple priorities."
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/AgentConversationTicketSortBy",
+              "description": "Order by most recently created, or by priority (most urgent first, then most recently created).",
+              "default": "created_at"
+            },
+            "description": "Order by most recently created, or by priority (most urgent first, then most recently created)."
+          },
+          {
+            "name": "owner_user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tickets by creator. Use 'agent' for agent-raised tickets.",
+              "title": "Owner User Id"
+            },
+            "description": "Filter tickets by creator. Use 'agent' for agent-raised tickets."
+          },
+          {
             "name": "assignee_user_id",
             "in": "query",
             "required": false,
@@ -21553,6 +22324,79 @@
               "title": "Assignee User Id"
             },
             "description": "Filter tickets by assignee. Use 'unassigned' for tickets with no assignee."
+          },
+          {
+            "name": "issue_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/AgentConversationTicketIssueType"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter clusters by issue type.",
+              "title": "Issue Type"
+            },
+            "description": "Filter clusters by issue type."
+          },
+          {
+            "name": "label",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tickets by an exact label.",
+              "title": "Label"
+            },
+            "description": "Filter tickets by an exact label."
+          },
+          {
+            "name": "merged_into_ticket_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter tickets merged into this ticket.",
+              "title": "Merged Into Ticket Id"
+            },
+            "description": "Filter tickets merged into this ticket."
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 200
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.",
+              "title": "Search"
+            },
+            "description": "Case-insensitive free-text search across the ticket's title, description, comments, and turn comments."
           },
           {
             "name": "cursor",
@@ -22011,6 +22855,80 @@
           "triage_tickets"
         ],
         "x-fern-sdk-method-name": "add_comment"
+      }
+    },
+    "/v1/convai/triage-tickets/{agentqa_ticket_id}/merge": {
+      "post": {
+        "summary": "Merge Agent Conversation Tickets",
+        "description": "Merge other open tickets of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this ticket, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the ticket's agent.",
+        "operationId": "merge_agent_conversation_tickets_route",
+        "parameters": [
+          {
+            "name": "agentqa_ticket_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agentqa Ticket Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MergeAgentConversationTicketsRequestModel",
+                "description": "Tickets to merge into this one."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentConversationTicketResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "triage_tickets"
+        ],
+        "x-fern-sdk-method-name": "merge"
       }
     },
     "/v1/convai/triage-tickets/{agentqa_ticket_id}/turn-comments": {
@@ -26548,6 +27466,24 @@
             "description": "The field to sort the results by"
           },
           {
+            "name": "used_by_agent_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter to tools referenced by this agent's main branch: tools attached to the agent, tools on authored workflow nodes, and tools referenced by procedures.",
+              "title": "Used By Agent Id"
+            },
+            "description": "Filter to tools referenced by this agent's main branch: tools attached to the agent, tools on authored workflow nodes, and tools referenced by procedures."
+          },
+          {
             "name": "cursor",
             "in": "query",
             "required": false,
@@ -30036,7 +30972,7 @@
           "Agents Platform"
         ],
         "summary": "Update Agent Branch",
-        "description": "Update agent branch properties such as archiving status and protection level",
+        "description": "Update agent branch properties such as archiving status, protection level, and auto-rebase onto main",
         "operationId": "update_branch_route",
         "parameters": [
           {
@@ -38350,7 +39286,7 @@
           "access:all"
         ],
         "summary": "Get Workspace Usage",
-        "description": "Returns credit usage broken down by product type over time. The response is a tabular structure with columns, column_types, column_units, and rows.",
+        "description": "Returns credit usage broken down by product type over time. The response is a tabular structure with columns, column_types, column_units, and rows. Some id columns also get a display-name column, such as user_label or voice_name, appended after the existing columns.",
         "operationId": "usage_by_product_over_time",
         "parameters": [
           {
@@ -40118,6 +41054,26 @@
           "voice_id": "b38kUX8pkfYO2kHyqfFy"
         }
       },
+      "AddVoiceToUserVoiceCollectionResponseModel": {
+        "properties": {
+          "collection_id": {
+            "type": "string",
+            "title": "Collection Id",
+            "description": "The ID of the voice collection."
+          },
+          "voice_id": {
+            "type": "string",
+            "title": "Voice Id",
+            "description": "The ID of the voice that was added."
+          }
+        },
+        "type": "object",
+        "required": [
+          "collection_id",
+          "voice_id"
+        ],
+        "title": "AddVoiceToUserVoiceCollectionResponseModel"
+      },
       "AddWorkspaceGroupMemberResponseModel": {
         "properties": {
           "status": {
@@ -40401,6 +41357,11 @@
             "$ref": "#/components/schemas/BranchProtectionStatus",
             "default": "writer_perms_required"
           },
+          "auto_rebase": {
+            "type": "boolean",
+            "title": "Auto Rebase",
+            "default": false
+          },
           "access_info": {
             "anyOf": [
               {
@@ -40483,6 +41444,11 @@
           "protection_status": {
             "$ref": "#/components/schemas/BranchProtectionStatus",
             "default": "writer_perms_required"
+          },
+          "auto_rebase": {
+            "type": "boolean",
+            "title": "Auto Rebase",
+            "default": false
           },
           "access_info": {
             "anyOf": [
@@ -41339,6 +42305,18 @@
             "type": "array",
             "title": "Priority Changes"
           },
+          "merged_into_ticket_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Merged Into Ticket Id",
+            "description": "The ticket this one was merged into, set while its status is 'merged'."
+          },
           "source": {
             "$ref": "#/components/schemas/AgentConversationTicketSource"
           },
@@ -41360,6 +42338,17 @@
           "updated_at_unix_secs": {
             "type": "integer",
             "title": "Updated At Unix Secs"
+          },
+          "search_match": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TicketSearchMatchResponseModel"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Where the list's `search` query matched. Set only on searched lists."
           }
         },
         "type": "object",
@@ -42675,6 +43664,17 @@
             ],
             "title": "Agent Id"
           },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id"
+          },
           "node_id": {
             "anyOf": [
               {
@@ -42747,6 +43747,17 @@
               }
             ],
             "title": "Agent Id"
+          },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id"
           },
           "node_id": {
             "anyOf": [
@@ -43440,6 +44451,7 @@
             },
             "success_end": {
               "edge_order": [],
+              "outcome": "success",
               "position": {
                 "x": 0.0,
                 "y": 0.0
@@ -43600,7 +44612,7 @@
               }
             ],
             "title": "Relative Increase Threshold",
-            "description": "Relative increase over the trailing baseline at which this monitor can notify (0.2 = 20% above baseline, 0 = any failure)."
+            "description": "Relative increase over the trailing baseline at which this monitor can notify (0.2 = 20% above baseline, 0 = any failure). For conversation_volume_drop it is the share of the usual volume that must be missing, between 0.1 and 0.9 (0.5 = half)."
           },
           "min_failure_count": {
             "anyOf": [
@@ -45654,6 +46666,137 @@
         ],
         "title": "AudioAnalysisResult"
       },
+      "AudioEffectsBackgroundNoiseResponseModel": {
+        "properties": {
+          "background_noise_id": {
+            "type": "string",
+            "title": "Background Noise Id",
+            "description": "Value for `audio_effects.background_noise_id`."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Display name."
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "What the noise bed sounds like."
+          }
+        },
+        "type": "object",
+        "required": [
+          "background_noise_id",
+          "name",
+          "description"
+        ],
+        "title": "AudioEffectsBackgroundNoiseResponseModel"
+      },
+      "AudioEffectsCatalogResponseModel": {
+        "properties": {
+          "filter_presets": {
+            "items": {
+              "$ref": "#/components/schemas/AudioEffectsFilterPresetResponseModel"
+            },
+            "type": "array",
+            "title": "Filter Presets"
+          },
+          "environments": {
+            "items": {
+              "$ref": "#/components/schemas/AudioEffectsEnvironmentResponseModel"
+            },
+            "type": "array",
+            "title": "Environments"
+          },
+          "background_noises": {
+            "items": {
+              "$ref": "#/components/schemas/AudioEffectsBackgroundNoiseResponseModel"
+            },
+            "type": "array",
+            "title": "Background Noises"
+          }
+        },
+        "type": "object",
+        "required": [
+          "filter_presets",
+          "environments",
+          "background_noises"
+        ],
+        "title": "AudioEffectsCatalogResponseModel"
+      },
+      "AudioEffectsEnvironmentResponseModel": {
+        "properties": {
+          "environment_id": {
+            "type": "string",
+            "title": "Environment Id",
+            "description": "Value for `audio_effects.environment_id`."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Display name."
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "What the space sounds like."
+          }
+        },
+        "type": "object",
+        "required": [
+          "environment_id",
+          "name",
+          "description"
+        ],
+        "title": "AudioEffectsEnvironmentResponseModel"
+      },
+      "AudioEffectsFilterPresetResponseModel": {
+        "properties": {
+          "filter_preset_id": {
+            "type": "string",
+            "title": "Filter Preset Id",
+            "description": "Value for `audio_effects.filter_preset_id`."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Display name."
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "What the preset sounds like."
+          }
+        },
+        "type": "object",
+        "required": [
+          "filter_preset_id",
+          "name",
+          "description"
+        ],
+        "title": "AudioEffectsFilterPresetResponseModel"
+      },
       "AudioIsolationHistoryItemResponseModel": {
         "properties": {
           "id": {
@@ -46526,8 +47669,9 @@
           "auto_discover": {
             "type": "boolean",
             "title": "Auto Discover",
-            "description": "Whether new pages discovered during a refresh are crawled and added. Set from the owning crawl job at creation; the crawl job remains the source of truth for the discovery logic.",
-            "default": false
+            "description": "Deprecated. This field no longer has any effect and will be removed in a future release.",
+            "default": false,
+            "deprecated": true
           },
           "consec_failures": {
             "type": "integer",
@@ -46628,6 +47772,7 @@
                 "type": "null"
               }
             ],
+            "title": "Source Id",
             "description": "Identifier for the sound source."
           },
           "volume": {
@@ -46670,6 +47815,7 @@
                 "type": "null"
               }
             ],
+            "title": "Source Id",
             "description": "Identifier for the sound source."
           },
           "volume": {
@@ -46829,7 +47975,7 @@
           "retranscribe_on_turn_timeout": {
             "type": "boolean",
             "title": "Retranscribe On Turn Timeout",
-            "description": "When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.",
+            "description": "When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing while enabled for the active agent or workflow node.",
             "default": false
           },
           "turn_model": {
@@ -47366,6 +48512,27 @@
           "campaign_lead_id": {
             "type": "string",
             "title": "Campaign Lead Id"
+          },
+          "cold_attempt": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cold Attempt"
+          },
+          "conversation_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CampaignConversationType"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -50183,6 +51350,28 @@
         ],
         "title": "Body_Create_text_document_v1_convai_knowledge_base_text_post"
       },
+      "Body_Create_voice_collection_v1_voices_collections_post": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 1000,
+            "title": "Title",
+            "description": "Title of the collection to create/update."
+          },
+          "icon": {
+            "type": "string",
+            "maxLength": 1000,
+            "title": "Icon",
+            "description": "Icon of the collection to create/update."
+          }
+        },
+        "type": "object",
+        "required": [
+          "title",
+          "icon"
+        ],
+        "title": "Body_Create_voice_collection_v1_voices_collections_post"
+      },
       "Body_Create_workspace_webhook_v1_workspace_webhooks_post": {
         "properties": {
           "settings": {
@@ -52569,7 +53758,7 @@
               }
             ],
             "title": "Entity Detection",
-            "description": "Detect entities in the transcript. Can be 'all' to detect all entities, a single entity type or category string, or a list of entity types/categories. Categories include 'pii', 'phi', 'pci', 'other', 'offensive_language'. When enabled, detected entities will be returned in the 'entities' field with their text, type, and character positions. Usage of this parameter will incur an additional 30% surcharge on the base transcription cost."
+            "description": "Detect entities in the transcript. Can be 'all' to detect all entities, a single entity type or category string, or a list of entity types/categories. Categories include 'pii', 'phi', 'pci', 'other', 'offensive_language'. When enabled, detected entities will be returned in the 'entities' field with their text, type, and character positions."
           },
           "no_verbatim": {
             "type": "boolean",
@@ -52605,7 +53794,7 @@
               }
             ],
             "title": "Entity Redaction",
-            "description": "Redact entities from the transcript text. Accepts the same format as entity_detection: 'all', a category ('pii', 'phi'), or specific entity types. Must be a subset of entity_detection. When redaction is enabled, the entities field will not be returned. Usage of this parameter will incur an additional 30% surcharge on the base transcription cost."
+            "description": "Redact entities from the transcript text. Accepts the same format as entity_detection: 'all', a category ('pii', 'phi'), or specific entity types. Must be a subset of entity_detection. When redaction is enabled, the entities field will not be returned."
           },
           "entity_redaction_mode": {
             "type": "string",
@@ -53285,6 +54474,17 @@
             ],
             "title": "Next Request Ids",
             "description": "A list of request_ids of dialogue generations that come after this one. Useful for maintaining continuity when regenerating a clip in the middle of a sequence. A maximum of 3 request_ids can be sent. The first request_id is the audio which is closest to the current request. Not supported by every model."
+          },
+          "audio_effects": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EffectsSpec-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Audio effects applied to the generated audio. Unknown IDs return 404 with `param` naming the field. Reverb (`environment_id` with `send_level` above 0) and a non-zero `pan` produce stereo audio and are rejected with 400 for `ulaw_*`, `alaw_*`, and `pcm_*` output formats. Effects don't change the cost of the request."
           }
         },
         "type": "object",
@@ -53468,6 +54668,17 @@
             ],
             "title": "Next Request Ids",
             "description": "A list of request_ids of dialogue generations that come after this one. Useful for maintaining continuity when regenerating a clip in the middle of a sequence. A maximum of 3 request_ids can be sent. The first request_id is the audio which is closest to the current request. Not supported by every model."
+          },
+          "audio_effects": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EffectsSpec-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Audio effects applied to the generated audio. Unknown IDs return 404 with `param` naming the field. Reverb (`environment_id` with `send_level` above 0) and a non-zero `pan` produce stereo audio and are rejected with 400 for `ulaw_*`, `alaw_*`, and `pcm_*` output formats. Effects don't change the cost of the request."
           }
         },
         "type": "object",
@@ -53883,6 +55094,18 @@
               }
             ],
             "description": "The protection level for the branch"
+          },
+          "auto_rebase": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Auto Rebase",
+            "description": "When true, rebase this branch onto main automatically after each new main version. Cannot be enabled on the main branch."
           }
         },
         "type": "object",
@@ -54090,6 +55313,12 @@
               }
             ],
             "description": "The workspace seat type"
+          },
+          "allow_downgrade_to_basic_seat": {
+            "type": "boolean",
+            "title": "Allow Downgrade To Basic Seat",
+            "description": "When unlocking a user whose original seat type has no seats available but a basic seat is available, downgrade the user to a basic seat instead of failing.",
+            "default": false
           }
         },
         "type": "object",
@@ -54212,6 +55441,38 @@
         },
         "type": "object",
         "title": "Body_Update_pronunciation_dictionary_v1_pronunciation_dictionaries__pronunciation_dictionary_id__patch"
+      },
+      "Body_Update_voice_collection_v1_voices_collections__collection_id__patch": {
+        "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 1000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title",
+            "description": "Title of the collection to create/update."
+          },
+          "icon": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 1000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Icon",
+            "description": "Icon of the collection to create/update."
+          }
+        },
+        "type": "object",
+        "title": "Body_Update_voice_collection_v1_voices_collections__collection_id__patch"
       },
       "Body_Update_workspace_webhook_v1_workspace_webhooks__webhook_id__patch": {
         "properties": {
@@ -54413,7 +55674,7 @@
             "anyOf": [
               {
                 "type": "string",
-                "maxLength": 1000,
+                "maxLength": 4100,
                 "minLength": 1
               },
               {
@@ -54421,7 +55682,7 @@
               }
             ],
             "title": "Description",
-            "description": "Optional text description of the music you want. A maximum of 1000 characters is allowed."
+            "description": "Optional text description of the music you want. A maximum of 4100 characters is allowed."
           },
           "tags": {
             "items": {
@@ -54936,6 +56197,17 @@
             ],
             "title": "Future Text",
             "description": "The text that comes immediately after this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model."
+          },
+          "audio_effects": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EffectsSpec-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Audio effects applied to the generated audio. Unknown IDs return 404 with `param` naming the field. Reverb (`environment_id` with `send_level` above 0) and a non-zero `pan` produce stereo audio and are rejected with 400 for `ulaw_*`, `alaw_*`, and `pcm_*` output formats. Effects don't change the cost of the request."
           }
         },
         "type": "object",
@@ -55119,6 +56391,17 @@
             ],
             "title": "Future Text",
             "description": "The text that comes immediately after this generation, used to condition the model for prosodic continuity. A maximum of 100 characters can be sent. Not supported by every model."
+          },
+          "audio_effects": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EffectsSpec-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Audio effects applied to the generated audio. Unknown IDs return 404 with `param` naming the field. Reverb (`environment_id` with `send_level` above 0) and a non-zero `pan` produce stereo audio and are rejected with 400 for `ulaw_*`, `alaw_*`, and `pcm_*` output formats. Effects don't change the cost of the request."
           }
         },
         "type": "object",
@@ -55312,6 +56595,17 @@
             "examples": [
               true
             ]
+          },
+          "audio_effects": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EffectsSpec-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Audio effects applied to the generated audio. Unknown IDs return 404 with `param` naming the field. Reverb (`environment_id` with `send_level` above 0) and a non-zero `pan` produce stereo audio and are rejected with 400 for `ulaw_*`, `alaw_*`, and `pcm_*` output formats. Effects don't change the cost of the request."
           }
         },
         "type": "object",
@@ -55484,6 +56778,17 @@
             "examples": [
               true
             ]
+          },
+          "audio_effects": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EffectsSpec-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Audio effects applied to the generated audio. Unknown IDs return 404 with `param` naming the field. Reverb (`environment_id` with `send_level` above 0) and a non-zero `pan` produce stereo audio and are rejected with 400 for `ulaw_*`, `alaw_*`, and `pcm_*` output formats. Effects don't change the cost of the request."
           }
         },
         "type": "object",
@@ -55677,6 +56982,17 @@
             "examples": [
               true
             ]
+          },
+          "audio_effects": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EffectsSpec-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Audio effects applied to the generated audio. Unknown IDs return 404 with `param` naming the field. Reverb (`environment_id` with `send_level` above 0) and a non-zero `pan` produce stereo audio and are rejected with 400 for `ulaw_*`, `alaw_*`, and `pcm_*` output formats. Effects don't change the cost of the request."
           }
         },
         "type": "object",
@@ -55870,6 +57186,17 @@
             "examples": [
               true
             ]
+          },
+          "audio_effects": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EffectsSpec-Input"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Audio effects applied to the generated audio. Unknown IDs return 404 with `param` naming the field. Reverb (`environment_id` with `send_level` above 0) and a non-zero `pan` produce stereo audio and are rejected with 400 for `ulaw_*`, `alaw_*`, and `pcm_*` output formats. Effects don't change the cost of the request."
           }
         },
         "type": "object",
@@ -57057,6 +58384,27 @@
         ],
         "title": "BytedanceSeedream5ProRequest",
         "description": "Request body for the ByteDance Seedream 5.0 Pro image model.\n\nByteDance models are disabled by default and require explicit approval\nbefore use. Contact support to request access."
+      },
+      "CallResult": {
+        "type": "string",
+        "enum": [
+          "answered",
+          "voicemail",
+          "busy",
+          "no_answer",
+          "failed"
+        ],
+        "title": "CallResult"
+      },
+      "CampaignConversationType": {
+        "type": "string",
+        "enum": [
+          "initial",
+          "retry",
+          "callback",
+          "redirect"
+        ],
+        "title": "CampaignConversationType"
       },
       "CancelCalendarEventParams": {
         "properties": {
@@ -58704,9 +60052,9 @@
           "response_timeout_secs": {
             "type": "integer",
             "maximum": 120.0,
-            "minimum": 1.0,
+            "minimum": -1.0,
             "title": "Response Timeout Secs",
-            "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive).",
+            "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive), or -1 to wait for the client's response indefinitely (requires expects_response).",
             "default": 20
           },
           "disable_interruptions": {
@@ -58827,9 +60175,9 @@
           "response_timeout_secs": {
             "type": "integer",
             "maximum": 120.0,
-            "minimum": 1.0,
+            "minimum": -1.0,
             "title": "Response Timeout Secs",
-            "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive).",
+            "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive), or -1 to wait for the client's response indefinitely (requires expects_response).",
             "default": 20
           },
           "disable_interruptions": {
@@ -59273,6 +60621,16 @@
         "type": "object",
         "title": "ComputedUsagePlatformLimit",
         "description": "Platform limit with usage computed externally. Example: PVCs use the count_owned_pro_voices_in_billing_group function to compute the usage."
+      },
+      "ConditionStrength": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high",
+          "xhigh"
+        ],
+        "title": "ConditionStrength"
       },
       "ConfigEntityType": {
         "type": "string",
@@ -60830,6 +62188,7 @@
           "guardrail_triggered",
           "safety_violation",
           "max_duration_exceeded",
+          "workflow_end_failure",
           "internal_error",
           "post_processing_error"
         ],
@@ -61076,6 +62435,16 @@
           "external_number": {
             "type": "string",
             "title": "External Number"
+          },
+          "call_result": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CallResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "type": {
             "type": "string",
@@ -61534,6 +62903,16 @@
           "external_number": {
             "type": "string",
             "title": "External Number"
+          },
+          "call_result": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CallResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "type": {
             "type": "string",
@@ -63439,6 +64818,16 @@
           "external_number": {
             "type": "string",
             "title": "External Number"
+          },
+          "call_result": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CallResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "type": {
             "type": "string",
@@ -66059,7 +67448,7 @@
               }
             ],
             "title": "Trigger",
-            "description": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it. If omitted or null, the trigger is derived from the content instead. Also accepts `description` as an alias."
+            "description": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it. Omit this field (or send null) to keep the stored trigger, which is empty on create. Send `\"\"` to clear it. `description` is accepted as an alias."
           },
           "folder_parent_id": {
             "anyOf": [
@@ -67856,6 +69245,20 @@
         },
         "type": "object",
         "title": "DeleteTransferRuleParams"
+      },
+      "DeleteUserVoiceCollectionResponseModel": {
+        "properties": {
+          "collection_id": {
+            "type": "string",
+            "title": "Collection Id",
+            "description": "The ID of the deleted voice collection."
+          }
+        },
+        "type": "object",
+        "required": [
+          "collection_id"
+        ],
+        "title": "DeleteUserVoiceCollectionResponseModel"
       },
       "DeleteVoiceResponseModel": {
         "properties": {
@@ -70995,13 +72398,15 @@
                 "type": "null"
               }
             ],
-            "title": "Filter Preset Id"
+            "title": "Filter Preset Id",
+            "description": "ID of a filter preset that colors the voice, such as `phone` or `old_radio`. List valid IDs with `GET /v1/audio-effects/catalog`."
           },
           "distance": {
             "type": "number",
             "maximum": 1.0,
             "minimum": 0.0,
             "title": "Distance",
+            "description": "How far the speaker sounds from the microphone, from 0 (close, unchanged) to 1 (far). Higher values roll off low and high frequencies and, when an environment is set, shift the balance from the dry voice toward the reverb.",
             "default": 0.0
           },
           "environment_id": {
@@ -71013,7 +72418,8 @@
                 "type": "null"
               }
             ],
-            "title": "Environment Id"
+            "title": "Environment Id",
+            "description": "ID of a reverb environment that places the voice in a space, such as `small_room` or `hall`. List valid IDs with `GET /v1/audio-effects/catalog`. Reverb is rendered in stereo and adds a tail of up to several seconds after the speech ends."
           },
           "background_noise_id": {
             "anyOf": [
@@ -71024,14 +72430,24 @@
                 "type": "null"
               }
             ],
-            "title": "Background Noise Id"
+            "title": "Background Noise Id",
+            "description": "ID of a background noise bed looped under the voice, such as `cafe` or `keyboard`. List valid IDs with `GET /v1/audio-effects/catalog`."
           },
           "send_level": {
             "type": "number",
             "maximum": 1.0,
             "minimum": 0.0,
             "title": "Send Level",
+            "description": "How much of the voice feeds the reverb, from 0 (none) to 1 (full). Only applies when `environment_id` is set; 0 turns the reverb off.",
             "default": 1.0
+          },
+          "pan": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": -1.0,
+            "title": "Pan",
+            "description": "Stereo position of the voice, from -1 (hard left) through 0 (center) to 1 (hard right). Only the voice is panned; reverb and background noise stay centered.",
+            "default": 0.0
           },
           "seed": {
             "anyOf": [
@@ -71042,12 +72458,14 @@
                 "type": "null"
               }
             ],
-            "title": "Seed"
+            "title": "Seed",
+            "description": "Has no effect.",
+            "deprecated": true
           }
         },
         "type": "object",
         "title": "EffectsSpec",
-        "description": "Filter preset, distance (proximity EQ), and environment (convolution reverb)."
+        "description": "Audio effects applied to generated speech: a filter preset, perceived distance, a reverb\nenvironment, a background noise bed, and stereo panning. Leave every field at its default\nto get unprocessed audio."
       },
       "EffectsSpec-Output": {
         "properties": {
@@ -71060,13 +72478,15 @@
                 "type": "null"
               }
             ],
-            "title": "Filter Preset Id"
+            "title": "Filter Preset Id",
+            "description": "ID of a filter preset that colors the voice, such as `phone` or `old_radio`. List valid IDs with `GET /v1/audio-effects/catalog`."
           },
           "distance": {
             "type": "number",
             "maximum": 1.0,
             "minimum": 0.0,
             "title": "Distance",
+            "description": "How far the speaker sounds from the microphone, from 0 (close, unchanged) to 1 (far). Higher values roll off low and high frequencies and, when an environment is set, shift the balance from the dry voice toward the reverb.",
             "default": 0.0
           },
           "environment_id": {
@@ -71078,7 +72498,8 @@
                 "type": "null"
               }
             ],
-            "title": "Environment Id"
+            "title": "Environment Id",
+            "description": "ID of a reverb environment that places the voice in a space, such as `small_room` or `hall`. List valid IDs with `GET /v1/audio-effects/catalog`. Reverb is rendered in stereo and adds a tail of up to several seconds after the speech ends."
           },
           "background_noise_id": {
             "anyOf": [
@@ -71089,14 +72510,24 @@
                 "type": "null"
               }
             ],
-            "title": "Background Noise Id"
+            "title": "Background Noise Id",
+            "description": "ID of a background noise bed looped under the voice, such as `cafe` or `keyboard`. List valid IDs with `GET /v1/audio-effects/catalog`."
           },
           "send_level": {
             "type": "number",
             "maximum": 1.0,
             "minimum": 0.0,
             "title": "Send Level",
+            "description": "How much of the voice feeds the reverb, from 0 (none) to 1 (full). Only applies when `environment_id` is set; 0 turns the reverb off.",
             "default": 1.0
+          },
+          "pan": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": -1.0,
+            "title": "Pan",
+            "description": "Stereo position of the voice, from -1 (hard left) through 0 (center) to 1 (hard right). Only the voice is panned; reverb and background noise stay centered.",
+            "default": 0.0
           },
           "seed": {
             "anyOf": [
@@ -71107,7 +72538,9 @@
                 "type": "null"
               }
             ],
-            "title": "Seed"
+            "title": "Seed",
+            "description": "Has no effect.",
+            "deprecated": true
           }
         },
         "type": "object",
@@ -71117,10 +72550,11 @@
           "environment_id",
           "background_noise_id",
           "send_level",
+          "pan",
           "seed"
         ],
         "title": "EffectsSpec",
-        "description": "Filter preset, distance (proximity EQ), and environment (convolution reverb)."
+        "description": "Audio effects applied to generated speech: a filter preset, perceived distance, a reverb\nenvironment, a background noise bed, and stereo panning. Leave every field at its default\nto get unprocessed audio."
       },
       "ElevenFlashV2_5Request": {
         "properties": {
@@ -74124,19 +75558,12 @@
           "condition_strength": {
             "anyOf": [
               {
-                "type": "string",
-                "enum": [
-                  "low",
-                  "medium",
-                  "high",
-                  "xhigh"
-                ]
+                "$ref": "#/components/schemas/ConditionStrength"
               },
               {
                 "type": "null"
               }
             ],
-            "title": "Condition Strength",
             "description": "How strongly the model adheres to the conditioning reference. Low strength means the model will be more creative and deviate from the reference. High strength means the model will be more consistent with the reference."
           }
         },
@@ -74206,19 +75633,12 @@
           "condition_strength": {
             "anyOf": [
               {
-                "type": "string",
-                "enum": [
-                  "low",
-                  "medium",
-                  "high",
-                  "xhigh"
-                ]
+                "$ref": "#/components/schemas/ConditionStrength"
               },
               {
                 "type": "null"
               }
             ],
-            "title": "Condition Strength",
             "description": "How strongly the model adheres to the conditioning reference. Low strength means the model will be more creative and deviate from the reference. High strength means the model will be more consistent with the reference."
           }
         },
@@ -74759,6 +76179,7 @@
               },
               "success_end": {
                 "edge_order": [],
+                "outcome": "success",
                 "position": {
                   "x": 0.0,
                   "y": 0.0
@@ -78365,6 +79786,23 @@
           "has_more"
         ],
         "title": "GetToolExecutionsPageResponseModel"
+      },
+      "GetUserVoiceCollectionsResponseModel": {
+        "properties": {
+          "collections": {
+            "items": {
+              "$ref": "#/components/schemas/UserVoiceCollectionResponseModel"
+            },
+            "type": "array",
+            "title": "Collections",
+            "description": "The voice collections the caller can access, sorted by title."
+          }
+        },
+        "type": "object",
+        "required": [
+          "collections"
+        ],
+        "title": "GetUserVoiceCollectionsResponseModel"
       },
       "GetVoiceAccentsResponseModel": {
         "properties": {
@@ -84986,6 +86424,25 @@
         ],
         "title": "MemoryEntrySearchResult"
       },
+      "MergeAgentConversationTicketsRequestModel": {
+        "properties": {
+          "source_ticket_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "minItems": 1,
+            "title": "Source Ticket Ids",
+            "description": "Open tickets of the same agent to fold into this one. They are kept with status 'merged', pointing at this ticket."
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_ticket_ids"
+        ],
+        "title": "MergeAgentConversationTicketsRequestModel"
+      },
       "MergePreviewResponseModel": {
         "properties": {
           "agent_id": {
@@ -85300,6 +86757,7 @@
               },
               "success_end": {
                 "edge_order": [],
+                "outcome": "success",
                 "position": {
                   "x": 0.0,
                   "y": 0.0
@@ -88656,6 +90114,8 @@
           "models_write",
           "voices_read",
           "voices_write",
+          "voice_collections_read",
+          "voice_collections_write",
           "speech_history_read",
           "speech_history_write",
           "sound_generation",
@@ -92401,6 +93861,13 @@
             "description": "A list of IDs of tools used by the agent",
             "x-convai-client-override": true
           },
+          "tool_ids_strict": {
+            "type": "boolean",
+            "title": "Tool Ids Strict",
+            "description": "Only applies as a conversation override, allowed whenever tool_ids may be overridden. When true, the overridden tool_ids is the full list of tools allowed in the conversation, including tools on workflow nodes. Ignored when set on the agent.",
+            "default": false,
+            "x-convai-client-override": true
+          },
           "built_in_tools": {
             "$ref": "#/components/schemas/BuiltInTools-Input",
             "description": "Built-in system tools to be used by the agent"
@@ -92635,6 +94102,13 @@
             "description": "A list of IDs of tools used by the agent",
             "x-convai-client-override": true
           },
+          "tool_ids_strict": {
+            "type": "boolean",
+            "title": "Tool Ids Strict",
+            "description": "Only applies as a conversation override, allowed whenever tool_ids may be overridden. When true, the overridden tool_ids is the full list of tools allowed in the conversation, including tools on workflow nodes. Ignored when set on the agent.",
+            "default": false,
+            "x-convai-client-override": true
+          },
           "built_in_tools": {
             "$ref": "#/components/schemas/BuiltInTools-Output",
             "description": "Built-in system tools to be used by the agent"
@@ -92840,6 +94314,19 @@
             "description": "A list of IDs of tools used by the agent",
             "x-convai-client-override": true
           },
+          "tool_ids_strict": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tool Ids Strict",
+            "description": "Only applies as a conversation override, allowed whenever tool_ids may be overridden. When true, the overridden tool_ids is the full list of tools allowed in the conversation, including tools on workflow nodes. Ignored when set on the agent.",
+            "x-convai-client-override": true
+          },
           "native_mcp_server_ids": {
             "anyOf": [
               {
@@ -92925,6 +94412,19 @@
             "description": "A list of IDs of tools used by the agent",
             "x-convai-client-override": true
           },
+          "tool_ids_strict": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tool Ids Strict",
+            "description": "Only applies as a conversation override, allowed whenever tool_ids may be overridden. When true, the overridden tool_ids is the full list of tools allowed in the conversation, including tools on workflow nodes. Ignored when set on the agent.",
+            "x-convai-client-override": true
+          },
           "native_mcp_server_ids": {
             "anyOf": [
               {
@@ -92985,6 +94485,12 @@
             "type": "boolean",
             "title": "Tool Ids",
             "description": "Whether to allow overriding the tool_ids field.",
+            "default": false
+          },
+          "tool_ids_strict": {
+            "type": "boolean",
+            "title": "Tool Ids Strict",
+            "description": "Whether to allow overriding the tool_ids_strict field.",
             "default": false
           },
           "native_mcp_server_ids": {
@@ -93103,6 +94609,19 @@
             ],
             "title": "Tool Ids",
             "description": "A list of IDs of tools used by the agent",
+            "x-convai-client-override": true
+          },
+          "tool_ids_strict": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tool Ids Strict",
+            "description": "Only applies as a conversation override, allowed whenever tool_ids may be overridden. When true, the overridden tool_ids is the full list of tools allowed in the conversation, including tools on workflow nodes. Ignored when set on the agent.",
             "x-convai-client-override": true
           },
           "built_in_tools": {
@@ -93410,6 +94929,19 @@
             ],
             "title": "Tool Ids",
             "description": "A list of IDs of tools used by the agent",
+            "x-convai-client-override": true
+          },
+          "tool_ids_strict": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tool Ids Strict",
+            "description": "Only applies as a conversation override, allowed whenever tool_ids may be overridden. When true, the overridden tool_ids is the full list of tools allowed in the conversation, including tools on workflow nodes. Ignored when set on the agent.",
             "x-convai-client-override": true
           },
           "built_in_tools": {
@@ -95301,6 +96833,26 @@
         "example": {
           "success": true
         }
+      },
+      "RemoveVoiceFromUserVoiceCollectionResponseModel": {
+        "properties": {
+          "collection_id": {
+            "type": "string",
+            "title": "Collection Id",
+            "description": "The ID of the voice collection."
+          },
+          "voice_id": {
+            "type": "string",
+            "title": "Voice Id",
+            "description": "The ID of the voice that was removed."
+          }
+        },
+        "type": "object",
+        "required": [
+          "collection_id",
+          "voice_id"
+        ],
+        "title": "RemoveVoiceFromUserVoiceCollectionResponseModel"
       },
       "Render": {
         "properties": {
@@ -99557,7 +101109,8 @@
                   "ConvAI",
                   "VoiceGeneration",
                   "InVPC",
-                  "Flows"
+                  "Flows",
+                  "VoicePreview"
                 ]
               },
               {
@@ -104700,6 +106253,59 @@
         ],
         "title": "TicketPriorityChangeResponseModel"
       },
+      "TicketSearchMatchField": {
+        "type": "string",
+        "enum": [
+          "title",
+          "description",
+          "comment",
+          "turn_comment"
+        ],
+        "title": "TicketSearchMatchField"
+      },
+      "TicketSearchMatchResponseModel": {
+        "properties": {
+          "field": {
+            "$ref": "#/components/schemas/TicketSearchMatchField",
+            "description": "Which of the ticket's texts matched."
+          },
+          "snippet": {
+            "type": "string",
+            "title": "Snippet",
+            "description": "Whitespace-collapsed excerpt around the match, with an ellipsis where it was cut."
+          },
+          "highlight_start": {
+            "type": "integer",
+            "title": "Highlight Start",
+            "description": "Offset of the match in `snippet`."
+          },
+          "highlight_end": {
+            "type": "integer",
+            "title": "Highlight End",
+            "description": "Exclusive end offset of the match in `snippet`."
+          },
+          "turn_index": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Turn Index",
+            "description": "The commented turn, set when `field` is 'turn_comment'."
+          }
+        },
+        "type": "object",
+        "required": [
+          "field",
+          "snippet",
+          "highlight_start",
+          "highlight_end"
+        ],
+        "title": "TicketSearchMatchResponseModel"
+      },
       "TimeRange": {
         "properties": {
           "start_ms": {
@@ -105708,6 +107314,25 @@
           "verbatim": false
         }
       },
+      "TransferBranchInfoConfigured": {
+        "properties": {
+          "branch_reason": {
+            "type": "string",
+            "const": "configured",
+            "title": "Branch Reason"
+          },
+          "branch_id": {
+            "type": "string",
+            "title": "Branch Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "branch_reason",
+          "branch_id"
+        ],
+        "title": "TransferBranchInfoConfigured"
+      },
       "TransferBranchInfoDefaultingToMain": {
         "properties": {
           "branch_reason": {
@@ -105888,6 +107513,9 @@
               {
                 "oneOf": [
                   {
+                    "$ref": "#/components/schemas/TransferBranchInfoConfigured"
+                  },
+                  {
                     "$ref": "#/components/schemas/TransferBranchInfoTrafficSplit"
                   },
                   {
@@ -105897,6 +107525,7 @@
                 "discriminator": {
                   "propertyName": "branch_reason",
                   "mapping": {
+                    "configured": "#/components/schemas/TransferBranchInfoConfigured",
                     "defaulting_to_main": "#/components/schemas/TransferBranchInfoDefaultingToMain",
                     "traffic_split": "#/components/schemas/TransferBranchInfoTrafficSplit"
                   }
@@ -105990,6 +107619,9 @@
               {
                 "oneOf": [
                   {
+                    "$ref": "#/components/schemas/TransferBranchInfoConfigured"
+                  },
+                  {
                     "$ref": "#/components/schemas/TransferBranchInfoTrafficSplit"
                   },
                   {
@@ -105999,6 +107631,7 @@
                 "discriminator": {
                   "propertyName": "branch_reason",
                   "mapping": {
+                    "configured": "#/components/schemas/TransferBranchInfoConfigured",
                     "defaulting_to_main": "#/components/schemas/TransferBranchInfoDefaultingToMain",
                     "traffic_split": "#/components/schemas/TransferBranchInfoTrafficSplit"
                   }
@@ -106603,7 +108236,7 @@
           "retranscribe_on_turn_timeout": {
             "type": "boolean",
             "title": "Retranscribe On Turn Timeout",
-            "description": "When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.",
+            "description": "When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing while enabled for the active agent or workflow node.",
             "default": false
           },
           "turn_model": {
@@ -106790,7 +108423,7 @@
               }
             ],
             "title": "Retranscribe On Turn Timeout",
-            "description": "When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns."
+            "description": "When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing while enabled for the active agent or workflow node."
           },
           "turn_model": {
             "anyOf": [
@@ -108322,7 +109955,7 @@
               }
             ],
             "title": "Trigger",
-            "description": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it. If omitted or null, the trigger is derived from the content instead. Also accepts `description` as an alias."
+            "description": "When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it. Omit this field (or send null) to keep the stored trigger, which is empty on create. Send `\"\"` to clear it. `description` is accepted as an alias."
           }
         },
         "type": "object",
@@ -109392,6 +111025,11 @@
             "title": "User Id",
             "description": "The unique identifier of the user."
           },
+          "workspace_id": {
+            "type": "string",
+            "title": "Workspace Id",
+            "description": "The unique identifier of the workspace this user's API key belongs to."
+          },
           "subscription": {
             "$ref": "#/components/schemas/SubscriptionResponseModel",
             "description": "Details of the user's subscription."
@@ -109491,6 +111129,7 @@
         "type": "object",
         "required": [
           "user_id",
+          "workspace_id",
           "subscription",
           "is_new_user",
           "can_use_delayed_payment_methods",
@@ -109538,7 +111177,8 @@
             "voice_limit": 120,
             "voice_slots_used": 1
           },
-          "user_id": "1234567890"
+          "user_id": "1234567890",
+          "workspace_id": "0987654321"
         }
       },
       "UserTypeId": {
@@ -109553,6 +111193,44 @@
         ],
         "title": "UserTypeId",
         "description": "OCSF User type IDs.\n\nSpec: https://schema.ocsf.io/1.6.0/objects/user"
+      },
+      "UserVoiceCollectionResponseModel": {
+        "properties": {
+          "collection_id": {
+            "type": "string",
+            "title": "Collection Id",
+            "description": "The ID of the voice collection."
+          },
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "The title of the voice collection."
+          },
+          "icon": {
+            "type": "string",
+            "title": "Icon",
+            "description": "The icon of the voice collection."
+          },
+          "permission_on_resource": {
+            "type": "string",
+            "enum": [
+              "admin",
+              "editor",
+              "commenter",
+              "viewer"
+            ],
+            "title": "Permission On Resource",
+            "description": "The caller's access role on the voice collection."
+          }
+        },
+        "type": "object",
+        "required": [
+          "collection_id",
+          "title",
+          "icon",
+          "permission_on_resource"
+        ],
+        "title": "UserVoiceCollectionResponseModel"
       },
       "UsersSortBy": {
         "type": "string",
@@ -114017,6 +115695,12 @@
             "description": "Whether to show the resize button",
             "default": true
           },
+          "end_confirmation_enabled": {
+            "type": "boolean",
+            "title": "End Confirmation Enabled",
+            "description": "Whether to ask the user to confirm before ending a chat or call",
+            "default": false
+          },
           "language_selector": {
             "type": "boolean",
             "title": "Language Selector",
@@ -114432,6 +116116,12 @@
             "description": "Whether to show the resize button",
             "default": true
           },
+          "end_confirmation_enabled": {
+            "type": "boolean",
+            "title": "End Confirmation Enabled",
+            "description": "Whether to ask the user to confirm before ending a chat or call",
+            "default": false
+          },
           "language_selector": {
             "type": "boolean",
             "title": "Language Selector",
@@ -114846,6 +116536,12 @@
             "title": "Show Resize Button",
             "description": "Whether to show the resize button",
             "default": true
+          },
+          "end_confirmation_enabled": {
+            "type": "boolean",
+            "title": "End Confirmation Enabled",
+            "description": "Whether to ask the user to confirm before ending a chat or call",
+            "default": false
           },
           "language": {
             "type": "string",
@@ -116304,6 +118000,11 @@
             "type": "array",
             "title": "Edge Order",
             "description": "The ids of outgoing edges in the order they should be evaluated."
+          },
+          "outcome": {
+            "$ref": "#/components/schemas/WorkflowEndNodeOutcome",
+            "description": "Whether reaching this End node ends the conversation as a success or a failure.",
+            "default": "success"
           }
         },
         "type": "object",
@@ -116328,15 +118029,31 @@
             "type": "array",
             "title": "Edge Order",
             "description": "The ids of outgoing edges in the order they should be evaluated."
+          },
+          "outcome": {
+            "$ref": "#/components/schemas/WorkflowEndNodeOutcome",
+            "description": "Whether reaching this End node ends the conversation as a success or a failure.",
+            "default": "success"
           }
         },
         "type": "object",
         "required": [
           "type",
           "position",
-          "edge_order"
+          "edge_order",
+          "outcome"
         ],
         "title": "WorkflowEndNodeModel"
+      },
+      "WorkflowEndNodeOutcome": {
+        "type": "string",
+        "enum": [
+          "success",
+          "failure"
+        ],
+        "title": "WorkflowEndNodeOutcome",
+        "description": "Whether reaching an End node completes successfully or fails.",
+        "default": "success"
       },
       "WorkflowExpressionConditionModel-Input": {
         "properties": {
@@ -116986,6 +118703,18 @@
             "title": "Agent Id",
             "description": "The ID of the agent to transfer the conversation to. None means transfer within the current agent."
           },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id",
+            "description": "Optional branch ID for the target agent. None follows the target agent's traffic deployment, or uses its main branch when node_id is set."
+          },
           "node_id": {
             "anyOf": [
               {
@@ -117071,6 +118800,18 @@
             "title": "Agent Id",
             "description": "The ID of the agent to transfer the conversation to. None means transfer within the current agent."
           },
+          "branch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch Id",
+            "description": "Optional branch ID for the target agent. None follows the target agent's traffic deployment, or uses its main branch when node_id is set."
+          },
           "node_id": {
             "anyOf": [
               {
@@ -117127,6 +118868,7 @@
           "position",
           "edge_order",
           "agent_id",
+          "branch_id",
           "node_id",
           "delay_ms",
           "transfer_message",
@@ -118171,6 +119913,7 @@
           "terms_of_service_accept",
           "audit_log_read",
           "conversation_privacy_manage",
+          "all_resources_access",
           "copy_resources_cross_workspace",
           "voice_design"
         ],

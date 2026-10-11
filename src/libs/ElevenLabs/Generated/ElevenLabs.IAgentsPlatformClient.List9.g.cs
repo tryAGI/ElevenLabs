@@ -33,6 +33,9 @@ namespace ElevenLabs
         /// <param name="sortBy">
         /// The field to sort the results by
         /// </param>
+        /// <param name="usedByAgentId">
+        /// Filter to tools referenced by this agent's main branch: tools attached to the agent, tools on authored workflow nodes, and tools referenced by procedures.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -47,6 +50,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types = default,
             global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.ToolSortBy? sortBy = default,
+            string? usedByAgentId = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -77,6 +81,9 @@ namespace ElevenLabs
         /// <param name="sortBy">
         /// The field to sort the results by
         /// </param>
+        /// <param name="usedByAgentId">
+        /// Filter to tools referenced by this agent's main branch: tools attached to the agent, tools on authored workflow nodes, and tools referenced by procedures.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -91,6 +98,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types = default,
             global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.ToolSortBy? sortBy = default,
+            string? usedByAgentId = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -121,6 +129,9 @@ namespace ElevenLabs
         /// <param name="sortBy">
         /// The field to sort the results by
         /// </param>
+        /// <param name="usedByAgentId">
+        /// Filter to tools referenced by this agent's main branch: tools attached to the agent, tools on authored workflow nodes, and tools referenced by procedures.
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ToolResponseModel> List9AutoPagingAsync(
@@ -131,6 +142,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.ToolTypeFilter>? types = default,
             global::ElevenLabs.SortDirection? sortDirection = default,
             global::ElevenLabs.ToolSortBy? sortBy = default,
+            string? usedByAgentId = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default);
 
