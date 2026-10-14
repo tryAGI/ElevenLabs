@@ -228,7 +228,7 @@ byte[] audioFile = await File.ReadAllBytesAsync(
 
 // Submit the file for transcription.
 var transcription = await client.SpeechToText2.ConvertAsync(
-    modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1,
+    modelId: "scribe_v1",
     file: audioFile,
     filename: "hello-in-russian-24k-pcm16.wav",
     languageCode: "ru");
@@ -255,7 +255,7 @@ byte[] voiceSample = await File.ReadAllBytesAsync(
     Path.Combine(AppContext.BaseDirectory, "Resources", "hello-in-russian-24k-pcm16.wav"));
 
 // Create the cloned voice.
-AddVoiceIVCResponseModel response = await client.Voices.CreateAsync(
+AddVoiceIVCResponseModel response = await client.Voices.Create2Async(
     name: $"Test Cloned Voice {Guid.NewGuid():N}",
     files: [voiceSample],
     description: "A cloned voice from my audio sample",

@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class FileInputConfigWorkflowOverride
     {
         /// <summary>
-        /// When enabled, users may attach images or PDFs in chat when the LLM supports multimodal input.
+        /// When enabled, users may attach images, PDFs, or text files in chat when the LLM supports multimodal input.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enabled")]
         public bool? Enabled { get; set; }
@@ -36,7 +36,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="FileInputConfigWorkflowOverride" /> class.
         /// </summary>
         /// <param name="enabled">
-        /// When enabled, users may attach images or PDFs in chat when the LLM supports multimodal input.
+        /// When enabled, users may attach images, PDFs, or text files in chat when the LLM supports multimodal input.
         /// </param>
         /// <param name="maxFilesInMemory">
         /// Number of most-recent files kept in memory during a conversation. Older files are summarized and their bytes freed.

@@ -60,7 +60,7 @@ namespace ElevenLabs
         public bool? SpeculativeTurn { get; set; }
 
         /// <summary>
-        /// When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.<br/>
+        /// When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing while enabled for the active agent or workflow node.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retranscribe_on_turn_timeout")]
@@ -145,7 +145,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="retranscribeOnTurnTimeout">
-        /// When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing for affected turns.<br/>
+        /// When enabled, if VAD detects no speech, attempts to re-transcribe accumulated audio at turn timeout. Disables silence discount billing while enabled for the active agent or workflow node.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="turnModel">

@@ -1002,6 +1002,9 @@ namespace ElevenLabs
         /// This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="audioEffects">
+        /// Audio effects applied to the generated audio. Unknown IDs return 404 with `param` naming the field. Reverb (`environment_id` with `send_level` above 0) and a non-zero `pan` produce stereo audio and are rejected with 400 for `ulaw_*`, `alaw_*`, and `pcm_*` output formats. Effects don't change the cost of the request.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -1023,6 +1026,7 @@ namespace ElevenLabs
             bool? usePvcAsIvc = default,
             global::ElevenLabs.BodyTextToSpeechFullApplyTextNormalization? applyTextNormalization = default,
             bool? applyLanguageTextNormalization = default,
+            global::ElevenLabs.EffectsSpecInput? audioEffects = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -1041,6 +1045,7 @@ namespace ElevenLabs
                 UsePvcAsIvc = usePvcAsIvc,
                 ApplyTextNormalization = applyTextNormalization,
                 ApplyLanguageTextNormalization = applyLanguageTextNormalization,
+                AudioEffects = audioEffects,
             };
 
             return await ConvertAsync(

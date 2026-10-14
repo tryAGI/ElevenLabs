@@ -19,7 +19,7 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<byte[]> Videos { get; set; }
 
         /// <summary>
-        /// Optional text description of the music you want. A maximum of 1000 characters is allowed.
+        /// Optional text description of the music you want. A maximum of 4100 characters is allowed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
@@ -62,7 +62,7 @@ namespace ElevenLabs
         ///
         /// </param>
         /// <param name="description">
-        /// Optional text description of the music you want. A maximum of 1000 characters is allowed.
+        /// Optional text description of the music you want. A maximum of 4100 characters is allowed.
         /// </param>
         /// <param name="tags">
         /// Optional list of style tags (e.g. ['upbeat', 'cinematic']). A maximum of 10 tags is allowed.<br/>

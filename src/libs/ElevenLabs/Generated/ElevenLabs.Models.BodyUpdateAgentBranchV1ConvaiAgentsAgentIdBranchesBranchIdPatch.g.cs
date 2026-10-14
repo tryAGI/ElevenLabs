@@ -27,6 +27,12 @@ namespace ElevenLabs
         public global::ElevenLabs.BranchProtectionStatus? ProtectionStatus { get; set; }
 
         /// <summary>
+        /// When true, rebase this branch onto main automatically after each new main version. Cannot be enabled on the main branch.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auto_rebase")]
+        public bool? AutoRebase { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -44,17 +50,22 @@ namespace ElevenLabs
         /// <param name="protectionStatus">
         /// The protection level for the branch
         /// </param>
+        /// <param name="autoRebase">
+        /// When true, rebase this branch onto main automatically after each new main version. Cannot be enabled on the main branch.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch(
             string? name,
             bool? isArchived,
-            global::ElevenLabs.BranchProtectionStatus? protectionStatus)
+            global::ElevenLabs.BranchProtectionStatus? protectionStatus,
+            bool? autoRebase)
         {
             this.Name = name;
             this.IsArchived = isArchived;
             this.ProtectionStatus = protectionStatus;
+            this.AutoRebase = autoRebase;
         }
 
         /// <summary>

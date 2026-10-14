@@ -68,7 +68,7 @@ namespace ElevenLabs
         public double? AudioDurationSecs { get; set; }
 
         /// <summary>
-        /// Result of the optional transcript edit: the edited text, or an error if it could not be produced. Absent when no edit was requested.
+        /// Result of the optional transcript edit: the edited text, or an error if it could not be produced. Absent when no edit was requested. On success, both `text` and `edited_text` hold the edited transcript; compare them with the top-level `text` to see what changed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("edited_transcript")]
         public global::ElevenLabs.EditedTranscriptVariant1? EditedTranscript { get; set; }
@@ -110,7 +110,7 @@ namespace ElevenLabs
         /// The duration of the audio that was transcribed in seconds.
         /// </param>
         /// <param name="editedTranscript">
-        /// Result of the optional transcript edit: the edited text, or an error if it could not be produced. Absent when no edit was requested.
+        /// Result of the optional transcript edit: the edited text, or an error if it could not be produced. Absent when no edit was requested. On success, both `text` and `edited_text` hold the edited transcript; compare them with the top-level `text` to see what changed.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

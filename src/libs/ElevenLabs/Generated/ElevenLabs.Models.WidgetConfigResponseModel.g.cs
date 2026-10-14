@@ -310,6 +310,13 @@ namespace ElevenLabs
         public bool? ShowResizeButton { get; set; }
 
         /// <summary>
+        /// Whether to ask the user to confirm before ending a chat or call<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("end_confirmation_enabled")]
+        public bool? EndConfirmationEnabled { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
@@ -531,6 +538,10 @@ namespace ElevenLabs
         /// Whether to show the resize button<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="endConfirmationEnabled">
+        /// Whether to ask the user to confirm before ending a chat or call<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="supportedLanguageOverrides"></param>
         /// <param name="languagePresets">
         /// Language presets for the widget
@@ -600,6 +611,7 @@ namespace ElevenLabs
             global::ElevenLabs.WidgetTextContents? textContents,
             global::ElevenLabs.WidgetStyles? styles,
             bool? showResizeButton,
+            bool? endConfirmationEnabled,
             global::System.Collections.Generic.IList<string>? supportedLanguageOverrides,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePresetResponse>? languagePresets,
             bool? textOnly,
@@ -653,6 +665,7 @@ namespace ElevenLabs
             this.TextContents = textContents;
             this.Styles = styles;
             this.ShowResizeButton = showResizeButton;
+            this.EndConfirmationEnabled = endConfirmationEnabled;
             this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
             this.SupportedLanguageOverrides = supportedLanguageOverrides;
             this.LanguagePresets = languagePresets;

@@ -3,10 +3,10 @@
 namespace ElevenLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class GenerationChunkInputConditionStrengthJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.GenerationChunkInputConditionStrength>
+    public sealed class UserVoiceCollectionResponseModelPermissionOnResourceJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResource>
     {
         /// <inheritdoc />
-        public override global::ElevenLabs.GenerationChunkInputConditionStrength Read(
+        public override global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResource Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace ElevenLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::ElevenLabs.GenerationChunkInputConditionStrengthExtensions.ToEnum(stringValue) ?? default;
+                        return global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResourceExtensions.ToEnum(stringValue) ?? default;
                     }
 
                     break;
@@ -26,11 +26,11 @@ namespace ElevenLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::ElevenLabs.GenerationChunkInputConditionStrength)numValue;
+                    return (global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResource)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::ElevenLabs.GenerationChunkInputConditionStrength);
+                    return default(global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResource);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,12 +42,12 @@ namespace ElevenLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::ElevenLabs.GenerationChunkInputConditionStrength value,
+            global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResource value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::ElevenLabs.GenerationChunkInputConditionStrengthExtensions.ToValueString(value));
+            writer.WriteStringValue(global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResourceExtensions.ToValueString(value));
         }
     }
 }

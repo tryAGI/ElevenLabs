@@ -45,6 +45,10 @@ namespace ElevenLabs
         /// <param name="workspaceSeatType">
         /// The workspace seat type
         /// </param>
+        /// <param name="allowDowngradeToBasicSeat">
+        /// When unlocking a user whose original seat type has no seats available but a basic seat is available, downgrade the user to a basic seat instead of failing.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -52,6 +56,7 @@ namespace ElevenLabs
             string email,
             bool? isLocked = default,
             global::ElevenLabs.SeatType? workspaceSeatType = default,
+            bool? allowDowngradeToBasicSeat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

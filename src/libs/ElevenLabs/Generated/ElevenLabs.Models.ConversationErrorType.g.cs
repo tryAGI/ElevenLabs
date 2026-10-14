@@ -92,6 +92,10 @@ namespace ElevenLabs
         ///
         /// </summary>
         Unknown,
+        /// <summary>
+        ///
+        /// </summary>
+        WorkflowEndFailure,
     }
 
     /// <summary>
@@ -127,6 +131,7 @@ namespace ElevenLabs
                 ConversationErrorType.SpeechError => "speech_error",
                 ConversationErrorType.ToolError => "tool_error",
                 ConversationErrorType.Unknown => "unknown",
+                ConversationErrorType.WorkflowEndFailure => "workflow_end_failure",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -158,6 +163,7 @@ namespace ElevenLabs
                 "speech_error" => ConversationErrorType.SpeechError,
                 "tool_error" => ConversationErrorType.ToolError,
                 "unknown" => ConversationErrorType.Unknown,
+                "workflow_end_failure" => ConversationErrorType.WorkflowEndFailure,
                 _ => null,
             };
         }

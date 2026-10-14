@@ -27,6 +27,14 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? EdgeOrder { get; set; }
 
         /// <summary>
+        /// Whether reaching this End node ends the conversation as a success or a failure.<br/>
+        /// Default Value: success
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("outcome")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WorkflowEndNodeOutcomeJsonConverter))]
+        public global::ElevenLabs.WorkflowEndNodeOutcome? Outcome { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -44,17 +52,23 @@ namespace ElevenLabs
         /// <param name="edgeOrder">
         /// The ids of outgoing edges in the order they should be evaluated.
         /// </param>
+        /// <param name="outcome">
+        /// Whether reaching this End node ends the conversation as a success or a failure.<br/>
+        /// Default Value: success
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public WorkflowEndNodeModelInput(
             string? type,
             global::ElevenLabs.PositionInput? position,
-            global::System.Collections.Generic.IList<string>? edgeOrder)
+            global::System.Collections.Generic.IList<string>? edgeOrder,
+            global::ElevenLabs.WorkflowEndNodeOutcome? outcome)
         {
             this.Type = type;
             this.Position = position;
             this.EdgeOrder = edgeOrder;
+            this.Outcome = outcome;
         }
 
         /// <summary>

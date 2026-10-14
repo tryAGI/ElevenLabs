@@ -86,6 +86,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? NextRequestIds { get; set; }
 
         /// <summary>
+        /// Audio effects applied to the generated audio. Unknown IDs return 404 with `param` naming the field. Reverb (`environment_id` with `send_level` above 0) and a non-zero `pan` produce stereo audio and are rejected with 400 for `ulaw_*`, `alaw_*`, and `pcm_*` output formats. Effects don't change the cost of the request.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("audio_effects")]
+        public global::ElevenLabs.EffectsSpecInput? AudioEffects { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -133,6 +139,9 @@ namespace ElevenLabs
         /// <param name="nextRequestIds">
         /// A list of request_ids of dialogue generations that come after this one. Useful for maintaining continuity when regenerating a clip in the middle of a sequence. A maximum of 3 request_ids can be sent. The first request_id is the audio which is closest to the current request. Not supported by every model.
         /// </param>
+        /// <param name="audioEffects">
+        /// Audio effects applied to the generated audio. Unknown IDs return 404 with `param` naming the field. Reverb (`environment_id` with `send_level` above 0) and a non-zero `pan` produce stereo audio and are rejected with 400 for `ulaw_*`, `alaw_*`, and `pcm_*` output formats. Effects don't change the cost of the request.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -148,7 +157,8 @@ namespace ElevenLabs
             global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalization? applyTextNormalization,
             bool? usePvcAsIvc,
             global::System.Collections.Generic.IList<string>? previousRequestIds,
-            global::System.Collections.Generic.IList<string>? nextRequestIds)
+            global::System.Collections.Generic.IList<string>? nextRequestIds,
+            global::ElevenLabs.EffectsSpecInput? audioEffects)
         {
             this.Inputs = inputs ?? throw new global::System.ArgumentNullException(nameof(inputs));
             this.ModelId = modelId;
@@ -162,6 +172,7 @@ namespace ElevenLabs
             this.UsePvcAsIvc = usePvcAsIvc;
             this.PreviousRequestIds = previousRequestIds;
             this.NextRequestIds = nextRequestIds;
+            this.AudioEffects = audioEffects;
         }
 
         /// <summary>

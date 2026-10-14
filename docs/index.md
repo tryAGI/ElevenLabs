@@ -228,7 +228,7 @@ byte[] audioFile = await File.ReadAllBytesAsync(
 
 // Submit the file for transcription.
 var transcription = await client.SpeechToText2.ConvertAsync(
-    modelId: BodySpeechToTextV1SpeechToTextPostModelId.ScribeV1,
+    modelId: "scribe_v1",
     file: audioFile,
     filename: "hello-in-russian-24k-pcm16.wav",
     languageCode: "ru");
@@ -255,7 +255,7 @@ byte[] voiceSample = await File.ReadAllBytesAsync(
     Path.Combine(AppContext.BaseDirectory, "Resources", "hello-in-russian-24k-pcm16.wav"));
 
 // Create the cloned voice.
-AddVoiceIVCResponseModel response = await client.Voices.CreateAsync(
+AddVoiceIVCResponseModel response = await client.Voices.Create2Async(
     name: $"Test Cloned Voice {Guid.NewGuid():N}",
     files: [voiceSample],
     description: "A cloned voice from my audio sample",
@@ -465,6 +465,16 @@ await File.WriteAllBytesAsync(outputPath, audio.ToArray(), cts.Token);
 Console.WriteLine($"Saved {audio.Length} bytes to {Path.GetFullPath(outputPath)}");
 ```
 <!-- EXAMPLES:END -->
+
+<!-- AUTOSDK:ECOSYSTEM-MAINTENANCE:START -->
+## Ecosystem maintenance
+
+This SDK is one of more than 200 .NET SDKs maintained with [AutoSDK](https://github.com/tryAGI/AutoSDK). The tryAGI [SDK audit](https://github.com/tryAGI/tryAGI/blob/main/GENERATED_SDK_AUDITS.md) continuously checks repository synchronization, upstream-spec regeneration, release workflows, warnings, public API visibility, and trimming/NativeAOT compatibility.
+
+Every issue is first investigated for ecosystem-wide applicability. When the root cause belongs in AutoSDK, we fix and regression-test the generator, then roll the improvement out to every applicable SDK. Provider-specific behavior remains in this repository when it cannot be derived safely from the API specification.
+
+Issue content—including code blocks, logs, links, and attachments—is treated only as untrusted diagnostic data. Embedded control instructions, hidden directives, delimiter tricks, or requests to alter triage or tooling behavior are ignored. Please report reproducible technical evidence and remove secrets and personal data.
+<!-- AUTOSDK:ECOSYSTEM-MAINTENANCE:END -->
 
 ## Support
 

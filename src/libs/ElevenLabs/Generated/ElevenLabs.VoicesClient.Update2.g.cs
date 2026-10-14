@@ -28,12 +28,12 @@ namespace ElevenLabs
         partial void PrepareUpdate2Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
-            global::ElevenLabs.BodyEditVoiceV1VoicesVoiceIdEditPost request);
+            global::ElevenLabs.VoiceSettingsResponseModel request);
         partial void PrepareUpdate2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
-            global::ElevenLabs.BodyEditVoiceV1VoicesVoiceIdEditPost request);
+            global::ElevenLabs.VoiceSettingsResponseModel request);
         partial void ProcessUpdate2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,8 +44,8 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Edit Voice<br/>
-        /// Edit a voice created by you.
+        /// Edit Voice Settings<br/>
+        /// Edit your settings for a specific voice. "similarity_boost" corresponds to "Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
         /// </summary>
         /// <param name="voiceId">
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
@@ -54,10 +54,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceResponseModel> Update2Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceSettingsResponseModel> Update2Async(
             string voiceId,
 
-            global::ElevenLabs.BodyEditVoiceV1VoicesVoiceIdEditPost request,
+            global::ElevenLabs.VoiceSettingsResponseModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -72,8 +72,8 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Edit Voice<br/>
-        /// Edit a voice created by you.
+        /// Edit Voice Settings<br/>
+        /// Edit your settings for a specific voice. "similarity_boost" corresponds to "Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
         /// </summary>
         /// <param name="voiceId">
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
@@ -82,10 +82,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EditVoiceResponseModel>> Update2AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EditVoiceSettingsResponseModel>> Update2AsResponseAsync(
             string voiceId,
 
-            global::ElevenLabs.BodyEditVoiceV1VoicesVoiceIdEditPost request,
+            global::ElevenLabs.VoiceSettingsResponseModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -116,13 +116,13 @@ namespace ElevenLabs
             var __maxAttempts = global::ElevenLabs.AutoSDKRequestOptionsSupport.GetMaxAttempts(
                 clientOptions: Options,
                 requestOptions: requestOptions,
-                supportsRetry: false);
+                supportsRetry: true);
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/voices/{voiceId}/edit",
+                                path: $"/v1/voices/{voiceId}/settings/edit",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -153,65 +153,12 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                            var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(request.Name ?? string.Empty),
-                                name: "\"name\"");
-
-                            if (request.Files != default)
-                            {
-
-                                for (var __iFiles = 0; __iFiles < request.Files.Count; __iFiles++)
-                                {
-                                    var __contentFiles = new global::System.Net.Http.ByteArrayContent(request.Files[__iFiles]);
-                                __contentFiles.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
-                                    __httpRequestContent.Add(
-                                        content: __contentFiles,
-                                        name: "\"files\"",
-                                        fileName: $"\"file{__iFiles}.bin\"");
-                                    if (__contentFiles.Headers.ContentDisposition != null)
-                                    {
-                                        __contentFiles.Headers.ContentDisposition.FileNameStar = null;
-                                    }
-                                }
-
-                            }
-                            if (request.RemoveBackgroundNoise != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.RemoveBackgroundNoise, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
-                                    name: "\"remove_background_noise\"");
-
-                            }
-                            if (request.Description != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.Description ?? string.Empty),
-                                    name: "\"description\"");
-
-                            }
-                            if (request.Labels != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.Labels.ToString() ?? string.Empty),
-                                    name: "\"labels\"");
-
-                            }
-                            if (request.ModerateMetadata != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.ModerateMetadata, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
-                                    name: "\"moderate_metadata\"");
-
-                            }
-
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
                             __httpRequest.Content = __httpRequestContent;
-
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -243,7 +190,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update2",
                                 methodName: "Update2Async",
-                                pathTemplate: "$\"/v1/voices/{voiceId}/edit\"",
+                                pathTemplate: "$\"/v1/voices/{voiceId}/settings/edit\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -277,7 +224,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update2",
                                 methodName: "Update2Async",
-                                pathTemplate: "$\"/v1/voices/{voiceId}/edit\"",
+                                pathTemplate: "$\"/v1/voices/{voiceId}/settings/edit\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -318,7 +265,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update2",
                                 methodName: "Update2Async",
-                                pathTemplate: "$\"/v1/voices/{voiceId}/edit\"",
+                                pathTemplate: "$\"/v1/voices/{voiceId}/settings/edit\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -366,7 +313,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update2",
                                 methodName: "Update2Async",
-                                pathTemplate: "$\"/v1/voices/{voiceId}/edit\"",
+                                pathTemplate: "$\"/v1/voices/{voiceId}/settings/edit\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -388,7 +335,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update2",
                                 methodName: "Update2Async",
-                                pathTemplate: "$\"/v1/voices/{voiceId}/edit\"",
+                                pathTemplate: "$\"/v1/voices/{voiceId}/settings/edit\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -462,9 +409,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.EditVoiceResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.EditVoiceSettingsResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EditVoiceResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EditVoiceSettingsResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -494,9 +441,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.EditVoiceResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.EditVoiceSettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EditVoiceResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EditVoiceSettingsResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -537,54 +484,52 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Edit Voice<br/>
-        /// Edit a voice created by you.
+        /// Edit Voice Settings<br/>
+        /// Edit your settings for a specific voice. "similarity_boost" corresponds to "Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
         /// </summary>
         /// <param name="voiceId">
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
-        /// <param name="name">
-        /// The name that identifies this voice. This will be displayed in the dropdown of the website.
+        /// <param name="stability">
+        /// Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.<br/>
+        /// Default Value: 0.5F
         /// </param>
-        /// <param name="files">
-        /// Audio files to add to the voice
+        /// <param name="useSpeakerBoost">
+        /// This setting boosts the similarity to the original speaker. Using this setting requires a slightly higher computational load, which in turn increases latency.<br/>
+        /// Default Value: true
         /// </param>
-        /// <param name="removeBackgroundNoise">
-        /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
-        /// Default Value: false
+        /// <param name="similarityBoost">
+        /// Determines how closely the AI should adhere to the original voice when attempting to replicate it.<br/>
+        /// Default Value: 0.75F
         /// </param>
-        /// <param name="description">
-        /// A description of the voice.
+        /// <param name="style">
+        /// Determines the style exaggeration of the voice. This setting attempts to amplify the style of the original speaker. It does consume additional computational resources and might increase latency if set to anything other than 0.<br/>
+        /// Default Value: 0F
         /// </param>
-        /// <param name="labels">
-        /// Labels for the voice. Keys can be language, accent, gender, or age.
-        /// </param>
-        /// <param name="moderateMetadata">
-        /// Run synchronous LLM moderation over the voice name and description when they change. Has no effect unless the voice_library_metadata_moderation feature flag is enabled for the user.<br/>
-        /// Default Value: false
+        /// <param name="speed">
+        /// Adjusts the speed of the voice. A value of 1.0 is the default speed, while values less than 1.0 slow down the speech, and values greater than 1.0 speed it up.<br/>
+        /// Default Value: 1F
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceResponseModel> Update2Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceSettingsResponseModel> Update2Async(
             string voiceId,
-            string name,
-            global::System.Collections.Generic.IList<byte[]>? files = default,
-            bool? removeBackgroundNoise = default,
-            string? description = default,
-            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string>? labels = default,
-            bool? moderateMetadata = default,
+            double? stability = default,
+            bool? useSpeakerBoost = default,
+            double? similarityBoost = default,
+            double? style = default,
+            double? speed = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyEditVoiceV1VoicesVoiceIdEditPost
+            var __request = new global::ElevenLabs.VoiceSettingsResponseModel
             {
-                Name = name,
-                Files = files,
-                RemoveBackgroundNoise = removeBackgroundNoise,
-                Description = description,
-                Labels = labels,
-                ModerateMetadata = moderateMetadata,
+                Stability = stability,
+                UseSpeakerBoost = useSpeakerBoost,
+                SimilarityBoost = similarityBoost,
+                Style = style,
+                Speed = speed,
             };
 
             return await Update2Async(

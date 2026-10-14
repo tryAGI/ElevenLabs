@@ -23,6 +23,14 @@ namespace ElevenLabs
         public required string Text { get; set; }
 
         /// <summary>
+        /// The edited transcript text. Same value as `text`; matches the `edited_text` field of the realtime `edited_transcript` event.<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("edited_text")]
+        public string EditedText { get; set; } = default!;
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -37,15 +45,21 @@ namespace ElevenLabs
         /// <param name="kind">
         /// Default Value: transcript
         /// </param>
+        /// <param name="editedText">
+        /// The edited transcript text. Same value as `text`; matches the `edited_text` field of the realtime `edited_transcript` event.<br/>
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EditedTranscript(
             string text,
-            string kind = "transcript")
+            string kind = "transcript",
+            string editedText = default!)
         {
             this.Kind = kind;
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
+            this.EditedText = editedText;
         }
 
         /// <summary>

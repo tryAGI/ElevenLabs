@@ -33,7 +33,7 @@ namespace ElevenLabs
         public required global::ElevenLabs.ProcedureType Type { get; set; } = global::ElevenLabs.ProcedureType.FreeForm;
 
         /// <summary>
-        /// When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it. If omitted or null, the trigger is derived from the content instead. Also accepts `description` as an alias.
+        /// When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it. Omit this field (or send null) to keep the stored trigger, which is empty on create. Send `""` to clear it. `description` is accepted as an alias.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("trigger")]
         public string? Trigger { get; set; }
@@ -58,7 +58,7 @@ namespace ElevenLabs
         /// Default Value: free_form
         /// </param>
         /// <param name="trigger">
-        /// When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it. If omitted or null, the trigger is derived from the content instead. Also accepts `description` as an alias.
+        /// When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it. Omit this field (or send null) to keep the stored trigger, which is empty on create. Send `""` to clear it. `description` is accepted as an alias.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

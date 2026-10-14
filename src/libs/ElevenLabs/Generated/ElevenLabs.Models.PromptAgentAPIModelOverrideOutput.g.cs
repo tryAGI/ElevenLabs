@@ -27,6 +27,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? ToolIds { get; set; }
 
         /// <summary>
+        /// Only applies as a conversation override, allowed whenever tool_ids may be overridden. When true, the overridden tool_ids is the full list of tools allowed in the conversation, including tools on workflow nodes. Ignored when set on the agent.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_ids_strict")]
+        public bool? ToolIdsStrict { get; set; }
+
+        /// <summary>
         /// A list of Native MCP server ids to be used by the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("native_mcp_server_ids")]
@@ -56,6 +62,9 @@ namespace ElevenLabs
         /// <param name="toolIds">
         /// A list of IDs of tools used by the agent
         /// </param>
+        /// <param name="toolIdsStrict">
+        /// Only applies as a conversation override, allowed whenever tool_ids may be overridden. When true, the overridden tool_ids is the full list of tools allowed in the conversation, including tools on workflow nodes. Ignored when set on the agent.
+        /// </param>
         /// <param name="nativeMcpServerIds">
         /// A list of Native MCP server ids to be used by the agent
         /// </param>
@@ -69,12 +78,14 @@ namespace ElevenLabs
             string? prompt,
             global::ElevenLabs.Llm? llm,
             global::System.Collections.Generic.IList<string>? toolIds,
+            bool? toolIdsStrict,
             global::System.Collections.Generic.IList<string>? nativeMcpServerIds,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? knowledgeBase)
         {
             this.Prompt = prompt;
             this.Llm = llm;
             this.ToolIds = toolIds;
+            this.ToolIdsStrict = toolIdsStrict;
             this.NativeMcpServerIds = nativeMcpServerIds;
             this.KnowledgeBase = knowledgeBase;
         }

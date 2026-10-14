@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class BodyUploadFileV1ConvaiConversationsConversationIdFilesPost
     {
         /// <summary>
-        /// Image or PDF file to upload
+        /// Image, PDF, or text file to upload
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required byte[] File { get; set; }
 
         /// <summary>
-        /// Image or PDF file to upload
+        /// Image, PDF, or text file to upload
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -32,10 +32,10 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="BodyUploadFileV1ConvaiConversationsConversationIdFilesPost" /> class.
         /// </summary>
         /// <param name="file">
-        /// Image or PDF file to upload
+        /// Image, PDF, or text file to upload
         /// </param>
         /// <param name="filename">
-        /// Image or PDF file to upload
+        /// Image, PDF, or text file to upload
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

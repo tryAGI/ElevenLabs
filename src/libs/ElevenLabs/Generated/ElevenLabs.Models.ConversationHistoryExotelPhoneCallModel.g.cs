@@ -39,6 +39,12 @@ namespace ElevenLabs
         public required string ExternalNumber { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("call_result")]
+        public global::ElevenLabs.CallResult? CallResult { get; set; }
+
+        /// <summary>
         /// Default Value: exotel
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
@@ -75,6 +81,7 @@ namespace ElevenLabs
         /// <param name="externalNumber"></param>
         /// <param name="streamSid"></param>
         /// <param name="callSid"></param>
+        /// <param name="callResult"></param>
         /// <param name="type">
         /// Default Value: exotel
         /// </param>
@@ -88,12 +95,14 @@ namespace ElevenLabs
             string externalNumber,
             string streamSid,
             string callSid,
+            global::ElevenLabs.CallResult? callResult,
             string? type)
         {
             this.Direction = direction;
             this.PhoneNumberId = phoneNumberId ?? throw new global::System.ArgumentNullException(nameof(phoneNumberId));
             this.AgentNumber = agentNumber ?? throw new global::System.ArgumentNullException(nameof(agentNumber));
             this.ExternalNumber = externalNumber ?? throw new global::System.ArgumentNullException(nameof(externalNumber));
+            this.CallResult = callResult;
             this.Type = type;
             this.StreamSid = streamSid ?? throw new global::System.ArgumentNullException(nameof(streamSid));
             this.CallSid = callSid ?? throw new global::System.ArgumentNullException(nameof(callSid));

@@ -64,6 +64,13 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? ToolIds { get; set; }
 
         /// <summary>
+        /// Only applies as a conversation override, allowed whenever tool_ids may be overridden. When true, the overridden tool_ids is the full list of tools allowed in the conversation, including tools on workflow nodes. Ignored when set on the agent.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_ids_strict")]
+        public bool? ToolIdsStrict { get; set; }
+
+        /// <summary>
         /// Built-in system tools to be used by the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("built_in_tools")]
@@ -177,6 +184,10 @@ namespace ElevenLabs
         /// <param name="toolIds">
         /// A list of IDs of tools used by the agent
         /// </param>
+        /// <param name="toolIdsStrict">
+        /// Only applies as a conversation override, allowed whenever tool_ids may be overridden. When true, the overridden tool_ids is the full list of tools allowed in the conversation, including tools on workflow nodes. Ignored when set on the agent.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="builtInTools">
         /// Built-in system tools to be used by the agent
         /// </param>
@@ -225,6 +236,7 @@ namespace ElevenLabs
             double? temperature,
             int? maxTokens,
             global::System.Collections.Generic.IList<string>? toolIds,
+            bool? toolIdsStrict,
             global::ElevenLabs.BuiltInToolsInput? builtInTools,
             bool? enableParallelToolCalls,
             global::System.Collections.Generic.IList<string>? mcpServerIds,
@@ -245,6 +257,7 @@ namespace ElevenLabs
             this.Temperature = temperature;
             this.MaxTokens = maxTokens;
             this.ToolIds = toolIds;
+            this.ToolIdsStrict = toolIdsStrict;
             this.BuiltInTools = builtInTools;
             this.EnableParallelToolCalls = enableParallelToolCalls;
             this.McpServerIds = mcpServerIds;

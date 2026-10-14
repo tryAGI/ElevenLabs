@@ -28,15 +28,33 @@ namespace ElevenLabs
         partial void PrepareListForWorkspaceArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? pageSize,
+            ref string? agentId,
             ref global::ElevenLabs.AgentConversationTicketStatus? status,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketPriority>? priorities,
+            ref global::ElevenLabs.AgentConversationTicketSortBy? sortBy,
+            ref string? ownerUserId,
             ref string? assigneeUserId,
+            ref global::ElevenLabs.AgentConversationTicketIssueType? issueType,
+            ref string? label,
+            ref string? mergedIntoTicketId,
+            ref string? search,
             ref string? cursor);
         partial void PrepareListForWorkspaceRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? pageSize,
+            string? agentId,
             global::ElevenLabs.AgentConversationTicketStatus? status,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketPriority>? priorities,
+            global::ElevenLabs.AgentConversationTicketSortBy? sortBy,
+            string? ownerUserId,
             string? assigneeUserId,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType,
+            string? label,
+            string? mergedIntoTicketId,
+            string? search,
             string? cursor);
         partial void ProcessListForWorkspaceResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -49,17 +67,45 @@ namespace ElevenLabs
 
         /// <summary>
         /// List Workspace Conversation Tickets<br/>
-        /// List conversation triage tickets across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, tickets assigned to the caller); for a single agent's tickets, use the per-agent endpoint instead. Tickets for agents the caller cannot access are omitted.
+        /// List conversation triage tickets across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, tickets assigned to the caller). Supports the same filters, sorting and search as the per-agent endpoint. Tickets for agents the caller cannot access are omitted.
         /// </summary>
         /// <param name="pageSize">
         /// How many agent conversation tickets to return. Can not exceed 100.<br/>
         /// Default Value: 100
         /// </param>
+        /// <param name="agentId">
+        /// Only tickets for this agent.
+        /// </param>
         /// <param name="status">
         /// Filter tickets by status.
         /// </param>
+        /// <param name="sources">
+        /// Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
+        /// </param>
+        /// <param name="priorities">
+        /// Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
+        /// </param>
+        /// <param name="sortBy">
+        /// Order by most recently created, or by priority (most urgent first, then most recently created).<br/>
+        /// Default Value: created_at
+        /// </param>
+        /// <param name="ownerUserId">
+        /// Filter tickets by creator. Use 'agent' for agent-raised tickets.
+        /// </param>
         /// <param name="assigneeUserId">
         /// Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
+        /// </param>
+        /// <param name="issueType">
+        /// Filter clusters by issue type.
+        /// </param>
+        /// <param name="label">
+        /// Filter tickets by an exact label.
+        /// </param>
+        /// <param name="mergedIntoTicketId">
+        /// Filter tickets merged into this ticket.
+        /// </param>
+        /// <param name="search">
+        /// Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.
         /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
@@ -69,16 +115,34 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAgentConversationTicketsPageResponseModel> ListForWorkspaceAsync(
             int? pageSize = default,
+            string? agentId = default,
             global::ElevenLabs.AgentConversationTicketStatus? status = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketPriority>? priorities = default,
+            global::ElevenLabs.AgentConversationTicketSortBy? sortBy = default,
+            string? ownerUserId = default,
             string? assigneeUserId = default,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
+            string? label = default,
+            string? mergedIntoTicketId = default,
+            string? search = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ListForWorkspaceAsResponseAsync(
                 pageSize: pageSize,
+                agentId: agentId,
                 status: status,
+                sources: sources,
+                priorities: priorities,
+                sortBy: sortBy,
+                ownerUserId: ownerUserId,
                 assigneeUserId: assigneeUserId,
+                issueType: issueType,
+                label: label,
+                mergedIntoTicketId: mergedIntoTicketId,
+                search: search,
                 cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -88,17 +152,45 @@ namespace ElevenLabs
         }
         /// <summary>
         /// List Workspace Conversation Tickets<br/>
-        /// List conversation triage tickets across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, tickets assigned to the caller); for a single agent's tickets, use the per-agent endpoint instead. Tickets for agents the caller cannot access are omitted.
+        /// List conversation triage tickets across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, tickets assigned to the caller). Supports the same filters, sorting and search as the per-agent endpoint. Tickets for agents the caller cannot access are omitted.
         /// </summary>
         /// <param name="pageSize">
         /// How many agent conversation tickets to return. Can not exceed 100.<br/>
         /// Default Value: 100
         /// </param>
+        /// <param name="agentId">
+        /// Only tickets for this agent.
+        /// </param>
         /// <param name="status">
         /// Filter tickets by status.
         /// </param>
+        /// <param name="sources">
+        /// Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
+        /// </param>
+        /// <param name="priorities">
+        /// Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
+        /// </param>
+        /// <param name="sortBy">
+        /// Order by most recently created, or by priority (most urgent first, then most recently created).<br/>
+        /// Default Value: created_at
+        /// </param>
+        /// <param name="ownerUserId">
+        /// Filter tickets by creator. Use 'agent' for agent-raised tickets.
+        /// </param>
         /// <param name="assigneeUserId">
         /// Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
+        /// </param>
+        /// <param name="issueType">
+        /// Filter clusters by issue type.
+        /// </param>
+        /// <param name="label">
+        /// Filter tickets by an exact label.
+        /// </param>
+        /// <param name="mergedIntoTicketId">
+        /// Filter tickets merged into this ticket.
+        /// </param>
+        /// <param name="search">
+        /// Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.
         /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
@@ -108,8 +200,17 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAgentConversationTicketsPageResponseModel>> ListForWorkspaceAsResponseAsync(
             int? pageSize = default,
+            string? agentId = default,
             global::ElevenLabs.AgentConversationTicketStatus? status = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketPriority>? priorities = default,
+            global::ElevenLabs.AgentConversationTicketSortBy? sortBy = default,
+            string? ownerUserId = default,
             string? assigneeUserId = default,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
+            string? label = default,
+            string? mergedIntoTicketId = default,
+            string? search = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -119,8 +220,17 @@ namespace ElevenLabs
             PrepareListForWorkspaceArguments(
                 httpClient: HttpClient,
                 pageSize: ref pageSize,
+                agentId: ref agentId,
                 status: ref status,
+                sources: sources,
+                priorities: priorities,
+                sortBy: ref sortBy,
+                ownerUserId: ref ownerUserId,
                 assigneeUserId: ref assigneeUserId,
+                issueType: ref issueType,
+                label: ref label,
+                mergedIntoTicketId: ref mergedIntoTicketId,
+                search: ref search,
                 cursor: ref cursor);
 
 
@@ -151,8 +261,17 @@ namespace ElevenLabs
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("agent_id", agentId)
                                 .AddOptionalParameter("status", status?.ToValueString())
+                                .AddOptionalParameter("sources", sources, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
+                                .AddOptionalParameter("priorities", priorities, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
+                                .AddOptionalParameter("sort_by", sortBy?.ToValueString())
+                                .AddOptionalParameter("owner_user_id", ownerUserId)
                                 .AddOptionalParameter("assignee_user_id", assigneeUserId)
+                                .AddOptionalParameter("issue_type", issueType?.ToValueString())
+                                .AddOptionalParameter("label", label)
+                                .AddOptionalParameter("merged_into_ticket_id", mergedIntoTicketId)
+                                .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -196,8 +315,17 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     pageSize: pageSize,
+                    agentId: agentId,
                     status: status,
+                    sources: sources,
+                    priorities: priorities,
+                    sortBy: sortBy,
+                    ownerUserId: ownerUserId,
                     assigneeUserId: assigneeUserId,
+                    issueType: issueType,
+                    label: label,
+                    mergedIntoTicketId: mergedIntoTicketId,
+                    search: search,
                     cursor: cursor);
 
                 return __httpRequest;
@@ -518,26 +646,72 @@ namespace ElevenLabs
         /// How many agent conversation tickets to return. Can not exceed 100.<br/>
         /// Default Value: 100
         /// </param>
+        /// <param name="agentId">
+        /// Only tickets for this agent.
+        /// </param>
         /// <param name="status">
         /// Filter tickets by status.
         /// </param>
+        /// <param name="sources">
+        /// Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
+        /// </param>
+        /// <param name="priorities">
+        /// Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
+        /// </param>
+        /// <param name="sortBy">
+        /// Order by most recently created, or by priority (most urgent first, then most recently created).<br/>
+        /// Default Value: created_at
+        /// </param>
+        /// <param name="ownerUserId">
+        /// Filter tickets by creator. Use 'agent' for agent-raised tickets.
+        /// </param>
         /// <param name="assigneeUserId">
         /// Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
+        /// </param>
+        /// <param name="issueType">
+        /// Filter clusters by issue type.
+        /// </param>
+        /// <param name="label">
+        /// Filter tickets by an exact label.
+        /// </param>
+        /// <param name="mergedIntoTicketId">
+        /// Filter tickets merged into this ticket.
+        /// </param>
+        /// <param name="search">
+        /// Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.
         /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentConversationTicketResponseModel> ListForWorkspaceAutoPagingAsync(
               int? pageSize = default,
+            string? agentId = default,
             global::ElevenLabs.AgentConversationTicketStatus? status = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketSource>? sources = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.AgentConversationTicketPriority>? priorities = default,
+            global::ElevenLabs.AgentConversationTicketSortBy? sortBy = default,
+            string? ownerUserId = default,
             string? assigneeUserId = default,
+            global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
+            string? label = default,
+            string? mergedIntoTicketId = default,
+            string? search = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetAgentConversationTicketsPageResponseModel, global::ElevenLabs.AgentConversationTicketResponseModel>(
                 fetchPage: (__cursor, __ct) => ListForWorkspaceAsync(
                     pageSize: pageSize,
+                    agentId: agentId,
                     status: status,
+                    sources: sources,
+                    priorities: priorities,
+                    sortBy: sortBy,
+                    ownerUserId: ownerUserId,
                     assigneeUserId: assigneeUserId,
+                    issueType: issueType,
+                    label: label,
+                    mergedIntoTicketId: mergedIntoTicketId,
+                    search: search,
                     cursor: __cursor,
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null

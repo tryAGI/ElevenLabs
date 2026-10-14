@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        AllResourcesAccess,
+        /// <summary>
+        ///
+        /// </summary>
         AudioNative,
         /// <summary>
         ///
@@ -172,6 +176,7 @@ namespace ElevenLabs
             {
                 WorkspaceGroupPermission.AddVoiceFromVoiceLibrary => "add_voice_from_voice_library",
                 WorkspaceGroupPermission.AiSpeechClassifier => "ai_speech_classifier",
+                WorkspaceGroupPermission.AllResourcesAccess => "all_resources_access",
                 WorkspaceGroupPermission.AudioNative => "audio_native",
                 WorkspaceGroupPermission.AuditLogRead => "audit_log_read",
                 WorkspaceGroupPermission.ConversationPrivacyManage => "conversation_privacy_manage",
@@ -219,6 +224,7 @@ namespace ElevenLabs
             {
                 "add_voice_from_voice_library" => WorkspaceGroupPermission.AddVoiceFromVoiceLibrary,
                 "ai_speech_classifier" => WorkspaceGroupPermission.AiSpeechClassifier,
+                "all_resources_access" => WorkspaceGroupPermission.AllResourcesAccess,
                 "audio_native" => WorkspaceGroupPermission.AudioNative,
                 "audit_log_read" => WorkspaceGroupPermission.AuditLogRead,
                 "conversation_privacy_manage" => WorkspaceGroupPermission.ConversationPrivacyManage,

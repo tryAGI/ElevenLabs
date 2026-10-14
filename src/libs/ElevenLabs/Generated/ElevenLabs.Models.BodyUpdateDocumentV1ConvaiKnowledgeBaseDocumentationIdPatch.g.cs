@@ -15,7 +15,7 @@ namespace ElevenLabs
         public string? Name { get; set; }
 
         /// <summary>
-        /// Updated content for the document. Only supported for text documents, URL documents with auto-sync disabled, and file documents.
+        /// Updated content for the document. Only supported for text documents, URL documents with auto-sync disabled, and file documents that are not synced from an external source.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         public string? Content { get; set; }
@@ -33,7 +33,7 @@ namespace ElevenLabs
         /// A custom, human-readable name for the document.
         /// </param>
         /// <param name="content">
-        /// Updated content for the document. Only supported for text documents, URL documents with auto-sync disabled, and file documents.
+        /// Updated content for the document. Only supported for text documents, URL documents with auto-sync disabled, and file documents that are not synced from an external source.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

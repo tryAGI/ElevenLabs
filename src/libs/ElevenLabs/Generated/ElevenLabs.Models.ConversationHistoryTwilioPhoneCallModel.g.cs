@@ -41,6 +41,12 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("call_result")]
+        public global::ElevenLabs.CallResult? CallResult { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         /// <default>"twilio"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         public string Type { get; set; } = "twilio";
@@ -76,6 +82,7 @@ namespace ElevenLabs
         /// <param name="externalNumber"></param>
         /// <param name="streamSid"></param>
         /// <param name="callSid"></param>
+        /// <param name="callResult"></param>
         /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -87,12 +94,14 @@ namespace ElevenLabs
             string externalNumber,
             string streamSid,
             string callSid,
+            global::ElevenLabs.CallResult? callResult,
             string type = "twilio")
         {
             this.Direction = direction;
             this.PhoneNumberId = phoneNumberId ?? throw new global::System.ArgumentNullException(nameof(phoneNumberId));
             this.AgentNumber = agentNumber ?? throw new global::System.ArgumentNullException(nameof(agentNumber));
             this.ExternalNumber = externalNumber ?? throw new global::System.ArgumentNullException(nameof(externalNumber));
+            this.CallResult = callResult;
             this.Type = type;
             this.StreamSid = streamSid ?? throw new global::System.ArgumentNullException(nameof(streamSid));
             this.CallSid = callSid ?? throw new global::System.ArgumentNullException(nameof(callSid));
