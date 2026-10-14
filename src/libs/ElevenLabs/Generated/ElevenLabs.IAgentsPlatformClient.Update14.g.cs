@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Update Agent Branch<br/>
-        /// Update agent branch properties such as archiving status and protection level
+        /// Update agent branch properties such as archiving status, protection level, and auto-rebase onto main
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -27,7 +27,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Agent Branch<br/>
-        /// Update agent branch properties such as archiving status and protection level
+        /// Update agent branch properties such as archiving status, protection level, and auto-rebase onto main
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -48,7 +48,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Agent Branch<br/>
-        /// Update agent branch properties such as archiving status and protection level
+        /// Update agent branch properties such as archiving status, protection level, and auto-rebase onto main
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -65,6 +65,9 @@ namespace ElevenLabs
         /// <param name="protectionStatus">
         /// The protection level for the branch
         /// </param>
+        /// <param name="autoRebase">
+        /// When true, rebase this branch onto main automatically after each new main version. Cannot be enabled on the main branch.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -74,6 +77,7 @@ namespace ElevenLabs
             string? name = default,
             bool? isArchived = default,
             global::ElevenLabs.BranchProtectionStatus? protectionStatus = default,
+            bool? autoRebase = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

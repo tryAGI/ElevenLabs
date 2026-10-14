@@ -17,6 +17,12 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("branch_id")]
+        public string? BranchId { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("node_id")]
         public string? NodeId { get; set; }
 
@@ -76,6 +82,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="condition"></param>
         /// <param name="agentId"></param>
+        /// <param name="branchId"></param>
         /// <param name="nodeId"></param>
         /// <param name="delayMs">
         /// Default Value: 0
@@ -101,6 +108,7 @@ namespace ElevenLabs
         public AgentTransferOutput(
             string condition,
             string? agentId,
+            string? branchId,
             string? nodeId,
             int? delayMs,
             string? transferMessage,
@@ -110,6 +118,7 @@ namespace ElevenLabs
             bool? preserveVoiceSettings)
         {
             this.AgentId = agentId;
+            this.BranchId = branchId;
             this.NodeId = nodeId;
             this.Condition = condition ?? throw new global::System.ArgumentNullException(nameof(condition));
             this.DelayMs = delayMs;

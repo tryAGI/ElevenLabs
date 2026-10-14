@@ -5,8 +5,8 @@ namespace ElevenLabs
     public partial interface IVoicesClient
     {
         /// <summary>
-        /// Edit Voice<br/>
-        /// Edit a voice created by you.
+        /// Edit Voice Settings<br/>
+        /// Edit your settings for a specific voice. "similarity_boost" corresponds to "Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
         /// </summary>
         /// <param name="voiceId">
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
@@ -15,15 +15,15 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceResponseModel> Update2Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceSettingsResponseModel> Update2Async(
             string voiceId,
 
-            global::ElevenLabs.BodyEditVoiceV1VoicesVoiceIdEditPost request,
+            global::ElevenLabs.VoiceSettingsResponseModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Edit Voice<br/>
-        /// Edit a voice created by you.
+        /// Edit Voice Settings<br/>
+        /// Edit your settings for a specific voice. "similarity_boost" corresponds to "Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
         /// </summary>
         /// <param name="voiceId">
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
@@ -32,50 +32,49 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EditVoiceResponseModel>> Update2AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.EditVoiceSettingsResponseModel>> Update2AsResponseAsync(
             string voiceId,
 
-            global::ElevenLabs.BodyEditVoiceV1VoicesVoiceIdEditPost request,
+            global::ElevenLabs.VoiceSettingsResponseModel request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Edit Voice<br/>
-        /// Edit a voice created by you.
+        /// Edit Voice Settings<br/>
+        /// Edit your settings for a specific voice. "similarity_boost" corresponds to "Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
         /// </summary>
         /// <param name="voiceId">
         /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
         /// </param>
-        /// <param name="name">
-        /// The name that identifies this voice. This will be displayed in the dropdown of the website.
+        /// <param name="stability">
+        /// Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.<br/>
+        /// Default Value: 0.5F
         /// </param>
-        /// <param name="files">
-        /// Audio files to add to the voice
+        /// <param name="useSpeakerBoost">
+        /// This setting boosts the similarity to the original speaker. Using this setting requires a slightly higher computational load, which in turn increases latency.<br/>
+        /// Default Value: true
         /// </param>
-        /// <param name="removeBackgroundNoise">
-        /// If set will remove background noise for voice samples using our audio isolation model. If the samples do not include background noise, it can make the quality worse.<br/>
-        /// Default Value: false
+        /// <param name="similarityBoost">
+        /// Determines how closely the AI should adhere to the original voice when attempting to replicate it.<br/>
+        /// Default Value: 0.75F
         /// </param>
-        /// <param name="description">
-        /// A description of the voice.
+        /// <param name="style">
+        /// Determines the style exaggeration of the voice. This setting attempts to amplify the style of the original speaker. It does consume additional computational resources and might increase latency if set to anything other than 0.<br/>
+        /// Default Value: 0F
         /// </param>
-        /// <param name="labels">
-        /// Labels for the voice. Keys can be language, accent, gender, or age.
-        /// </param>
-        /// <param name="moderateMetadata">
-        /// Run synchronous LLM moderation over the voice name and description when they change. Has no effect unless the voice_library_metadata_moderation feature flag is enabled for the user.<br/>
-        /// Default Value: false
+        /// <param name="speed">
+        /// Adjusts the speed of the voice. A value of 1.0 is the default speed, while values less than 1.0 slow down the speech, and values greater than 1.0 speed it up.<br/>
+        /// Default Value: 1F
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceResponseModel> Update2Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.EditVoiceSettingsResponseModel> Update2Async(
             string voiceId,
-            string name,
-            global::System.Collections.Generic.IList<byte[]>? files = default,
-            bool? removeBackgroundNoise = default,
-            string? description = default,
-            global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, string>? labels = default,
-            bool? moderateMetadata = default,
+            double? stability = default,
+            bool? useSpeakerBoost = default,
+            double? similarityBoost = default,
+            double? style = default,
+            double? speed = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

@@ -21,6 +21,13 @@ namespace ElevenLabs.JsonConverters
                             throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1Discriminator)}");
             var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
+            global::ElevenLabs.TransferBranchInfoConfigured? configured = default;
+            if (discriminator?.BranchReason == global::ElevenLabs.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReason.Configured)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferBranchInfoConfigured), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferBranchInfoConfigured> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TransferBranchInfoConfigured)}");
+                configured = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.TransferBranchInfoTrafficSplit? trafficSplit = default;
             if (discriminator?.BranchReason == global::ElevenLabs.TransferToAgentToolResultSuccessModelInputBranchInfoVariant1DiscriminatorBranchReason.TrafficSplit)
             {
@@ -38,6 +45,8 @@ namespace ElevenLabs.JsonConverters
 
             var __value = new global::ElevenLabs.BranchInfoVariant1(
                 discriminator?.BranchReason,
+                configured,
+
                 trafficSplit,
 
                 defaultingToMain
@@ -55,7 +64,13 @@ namespace ElevenLabs.JsonConverters
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
-            if (value.IsTrafficSplit)
+            if (value.IsConfigured)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferBranchInfoConfigured), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferBranchInfoConfigured?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferBranchInfoConfigured).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickConfigured(), typeInfo);
+            }
+            else if (value.IsTrafficSplit)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TransferBranchInfoTrafficSplit), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TransferBranchInfoTrafficSplit?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TransferBranchInfoTrafficSplit).Name}");

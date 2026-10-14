@@ -310,6 +310,13 @@ namespace ElevenLabs
         public bool? ShowResizeButton { get; set; }
 
         /// <summary>
+        /// Whether to ask the user to confirm before ending a chat or call<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("end_confirmation_enabled")]
+        public bool? EndConfirmationEnabled { get; set; }
+
+        /// <summary>
         /// Whether to show the language selector<br/>
         /// Default Value: false
         /// </summary>
@@ -505,6 +512,10 @@ namespace ElevenLabs
         /// Whether to show the resize button<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="endConfirmationEnabled">
+        /// Whether to ask the user to confirm before ending a chat or call<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="languageSelector">
         /// Whether to show the language selector<br/>
         /// Default Value: false
@@ -568,6 +579,7 @@ namespace ElevenLabs
             global::ElevenLabs.WidgetTextContents? textContents,
             global::ElevenLabs.WidgetStyles? styles,
             bool? showResizeButton,
+            bool? endConfirmationEnabled,
             bool? languageSelector,
             bool? supportsTextOnly,
             string? customAvatarPath,
@@ -618,6 +630,7 @@ namespace ElevenLabs
             this.TextContents = textContents;
             this.Styles = styles;
             this.ShowResizeButton = showResizeButton;
+            this.EndConfirmationEnabled = endConfirmationEnabled;
             this.LanguageSelector = languageSelector;
             this.SupportsTextOnly = supportsTextOnly;
             this.CustomAvatarPath = customAvatarPath;

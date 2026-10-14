@@ -18,26 +18,37 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AddVoiceIVCResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AddVoiceToUserVoiceCollectionResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyAddSharedVoiceV1VoicesAddPublicUserIdVoiceIdPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyAddVoiceV1VoicesAddPost))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyCreateVoiceCollectionV1VoicesCollectionsPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyEditVoiceV1VoicesVoiceIdEditPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyGetSimilarLibraryVoicesV1SimilarVoicesPost))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyUpdateVoiceCollectionV1VoicesCollectionsCollectionIdPatch))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DeleteUserVoiceCollectionResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DeleteVoiceResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.EditVoiceResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.EditVoiceSettingsResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetLibraryVoicesResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.LibraryVoiceResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LibraryVoiceResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetUserVoiceCollectionsResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.UserVoiceCollectionResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UserVoiceCollectionResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetVoiceAccentsResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.VoiceAccentResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.VoiceAccentResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetVoicesResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetVoicesV2ResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LibraryVoiceResponseModelCategory), TypeInfoPropertyName = "LibraryVoiceResponseModelCategory2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.RemoveVoiceFromUserVoiceCollectionResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ReplicateVoiceToIsolatedEnvironmentRequestModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ReplicateVoiceToIsolatedEnvironmentResponseModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResource), TypeInfoPropertyName = "UserVoiceCollectionResponseModelPermissionOnResource2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LibraryVoiceResponseModelCategory?), TypeInfoPropertyName = "NullableLibraryVoiceResponseModelCategory2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResource?), TypeInfoPropertyName = "NullableUserVoiceCollectionResponseModelPermissionOnResource2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.LibraryVoiceResponseModel>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.UserVoiceCollectionResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.VoiceAccentResponseModel>))]
     internal sealed partial class VoicesSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
@@ -110,7 +121,11 @@ namespace ElevenLabs
                 return
                     typeToConvert == typeof(global::ElevenLabs.LibraryVoiceResponseModelCategory)
 
-                    || typeToConvert == typeof(global::ElevenLabs.LibraryVoiceResponseModelCategory?);
+                    || typeToConvert == typeof(global::ElevenLabs.LibraryVoiceResponseModelCategory?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResource)
+
+                    || typeToConvert == typeof(global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResource?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
@@ -125,6 +140,16 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.LibraryVoiceResponseModelCategory?))
                 {
                     return new global::ElevenLabs.JsonConverters.LibraryVoiceResponseModelCategoryNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResource))
+                {
+                    return new global::ElevenLabs.JsonConverters.UserVoiceCollectionResponseModelPermissionOnResourceJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.UserVoiceCollectionResponseModelPermissionOnResource?))
+                {
+                    return new global::ElevenLabs.JsonConverters.UserVoiceCollectionResponseModelPermissionOnResourceNullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }

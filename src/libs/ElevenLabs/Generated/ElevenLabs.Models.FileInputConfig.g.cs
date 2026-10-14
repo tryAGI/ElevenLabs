@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class FileInputConfig
     {
         /// <summary>
-        /// When enabled, users may attach images or PDFs in chat when the LLM supports multimodal input.<br/>
+        /// When enabled, users may attach images, PDFs, or text files in chat when the LLM supports multimodal input.<br/>
         /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enabled")]
@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="FileInputConfig" /> class.
         /// </summary>
         /// <param name="enabled">
-        /// When enabled, users may attach images or PDFs in chat when the LLM supports multimodal input.<br/>
+        /// When enabled, users may attach images, PDFs, or text files in chat when the LLM supports multimodal input.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="maxFilesInMemory">

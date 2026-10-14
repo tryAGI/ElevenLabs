@@ -33,6 +33,12 @@ namespace ElevenLabs
         public string? ConvaiTtsCascade { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voice_id")]
+        public string? VoiceId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -45,6 +51,7 @@ namespace ElevenLabs
         /// <param name="convaiAsrProvider"></param>
         /// <param name="convaiTtsModel"></param>
         /// <param name="convaiTtsCascade"></param>
+        /// <param name="voiceId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -52,12 +59,14 @@ namespace ElevenLabs
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.MetricRecord>? metrics,
             string? convaiAsrProvider,
             string? convaiTtsModel,
-            string? convaiTtsCascade)
+            string? convaiTtsCascade,
+            string? voiceId)
         {
             this.Metrics = metrics;
             this.ConvaiAsrProvider = convaiAsrProvider;
             this.ConvaiTtsModel = convaiTtsModel;
             this.ConvaiTtsCascade = convaiTtsCascade;
+            this.VoiceId = voiceId;
         }
 
         /// <summary>

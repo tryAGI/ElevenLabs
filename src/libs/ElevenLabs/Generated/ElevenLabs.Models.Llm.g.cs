@@ -51,6 +51,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        ClaudeHaiku55,
+        /// <summary>
+        ///
+        /// </summary>
         ClaudeOpus47,
         /// <summary>
         ///
@@ -460,6 +464,7 @@ namespace ElevenLabs
                 Llm.Claude3Haiku_20240307 => "claude-3-haiku@20240307",
                 Llm.ClaudeHaiku45 => "claude-haiku-4-5",
                 Llm.ClaudeHaiku45_20251001 => "claude-haiku-4-5@20251001",
+                Llm.ClaudeHaiku55 => "claude-haiku-5-5",
                 Llm.ClaudeOpus47 => "claude-opus-4-7",
                 Llm.ClaudeOpus48 => "claude-opus-4-8",
                 Llm.ClaudeOpus5 => "claude-opus-5",
@@ -577,6 +582,7 @@ namespace ElevenLabs
                 "claude-3-haiku@20240307" => Llm.Claude3Haiku_20240307,
                 "claude-haiku-4-5" => Llm.ClaudeHaiku45,
                 "claude-haiku-4-5@20251001" => Llm.ClaudeHaiku45_20251001,
+                "claude-haiku-5-5" => Llm.ClaudeHaiku55,
                 "claude-opus-4-7" => Llm.ClaudeOpus47,
                 "claude-opus-4-8" => Llm.ClaudeOpus48,
                 "claude-opus-5" => Llm.ClaudeOpus5,

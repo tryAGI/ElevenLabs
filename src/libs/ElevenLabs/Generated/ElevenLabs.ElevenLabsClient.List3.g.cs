@@ -38,6 +38,8 @@ namespace ElevenLabs
             ref string? assigneeUserId,
             ref global::ElevenLabs.AgentConversationTicketIssueType? issueType,
             ref string? label,
+            ref string? mergedIntoTicketId,
+            ref string? search,
             ref string? cursor);
         partial void PrepareList3Request(
             global::System.Net.Http.HttpClient httpClient,
@@ -53,6 +55,8 @@ namespace ElevenLabs
             string? assigneeUserId,
             global::ElevenLabs.AgentConversationTicketIssueType? issueType,
             string? label,
+            string? mergedIntoTicketId,
+            string? search,
             string? cursor);
         partial void ProcessList3Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -100,6 +104,12 @@ namespace ElevenLabs
         /// <param name="label">
         /// Filter tickets by an exact label.
         /// </param>
+        /// <param name="mergedIntoTicketId">
+        /// Filter tickets merged into this ticket.
+        /// </param>
+        /// <param name="search">
+        /// Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -118,6 +128,8 @@ namespace ElevenLabs
             string? assigneeUserId = default,
             global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
             string? label = default,
+            string? mergedIntoTicketId = default,
+            string? search = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -134,6 +146,8 @@ namespace ElevenLabs
                 assigneeUserId: assigneeUserId,
                 issueType: issueType,
                 label: label,
+                mergedIntoTicketId: mergedIntoTicketId,
+                search: search,
                 cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -178,6 +192,12 @@ namespace ElevenLabs
         /// <param name="label">
         /// Filter tickets by an exact label.
         /// </param>
+        /// <param name="mergedIntoTicketId">
+        /// Filter tickets merged into this ticket.
+        /// </param>
+        /// <param name="search">
+        /// Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -196,6 +216,8 @@ namespace ElevenLabs
             string? assigneeUserId = default,
             global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
             string? label = default,
+            string? mergedIntoTicketId = default,
+            string? search = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -215,6 +237,8 @@ namespace ElevenLabs
                 assigneeUserId: ref assigneeUserId,
                 issueType: ref issueType,
                 label: ref label,
+                mergedIntoTicketId: ref mergedIntoTicketId,
+                search: ref search,
                 cursor: ref cursor);
 
 
@@ -254,6 +278,8 @@ namespace ElevenLabs
                                 .AddOptionalParameter("assignee_user_id", assigneeUserId)
                                 .AddOptionalParameter("issue_type", issueType?.ToValueString())
                                 .AddOptionalParameter("label", label)
+                                .AddOptionalParameter("merged_into_ticket_id", mergedIntoTicketId)
+                                .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -307,6 +333,8 @@ namespace ElevenLabs
                     assigneeUserId: assigneeUserId,
                     issueType: issueType,
                     label: label,
+                    mergedIntoTicketId: mergedIntoTicketId,
+                    search: search,
                     cursor: cursor);
 
                 return __httpRequest;
@@ -656,6 +684,12 @@ namespace ElevenLabs
         /// <param name="label">
         /// Filter tickets by an exact label.
         /// </param>
+        /// <param name="mergedIntoTicketId">
+        /// Filter tickets merged into this ticket.
+        /// </param>
+        /// <param name="search">
+        /// Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentConversationTicketResponseModel> List3AutoPagingAsync(
@@ -669,6 +703,8 @@ namespace ElevenLabs
             string? assigneeUserId = default,
             global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
             string? label = default,
+            string? mergedIntoTicketId = default,
+            string? search = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -685,6 +721,8 @@ namespace ElevenLabs
                     assigneeUserId: assigneeUserId,
                     issueType: issueType,
                     label: label,
+                    mergedIntoTicketId: mergedIntoTicketId,
+                    search: search,
                     cursor: __cursor,
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null

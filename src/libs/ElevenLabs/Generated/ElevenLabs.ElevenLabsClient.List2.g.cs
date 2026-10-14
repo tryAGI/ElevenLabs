@@ -29,6 +29,10 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string? agentId,
             ref string? branchId,
+            ref string? testId,
+            int? startTime,
+            int? endTime,
+            ref string? versionId,
             ref int? pageSize,
             ref string? search,
             ref string? cursor);
@@ -37,6 +41,10 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? agentId,
             string? branchId,
+            string? testId,
+            int? startTime,
+            int? endTime,
+            string? versionId,
             int? pageSize,
             string? search,
             string? cursor);
@@ -59,6 +67,18 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter by branch ID
         /// </param>
+        /// <param name="testId">
+        /// Filter to invocations that include a run of this test id
+        /// </param>
+        /// <param name="startTime">
+        /// Inclusive lower bound on created_at, in unix seconds
+        /// </param>
+        /// <param name="endTime">
+        /// Inclusive upper bound on created_at, in unix seconds
+        /// </param>
+        /// <param name="versionId">
+        /// Filter by the agent version the tests ran against
+        /// </param>
         /// <param name="pageSize">
         /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
@@ -75,6 +95,10 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetTestInvocationsPageResponseModel> List2Async(
             string? agentId = default,
             string? branchId = default,
+            string? testId = default,
+            int? startTime = default,
+            int? endTime = default,
+            string? versionId = default,
             int? pageSize = default,
             string? search = default,
             string? cursor = default,
@@ -84,6 +108,10 @@ namespace ElevenLabs
             var __response = await List2AsResponseAsync(
                 agentId: agentId,
                 branchId: branchId,
+                testId: testId,
+                startTime: startTime,
+                endTime: endTime,
+                versionId: versionId,
                 pageSize: pageSize,
                 search: search,
                 cursor: cursor,
@@ -103,6 +131,18 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter by branch ID
         /// </param>
+        /// <param name="testId">
+        /// Filter to invocations that include a run of this test id
+        /// </param>
+        /// <param name="startTime">
+        /// Inclusive lower bound on created_at, in unix seconds
+        /// </param>
+        /// <param name="endTime">
+        /// Inclusive upper bound on created_at, in unix seconds
+        /// </param>
+        /// <param name="versionId">
+        /// Filter by the agent version the tests ran against
+        /// </param>
         /// <param name="pageSize">
         /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
@@ -119,6 +159,10 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetTestInvocationsPageResponseModel>> List2AsResponseAsync(
             string? agentId = default,
             string? branchId = default,
+            string? testId = default,
+            int? startTime = default,
+            int? endTime = default,
+            string? versionId = default,
             int? pageSize = default,
             string? search = default,
             string? cursor = default,
@@ -131,6 +175,10 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 agentId: ref agentId,
                 branchId: ref branchId,
+                testId: ref testId,
+                startTime: startTime,
+                endTime: endTime,
+                versionId: ref versionId,
                 pageSize: ref pageSize,
                 search: ref search,
                 cursor: ref cursor);
@@ -164,6 +212,10 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddOptionalParameter("agent_id", agentId)
                                 .AddOptionalParameter("branch_id", branchId)
+                                .AddOptionalParameter("test_id", testId)
+                                .AddOptionalParameter("start_time", startTime?.ToString())
+                                .AddOptionalParameter("end_time", endTime?.ToString())
+                                .AddOptionalParameter("version_id", versionId)
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("cursor", cursor)
@@ -210,6 +262,10 @@ namespace ElevenLabs
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
                     branchId: branchId,
+                    testId: testId,
+                    startTime: startTime,
+                    endTime: endTime,
+                    versionId: versionId,
                     pageSize: pageSize,
                     search: search,
                     cursor: cursor);
@@ -534,6 +590,18 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter by branch ID
         /// </param>
+        /// <param name="testId">
+        /// Filter to invocations that include a run of this test id
+        /// </param>
+        /// <param name="startTime">
+        /// Inclusive lower bound on created_at, in unix seconds
+        /// </param>
+        /// <param name="endTime">
+        /// Inclusive upper bound on created_at, in unix seconds
+        /// </param>
+        /// <param name="versionId">
+        /// Filter by the agent version the tests ran against
+        /// </param>
         /// <param name="pageSize">
         /// How many Tests to return at maximum. Can not exceed 100, defaults to 30.<br/>
         /// Default Value: 30
@@ -546,6 +614,10 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.TestInvocationSummaryResponseModel> List2AutoPagingAsync(
               string? agentId = default,
             string? branchId = default,
+            string? testId = default,
+            int? startTime = default,
+            int? endTime = default,
+            string? versionId = default,
             int? pageSize = default,
             string? search = default,
             string? cursor = null,
@@ -555,6 +627,10 @@ namespace ElevenLabs
                 fetchPage: (__cursor, __ct) => List2Async(
                     agentId: agentId,
                     branchId: branchId,
+                    testId: testId,
+                    startTime: startTime,
+                    endTime: endTime,
+                    versionId: versionId,
                     pageSize: pageSize,
                     search: search,
                     cursor: __cursor,

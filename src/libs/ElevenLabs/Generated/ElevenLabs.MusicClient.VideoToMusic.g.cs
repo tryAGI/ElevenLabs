@@ -1010,7 +1010,7 @@ namespace ElevenLabs
         ///
         /// </param>
         /// <param name="description">
-        /// Optional text description of the music you want. A maximum of 1000 characters is allowed.
+        /// Optional text description of the music you want. A maximum of 4100 characters is allowed.
         /// </param>
         /// <param name="tags">
         /// Optional list of style tags (e.g. ['upbeat', 'cinematic']). A maximum of 10 tags is allowed.<br/>
@@ -1070,7 +1070,7 @@ namespace ElevenLabs
         /// Optional file names to use for the multipart 'videos' file parts.
         /// </param>
         /// <param name="description">
-        /// Optional text description of the music you want. A maximum of 1000 characters is allowed.
+        /// Optional text description of the music you want. A maximum of 4100 characters is allowed.
         /// </param>
         /// <param name="tags">
         /// Optional list of style tags (e.g. ['upbeat', 'cinematic']). A maximum of 10 tags is allowed.<br/>
@@ -1608,7 +1608,7 @@ namespace ElevenLabs
         /// Optional file names to use for the multipart 'videos' file parts.
         /// </param>
         /// <param name="description">
-        /// Optional text description of the music you want. A maximum of 1000 characters is allowed.
+        /// Optional text description of the music you want. A maximum of 4100 characters is allowed.
         /// </param>
         /// <param name="tags">
         /// Optional list of style tags (e.g. ['upbeat', 'cinematic']). A maximum of 10 tags is allowed.<br/>
@@ -2117,7 +2117,7 @@ namespace ElevenLabs
         /// Optional file names to use for the multipart 'videos' file parts.
         /// </param>
         /// <param name="description">
-        /// Optional text description of the music you want. A maximum of 1000 characters is allowed.
+        /// Optional text description of the music you want. A maximum of 4100 characters is allowed.
         /// </param>
         /// <param name="tags">
         /// Optional list of style tags (e.g. ['upbeat', 'cinematic']). A maximum of 10 tags is allowed.<br/>

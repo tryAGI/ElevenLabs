@@ -49,7 +49,7 @@ namespace ElevenLabs
         /// A custom, human-readable name for the document.
         /// </param>
         /// <param name="content">
-        /// Updated content for the document. Only supported for text documents, URL documents with auto-sync disabled, and file documents.
+        /// Updated content for the document. Only supported for text documents, URL documents with auto-sync disabled, and file documents that are not synced from an external source.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

@@ -45,7 +45,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Upload File<br/>
-        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
+        /// Upload an image, PDF, or text file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
         /// </summary>
         /// <param name="conversationId"></param>
         /// <param name="request"></param>
@@ -71,7 +71,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Upload File<br/>
-        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
+        /// Upload an image, PDF, or text file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
         /// </summary>
         /// <param name="conversationId"></param>
         /// <param name="request"></param>
@@ -517,14 +517,14 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Upload File<br/>
-        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
+        /// Upload an image, PDF, or text file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
         /// </summary>
         /// <param name="conversationId"></param>
         /// <param name="file">
-        /// Image or PDF file to upload
+        /// Image, PDF, or text file to upload
         /// </param>
         /// <param name="filename">
-        /// Image or PDF file to upload
+        /// Image, PDF, or text file to upload
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -551,14 +551,14 @@ namespace ElevenLabs
 
         /// <summary>
         /// Upload File<br/>
-        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
+        /// Upload an image, PDF, or text file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
         /// </summary>
         /// <param name="conversationId"></param>
         /// <param name="file">
-        /// Image or PDF file to upload
+        /// Image, PDF, or text file to upload
         /// </param>
         /// <param name="filename">
-        /// Image or PDF file to upload
+        /// Image, PDF, or text file to upload
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -999,14 +999,14 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Upload File<br/>
-        /// Upload an image or PDF file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
+        /// Upload an image, PDF, or text file for a conversation. Returns a unique file ID that can be used to reference the file in the conversation.
         /// </summary>
         /// <param name="conversationId"></param>
         /// <param name="file">
-        /// Image or PDF file to upload
+        /// Image, PDF, or text file to upload
         /// </param>
         /// <param name="filename">
-        /// Image or PDF file to upload
+        /// Image, PDF, or text file to upload
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

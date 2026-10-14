@@ -125,6 +125,19 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status_changes")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.TicketStatusChangeResponseModel> StatusChanges { get; set; }
+
+        /// <summary>
+        /// The ticket this one was merged into, set while its status is 'merged'.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("merged_into_ticket_id")]
+        public string? MergedIntoTicketId { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AgentConversationTicketSourceJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -151,6 +164,12 @@ namespace ElevenLabs
         public required int UpdatedAtUnixSecs { get; set; }
 
         /// <summary>
+        /// Where the list's `search` query matched. Set only on searched lists.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("search_match")]
+        public global::ElevenLabs.TicketSearchMatchResponseModel? SearchMatch { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -170,6 +189,7 @@ namespace ElevenLabs
         /// <param name="turnComments"></param>
         /// <param name="status"></param>
         /// <param name="priorityChanges"></param>
+        /// <param name="statusChanges"></param>
         /// <param name="source"></param>
         /// <param name="createdAtUnixSecs"></param>
         /// <param name="updatedAtUnixSecs"></param>
@@ -181,7 +201,13 @@ namespace ElevenLabs
         /// <param name="lastSeenUnixSecs"></param>
         /// <param name="qaComment"></param>
         /// <param name="priority"></param>
+        /// <param name="mergedIntoTicketId">
+        /// The ticket this one was merged into, set while its status is 'merged'.
+        /// </param>
         /// <param name="assigneeUserId"></param>
+        /// <param name="searchMatch">
+        /// Where the list's `search` query matched. Set only on searched lists.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -197,6 +223,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.TurnCommentResponseModel> turnComments,
             global::ElevenLabs.AgentConversationTicketStatus status,
             global::System.Collections.Generic.IList<global::ElevenLabs.TicketPriorityChangeResponseModel> priorityChanges,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TicketStatusChangeResponseModel> statusChanges,
             global::ElevenLabs.AgentConversationTicketSource source,
             int createdAtUnixSecs,
             int updatedAtUnixSecs,
@@ -206,7 +233,9 @@ namespace ElevenLabs
             int? lastSeenUnixSecs,
             string? qaComment,
             global::ElevenLabs.AgentConversationTicketPriority? priority,
-            string? assigneeUserId)
+            string? mergedIntoTicketId,
+            string? assigneeUserId,
+            global::ElevenLabs.TicketSearchMatchResponseModel? searchMatch)
         {
             this.AgentqaTicketId = agentqaTicketId ?? throw new global::System.ArgumentNullException(nameof(agentqaTicketId));
             this.WorkspaceId = workspaceId ?? throw new global::System.ArgumentNullException(nameof(workspaceId));
@@ -225,10 +254,13 @@ namespace ElevenLabs
             this.Status = status;
             this.Priority = priority;
             this.PriorityChanges = priorityChanges ?? throw new global::System.ArgumentNullException(nameof(priorityChanges));
+            this.StatusChanges = statusChanges ?? throw new global::System.ArgumentNullException(nameof(statusChanges));
+            this.MergedIntoTicketId = mergedIntoTicketId;
             this.Source = source;
             this.AssigneeUserId = assigneeUserId;
             this.CreatedAtUnixSecs = createdAtUnixSecs;
             this.UpdatedAtUnixSecs = updatedAtUnixSecs;
+            this.SearchMatch = searchMatch;
         }
 
         /// <summary>
