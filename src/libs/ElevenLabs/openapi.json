@@ -7398,7 +7398,8 @@
                     "status": "completed",
                     "model_id": "dubbing_v2",
                     "outputs": {
-                      "lossless_audio": "https://storage.googleapis.com/eleven-dubbing/proj_1601kwkyxp0hfzvtmyxwqxx6mcy3/lang_1001kwkyxp0je6ktn4knsfrasx5s/output.flac?X-Goog-Signature=..."
+                      "lossless_audio": "https://storage.googleapis.com/eleven-dubbing/proj_1601kwkyxp0hfzvtmyxwqxx6mcy3/lang_1001kwkyxp0je6ktn4knsfrasx5s/output.flac?X-Goog-Signature=...",
+                      "subtitles": "https://storage.googleapis.com/eleven-dubbing/proj_1601kwkyxp0hfzvtmyxwqxx6mcy3/lang_1001kwkyxp0je6ktn4knsfrasx5s/subtitles.vtt?X-Goog-Signature=..."
                     },
                     "revision": 3,
                     "output_revision": 3,
@@ -7505,7 +7506,8 @@
                 "status": "completed",
                 "model_id": "dubbing_v2",
                 "outputs": {
-                  "lossless_audio": "https://storage.googleapis.com/eleven-dubbing/proj_1601kwkyxp0hfzvtmyxwqxx6mcy3/lang_1001kwkyxp0je6ktn4knsfrasx5s/output.flac?X-Goog-Signature=..."
+                  "lossless_audio": "https://storage.googleapis.com/eleven-dubbing/proj_1601kwkyxp0hfzvtmyxwqxx6mcy3/lang_1001kwkyxp0je6ktn4knsfrasx5s/output.flac?X-Goog-Signature=...",
+                  "subtitles": "https://storage.googleapis.com/eleven-dubbing/proj_1601kwkyxp0hfzvtmyxwqxx6mcy3/lang_1001kwkyxp0je6ktn4knsfrasx5s/subtitles.vtt?X-Goog-Signature=..."
                 },
                 "revision": 3,
                 "output_revision": 3,
@@ -41607,7 +41609,7 @@
           "hinglish_mode": {
             "type": "boolean",
             "title": "Hinglish Mode",
-            "description": "When enabled and language is Hindi, the agent will respond in Hinglish",
+            "description": "When enabled, the agent mixes English words and phrases into responses in Hindi, Malayalam, Telugu, or Kannada.",
             "default": false
           },
           "dynamic_variables": {
@@ -41679,7 +41681,7 @@
           "hinglish_mode": {
             "type": "boolean",
             "title": "Hinglish Mode",
-            "description": "When enabled and language is Hindi, the agent will respond in Hinglish",
+            "description": "When enabled, the agent mixes English words and phrases into responses in Hindi, Malayalam, Telugu, or Kannada.",
             "default": false
           },
           "dynamic_variables": {
@@ -41770,7 +41772,7 @@
               }
             ],
             "title": "Hinglish Mode",
-            "description": "When enabled and language is Hindi, the agent will respond in Hinglish"
+            "description": "When enabled, the agent mixes English words and phrases into responses in Hindi, Malayalam, Telugu, or Kannada."
           },
           "dynamic_variables": {
             "anyOf": [
@@ -41900,7 +41902,7 @@
               }
             ],
             "title": "Hinglish Mode",
-            "description": "When enabled and language is Hindi, the agent will respond in Hinglish"
+            "description": "When enabled, the agent mixes English words and phrases into responses in Hindi, Malayalam, Telugu, or Kannada."
           },
           "dynamic_variables": {
             "anyOf": [
@@ -55707,6 +55709,24 @@
             "$ref": "#/components/schemas/MusicModelID",
             "description": "The model to use for the generation.",
             "default": "music_v1"
+          },
+          "add_sfx": {
+            "type": "boolean",
+            "title": "Add Sfx",
+            "description": "When true, incorporate SFX cues from the video.",
+            "default": false
+          },
+          "separate_tracks": {
+            "type": "boolean",
+            "title": "Separate Tracks",
+            "description": "When true, return a ZIP with separate music and SFX audio tracks instead of a single mixed file. Use this for more flexibility to layer the tracks.",
+            "default": false
+          },
+          "use_audio_as_reference": {
+            "type": "boolean",
+            "title": "Use Audio As Reference",
+            "description": "When true, analyze the video's audio track and use its genres, BPM, instrumentation, mood, and arc as reference characteristics for music generation.",
+            "default": false
           },
           "sign_with_c2pa": {
             "type": "boolean",
@@ -70927,6 +70947,18 @@
             ],
             "title": "Lossless Audio",
             "description": "Signed URL for the dubbed lossless audio track, in FLAC. The link expires one hour after it is issued; re-read the language target for a fresh one."
+          },
+          "subtitles": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subtitles",
+            "description": "Signed URL for the translated lines as WebVTT subtitles, timed to the source speech. Null when none are available, such as for languages dubbed before subtitles were produced. The link expires one hour after it is issued."
           }
         },
         "type": "object",
@@ -81917,7 +81949,9 @@
           "gemini-3.6-flash",
           "gemini-3.7-flash",
           "gemini-3.8-flash",
+          "gemini-4-argon",
           "claude-sonnet-4-5",
+          "claude-opus-4-6",
           "claude-opus-4-7",
           "claude-opus-4-8",
           "claude-opus-5",
@@ -115078,6 +115112,16 @@
               }
             ],
             "title": "Awaiting First User Message"
+          },
+          "recipient": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WhatsAppRecipient"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -115128,6 +115172,35 @@
           "conversation_id"
         ],
         "title": "WhatsAppOutboundMessageResponse"
+      },
+      "WhatsAppRecipient": {
+        "properties": {
+          "phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phone"
+          },
+          "bsuid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bsuid"
+          }
+        },
+        "type": "object",
+        "title": "WhatsAppRecipient",
+        "description": "A WhatsApp user by phone number and/or BSUID; the phone wins where one is needed."
       },
       "WhatsAppTemplateBodyComponentParams": {
         "properties": {

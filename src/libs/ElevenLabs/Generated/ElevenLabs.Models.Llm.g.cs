@@ -55,6 +55,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        ClaudeOpus46,
+        /// <summary>
+        ///
+        /// </summary>
         ClaudeOpus47,
         /// <summary>
         ///
@@ -212,6 +216,10 @@ namespace ElevenLabs
         ///
         /// </summary>
         Gemini38Flash,
+        /// <summary>
+        ///
+        /// </summary>
+        Gemini4Argon,
         /// <summary>
         ///
         /// </summary>
@@ -465,6 +473,7 @@ namespace ElevenLabs
                 Llm.ClaudeHaiku45 => "claude-haiku-4-5",
                 Llm.ClaudeHaiku45_20251001 => "claude-haiku-4-5@20251001",
                 Llm.ClaudeHaiku55 => "claude-haiku-5-5",
+                Llm.ClaudeOpus46 => "claude-opus-4-6",
                 Llm.ClaudeOpus47 => "claude-opus-4-7",
                 Llm.ClaudeOpus48 => "claude-opus-4-8",
                 Llm.ClaudeOpus5 => "claude-opus-5",
@@ -505,6 +514,7 @@ namespace ElevenLabs
                 Llm.Gemini36Flash => "gemini-3.6-flash",
                 Llm.Gemini37Flash => "gemini-3.7-flash",
                 Llm.Gemini38Flash => "gemini-3.8-flash",
+                Llm.Gemini4Argon => "gemini-4-argon",
                 Llm.Glm45AirFp8 => "glm-45-air-fp8",
                 Llm.Glm52 => "glm-52",
                 Llm.Gpt35Turbo => "gpt-3.5-turbo",
@@ -583,6 +593,7 @@ namespace ElevenLabs
                 "claude-haiku-4-5" => Llm.ClaudeHaiku45,
                 "claude-haiku-4-5@20251001" => Llm.ClaudeHaiku45_20251001,
                 "claude-haiku-5-5" => Llm.ClaudeHaiku55,
+                "claude-opus-4-6" => Llm.ClaudeOpus46,
                 "claude-opus-4-7" => Llm.ClaudeOpus47,
                 "claude-opus-4-8" => Llm.ClaudeOpus48,
                 "claude-opus-5" => Llm.ClaudeOpus5,
@@ -623,6 +634,7 @@ namespace ElevenLabs
                 "gemini-3.6-flash" => Llm.Gemini36Flash,
                 "gemini-3.7-flash" => Llm.Gemini37Flash,
                 "gemini-3.8-flash" => Llm.Gemini38Flash,
+                "gemini-4-argon" => Llm.Gemini4Argon,
                 "glm-45-air-fp8" => Llm.Glm45AirFp8,
                 "glm-52" => Llm.Glm52,
                 "gpt-3.5-turbo" => Llm.Gpt35Turbo,

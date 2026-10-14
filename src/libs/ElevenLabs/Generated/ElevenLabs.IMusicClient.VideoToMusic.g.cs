@@ -83,6 +83,18 @@ namespace ElevenLabs
         /// The model to use for the generation.<br/>
         /// Default Value: music_v1
         /// </param>
+        /// <param name="addSfx">
+        /// When true, incorporate SFX cues from the video.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="separateTracks">
+        /// When true, return a ZIP with separate music and SFX audio tracks instead of a single mixed file. Use this for more flexibility to layer the tracks.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="useAudioAsReference">
+        /// When true, analyze the video's audio track and use its genres, BPM, instrumentation, mood, and arc as reference characteristics for music generation.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
@@ -96,6 +108,9 @@ namespace ElevenLabs
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.MusicModelID? modelId = default,
+            bool? addSfx = default,
+            bool? separateTracks = default,
+            bool? useAudioAsReference = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -127,6 +142,18 @@ namespace ElevenLabs
         /// The model to use for the generation.<br/>
         /// Default Value: music_v1
         /// </param>
+        /// <param name="addSfx">
+        /// When true, incorporate SFX cues from the video.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="separateTracks">
+        /// When true, return a ZIP with separate music and SFX audio tracks instead of a single mixed file. Use this for more flexibility to layer the tracks.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="useAudioAsReference">
+        /// When true, analyze the video's audio track and use its genres, BPM, instrumentation, mood, and arc as reference characteristics for music generation.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
@@ -141,6 +168,9 @@ namespace ElevenLabs
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.MusicModelID? modelId = default,
+            bool? addSfx = default,
+            bool? separateTracks = default,
+            bool? useAudioAsReference = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -170,6 +200,18 @@ namespace ElevenLabs
         /// <param name="modelId">
         /// The model to use for the generation.<br/>
         /// Default Value: music_v1
+        /// </param>
+        /// <param name="addSfx">
+        /// When true, incorporate SFX cues from the video.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="separateTracks">
+        /// When true, return a ZIP with separate music and SFX audio tracks instead of a single mixed file. Use this for more flexibility to layer the tracks.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="useAudioAsReference">
+        /// When true, analyze the video's audio track and use its genres, BPM, instrumentation, mood, and arc as reference characteristics for music generation.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
@@ -185,6 +227,9 @@ namespace ElevenLabs
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.MusicModelID? modelId = default,
+            bool? addSfx = default,
+            bool? separateTracks = default,
+            bool? useAudioAsReference = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -215,6 +260,18 @@ namespace ElevenLabs
         /// The model to use for the generation.<br/>
         /// Default Value: music_v1
         /// </param>
+        /// <param name="addSfx">
+        /// When true, incorporate SFX cues from the video.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="separateTracks">
+        /// When true, return a ZIP with separate music and SFX audio tracks instead of a single mixed file. Use this for more flexibility to layer the tracks.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="useAudioAsReference">
+        /// When true, analyze the video's audio track and use its genres, BPM, instrumentation, mood, and arc as reference characteristics for music generation.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
@@ -229,6 +286,9 @@ namespace ElevenLabs
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.MusicModelID? modelId = default,
+            bool? addSfx = default,
+            bool? separateTracks = default,
+            bool? useAudioAsReference = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
