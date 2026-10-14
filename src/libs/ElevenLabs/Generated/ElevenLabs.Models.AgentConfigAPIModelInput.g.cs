@@ -22,7 +22,7 @@ namespace ElevenLabs
         public string? Language { get; set; }
 
         /// <summary>
-        /// When enabled and language is Hindi, the agent will respond in Hinglish<br/>
+        /// When enabled, the agent mixes English words and phrases into responses in Hindi, Malayalam, Telugu, or Kannada.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hinglish_mode")]
@@ -80,7 +80,7 @@ namespace ElevenLabs
         /// Default Value: en
         /// </param>
         /// <param name="hinglishMode">
-        /// When enabled and language is Hindi, the agent will respond in Hinglish<br/>
+        /// When enabled, the agent mixes English words and phrases into responses in Hindi, Malayalam, Telugu, or Kannada.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="dynamicVariables">

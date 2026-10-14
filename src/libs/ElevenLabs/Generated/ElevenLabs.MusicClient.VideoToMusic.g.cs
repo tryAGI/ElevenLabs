@@ -198,6 +198,30 @@ namespace ElevenLabs
                                     name: "\"model_id\"");
 
                             }
+                            if (request.AddSfx != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.AddSfx, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"add_sfx\"");
+
+                            }
+                            if (request.SeparateTracks != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.SeparateTracks, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"separate_tracks\"");
+
+                            }
+                            if (request.UseAudioAsReference != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.UseAudioAsReference, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"use_audio_as_reference\"");
+
+                            }
                             if (request.SignWithC2pa != default)
                             {
 
@@ -641,6 +665,30 @@ namespace ElevenLabs
                                     name: "\"model_id\"");
 
                             }
+                            if (request.AddSfx != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.AddSfx, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"add_sfx\"");
+
+                            }
+                            if (request.SeparateTracks != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.SeparateTracks, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"separate_tracks\"");
+
+                            }
+                            if (request.UseAudioAsReference != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.UseAudioAsReference, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"use_audio_as_reference\"");
+
+                            }
                             if (request.SignWithC2pa != default)
                             {
 
@@ -1020,6 +1068,18 @@ namespace ElevenLabs
         /// The model to use for the generation.<br/>
         /// Default Value: music_v1
         /// </param>
+        /// <param name="addSfx">
+        /// When true, incorporate SFX cues from the video.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="separateTracks">
+        /// When true, return a ZIP with separate music and SFX audio tracks instead of a single mixed file. Use this for more flexibility to layer the tracks.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="useAudioAsReference">
+        /// When true, analyze the video's audio track and use its genres, BPM, instrumentation, mood, and arc as reference characteristics for music generation.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
@@ -1033,6 +1093,9 @@ namespace ElevenLabs
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.MusicModelID? modelId = default,
+            bool? addSfx = default,
+            bool? separateTracks = default,
+            bool? useAudioAsReference = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -1043,6 +1106,9 @@ namespace ElevenLabs
                 Description = description,
                 Tags = tags,
                 ModelId = modelId,
+                AddSfx = addSfx,
+                SeparateTracks = separateTracks,
+                UseAudioAsReference = useAudioAsReference,
                 SignWithC2pa = signWithC2pa,
             };
 
@@ -1080,6 +1146,18 @@ namespace ElevenLabs
         /// The model to use for the generation.<br/>
         /// Default Value: music_v1
         /// </param>
+        /// <param name="addSfx">
+        /// When true, incorporate SFX cues from the video.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="separateTracks">
+        /// When true, return a ZIP with separate music and SFX audio tracks instead of a single mixed file. Use this for more flexibility to layer the tracks.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="useAudioAsReference">
+        /// When true, analyze the video's audio track and use its genres, BPM, instrumentation, mood, and arc as reference characteristics for music generation.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
@@ -1094,6 +1172,9 @@ namespace ElevenLabs
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.MusicModelID? modelId = default,
+            bool? addSfx = default,
+            bool? separateTracks = default,
+            bool? useAudioAsReference = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -1106,6 +1187,9 @@ namespace ElevenLabs
                 Description = description,
                 Tags = tags,
                 ModelId = modelId,
+                AddSfx = addSfx,
+                SeparateTracks = separateTracks,
+                UseAudioAsReference = useAudioAsReference,
                 SignWithC2pa = signWithC2pa,
             };
             PrepareArguments(
@@ -1243,6 +1327,30 @@ namespace ElevenLabs
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent((request.ModelId).HasValue ? (request.ModelId).GetValueOrDefault().ToValueString() : string.Empty),
                                     name: "\"model_id\"");
+
+                            }
+                            if (request.AddSfx != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.AddSfx, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"add_sfx\"");
+
+                            }
+                            if (request.SeparateTracks != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.SeparateTracks, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"separate_tracks\"");
+
+                            }
+                            if (request.UseAudioAsReference != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.UseAudioAsReference, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"use_audio_as_reference\"");
 
                             }
                             if (request.SignWithC2pa != default)
@@ -1618,6 +1726,18 @@ namespace ElevenLabs
         /// The model to use for the generation.<br/>
         /// Default Value: music_v1
         /// </param>
+        /// <param name="addSfx">
+        /// When true, incorporate SFX cues from the video.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="separateTracks">
+        /// When true, return a ZIP with separate music and SFX audio tracks instead of a single mixed file. Use this for more flexibility to layer the tracks.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="useAudioAsReference">
+        /// When true, analyze the video's audio track and use its genres, BPM, instrumentation, mood, and arc as reference characteristics for music generation.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
@@ -1632,6 +1752,9 @@ namespace ElevenLabs
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.MusicModelID? modelId = default,
+            bool? addSfx = default,
+            bool? separateTracks = default,
+            bool? useAudioAsReference = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -1644,6 +1767,9 @@ namespace ElevenLabs
                 Description = description,
                 Tags = tags,
                 ModelId = modelId,
+                AddSfx = addSfx,
+                SeparateTracks = separateTracks,
+                UseAudioAsReference = useAudioAsReference,
                 SignWithC2pa = signWithC2pa,
             };
             PrepareArguments(
@@ -1781,6 +1907,30 @@ namespace ElevenLabs
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent((request.ModelId).HasValue ? (request.ModelId).GetValueOrDefault().ToValueString() : string.Empty),
                                     name: "\"model_id\"");
+
+                            }
+                            if (request.AddSfx != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.AddSfx, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"add_sfx\"");
+
+                            }
+                            if (request.SeparateTracks != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.SeparateTracks, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"separate_tracks\"");
+
+                            }
+                            if (request.UseAudioAsReference != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.UseAudioAsReference, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"use_audio_as_reference\"");
 
                             }
                             if (request.SignWithC2pa != default)
@@ -2127,6 +2277,18 @@ namespace ElevenLabs
         /// The model to use for the generation.<br/>
         /// Default Value: music_v1
         /// </param>
+        /// <param name="addSfx">
+        /// When true, incorporate SFX cues from the video.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="separateTracks">
+        /// When true, return a ZIP with separate music and SFX audio tracks instead of a single mixed file. Use this for more flexibility to layer the tracks.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="useAudioAsReference">
+        /// When true, analyze the video's audio track and use its genres, BPM, instrumentation, mood, and arc as reference characteristics for music generation.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
@@ -2141,6 +2303,9 @@ namespace ElevenLabs
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.MusicModelID? modelId = default,
+            bool? addSfx = default,
+            bool? separateTracks = default,
+            bool? useAudioAsReference = default,
             bool? signWithC2pa = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -2153,6 +2318,9 @@ namespace ElevenLabs
                 Description = description,
                 Tags = tags,
                 ModelId = modelId,
+                AddSfx = addSfx,
+                SeparateTracks = separateTracks,
+                UseAudioAsReference = useAudioAsReference,
                 SignWithC2pa = signWithC2pa,
             };
             PrepareArguments(
@@ -2290,6 +2458,30 @@ namespace ElevenLabs
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent((request.ModelId).HasValue ? (request.ModelId).GetValueOrDefault().ToValueString() : string.Empty),
                                     name: "\"model_id\"");
+
+                            }
+                            if (request.AddSfx != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.AddSfx, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"add_sfx\"");
+
+                            }
+                            if (request.SeparateTracks != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.SeparateTracks, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"separate_tracks\"");
+
+                            }
+                            if (request.UseAudioAsReference != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.UseAudioAsReference, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"use_audio_as_reference\"");
 
                             }
                             if (request.SignWithC2pa != default)

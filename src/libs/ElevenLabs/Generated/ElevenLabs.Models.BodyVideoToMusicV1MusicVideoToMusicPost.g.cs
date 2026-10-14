@@ -40,6 +40,27 @@ namespace ElevenLabs
         public global::ElevenLabs.MusicModelID? ModelId { get; set; }
 
         /// <summary>
+        /// When true, incorporate SFX cues from the video.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("add_sfx")]
+        public bool? AddSfx { get; set; }
+
+        /// <summary>
+        /// When true, return a ZIP with separate music and SFX audio tracks instead of a single mixed file. Use this for more flexibility to layer the tracks.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("separate_tracks")]
+        public bool? SeparateTracks { get; set; }
+
+        /// <summary>
+        /// When true, analyze the video's audio track and use its genres, BPM, instrumentation, mood, and arc as reference characteristics for music generation.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("use_audio_as_reference")]
+        public bool? UseAudioAsReference { get; set; }
+
+        /// <summary>
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
         /// </summary>
@@ -72,6 +93,18 @@ namespace ElevenLabs
         /// The model to use for the generation.<br/>
         /// Default Value: music_v1
         /// </param>
+        /// <param name="addSfx">
+        /// When true, incorporate SFX cues from the video.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="separateTracks">
+        /// When true, return a ZIP with separate music and SFX audio tracks instead of a single mixed file. Use this for more flexibility to layer the tracks.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="useAudioAsReference">
+        /// When true, analyze the video's audio track and use its genres, BPM, instrumentation, mood, and arc as reference characteristics for music generation.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="signWithC2pa">
         /// Whether to sign the generated song with C2PA. Applicable only for mp3 files.<br/>
         /// Default Value: false
@@ -84,12 +117,18 @@ namespace ElevenLabs
             string? description,
             global::System.Collections.Generic.IList<string>? tags,
             global::ElevenLabs.MusicModelID? modelId,
+            bool? addSfx,
+            bool? separateTracks,
+            bool? useAudioAsReference,
             bool? signWithC2pa)
         {
             this.Videos = videos ?? throw new global::System.ArgumentNullException(nameof(videos));
             this.Description = description;
             this.Tags = tags;
             this.ModelId = modelId;
+            this.AddSfx = addSfx;
+            this.SeparateTracks = separateTracks;
+            this.UseAudioAsReference = useAudioAsReference;
             this.SignWithC2pa = signWithC2pa;
         }
 

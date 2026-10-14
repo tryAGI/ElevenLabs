@@ -35,6 +35,12 @@ namespace ElevenLabs
         public bool? AwaitingFirstUserMessage { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("recipient")]
+        public global::ElevenLabs.WhatsAppRecipient? Recipient { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -49,6 +55,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="whatsappPhoneNumberId"></param>
         /// <param name="awaitingFirstUserMessage"></param>
+        /// <param name="recipient"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -56,12 +63,14 @@ namespace ElevenLabs
             string whatsappUserId,
             global::ElevenLabs.WhatsAppConversationInfoDirection? direction,
             string? whatsappPhoneNumberId,
-            bool? awaitingFirstUserMessage)
+            bool? awaitingFirstUserMessage,
+            global::ElevenLabs.WhatsAppRecipient? recipient)
         {
             this.Direction = direction;
             this.WhatsappPhoneNumberId = whatsappPhoneNumberId;
             this.WhatsappUserId = whatsappUserId ?? throw new global::System.ArgumentNullException(nameof(whatsappUserId));
             this.AwaitingFirstUserMessage = awaitingFirstUserMessage;
+            this.Recipient = recipient;
         }
 
         /// <summary>

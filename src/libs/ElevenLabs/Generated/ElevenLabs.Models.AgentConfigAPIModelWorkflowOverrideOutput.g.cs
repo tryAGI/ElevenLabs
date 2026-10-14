@@ -21,7 +21,7 @@ namespace ElevenLabs
         public string? Language { get; set; }
 
         /// <summary>
-        /// When enabled and language is Hindi, the agent will respond in Hinglish
+        /// When enabled, the agent mixes English words and phrases into responses in Hindi, Malayalam, Telugu, or Kannada.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hinglish_mode")]
         public bool? HinglishMode { get; set; }
@@ -72,7 +72,7 @@ namespace ElevenLabs
         /// Language of the agent - used for ASR and TTS
         /// </param>
         /// <param name="hinglishMode">
-        /// When enabled and language is Hindi, the agent will respond in Hinglish
+        /// When enabled, the agent mixes English words and phrases into responses in Hindi, Malayalam, Telugu, or Kannada.
         /// </param>
         /// <param name="dynamicVariables">
         /// Configuration for dynamic variables
