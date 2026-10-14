@@ -83,7 +83,7 @@ public partial class Tests
                 negativeStyles: [],
                 contextAdherence: GenerationChunkInputContextAdherence.High,
                 conditioningRef: conditioningReference,
-                conditionStrength: GenerationChunkInputConditionStrength.High),
+                conditionStrength: ConditionStrength.High),
             reusedReference,
         ]);
 
