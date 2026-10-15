@@ -143,6 +143,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        GetAgentConfig,
+        /// <summary>
+        ///
+        /// </summary>
         GetAnalyticsSummary,
         /// <summary>
         ///
@@ -176,6 +180,10 @@ namespace ElevenLabs
         ///
         /// </summary>
         GetSchedule,
+        /// <summary>
+        ///
+        /// </summary>
+        GetWorkspacePlan,
         /// <summary>
         ///
         /// </summary>
@@ -287,6 +295,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        UpdateAgentConfig,
+        /// <summary>
+        ///
+        /// </summary>
         UpdateAgentProcedure,
         /// <summary>
         ///
@@ -316,10 +328,6 @@ namespace ElevenLabs
         ///
         /// </summary>
         UpdateClient,
-        /// <summary>
-        ///
-        /// </summary>
-        UpdateCustomerFacingConfig,
         /// <summary>
         ///
         /// </summary>
@@ -403,6 +411,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteService => "delete_service",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteStaff => "delete_staff",
                 SMBToolConfigParamsDiscriminatorSmbToolType.DeleteTransferRule => "delete_transfer_rule",
+                SMBToolConfigParamsDiscriminatorSmbToolType.GetAgentConfig => "get_agent_config",
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetAnalyticsSummary => "get_analytics_summary",
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetAppointmentByConfirmationNumber => "get_appointment_by_confirmation_number",
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetBookingPageSettings => "get_booking_page_settings",
@@ -412,6 +421,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetClientOrders => "get_client_orders",
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetOrderByConfirmationNumber => "get_order_by_confirmation_number",
                 SMBToolConfigParamsDiscriminatorSmbToolType.GetSchedule => "get_schedule",
+                SMBToolConfigParamsDiscriminatorSmbToolType.GetWorkspacePlan => "get_workspace_plan",
                 SMBToolConfigParamsDiscriminatorSmbToolType.LeaveMessage => "leave_message",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListAgentProcedures => "list_agent_procedures",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListAgentReferences => "list_agent_references",
@@ -439,6 +449,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug => "set_booking_slug",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo => "submit_business_info",
                 SMBToolConfigParamsDiscriminatorSmbToolType.TriggerUserVerification => "trigger_user_verification",
+                SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentConfig => "update_agent_config",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentProcedure => "update_agent_procedure",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentRule => "update_agent_rule",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAsset => "update_asset",
@@ -447,7 +458,6 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBusinessInfo => "update_business_info",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateCalendarEvent => "update_calendar_event",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateClient => "update_client",
-                SMBToolConfigParamsDiscriminatorSmbToolType.UpdateCustomerFacingConfig => "update_customer_facing_config",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateGroupSessionSeats => "update_group_session_seats",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateHoliday => "update_holiday",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateLocation => "update_location",
@@ -500,6 +510,7 @@ namespace ElevenLabs
                 "delete_service" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteService,
                 "delete_staff" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteStaff,
                 "delete_transfer_rule" => SMBToolConfigParamsDiscriminatorSmbToolType.DeleteTransferRule,
+                "get_agent_config" => SMBToolConfigParamsDiscriminatorSmbToolType.GetAgentConfig,
                 "get_analytics_summary" => SMBToolConfigParamsDiscriminatorSmbToolType.GetAnalyticsSummary,
                 "get_appointment_by_confirmation_number" => SMBToolConfigParamsDiscriminatorSmbToolType.GetAppointmentByConfirmationNumber,
                 "get_booking_page_settings" => SMBToolConfigParamsDiscriminatorSmbToolType.GetBookingPageSettings,
@@ -509,6 +520,7 @@ namespace ElevenLabs
                 "get_client_orders" => SMBToolConfigParamsDiscriminatorSmbToolType.GetClientOrders,
                 "get_order_by_confirmation_number" => SMBToolConfigParamsDiscriminatorSmbToolType.GetOrderByConfirmationNumber,
                 "get_schedule" => SMBToolConfigParamsDiscriminatorSmbToolType.GetSchedule,
+                "get_workspace_plan" => SMBToolConfigParamsDiscriminatorSmbToolType.GetWorkspacePlan,
                 "leave_message" => SMBToolConfigParamsDiscriminatorSmbToolType.LeaveMessage,
                 "list_agent_procedures" => SMBToolConfigParamsDiscriminatorSmbToolType.ListAgentProcedures,
                 "list_agent_references" => SMBToolConfigParamsDiscriminatorSmbToolType.ListAgentReferences,
@@ -536,6 +548,7 @@ namespace ElevenLabs
                 "set_booking_slug" => SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug,
                 "submit_business_info" => SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo,
                 "trigger_user_verification" => SMBToolConfigParamsDiscriminatorSmbToolType.TriggerUserVerification,
+                "update_agent_config" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentConfig,
                 "update_agent_procedure" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentProcedure,
                 "update_agent_rule" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentRule,
                 "update_asset" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAsset,
@@ -544,7 +557,6 @@ namespace ElevenLabs
                 "update_business_info" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateBusinessInfo,
                 "update_calendar_event" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateCalendarEvent,
                 "update_client" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateClient,
-                "update_customer_facing_config" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateCustomerFacingConfig,
                 "update_group_session_seats" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateGroupSessionSeats,
                 "update_holiday" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateHoliday,
                 "update_location" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateLocation,

@@ -64444,6 +64444,18 @@
             "type": "string",
             "title": "Tool Name"
           },
+          "tool_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tool Id",
+            "description": "ID of the called tool. Not set for tools without an ID, such as system tools."
+          },
           "params_as_json": {
             "type": "string",
             "title": "Params As Json"
@@ -64514,6 +64526,18 @@
           "tool_name": {
             "type": "string",
             "title": "Tool Name"
+          },
+          "tool_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tool Id",
+            "description": "ID of the called tool. Not set for tools without an ID, such as system tools."
           },
           "params_as_json": {
             "type": "string",
@@ -72506,19 +72530,6 @@
             "title": "Pan",
             "description": "Stereo position of the voice, from -1 (hard left) through 0 (center) to 1 (hard right). Only the voice is panned; reverb and background noise stay centered.",
             "default": 0.0
-          },
-          "seed": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Seed",
-            "description": "Has no effect.",
-            "deprecated": true
           }
         },
         "type": "object",
@@ -72586,19 +72597,6 @@
             "title": "Pan",
             "description": "Stereo position of the voice, from -1 (hard left) through 0 (center) to 1 (hard right). Only the voice is panned; reverb and background noise stay centered.",
             "default": 0.0
-          },
-          "seed": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Seed",
-            "description": "Has no effect.",
-            "deprecated": true
           }
         },
         "type": "object",
@@ -72608,8 +72606,7 @@
           "environment_id",
           "background_noise_id",
           "send_level",
-          "pan",
-          "seed"
+          "pan"
         ],
         "title": "EffectsSpec",
         "description": "Audio effects applied to generated speech: a filter preset, perceived distance, a reverb\nenvironment, a background noise bed, and stereo panning. Leave every field at its default\nto get unprocessed audio."
@@ -75854,6 +75851,19 @@
           "ap_southeast_1"
         ],
         "title": "GenesysRegion"
+      },
+      "GetAgentConfigParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "get_agent_config",
+            "title": "Smb Tool Type",
+            "default": "get_agent_config"
+          }
+        },
+        "type": "object",
+        "title": "GetAgentConfigParams",
+        "description": "Return the full editable config of a single receptionist, including the\ncurrent ``additional_instructions`` text.\n\n``list_customer_facing_agents`` is intentionally lightweight (metadata and a\ntruncated greeting preview) and omits ``additional_instructions``. Call this\ntool whenever you need the current full text before calling\n``update_agent_config`` on ``first_message`` or ``additional_instructions``\nso you can preserve what is already there."
       },
       "GetAgentConversationTicketsPageResponseModel": {
         "properties": {
@@ -80168,6 +80178,19 @@
           "assigned_agent_name"
         ],
         "title": "GetWhatsAppAccountResponse"
+      },
+      "GetWorkspacePlanParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "get_workspace_plan",
+            "title": "Smb Tool Type",
+            "default": "get_workspace_plan"
+          }
+        },
+        "type": "object",
+        "title": "GetWorkspacePlanParams",
+        "description": "Read the workspace's current Reception plan and its hard limits.\n\nCall this before answering any plan, pricing, trial, or limit question so\nthe assistant stops guessing (e.g. telling a paying owner they're on the\ntrial, or hallucinating concurrent-call / receptionist / voice-cloning\ncaps). The tool exposes only the shape of the plan — a display name;\nwhether it's trial / paid / untiered; the entitlement caps (max\nreceptionists, phone numbers, active locations, team members, concurrent\ncalls, voice-cloning quota) alongside the current counts; and whether\nthere's a payment issue. It deliberately does NOT return list prices or\ndollar amounts, nor the trial / renewal end date: pricing and renewal\ndates are a product decision and live in the Settings > Billing plan\npicker."
       },
       "GetWorkspaceSecretsResponseModel": {
         "properties": {
@@ -98155,6 +98178,9 @@
                 "$ref": "#/components/schemas/ListCustomerFacingAgentsParams"
               },
               {
+                "$ref": "#/components/schemas/GetAgentConfigParams"
+              },
+              {
                 "$ref": "#/components/schemas/ListAgentRulesParams"
               },
               {
@@ -98215,10 +98241,13 @@
                 "$ref": "#/components/schemas/UpdateBusinessInfoParams"
               },
               {
-                "$ref": "#/components/schemas/UpdateCustomerFacingConfigParams"
+                "$ref": "#/components/schemas/UpdateAgentConfigParams"
               },
               {
                 "$ref": "#/components/schemas/GetAnalyticsSummaryParams"
+              },
+              {
+                "$ref": "#/components/schemas/GetWorkspacePlanParams"
               },
               {
                 "$ref": "#/components/schemas/GetBookingPageSettingsParams"
@@ -98318,6 +98347,7 @@
                 "delete_service": "#/components/schemas/DeleteServiceParams",
                 "delete_staff": "#/components/schemas/DeleteStaffParams",
                 "delete_transfer_rule": "#/components/schemas/DeleteTransferRuleParams",
+                "get_agent_config": "#/components/schemas/GetAgentConfigParams",
                 "get_analytics_summary": "#/components/schemas/GetAnalyticsSummaryParams",
                 "get_appointment_by_confirmation_number": "#/components/schemas/GetAppointmentByConfirmationNumberParams",
                 "get_booking_page_settings": "#/components/schemas/GetBookingPageSettingsParams",
@@ -98327,6 +98357,7 @@
                 "get_client_orders": "#/components/schemas/GetClientOrdersParams",
                 "get_order_by_confirmation_number": "#/components/schemas/GetOrderByConfirmationNumberParams",
                 "get_schedule": "#/components/schemas/GetScheduleParams",
+                "get_workspace_plan": "#/components/schemas/GetWorkspacePlanParams",
                 "leave_message": "#/components/schemas/LeaveMessageParams",
                 "list_agent_procedures": "#/components/schemas/ListAgentProceduresParams",
                 "list_agent_references": "#/components/schemas/ListAgentReferencesParams",
@@ -98354,6 +98385,7 @@
                 "set_booking_slug": "#/components/schemas/SetBookingSlugParams",
                 "submit_business_info": "#/components/schemas/SubmitBusinessInfoParams",
                 "trigger_user_verification": "#/components/schemas/TriggerUserVerificationParams",
+                "update_agent_config": "#/components/schemas/UpdateAgentConfigParams",
                 "update_agent_procedure": "#/components/schemas/UpdateAgentProcedureParams",
                 "update_agent_rule": "#/components/schemas/UpdateAgentRuleParams",
                 "update_asset": "#/components/schemas/UpdateAssetParams",
@@ -98362,7 +98394,6 @@
                 "update_business_info": "#/components/schemas/UpdateBusinessInfoParams",
                 "update_calendar_event": "#/components/schemas/UpdateCalendarEventParams",
                 "update_client": "#/components/schemas/UpdateClientParams",
-                "update_customer_facing_config": "#/components/schemas/UpdateCustomerFacingConfigParams",
                 "update_group_session_seats": "#/components/schemas/UpdateGroupSessionSeatsParams",
                 "update_holiday": "#/components/schemas/UpdateHolidayParams",
                 "update_location": "#/components/schemas/UpdateLocationParams",
@@ -109305,6 +109336,18 @@
         ],
         "title": "UnitTestWorkflowNodeTransitionEvaluationNodeId"
       },
+      "UpdateAgentConfigParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "update_agent_config",
+            "title": "Smb Tool Type",
+            "default": "update_agent_config"
+          }
+        },
+        "type": "object",
+        "title": "UpdateAgentConfigParams"
+      },
       "UpdateAgentProcedureParams": {
         "properties": {
           "smb_tool_type": {
@@ -109480,18 +109523,6 @@
         "type": "object",
         "title": "UpdateClientParams",
         "description": "Update an existing client's information."
-      },
-      "UpdateCustomerFacingConfigParams": {
-        "properties": {
-          "smb_tool_type": {
-            "type": "string",
-            "const": "update_customer_facing_config",
-            "title": "Smb Tool Type",
-            "default": "update_customer_facing_config"
-          }
-        },
-        "type": "object",
-        "title": "UpdateCustomerFacingConfigParams"
       },
       "UpdateEnvironmentVariableRequest": {
         "properties": {
