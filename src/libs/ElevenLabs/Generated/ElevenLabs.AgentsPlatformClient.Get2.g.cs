@@ -29,13 +29,15 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
             ref string? versionId,
-            ref string? branchId);
+            ref string? branchId,
+            ref bool? includeProcedureGeneratedWorkflowElements);
         partial void PrepareGet2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
             string? versionId,
-            string? branchId);
+            string? branchId,
+            bool? includeProcedureGeneratedWorkflowElements);
         partial void ProcessGet2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -58,6 +60,10 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
+        /// <param name="includeProcedureGeneratedWorkflowElements">
+        /// Whether to include the workflow nodes and edges generated from structured procedures. When false, the workflow contains only authored elements.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -65,6 +71,7 @@ namespace ElevenLabs
             string agentId,
             string? versionId = default,
             string? branchId = default,
+            bool? includeProcedureGeneratedWorkflowElements = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -72,6 +79,7 @@ namespace ElevenLabs
                 agentId: agentId,
                 versionId: versionId,
                 branchId: branchId,
+                includeProcedureGeneratedWorkflowElements: includeProcedureGeneratedWorkflowElements,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -91,6 +99,10 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
+        /// <param name="includeProcedureGeneratedWorkflowElements">
+        /// Whether to include the workflow nodes and edges generated from structured procedures. When false, the workflow contains only authored elements.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -98,6 +110,7 @@ namespace ElevenLabs
             string agentId,
             string? versionId = default,
             string? branchId = default,
+            bool? includeProcedureGeneratedWorkflowElements = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -107,7 +120,8 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 agentId: ref agentId,
                 versionId: ref versionId,
-                branchId: ref branchId);
+                branchId: ref branchId,
+                includeProcedureGeneratedWorkflowElements: ref includeProcedureGeneratedWorkflowElements);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -138,6 +152,7 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddOptionalParameter("version_id", versionId)
                                 .AddOptionalParameter("branch_id", branchId)
+                                .AddOptionalParameter("include_procedure_generated_workflow_elements", includeProcedureGeneratedWorkflowElements?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -181,7 +196,8 @@ namespace ElevenLabs
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
                     versionId: versionId,
-                    branchId: branchId);
+                    branchId: branchId,
+                    includeProcedureGeneratedWorkflowElements: includeProcedureGeneratedWorkflowElements);
 
                 return __httpRequest;
             }
