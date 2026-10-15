@@ -32,6 +32,7 @@ namespace ElevenLabs
             ref string agentId,
             ref bool? enableVersioningIfNotEnabled,
             ref string? branchId,
+            ref bool? includeProcedureGeneratedWorkflowElements,
             global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -39,6 +40,7 @@ namespace ElevenLabs
             string agentId,
             bool? enableVersioningIfNotEnabled,
             string? branchId,
+            bool? includeProcedureGeneratedWorkflowElements,
             global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -63,6 +65,10 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
+        /// <param name="includeProcedureGeneratedWorkflowElements">
+        /// Whether to include the workflow nodes and edges generated from structured procedures. When false, the workflow contains only authored elements.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -73,6 +79,7 @@ namespace ElevenLabs
             global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch request,
             bool? enableVersioningIfNotEnabled = default,
             string? branchId = default,
+            bool? includeProcedureGeneratedWorkflowElements = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -82,6 +89,7 @@ namespace ElevenLabs
                 request: request,
                 enableVersioningIfNotEnabled: enableVersioningIfNotEnabled,
                 branchId: branchId,
+                includeProcedureGeneratedWorkflowElements: includeProcedureGeneratedWorkflowElements,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -102,6 +110,10 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
+        /// <param name="includeProcedureGeneratedWorkflowElements">
+        /// Whether to include the workflow nodes and edges generated from structured procedures. When false, the workflow contains only authored elements.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -112,6 +124,7 @@ namespace ElevenLabs
             global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatch request,
             bool? enableVersioningIfNotEnabled = default,
             string? branchId = default,
+            bool? includeProcedureGeneratedWorkflowElements = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -124,6 +137,7 @@ namespace ElevenLabs
                 agentId: ref agentId,
                 enableVersioningIfNotEnabled: ref enableVersioningIfNotEnabled,
                 branchId: ref branchId,
+                includeProcedureGeneratedWorkflowElements: ref includeProcedureGeneratedWorkflowElements,
                 request: request);
 
 
@@ -155,6 +169,7 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddOptionalParameter("enable_versioning_if_not_enabled", enableVersioningIfNotEnabled?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("branch_id", branchId)
+                                .AddOptionalParameter("include_procedure_generated_workflow_elements", includeProcedureGeneratedWorkflowElements?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -205,6 +220,7 @@ namespace ElevenLabs
                     agentId: agentId,
                     enableVersioningIfNotEnabled: enableVersioningIfNotEnabled,
                     branchId: branchId,
+                    includeProcedureGeneratedWorkflowElements: includeProcedureGeneratedWorkflowElements,
                     request: request);
 
                 return __httpRequest;
@@ -531,6 +547,10 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
+        /// <param name="includeProcedureGeneratedWorkflowElements">
+        /// Whether to include the workflow nodes and edges generated from structured procedures. When false, the workflow contains only authored elements.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="conversationConfig">
         /// Conversation configuration for an agent
         /// </param>
@@ -560,6 +580,7 @@ namespace ElevenLabs
             string agentId,
             bool? enableVersioningIfNotEnabled = default,
             string? branchId = default,
+            bool? includeProcedureGeneratedWorkflowElements = default,
             object? conversationConfig = default,
             object? platformSettings = default,
             global::ElevenLabs.AgentWorkflowRequestModel? workflow = default,
@@ -585,6 +606,7 @@ namespace ElevenLabs
                 agentId: agentId,
                 enableVersioningIfNotEnabled: enableVersioningIfNotEnabled,
                 branchId: branchId,
+                includeProcedureGeneratedWorkflowElements: includeProcedureGeneratedWorkflowElements,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
