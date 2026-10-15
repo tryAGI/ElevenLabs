@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace ElevenLabs
@@ -50,13 +48,6 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pan")]
         public double? Pan { get; set; }
-
-        /// <summary>
-        /// Has no effect.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
-        [global::System.Obsolete("This property marked as deprecated.")]
-        public int? Seed { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

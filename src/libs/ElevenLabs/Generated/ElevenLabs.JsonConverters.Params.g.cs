@@ -336,6 +336,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ListCustomerFacingAgentsParams)}");
                 listCustomerFacingAgents = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.GetAgentConfigParams? getAgentConfig = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.GetAgentConfig)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetAgentConfigParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetAgentConfigParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetAgentConfigParams)}");
+                getAgentConfig = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.ListAgentRulesParams? listAgentRules = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.ListAgentRules)
             {
@@ -476,12 +483,12 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UpdateBusinessInfoParams)}");
                 updateBusinessInfo = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::ElevenLabs.UpdateCustomerFacingConfigParams? updateCustomerFacingConfig = default;
-            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateCustomerFacingConfig)
+            global::ElevenLabs.UpdateAgentConfigParams? updateAgentConfig = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentConfig)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateCustomerFacingConfigParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateCustomerFacingConfigParams> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UpdateCustomerFacingConfigParams)}");
-                updateCustomerFacingConfig = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateAgentConfigParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateAgentConfigParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.UpdateAgentConfigParams)}");
+                updateAgentConfig = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.GetAnalyticsSummaryParams? getAnalyticsSummary = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.GetAnalyticsSummary)
@@ -489,6 +496,13 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetAnalyticsSummaryParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetAnalyticsSummaryParams> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetAnalyticsSummaryParams)}");
                 getAnalyticsSummary = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.GetWorkspacePlanParams? getWorkspacePlan = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.GetWorkspacePlan)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetWorkspacePlanParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetWorkspacePlanParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetWorkspacePlanParams)}");
+                getWorkspacePlan = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.GetBookingPageSettingsParams? getBookingPageSettings = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.GetBookingPageSettings)
@@ -723,6 +737,8 @@ namespace ElevenLabs.JsonConverters
 
                 listCustomerFacingAgents,
 
+                getAgentConfig,
+
                 listAgentRules,
 
                 createAgentRule,
@@ -763,9 +779,11 @@ namespace ElevenLabs.JsonConverters
 
                 updateBusinessInfo,
 
-                updateCustomerFacingConfig,
+                updateAgentConfig,
 
                 getAnalyticsSummary,
+
+                getWorkspacePlan,
 
                 getBookingPageSettings,
 
@@ -1090,6 +1108,12 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ListCustomerFacingAgentsParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickListCustomerFacingAgents(), typeInfo);
             }
+            else if (value.IsGetAgentConfig)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetAgentConfigParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetAgentConfigParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetAgentConfigParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickGetAgentConfig(), typeInfo);
+            }
             else if (value.IsListAgentRules)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ListAgentRulesParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ListAgentRulesParams?> ??
@@ -1210,17 +1234,23 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UpdateBusinessInfoParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickUpdateBusinessInfo(), typeInfo);
             }
-            else if (value.IsUpdateCustomerFacingConfig)
+            else if (value.IsUpdateAgentConfig)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateCustomerFacingConfigParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateCustomerFacingConfigParams?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UpdateCustomerFacingConfigParams).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickUpdateCustomerFacingConfig(), typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.UpdateAgentConfigParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.UpdateAgentConfigParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.UpdateAgentConfigParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickUpdateAgentConfig(), typeInfo);
             }
             else if (value.IsGetAnalyticsSummary)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetAnalyticsSummaryParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetAnalyticsSummaryParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetAnalyticsSummaryParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickGetAnalyticsSummary(), typeInfo);
+            }
+            else if (value.IsGetWorkspacePlan)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetWorkspacePlanParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetWorkspacePlanParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetWorkspacePlanParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickGetWorkspacePlan(), typeInfo);
             }
             else if (value.IsGetBookingPageSettings)
             {
