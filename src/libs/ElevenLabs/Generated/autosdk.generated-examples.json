@@ -160,7 +160,7 @@
       "Slug": "merge-preview-route",
       "Description": "Returns the result of merging the source branch into the target branch without performing the merge. Useful for showing an accurate diff before confirming.",
       "Language": "http",
-      "Code": "### Preview Merged Configuration\n# @name merge_preview_route\nGET {{host}}/v1/convai/agents/{{agent_id}}/branches/{{source_branch_id}}/merge-preview?target_branch_id={{target_branch_id}}\u0026force=false\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Preview Merged Configuration\n# @name merge_preview_route\nGET {{host}}/v1/convai/agents/{{agent_id}}/branches/{{source_branch_id}}/merge-preview?target_branch_id={{target_branch_id}}\u0026force=false\u0026include_procedure_generated_workflow_elements=true\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "merge_preview_route",
       "Setup": null
@@ -171,7 +171,7 @@
       "Slug": "rebase-preview-route",
       "Description": "Returns the result of rebasing the branch onto main without performing the rebase. Useful for showing an accurate diff before confirming.",
       "Language": "http",
-      "Code": "### Preview Rebased Configuration\n# @name rebase_preview_route\nGET {{host}}/v1/convai/agents/{{agent_id}}/branches/{{branch_id}}/rebase-preview\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Preview Rebased Configuration\n# @name rebase_preview_route\nGET {{host}}/v1/convai/agents/{{agent_id}}/branches/{{branch_id}}/rebase-preview?include_procedure_generated_workflow_elements=true\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "rebase_preview_route",
       "Setup": null
