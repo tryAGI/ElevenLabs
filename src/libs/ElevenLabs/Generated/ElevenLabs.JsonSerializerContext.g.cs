@@ -264,6 +264,9 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?, global::System.DateTime?>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string>());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string>());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string>());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.CreateOAuth2ClientCredsRequest, global::ElevenLabs.CreateCustomHeaderAuthRequest, global::ElevenLabs.CreateBasicAuthRequest, global::ElevenLabs.CreateBearerAuthRequest, global::ElevenLabs.CreateOAuth2JWTRequest, global::ElevenLabs.CreatePrivateKeyJWTRequest, global::ElevenLabs.CreateMTLSAuthRequest>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.UpdateOAuth2ClientCredsRequest, global::ElevenLabs.UpdateBasicAuthRequest, global::ElevenLabs.UpdateBearerAuthRequest, global::ElevenLabs.UpdateOAuth2JWTRequest>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.CreateResponseUnitTestRequest, global::ElevenLabs.CreateToolCallUnitTestRequest, global::ElevenLabs.CreateSimulationTestRequest>());
@@ -2057,9 +2060,17 @@ namespace ElevenLabs
 
                     || typeToConvert == typeof(global::ElevenLabs.TurnModel?)
 
+                    || typeToConvert == typeof(global::ElevenLabs.TwilioAnsweredBy)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TwilioAnsweredBy?)
+
                     || typeToConvert == typeof(global::ElevenLabs.TwilioEdgeLocation)
 
                     || typeToConvert == typeof(global::ElevenLabs.TwilioEdgeLocation?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TwilioMachineDetectionAction)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TwilioMachineDetectionAction?)
 
                     || typeToConvert == typeof(global::ElevenLabs.TwilioMachineDetectionMode)
 
@@ -2220,6 +2231,10 @@ namespace ElevenLabs
                     || typeToConvert == typeof(global::ElevenLabs.WhatsAppAccountType)
 
                     || typeToConvert == typeof(global::ElevenLabs.WhatsAppAccountType?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.WhatsAppCallPermissionRequestState)
+
+                    || typeToConvert == typeof(global::ElevenLabs.WhatsAppCallPermissionRequestState?)
 
                     || typeToConvert == typeof(global::ElevenLabs.WhatsAppConversationInfoDirection)
 
@@ -6938,6 +6953,16 @@ namespace ElevenLabs
                     return new global::ElevenLabs.JsonConverters.TurnModelNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::ElevenLabs.TwilioAnsweredBy))
+                {
+                    return new global::ElevenLabs.JsonConverters.TwilioAnsweredByJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TwilioAnsweredBy?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TwilioAnsweredByNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::ElevenLabs.TwilioEdgeLocation))
                 {
                     return new global::ElevenLabs.JsonConverters.TwilioEdgeLocationJsonConverter();
@@ -6946,6 +6971,16 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.TwilioEdgeLocation?))
                 {
                     return new global::ElevenLabs.JsonConverters.TwilioEdgeLocationNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TwilioMachineDetectionAction))
+                {
+                    return new global::ElevenLabs.JsonConverters.TwilioMachineDetectionActionJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TwilioMachineDetectionAction?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TwilioMachineDetectionActionNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.TwilioMachineDetectionMode))
@@ -7346,6 +7381,16 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.WhatsAppAccountType?))
                 {
                     return new global::ElevenLabs.JsonConverters.WhatsAppAccountTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.WhatsAppCallPermissionRequestState))
+                {
+                    return new global::ElevenLabs.JsonConverters.WhatsAppCallPermissionRequestStateJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.WhatsAppCallPermissionRequestState?))
+                {
+                    return new global::ElevenLabs.JsonConverters.WhatsAppCallPermissionRequestStateNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.WhatsAppConversationInfoDirection))

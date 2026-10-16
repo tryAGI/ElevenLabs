@@ -427,6 +427,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Nemotron35SuperVlNvfp4,
+        /// <summary>
+        ///
+        /// </summary>
         Qwen330bA3b,
         /// <summary>
         ///
@@ -566,6 +570,7 @@ namespace ElevenLabs
                 Llm.GptOss120b => "gpt-oss-120b",
                 Llm.GptOss20b => "gpt-oss-20b",
                 Llm.GrokBeta => "grok-beta",
+                Llm.Nemotron35SuperVlNvfp4 => "nemotron-35-super-vl-nvfp4",
                 Llm.Qwen330bA3b => "qwen3-30b-a3b",
                 Llm.Qwen34b => "qwen3-4b",
                 Llm.Qwen35397bA17b => "qwen35-397b-a17b",
@@ -686,6 +691,7 @@ namespace ElevenLabs
                 "gpt-oss-120b" => Llm.GptOss120b,
                 "gpt-oss-20b" => Llm.GptOss20b,
                 "grok-beta" => Llm.GrokBeta,
+                "nemotron-35-super-vl-nvfp4" => Llm.Nemotron35SuperVlNvfp4,
                 "qwen3-30b-a3b" => Llm.Qwen330bA3b,
                 "qwen3-4b" => Llm.Qwen34b,
                 "qwen35-397b-a17b" => Llm.Qwen35397bA17b,

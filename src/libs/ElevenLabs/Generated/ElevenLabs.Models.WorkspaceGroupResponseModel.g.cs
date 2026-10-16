@@ -52,6 +52,27 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("group_concurrency_limit")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string>))]
+        public global::ElevenLabs.AnyOf<int?, string>? GroupConcurrencyLimit { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("group_dubbing_concurrency_limit")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string>))]
+        public global::ElevenLabs.AnyOf<int?, string>? GroupDubbingConcurrencyLimit { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("group_music_concurrency_limit")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string>))]
+        public global::ElevenLabs.AnyOf<int?, string>? GroupMusicConcurrencyLimit { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_count")]
         public int? CharacterCount { get; set; }
 
@@ -88,6 +109,9 @@ namespace ElevenLabs
         /// <param name="permissions"></param>
         /// <param name="groupUsageLimit"></param>
         /// <param name="groupPvcLimit"></param>
+        /// <param name="groupConcurrencyLimit"></param>
+        /// <param name="groupDubbingConcurrencyLimit"></param>
+        /// <param name="groupMusicConcurrencyLimit"></param>
         /// <param name="characterCount"></param>
         /// <param name="isScimSynced">
         /// Default Value: false
@@ -106,6 +130,9 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceGroupPermission>? permissions,
             global::ElevenLabs.AnyOf<int?, string>? groupUsageLimit,
             global::ElevenLabs.AnyOf<int?, string>? groupPvcLimit,
+            global::ElevenLabs.AnyOf<int?, string>? groupConcurrencyLimit,
+            global::ElevenLabs.AnyOf<int?, string>? groupDubbingConcurrencyLimit,
+            global::ElevenLabs.AnyOf<int?, string>? groupMusicConcurrencyLimit,
             int? characterCount,
             bool? isScimSynced,
             global::ElevenLabs.ScimGroupResponseModel? scimGroup,
@@ -117,6 +144,9 @@ namespace ElevenLabs
             this.Permissions = permissions;
             this.GroupUsageLimit = groupUsageLimit;
             this.GroupPvcLimit = groupPvcLimit;
+            this.GroupConcurrencyLimit = groupConcurrencyLimit;
+            this.GroupDubbingConcurrencyLimit = groupDubbingConcurrencyLimit;
+            this.GroupMusicConcurrencyLimit = groupMusicConcurrencyLimit;
             this.CharacterCount = characterCount;
             this.IsScimSynced = isScimSynced;
             this.ScimGroup = scimGroup;

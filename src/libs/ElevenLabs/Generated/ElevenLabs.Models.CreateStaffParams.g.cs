@@ -15,6 +15,13 @@ namespace ElevenLabs
         public string? SmbToolType { get; set; }
 
         /// <summary>
+        /// Whether to offer a working_hours timezone, set from the workspace's enable_per_resource_timezones. While that is off every staff member uses the workspace timezone, so the key is not offered.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("per_resource_timezones")]
+        public bool? PerResourceTimezones { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -26,13 +33,19 @@ namespace ElevenLabs
         /// <param name="smbToolType">
         /// Default Value: create_staff
         /// </param>
+        /// <param name="perResourceTimezones">
+        /// Whether to offer a working_hours timezone, set from the workspace's enable_per_resource_timezones. While that is off every staff member uses the workspace timezone, so the key is not offered.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateStaffParams(
-            string? smbToolType)
+            string? smbToolType,
+            bool? perResourceTimezones)
         {
             this.SmbToolType = smbToolType;
+            this.PerResourceTimezones = perResourceTimezones;
         }
 
         /// <summary>

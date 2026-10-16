@@ -28,11 +28,13 @@ namespace ElevenLabs
         partial void PrepareVideoToMusicArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref global::ElevenLabs.AllowedOutputFormats? outputFormat,
+            ref bool? enableLogging,
             global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPost request);
         partial void PrepareVideoToMusicRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             global::ElevenLabs.AllowedOutputFormats? outputFormat,
+            bool? enableLogging,
             global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPost request);
         partial void ProcessVideoToMusicResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -51,6 +53,10 @@ namespace ElevenLabs
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -59,6 +65,7 @@ namespace ElevenLabs
 
             global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPost request,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            bool? enableLogging = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -66,6 +73,7 @@ namespace ElevenLabs
 
                 request: request,
                 outputFormat: outputFormat,
+                enableLogging: enableLogging,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -80,6 +88,10 @@ namespace ElevenLabs
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -88,6 +100,7 @@ namespace ElevenLabs
 
             global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPost request,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            bool? enableLogging = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -98,6 +111,7 @@ namespace ElevenLabs
             PrepareVideoToMusicArguments(
                 httpClient: HttpClient,
                 outputFormat: ref outputFormat,
+                enableLogging: ref enableLogging,
                 request: request);
 
 
@@ -128,6 +142,7 @@ namespace ElevenLabs
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("output_format", outputFormat?.ToValueString())
+                                .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -245,6 +260,7 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     outputFormat: outputFormat,
+                    enableLogging: enableLogging,
                     request: request);
 
                 return __httpRequest;
@@ -547,6 +563,10 @@ namespace ElevenLabs
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -555,6 +575,7 @@ namespace ElevenLabs
 
             global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPost request,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            bool? enableLogging = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -565,6 +586,7 @@ namespace ElevenLabs
             PrepareVideoToMusicArguments(
                 httpClient: HttpClient,
                 outputFormat: ref outputFormat,
+                enableLogging: ref enableLogging,
                 request: request);
 
 
@@ -595,6 +617,7 @@ namespace ElevenLabs
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("output_format", outputFormat?.ToValueString())
+                                .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -712,6 +735,7 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     outputFormat: outputFormat,
+                    enableLogging: enableLogging,
                     request: request);
 
                 return __httpRequest;
@@ -1050,6 +1074,10 @@ namespace ElevenLabs
         /// <param name="outputFormat">
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
+        /// </param>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
         /// </param>
         /// <param name="videos">
         ///             One or more video files sent via FormData array (multipart/form-data). They will be combined into one codec in order.<br/>
@@ -1090,6 +1118,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<byte[]> VideoToMusicAsync(
             global::System.Collections.Generic.IList<byte[]> videos,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            bool? enableLogging = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.MusicModelID? modelId = default,
@@ -1114,6 +1143,7 @@ namespace ElevenLabs
 
             return await VideoToMusicAsync(
                 outputFormat: outputFormat,
+                enableLogging: enableLogging,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
@@ -1126,6 +1156,10 @@ namespace ElevenLabs
         /// <param name="outputFormat">
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
+        /// </param>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
         /// </param>
         /// <param name="videos">
         /// One or more video files sent via FormData array (multipart/form-data). They will be combined into one codec in order.<br/>
@@ -1168,6 +1202,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<byte[]> VideoToMusicAsync(
             global::System.Collections.Generic.IReadOnlyList<global::System.IO.Stream> videos,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            bool? enableLogging = default,
             global::System.Collections.Generic.IReadOnlyList<string>? videosFileNames = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
@@ -1197,6 +1232,7 @@ namespace ElevenLabs
             PrepareVideoToMusicArguments(
                 httpClient: HttpClient,
                 outputFormat: ref outputFormat,
+                enableLogging: ref enableLogging,
                 request: request);
 
 
@@ -1227,6 +1263,7 @@ namespace ElevenLabs
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("output_format", outputFormat?.ToValueString())
+                                .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -1376,6 +1413,7 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     outputFormat: outputFormat,
+                    enableLogging: enableLogging,
                     request: request);
 
                 return __httpRequest;
@@ -1707,6 +1745,10 @@ namespace ElevenLabs
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="videos">
         /// One or more video files sent via FormData array (multipart/form-data). They will be combined into one codec in order.<br/>
         /// A maximum of 10 videos is allowed, where the total size of the combined video is limited to 200MB.<br/>
@@ -1748,6 +1790,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::System.IO.Stream> VideoToMusicAsStreamAsync(
             global::System.Collections.Generic.IReadOnlyList<global::System.IO.Stream> videos,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            bool? enableLogging = default,
             global::System.Collections.Generic.IReadOnlyList<string>? videosFileNames = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
@@ -1777,6 +1820,7 @@ namespace ElevenLabs
             PrepareVideoToMusicArguments(
                 httpClient: HttpClient,
                 outputFormat: ref outputFormat,
+                enableLogging: ref enableLogging,
                 request: request);
 
 
@@ -1807,6 +1851,7 @@ namespace ElevenLabs
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("output_format", outputFormat?.ToValueString())
+                                .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -1956,6 +2001,7 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     outputFormat: outputFormat,
+                    enableLogging: enableLogging,
                     request: request);
 
                 return __httpRequest;
@@ -2258,6 +2304,10 @@ namespace ElevenLabs
         /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="videos">
         /// One or more video files sent via FormData array (multipart/form-data). They will be combined into one codec in order.<br/>
         /// A maximum of 10 videos is allowed, where the total size of the combined video is limited to 200MB.<br/>
@@ -2299,6 +2349,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<byte[]>> VideoToMusicAsResponseAsync(
             global::System.Collections.Generic.IReadOnlyList<global::System.IO.Stream> videos,
             global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            bool? enableLogging = default,
             global::System.Collections.Generic.IReadOnlyList<string>? videosFileNames = default,
             string? description = default,
             global::System.Collections.Generic.IList<string>? tags = default,
@@ -2328,6 +2379,7 @@ namespace ElevenLabs
             PrepareVideoToMusicArguments(
                 httpClient: HttpClient,
                 outputFormat: ref outputFormat,
+                enableLogging: ref enableLogging,
                 request: request);
 
 
@@ -2358,6 +2410,7 @@ namespace ElevenLabs
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("output_format", outputFormat?.ToValueString())
+                                .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -2507,6 +2560,7 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     outputFormat: outputFormat,
+                    enableLogging: enableLogging,
                     request: request);
 
                 return __httpRequest;

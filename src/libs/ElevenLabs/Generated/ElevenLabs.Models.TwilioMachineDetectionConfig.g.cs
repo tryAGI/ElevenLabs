@@ -17,6 +17,12 @@ namespace ElevenLabs
         public global::ElevenLabs.TwilioMachineDetectionMode? Mode { get; set; }
 
         /// <summary>
+        /// Actions to take on the call per AMD verdict. Each action can appear in at most one rule, so list all of its verdicts together. Verdicts without a rule leave the call running.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("actions")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TwilioMachineDetectionRule>? Actions { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -29,13 +35,18 @@ namespace ElevenLabs
         /// How thorough the detection should be. `enable` returns a verdict as soon as Twilio can tell a human from a machine. `detect_message_end` also waits for the voicemail greeting to finish, which is what produces the `machine_end_*` verdicts, but returns a result later.<br/>
         /// Default Value: enable
         /// </param>
+        /// <param name="actions">
+        /// Actions to take on the call per AMD verdict. Each action can appear in at most one rule, so list all of its verdicts together. Verdicts without a rule leave the call running.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public TwilioMachineDetectionConfig(
-            global::ElevenLabs.TwilioMachineDetectionMode? mode)
+            global::ElevenLabs.TwilioMachineDetectionMode? mode,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TwilioMachineDetectionRule>? actions)
         {
             this.Mode = mode;
+            this.Actions = actions;
         }
 
         /// <summary>

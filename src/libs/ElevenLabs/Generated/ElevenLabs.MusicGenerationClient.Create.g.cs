@@ -27,10 +27,12 @@ namespace ElevenLabs
             };
         partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref bool? enableLogging,
             global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPost request);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            bool? enableLogging,
             global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPost request);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -45,6 +47,10 @@ namespace ElevenLabs
         /// Generate Composition Plan<br/>
         /// Generate a composition plan from a prompt.
         /// </summary>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -52,12 +58,14 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>> CreateAsync(
 
             global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPost request,
+            bool? enableLogging = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await CreateAsResponseAsync(
 
                 request: request,
+                enableLogging: enableLogging,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -68,6 +76,10 @@ namespace ElevenLabs
         /// Generate Composition Plan<br/>
         /// Generate a composition plan from a prompt.
         /// </summary>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -75,6 +87,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>>> CreateAsResponseAsync(
 
             global::ElevenLabs.BodyGenerateCompositionPlanV1MusicPlanPost request,
+            bool? enableLogging = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -84,6 +97,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreateArguments(
                 httpClient: HttpClient,
+                enableLogging: ref enableLogging,
                 request: request);
 
 
@@ -112,6 +126,9 @@ namespace ElevenLabs
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: "/v1/music/plan",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -158,6 +175,7 @@ namespace ElevenLabs
                 PrepareCreateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    enableLogging: enableLogging,
                     request: request);
 
                 return __httpRequest;
@@ -474,6 +492,10 @@ namespace ElevenLabs
         /// Generate Composition Plan<br/>
         /// Generate a composition plan from a prompt.
         /// </summary>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="prompt">
         /// A simple text prompt to compose a plan from.
         /// </param>
@@ -492,6 +514,7 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>> CreateAsync(
             string prompt,
+            bool? enableLogging = default,
             int? musicLengthMs = default,
             global::ElevenLabs.AnyOf<global::ElevenLabs.MusicPrompt, global::ElevenLabs.CompositionPlan>? sourceCompositionPlan = default,
             global::ElevenLabs.MusicModelID? modelId = default,
@@ -507,6 +530,7 @@ namespace ElevenLabs
             };
 
             return await CreateAsync(
+                enableLogging: enableLogging,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

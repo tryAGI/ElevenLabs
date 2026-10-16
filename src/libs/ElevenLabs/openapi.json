@@ -581,6 +581,18 @@
             "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs."
           },
           {
+            "name": "enable_logging",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Enable request logging.",
+              "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.",
+              "default": true
+            },
+            "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -14559,6 +14571,18 @@
               "default": "mp3_44100_128"
             },
             "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs."
+          },
+          {
+            "name": "enable_logging",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Enable request logging.",
+              "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.",
+              "default": true
+            },
+            "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers."
           },
           {
             "name": "xi-api-key",
@@ -34533,6 +34557,18 @@
         "operationId": "compose_plan",
         "parameters": [
           {
+            "name": "enable_logging",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Enable request logging.",
+              "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.",
+              "default": true
+            },
+            "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -34647,6 +34683,18 @@
             "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. Use \"auto\" (the default) to let the API pick the best format for the selected model: mp3_44100_128 for v1 models and mp3_48000_192 for v2 models. "
           },
           {
+            "name": "enable_logging",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Enable request logging.",
+              "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.",
+              "default": true
+            },
+            "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -34756,6 +34804,18 @@
               "title": "Output format of the generated audio."
             },
             "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. Use \"auto\" (the default) to let the API pick the best format for the selected model: mp3_44100_128 for v1 models and mp3_48000_192 for v2 models. "
+          },
+          {
+            "name": "enable_logging",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Enable request logging.",
+              "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.",
+              "default": true
+            },
+            "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers."
           },
           {
             "name": "xi-api-key",
@@ -34870,6 +34930,18 @@
             "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. Use \"auto\" (the default) to let the API pick the best format for the selected model: mp3_44100_128 for v1 models and mp3_48000_192 for v2 models. "
           },
           {
+            "name": "enable_logging",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Enable request logging.",
+              "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.",
+              "default": true
+            },
+            "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers."
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -34980,6 +35052,18 @@
               "title": "Output format of the generated audio."
             },
             "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. Use \"auto\" (the default) to let the API pick the best format for the selected model: mp3_44100_128 for v1 models and mp3_48000_192 for v2 models. "
+          },
+          {
+            "name": "enable_logging",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Enable request logging.",
+              "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.",
+              "default": true
+            },
+            "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers."
           },
           {
             "name": "xi-api-key",
@@ -35152,6 +35236,18 @@
               "default": "mp3_44100_128"
             },
             "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs."
+          },
+          {
+            "name": "enable_logging",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Enable request logging.",
+              "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.",
+              "default": true
+            },
+            "description": "When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers."
           },
           {
             "name": "xi-api-key",
@@ -44490,7 +44586,6 @@
                 "x": 0.0,
                 "y": 0.0
               },
-              "return_when_nested": true,
               "type": "end"
             },
             "success_phone": {
@@ -68086,6 +68181,12 @@
             "const": "create_staff",
             "title": "Smb Tool Type",
             "default": "create_staff"
+          },
+          "per_resource_timezones": {
+            "type": "boolean",
+            "title": "Per Resource Timezones",
+            "description": "Whether to offer a working_hours timezone, set from the workspace's enable_per_resource_timezones. While that is off every staff member uses the workspace timezone, so the key is not offered.",
+            "default": false
           }
         },
         "type": "object",
@@ -76276,7 +76377,6 @@
                   "x": 0.0,
                   "y": 0.0
                 },
-                "return_when_nested": true,
                 "type": "end"
               },
               "success_phone": {
@@ -82024,6 +82124,7 @@
           "glm-45-air-fp8",
           "glm-52",
           "deepseek-v41-flash",
+          "nemotron-35-super-vl-nvfp4",
           "gemini-2.5-flash-preview-09-2025",
           "gemini-2.5-flash-lite-preview-09-2025",
           "gemini-2.5-flash-preview-05-20",
@@ -86870,7 +86971,6 @@
                   "x": 0.0,
                   "y": 0.0
                 },
-                "return_when_nested": true,
                 "type": "end"
               },
               "success_phone": {
@@ -106195,6 +106295,28 @@
             "type": "string",
             "title": "Reason",
             "default": "Skipping tool call in test mode"
+          },
+          "to_agent": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To Agent"
+          },
+          "to_node": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To Node"
           }
         },
         "type": "object",
@@ -108699,6 +108821,20 @@
         "description": "Version of the turn detection model to use.",
         "default": "turn_v3"
       },
+      "TwilioAnsweredBy": {
+        "type": "string",
+        "enum": [
+          "human",
+          "fax",
+          "unknown",
+          "machine_start",
+          "machine_end_beep",
+          "machine_end_silence",
+          "machine_end_other"
+        ],
+        "title": "TwilioAnsweredBy",
+        "description": "Carrier-level AMD verdict reported by Twilio via `AnsweredBy`."
+      },
       "TwilioEdgeLocation": {
         "type": "string",
         "enum": [
@@ -108715,12 +108851,27 @@
         "title": "TwilioEdgeLocation",
         "description": "Valid Twilio edge locations."
       },
+      "TwilioMachineDetectionAction": {
+        "type": "string",
+        "enum": [
+          "hang_up"
+        ],
+        "title": "TwilioMachineDetectionAction"
+      },
       "TwilioMachineDetectionConfig": {
         "properties": {
           "mode": {
             "$ref": "#/components/schemas/TwilioMachineDetectionMode",
             "description": "How thorough the detection should be. `enable` returns a verdict as soon as Twilio can tell a human from a machine. `detect_message_end` also waits for the voicemail greeting to finish, which is what produces the `machine_end_*` verdicts, but returns a result later.",
             "default": "enable"
+          },
+          "actions": {
+            "items": {
+              "$ref": "#/components/schemas/TwilioMachineDetectionRule"
+            },
+            "type": "array",
+            "title": "Actions",
+            "description": "Actions to take on the call per AMD verdict. Each action can appear in at most one rule, so list all of its verdicts together. Verdicts without a rule leave the call running."
           }
         },
         "type": "object",
@@ -108736,6 +108887,29 @@
         "title": "TwilioMachineDetectionMode",
         "description": "Which Twilio answering-machine-detection (AMD) mode to request for a call.\n\n`enable` returns a verdict as soon as Twilio can tell a human from a machine.\n`detect_message_end` additionally waits for the greeting to finish, which is what\ndistinguishes the `machine_end_*` verdicts, at the cost of a later result.",
         "default": "enable"
+      },
+      "TwilioMachineDetectionRule": {
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/TwilioMachineDetectionAction"
+          },
+          "answered_by": {
+            "items": {
+              "$ref": "#/components/schemas/TwilioAnsweredBy"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Answered By",
+            "description": "Verdicts that trigger the action."
+          }
+        },
+        "type": "object",
+        "required": [
+          "action",
+          "answered_by"
+        ],
+        "title": "TwilioMachineDetectionRule",
+        "description": "Action to take on a live call for the given AMD verdicts."
       },
       "TwilioOutboundCallResponse": {
         "properties": {
@@ -110558,6 +110732,12 @@
             "const": "update_staff",
             "title": "Smb Tool Type",
             "default": "update_staff"
+          },
+          "per_resource_timezones": {
+            "type": "boolean",
+            "title": "Per Resource Timezones",
+            "description": "Whether to offer a working_hours timezone, set from the workspace's enable_per_resource_timezones. While that is off every staff member uses the workspace timezone, so the key is not offered.",
+            "default": false
           }
         },
         "type": "object",
@@ -115130,6 +115310,39 @@
         ],
         "title": "WhatsAppAuthResponse"
       },
+      "WhatsAppCallPermissionRequest": {
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/WhatsAppCallPermissionRequestState"
+          },
+          "requested_at_unix": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Requested At Unix"
+          }
+        },
+        "type": "object",
+        "required": [
+          "state"
+        ],
+        "title": "WhatsAppCallPermissionRequest"
+      },
+      "WhatsAppCallPermissionRequestState": {
+        "type": "string",
+        "enum": [
+          "blocked",
+          "sent",
+          "accepted",
+          "declined"
+        ],
+        "title": "WhatsAppCallPermissionRequestState"
+      },
       "WhatsAppConversationInfo": {
         "properties": {
           "direction": {
@@ -115172,6 +115385,16 @@
             "anyOf": [
               {
                 "$ref": "#/components/schemas/WhatsAppRecipient"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "call_permission_request": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WhatsAppCallPermissionRequest"
               },
               {
                 "type": "null"
@@ -120163,6 +120386,51 @@
               }
             ],
             "title": "Group Pvc Limit"
+          },
+          "group_concurrency_limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string",
+                "const": "unlimited"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Group Concurrency Limit"
+          },
+          "group_dubbing_concurrency_limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string",
+                "const": "unlimited"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Group Dubbing Concurrency Limit"
+          },
+          "group_music_concurrency_limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string",
+                "const": "unlimited"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Group Music Concurrency Limit"
           },
           "character_count": {
             "anyOf": [

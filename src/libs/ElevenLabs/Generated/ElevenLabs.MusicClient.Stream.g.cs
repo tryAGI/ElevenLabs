@@ -30,11 +30,13 @@ namespace ElevenLabs
         partial void PrepareStreamArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref global::ElevenLabs.StreamComposeOutputFormat? outputFormat,
+            ref bool? enableLogging,
             global::ElevenLabs.BodyStreamComposedMusicV1MusicStreamPost request);
         partial void PrepareStreamRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             global::ElevenLabs.StreamComposeOutputFormat? outputFormat,
+            bool? enableLogging,
             global::ElevenLabs.BodyStreamComposedMusicV1MusicStreamPost request);
         partial void ProcessStreamResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -47,6 +49,10 @@ namespace ElevenLabs
         /// <param name="outputFormat">
         /// Default Value: auto
         /// </param>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -55,6 +61,7 @@ namespace ElevenLabs
 
             global::ElevenLabs.BodyStreamComposedMusicV1MusicStreamPost request,
             global::ElevenLabs.StreamComposeOutputFormat? outputFormat = default,
+            bool? enableLogging = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -62,6 +69,7 @@ namespace ElevenLabs
 
                 request: request,
                 outputFormat: outputFormat,
+                enableLogging: enableLogging,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -75,6 +83,10 @@ namespace ElevenLabs
         /// <param name="outputFormat">
         /// Default Value: auto
         /// </param>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -83,6 +95,7 @@ namespace ElevenLabs
 
             global::ElevenLabs.BodyStreamComposedMusicV1MusicStreamPost request,
             global::ElevenLabs.StreamComposeOutputFormat? outputFormat = default,
+            bool? enableLogging = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -93,6 +106,7 @@ namespace ElevenLabs
             PrepareStreamArguments(
                 httpClient: HttpClient,
                 outputFormat: ref outputFormat,
+                enableLogging: ref enableLogging,
                 request: request);
 
 
@@ -123,6 +137,7 @@ namespace ElevenLabs
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("output_format", outputFormat?.ToValueString())
+                                .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -171,6 +186,7 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     outputFormat: outputFormat,
+                    enableLogging: enableLogging,
                     request: request);
 
                 return __httpRequest;
@@ -449,6 +465,10 @@ namespace ElevenLabs
         /// <param name="outputFormat">
         /// Default Value: auto
         /// </param>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="prompt">
         /// A simple text prompt to generate a song from. Cannot be used in conjunction with `composition_plan`.
         /// </param>
@@ -495,6 +515,7 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.IO.Stream> StreamAsync(
             global::ElevenLabs.StreamComposeOutputFormat? outputFormat = default,
+            bool? enableLogging = default,
             string? prompt = default,
             global::ElevenLabs.MusicGenerationMode? generationMode = default,
             string? lyricsText = default,
@@ -528,6 +549,7 @@ namespace ElevenLabs
 
             return await StreamAsync(
                 outputFormat: outputFormat,
+                enableLogging: enableLogging,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

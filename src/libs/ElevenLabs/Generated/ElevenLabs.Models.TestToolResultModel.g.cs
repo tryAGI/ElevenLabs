@@ -27,6 +27,18 @@ namespace ElevenLabs
         public string? Reason { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("to_agent")]
+        public string? ToAgent { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("to_node")]
+        public string? ToNode { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -44,17 +56,23 @@ namespace ElevenLabs
         /// <param name="reason">
         /// Default Value: Skipping tool call in test mode
         /// </param>
+        /// <param name="toAgent"></param>
+        /// <param name="toNode"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public TestToolResultModel(
             string? resultType,
             string? status,
-            string? reason)
+            string? reason,
+            string? toAgent,
+            string? toNode)
         {
             this.ResultType = resultType;
             this.Status = status;
             this.Reason = reason;
+            this.ToAgent = toAgent;
+            this.ToNode = toNode;
         }
 
         /// <summary>
