@@ -113,6 +113,11 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        public EnvironmentsClient Environments { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
         public FlowsClient Flows { get; }
 
         /// <summary>

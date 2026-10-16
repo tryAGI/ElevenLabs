@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class UpdateEnvironmentVariableRequest
     {
         /// <summary>
-        /// Values to replace. Set to null to remove an environment (except 'production').
+        /// Values to replace. Set to null to remove the value for an environment (except 'production').
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("values")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="UpdateEnvironmentVariableRequest" /> class.
         /// </summary>
         /// <param name="values">
-        /// Values to replace. Set to null to remove an environment (except 'production').
+        /// Values to replace. Set to null to remove the value for an environment (except 'production').
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

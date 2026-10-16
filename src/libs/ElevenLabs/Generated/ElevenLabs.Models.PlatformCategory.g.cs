@@ -23,6 +23,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        RagAddon,
+        /// <summary>
+        ///
+        /// </summary>
         Reception,
         /// <summary>
         ///
@@ -32,6 +36,14 @@ namespace ElevenLabs
         ///
         /// </summary>
         TextMessage,
+        /// <summary>
+        ///
+        /// </summary>
+        V3Addon,
+        /// <summary>
+        ///
+        /// </summary>
+        V4Addon,
         /// <summary>
         ///
         /// </summary>
@@ -53,9 +65,12 @@ namespace ElevenLabs
                 PlatformCategory.Asr => "asr",
                 PlatformCategory.Burst => "burst",
                 PlatformCategory.Other => "other",
+                PlatformCategory.RagAddon => "rag_addon",
                 PlatformCategory.Reception => "reception",
                 PlatformCategory.Silence => "silence",
                 PlatformCategory.TextMessage => "text_message",
+                PlatformCategory.V3Addon => "v3_addon",
+                PlatformCategory.V4Addon => "v4_addon",
                 PlatformCategory.Voice => "voice",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -70,9 +85,12 @@ namespace ElevenLabs
                 "asr" => PlatformCategory.Asr,
                 "burst" => PlatformCategory.Burst,
                 "other" => PlatformCategory.Other,
+                "rag_addon" => PlatformCategory.RagAddon,
                 "reception" => PlatformCategory.Reception,
                 "silence" => PlatformCategory.Silence,
                 "text_message" => PlatformCategory.TextMessage,
+                "v3_addon" => PlatformCategory.V3Addon,
+                "v4_addon" => PlatformCategory.V4Addon,
                 "voice" => PlatformCategory.Voice,
                 _ => null,
             };
