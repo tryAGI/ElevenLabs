@@ -28,12 +28,14 @@ namespace ElevenLabs
         partial void PreparePreviewRebaseArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref string branchId);
+            ref string branchId,
+            ref bool? includeProcedureGeneratedWorkflowElements);
         partial void PreparePreviewRebaseRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            string branchId);
+            string branchId,
+            bool? includeProcedureGeneratedWorkflowElements);
         partial void ProcessPreviewRebaseResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -53,18 +55,24 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Unique identifier for the source branch to merge from.
         /// </param>
+        /// <param name="includeProcedureGeneratedWorkflowElements">
+        /// Whether to include the workflow nodes and edges generated from structured procedures. When false, the workflow contains only authored elements.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MergePreviewResponseModel> PreviewRebaseAsync(
             string agentId,
             string branchId,
+            bool? includeProcedureGeneratedWorkflowElements = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await PreviewRebaseAsResponseAsync(
                 agentId: agentId,
                 branchId: branchId,
+                includeProcedureGeneratedWorkflowElements: includeProcedureGeneratedWorkflowElements,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -81,12 +89,17 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Unique identifier for the source branch to merge from.
         /// </param>
+        /// <param name="includeProcedureGeneratedWorkflowElements">
+        /// Whether to include the workflow nodes and edges generated from structured procedures. When false, the workflow contains only authored elements.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MergePreviewResponseModel>> PreviewRebaseAsResponseAsync(
             string agentId,
             string branchId,
+            bool? includeProcedureGeneratedWorkflowElements = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -95,7 +108,8 @@ namespace ElevenLabs
             PreparePreviewRebaseArguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                branchId: ref branchId);
+                branchId: ref branchId,
+                includeProcedureGeneratedWorkflowElements: ref includeProcedureGeneratedWorkflowElements);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -123,6 +137,9 @@ namespace ElevenLabs
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: $"/v1/convai/agents/{agentId}/branches/{branchId}/rebase-preview",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("include_procedure_generated_workflow_elements", includeProcedureGeneratedWorkflowElements?.ToString().ToLowerInvariant())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -164,7 +181,8 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
-                    branchId: branchId);
+                    branchId: branchId,
+                    includeProcedureGeneratedWorkflowElements: includeProcedureGeneratedWorkflowElements);
 
                 return __httpRequest;
             }
