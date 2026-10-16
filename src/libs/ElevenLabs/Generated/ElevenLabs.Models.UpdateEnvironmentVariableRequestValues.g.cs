@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Values to replace. Set to null to remove an environment (except 'production').
+    /// Values to replace. Set to null to remove the value for an environment (except 'production').
     /// </summary>
     public sealed partial class UpdateEnvironmentVariableRequestValues
     {

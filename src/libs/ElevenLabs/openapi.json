@@ -34498,7 +34498,7 @@
           "Agents Platform"
         ],
         "summary": "Update Environment Variable",
-        "description": "Replace an environment variable's values. Use null to remove an environment (except production).",
+        "description": "Replace an environment variable's values. Use null to remove its value for an environment (except production); delete an environment with DELETE /v1/convai/environments/{environment}.",
         "operationId": "update_environment_variable",
         "parameters": [
           {
@@ -34569,6 +34569,192 @@
         },
         "x-fern-sdk-group-name": "environment_variables",
         "x-fern-sdk-method-name": "update"
+      }
+    },
+    "/v1/convai/environments": {
+      "get": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "List Environments",
+        "description": "List the workspace environments, including 'production'.",
+        "operationId": "list_environments",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvironmentsListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "environments",
+        "x-fern-sdk-method-name": "list"
+      },
+      "post": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Create Environment",
+        "description": "Create a workspace environment. Variables without a value for it fall back to their production value.",
+        "operationId": "create_environment",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEnvironmentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvironmentResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid environment name"
+          },
+          "409": {
+            "description": "Environment with this name already exists"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "environments",
+        "x-fern-sdk-method-name": "create"
+      }
+    },
+    "/v1/convai/environments/{environment}": {
+      "delete": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Delete Environment",
+        "description": "Delete a workspace environment and remove its values from all environment variables. 'production' cannot be deleted.",
+        "operationId": "delete_environment",
+        "parameters": [
+          {
+            "name": "environment",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Name of the environment to delete, e.g. 'staging'.",
+              "title": "Environment"
+            },
+            "description": "Name of the environment to delete, e.g. 'staging'."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Environment deleted"
+          },
+          "400": {
+            "description": "'production' cannot be deleted"
+          },
+          "404": {
+            "description": "Environment not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "environments",
+        "x-fern-sdk-method-name": "delete"
       }
     },
     "/v1/music/plan": {
@@ -67061,6 +67247,20 @@
         ],
         "title": "CreateCustomHeaderAuthRequest"
       },
+      "CreateEnvironmentRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Unique name of the environment, e.g. 'staging'."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "CreateEnvironmentRequest"
+      },
       "CreateExotelPhoneNumberRequest": {
         "properties": {
           "phone_number": {
@@ -73370,6 +73570,49 @@
         "title": "EnvironmentAuthConnectionLocator",
         "description": "References an environment variable of type 'auth_connection' by label.\nAt runtime, resolves to the auth connection for the current environment,\nfalling back to the default environment."
       },
+      "EnvironmentResponse": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Name of the environment, e.g. 'staging'."
+          },
+          "updated_at_unix_secs": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At Unix Secs",
+            "description": "When the environment was created or one of its values last changed. Unset when neither is known."
+          },
+          "created_by_user_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created By User Id",
+            "description": "Unset for 'production' and when the creator is not known."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "EnvironmentResponse",
+        "example": {
+          "created_by_user_id": "user_7k2m9x",
+          "name": "staging",
+          "updated_at_unix_secs": 1714003600
+        }
+      },
       "EnvironmentVariableAuthConnectionValue": {
         "properties": {
           "auth_connection_id": {
@@ -73531,6 +73774,36 @@
           "has_more"
         ],
         "title": "EnvironmentVariablesListResponse"
+      },
+      "EnvironmentsListResponse": {
+        "properties": {
+          "environments": {
+            "items": {
+              "$ref": "#/components/schemas/EnvironmentResponse"
+            },
+            "type": "array",
+            "title": "Environments",
+            "description": "All workspace environments, 'production' first. Variables without a value for an environment fall back to their production value."
+          }
+        },
+        "type": "object",
+        "required": [
+          "environments"
+        ],
+        "title": "EnvironmentsListResponse",
+        "example": {
+          "environments": [
+            {
+              "name": "production",
+              "updated_at_unix_secs": 1714000000
+            },
+            {
+              "created_by_user_id": "user_7k2m9x",
+              "name": "staging",
+              "updated_at_unix_secs": 1714003600
+            }
+          ]
+        }
       },
       "EvaluationCriteriaSummaryResult": {
         "properties": {
@@ -90618,6 +90891,9 @@
           "asr",
           "text_message",
           "reception",
+          "v3_addon",
+          "v4_addon",
+          "rag_addon",
           "other"
         ],
         "title": "PlatformCategory",
@@ -109768,7 +110044,7 @@
             },
             "type": "object",
             "title": "Values",
-            "description": "Values to replace. Set to null to remove an environment (except 'production')."
+            "description": "Values to replace. Set to null to remove the value for an environment (except 'production')."
           }
         },
         "type": "object",
