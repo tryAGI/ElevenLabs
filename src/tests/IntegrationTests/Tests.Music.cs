@@ -34,6 +34,7 @@ public partial class Tests
             nameof(IMusicGenerationClient.CreateAsync),
             typeof(Task<AnyOf<MusicPrompt, CompositionPlan>>),
             typeof(BodyGenerateCompositionPlanV1MusicPlanPost),
+            typeof(bool?),
             typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
 
@@ -43,6 +44,7 @@ public partial class Tests
             typeof(Task<byte[]>),
             typeof(BodyComposeMusicV1MusicPost),
             typeof(GenerateOutputFormat?),
+            typeof(bool?),
             typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
 
@@ -52,6 +54,7 @@ public partial class Tests
             typeof(Task<Stream>),
             typeof(BodyStreamComposedMusicV1MusicStreamPost),
             typeof(StreamComposeOutputFormat?),
+            typeof(bool?),
             typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
 
@@ -61,6 +64,7 @@ public partial class Tests
             typeof(Task<byte[]>),
             typeof(BodyComposeMusicWithADetailedResponseV1MusicDetailedPost),
             typeof(ComposeDetailedOutputFormat?),
+            typeof(bool?),
             typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
 
@@ -70,6 +74,7 @@ public partial class Tests
             typeof(IAsyncEnumerable<string>),
             typeof(BodyStreamComposedMusicWithADetailedResponseV1MusicDetailedStreamPost),
             typeof(ComposeDetailedStreamOutputFormat?),
+            typeof(bool?),
             typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
 
@@ -79,6 +84,7 @@ public partial class Tests
             typeof(Task<byte[]>),
             typeof(BodyVideoToMusicV1MusicVideoToMusicPost),
             typeof(AllowedOutputFormats?),
+            typeof(bool?),
             typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
 
@@ -96,6 +102,7 @@ public partial class Tests
             typeof(Task<byte[]>),
             typeof(BodyStemSeparationV1MusicStemSeparationPost),
             typeof(AllowedOutputFormats?),
+            typeof(bool?),
             typeof(AutoSDKRequestOptions),
             typeof(CancellationToken));
     }
@@ -106,27 +113,27 @@ public partial class Tests
         var expectedRequests = new Queue<MusicEndpointExpectation>(
         [
             new(
-                "/v1/music/plan",
+                "/v1/music/plan?enable_logging=false",
                 "application/json",
                 body => body.Should().Contain("\"prompt\"").And.Contain(MusicPromptText),
                 _ => JsonResponse(MusicPromptJson)),
             new(
-                "/v1/music?output_format=mp3_22050_32",
+                "/v1/music?output_format=mp3_22050_32&enable_logging=false",
                 "application/json",
                 body => body.Should().Contain("\"composition_plan\"").And.Contain("\"positive_global_styles\""),
                 _ => ByteResponse([1, 2, 3], "audio/mpeg", ("song-id", "song-compose"))),
             new(
-                "/v1/music/stream?output_format=mp3_22050_32",
+                "/v1/music/stream?output_format=mp3_22050_32&enable_logging=false",
                 "application/json",
                 body => body.Should().Contain("\"prompt\"").And.Contain(MusicPromptText),
                 _ => ByteResponse([4, 5, 6], "audio/mpeg", ("song-id", "song-stream"))),
             new(
-                "/v1/music/detailed?output_format=mp3_22050_32",
+                "/v1/music/detailed?output_format=mp3_22050_32&enable_logging=false",
                 "application/json",
                 body => body.Should().Contain("\"with_timestamps\":true"),
                 _ => ByteResponse([7, 8, 9], "multipart/mixed", ("song-id", "song-detailed"))),
             new(
-                "/v1/music/video-to-music?output_format=mp3_22050_32",
+                "/v1/music/video-to-music?output_format=mp3_22050_32&enable_logging=false",
                 "multipart/form-data",
                 body => body.Should().Contain("name=\"videos\"").And.Contain("name=\"description\"").And.Contain("upbeat"),
                 _ => ByteResponse([10, 11, 12], "audio/mpeg")),
@@ -136,7 +143,7 @@ public partial class Tests
                 body => body.Should().Contain("name=\"file\"").And.Contain("song.mp3").And.Contain("extract_composition_plan"),
                 _ => JsonResponse("""{"song_id":"uploaded-song","composition_plan":null}""")),
             new(
-                "/v1/music/stem-separation?output_format=mp3_22050_32",
+                "/v1/music/stem-separation?output_format=mp3_22050_32&enable_logging=false",
                 "multipart/form-data",
                 body => body.Should().Contain("name=\"file\"").And.Contain("song.mp3").And.Contain("stem_variation_id"),
                 _ => ByteResponse([13, 14, 15], "application/zip")),
@@ -163,16 +170,19 @@ public partial class Tests
         using var client = new ElevenLabsClient(TestApiKey, httpClient, disposeHttpClient: false);
 
         var compositionPlan = (await client.MusicGeneration.CreateAsync(
+            enableLogging: false,
             prompt: MusicPromptText,
             musicLengthMs: 3000)).PickValue1();
         compositionPlan.Sections.Should().ContainSingle();
 
         byte[] composedAudio = await client.Music.ComposeAsync(
+            enableLogging: false,
             outputFormat: GenerateOutputFormat.Mp32205032,
             compositionPlan: compositionPlan);
         composedAudio.Should().BeEquivalentTo([1, 2, 3], options => options.WithStrictOrdering());
 
         using var streamedAudio = await client.Music.StreamAsync(
+            enableLogging: false,
             outputFormat: StreamComposeOutputFormat.Mp32205032,
             prompt: MusicPromptText,
             musicLengthMs: 3000,
@@ -182,6 +192,7 @@ public partial class Tests
         streamedBuffer.ToArray().Should().BeEquivalentTo([4, 5, 6], options => options.WithStrictOrdering());
 
         byte[] detailedAudio = await client.Music.ComposeDetailedAsync(
+            enableLogging: false,
             outputFormat: ComposeDetailedOutputFormat.Mp32205032,
             prompt: MusicPromptText,
             musicLengthMs: 3000,
@@ -190,6 +201,7 @@ public partial class Tests
         detailedAudio.Should().BeEquivalentTo([7, 8, 9], options => options.WithStrictOrdering());
 
         byte[] videoMusic = await client.Music.VideoToMusicAsync(
+            enableLogging: false,
             videos: [[16, 17, 18]],
             outputFormat: AllowedOutputFormats.Mp32205032,
             description: "Create upbeat background music for a product clip.",
@@ -203,6 +215,7 @@ public partial class Tests
         upload.SongId.Should().Be("uploaded-song");
 
         byte[] stems = await client.Music.SeparateStemsAsync(
+            enableLogging: false,
             file: [22, 23, 24],
             filename: "song.mp3",
             outputFormat: AllowedOutputFormats.Mp32205032,
