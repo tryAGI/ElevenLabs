@@ -23,6 +23,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        DeclinedResubmittable,
+        /// <summary>
+        ///
+        /// </summary>
         NotRequested,
         /// <summary>
         ///
@@ -45,6 +49,7 @@ namespace ElevenLabs
                 VoiceSharingResponseModelReviewStatus.Allowed => "allowed",
                 VoiceSharingResponseModelReviewStatus.AllowedWithChanges => "allowed_with_changes",
                 VoiceSharingResponseModelReviewStatus.Declined => "declined",
+                VoiceSharingResponseModelReviewStatus.DeclinedResubmittable => "declined_resubmittable",
                 VoiceSharingResponseModelReviewStatus.NotRequested => "not_requested",
                 VoiceSharingResponseModelReviewStatus.Pending => "pending",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -60,6 +65,7 @@ namespace ElevenLabs
                 "allowed" => VoiceSharingResponseModelReviewStatus.Allowed,
                 "allowed_with_changes" => VoiceSharingResponseModelReviewStatus.AllowedWithChanges,
                 "declined" => VoiceSharingResponseModelReviewStatus.Declined,
+                "declined_resubmittable" => VoiceSharingResponseModelReviewStatus.DeclinedResubmittable,
                 "not_requested" => VoiceSharingResponseModelReviewStatus.NotRequested,
                 "pending" => VoiceSharingResponseModelReviewStatus.Pending,
                 _ => null,

@@ -27,11 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId);
+            ref string agentId,
+            ref bool? force);
         partial void PrepareDeleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId);
+            string agentId,
+            bool? force);
         partial void ProcessDeleteResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -43,16 +45,22 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
+        /// <param name="force">
+        /// If set to true, the agent is deleted even if other agents use it as a subagent, and it is removed from those agents and their branches.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task DeleteAsync(
             string agentId,
+            bool? force = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             await DeleteAsResponseAsync(
                 agentId: agentId,
+                force: force,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -64,11 +72,16 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
+        /// <param name="force">
+        /// If set to true, the agent is deleted even if other agents use it as a subagent, and it is removed from those agents and their branches.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse> DeleteAsResponseAsync(
             string agentId,
+            bool? force = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -76,7 +89,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDeleteArguments(
                 httpClient: HttpClient,
-                agentId: ref agentId);
+                agentId: ref agentId,
+                force: ref force);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -104,6 +118,9 @@ namespace ElevenLabs
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: $"/v1/convai/agents/{agentId}",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("force", force?.ToString().ToLowerInvariant())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -144,7 +161,8 @@ namespace ElevenLabs
                 PrepareDeleteRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId);
+                    agentId: agentId,
+                    force: force);
 
                 return __httpRequest;
             }

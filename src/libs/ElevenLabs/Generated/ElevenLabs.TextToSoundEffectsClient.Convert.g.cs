@@ -27,13 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareConvertArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::ElevenLabs.AllowedOutputFormats? outputFormat,
+            ref global::ElevenLabs.AnyOf<global::ElevenLabs.NonStreamingOutputFormats?, global::ElevenLabs.AllowedOutputFormats?>? outputFormat,
             ref bool? enableLogging,
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request);
         partial void PrepareConvertRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.AllowedOutputFormats? outputFormat,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.NonStreamingOutputFormats?, global::ElevenLabs.AllowedOutputFormats?>? outputFormat,
             bool? enableLogging,
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request);
         partial void ProcessConvertResponse(
@@ -50,7 +50,7 @@ namespace ElevenLabs
         /// Turn text into sound effects for your videos, voice-overs or video games using the most advanced sound effects models in the world.
         /// </summary>
         /// <param name="outputFormat">
-        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
+        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="enableLogging">
@@ -64,7 +64,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<byte[]> ConvertAsync(
 
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request,
-            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.NonStreamingOutputFormats?, global::ElevenLabs.AllowedOutputFormats?>? outputFormat = default,
             bool? enableLogging = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -85,7 +85,7 @@ namespace ElevenLabs
         /// Turn text into sound effects for your videos, voice-overs or video games using the most advanced sound effects models in the world.
         /// </summary>
         /// <param name="outputFormat">
-        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
+        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="enableLogging">
@@ -99,7 +99,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::System.IO.Stream> ConvertAsStreamAsync(
 
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request,
-            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.NonStreamingOutputFormats?, global::ElevenLabs.AllowedOutputFormats?>? outputFormat = default,
             bool? enableLogging = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -141,7 +141,7 @@ namespace ElevenLabs
                                 path: "/v1/sound-generation",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("output_format", outputFormat?.ToValueString())
+                                .AddOptionalParameter("output_format", outputFormat?.ToString())
                                 .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -464,7 +464,7 @@ namespace ElevenLabs
         /// Turn text into sound effects for your videos, voice-overs or video games using the most advanced sound effects models in the world.
         /// </summary>
         /// <param name="outputFormat">
-        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
+        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="enableLogging">
@@ -478,7 +478,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<byte[]>> ConvertAsResponseAsync(
 
             global::ElevenLabs.BodySoundGenerationV1SoundGenerationPost request,
-            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.NonStreamingOutputFormats?, global::ElevenLabs.AllowedOutputFormats?>? outputFormat = default,
             bool? enableLogging = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -520,7 +520,7 @@ namespace ElevenLabs
                                 path: "/v1/sound-generation",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("output_format", outputFormat?.ToValueString())
+                                .AddOptionalParameter("output_format", outputFormat?.ToString())
                                 .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -880,7 +880,7 @@ namespace ElevenLabs
         /// Turn text into sound effects for your videos, voice-overs or video games using the most advanced sound effects models in the world.
         /// </summary>
         /// <param name="outputFormat">
-        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
+        /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.<br/>
         /// Default Value: mp3_44100_128
         /// </param>
         /// <param name="enableLogging">
@@ -910,7 +910,7 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> ConvertAsync(
             string text,
-            global::ElevenLabs.AllowedOutputFormats? outputFormat = default,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.NonStreamingOutputFormats?, global::ElevenLabs.AllowedOutputFormats?>? outputFormat = default,
             bool? enableLogging = default,
             bool? loop = default,
             double? durationSeconds = default,

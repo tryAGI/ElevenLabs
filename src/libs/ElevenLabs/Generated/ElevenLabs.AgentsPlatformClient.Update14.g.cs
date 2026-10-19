@@ -47,7 +47,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Update Agent Branch<br/>
-        /// Update agent branch properties such as archiving status, protection level, and auto-rebase onto main
+        /// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -80,7 +80,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Update Agent Branch<br/>
-        /// Update agent branch properties such as archiving status, protection level, and auto-rebase onto main
+        /// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -498,7 +498,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Update Agent Branch<br/>
-        /// Update agent branch properties such as archiving status, protection level, and auto-rebase onto main
+        /// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -508,6 +508,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="name">
         /// New name for the branch. Must be unique within the agent.
+        /// </param>
+        /// <param name="description">
+        /// New description for the branch. Pass an empty string to clear it.
         /// </param>
         /// <param name="isArchived">
         /// Whether the branch should be archived
@@ -525,6 +528,7 @@ namespace ElevenLabs
             string agentId,
             string branchId,
             string? name = default,
+            string? description = default,
             bool? isArchived = default,
             global::ElevenLabs.BranchProtectionStatus? protectionStatus = default,
             bool? autoRebase = default,
@@ -534,6 +538,7 @@ namespace ElevenLabs
             var __request = new global::ElevenLabs.BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch
             {
                 Name = name,
+                Description = description,
                 IsArchived = isArchived,
                 ProtectionStatus = protectionStatus,
                 AutoRebase = autoRebase,

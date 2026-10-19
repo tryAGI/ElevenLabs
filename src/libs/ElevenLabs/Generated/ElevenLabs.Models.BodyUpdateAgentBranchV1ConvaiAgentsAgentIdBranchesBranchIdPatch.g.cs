@@ -15,6 +15,12 @@ namespace ElevenLabs
         public string? Name { get; set; }
 
         /// <summary>
+        /// New description for the branch. Pass an empty string to clear it.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string? Description { get; set; }
+
+        /// <summary>
         /// Whether the branch should be archived
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_archived")]
@@ -44,6 +50,9 @@ namespace ElevenLabs
         /// <param name="name">
         /// New name for the branch. Must be unique within the agent.
         /// </param>
+        /// <param name="description">
+        /// New description for the branch. Pass an empty string to clear it.
+        /// </param>
         /// <param name="isArchived">
         /// Whether the branch should be archived
         /// </param>
@@ -58,11 +67,13 @@ namespace ElevenLabs
 #endif
         public BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch(
             string? name,
+            string? description,
             bool? isArchived,
             global::ElevenLabs.BranchProtectionStatus? protectionStatus,
             bool? autoRebase)
         {
             this.Name = name;
+            this.Description = description;
             this.IsArchived = isArchived;
             this.ProtectionStatus = protectionStatus;
             this.AutoRebase = autoRebase;

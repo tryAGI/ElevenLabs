@@ -28,12 +28,14 @@ namespace ElevenLabs
         partial void PrepareRebaseArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref string branchId);
+            ref string branchId,
+            ref string? sourceBranchId);
         partial void PrepareRebaseRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            string branchId);
+            string branchId,
+            string? sourceBranchId);
         partial void ProcessRebaseResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -45,7 +47,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Rebase A Branch Onto Main<br/>
-        /// Rebase a branch onto the latest main branch, incorporating main's changes while preserving the branch's own changes.
+        /// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -53,18 +55,23 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Unique identifier for the source branch to merge from.
         /// </param>
+        /// <param name="sourceBranchId">
+        /// The ID of the branch to pull changes from. Defaults to the agent's main branch.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> RebaseAsync(
             string agentId,
             string branchId,
+            string? sourceBranchId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await RebaseAsResponseAsync(
                 agentId: agentId,
                 branchId: branchId,
+                sourceBranchId: sourceBranchId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -73,7 +80,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Rebase A Branch Onto Main<br/>
-        /// Rebase a branch onto the latest main branch, incorporating main's changes while preserving the branch's own changes.
+        /// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -81,12 +88,16 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Unique identifier for the source branch to merge from.
         /// </param>
+        /// <param name="sourceBranchId">
+        /// The ID of the branch to pull changes from. Defaults to the agent's main branch.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> RebaseAsResponseAsync(
             string agentId,
             string branchId,
+            string? sourceBranchId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -95,7 +106,8 @@ namespace ElevenLabs
             PrepareRebaseArguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                branchId: ref branchId);
+                branchId: ref branchId,
+                sourceBranchId: ref sourceBranchId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -123,6 +135,9 @@ namespace ElevenLabs
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
                                 path: $"/v1/convai/agents/{agentId}/branches/{branchId}/rebase",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("source_branch_id", sourceBranchId)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -164,7 +179,8 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
-                    branchId: branchId);
+                    branchId: branchId,
+                    sourceBranchId: sourceBranchId);
 
                 return __httpRequest;
             }

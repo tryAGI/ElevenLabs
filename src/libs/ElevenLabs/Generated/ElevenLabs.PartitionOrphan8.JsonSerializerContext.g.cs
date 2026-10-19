@@ -31,15 +31,11 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyTextToDialogueFullWithTimestampsApplyTextNormalization), TypeInfoPropertyName = "BodyTextToDialogueFullWithTimestampsApplyTextNormalization2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyTextToDialogueStreamWithTimestamps))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyTextToDialogueStreamWithTimestampsApplyTextNormalization), TypeInfoPropertyName = "BodyTextToDialogueStreamWithTimestampsApplyTextNormalization2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.NonStreamingOutputFormats), TypeInfoPropertyName = "NonStreamingOutputFormats2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.StreamingAudioChunkWithTimestampsAndVoiceSegmentsResponseModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.NonStreamingOutputFormats?, global::ElevenLabs.AllowedOutputFormats?>), TypeInfoPropertyName = "AnyOfNonStreamingOutputFormatsAllowedOutputFormats2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostApplyTextNormalization?), TypeInfoPropertyName = "NullableBodyTextToDialogueMultiVoiceStreamingV1TextToDialogueStreamPostApplyTextNormalization2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalization?), TypeInfoPropertyName = "NullableBodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalization2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyTextToDialogueFullWithTimestampsApplyTextNormalization?), TypeInfoPropertyName = "NullableBodyTextToDialogueFullWithTimestampsApplyTextNormalization2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyTextToDialogueStreamWithTimestampsApplyTextNormalization?), TypeInfoPropertyName = "NullableBodyTextToDialogueStreamWithTimestampsApplyTextNormalization2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.NonStreamingOutputFormats?), TypeInfoPropertyName = "NullableNonStreamingOutputFormats2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.NonStreamingOutputFormats?, global::ElevenLabs.AllowedOutputFormats?>?), TypeInfoPropertyName = "NullableAnyOfNonStreamingOutputFormatsAllowedOutputFormats2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.VoiceSegment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DialogueInput>))]
     internal sealed partial class PartitionOrphan8SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -90,8 +86,6 @@ namespace ElevenLabs
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
             global::ElevenLabs.PartitionCoreSourceGenerationContext.AddConverters(options);
-            options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.NonStreamingOutputFormats?, global::ElevenLabs.AllowedOutputFormats?>());
-            options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.NonStreamingOutputFormats?, global::ElevenLabs.AllowedOutputFormats?>());
             options.Converters.Add(new LazyEnumJsonConverterFactory());
         }
 
@@ -127,11 +121,7 @@ namespace ElevenLabs
 
                     || typeToConvert == typeof(global::ElevenLabs.BodyTextToDialogueStreamWithTimestampsApplyTextNormalization)
 
-                    || typeToConvert == typeof(global::ElevenLabs.BodyTextToDialogueStreamWithTimestampsApplyTextNormalization?)
-
-                    || typeToConvert == typeof(global::ElevenLabs.NonStreamingOutputFormats)
-
-                    || typeToConvert == typeof(global::ElevenLabs.NonStreamingOutputFormats?);
+                    || typeToConvert == typeof(global::ElevenLabs.BodyTextToDialogueStreamWithTimestampsApplyTextNormalization?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
@@ -176,16 +166,6 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.BodyTextToDialogueStreamWithTimestampsApplyTextNormalization?))
                 {
                     return new global::ElevenLabs.JsonConverters.BodyTextToDialogueStreamWithTimestampsApplyTextNormalizationNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.NonStreamingOutputFormats))
-                {
-                    return new global::ElevenLabs.JsonConverters.NonStreamingOutputFormatsJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.NonStreamingOutputFormats?))
-                {
-                    return new global::ElevenLabs.JsonConverters.NonStreamingOutputFormatsNullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }

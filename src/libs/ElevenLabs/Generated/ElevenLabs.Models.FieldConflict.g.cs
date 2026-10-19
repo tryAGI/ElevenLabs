@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class FieldConflict
     {
         /// <summary>
-        /// Identifier of the conflicting field relative to its section: a dot-path within conversation_config/platform_settings, or a procedure id.
+        /// Identifier of the conflicting field relative to its section: a dot-path within conversation_config/platform_settings (e.g. `tts.voice_id`), a procedure id, or a workflow path: `nodes.&lt;id&gt;`, `edges.&lt;id&gt;`, or the name of a top-level workflow setting.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("path")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -51,7 +51,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="FieldConflict" /> class.
         /// </summary>
         /// <param name="path">
-        /// Identifier of the conflicting field relative to its section: a dot-path within conversation_config/platform_settings, or a procedure id.
+        /// Identifier of the conflicting field relative to its section: a dot-path within conversation_config/platform_settings (e.g. `tts.voice_id`), a procedure id, or a workflow path: `nodes.&lt;id&gt;`, `edges.&lt;id&gt;`, or the name of a top-level workflow setting.
         /// </param>
         /// <param name="section">
         /// Which config section this path belongs to.
