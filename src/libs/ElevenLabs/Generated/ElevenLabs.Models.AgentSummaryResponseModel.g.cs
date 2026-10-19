@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"access_info":{"creator_email":"john@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"},"agent_id":"J3Pbu5gP6NNKBscdCdwB","archived":false,"created_at_unix_secs":1716153600,"last_call_time_unix_secs":1716240000,"name":"My Agent","tags":["Customer Support","Technical Help","Eleven"],"voice_id":"UCaNsl8F6Xh4GALkVMLS"}
+    /// Example: {"access_info":{"creator_email":"john@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"},"agent_id":"J3Pbu5gP6NNKBscdCdwB","archived":false,"created_at_unix_secs":1716153600,"last_call_time_unix_secs":1716240000,"name":"My Agent","tags":["Customer Support","Technical Help","Eleven"],"updated_at_unix_secs":1716240000,"voice_id":"UCaNsl8F6Xh4GALkVMLS"}
     /// </summary>
     public sealed partial class AgentSummaryResponseModel
     {
@@ -42,6 +42,13 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix_secs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int CreatedAtUnixSecs { get; set; }
+
+        /// <summary>
+        /// The last time the agent's main branch or agent-level settings were updated, in unix seconds
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("updated_at_unix_secs")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int UpdatedAtUnixSecs { get; set; }
 
         /// <summary>
         /// The access information of the agent<br/>
@@ -89,6 +96,9 @@ namespace ElevenLabs
         /// <param name="createdAtUnixSecs">
         /// The creation time of the agent in unix seconds
         /// </param>
+        /// <param name="updatedAtUnixSecs">
+        /// The last time the agent's main branch or agent-level settings were updated, in unix seconds
+        /// </param>
         /// <param name="accessInfo">
         /// The access information of the agent<br/>
         /// Example: {"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
@@ -109,6 +119,7 @@ namespace ElevenLabs
             string voiceId,
             global::System.Collections.Generic.IList<string> tags,
             int createdAtUnixSecs,
+            int updatedAtUnixSecs,
             global::ElevenLabs.ResourceAccessInfo accessInfo,
             int? lastCallTimeUnixSecs,
             bool? archived)
@@ -118,6 +129,7 @@ namespace ElevenLabs
             this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
             this.Tags = tags ?? throw new global::System.ArgumentNullException(nameof(tags));
             this.CreatedAtUnixSecs = createdAtUnixSecs;
+            this.UpdatedAtUnixSecs = updatedAtUnixSecs;
             this.AccessInfo = accessInfo ?? throw new global::System.ArgumentNullException(nameof(accessInfo));
             this.LastCallTimeUnixSecs = lastCallTimeUnixSecs;
             this.Archived = archived;
