@@ -43723,6 +43723,7 @@
         "enum": [
           "name",
           "created_at",
+          "updated_at",
           "call_count_7d"
         ],
         "title": "AgentSortBy"
@@ -43795,6 +43796,11 @@
             "title": "Created At Unix Secs",
             "description": "The creation time of the agent in unix seconds"
           },
+          "updated_at_unix_secs": {
+            "type": "integer",
+            "title": "Updated At Unix Secs",
+            "description": "The last time the agent's main branch or agent-level settings were updated, in unix seconds"
+          },
           "access_info": {
             "$ref": "#/components/schemas/ResourceAccessInfo",
             "description": "The access information of the agent"
@@ -43825,6 +43831,7 @@
           "voice_id",
           "tags",
           "created_at_unix_secs",
+          "updated_at_unix_secs",
           "access_info"
         ],
         "title": "AgentSummaryResponseModel",
@@ -43845,6 +43852,7 @@
             "Technical Help",
             "Eleven"
           ],
+          "updated_at_unix_secs": 1716240000,
           "voice_id": "UCaNsl8F6Xh4GALkVMLS"
         }
       },
@@ -76882,6 +76890,7 @@
                 "Technical Help",
                 "Eleven"
               ],
+              "updated_at_unix_secs": 1716240000,
               "voice_id": "UCaNsl8F6Xh4GALkVMLS"
             }
           ],
@@ -84190,6 +84199,7 @@
                 "production",
                 "v1"
               ],
+              "updated_at_unix_secs": 1714086400,
               "voice_id": "UCaNsl8F6Xh4GALkVMLS"
             }
           ]
@@ -101430,6 +101440,11 @@
             "title": "Created At Unix Secs",
             "description": "Creation time in Unix seconds"
           },
+          "updated_at_unix_secs": {
+            "type": "integer",
+            "title": "Updated At Unix Secs",
+            "description": "Last update time in Unix seconds"
+          },
           "tags": {
             "items": {
               "type": "string"
@@ -101449,6 +101464,7 @@
           "name",
           "voice_id",
           "created_at_unix_secs",
+          "updated_at_unix_secs",
           "tags",
           "access_info"
         ],
@@ -101467,6 +101483,7 @@
             "production",
             "v1"
           ],
+          "updated_at_unix_secs": 1714086400,
           "voice_id": "UCaNsl8F6Xh4GALkVMLS"
         }
       },

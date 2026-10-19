@@ -20,6 +20,10 @@ namespace ElevenLabs
         ///
         /// </summary>
         Name,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdatedAt,
     }
 
     /// <summary>
@@ -37,6 +41,7 @@ namespace ElevenLabs
                 AgentSortBy.CallCount7d => "call_count_7d",
                 AgentSortBy.CreatedAt => "created_at",
                 AgentSortBy.Name => "name",
+                AgentSortBy.UpdatedAt => "updated_at",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -50,6 +55,7 @@ namespace ElevenLabs
                 "call_count_7d" => AgentSortBy.CallCount7d,
                 "created_at" => AgentSortBy.CreatedAt,
                 "name" => AgentSortBy.Name,
+                "updated_at" => AgentSortBy.UpdatedAt,
                 _ => null,
             };
         }
