@@ -11,10 +11,6 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        ApiIntegrationMcp,
-        /// <summary>
-        ///
-        /// </summary>
         ApiIntegrationWebhook,
         /// <summary>
         ///
@@ -54,7 +50,6 @@ namespace ElevenLabs
         {
             return value switch
             {
-                ToolType.ApiIntegrationMcp => "api_integration_mcp",
                 ToolType.ApiIntegrationWebhook => "api_integration_webhook",
                 ToolType.Client => "client",
                 ToolType.Mcp => "mcp",
@@ -72,7 +67,6 @@ namespace ElevenLabs
         {
             return value switch
             {
-                "api_integration_mcp" => ToolType.ApiIntegrationMcp,
                 "api_integration_webhook" => ToolType.ApiIntegrationWebhook,
                 "client" => ToolType.Client,
                 "mcp" => ToolType.Mcp,

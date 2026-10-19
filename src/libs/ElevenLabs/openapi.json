@@ -550,35 +550,49 @@
             "in": "query",
             "required": false,
             "schema": {
-              "$ref": "#/components/schemas/AllowedOutputFormats",
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/NonStreamingOutputFormats"
+                },
+                {
+                  "$ref": "#/components/schemas/AllowedOutputFormats"
+                }
+              ],
               "title": "Output format of the generated audio.",
-              "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.",
+              "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.",
               "enum": [
+                "alaw_8000",
                 "mp3_22050_32",
                 "mp3_24000_48",
+                "mp3_44100_128",
+                "mp3_44100_192",
                 "mp3_44100_32",
                 "mp3_44100_64",
                 "mp3_44100_96",
-                "mp3_44100_128",
-                "mp3_44100_192",
-                "pcm_8000",
+                "opus_48000_128",
+                "opus_48000_192",
+                "opus_48000_32",
+                "opus_48000_64",
+                "opus_48000_96",
                 "pcm_16000",
                 "pcm_22050",
                 "pcm_24000",
                 "pcm_32000",
                 "pcm_44100",
                 "pcm_48000",
+                "pcm_8000",
                 "ulaw_8000",
-                "alaw_8000",
-                "opus_48000_32",
-                "opus_48000_64",
-                "opus_48000_96",
-                "opus_48000_128",
-                "opus_48000_192"
+                "wav_16000",
+                "wav_22050",
+                "wav_24000",
+                "wav_32000",
+                "wav_44100",
+                "wav_48000",
+                "wav_8000"
               ],
               "default": "mp3_44100_128"
             },
-            "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs."
+            "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs."
           },
           {
             "name": "enable_logging",
@@ -623,7 +637,7 @@
         },
         "responses": {
           "200": {
-            "description": "The generated sound effect as an MP3 file",
+            "description": "The generated sound effect audio, encoded in the specified `output_format`.",
             "content": {
               "audio/mpeg": {
                 "schema": {
@@ -12687,6 +12701,79 @@
         "x-fern-sdk-method-name": "delete"
       }
     },
+    "/v1/service-accounts/{service_account_user_id}/api-keys/{api_key_id}/disable": {
+      "post": {
+        "tags": [
+          "workspace"
+        ],
+        "summary": "Disable Service Account Api Key",
+        "description": "Disable an existing API key for a service account without changing its other settings. This stays available after a workspace downgrades off a plan that includes service accounts. Turning the key back on still requires that plan.",
+        "operationId": "disable_service_account_api_key",
+        "parameters": [
+          {
+            "name": "service_account_user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Service Account User Id"
+            }
+          },
+          {
+            "name": "api_key_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Api Key Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "service_accounts",
+          "api_keys"
+        ],
+        "x-fern-sdk-method-name": "disable"
+      }
+    },
     "/v1/workspace/audit-logs": {
       "get": {
         "tags": [
@@ -16386,6 +16473,18 @@
               "title": "Agent Id"
             },
             "description": "The id of an agent. This is returned on agent creation."
+          },
+          {
+            "name": "force",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "If set to true, the agent is deleted even if other agents use it as a subagent, and it is removed from those agents and their branches.",
+              "default": false,
+              "title": "Force"
+            },
+            "description": "If set to true, the agent is deleted even if other agents use it as a subagent, and it is removed from those agents and their branches."
           },
           {
             "name": "xi-api-key",
@@ -31022,7 +31121,7 @@
           "Agents Platform"
         ],
         "summary": "Update Agent Branch",
-        "description": "Update agent branch properties such as archiving status, protection level, and auto-rebase onto main",
+        "description": "Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main",
         "operationId": "update_branch_route",
         "parameters": [
           {
@@ -31442,7 +31541,7 @@
           "Agents Platform"
         ],
         "summary": "Preview Rebased Configuration",
-        "description": "Returns the result of rebasing the branch onto main without performing the rebase. Useful for showing an accurate diff before confirming.",
+        "description": "Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it, preserving the given branch's own changes. Useful for showing an accurate diff before confirming.",
         "operationId": "rebase_preview_route",
         "parameters": [
           {
@@ -31474,6 +31573,28 @@
               "title": "Branch Id"
             },
             "description": "Unique identifier for the source branch to merge from."
+          },
+          {
+            "name": "source_branch_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The ID of the branch to pull changes from. Defaults to the agent's main branch.",
+              "examples": [
+                "agtbrch_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "embed": true,
+              "title": "Source Branch Id"
+            },
+            "description": "The ID of the branch to pull changes from. Defaults to the agent's main branch."
           },
           {
             "name": "include_procedure_generated_workflow_elements",
@@ -31542,7 +31663,7 @@
           "Agents Platform"
         ],
         "summary": "Rebase A Branch Onto Main",
-        "description": "Rebase a branch onto the latest main branch, incorporating main's changes while preserving the branch's own changes.",
+        "description": "Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.",
         "operationId": "rebase_branch_onto_main",
         "parameters": [
           {
@@ -31574,6 +31695,28 @@
               "title": "Branch Id"
             },
             "description": "Unique identifier for the source branch to merge from."
+          },
+          {
+            "name": "source_branch_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The ID of the branch to pull changes from. Defaults to the agent's main branch.",
+              "examples": [
+                "agtbrch_8901k4t9z5defmb8vh3e9361y7nj"
+              ],
+              "embed": true,
+              "title": "Source Branch Id"
+            },
+            "description": "The ID of the branch to pull changes from. Defaults to the agent's main branch."
           },
           {
             "name": "xi-api-key",
@@ -55419,6 +55562,19 @@
             "title": "Name",
             "description": "New name for the branch. Must be unique within the agent."
           },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 4096
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "New description for the branch. Pass an empty string to clear it."
+          },
           "is_archived": {
             "anyOf": [
               {
@@ -74586,7 +74742,7 @@
           "path": {
             "type": "string",
             "title": "Path",
-            "description": "Identifier of the conflicting field relative to its section: a dot-path within conversation_config/platform_settings, or a procedure id."
+            "description": "Identifier of the conflicting field relative to its section: a dot-path within conversation_config/platform_settings (e.g. `tts.voice_id`), a procedure id, or a workflow path: `nodes.<id>`, `edges.<id>`, or the name of a top-level workflow setting."
           },
           "section": {
             "$ref": "#/components/schemas/ConflictSection",
@@ -94320,7 +94476,8 @@
             "$ref": "#/components/schemas/LLM",
             "description": "The LLM to query with the prompt and the chat history. If using data residency, the LLM must be supported in the data residency environment",
             "default": "gemini-2.5-flash",
-            "x-convai-client-override": true
+            "x-convai-client-override": true,
+            "x-convai-runtime-override": true
           },
           "reasoning_effort": {
             "anyOf": [
@@ -94331,7 +94488,8 @@
                 "type": "null"
               }
             ],
-            "description": "Reasoning effort of the model. Only available for some models."
+            "description": "Reasoning effort of the model. Only available for some models.",
+            "x-convai-runtime-override": true
           },
           "thinking_budget": {
             "anyOf": [
@@ -94343,13 +94501,15 @@
               }
             ],
             "title": "Thinking Budget",
-            "description": "Max number of tokens used for thinking. Use 0 to turn off if supported by the model."
+            "description": "Max number of tokens used for thinking. Use 0 to turn off if supported by the model.",
+            "x-convai-runtime-override": true
           },
           "enable_reasoning_summary": {
             "type": "boolean",
             "title": "Enable Reasoning Summary",
             "description": "Enable model reasoning summaries. When disabled, we do not request summaries from provider if possible for faster TTFB. Not ZRM compatible.",
-            "default": false
+            "default": false,
+            "x-convai-runtime-override": true
           },
           "temperature": {
             "anyOf": [
@@ -94362,13 +94522,15 @@
             ],
             "title": "Temperature",
             "description": "The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field).",
-            "default": 0.0
+            "default": 0.0,
+            "x-convai-runtime-override": true
           },
           "max_tokens": {
             "type": "integer",
             "title": "Max Tokens",
             "description": "If greater than 0, maximum number of tokens the LLM can predict",
-            "default": -1
+            "default": -1,
+            "x-convai-runtime-override": true
           },
           "tool_ids": {
             "items": {
@@ -94561,7 +94723,8 @@
             "$ref": "#/components/schemas/LLM",
             "description": "The LLM to query with the prompt and the chat history. If using data residency, the LLM must be supported in the data residency environment",
             "default": "gemini-2.5-flash",
-            "x-convai-client-override": true
+            "x-convai-client-override": true,
+            "x-convai-runtime-override": true
           },
           "reasoning_effort": {
             "anyOf": [
@@ -94572,7 +94735,8 @@
                 "type": "null"
               }
             ],
-            "description": "Reasoning effort of the model. Only available for some models."
+            "description": "Reasoning effort of the model. Only available for some models.",
+            "x-convai-runtime-override": true
           },
           "thinking_budget": {
             "anyOf": [
@@ -94584,13 +94748,15 @@
               }
             ],
             "title": "Thinking Budget",
-            "description": "Max number of tokens used for thinking. Use 0 to turn off if supported by the model."
+            "description": "Max number of tokens used for thinking. Use 0 to turn off if supported by the model.",
+            "x-convai-runtime-override": true
           },
           "enable_reasoning_summary": {
             "type": "boolean",
             "title": "Enable Reasoning Summary",
             "description": "Enable model reasoning summaries. When disabled, we do not request summaries from provider if possible for faster TTFB. Not ZRM compatible.",
-            "default": false
+            "default": false,
+            "x-convai-runtime-override": true
           },
           "temperature": {
             "anyOf": [
@@ -94603,13 +94769,15 @@
             ],
             "title": "Temperature",
             "description": "The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field).",
-            "default": 0.0
+            "default": 0.0,
+            "x-convai-runtime-override": true
           },
           "max_tokens": {
             "type": "integer",
             "title": "Max Tokens",
             "description": "If greater than 0, maximum number of tokens the LLM can predict",
-            "default": -1
+            "default": -1,
+            "x-convai-runtime-override": true
           },
           "tool_ids": {
             "items": {
@@ -94814,7 +94982,8 @@
               }
             ],
             "description": "The LLM to query with the prompt and the chat history. If using data residency, the LLM must be supported in the data residency environment",
-            "x-convai-client-override": true
+            "x-convai-client-override": true,
+            "x-convai-runtime-override": true
           },
           "tool_ids": {
             "anyOf": [
@@ -94912,7 +95081,8 @@
               }
             ],
             "description": "The LLM to query with the prompt and the chat history. If using data residency, the LLM must be supported in the data residency environment",
-            "x-convai-client-override": true
+            "x-convai-client-override": true,
+            "x-convai-runtime-override": true
           },
           "tool_ids": {
             "anyOf": [
@@ -95052,7 +95222,8 @@
               }
             ],
             "description": "The LLM to query with the prompt and the chat history. If using data residency, the LLM must be supported in the data residency environment",
-            "x-convai-client-override": true
+            "x-convai-client-override": true,
+            "x-convai-runtime-override": true
           },
           "reasoning_effort": {
             "anyOf": [
@@ -95063,7 +95234,8 @@
                 "type": "null"
               }
             ],
-            "description": "Reasoning effort of the model. Only available for some models."
+            "description": "Reasoning effort of the model. Only available for some models.",
+            "x-convai-runtime-override": true
           },
           "thinking_budget": {
             "anyOf": [
@@ -95075,7 +95247,8 @@
               }
             ],
             "title": "Thinking Budget",
-            "description": "Max number of tokens used for thinking. Use 0 to turn off if supported by the model."
+            "description": "Max number of tokens used for thinking. Use 0 to turn off if supported by the model.",
+            "x-convai-runtime-override": true
           },
           "enable_reasoning_summary": {
             "anyOf": [
@@ -95087,7 +95260,8 @@
               }
             ],
             "title": "Enable Reasoning Summary",
-            "description": "Enable model reasoning summaries. When disabled, we do not request summaries from provider if possible for faster TTFB. Not ZRM compatible."
+            "description": "Enable model reasoning summaries. When disabled, we do not request summaries from provider if possible for faster TTFB. Not ZRM compatible.",
+            "x-convai-runtime-override": true
           },
           "temperature": {
             "anyOf": [
@@ -95099,7 +95273,8 @@
               }
             ],
             "title": "Temperature",
-            "description": "The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field)."
+            "description": "The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field).",
+            "x-convai-runtime-override": true
           },
           "max_tokens": {
             "anyOf": [
@@ -95111,7 +95286,8 @@
               }
             ],
             "title": "Max Tokens",
-            "description": "If greater than 0, maximum number of tokens the LLM can predict"
+            "description": "If greater than 0, maximum number of tokens the LLM can predict",
+            "x-convai-runtime-override": true
           },
           "tool_ids": {
             "anyOf": [
@@ -95372,7 +95548,8 @@
               }
             ],
             "description": "The LLM to query with the prompt and the chat history. If using data residency, the LLM must be supported in the data residency environment",
-            "x-convai-client-override": true
+            "x-convai-client-override": true,
+            "x-convai-runtime-override": true
           },
           "reasoning_effort": {
             "anyOf": [
@@ -95383,7 +95560,8 @@
                 "type": "null"
               }
             ],
-            "description": "Reasoning effort of the model. Only available for some models."
+            "description": "Reasoning effort of the model. Only available for some models.",
+            "x-convai-runtime-override": true
           },
           "thinking_budget": {
             "anyOf": [
@@ -95395,7 +95573,8 @@
               }
             ],
             "title": "Thinking Budget",
-            "description": "Max number of tokens used for thinking. Use 0 to turn off if supported by the model."
+            "description": "Max number of tokens used for thinking. Use 0 to turn off if supported by the model.",
+            "x-convai-runtime-override": true
           },
           "enable_reasoning_summary": {
             "anyOf": [
@@ -95407,7 +95586,8 @@
               }
             ],
             "title": "Enable Reasoning Summary",
-            "description": "Enable model reasoning summaries. When disabled, we do not request summaries from provider if possible for faster TTFB. Not ZRM compatible."
+            "description": "Enable model reasoning summaries. When disabled, we do not request summaries from provider if possible for faster TTFB. Not ZRM compatible.",
+            "x-convai-runtime-override": true
           },
           "temperature": {
             "anyOf": [
@@ -95419,7 +95599,8 @@
               }
             ],
             "title": "Temperature",
-            "description": "The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field)."
+            "description": "The temperature for the LLM. Defaults to 0. Set to null to omit the parameter from the LLM request entirely (useful for custom LLMs that reject the temperature field).",
+            "x-convai-runtime-override": true
           },
           "max_tokens": {
             "anyOf": [
@@ -95431,7 +95612,8 @@
               }
             ],
             "title": "Max Tokens",
-            "description": "If greater than 0, maximum number of tokens the LLM can predict"
+            "description": "If greater than 0, maximum number of tokens the LLM can predict",
+            "x-convai-runtime-override": true
           },
           "tool_ids": {
             "anyOf": [
@@ -107639,7 +107821,6 @@
           "mcp",
           "workflow",
           "api_integration_webhook",
-          "api_integration_mcp",
           "smb"
         ],
         "title": "ToolType"
@@ -114467,6 +114648,7 @@
               "not_requested",
               "pending",
               "declined",
+              "declined_resubmittable",
               "allowed",
               "allowed_with_changes"
             ],

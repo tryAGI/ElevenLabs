@@ -29,12 +29,14 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
             ref string branchId,
+            ref string? sourceBranchId,
             ref bool? includeProcedureGeneratedWorkflowElements);
         partial void PreparePreviewRebaseRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
             string branchId,
+            string? sourceBranchId,
             bool? includeProcedureGeneratedWorkflowElements);
         partial void ProcessPreviewRebaseResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -47,13 +49,16 @@ namespace ElevenLabs
 
         /// <summary>
         /// Preview Rebased Configuration<br/>
-        /// Returns the result of rebasing the branch onto main without performing the rebase. Useful for showing an accurate diff before confirming.
+        /// Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it, preserving the given branch's own changes. Useful for showing an accurate diff before confirming.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="branchId">
         /// Unique identifier for the source branch to merge from.
+        /// </param>
+        /// <param name="sourceBranchId">
+        /// The ID of the branch to pull changes from. Defaults to the agent's main branch.
         /// </param>
         /// <param name="includeProcedureGeneratedWorkflowElements">
         /// Whether to include the workflow nodes and edges generated from structured procedures. When false, the workflow contains only authored elements.<br/>
@@ -65,6 +70,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.MergePreviewResponseModel> PreviewRebaseAsync(
             string agentId,
             string branchId,
+            string? sourceBranchId = default,
             bool? includeProcedureGeneratedWorkflowElements = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -72,6 +78,7 @@ namespace ElevenLabs
             var __response = await PreviewRebaseAsResponseAsync(
                 agentId: agentId,
                 branchId: branchId,
+                sourceBranchId: sourceBranchId,
                 includeProcedureGeneratedWorkflowElements: includeProcedureGeneratedWorkflowElements,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -81,13 +88,16 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Preview Rebased Configuration<br/>
-        /// Returns the result of rebasing the branch onto main without performing the rebase. Useful for showing an accurate diff before confirming.
+        /// Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it, preserving the given branch's own changes. Useful for showing an accurate diff before confirming.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="branchId">
         /// Unique identifier for the source branch to merge from.
+        /// </param>
+        /// <param name="sourceBranchId">
+        /// The ID of the branch to pull changes from. Defaults to the agent's main branch.
         /// </param>
         /// <param name="includeProcedureGeneratedWorkflowElements">
         /// Whether to include the workflow nodes and edges generated from structured procedures. When false, the workflow contains only authored elements.<br/>
@@ -99,6 +109,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MergePreviewResponseModel>> PreviewRebaseAsResponseAsync(
             string agentId,
             string branchId,
+            string? sourceBranchId = default,
             bool? includeProcedureGeneratedWorkflowElements = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -109,6 +120,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 agentId: ref agentId,
                 branchId: ref branchId,
+                sourceBranchId: ref sourceBranchId,
                 includeProcedureGeneratedWorkflowElements: ref includeProcedureGeneratedWorkflowElements);
 
 
@@ -138,6 +150,7 @@ namespace ElevenLabs
                                 path: $"/v1/convai/agents/{agentId}/branches/{branchId}/rebase-preview",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
+                                .AddOptionalParameter("source_branch_id", sourceBranchId)
                                 .AddOptionalParameter("include_procedure_generated_workflow_elements", includeProcedureGeneratedWorkflowElements?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -182,6 +195,7 @@ namespace ElevenLabs
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
                     branchId: branchId,
+                    sourceBranchId: sourceBranchId,
                     includeProcedureGeneratedWorkflowElements: includeProcedureGeneratedWorkflowElements);
 
                 return __httpRequest;

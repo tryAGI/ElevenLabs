@@ -169,9 +169,9 @@
       "Order": 16,
       "Title": "Preview Rebased Configuration",
       "Slug": "rebase-preview-route",
-      "Description": "Returns the result of rebasing the branch onto main without performing the rebase. Useful for showing an accurate diff before confirming.",
+      "Description": "Returns the result of pulling changes from a source branch (defaults to main) into the given branch without performing it, preserving the given branch\u0027s own changes. Useful for showing an accurate diff before confirming.",
       "Language": "http",
-      "Code": "### Preview Rebased Configuration\n# @name rebase_preview_route\nGET {{host}}/v1/convai/agents/{{agent_id}}/branches/{{branch_id}}/rebase-preview?include_procedure_generated_workflow_elements=true\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Code": "### Preview Rebased Configuration\n# @name rebase_preview_route\nGET {{host}}/v1/convai/agents/{{agent_id}}/branches/{{branch_id}}/rebase-preview?source_branch_id={{source_branch_id}}\u0026include_procedure_generated_workflow_elements=true\nxi-api-key: {{api_key}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "rebase_preview_route",
       "Setup": null

@@ -6,13 +6,16 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Rebase A Branch Onto Main<br/>
-        /// Rebase a branch onto the latest main branch, incorporating main's changes while preserving the branch's own changes.
+        /// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="branchId">
         /// Unique identifier for the source branch to merge from.
+        /// </param>
+        /// <param name="sourceBranchId">
+        /// The ID of the branch to pull changes from. Defaults to the agent's main branch.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -20,11 +23,12 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<string> RebaseAsync(
             string agentId,
             string branchId,
+            string? sourceBranchId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Rebase A Branch Onto Main<br/>
-        /// Rebase a branch onto the latest main branch, incorporating main's changes while preserving the branch's own changes.
+        /// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -32,12 +36,16 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Unique identifier for the source branch to merge from.
         /// </param>
+        /// <param name="sourceBranchId">
+        /// The ID of the branch to pull changes from. Defaults to the agent's main branch.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> RebaseAsResponseAsync(
             string agentId,
             string branchId,
+            string? sourceBranchId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
