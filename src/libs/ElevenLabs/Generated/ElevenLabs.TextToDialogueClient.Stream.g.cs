@@ -500,8 +500,7 @@ namespace ElevenLabs
         /// Default Value: auto
         /// </param>
         /// <param name="usePvcAsIvc">
-        /// Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.<br/>
-        /// Default Value: false
+        /// Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.
         /// </param>
         /// <param name="previousRequestIds">
         /// A list of request_ids of dialogue generations that came before this one. Used to condition the model for continuity when splitting a large task into multiple requests. A maximum of 3 request_ids can be sent. The last request_id is the audio which is closest to the current request. Not supported by every model.

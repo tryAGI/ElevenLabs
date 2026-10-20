@@ -104,6 +104,8 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.PhoneNumbersItem3JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.MusicAllowedOutputFormatsJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.MusicOutputFormatJsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.ToolsItem3JsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.ToolsItem4JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.OrderItemRequestInputJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.OrderItemRequestOutputJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ChartsItem2JsonConverter());
@@ -112,9 +114,9 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.PostDialDigitsVariant1JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.SourceContextVariant1JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.BackupLlmConfigJsonConverter());
-            options.Converters.Add(new global::ElevenLabs.JsonConverters.ToolsItem3JsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.ToolsItem5JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.BackupLlmConfig2JsonConverter());
-            options.Converters.Add(new global::ElevenLabs.JsonConverters.ToolsItem4JsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.ToolsItem6JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ToolsVariant1ItemJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ToolsVariant1Item2JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ParamsJsonConverter());
@@ -244,6 +246,14 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, bool?, double?>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.OneOfJsonConverter<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.OneOfJsonConverter<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyOutput, global::ElevenLabs.ArrayJsonSchemaPropertyOutput>());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, global::ElevenLabs.OpenAIToolChoiceFunction>());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string>());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.OpenAITurnDetection, string>());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.OneOfJsonConverter<string, global::ElevenLabs.OpenAITracingConfiguration>());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, object>());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<string, global::ElevenLabs.OpenAIToolChoiceFunction>());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, string>());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.OneOfJsonConverter<string, global::ElevenLabs.OpenAITracingConfiguration>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.ProjectVideoResponseModel, global::ElevenLabs.ProjectExternalAudioResponseModel, global::ElevenLabs.ProjectImageResponseModel>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.BackupLLMDefault, global::ElevenLabs.BackupLLMDisabled, global::ElevenLabs.BackupLLMOverride>());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.BackupLLMDefault, global::ElevenLabs.BackupLLMDisabled, global::ElevenLabs.BackupLLMOverride>());
@@ -444,6 +454,14 @@ namespace ElevenLabs
                     || typeToConvert == typeof(global::ElevenLabs.AudioAnalysisStatus)
 
                     || typeToConvert == typeof(global::ElevenLabs.AudioAnalysisStatus?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.AudioFormat)
+
+                    || typeToConvert == typeof(global::ElevenLabs.AudioFormat?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.AudioInputPacing)
+
+                    || typeToConvert == typeof(global::ElevenLabs.AudioInputPacing?)
 
                     || typeToConvert == typeof(global::ElevenLabs.AudioNativeProjectSettingsResponseModelStatus)
 
@@ -1037,6 +1055,10 @@ namespace ElevenLabs
 
                     || typeToConvert == typeof(global::ElevenLabs.DubbingTranscriptsResponseModelTranscriptFormat?)
 
+                    || typeToConvert == typeof(global::ElevenLabs.Eagerness)
+
+                    || typeToConvert == typeof(global::ElevenLabs.Eagerness?)
+
                     || typeToConvert == typeof(global::ElevenLabs.ElevenFlashV25RequestOutputFormat)
 
                     || typeToConvert == typeof(global::ElevenLabs.ElevenFlashV25RequestOutputFormat?)
@@ -1549,6 +1571,18 @@ namespace ElevenLabs
 
                     || typeToConvert == typeof(global::ElevenLabs.ObjectJsonSchemaPropertyInputPropertyKind?)
 
+                    || typeToConvert == typeof(global::ElevenLabs.OpenAIMCPToolRequireApproval)
+
+                    || typeToConvert == typeof(global::ElevenLabs.OpenAIMCPToolRequireApproval?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.OpenAISessionConfigInputToolDiscriminatorType)
+
+                    || typeToConvert == typeof(global::ElevenLabs.OpenAISessionConfigInputToolDiscriminatorType?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.OpenAISessionConfigOutputToolDiscriminatorType)
+
+                    || typeToConvert == typeof(global::ElevenLabs.OpenAISessionConfigOutputToolDiscriminatorType?)
+
                     || typeToConvert == typeof(global::ElevenLabs.OrderItemKind)
 
                     || typeToConvert == typeof(global::ElevenLabs.OrderItemKind?)
@@ -1720,6 +1754,10 @@ namespace ElevenLabs
                     || typeToConvert == typeof(global::ElevenLabs.ReaderResourceResponseModelResourceType)
 
                     || typeToConvert == typeof(global::ElevenLabs.ReaderResourceResponseModelResourceType?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.RealtimeModel)
+
+                    || typeToConvert == typeof(global::ElevenLabs.RealtimeModel?)
 
                     || typeToConvert == typeof(global::ElevenLabs.ReferencedToolCommonModelType)
 
@@ -2048,6 +2086,10 @@ namespace ElevenLabs
                     || typeToConvert == typeof(global::ElevenLabs.TransferTypeEnum)
 
                     || typeToConvert == typeof(global::ElevenLabs.TransferTypeEnum?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TurnDetectionType)
+
+                    || typeToConvert == typeof(global::ElevenLabs.TurnDetectionType?)
 
                     || typeToConvert == typeof(global::ElevenLabs.TurnEagerness)
 
@@ -2912,6 +2954,26 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.AudioAnalysisStatus?))
                 {
                     return new global::ElevenLabs.JsonConverters.AudioAnalysisStatusNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.AudioFormat))
+                {
+                    return new global::ElevenLabs.JsonConverters.AudioFormatJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.AudioFormat?))
+                {
+                    return new global::ElevenLabs.JsonConverters.AudioFormatNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.AudioInputPacing))
+                {
+                    return new global::ElevenLabs.JsonConverters.AudioInputPacingJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.AudioInputPacing?))
+                {
+                    return new global::ElevenLabs.JsonConverters.AudioInputPacingNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.AudioNativeProjectSettingsResponseModelStatus))
@@ -4394,6 +4456,16 @@ namespace ElevenLabs
                     return new global::ElevenLabs.JsonConverters.DubbingTranscriptsResponseModelTranscriptFormatNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::ElevenLabs.Eagerness))
+                {
+                    return new global::ElevenLabs.JsonConverters.EagernessJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.Eagerness?))
+                {
+                    return new global::ElevenLabs.JsonConverters.EagernessNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::ElevenLabs.ElevenFlashV25RequestOutputFormat))
                 {
                     return new global::ElevenLabs.JsonConverters.ElevenFlashV25RequestOutputFormatJsonConverter();
@@ -5674,6 +5746,36 @@ namespace ElevenLabs
                     return new global::ElevenLabs.JsonConverters.ObjectJsonSchemaPropertyInputPropertyKindNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::ElevenLabs.OpenAIMCPToolRequireApproval))
+                {
+                    return new global::ElevenLabs.JsonConverters.OpenAIMCPToolRequireApprovalJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.OpenAIMCPToolRequireApproval?))
+                {
+                    return new global::ElevenLabs.JsonConverters.OpenAIMCPToolRequireApprovalNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.OpenAISessionConfigInputToolDiscriminatorType))
+                {
+                    return new global::ElevenLabs.JsonConverters.OpenAISessionConfigInputToolDiscriminatorTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.OpenAISessionConfigInputToolDiscriminatorType?))
+                {
+                    return new global::ElevenLabs.JsonConverters.OpenAISessionConfigInputToolDiscriminatorTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.OpenAISessionConfigOutputToolDiscriminatorType))
+                {
+                    return new global::ElevenLabs.JsonConverters.OpenAISessionConfigOutputToolDiscriminatorTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.OpenAISessionConfigOutputToolDiscriminatorType?))
+                {
+                    return new global::ElevenLabs.JsonConverters.OpenAISessionConfigOutputToolDiscriminatorTypeNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::ElevenLabs.OrderItemKind))
                 {
                     return new global::ElevenLabs.JsonConverters.OrderItemKindJsonConverter();
@@ -6102,6 +6204,16 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.ReaderResourceResponseModelResourceType?))
                 {
                     return new global::ElevenLabs.JsonConverters.ReaderResourceResponseModelResourceTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.RealtimeModel))
+                {
+                    return new global::ElevenLabs.JsonConverters.RealtimeModelJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.RealtimeModel?))
+                {
+                    return new global::ElevenLabs.JsonConverters.RealtimeModelNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.ReferencedToolCommonModelType))
@@ -6922,6 +7034,16 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.TransferTypeEnum?))
                 {
                     return new global::ElevenLabs.JsonConverters.TransferTypeEnumNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TurnDetectionType))
+                {
+                    return new global::ElevenLabs.JsonConverters.TurnDetectionTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.TurnDetectionType?))
+                {
+                    return new global::ElevenLabs.JsonConverters.TurnDetectionTypeNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.TurnEagerness))
@@ -8180,7 +8302,7 @@ namespace ElevenLabs
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
         {
             private readonly object _gate = new();
-            private readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver?[] _resolvers = new global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver?[32];
+            private readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver?[] _resolvers = new global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver?[33];
 
             public global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? GetTypeInfo(
                 global::System.Type type,
@@ -8266,19 +8388,21 @@ namespace ElevenLabs
 
                     24 => global::ElevenLabs.PvcVoicesSourceGenerationContext.TypeInfoResolver,
 
-                    25 => global::ElevenLabs.SamplesSourceGenerationContext.TypeInfoResolver,
+                    25 => global::ElevenLabs.RealtimeSourceGenerationContext.TypeInfoResolver,
 
-                    26 => global::ElevenLabs.SingleUseTokenSourceGenerationContext.TypeInfoResolver,
+                    26 => global::ElevenLabs.SamplesSourceGenerationContext.TypeInfoResolver,
 
-                    27 => global::ElevenLabs.SpeechToTextSourceGenerationContext.TypeInfoResolver,
+                    27 => global::ElevenLabs.SingleUseTokenSourceGenerationContext.TypeInfoResolver,
 
-                    28 => global::ElevenLabs.StudioSourceGenerationContext.TypeInfoResolver,
+                    28 => global::ElevenLabs.SpeechToTextSourceGenerationContext.TypeInfoResolver,
 
-                    29 => global::ElevenLabs.TextToVoiceSourceGenerationContext.TypeInfoResolver,
+                    29 => global::ElevenLabs.StudioSourceGenerationContext.TypeInfoResolver,
 
-                    30 => global::ElevenLabs.VoicesSourceGenerationContext.TypeInfoResolver,
+                    30 => global::ElevenLabs.TextToVoiceSourceGenerationContext.TypeInfoResolver,
 
-                    31 => global::ElevenLabs.WorkspaceSourceGenerationContext.TypeInfoResolver,
+                    31 => global::ElevenLabs.VoicesSourceGenerationContext.TypeInfoResolver,
+
+                    32 => global::ElevenLabs.WorkspaceSourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }
