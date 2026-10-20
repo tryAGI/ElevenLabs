@@ -645,9 +645,9 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminatorPreference), TypeInfoPropertyName = "PromptAgentAPIModelOutputBackupLlmConfigDiscriminatorPreference2")]
     #pragma warning disable CS0618 // This registration names a deprecated API model.
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem4>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem6>))]
     #pragma warning restore CS0618
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolsItem4), TypeInfoPropertyName = "ToolsItem42")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolsItem6), TypeInfoPropertyName = "ToolsItem62")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.WebhookToolConfigOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PromptAgentAPIModelOutputToolDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PromptAgentAPIModelOutputToolDiscriminatorType), TypeInfoPropertyName = "PromptAgentAPIModelOutputToolDiscriminatorType2")]
@@ -964,7 +964,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PromptAgentAPIModelInputToolDiscriminatorType?), TypeInfoPropertyName = "NullablePromptAgentAPIModelInputToolDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BackupLlmConfig2?), TypeInfoPropertyName = "NullableBackupLlmConfig22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PromptAgentAPIModelOutputBackupLlmConfigDiscriminatorPreference?), TypeInfoPropertyName = "NullablePromptAgentAPIModelOutputBackupLlmConfigDiscriminatorPreference2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolsItem4?), TypeInfoPropertyName = "NullableToolsItem42")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolsItem6?), TypeInfoPropertyName = "NullableToolsItem62")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PromptAgentAPIModelOutputToolDiscriminatorType?), TypeInfoPropertyName = "NullablePromptAgentAPIModelOutputToolDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ToolsVariant1Item?), TypeInfoPropertyName = "NullableToolsVariant1Item2_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType?), TypeInfoPropertyName = "NullablePromptAgentAPIModelWorkflowOverrideInputToolsVariant1ItemDiscriminatorType2")]
@@ -1131,7 +1131,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.MessagesSearchResult>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.AgentMergeProposalResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ChartsItem2>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ToolsItem4>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ToolsItem6>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ToolsVariant1Item>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.ToolsVariant1Item2>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.RAGDocumentIndexResponseModel>))]
@@ -1234,7 +1234,7 @@ namespace ElevenLabs
             options.Converters.Add(new global::ElevenLabs.JsonConverters.PhoneNumbersItem3JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ChartsItem2JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.BackupLlmConfig2JsonConverter());
-            options.Converters.Add(new global::ElevenLabs.JsonConverters.ToolsItem4JsonConverter());
+            options.Converters.Add(new global::ElevenLabs.JsonConverters.ToolsItem6JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ToolsVariant1ItemJsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.ToolsVariant1Item2JsonConverter());
             options.Converters.Add(new global::ElevenLabs.JsonConverters.Params3JsonConverter());

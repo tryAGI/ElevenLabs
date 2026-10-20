@@ -34900,6 +34900,81 @@
         "x-fern-sdk-method-name": "delete"
       }
     },
+    "/v1/convai/realtime/client_secrets": {
+      "post": {
+        "tags": [
+          "Realtime"
+        ],
+        "summary": "Create Realtime Client Secret",
+        "description": "Create an ephemeral client secret for authenticating browser-based Realtime API sessions.",
+        "operationId": "create_realtime_session",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateClientSecretRequest"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientSecretResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-skip-spec": true,
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "realtime"
+        ],
+        "x-fern-sdk-method-name": "create_client_secret"
+      }
+    },
     "/v1/music/plan": {
       "post": {
         "tags": [
@@ -47287,6 +47362,26 @@
         ],
         "title": "AudioEffectsFilterPresetResponseModel"
       },
+      "AudioFormat": {
+        "type": "string",
+        "enum": [
+          "audio/pcm",
+          "audio/pcmu",
+          "audio/pcma"
+        ],
+        "title": "AudioFormat",
+        "default": "audio/pcm"
+      },
+      "AudioInputPacing": {
+        "type": "string",
+        "enum": [
+          "realtime",
+          "bursty"
+        ],
+        "title": "AudioInputPacing",
+        "description": "``BURSTY`` clients stream ahead of wall time, so decisions use the audio clock.",
+        "default": "realtime"
+      },
       "AudioIsolationHistoryItemResponseModel": {
         "properties": {
           "id": {
@@ -54927,10 +55022,16 @@
             ]
           },
           "use_pvc_as_ivc": {
-            "type": "boolean",
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Use Pvc As Ivc",
             "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
-            "default": false,
             "examples": [
               true
             ]
@@ -55121,10 +55222,16 @@
             ]
           },
           "use_pvc_as_ivc": {
-            "type": "boolean",
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Use Pvc As Ivc",
             "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
-            "default": false,
             "examples": [
               true
             ]
@@ -56655,10 +56762,16 @@
             ]
           },
           "use_pvc_as_ivc": {
-            "type": "boolean",
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Use Pvc As Ivc",
             "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
-            "default": false,
             "examples": [
               true
             ]
@@ -56849,10 +56962,16 @@
             ]
           },
           "use_pvc_as_ivc": {
-            "type": "boolean",
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Use Pvc As Ivc",
             "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
-            "default": false,
             "examples": [
               true
             ]
@@ -57086,10 +57205,16 @@
             ]
           },
           "use_pvc_as_ivc": {
-            "type": "boolean",
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Use Pvc As Ivc",
             "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
-            "default": false,
             "examples": [
               true
             ]
@@ -57269,10 +57394,16 @@
             ]
           },
           "use_pvc_as_ivc": {
-            "type": "boolean",
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Use Pvc As Ivc",
             "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
-            "default": false,
             "examples": [
               true
             ]
@@ -57473,10 +57604,16 @@
             ]
           },
           "use_pvc_as_ivc": {
-            "type": "boolean",
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Use Pvc As Ivc",
             "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
-            "default": false,
             "examples": [
               true
             ]
@@ -57677,10 +57814,16 @@
             ]
           },
           "use_pvc_as_ivc": {
-            "type": "boolean",
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Use Pvc As Ivc",
             "description": "Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.",
-            "default": false,
             "examples": [
               true
             ]
@@ -60548,6 +60691,34 @@
           "internal_tentative_agent_response"
         ],
         "title": "ClientEvent"
+      },
+      "ClientSecretResponse": {
+        "properties": {
+          "value": {
+            "type": "string",
+            "title": "Value"
+          },
+          "expires_at": {
+            "type": "integer",
+            "title": "Expires At"
+          },
+          "session": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OpenAISessionConfig-Output"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "value",
+          "expires_at"
+        ],
+        "title": "ClientSecretResponse"
       },
       "ClientToolConfig-Input": {
         "properties": {
@@ -67307,6 +67478,32 @@
         "title": "CreateClientParams",
         "description": "Create a new client in the system."
       },
+      "CreateClientSecretRequest": {
+        "properties": {
+          "session": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OpenAISessionConfig-Input"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "expires_after": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExpiresAfter"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "CreateClientSecretRequest"
+      },
       "CreateConversationTagRequestModel": {
         "properties": {
           "title": {
@@ -72895,6 +73092,16 @@
           }
         }
       },
+      "Eagerness": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "title": "Eagerness",
+        "default": "medium"
+      },
       "EditChapterResponseModel": {
         "properties": {
           "chapter": {
@@ -74167,6 +74374,25 @@
           "client_declared"
         ],
         "title": "ExperimentAssignmentSource"
+      },
+      "ExpiresAfter": {
+        "properties": {
+          "anchor": {
+            "type": "string",
+            "const": "created_at",
+            "title": "Anchor",
+            "default": "created_at"
+          },
+          "seconds": {
+            "type": "integer",
+            "title": "Seconds"
+          }
+        },
+        "type": "object",
+        "required": [
+          "seconds"
+        ],
+        "title": "ExpiresAfter"
       },
       "ExportOptions": {
         "oneOf": [
@@ -89524,6 +89750,692 @@
         "type": "object",
         "title": "OmitSchemaOverride"
       },
+      "OpenAIAudioConfig-Input": {
+        "properties": {
+          "input": {
+            "$ref": "#/components/schemas/OpenAIAudioInputConfig-Input"
+          },
+          "output": {
+            "$ref": "#/components/schemas/OpenAIAudioOutputConfig-Input"
+          }
+        },
+        "type": "object",
+        "title": "OpenAIAudioConfig"
+      },
+      "OpenAIAudioConfig-Output": {
+        "properties": {
+          "input": {
+            "$ref": "#/components/schemas/OpenAIAudioInputConfig-Output"
+          },
+          "output": {
+            "$ref": "#/components/schemas/OpenAIAudioOutputConfig-Output"
+          }
+        },
+        "type": "object",
+        "title": "OpenAIAudioConfig"
+      },
+      "OpenAIAudioInputConfig-Input": {
+        "properties": {
+          "format": {
+            "$ref": "#/components/schemas/OpenAIAudioInputFormat"
+          },
+          "transcription": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OpenAIAudioInputTranscription"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "turn_detection": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OpenAITurnDetection"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "pacing": {
+            "$ref": "#/components/schemas/AudioInputPacing",
+            "default": "realtime"
+          }
+        },
+        "type": "object",
+        "title": "OpenAIAudioInputConfig"
+      },
+      "OpenAIAudioInputConfig-Output": {
+        "properties": {
+          "format": {
+            "$ref": "#/components/schemas/OpenAIAudioInputFormat"
+          },
+          "transcription": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OpenAIAudioInputTranscription"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "turn_detection": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OpenAITurnDetection"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "pacing": {
+            "$ref": "#/components/schemas/AudioInputPacing",
+            "default": "realtime"
+          }
+        },
+        "type": "object",
+        "title": "OpenAIAudioInputConfig"
+      },
+      "OpenAIAudioInputFormat": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AudioFormat",
+            "default": "audio/pcm"
+          },
+          "rate": {
+            "type": "integer",
+            "title": "Rate",
+            "default": 24000
+          }
+        },
+        "type": "object",
+        "title": "OpenAIAudioInputFormat"
+      },
+      "OpenAIAudioInputTranscription": {
+        "properties": {
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language",
+            "description": "Language code of the conversation (e.g. en, es, pt-br), used for transcription, speech and the model's reply language. Defaults to en."
+          }
+        },
+        "type": "object",
+        "title": "OpenAIAudioInputTranscription"
+      },
+      "OpenAIAudioOutputConfig-Input": {
+        "properties": {
+          "format": {
+            "$ref": "#/components/schemas/OpenAIAudioOutputFormat"
+          },
+          "voice": {
+            "type": "string",
+            "title": "Voice",
+            "default": "brian"
+          }
+        },
+        "type": "object",
+        "title": "OpenAIAudioOutputConfig"
+      },
+      "OpenAIAudioOutputConfig-Output": {
+        "properties": {
+          "format": {
+            "$ref": "#/components/schemas/OpenAIAudioOutputFormat"
+          },
+          "voice": {
+            "type": "string",
+            "title": "Voice",
+            "default": "brian"
+          }
+        },
+        "type": "object",
+        "title": "OpenAIAudioOutputConfig"
+      },
+      "OpenAIAudioOutputFormat": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AudioFormat",
+            "default": "audio/pcm"
+          }
+        },
+        "type": "object",
+        "title": "OpenAIAudioOutputFormat"
+      },
+      "OpenAIFunctionTool": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "function",
+            "title": "Type",
+            "default": "function"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "default": ""
+          },
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Parameters"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "OpenAIFunctionTool"
+      },
+      "OpenAIMCPTool": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "mcp",
+            "title": "Type",
+            "default": "mcp"
+          },
+          "server_label": {
+            "type": "string",
+            "title": "Server Label"
+          },
+          "server_url": {
+            "type": "string",
+            "title": "Server Url"
+          },
+          "authorization": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Authorization"
+          },
+          "allowed_tools": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Allowed Tools"
+          },
+          "require_approval": {
+            "type": "string",
+            "enum": [
+              "never",
+              "always"
+            ],
+            "title": "Require Approval",
+            "default": "never"
+          }
+        },
+        "type": "object",
+        "required": [
+          "server_label",
+          "server_url"
+        ],
+        "title": "OpenAIMCPTool"
+      },
+      "OpenAISessionConfig-Input": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "realtime",
+            "title": "Type",
+            "default": "realtime"
+          },
+          "model": {
+            "$ref": "#/components/schemas/RealtimeModel",
+            "default": "eleven_realtime_v1_mini"
+          },
+          "instructions": {
+            "type": "string",
+            "title": "Instructions",
+            "default": ""
+          },
+          "output_modalities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Output Modalities"
+          },
+          "audio": {
+            "$ref": "#/components/schemas/OpenAIAudioConfig-Input"
+          },
+          "tools": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/OpenAIFunctionTool"
+                },
+                {
+                  "$ref": "#/components/schemas/OpenAIMCPTool"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "function": "#/components/schemas/OpenAIFunctionTool",
+                  "mcp": "#/components/schemas/OpenAIMCPTool"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Tools"
+          },
+          "tool_choice": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/OpenAIToolChoiceFunction"
+              }
+            ],
+            "title": "Tool Choice",
+            "default": "auto"
+          },
+          "temperature": {
+            "type": "number",
+            "title": "Temperature",
+            "default": 0.7
+          },
+          "max_response_output_tokens": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 4096.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "string",
+                "const": "inf"
+              }
+            ],
+            "title": "Max Response Output Tokens",
+            "default": 4096
+          },
+          "max_duration_seconds": {
+            "type": "integer",
+            "maximum": 7200.0,
+            "minimum": 60.0,
+            "title": "Max Duration Seconds",
+            "description": "Maximum wall-clock duration of the session in seconds. The session is closed with code 1000 once it is exceeded.",
+            "default": 600
+          },
+          "turn_detection": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OpenAITurnDetection"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Turn Detection",
+            "default": "__unset__"
+          },
+          "tracing": {
+            "anyOf": [
+              {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "const": "auto"
+                  },
+                  {
+                    "$ref": "#/components/schemas/OpenAITracingConfiguration"
+                  }
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tracing"
+          },
+          "include": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Include"
+          },
+          "parallel_tool_calls": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parallel Tool Calls"
+          },
+          "reasoning": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reasoning"
+          },
+          "truncation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Truncation"
+          },
+          "prompt": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "OpenAISessionConfig"
+      },
+      "OpenAISessionConfig-Output": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "realtime",
+            "title": "Type",
+            "default": "realtime"
+          },
+          "model": {
+            "$ref": "#/components/schemas/RealtimeModel",
+            "default": "eleven_realtime_v1_mini"
+          },
+          "instructions": {
+            "type": "string",
+            "title": "Instructions",
+            "default": ""
+          },
+          "output_modalities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Output Modalities"
+          },
+          "audio": {
+            "$ref": "#/components/schemas/OpenAIAudioConfig-Output"
+          },
+          "tools": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/OpenAIFunctionTool"
+                },
+                {
+                  "$ref": "#/components/schemas/OpenAIMCPTool"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "function": "#/components/schemas/OpenAIFunctionTool",
+                  "mcp": "#/components/schemas/OpenAIMCPTool"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Tools"
+          },
+          "tool_choice": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/OpenAIToolChoiceFunction"
+              }
+            ],
+            "title": "Tool Choice",
+            "default": "auto"
+          },
+          "temperature": {
+            "type": "number",
+            "title": "Temperature",
+            "default": 0.7
+          },
+          "max_response_output_tokens": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 4096.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "string",
+                "const": "inf"
+              }
+            ],
+            "title": "Max Response Output Tokens",
+            "default": 4096
+          },
+          "max_duration_seconds": {
+            "type": "integer",
+            "maximum": 7200.0,
+            "minimum": 60.0,
+            "title": "Max Duration Seconds",
+            "description": "Maximum wall-clock duration of the session in seconds. The session is closed with code 1000 once it is exceeded.",
+            "default": 600
+          },
+          "tracing": {
+            "anyOf": [
+              {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "const": "auto"
+                  },
+                  {
+                    "$ref": "#/components/schemas/OpenAITracingConfiguration"
+                  }
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tracing"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "OpenAISessionConfig"
+      },
+      "OpenAIToolChoiceFunction": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "function",
+            "title": "Type",
+            "default": "function"
+          },
+          "function": {
+            "$ref": "#/components/schemas/OpenAIToolChoiceFunctionInner"
+          }
+        },
+        "type": "object",
+        "required": [
+          "function"
+        ],
+        "title": "OpenAIToolChoiceFunction"
+      },
+      "OpenAIToolChoiceFunctionInner": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "OpenAIToolChoiceFunctionInner"
+      },
+      "OpenAITracingConfiguration": {
+        "properties": {
+          "group_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Group Id",
+            "description": "Adds conversation to the group (case-insensitive, up to 64 chars)."
+          },
+          "workflow_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Workflow Name"
+          },
+          "metadata": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Metadata"
+          }
+        },
+        "type": "object",
+        "title": "OpenAITracingConfiguration",
+        "description": "Only ``group_id`` is acted on; ``workflow_name`` and ``metadata`` are kept so the echoed session matches the request."
+      },
+      "OpenAITurnDetection": {
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/TurnDetectionType",
+            "default": "semantic_vad"
+          },
+          "eagerness": {
+            "$ref": "#/components/schemas/Eagerness",
+            "default": "medium"
+          },
+          "create_response": {
+            "type": "boolean",
+            "title": "Create Response",
+            "default": true
+          },
+          "interrupt_response": {
+            "type": "boolean",
+            "title": "Interrupt Response",
+            "default": true
+          },
+          "threshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threshold"
+          },
+          "prefix_padding_ms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prefix Padding Ms"
+          },
+          "silence_duration_ms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Silence Duration Ms"
+          },
+          "turn_timeout": {
+            "type": "number",
+            "title": "Turn Timeout",
+            "default": -1.0
+          }
+        },
+        "type": "object",
+        "title": "OpenAITurnDetection"
+      },
       "OpenOutcome": {
         "properties": {
           "status": {
@@ -97212,6 +98124,15 @@
           "resource_id": "FCwhRBWXzGAHq8TQ4Fs18",
           "resource_type": "read"
         }
+      },
+      "RealtimeModel": {
+        "type": "string",
+        "enum": [
+          "eleven_realtime_v1_mini",
+          "eleven_realtime_v1_max"
+        ],
+        "title": "RealtimeModel",
+        "default": "eleven_realtime_v1_mini"
       },
       "RecordingResponseModel": {
         "properties": {
@@ -109288,6 +110209,15 @@
           "turn_model": "turn_v3",
           "turn_timeout": 7.0
         }
+      },
+      "TurnDetectionType": {
+        "type": "string",
+        "enum": [
+          "semantic_vad",
+          "server_vad"
+        ],
+        "title": "TurnDetectionType",
+        "default": "semantic_vad"
       },
       "TurnEagerness": {
         "type": "string",

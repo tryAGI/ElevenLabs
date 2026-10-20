@@ -171,6 +171,11 @@ namespace ElevenLabs
         public PvcVoicesClient PvcVoices { get; }
 
         /// <summary>
+        ///
+        /// </summary>
+        public RealtimeClient Realtime { get; }
+
+        /// <summary>
         /// Access to your samples. A sample is any audio file you attached to a voice. A voice can have one or more samples.
         /// </summary>
         public SamplesClient Samples { get; }

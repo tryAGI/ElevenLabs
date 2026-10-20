@@ -273,6 +273,15 @@ namespace ElevenLabs
         };
 
         /// <summary>
+        ///
+        /// </summary>
+        public RealtimeClient Realtime => new RealtimeClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+        };
+
+        /// <summary>
         /// Access to your samples. A sample is any audio file you attached to a voice. A voice can have one or more samples.
         /// </summary>
         public SamplesClient Samples => new SamplesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
