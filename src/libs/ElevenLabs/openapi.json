@@ -84429,6 +84429,12 @@
             "const": "list_products",
             "title": "Smb Tool Type",
             "default": "list_products"
+          },
+          "owner_view": {
+            "type": "boolean",
+            "title": "Owner View",
+            "description": "List every owner-editable field, including stock counts and a quoted product's price. Only for the owner's assistant: the customer-facing listing withholds those from callers.",
+            "default": false
           }
         },
         "type": "object",
@@ -84525,6 +84531,12 @@
             "const": "list_services",
             "title": "Smb Tool Type",
             "default": "list_services"
+          },
+          "owner_view": {
+            "type": "boolean",
+            "title": "Owner View",
+            "description": "List every owner-editable field, including inactive options and a quoted service's prices. Only for the owner's assistant: the customer-facing listing withholds those from callers.",
+            "default": false
           }
         },
         "type": "object",

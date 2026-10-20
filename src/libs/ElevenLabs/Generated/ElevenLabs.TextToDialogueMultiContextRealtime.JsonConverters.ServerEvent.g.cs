@@ -83,6 +83,10 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime.JsonConverters
                     catch (global::System.InvalidOperationException)
                     {
                     }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
+                    }
                 }
                 else if (__bestIndex == 1)
                 {
@@ -97,6 +101,10 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime.JsonConverters
                     }
                     catch (global::System.InvalidOperationException)
                     {
+                    }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
                     }
                 }
                 else if (__bestIndex == 2)
@@ -113,6 +121,10 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime.JsonConverters
                     catch (global::System.InvalidOperationException)
                     {
                     }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
+                    }
                 }
                 else if (__bestIndex == 3)
                 {
@@ -127,6 +139,10 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime.JsonConverters
                     }
                     catch (global::System.InvalidOperationException)
                     {
+                    }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
                     }
                 }
             }
@@ -146,6 +162,10 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
+                }
             }
 
             if (textToDialogueWebsocketAudioChunkMulti == null && textToDialogueWebsocketFinalAudioForTurnMulti == null && textToDialogueWebsocketFinalMulti == null && textToDialogueWebsocketError == null)
@@ -162,6 +182,10 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime.JsonConverters
                 }
                 catch (global::System.InvalidOperationException)
                 {
+                }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
                 }
             }
 
@@ -180,6 +204,10 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
+                }
             }
 
             if (textToDialogueWebsocketAudioChunkMulti == null && textToDialogueWebsocketFinalAudioForTurnMulti == null && textToDialogueWebsocketFinalMulti == null && textToDialogueWebsocketError == null)
@@ -196,6 +224,10 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime.JsonConverters
                 }
                 catch (global::System.InvalidOperationException)
                 {
+                }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
                 }
             }
 
