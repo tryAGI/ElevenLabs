@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     ///
     /// </summary>
-    public sealed partial class BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost
+    public sealed partial class BodyVoiceChangerV1VoiceChangerVoiceIdPost
     {
         /// <summary>
         /// The audio file which holds the content and emotion that will control the generated speech.
@@ -53,7 +53,7 @@ namespace ElevenLabs
         /// Default Value: other
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_format")]
-        public global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? FileFormat { get; set; }
+        public global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat? FileFormat { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -62,7 +62,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyVoiceChangerV1VoiceChangerVoiceIdPost" /> class.
         /// </summary>
         /// <param name="audio">
         /// The audio file which holds the content and emotion that will control the generated speech.
@@ -91,14 +91,14 @@ namespace ElevenLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost(
+        public BodyVoiceChangerV1VoiceChangerVoiceIdPost(
             byte[] audio,
             string audioname,
             string? modelId,
             string? voiceSettings,
             int? seed,
             bool? removeBackgroundNoise,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? fileFormat)
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat? fileFormat)
         {
             this.Audio = audio ?? throw new global::System.ArgumentNullException(nameof(audio));
             this.Audioname = audioname ?? throw new global::System.ArgumentNullException(nameof(audioname));
@@ -110,9 +110,9 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost" /> class.
+        /// Initializes a new instance of the <see cref="BodyVoiceChangerV1VoiceChangerVoiceIdPost" /> class.
         /// </summary>
-        public BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost()
+        public BodyVoiceChangerV1VoiceChangerVoiceIdPost()
         {
         }
 

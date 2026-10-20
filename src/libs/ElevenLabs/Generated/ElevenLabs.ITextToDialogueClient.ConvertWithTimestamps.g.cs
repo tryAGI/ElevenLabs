@@ -1,5 +1,7 @@
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace ElevenLabs
 {
     public partial interface ITextToDialogueClient
@@ -85,9 +87,6 @@ namespace ElevenLabs
         /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.<br/>
         /// Default Value: auto
         /// </param>
-        /// <param name="usePvcAsIvc">
-        /// Whether to use the IVC version of a professional voice. This may improve expressiveness and reduce latency.
-        /// </param>
         /// <param name="previousRequestIds">
         /// A list of request_ids of dialogue generations that came before this one. Used to condition the model for continuity when splitting a large task into multiple requests. A maximum of 3 request_ids can be sent. The last request_id is the audio which is closest to the current request. Not supported by every model.
         /// </param>
@@ -116,7 +115,6 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.PronunciationDictionaryVersionLocatorRequestModel>? pronunciationDictionaryLocators = default,
             int? seed = default,
             global::ElevenLabs.BodyTextToDialogueFullWithTimestampsApplyTextNormalization? applyTextNormalization = default,
-            bool? usePvcAsIvc = default,
             global::System.Collections.Generic.IList<string>? previousRequestIds = default,
             global::System.Collections.Generic.IList<string>? nextRequestIds = default,
             string? previousText = default,

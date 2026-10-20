@@ -33,7 +33,7 @@ namespace ElevenLabs
             ref bool? enableLogging,
             int? optimizeStreamingLatency,
             ref global::ElevenLabs.SpeechToSpeechFullOutputFormat? outputFormat,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost request);
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPost request);
         partial void PrepareConvertRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -41,7 +41,7 @@ namespace ElevenLabs
             bool? enableLogging,
             int? optimizeStreamingLatency,
             global::ElevenLabs.SpeechToSpeechFullOutputFormat? outputFormat,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost request);
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPost request);
         partial void ProcessConvertResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -52,7 +52,7 @@ namespace ElevenLabs
             ref byte[] content);
 
         /// <summary>
-        /// Speech To Speech<br/>
+        /// Voice Changer<br/>
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -82,7 +82,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<byte[]> ConvertAsync(
             string voiceId,
 
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost request,
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPost request,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
             global::ElevenLabs.SpeechToSpeechFullOutputFormat? outputFormat = default,
@@ -103,7 +103,7 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Speech To Speech<br/>
+        /// Voice Changer<br/>
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -133,7 +133,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::System.IO.Stream> ConvertAsStreamAsync(
             string voiceId,
 
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost request,
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPost request,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
             global::ElevenLabs.SpeechToSpeechFullOutputFormat? outputFormat = default,
@@ -176,7 +176,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/speech-to-speech/{voiceId}",
+                                path: $"/v1/voice-changer/{voiceId}",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
@@ -329,7 +329,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -363,7 +363,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -404,7 +404,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -452,7 +452,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -474,7 +474,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -578,7 +578,7 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Speech To Speech<br/>
+        /// Voice Changer<br/>
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -608,7 +608,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<byte[]>> ConvertAsResponseAsync(
             string voiceId,
 
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost request,
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPost request,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
             global::ElevenLabs.SpeechToSpeechFullOutputFormat? outputFormat = default,
@@ -651,7 +651,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/speech-to-speech/{voiceId}",
+                                path: $"/v1/voice-changer/{voiceId}",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
@@ -804,7 +804,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -838,7 +838,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -879,7 +879,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -927,7 +927,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -949,7 +949,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -1090,7 +1090,7 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Speech To Speech<br/>
+        /// Voice Changer<br/>
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -1151,11 +1151,11 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost
+            var __request = new global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPost
             {
                 Audio = audio,
                 Audioname = audioname,
@@ -1177,7 +1177,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Speech To Speech<br/>
+        /// Voice Changer<br/>
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -1238,13 +1238,13 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
 
             audio = audio ?? throw new global::System.ArgumentNullException(nameof(audio));
-            var request = new global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost
+            var request = new global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPost
             {
                 Audio = global::System.Array.Empty<byte>(),
                 Audioname = audioname,
@@ -1288,7 +1288,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/speech-to-speech/{voiceId}",
+                                path: $"/v1/voice-changer/{voiceId}",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
@@ -1441,7 +1441,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -1475,7 +1475,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -1516,7 +1516,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -1564,7 +1564,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -1586,7 +1586,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -1719,7 +1719,7 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Speech To Speech<br/>
+        /// Voice Changer<br/>
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -1780,13 +1780,13 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
 
             audio = audio ?? throw new global::System.ArgumentNullException(nameof(audio));
-            var request = new global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost
+            var request = new global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPost
             {
                 Audio = global::System.Array.Empty<byte>(),
                 Audioname = audioname,
@@ -1830,7 +1830,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/speech-to-speech/{voiceId}",
+                                path: $"/v1/voice-changer/{voiceId}",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
@@ -1983,7 +1983,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -2017,7 +2017,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -2058,7 +2058,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -2106,7 +2106,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -2128,7 +2128,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -2232,7 +2232,7 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Speech To Speech<br/>
+        /// Voice Changer<br/>
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -2293,13 +2293,13 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
 
             audio = audio ?? throw new global::System.ArgumentNullException(nameof(audio));
-            var request = new global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost
+            var request = new global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPost
             {
                 Audio = global::System.Array.Empty<byte>(),
                 Audioname = audioname,
@@ -2343,7 +2343,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/speech-to-speech/{voiceId}",
+                                path: $"/v1/voice-changer/{voiceId}",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
@@ -2496,7 +2496,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -2530,7 +2530,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -2571,7 +2571,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -2619,7 +2619,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -2641,7 +2641,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Convert",
                                 methodName: "ConvertAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

@@ -7,7 +7,7 @@ namespace ElevenLabs
     public partial interface ISpeechToSpeechClient
     {
         /// <summary>
-        /// Speech To Speech<br/>
+        /// Voice Changer<br/>
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -37,14 +37,14 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<byte[]> ConvertAsync(
             string voiceId,
 
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost request,
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPost request,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
             global::ElevenLabs.SpeechToSpeechFullOutputFormat? outputFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Speech To Speech<br/>
+        /// Voice Changer<br/>
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -74,14 +74,14 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::System.IO.Stream> ConvertAsStreamAsync(
             string voiceId,
 
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost request,
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPost request,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
             global::ElevenLabs.SpeechToSpeechFullOutputFormat? outputFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Speech To Speech<br/>
+        /// Voice Changer<br/>
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -111,14 +111,14 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<byte[]>> ConvertAsResponseAsync(
             string voiceId,
 
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPost request,
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPost request,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
             global::ElevenLabs.SpeechToSpeechFullOutputFormat? outputFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Speech To Speech<br/>
+        /// Voice Changer<br/>
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -179,12 +179,12 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Speech To Speech<br/>
+        /// Voice Changer<br/>
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -245,11 +245,11 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Speech To Speech<br/>
+        /// Voice Changer<br/>
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -310,11 +310,11 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Speech To Speech<br/>
+        /// Voice Changer<br/>
         /// Transform audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -375,7 +375,7 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

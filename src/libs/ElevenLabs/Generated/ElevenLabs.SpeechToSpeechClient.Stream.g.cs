@@ -33,7 +33,7 @@ namespace ElevenLabs
             ref bool? enableLogging,
             int? optimizeStreamingLatency,
             ref global::ElevenLabs.SpeechToSpeechStreamOutputFormat? outputFormat,
-            global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request);
+            global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPost request);
         partial void PrepareStreamRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -41,13 +41,13 @@ namespace ElevenLabs
             bool? enableLogging,
             int? optimizeStreamingLatency,
             global::ElevenLabs.SpeechToSpeechStreamOutputFormat? outputFormat,
-            global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request);
+            global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPost request);
         partial void ProcessStreamResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
         /// <summary>
-        /// Speech To Speech Streaming<br/>
+        /// Voice Changer Streaming<br/>
         /// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -77,7 +77,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::System.IO.Stream> StreamAsync(
             string voiceId,
 
-            global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request,
+            global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPost request,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
             global::ElevenLabs.SpeechToSpeechStreamOutputFormat? outputFormat = default,
@@ -98,7 +98,7 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Speech To Speech Streaming<br/>
+        /// Voice Changer Streaming<br/>
         /// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -128,7 +128,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.IO.Stream>> StreamAsResponseAsync(
             string voiceId,
 
-            global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request,
+            global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPost request,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
             global::ElevenLabs.SpeechToSpeechStreamOutputFormat? outputFormat = default,
@@ -171,7 +171,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/speech-to-speech/{voiceId}/stream",
+                                path: $"/v1/voice-changer/{voiceId}/stream",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
@@ -324,7 +324,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Stream",
                                 methodName: "StreamAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}/stream\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}/stream\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -358,7 +358,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Stream",
                                 methodName: "StreamAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}/stream\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}/stream\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -399,7 +399,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Stream",
                                 methodName: "StreamAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}/stream\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}/stream\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -447,7 +447,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Stream",
                                 methodName: "StreamAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}/stream\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}/stream\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -469,7 +469,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Stream",
                                 methodName: "StreamAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}/stream\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}/stream\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -577,7 +577,7 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Speech To Speech Streaming<br/>
+        /// Voice Changer Streaming<br/>
         /// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -638,11 +638,11 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost
+            var __request = new global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPost
             {
                 Audio = audio,
                 Audioname = audioname,
@@ -664,7 +664,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Speech To Speech Streaming<br/>
+        /// Voice Changer Streaming<br/>
         /// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -725,13 +725,13 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
 
             audio = audio ?? throw new global::System.ArgumentNullException(nameof(audio));
-            var request = new global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost
+            var request = new global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPost
             {
                 Audio = global::System.Array.Empty<byte>(),
                 Audioname = audioname,
@@ -775,7 +775,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/speech-to-speech/{voiceId}/stream",
+                                path: $"/v1/voice-changer/{voiceId}/stream",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
@@ -928,7 +928,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Stream",
                                 methodName: "StreamAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}/stream\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}/stream\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -962,7 +962,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Stream",
                                 methodName: "StreamAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}/stream\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}/stream\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -1003,7 +1003,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Stream",
                                 methodName: "StreamAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}/stream\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}/stream\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -1051,7 +1051,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Stream",
                                 methodName: "StreamAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}/stream\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}/stream\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -1073,7 +1073,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Stream",
                                 methodName: "StreamAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}/stream\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}/stream\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -1177,7 +1177,7 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Speech To Speech Streaming<br/>
+        /// Voice Changer Streaming<br/>
         /// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -1238,13 +1238,13 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
 
             audio = audio ?? throw new global::System.ArgumentNullException(nameof(audio));
-            var request = new global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost
+            var request = new global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPost
             {
                 Audio = global::System.Array.Empty<byte>(),
                 Audioname = audioname,
@@ -1288,7 +1288,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/speech-to-speech/{voiceId}/stream",
+                                path: $"/v1/voice-changer/{voiceId}/stream",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("enable_logging", enableLogging?.ToString().ToLowerInvariant())
@@ -1441,7 +1441,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Stream",
                                 methodName: "StreamAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}/stream\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}/stream\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -1475,7 +1475,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Stream",
                                 methodName: "StreamAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}/stream\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}/stream\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -1516,7 +1516,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Stream",
                                 methodName: "StreamAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}/stream\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}/stream\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -1564,7 +1564,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Stream",
                                 methodName: "StreamAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}/stream\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}/stream\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -1586,7 +1586,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Stream",
                                 methodName: "StreamAsync",
-                                pathTemplate: "$\"/v1/speech-to-speech/{voiceId}/stream\"",
+                                pathTemplate: "$\"/v1/voice-changer/{voiceId}/stream\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
