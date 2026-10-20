@@ -29,6 +29,12 @@ namespace ElevenLabs
         public string? Pattern { get; set; }
 
         /// <summary>
+        /// URLs matching any of these patterns are skipped, even if they match `pattern`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("exclude_patterns")]
+        public global::System.Collections.Generic.IList<string>? ExcludePatterns { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_pages")]
@@ -120,6 +126,9 @@ namespace ElevenLabs
         /// Default Value: discovery
         /// </param>
         /// <param name="pattern"></param>
+        /// <param name="excludePatterns">
+        /// URLs matching any of these patterns are skipped, even if they match `pattern`.
+        /// </param>
         /// <param name="autoDiscover">
         /// Whether to automatically discover and enqueue additional pages found while crawling.<br/>
         /// Default Value: false
@@ -151,6 +160,7 @@ namespace ElevenLabs
             int createdAt,
             global::ElevenLabs.CrawlType? type,
             string? pattern,
+            global::System.Collections.Generic.IList<string>? excludePatterns,
             bool? autoDiscover,
             global::ElevenLabs.CrawlStatus? status,
             int? pagesIdentified,
@@ -161,6 +171,7 @@ namespace ElevenLabs
             this.Type = type;
             this.SeedUrl = seedUrl ?? throw new global::System.ArgumentNullException(nameof(seedUrl));
             this.Pattern = pattern;
+            this.ExcludePatterns = excludePatterns;
             this.MaxPages = maxPages;
             this.AutoDiscover = autoDiscover;
             this.Status = status;

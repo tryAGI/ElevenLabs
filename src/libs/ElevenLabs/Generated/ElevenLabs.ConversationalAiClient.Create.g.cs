@@ -486,6 +486,9 @@ namespace ElevenLabs
         /// <param name="pattern">
         /// If set, only URLs that match this pattern are included.
         /// </param>
+        /// <param name="excludePatterns">
+        /// If set, URLs that match any of these patterns are skipped, even if they match `pattern`.
+        /// </param>
         /// <param name="sitemapUrls">
         /// List of URLs to crawl from sitemap (optional, overrides automatic URL discovery).
         /// </param>
@@ -514,6 +517,7 @@ namespace ElevenLabs
             string url,
             int? maxPages = default,
             string? pattern = default,
+            global::System.Collections.Generic.IList<string>? excludePatterns = default,
             global::System.Collections.Generic.IList<string>? sitemapUrls = default,
             string? parentFolderId = default,
             bool? enableAutoSync = default,
@@ -528,6 +532,7 @@ namespace ElevenLabs
                 Url = url,
                 MaxPages = maxPages,
                 Pattern = pattern,
+                ExcludePatterns = excludePatterns,
                 SitemapUrls = sitemapUrls,
                 ParentFolderId = parentFolderId,
                 EnableAutoSync = enableAutoSync,

@@ -12,6 +12,10 @@ namespace ElevenLabs
         ///
         /// </summary>
         ElevenTextToSoundV2,
+        /// <summary>
+        ///
+        /// </summary>
+        ElevenTextToSoundV3,
     }
 
     /// <summary>
@@ -27,6 +31,7 @@ namespace ElevenLabs
             return value switch
             {
                 SFXModelId.ElevenTextToSoundV2 => "eleven_text_to_sound_v2",
+                SFXModelId.ElevenTextToSoundV3 => "eleven_text_to_sound_v3",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -38,6 +43,7 @@ namespace ElevenLabs
             return value switch
             {
                 "eleven_text_to_sound_v2" => SFXModelId.ElevenTextToSoundV2,
+                "eleven_text_to_sound_v3" => SFXModelId.ElevenTextToSoundV3,
                 _ => null,
             };
         }

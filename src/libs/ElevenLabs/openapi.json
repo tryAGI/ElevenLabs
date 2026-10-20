@@ -51481,6 +51481,23 @@
             "title": "Pattern",
             "description": "If set, only URLs that match this pattern are included."
           },
+          "exclude_patterns": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string",
+                  "maxLength": 2048
+                },
+                "type": "array",
+                "maxItems": 50
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Exclude Patterns",
+            "description": "If set, URLs that match any of these patterns are skipped, even if they match `pattern`."
+          },
           "sitemap_urls": {
             "anyOf": [
               {
@@ -53876,7 +53893,7 @@
           "loop": {
             "type": "boolean",
             "title": "Loop",
-            "description": "Whether to create a sound effect that loops smoothly. Only available for the 'eleven_text_to_sound_v2 model'.",
+            "description": "Whether to create a sound effect that loops smoothly.",
             "default": false
           },
           "duration_seconds": {
@@ -62094,6 +62111,18 @@
                 "type": "null"
               }
             ]
+          },
+          "voice_surcharge_charge": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Voice Surcharge Charge",
+            "description": "Credits charged as the voice actor reward for the Voice Library voices this conversation used. It is not included in `cost`."
           }
         },
         "type": "object",
@@ -77943,6 +77972,14 @@
               }
             ],
             "title": "Pattern"
+          },
+          "exclude_patterns": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Exclude Patterns",
+            "description": "URLs matching any of these patterns are skipped, even if they match `pattern`."
           },
           "max_pages": {
             "type": "integer",
@@ -99265,7 +99302,8 @@
       "SFXModelId": {
         "type": "string",
         "enum": [
-          "eleven_text_to_sound_v2"
+          "eleven_text_to_sound_v2",
+          "eleven_text_to_sound_v3"
         ],
         "title": "SFXModelId",
         "default": "eleven_text_to_sound_v2"
